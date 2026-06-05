@@ -60,24 +60,64 @@
     </div>
   </section>
 
-  <!-- Founder -->
+  <!-- Team -->
   <section class="section section-bg-light">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-label">Founder</span>
-        <h2>Meet Our Founder</h2>
+        <span class="section-label">Our Team</span>
+        <h2>Meet the People Behind Freshtiq</h2>
+        <p>A passionate team of developers, designers, and automation experts.</p>
       </div>
-      <div class="founder-card fade-in">
-        <div class="founder-avatar">SA</div>
-        <div class="founder-info">
-          <h3>Sameer Ahmad</h3>
-          <div class="founder-role">Founder &amp; CEO</div>
-          <p class="founder-story">Sameer Ahmad founded Freshtiq Innovations with a vision to democratize advanced technology for businesses of all sizes. Starting from a small workshop in Azamgarh, he built the company from the ground up — coding the first bots, designing the first websites, and personally onboarding every early client. His hands-on approach and relentless focus on quality have shaped Freshtiq into a trusted name across India and the GCC region.</p>
-          <p class="founder-experience">With deep expertise in AI automation, full-stack development, and enterprise software, Sameer leads by example — architecting systems, mentoring developers, and ensuring every client delivers their project on time and beyond expectations.</p>
-          <div class="founder-vision">
-            <strong>Vision:</strong> "I want Freshtiq to power the digital transformation of 10,000+ businesses by 2030 — making enterprise-grade AI and automation accessible to every entrepreneur in India and beyond."
-          </div>
-          <a href="https://wa.me/918381848389?text=Hi%20Sameer!%20I%20want%20to%20discuss%20a%20project" target="_blank" class="btn btn-primary" style="margin-top:16px;display:inline-block;">💬 Chat with Sameer on WhatsApp</a>
+      <div class="team-grid">
+        <div class="team-card fade-in">
+          <div class="team-avatar">SA</div>
+          <h4>Sameer Ahmad</h4>
+          <div class="role">CEO &amp; Founder</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">VS</div>
+          <h4>Vikram Singh</h4>
+          <div class="role">AI Developer</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">RV</div>
+          <h4>Rohit Verma</h4>
+          <div class="role">Web Developer</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">AK</div>
+          <h4>Amit Kumar</h4>
+          <div class="role">App Developer</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">PS</div>
+          <h4>Priya Sharma</h4>
+          <div class="role">UI/UX Designer</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">DJ</div>
+          <h4>Deepak Joshi</h4>
+          <div class="role">ERP Specialist</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">SP</div>
+          <h4>Sonia Patel</h4>
+          <div class="role">Support Lead</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">RM</div>
+          <h4>Rahul Mishra</h4>
+          <div class="role">Data Scraping Expert</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">AG</div>
+          <h4>Anita Gupta</h4>
+          <div class="role">QA Engineer</div>
+        </div>
+        <div class="team-card fade-in">
+          <div class="team-avatar">MA</div>
+          <h4>Manish Agarwal</h4>
+          <div class="role">SEO &amp; Marketing</div>
         </div>
       </div>
     </div>

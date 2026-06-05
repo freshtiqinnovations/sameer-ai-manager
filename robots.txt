@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://freshtiqinnovations.github.io/sameer-ai-manager/sitemap.xml
