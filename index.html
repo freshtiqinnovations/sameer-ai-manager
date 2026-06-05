@@ -1,939 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freshtiq Automation — India's #1 AI Automation Platform | AI Bots, Websites, ERP</title>
-<meta name="description" content="India's #1 AI-Powered Business Automation. AI Bot, Website, App, ERP, Scraper, SEO — sab in one place. Starting ₹999. Trusted by 500+ businesses.">
-<meta name="keywords" content="AI bot, chatbot, telegram bot, website, ERP, automation, scraper, SEO, Freshtiq Innovations, Freshtiq Automation">
-<meta property="og:title" content="Freshtiq Automation — AI Business Automation">
-<meta property="og:description" content="35+ AI Services. 500+ Happy Clients. Starting ₹999.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://FreshtiqAutomation.in/">
-<meta name="theme-color" content="#0a0a1a">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshtiq Automation – India's AI Automation Company</title>
+  <meta name="description" content="Freshtiq Automation by Freshtiq Innovations – Websites, Apps, AI Bots, ERP, CRM &amp; Business Automation Solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background:#0a0a1a;color:#fff;">
+<body>
 
-<!-- Galaxy Background -->
-<div id="galaxy-bg"><canvas id="galaxy-canvas"></canvas>
-
-<!-- Top Bar -->
-<div class="top-bar" data-lang-key="topbar"></div>
-
-<!-- Navigation -->
-<nav>
-  <div class="nav-container">
-    <a href="#" class="nav-logo">
-      <div class="logo-icon"><svg viewBox="0 0 32 32" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><rect rx="8" width="32" height="32" fill="url(#lg)" opacity="0.15"/><text x="16" y="22" font-size="18" text-anchor="middle" fill="url(#lg)" font-weight="bold">F</text></svg></div>
-      Freshtiq Automation
-    </a>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
-    <ul class="nav-links">
-      <li><a href="#services" data-lang-key="nav_services"></a></li>
-      <li><a href="#packages" data-lang-key="nav_packages"></a></li>
-      <li><a href="#reviews" data-lang-key="nav_reviews"></a></li>
-      <li><a href="#process" data-lang-key="nav_process"></a></li>
-      <li><a href="#company" data-lang-key="nav_company"></a></li>
-      <li><a href="https://t.me/AutoPilotHubBot">🤖 @AutoPilotHubBot</a></li>
-      <li><a href="#contact" data-lang-key="nav_contact"></a></li>
-      <li class="lang-switcher">
-        <button class="lang-btn" data-lang="hi" onclick="switchLang('hi')">हि</button>
-        <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">EN</button>
-        <button class="lang-btn" data-lang="gu" onclick="switchLang('gu')">ગુ</button>
-      </li>
-      <li><a href="https://wa.me/918381848389" class="nav-whatsapp">💬 WhatsApp</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge"><span style="background:linear-gradient(135deg,#ffd700,#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;">⭐ India's #1 Automation Platform</span></div>
-    <h1 data-lang-key="hero_title"></h1>
-    <p data-lang-key="hero_desc"></p>
-    <div class="hero-buttons">
-      <a href="https://wa.me/918381848389" class="btn-primary" data-lang-key="hero_btn1"></a>
-      <a href="#services" class="btn-secondary" data-lang-key="hero_btn2"></a>
-    </div>
-    <div class="hero-proof">
-      <div class="hero-proof-item"><div class="num">500+</div><div class="label" data-lang-key="stat1"></div></div>
-      <div class="hero-proof-item"><div class="num">99.9%</div><div class="label" data-lang-key="stat2"></div></div>
-      <div class="hero-proof-item"><div class="num">⭐ 4.9</div><div class="label" data-lang-key="stat_label_rating"></div></div>
-      <div class="hero-proof-item"><div class="num">35+</div><div class="label" data-lang-key="stat_services"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Trust Bar -->
-<div class="trust-bar">
-  <div class="trust-grid">
-    <div class="trust-item"><span class="icon">🏢</span> CIN: U47912UP2025OPC236875</div>
-    <div class="trust-item"><span class="icon">🧾</span> GST: 09AAGCF7185A1ZL</div>
-    <div class="trust-item"><span class="icon">🔒</span> Registered Company</div>
-    <div class="trust-item"><span class="icon">⚡</span> 24hr Delivery</div>
-    <div class="trust-item"><span class="icon">🇮🇳</span> Made in India</div>
-    <div class="trust-item"><span class="icon">💳</span> UPI / Card / Bank</div>
-  </div>
-</div>
-
-
-<!-- Customer Requirement Form -->
-<section class="section" id="requirement">
-  <div class="container">
-    <div class="section-tag" data-lang-key="req_tag"></div>
-    <h2>📝 <span data-lang-key="req_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="req_sub"></h3>
-    <div class="requirement-box">
-      <p data-lang-key="req_intro" style="color:var(--text-muted);text-align:center;margin-bottom:20px;"></p>
-      <div class="req-form">
-        <div class="req-field">
-          <label data-lang-key="req_name_label"></label>
-          <input type="text" id="req-name" placeholder="e.g. Rajesh Sharma" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_phone_label"></label>
-          <input type="tel" id="req-phone" placeholder="e.g. 9876543210" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_business_label"></label>
-          <input type="text" id="req-business" placeholder="e.g. Kirana Store" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_service_label"></label>
-          <select id="req-service" class="req-input">
-            <option value="">-- Select --</option>
-            <option value="AI Chatbot">🤖 AI Chatbot (₹999)</option>
-            <option value="WhatsApp Bot">📱 WhatsApp Bot (₹1,499)</option>
-            <option value="Telegram Bot">📨 Telegram Bot (₹999)</option>
-            <option value="Website">🌐 Business Website (₹1,999)</option>
-            <option value="E-commerce">🛒 E-commerce Website (₹3,999)</option>
-            <option value="Mobile App">📱 Mobile App (₹3,999)</option>
-            <option value="ERP System">🏭 ERP System (₹7,999)</option>
-            <option value="CRM">📊 CRM (₹4,999)</option>
-            <option value="Scraper">🕷️ Scraper Tool (₹2,499)</option>
-            <option value="SEO">📊 SEO (₹3,499)</option>
-            <option value="Content">✍️ Content Writer (₹499)</option>
-            <option value="Lead Generation">📢 Lead Generation (₹1,499)</option>
-            <option value="Custom">🎯 Custom Project</option>
-          </select>
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_details_label"></label>
-          <textarea id="req-details" rows="4" class="req-input" placeholder="e.g. Muje ek bot chahiye jo orders le aur payment collect kare..."></textarea>
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_budget_label"></label>
-          <input type="text" id="req-budget" placeholder="e.g. ₹2,000 - ₹5,000" class="req-input">
-        </div>
-        <div style="text-align:center;margin-top:10px;">
-          <a href="https://wa.me/918381848389" class="btn-primary" onclick="sendRequirement()" data-lang-key="req_submit_btn"></a>
-          <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);" data-lang-key="req_whatsapp_note"></p>
-        </div>
+  <!-- ============ NAVIGATION ============ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#9889;</span>
+        Freshtiq
+      </a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Get Started</a>
       </div>
     </div>
-  </div>
-</section>
-<script>
-function sendRequirement() {
-  const name = document.getElementById('req-name')?.value || '';
-  const phone = document.getElementById('req-phone')?.value || '';
-  const business = document.getElementById('req-business')?.value || '';
-  const service = document.getElementById('req-service')?.value || '';
-  const details = document.getElementById('req-details')?.value || '';
-  const budget = document.getElementById('req-budget')?.value || '';
-  const msg = `*New Requirement from Freshtiq Automation Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Business:* ${encodeURIComponent(business)}%0A*Service:* ${encodeURIComponent(service)}%0A*Details:* ${encodeURIComponent(details)}%0A*Budget:* ${encodeURIComponent(budget)}%0A%0A_Please send quotation and demo._`;
-  window.open(`https://wa.me/918381848389?text=${msg}`, '_blank');
-}
-</script>
+  </nav>
 
-
-<!-- Services Catalog -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-tag" data-lang-key="services_tag"></div>
-    <h2>🔥 <span data-lang-key="services_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="services_sub"></h3>
-
-    <!-- AI BOTS & CHATBOTS -->
-    <div style="margin:40px 0 15px;"><span class="section-tag" style="font-size:0.9rem;">🤖 AI BOTS & CHATBOTS</span><span class="premium-badge">⭐ PREMIUM</span></div>
-    <div class="catalog-grid">
-      <div class="catalog-card">
-        <span class="cat-icon">🤖</span>
-        <div class="cat-badge" data-lang-key="bestseller"></div>
-        <h3 data-lang-key="cat1_name"></h3>
-        <div class="cat-desc" data-lang-key="cat1_desc"></div>
-        <ul class="cat-features" data-lang-key="cat1_feat"></ul>
-        <div class="cat-price">₹999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Live Demo</a>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-label">&#9733; Freshtiq Automation</span>
+        <h1><span class="highlight">India's AI</span> Automation Company</h1>
+        <p>Websites, Apps, AI Bots, ERP, CRM, Business Automation — we build technology that transforms your business.</p>
+        <div class="hero-buttons">
+          <a href="services.html" class="btn btn-primary">Explore Services &rarr;</a>
+          <a href="contact.html" class="btn btn-secondary">Book a Call</a>
         </div>
       </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">📱</span>
-        <h3 data-lang-key="cat2_name"></h3>
-        <div class="cat-desc" data-lang-key="cat2_desc"></div>
-        <ul class="cat-features" data-lang-key="cat2_feat"></ul>
-        <div class="cat-price">₹1,499 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Demo</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">📨</span>
-        <h3 data-lang-key="cat3_name"></h3>
-        <div class="cat-desc" data-lang-key="cat3_desc"></div>
-        <ul class="cat-features" data-lang-key="cat3_feat"></ul>
-        <div class="cat-price">₹999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">🎵</span>
-        <h3 data-lang-key="cat4_name"></h3>
-        <div class="cat-desc" data-lang-key="cat4_desc"></div>
-        <ul class="cat-features" data-lang-key="cat4_feat"></ul>
-        <div class="cat-price">₹1,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">🕵️</span>
-        <h3 data-lang-key="cat5_name"></h3>
-        <div class="cat-desc" data-lang-key="cat5_desc"></div>
-        <ul class="cat-features" data-lang-key="cat5_feat"></ul>
-        <div class="cat-price">₹2,499 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ See Sample</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">📞</span>
-        <h3 data-lang-key="cat6_name"></h3>
-        <div class="cat-desc" data-lang-key="cat6_desc"></div>
-        <ul class="cat-features" data-lang-key="cat6_feat"></ul>
-        <div class="cat-price">₹2,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">🤖</span>
-        <h3 data-lang-key="cat7_name"></h3>
-        <div class="cat-desc" data-lang-key="cat7_desc"></div>
-        <ul class="cat-features" data-lang-key="cat7_feat"></ul>
-        <div class="cat-price">₹3,499 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Live Demo</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">🏥</span>
-        <h3 data-lang-key="cat8_name"></h3>
-        <div class="cat-desc" data-lang-key="cat8_desc"></div>
-        <ul class="cat-features" data-lang-key="cat8_feat"></ul>
-        <div class="cat-price">₹1,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- WEBSITES & APPS -->
-    <div style="margin:40px 0 15px;"><span class="section-tag" style="font-size:0.9rem;">🌐 WEBSITES & APPLICATIONS</span></div>
-    <div class="catalog-grid">
-      <div class="catalog-card">
-        <span class="cat-icon">🌐</span>
-        <div class="cat-badge" data-lang-key="popular"></div>
-        <h3 data-lang-key="cat9_name"></h3>
-        <div class="cat-desc" data-lang-key="cat9_desc"></div>
-        <ul class="cat-features" data-lang-key="cat9_feat"></ul>
-        <div class="cat-price">₹1,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ View Sample</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">🛒</span>
-        <h3 data-lang-key="cat10_name"></h3>
-        <div class="cat-desc" data-lang-key="cat10_desc"></div>
-        <ul class="cat-features" data-lang-key="cat10_feat"></ul>
-        <div class="cat-price">₹3,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">📱</span>
-        <h3 data-lang-key="cat11_name"></h3>
-        <div class="cat-desc" data-lang-key="cat11_desc"></div>
-        <ul class="cat-features" data-lang-key="cat11_feat"></ul>
-        <div class="cat-price">₹3,999 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-          <a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Demo</a>
-        </div>
-      </div>
-
-      <div class="catalog-card">
-        <span class="cat-icon">📅</span>
-        <h3 data-lang-key="cat12_name"></h3>
-        <div class="cat-desc" data-lang-key="cat12_desc"></div>
-        <ul class="cat-features" data-lang-key="cat12_feat"></ul>
-        <div class="cat-price">₹1,499 <small data-lang-key="one_time"></small></div>
-        <div class="cat-actions">
-          <a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ERP & BUSINESS SYSTEMS -->
-    <div style="margin:40px 0 15px;"><span class="section-tag" style="font-size:0.9rem;">🏭 ERP & BUSINESS SYSTEMS</span></div>
-    <div class="catalog-grid">
-      <div class="catalog-card">
-        <span class="cat-icon">🏭</span>
-        <h3 data-lang-key="cat13_name"></h3>
-        <div class="cat-desc" data-lang-key="cat13_desc"></div>
-        <ul class="cat-features" data-lang-key="cat13_feat"></ul>
-        <div class="cat-price">₹7,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a><a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Live Demo</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📊</span>
-        <h3 data-lang-key="cat14_name"></h3>
-        <div class="cat-desc" data-lang-key="cat14_desc"></div>
-        <ul class="cat-features" data-lang-key="cat14_feat"></ul>
-        <div class="cat-price">₹4,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📋</span>
-        <h3 data-lang-key="cat15_name"></h3>
-        <div class="cat-desc" data-lang-key="cat15_desc"></div>
-        <ul class="cat-features" data-lang-key="cat15_feat"></ul>
-        <div class="cat-price">₹3,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a><a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Demo</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">💰</span>
-        <h3 data-lang-key="cat16_name"></h3>
-        <div class="cat-desc" data-lang-key="cat16_desc"></div>
-        <ul class="cat-features" data-lang-key="cat16_feat"></ul>
-        <div class="cat-price">₹2,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📈</span>
-        <h3 data-lang-key="cat17_name"></h3>
-        <div class="cat-desc" data-lang-key="cat17_desc"></div>
-        <ul class="cat-features" data-lang-key="cat17_feat"></ul>
-        <div class="cat-price">₹5,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a><a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ See Dashboard</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">👥</span>
-        <h3 data-lang-key="cat18_name"></h3>
-        <div class="cat-desc" data-lang-key="cat18_desc"></div>
-        <ul class="cat-features" data-lang-key="cat18_feat"></ul>
-        <div class="cat-price">₹3,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📚</span>
-        <h3 data-lang-key="cat19_name"></h3>
-        <div class="cat-desc" data-lang-key="cat19_desc"></div>
-        <ul class="cat-features" data-lang-key="cat19_feat"></ul>
-        <div class="cat-price">₹6,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📄</span>
-        <h3 data-lang-key="cat20_name"></h3>
-        <div class="cat-desc" data-lang-key="cat20_desc"></div>
-        <ul class="cat-features" data-lang-key="cat20_feat"></ul>
-        <div class="cat-price">₹1,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-    </div>
-
-    <!-- SCRAPING & AUTOMATION -->
-    <div style="margin:40px 0 15px;"><span class="section-tag" style="font-size:0.9rem;">🕷️ SCRAPING & DATA AUTOMATION</span></div>
-    <div class="catalog-grid">
-      <div class="catalog-card">
-        <span class="cat-icon">🕷️</span>
-        <h3 data-lang-key="cat21_name"></h3>
-        <div class="cat-desc" data-lang-key="cat21_desc"></div>
-        <ul class="cat-features" data-lang-key="cat21_feat"></ul>
-        <div class="cat-price">₹2,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📰</span>
-        <h3 data-lang-key="cat22_name"></h3>
-        <div class="cat-desc" data-lang-key="cat22_desc"></div>
-        <ul class="cat-features" data-lang-key="cat22_feat"></ul>
-        <div class="cat-price">₹2,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a><a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Sample Data</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📸</span>
-        <h3 data-lang-key="cat23_name"></h3>
-        <div class="cat-desc" data-lang-key="cat23_desc"></div>
-        <ul class="cat-features" data-lang-key="cat23_feat"></ul>
-        <div class="cat-price">₹1,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📧</span>
-        <h3 data-lang-key="cat24_name"></h3>
-        <div class="cat-desc" data-lang-key="cat24_desc"></div>
-        <ul class="cat-features" data-lang-key="cat24_feat"></ul>
-        <div class="cat-price">₹1,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">🔗</span>
-        <h3 data-lang-key="cat25_name"></h3>
-        <div class="cat-desc" data-lang-key="cat25_desc"></div>
-        <ul class="cat-features" data-lang-key="cat25_feat"></ul>
-        <div class="cat-price">₹2,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-    </div>
-
-    <!-- MARKETING & ADS -->
-    <div style="margin:40px 0 15px;"><span class="section-tag" style="font-size:0.9rem;">📢 MARKETING, ADS & AI CONTENT</span></div>
-    <div class="catalog-grid">
-      <div class="catalog-card">
-        <span class="cat-icon">📢</span>
-        <h3 data-lang-key="cat26_name"></h3>
-        <div class="cat-desc" data-lang-key="cat26_desc"></div>
-        <ul class="cat-features" data-lang-key="cat26_feat"></ul>
-        <div class="cat-price">₹1,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a><a href="https://wa.me/918381848389" class="btn-sm btn-demo-sm">👁️ Demo</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">🎯</span>
-        <h3 data-lang-key="cat27_name"></h3>
-        <div class="cat-desc" data-lang-key="cat27_desc"></div>
-        <ul class="cat-features" data-lang-key="cat27_feat"></ul>
-        <div class="cat-price">₹2,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">✍️</span>
-        <h3 data-lang-key="cat28_name"></h3>
-        <div class="cat-desc" data-lang-key="cat28_desc"></div>
-        <ul class="cat-features" data-lang-key="cat28_feat"></ul>
-        <div class="cat-price">₹499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">📊</span>
-        <h3 data-lang-key="cat29_name"></h3>
-        <div class="cat-desc" data-lang-key="cat29_desc"></div>
-        <ul class="cat-features" data-lang-key="cat29_feat"></ul>
-        <div class="cat-price">₹3,499 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">🎵</span>
-        <h3 data-lang-key="cat30_name"></h3>
-        <div class="cat-desc" data-lang-key="cat30_desc"></div>
-        <ul class="cat-features" data-lang-key="cat30_feat"></ul>
-        <div class="cat-price">₹1,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-      <div class="catalog-card">
-        <span class="cat-icon">🌍</span>
-        <h3 data-lang-key="cat31_name"></h3>
-        <div class="cat-desc" data-lang-key="cat31_desc"></div>
-        <ul class="cat-features" data-lang-key="cat31_feat"></ul>
-        <div class="cat-price">₹4,999 <small>one-time</small></div>
-        <div class="cat-actions"><a href="https://wa.me/918381848389" class="btn-sm btn-order-sm">💬 Order Now</a></div>
-      </div>
-    </div>    </div>
-  </div>
-</section>
-
-<!-- Why Us -->
-<section class="section">
-  <div class="container">
-    <div class="section-tag" data-lang-key="why_tag"></div>
-    <h2>💪 <span data-lang-key="why_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="why_sub"></h3>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-icon">⚡</div><h3 data-lang-key="w1_name"></h3><p data-lang-key="w1_desc"></p></div>
-      <div class="why-card"><div class="why-icon">🤝</div><h3 data-lang-key="w2_name"></h3><p data-lang-key="w2_desc"></p></div>
-      <div class="why-card"><div class="why-icon">🔒</div><h3 data-lang-key="w3_name"></h3><p data-lang-key="w3_desc"></p></div>
-      <div class="why-card"><div class="why-icon">🇮🇳</div><h3 data-lang-key="w4_name"></h3><p data-lang-key="w4_desc"></p></div>
-      <div class="why-card"><div class="why-icon">🔄</div><h3 data-lang-key="w5_name"></h3><p data-lang-key="w5_desc"></p></div>
-      <div class="why-card"><div class="why-icon">🎯</div><h3 data-lang-key="w6_name"></h3><p data-lang-key="w6_desc"></p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing / Packages -->
-<section class="section" id="packages">
-  <div class="container">
-    <div class="section-tag" data-lang-key="pricing_tag"></div>
-    <h2>💎 <span data-lang-key="pricing_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="pricing_sub"></h3>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="plan-name" data-lang-key="p1_name"></div>
-        <div class="plan-desc" data-lang-key="p1_desc"></div>
-        <div class="plan-price">₹999 <span data-lang-key="one_time"></span></div>
-        <ul class="pricing-features">
-          <li>1 AI Bot (Telegram/WhatsApp)</li>
-          <li>Basic Business Website</li>
-          <li>WhatsApp Integration</li>
-          <li>Email Support</li>
-          <li>Free Hosting 1 Year</li>
-        </ul>
-        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
-      </div>
-      <div class="pricing-card featured" style="border-color:#ffd700;">
-        <div class="plan-name" data-lang-key="p2_name"></div>
-        <div class="plan-desc" data-lang-key="p2_desc"></div>
-        <div class="plan-price">₹3,999 <span data-lang-key="one_time"></span></div>
-        <ul class="pricing-features">
-          <li>3 AI Bots (All Platforms)</li>
-          <li>Premium Website + App</li>
-          <li>Payment Gateway</li>
-          <li>Lead Generation System</li>
-          <li>ERP Lite</li>
-          <li>Priority Support 24/7</li>
-          <li>Free Hosting Lifetime</li>
-        </ul>
-        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
-      </div>
-      <div class="pricing-card">
-        <div class="plan-name" data-lang-key="p3_name"></div>
-        <div class="plan-desc" data-lang-key="p3_desc"></div>
-        <div class="plan-price">₹12,999 <span data-lang-key="one_time"></span></div>
-        <ul class="pricing-features">
-          <li>Everything in Business +</li>
-          <li>Full ERP System</li>
-          <li>Custom Dashboard</li>
-          <li>Multi-user Access</li>
-          <li>Inventory Management</li>
-          <li>Dedicated Manager</li>
-          <li>API Integration</li>
-          <li>White Label Solution</li>
-        </ul>
-        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Demo Banner & Process -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="demo-banner">
-      <h3>🚀 <span data-lang-key="demo_title"></span></h3>
-      <p data-lang-key="demo_desc"></p>
-      <div class="demo-steps">
-        <div class="demo-step"><span class="num">1</span><span class="text" data-lang-key="demo_step1"></span></div>
-        <div class="demo-step"><span class="num">2</span><span class="text" data-lang-key="demo_step2"></span></div>
-        <div class="demo-step"><span class="num">3</span><span class="text" data-lang-key="demo_step3"></span></div>
-      </div>
-      <div class="process-flow">
-        <div class="process-step"><div class="p-num">1</div><div class="p-label" data-lang-key="pstep1"></div></div>
-        <div class="process-step"><div class="p-num">2</div><div class="p-label" data-lang-key="pstep2"></div></div>
-        <div class="process-step"><div class="p-num">3</div><div class="p-label" data-lang-key="pstep3"></div></div>
-        <div class="process-step"><div class="p-num">4</div><div class="p-label" data-lang-key="pstep4"></div></div>
-        <div class="process-step"><div class="p-num">5</div><div class="p-label" data-lang-key="pstep5"></div></div>
-      </div>
-      <a href="https://wa.me/918381848389" class="btn-primary" style="position:relative;z-index:1;" data-lang-key="demo_cta"></a>
-    </div>
-  </div>
-</section>
-
-<!-- Reviews -->
-<section class="section testimonials-section" id="reviews">
-  <div class="container">
-    <div class="section-tag" data-lang-key="testimonials_tag"></div>
-    <h2>⭐ <span data-lang-key="testimonials_title"></span></h2>
-    <div class="reviews-grid">
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 days ago</div></div><div class="review-text">"Bahut hi shandaar kaam kiya. Mera bot 24/7 order leta hai. Pehle main khud phone uthata tha, ab sab auto hota hai. Thank you so much!"</div><div class="review-author"><div class="review-avatar">RS</div><div><div class="review-name">Rajesh Sharma</div><div class="review-role">Kirana Store, Delhi ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">5 days ago</div></div><div class="review-text">"Website + App dono ek saath mil gaya. Payment bhi auto collect hota hai. Business double ho gaya! ₹3,999 — best deal ever!"</div><div class="review-author"><div class="review-avatar">PS</div><div><div class="review-name">Priya Singh</div><div class="review-role">Fashion Boutique, Mumbai ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div><div class="review-text">"ERP system ne mera inventory complete kar diya. Pehle bahut loss hota tha stock kharab hone se. Ab sab digital hai. Highly recommended!"</div><div class="review-author"><div class="review-avatar">AP</div><div><div class="review-name">Amit Patel</div><div class="review-role">Plastic Factory, Gujarat ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">3 days ago</div></div><div class="review-text">"Pehle main khud coding karta tha, 2 mahine lag jaate the. Freshtiq Automation ne 24 ghante mein sab ready kar diya. Sameer bhai ka support outstanding hai!"</div><div class="review-author"><div class="review-avatar">VJ</div><div><div class="review-name">Vikram Joshi</div><div class="review-role">Tech Startup, Bangalore ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">4 days ago</div></div><div class="review-text">"Mere restaurant ke liye bot banaya. Ab customer online order karte hain, payment bhi auto. Staff ki zaroorat kam ho gayi. Best decision ever!"</div><div class="review-author"><div class="review-avatar">SK</div><div><div class="review-name">Sunil Kumar</div><div class="review-role">Restaurant Owner, Pune ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">6 days ago</div></div><div class="review-text">"I was skeptical at first but Sameer bhai ne personally demo diya aur sab samjhaya. 24 hours mein website ready! My clients are impressed."</div><div class="review-author"><div class="review-avatar">AM</div><div><div class="review-name">Anita Mehta</div><div class="review-role">Interior Designer, Jaipur ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div><div class="review-text">"ERP system ne mera poora business organize kar diya. Inventory, sales, invoice — sab ek dashboard pe. Pehle kitabon mein hisaab rakhta tha."</div><div class="review-author"><div class="review-avatar">MM</div><div><div class="review-name">Mohammad Malik</div><div class="review-role">Wholesale Trader, Kolkata ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 weeks ago</div></div><div class="review-text">"Mere coaching centre ke liye bot chahiye tha. Ab parents directly bot se fees pay karte hain, attendance check karte hain. 100% recommended!"</div><div class="review-author"><div class="review-avatar">RG</div><div><div class="review-name">Rahul Gupta</div><div class="review-role">Coaching Centre, Lucknow ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">3 days ago</div></div><div class="review-text">"Website bahut professional bana hai. Mujhe coding nahi aati but Freshtiq Automation ne itna simple bana diya ki main khud manage kar leta hoon. Support team hamesha ready!"</div><div class="review-author"><div class="review-avatar">DT</div><div><div class="review-name">Deepak Tiwari</div><div class="review-role">Real Estate, Indore ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div><div class="review-text">"Payment gateway integration bahut smooth tha. Ab mere customer UPI, card, wallet — sab se pay kar sakte hain. Auto invoice. Thank you Sameer bhai!"</div><div class="review-author"><div class="review-avatar">SN</div><div><div class="review-name">Sonia Narang</div><div class="review-role">Beauty Parlor, Chandigarh ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">5 days ago</div></div><div class="review-text">"I run a small clinic. Now patients book appointments via bot, get reminders automatically. No more no-shows! Setup was super easy. Worth every rupee."</div><div class="review-author"><div class="review-avatar">DR</div><div><div class="review-name">Dr. Rohan Desai</div><div class="review-role">Clinic, Ahmedabad ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 weeks ago</div></div><div class="review-text">"Pehle manually order leta tha. Bahot time lagta tha. Ab bot auto order leta hai, payment bhi collect karta hai. Freshtiq Automation ne meri life badal di!"</div><div class="review-author"><div class="review-avatar">AK</div><div><div class="review-name">Arun Kumar</div><div class="review-role">Bakery Owner, Nagpur ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">4 days ago</div></div><div class="review-text">"Mere construction business ke liye custom ERP banaya. Ab material tracking, labour management, invoice — sab ek jagah. Game changer for my business!"</div><div class="review-author"><div class="review-avatar">SV</div><div><div class="review-name">Suresh Verma</div><div class="review-role">Construction, Patna ⭐⭐⭐⭐⭐</div></div></div></div>
-      <div class="review-card"><div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div><div class="review-text">"I was using ChatGPT for everything but gol gol ghumata tha. Freshtiq Automation ne 24 ghante mein asli kaam kar diya. Bot, website, app — sab ek saath."</div><div class="review-author"><div class="review-avatar">MN</div><div><div class="review-name">Manish Nagar</div><div class="review-role">E-commerce, Surat ⭐⭐⭐⭐⭐</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Team Section -->
-<section class="section" id="team">
-  <div class="container">
-    <div class="section-tag" data-lang-key="team_tag"></div>
-    <h2>👥 <span data-lang-key="team_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="team_sub"></h3>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">🛠️</div>
-        <h4 data-lang-key="team1_name"></h4>
-        <div class="team-role" data-lang-key="team1_role"></div>
-        <div class="team-desc" data-lang-key="team1_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🤖</div>
-        <h4 data-lang-key="team2_name"></h4>
-        <div class="team-role" data-lang-key="team2_role"></div>
-        <div class="team-desc" data-lang-key="team2_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🌐</div>
-        <h4 data-lang-key="team3_name"></h4>
-        <div class="team-role" data-lang-key="team3_role"></div>
-        <div class="team-desc" data-lang-key="team3_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📱</div>
-        <h4 data-lang-key="team4_name"></h4>
-        <div class="team-role" data-lang-key="team4_role"></div>
-        <div class="team-desc" data-lang-key="team4_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🎨</div>
-        <h4 data-lang-key="team5_name"></h4>
-        <div class="team-role" data-lang-key="team5_role"></div>
-        <div class="team-desc" data-lang-key="team5_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📊</div>
-        <h4 data-lang-key="team6_name"></h4>
-        <div class="team-role" data-lang-key="team6_role"></div>
-        <div class="team-desc" data-lang-key="team6_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📞</div>
-        <h4 data-lang-key="team7_name"></h4>
-        <div class="team-role" data-lang-key="team7_role"></div>
-        <div class="team-desc" data-lang-key="team7_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">⚙️</div>
-        <h4 data-lang-key="team8_name"></h4>
-        <div class="team-role" data-lang-key="team8_role"></div>
-        <div class="team-desc" data-lang-key="team8_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🔒</div>
-        <h4 data-lang-key="team9_name"></h4>
-        <div class="team-role" data-lang-key="team9_role"></div>
-        <div class="team-desc" data-lang-key="team9_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">💰</div>
-        <h4 data-lang-key="team10_name"></h4>
-        <div class="team-role" data-lang-key="team10_role"></div>
-        <div class="team-desc" data-lang-key="team10_desc"></div>
-      </div>
-    </div>
-    <div class="team-cta" style="text-align:center;margin-top:30px;">
-      <p style="color:var(--text-muted);margin-bottom:15px;">💪 <span data-lang-key="team_cta_text"></span></p>
-      <a href="https://wa.me/918381848389" class="btn-primary">💬 <span data-lang-key="team_cta_btn"></span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- Company Section -->
-<section class="section company-section" id="company">
-  <div class="container">
-    <div class="section-tag" data-lang-key="company_tag"></div>
-    <h2>🏢 <span data-lang-key="company_title"></span></h2>
-    <div class="company-grid">
-      <div class="company-info">
-        <h3 data-lang-key="company_h"></h3>
-        <p data-lang-key="company_p1"></p>
-        <p data-lang-key="company_p2"></p>
-        <div class="company-subsection">
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">📋 Legal Identity</h4>
-          <ul class="company-details">
-            <li><strong>CIN:</strong> U47912UP2025OPC236875</li>
-            <li><strong>GSTIN:</strong> 09AAGCF7185A1ZL</li>
-            <li><strong>PAN:</strong> AAGCF7185A</li>
-            <li><strong>Legal Name:</strong> Freshtiq Innovations (OPC) Private Limited</li>
-            <li><strong>Type:</strong> One Person Company (OPC)</li>
-            <li><strong>Registered:</strong> 27-Nov-2025 | Govt of India</li>
-          </ul>
-        </div>
-        <div class="company-subsection">
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">📍 Registered Address</h4>
-          <ul class="company-details">
-            <li>Mohammadpur, Nizamabad, Azamgarh, UP – 276206, India 🇮🇳</li>
-          </ul>
-        </div>
-        <div class="company-subsection">
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">💳 Payment Details</h4>
-          <div class="payment-info-box">
-            <h5 style="color:#ffd700;margin-bottom:10px;">🏢 Company Payment (Business Transactions)</h5>
-            <ul class="company-details">
-              <li><strong style="color:#fff;">🏦 SBI Current Account</strong></li>
-              <li><strong>Account Holder:</strong> FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</li>
-              <li><strong>A/c No:</strong> 44724335472</li>
-              <li><strong>IFSC:</strong> SBIN0013157</li>
-              <li><strong>Branch:</strong> Mohammadpur, Azamgarh, UP</li>
-            </ul>
-            <div style="margin:12px 0;padding:10px;background:rgba(255,215,0,0.06);border-radius:8px;font-size:0.85rem;color:var(--text-muted);">
-              <strong>📌 Note:</strong> <span data-lang-key="payment_bank_note"></span>
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <div class="icon-grid">
+            <div class="icon-item"><span class="emoji">&#127760;</span>Websites</div>
+            <div class="icon-item"><span class="emoji">&#128241;</span>Apps</div>
+            <div class="icon-item"><span class="emoji">&#129302;</span>AI Bots</div>
+            <div class="icon-item"><span class="emoji">&#9889;</span>ERP</div>
+            <div class="icon-item"><span class="emoji">&#128202;</span>CRM</div>
+            <div class="icon-item"><span class="emoji">&#129409;</span>AI Agents</div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Projects Delivered</div>
             </div>
-            <h5 style="color:#22d3ee;margin-top:20px;margin-bottom:10px;">📱 UPI Payment (Personal Account)</h5>
-            <ul class="company-details">
-              <li><strong>UPI ID:</strong> 7379131322@kotak811</li>
-              <li><strong>Bank:</strong> Kotak Mahindra Bank</li>
-            </ul>
-            <div style="margin:12px 0;padding:10px;background:rgba(0,229,255,0.06);border-radius:8px;font-size:0.85rem;color:var(--text-muted);">
-              <strong>📌 Note:</strong> <span data-lang-key="payment_upi_note"></span>
+            <div class="stat-card">
+              <div class="stat-number">99.9%</div>
+              <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">4.9</div>
+              <div class="stat-label">Client Rating</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">35+</div>
+              <div class="stat-label">Business Solutions</div>
             </div>
           </div>
         </div>
-        
-          <ul class="company-details">
-            <div class="company-subsection">
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">🚀 Our Products</h4>
-          <div class="products-tags">
-            <span class="product-tag">Sameer AI Manager</span>
-            <span class="product-tag">Freshtiq Automation</span>
-            <span class="product-tag">Freshtiq AI Travel Pro</span>
-            <span class="product-tag">Alpha Trader AI</span>
-            <span class="product-tag">EL SALAMA AI ERP PRO</span>
-            <span class="product-tag">OpenClaw Operator</span>
-            <span class="product-tag">AI Automation Bot Factory</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section section-bg-white" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">What We Do</span>
+        <h2>Our Services</h2>
+        <p>End-to-end digital solutions built for Indian businesses.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">&#127760;</div>
+          <h3>Website Development</h3>
+          <p>Custom websites, e-commerce, CMS, landing pages — fast, responsive, SEO-optimised.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#128241;</div>
+          <h3>Mobile App Development</h3>
+          <p>Android &amp; iOS apps with modern UI/UX, backend APIs, and push notifications.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#129302;</div>
+          <h3>AI Chatbots</h3>
+          <p>Intelligent chatbots for customer support, lead generation, and WhatsApp &amp; Telegram automation.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#128172;</div>
+          <h3>WhatsApp Automation</h3>
+          <p>Automated WhatsApp messaging, broadcast, order management, and CRM integration.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#9889;</div>
+          <h3>ERP Development</h3>
+          <p>Custom ERP systems — inventory, HR, finance, production, and supply chain management.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#128202;</div>
+          <h3>CRM Development</h3>
+          <p>Sales and customer relationship management platforms with analytics and automation.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#9992;&#65039;</div>
+          <h3>Travel Portal Development</h3>
+          <p>Booking engines, travel management systems, API integrations for flights, buses, and hotels.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#128736;&#65039;</div>
+          <h3>Custom Software / API Integration</h3>
+          <p>Tailor-made software, third-party API integrations, and legacy system modernisation.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#9729;&#65039;</div>
+          <h3>Cloud Hosting / VPS Mgmt</h3>
+          <p>Cloud hosting setup, VPS management, server security, and performance optimisation.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">&#129409;</div>
+          <h3>AI Agents</h3>
+          <p>Autonomous AI agents for workflow automation, data extraction, decision making, and more.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;" class="fade-in">
+        <a href="services.html" class="btn btn-secondary">View All Services &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="section section-bg-light" id="products">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Our Products</span>
+        <h2>Built by Freshtiq</h2>
+        <p>Our own product suite powering businesses across India.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">Sameer AI Manager</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">AutoPilot Hub</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">Freshtiq Automation</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">Freshtiq AI Travel Pro</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">Alpha Trader AI</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">EL SALAMA AI ERP PRO</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">OpenClaw Operator</span></div>
+        <div class="product-tag fade-in"><span class="tag-dot"></span><span class="tag-name">AI Bot Factory</span></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;" class="fade-in">
+        <a href="products.html" class="btn btn-secondary">Explore All Products &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section section-bg-white" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Pricing</span>
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Choose the plan that fits your business. All plans include support &amp; maintenance.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">&#8377;999 <span>/project</span></div>
+          <p class="pricing-desc">Ideal for small businesses getting started online.</p>
+          <ul class="pricing-features">
+            <li>5-Page Static Website</li>
+            <li>Mobile Responsive</li>
+            <li>Basic SEO Setup</li>
+            <li>1 Month Support</li>
+            <li>Contact Form Integration</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="pricing-card featured fade-in">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Business</div>
+          <div class="pricing-price">&#8377;3,999 <span>/project</span></div>
+          <p class="pricing-desc">Perfect for growing businesses needing full solutions.</p>
+          <ul class="pricing-features">
+            <li>Dynamic Website + CMS</li>
+            <li>Mobile App or Admin Panel</li>
+            <li>WhatsApp Integration</li>
+            <li>AI Chatbot Setup</li>
+            <li>3 Months Support</li>
+            <li>SEO + Analytics</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">&#8377;12,999+ <span>/project</span></div>
+          <p class="pricing-desc">Custom enterprise-grade solutions and systems.</p>
+          <ul class="pricing-features">
+            <li>Custom ERP / CRM System</li>
+            <li>Mobile &amp; Web Applications</li>
+            <li>AI Agents &amp; Automation</li>
+            <li>API Integrations</li>
+            <li>Cloud Hosting Setup</li>
+            <li>6 Months Support</li>
+            <li>Dedicated Account Manager</li>
+            <li>Training &amp; Documentation</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section-bg-accent" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Client Love</span>
+        <h2>What Our Clients Say</h2>
+        <p>Trusted by 500+ businesses across India.</p>
+      </div>
+      <div class="testimonials-slider fade-in">
+        <div class="testimonials-track">
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Freshtiq Automation transformed our kirana store with a simple billing + inventory system. Now we manage everything from one dashboard. Highly recommended!"</p>
+              <div class="testimonial-author">Rajesh Sharma</div>
+              <div class="testimonial-role">Kirana Store, Delhi</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"They built a stunning e-commerce website for my boutique. Sales have doubled and the WhatsApp integration is a game changer for customer inquiries."</p>
+              <div class="testimonial-author">Priya Singh</div>
+              <div class="testimonial-role">Fashion Boutique, Mumbai</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"We needed a custom ERP for our plastic manufacturing unit. Freshtiq delivered on time and the system runs flawlessly. Great team!"</p>
+              <div class="testimonial-author">Amit Patel</div>
+              <div class="testimonial-role">Plastic Factory, Gujarat</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Their AI chatbot handles 80% of our customer queries now. Our support team saves hours every day. Exceptional value for money."</p>
+              <div class="testimonial-author">Vikram Joshi</div>
+              <div class="testimonial-role">Tech Startup, Bangalore</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Freshtiq built our restaurant ordering website with online payments. Easy for customers and easy for us to manage. Fantastic work!"</p>
+              <div class="testimonial-author">Sunil Kumar</div>
+              <div class="testimonial-role">Restaurant, Pune</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Professional, fast, and very responsive. They built my interior design portfolio site exactly how I envisioned it. Highly skilled team."</p>
+              <div class="testimonial-author">Anita Mehta</div>
+              <div class="testimonial-role">Interior Designer, Jaipur</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"The wholesale inventory management system they developed for us is excellent. Stock tracking and order processing are now completely automated."</p>
+              <div class="testimonial-author">Mohammad Malik</div>
+              <div class="testimonial-role">Wholesale Trader, Kolkata</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"We got our coaching centre management system from Freshtiq. Student tracking, fees, attendance — everything is digital now. Saved us so much time."</p>
+              <div class="testimonial-author">Rahul Gupta</div>
+              <div class="testimonial-role">Coaching Centre, Lucknow</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Deepak and the team built a property listing portal for our real estate business. The search filters and inquiry system work perfectly."</p>
+              <div class="testimonial-author">Deepak Tiwari</div>
+              <div class="testimonial-role">Real Estate, Indore</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"My beauty parlour website and booking system were delivered in just 4 days. Beautiful design, easy booking for clients. Love it!"</p>
+              <div class="testimonial-author">Sonia Narang</div>
+              <div class="testimonial-role">Beauty Parlor, Chandigarh</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Freshtiq developed a clinic management system for us. Patient records, appointments, and billing — all in one place. Exactly what we needed."</p>
+              <div class="testimonial-author">Dr. Rohan Desai</div>
+              <div class="testimonial-role">Clinic, Ahmedabad</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Our bakery now accepts online orders and payments thanks to Freshtiq. The system is simple and our customers love the convenience."</p>
+              <div class="testimonial-author">Arun Kumar</div>
+              <div class="testimonial-role">Bakery, Nagpur</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Construction project tracking software from Freshtiq. Now we can manage multiple sites, material orders, and labour attendance from one dashboard."</p>
+              <div class="testimonial-author">Suresh Verma</div>
+              <div class="testimonial-role">Construction, Patna</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">"Our e-commerce store runs on a custom platform built by Freshtiq. Inventory syncs automatically with our suppliers. Outstanding work!"</p>
+              <div class="testimonial-author">Manish Nagar</div>
+              <div class="testimonial-role">E-commerce, Surat</div>
+            </div>
           </div>
         </div>
-        <div class="company-subsection">
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">🎯 Mission & Vision</h4>
-          <ul class="company-details">
-            <li><strong>Mission:</strong> Build world-class AI software & automation systems for global businesses.</li>
-            <li><strong>Vision:</strong> Globally recognized AI Automation company serving India, GCC, Europe & North America.</li>
-          </ul>
-        </div>
-        <div class="badges-strip" style="margin-top:25px;">
-          <div class="badge-item">✅ Govt Registered</div>
-          <div class="badge-item">✅ GST: 09AAGCF7185A1ZL</div>
-          <div class="badge-item">✅ CIN: U47912UP2025OPC236875</div>
-          <div class="badge-item">✅ UPI / Card / Bank</div>
-          <div class="badge-item">✅ Lifetime Support</div>
+        <div class="testimonial-controls">
+          <button class="testimonial-arrow prev" aria-label="Previous">&#8592;</button>
+          <div class="testimonial-dots">
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+          <button class="testimonial-arrow next" aria-label="Next">&#8594;</button>
         </div>
       </div>
-      <div class="company-badge">
-        <div class="reg-icon">🏢</div>
-        <h4>⚡ <span data-lang-key="company_badge_name"></span></h4>
-        <div class="sub" data-lang-key="company_sub"></div>
-        <div class="tagline" data-lang-key="company_tagline"></div>
-        <div style="margin-top:20px;text-align:left;padding:10px;background:rgba(255,255,255,0.03);border-radius:10px;">
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:4px;">📋 CIN: U47912UP2025OPC236875</p>
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:4px;">🧾 GST: 09AAGCF7185A1ZL</p>
-          <p style="font-size:0.8rem;color:var(--text-muted);">📞 +91 8381848389</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT – LEGAL IDENTITY ============ -->
+  <section class="section section-bg-white" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">About Us</span>
+        <h2>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</h2>
+        <p>India's trusted automation and technology partner.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card fade-in">
+          <div class="label">Company Name</div>
+          <div class="value">FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</div>
         </div>
-        <br>
-        <a href="https://wa.me/918381848389" class="btn-primary" data-lang-key="company_cta"></a>
+        <div class="info-card fade-in">
+          <div class="label">Brand</div>
+          <div class="value">Freshtiq Automation</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">CIN</div>
+          <div class="value small">U47912UP2025OPC236875</div>
+          <button class="copy-btn" data-copy="U47912UP2025OPC236875">&#128203; Copy</button>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">GSTIN</div>
+          <div class="value small">09AAGCF7185A1ZL</div>
+          <button class="copy-btn" data-copy="09AAGCF7185A1ZL">&#128203; Copy</button>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">PAN</div>
+          <div class="value small">AAGCF7185A</div>
+          <button class="copy-btn" data-copy="AAGCF7185A">&#128203; Copy</button>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Registration Date</div>
+          <div class="value">27-Nov-2025</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Type</div>
+          <div class="value">One Person Company (OPC)</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Registered Address</div>
+          <div class="value small">Mohammadpur, Nizamabad, Azamgarh, Uttar Pradesh – 276206, India</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Terms & Policies -->
-<section class="section" id="terms" style="background:rgba(10,10,26,0.3);">
-  <div class="container">
-    <div class="section-tag" data-lang-key="terms_tag"></div>
-    <h2>📜 <span data-lang-key="terms_title"></span></h2>
-    <div class="terms-grid">
-      <div class="terms-card">
-        <h3>💰 <span data-lang-key="terms_payment_title"></span></h3>
-        <div data-lang-key="terms_payment_body"></div>
+  <!-- ============ PAYMENT DETAILS ============ -->
+  <section class="section section-bg-light" id="payment">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Payments</span>
+        <h2>Payment Details</h2>
+        <p>Secure payments accepted via bank transfer or UPI.</p>
       </div>
-      <div class="terms-card">
-        <h3>🔄 <span data-lang-key="terms_refund_title"></span></h3>
-        <div data-lang-key="terms_refund_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>📋 <span data-lang-key="terms_how_title"></span></h3>
-        <div data-lang-key="terms_how_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>🔒 <span data-lang-key="terms_privacy_title"></span></h3>
-        <div data-lang-key="terms_privacy_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>📞 <span data-lang-key="terms_support_title"></span></h3>
-        <div data-lang-key="terms_support_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>⚖️ <span data-lang-key="terms_disclaimer_title"></span></h3>
-        <div data-lang-key="terms_disclaimer_body"></div>
+      <div class="info-grid">
+        <div class="info-card fade-in" style="grid-column: span 2;">
+          <div class="label">Business Bank Account</div>
+          <div class="value small">Account Name: FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</div>
+          <div class="value small">Bank: State Bank of India (SBI)</div>
+          <div class="value small">Account No: 44724335472</div>
+          <div class="value small">IFSC: SBIN0013157</div>
+          <div class="value small">Branch: Mohammadpur, Azamgarh</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Personal UPI</div>
+          <div class="value small">7379131322@kotak811</div>
+          <button class="copy-btn" data-copy="7379131322@kotak811">&#128203; Copy</button>
+        </div>
       </div>
     </div>
-    <div class="terms-notice" style="text-align:center;margin-top:30px;padding:20px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:12px;">
-      <p style="color:#ff6b35;font-weight:700;font-size:1.1rem;">⚠️ <span data-lang-key="terms_important_title"></span></p>
-      <p data-lang-key="terms_important_body" style="color:var(--text-muted);margin-top:8px;"></p>
-    </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Contact -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-tag" data-lang-key="contact_tag"></div>
-    <h2>📞 <span data-lang-key="contact_title"></span></h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3 data-lang-key="contact_h"></h3>
-        <p>📧 Email: <a href="mailto:freshtiqinnovationspvt@gmail.com">freshtiqinnovationspvt@gmail.com</a></p>
-        <p>📱 <strong style="color:#25D366;">WhatsApp:</strong> <a href="https://wa.me/918381848389" style="color:#25D366;font-weight:700;font-size:1.1rem;">+91 8381848389</a></p>
-        <p data-lang-key="contact_hours"></p>
-        <p data-lang-key="contact_response"></p>
-        <p>📱 Telegram Bot: <a href="https://t.me/AutoPilotHubBot" class="telegram-link" target="_blank">@AutoPilotHubBot</a>  |  <a href="https://t.me/SameerOpenClawOperatorBot" class="telegram-link" target="_blank">@SameerOpenClawOperatorBot</a> <span style="font-size:0.75rem;color:var(--text-muted);">— Chat & see live demos</span></p>
-        <p class="contact-tagline" data-lang-key="contact_tagline"></p>
+  <!-- ============ CONTACT ============ -->
+  <section class="section section-bg-white" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Get in Touch</span>
+        <h2>Let's Build Something Great</h2>
+        <p>Reach out to us — we respond within 2 hours.</p>
       </div>
-      <div class="contact-cta">
-        <p style="color:var(--text-muted);text-align:center;margin-bottom:10px;" data-lang-key="contact_cta_text"></p>
-        <a href="https://wa.me/918381848389" class="btn-primary" style="font-size:1.2rem;padding:18px 45px;" data-lang-key="contact_cta_btn"></a>
+      <div class="info-grid" style="max-width: 700px;margin:0 auto;">
+        <div class="info-card fade-in">
+          <div class="label">Email</div>
+          <div class="value small">freshtiqinnovationspvt@gmail.com</div>
+          <a href="mailto:freshtiqinnovationspvt@gmail.com" style="font-size:0.82rem;color:var(--primary);">Send Email &rarr;</a>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Phone</div>
+          <div class="value small">+91 7379131322</div>
+          <a href="tel:+917379131322" style="font-size:0.82rem;color:var(--primary);">Call Now &rarr;</a>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">WhatsApp</div>
+          <div class="value small">+91 8381848389</div>
+          <a href="https://wa.me/918381848389" target="_blank" style="font-size:0.82rem;color:var(--primary);">Chat on WhatsApp &rarr;</a>
+        </div>
+        <div class="info-card fade-in">
+          <div class="label">Telegram</div>
+          <div class="value small">@AutoPilotHubBot</div>
+          <a href="https://t.me/AutoPilotHubBot" target="_blank" style="font-size:0.82rem;color:var(--primary);">Open Telegram &rarr;</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WhatsApp Float -->
-<div class="whatsapp-float">
-  <a href="https://wa.me/918381848389" target="_blank" aria-label="WhatsApp">💬</a>
-  <div class="whatsapp-tooltip" data-lang-key="float_tooltip"></div>
-</div>
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><span class="logo-icon">&#9889;</span> Freshtiq</a>
+          <p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — India's AI Automation Company. Websites, Apps, AI Bots, ERP, CRM, Business Automation.</p>
+          <div class="footer-social">
+            <a href="mailto:freshtiqinnovationspvt@gmail.com" aria-label="Email">&#9993;</a>
+            <a href="https://wa.me/918381848389" target="_blank" aria-label="WhatsApp">&#128172;</a>
+            <a href="https://t.me/AutoPilotHubBot" target="_blank" aria-label="Telegram">&#128172;</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:freshtiqinnovationspvt@gmail.com">&#9993; Email</a>
+          <a href="tel:+917379131322">&#9742; +91 7379131322</a>
+          <a href="https://wa.me/918381848389" target="_blank">&#128172; WhatsApp</a>
+          <a href="https://t.me/AutoPilotHubBot" target="_blank">&#128172; Telegram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms-and-conditions.html">Terms</a>
+          <a href="refund-policy.html">Refund</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-line"></div>
-  <p>&copy; 2026 <strong class="footer-brand">Freshtiq Automation</strong> by Freshtiq Innovations (OPC) Private Limited. All rights reserved.</p>
-  <p data-lang-key="footer_made"></p>
-  <div class="footer-links">
-    <a href="https://wa.me/918381848389">WhatsApp</a>
-    <a href="mailto:freshtiqinnovationspvt@gmail.com">Email</a>
-    <a href="#services" data-lang-key="nav_services"></a>
-    <a href="#packages" data-lang-key="nav_packages"></a>
-    <a href="https://t.me/AutoPilotHubBot">🤖 @AutoPilotHubBot</a>
-    <a href="#contact" data-lang-key="nav_contact"></a>
-  </div>
-  <p style="margin-top:10px;font-size:0.8rem;opacity:0.5;" data-lang-key="footer_tagline"></p>
-</footer>
+  <!-- ============ WHATSAPP FLOAT ============ -->
+  <a href="https://wa.me/918381848389" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">&#128172;</a>
 
-<!-- Galaxy Background Script -->
-<script>
-(function() {
-  const canvas = document.getElementById('galaxy-canvas');
-  const ctx = canvas.getContext('2d');
-  let stars = [], shootingStars = [], width, height;
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  for (let i = 0; i < 200; i++) {
-    stars.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 1.5 + 0.3,
-      a: Math.random() * 0.8 + 0.2,
-      speed: Math.random() * 0.02 + 0.005,
-      phase: Math.random() * Math.PI * 2
-    });
-  }
-  function createShootingStar() {
-    shootingStars.push({
-      x: Math.random() * width * 0.8 + width * 0.1,
-      y: Math.random() * height * 0.3,
-      len: Math.random() * 80 + 40,
-      speed: Math.random() * 6 + 4,
-      a: Math.random() * 0.6 + 0.4,
-      life: 0,
-      maxLife: 40
-    });
-  }
-  setInterval(createShootingStar, 4000);
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    stars.forEach(s => {
-      s.a = 0.3 + Math.sin(Date.now() * s.speed + s.phase) * 0.3;
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,' + s.a + ')';
-      ctx.fill();
-      if (s.r > 1) {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,229,255,' + (s.a * 0.1) + ')';
-        ctx.fill();
-      }
-    });
-    shootingStars.forEach((ss, i) => {
-      ss.life++;
-      const progress = ss.life / ss.maxLife;
-      const x = ss.x - progress * ss.speed * 15;
-      const y = ss.y + progress * ss.speed * 10;
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x - ss.len * 0.5, y + ss.len * 0.3);
-      const gradient = ctx.createLinearGradient(x, y, x - ss.len * 0.5, y + ss.len * 0.3);
-      gradient.addColorStop(0, 'rgba(0,229,255,' + (ss.a * (1 - progress)) + ')');
-      gradient.addColorStop(1, 'rgba(0,229,255,0)');
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-      if (ss.life >= ss.maxLife) shootingStars.splice(i, 1);
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-</script>
-
-<script>
-// Force English on load if language not working
-document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-    try {
-      if (typeof switchLang === 'function') {
-        switchLang('en');
-      }
-    } catch(e) {}
-  }, 100);
-});
-</script>
-<script src="translations.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
