@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#0a0a1a">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background:#0a0a1a;color:#fff;">
 
 <!-- Galaxy Background -->
 <div id="galaxy-bg"><canvas id="galaxy-canvas"></canvas></div>
@@ -25,7 +25,7 @@
 <nav>
   <div class="nav-container">
     <a href="#" class="nav-logo">
-      <div class="logo-icon">⚡</div>
+      <div class="logo-icon"><svg viewBox="0 0 32 32" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><rect rx="8" width="32" height="32" fill="url(#lg)" opacity="0.15"/><text x="16" y="22" font-size="18" text-anchor="middle" fill="url(#lg)" font-weight="bold">F</text></svg></div>
       Freshtiq Automation
     </a>
     <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
@@ -35,11 +35,11 @@
       <li><a href="#reviews" data-lang-key="nav_reviews"></a></li>
       <li><a href="#process" data-lang-key="nav_process"></a></li>
       <li><a href="#company" data-lang-key="nav_company"></a></li>
-      <li><a href="https://t.me/SameerOpenClawOperatorBot">🤖 Telegram Bot</a></li>
+      <li><a href="https://t.me/AutoPilotHubBot">🤖 @AutoPilotHubBot</a></li>
       <li><a href="#contact" data-lang-key="nav_contact"></a></li>
       <li class="lang-switcher">
-        <button class="lang-btn active" data-lang="hi" onclick="switchLang('hi')">हि</button>
-        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" data-lang="hi" onclick="switchLang('hi')">हि</button>
+        <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">EN</button>
         <button class="lang-btn" data-lang="gu" onclick="switchLang('gu')">ગુ</button>
       </li>
       <li><a href="https://wa.me/918381848389" class="nav-whatsapp">💬 WhatsApp</a></li>
@@ -50,7 +50,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge" data-lang-key="hero_badge"></div>
+    <div class="hero-badge"><span style="background:linear-gradient(135deg,#ffd700,#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;">⭐ India's #1 Automation Platform</span></div>
     <h1 data-lang-key="hero_title"></h1>
     <p data-lang-key="hero_desc"></p>
     <div class="hero-buttons">
@@ -741,7 +741,7 @@ function sendRequirement() {
             <li><strong>Vision:</strong> Globally recognized AI Automation company serving India, GCC, Europe & North America.</li>
           </ul>
         </div>
-        <div class="badges-strip">
+        <div class="badges-strip" style="margin-top:25px;">
           <div class="badge-item">✅ Govt Registered</div>
           <div class="badge-item">✅ GST: 09AAGCF7185A1ZL</div>
           <div class="badge-item">✅ CIN: U47912UP2025OPC236875</div>
@@ -815,10 +815,10 @@ function sendRequirement() {
       <div class="contact-info">
         <h3 data-lang-key="contact_h"></h3>
         <p>📧 Email: <a href="mailto:freshtiqinnovationspvt@gmail.com">freshtiqinnovationspvt@gmail.com</a></p>
-        <p>📱 WhatsApp: <a href="https://wa.me/918381848389">+91 8381848389</a></p>
+        <p>📱 <strong style="color:#25D366;">WhatsApp:</strong> <a href="https://wa.me/918381848389" style="color:#25D366;font-weight:700;font-size:1.1rem;">+91 8381848389</a></p>
         <p data-lang-key="contact_hours"></p>
         <p data-lang-key="contact_response"></p>
-        <p>📱 Telegram Bot: <a href="https://t.me/SameerOpenClawOperatorBot" class="telegram-link" target="_blank">@SameerOpenClawOperatorBot</a> <span style="font-size:0.75rem;color:var(--text-muted);">— Chat & see live demos</span></p>
+        <p>📱 Telegram Bot: <a href="https://t.me/AutoPilotHubBot" class="telegram-link" target="_blank">@AutoPilotHubBot</a>  |  <a href="https://t.me/SameerOpenClawOperatorBot" class="telegram-link" target="_blank">@SameerOpenClawOperatorBot</a> <span style="font-size:0.75rem;color:var(--text-muted);">— Chat & see live demos</span></p>
         <p class="contact-tagline" data-lang-key="contact_tagline"></p>
       </div>
       <div class="contact-cta">
@@ -838,14 +838,14 @@ function sendRequirement() {
 <!-- Footer -->
 <footer>
   <div class="footer-line"></div>
-  <p>&copy; 2026 <strong>Freshtiq Innovations (OPC) Private Limited</strong>. All rights reserved.</p>
+  <p>&copy; 2026 <strong class="footer-brand">Freshtiq Automation</strong> by Freshtiq Innovations (OPC) Private Limited. All rights reserved.</p>
   <p data-lang-key="footer_made"></p>
   <div class="footer-links">
     <a href="https://wa.me/918381848389">WhatsApp</a>
     <a href="mailto:freshtiqinnovationspvt@gmail.com">Email</a>
     <a href="#services" data-lang-key="nav_services"></a>
     <a href="#packages" data-lang-key="nav_packages"></a>
-    <a href="https://t.me/SameerOpenClawOperatorBot">🤖 Telegram Bot</a>
+    <a href="https://t.me/AutoPilotHubBot">🤖 @AutoPilotHubBot</a>
     <a href="#contact" data-lang-key="nav_contact"></a>
   </div>
   <p style="margin-top:10px;font-size:0.8rem;opacity:0.5;" data-lang-key="footer_tagline"></p>
@@ -920,6 +920,19 @@ function sendRequirement() {
   }
   draw();
 })();
+</script>
+
+<script>
+// Force English on load if language not working
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    try {
+      if (typeof switchLang === 'function') {
+        switchLang('en');
+      }
+    } catch(e) {}
+  }, 100);
+});
 </script>
 <script src="translations.js"></script>
 </body>

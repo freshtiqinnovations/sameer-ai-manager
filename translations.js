@@ -667,7 +667,7 @@ const LANG = {
     }
 };
 
-let currentLang = 'hi'; // default Hindi
+let currentLang = 'en';  // Default English // default Hindi
 
 function switchLang(lang) {
   currentLang = lang;
