@@ -1716,11 +1716,7 @@ footer {
 
 
 @media (max-width: 600px) {
-  .founder-photo {
-    width: 150px;
-    height: 150px;
-    border: 4px solid #2563eb;
-  }
+  
 }/* Pricing rotate highlight */
 .pricing-card {
   transition: all .3s ease !important;
@@ -1749,19 +1745,26 @@ footer {
 
 
 /* Founder photo - GitHub profile style */
+
+@media (max-width: 600px) {
+  
+}
+
+
+/* Founder photo - exact GitHub profile framing */
 .founder-photo {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: 50% 50%;
+  object-fit: contain;
+  object-position: center center;
   border: 4px solid #2563eb;
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
-  transform: none;
+  background: white;
 }
 @media (max-width: 600px) {
   .founder-photo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 }
