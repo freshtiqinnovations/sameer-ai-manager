@@ -273,3 +273,79 @@ function handleSalesConsult() {
     </div>
   `;
 }
+
+
+/* ===== ROI Calculator ===== */
+function calculateROI() {
+  const hours = parseFloat(document.getElementById('roiHours').value) || 0;
+  const staffCost = parseFloat(document.getElementById('roiStaffCost').value) || 0;
+  const leads = parseFloat(document.getElementById('roiLeads').value) || 0;
+  const revenue = parseFloat(document.getElementById('roiRevenue').value) || 0;
+
+  if (hours < 1 || staffCost < 1) {
+    document.getElementById('roiResult').innerHTML = '<div style="text-align:center;padding:20px;"><p style="color:#dc2626;">Please enter valid hours and staff cost.</p></div>';
+    return;
+  }
+
+  // Calculations
+  const workingDays = 26;
+  const monthlyHours = hours * workingDays;
+  const automatedPct = hours <= 4 ? 80 : hours <= 8 ? 65 : 50;
+  const timeSaved = Math.round(monthlyHours * automatedPct / 100);
+  const costSaved = Math.round(staffCost * automatedPct / 100);
+  const leadConversionRate = 0.15;
+  const currentConversions = Math.round(leads * leadConversionRate);
+  const improvedConversions = Math.round(leads * leadConversionRate * 1.8);
+  const extraLeads = improvedConversions - currentConversions;
+  const avgOrderValue = leads > 0 ? Math.round(revenue / leads) : 500;
+  const revenueImprovement = extraLeads * avgOrderValue;
+
+  // Package recommendation
+  let pkgName, pkgPrice, pkgLink;
+  if (hours <= 4 && staffCost <= 10000) {
+    pkgName = 'AI Chatbot (₹1,999)';
+    pkgPrice = '₹1,999';
+    pkgLink = 'services.html';
+  } else if (hours <= 8 && staffCost <= 25000) {
+    pkgName = 'WhatsApp Automation (₹2,999)';
+    pkgPrice = '₹2,999';
+    pkgLink = 'services.html';
+  } else if (staffCost <= 50000) {
+    pkgName = 'Website + CRM (₹9,999+)';
+    pkgPrice = '₹9,999+';
+    pkgLink = 'services.html';
+  } else {
+    pkgName = 'Custom ERP/CRM (₹19,999+)';
+    pkgPrice = '₹19,999+';
+    pkgLink = 'services.html';
+  }
+
+  const msg = encodeURIComponent(
+    `Hi Freshtiq! I calculated my ROI: ${timeSaved}h/month time saved, ₹${costSaved.toLocaleString('en-IN')}/month cost saving, ₹${revenueImprovement.toLocaleString('en-IN')} potential revenue. Recommended: ${pkgName}. Please contact me.`
+  );
+
+  document.getElementById('roiResult').innerHTML = `
+    <div>
+      <h4 style="color:#1a1a2e;margin:0 0 14px;font-size:1rem;">📈 Your Estimated Savings</h4>
+      <div style="display:grid;gap:10px;">
+        <div style="background:#f0f4ff;border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.82rem;color:#4a4a6a;">⏱️ Time Saved / Month</span>
+          <span style="font-weight:700;color:#1a73e8;">${timeSaved}h</span>
+        </div>
+        <div style="background:#f0f4ff;border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.82rem;color:#4a4a6a;">💰 Cost Saving / Month</span>
+          <span style="font-weight:700;color:#1a73e8;">₹${costSaved.toLocaleString('en-IN')}</span>
+        </div>
+        <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.82rem;color:#4a4a6a;">📊 Potential Revenue Improvement</span>
+          <span style="font-weight:700;color:#7c3aed;">₹${revenueImprovement.toLocaleString('en-IN')}/mo</span>
+        </div>
+        <div style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+          <span style="font-size:0.85rem;color:#1a1a2e;font-weight:600;">🎯 Recommended</span>
+          <span style="font-weight:700;color:#7c3aed;font-size:0.9rem;">${pkgName}</span>
+        </div>
+      </div>
+      <a href="https://wa.me/918381848389?text=${msg}" target="_blank" style="display:block;margin-top:14px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Get This Quote on WhatsApp</a>
+    </div>
+  `;
+}
