@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoPilot Hub — India's #1 AI Business Automation Platform</title>
+<meta name="description" content="India's #1 AI-Powered Business Automation. Get AI Bot, Website, Mobile App & ERP in 24 hours. Starting ₹999. Trusted by 500+ businesses.">
+<meta name="keywords" content="AI bot, business automation, telegram bot, website, ERP, Freshtiq Innovations">
+<meta property="og:title" content="AutoPilot Hub — AI Business Automation">
+<meta property="og:description" content="India's #1 AI-Powered Business Automation Platform">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freshtiqinnovations.github.io/sameer-ai-manager/">
+<meta name="theme-color" content="#0a0a1a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Galaxy Background -->
+<div id="galaxy-bg"><canvas id="galaxy-canvas"></canvas></div>
+
+<!-- Top Bar -->
+<div class="top-bar" data-lang-key="topbar"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      AutoPilot Hub
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#services" data-lang-key="nav_services"></a></li>
+      <li><a href="#pricing" data-lang-key="nav_pricing"></a></li>
+      <li><a href="#reviews" data-lang-key="nav_reviews"></a></li>
+      <li><a href="#company" data-lang-key="nav_company"></a></li>
+      <li><a href="#contact" data-lang-key="nav_contact"></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn active" data-lang="hi" onclick="switchLang('hi')">हि</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" data-lang="gu" onclick="switchLang('gu')">ગુ</button>
+      </li>
+      <li><a href="https://wa.me/918381848389" class="nav-whatsapp">💬</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge" data-lang-key="hero_badge"></div>
+    <h1 data-lang-key="hero_title"></h1>
+    <p data-lang-key="hero_desc"></p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/918381848389" class="btn-primary" data-lang-key="hero_btn1"></a>
+      <a href="#services" class="btn-secondary" data-lang-key="hero_btn2"></a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><div class="num">500+</div><div class="label" data-lang-key="stat1"></div></div>
+      <div class="hero-proof-item"><div class="num">99.9%</div><div class="label" data-lang-key="stat2"></div></div>
+      <div class="hero-proof-item"><div class="num">⭐ 4.9</div><div class="label" data-lang-key="stat_label_rating"></div></div>
+      <div class="hero-proof-item"><div class="num">24/7</div><div class="label" data-lang-key="stat4"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item"><span class="icon">🏢</span> Registered Company</div>
+    <div class="trust-item"><span class="icon">🔒</span> 100% Secure</div>
+    <div class="trust-item"><span class="icon">⚡</span> 24hr Delivery</div>
+    <div class="trust-item"><span class="icon">🤝</span> Lifetime Support</div>
+    <div class="trust-item"><span class="icon">🇮🇳</span> Made in India</div>
+    <div class="trust-item"><span class="icon">💳</span> UPI / Card Accepted</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-tag" data-lang-key="services_tag"></div>
+    <h2>🔥 <span data-lang-key="services_title"></span></h2>
+    <div class="services-grid">
+      <div class="service-card"><span class="service-icon">🤖</span><h3 data-lang-key="s1_name"></h3><p data-lang-key="s1_desc"></p><div class="service-price">₹999 <small data-lang-key="one_time"></small></div></div>
+      <div class="service-card"><span class="service-icon">🌐</span><h3 data-lang-key="s2_name"></h3><p data-lang-key="s2_desc"></p><div class="service-price">₹1,999 <small data-lang-key="one_time"></small></div></div>
+      <div class="service-card"><span class="service-icon">📱</span><h3 data-lang-key="s3_name"></h3><p data-lang-key="s3_desc"></p><div class="service-price">₹3,999 <small data-lang-key="one_time"></small></div></div>
+      <div class="service-card"><span class="service-icon">🏭</span><h3 data-lang-key="s4_name"></h3><p data-lang-key="s4_desc"></p><div class="service-price">₹7,999 <small data-lang-key="one_time"></small></div></div>
+      <div class="service-card"><span class="service-icon">📢</span><h3 data-lang-key="s5_name"></h3><p data-lang-key="s5_desc"></p><div class="service-price">₹1,499 <small data-lang-key="one_time"></small></div></div>
+      <div class="service-card"><span class="service-icon">💳</span><h3 data-lang-key="s6_name"></h3><p data-lang-key="s6_desc"></p><div class="service-price">₹999 <small data-lang-key="one_time"></small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="section">
+  <div class="container">
+    <div class="section-tag" data-lang-key="why_tag"></div>
+    <h2>💪 <span data-lang-key="why_title"></span></h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">⚡</div><h3 data-lang-key="w1_name"></h3><p data-lang-key="w1_desc"></p></div>
+      <div class="why-card"><div class="why-icon">🤝</div><h3 data-lang-key="w2_name"></h3><p data-lang-key="w2_desc"></p></div>
+      <div class="why-card"><div class="why-icon">🔒</div><h3 data-lang-key="w3_name"></h3><p data-lang-key="w3_desc"></p></div>
+      <div class="why-card"><div class="why-icon">🇮🇳</div><h3 data-lang-key="w4_name"></h3><p data-lang-key="w4_desc"></p></div>
+      <div class="why-card"><div class="why-icon">🔄</div><h3 data-lang-key="w5_name"></h3><p data-lang-key="w5_desc"></p></div>
+      <div class="why-card"><div class="why-icon">🎯</div><h3 data-lang-key="w6_name"></h3><p data-lang-key="w6_desc"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-tag" data-lang-key="pricing_tag"></div>
+    <h2>💎 <span data-lang-key="pricing_title"></span></h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name" data-lang-key="p1_name"></div>
+        <div class="plan-desc" data-lang-key="p1_desc"></div>
+        <div class="plan-price">₹999 <span data-lang-key="one_time"></span></div>
+        <ul class="pricing-features">
+          <li>✅ AI Bot (Telegram)</li>
+          <li>✅ Basic Website</li>
+          <li>✅ WhatsApp Integration</li>
+          <li>✅ 24/7 Support</li>
+          <li>✅ Free Hosting 1 Year</li>
+        </ul>
+        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="plan-name" data-lang-key="p2_name"></div>
+        <div class="plan-desc" data-lang-key="p2_desc"></div>
+        <div class="plan-price">₹3,999 <span data-lang-key="one_time"></span></div>
+        <ul class="pricing-features">
+          <li>✅ AI Bot (All Platforms)</li>
+          <li>✅ Premium Website + Hosting</li>
+          <li>✅ Android App</li>
+          <li>✅ Payment Gateway</li>
+          <li>✅ Lead Generation System</li>
+          <li>✅ Priority Support</li>
+        </ul>
+        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-name" data-lang-key="p3_name"></div>
+        <div class="plan-desc" data-lang-key="p3_desc"></div>
+        <div class="plan-price">₹12,999 <span data-lang-key="one_time"></span></div>
+        <ul class="pricing-features">
+          <li>✅ Everything in Business +</li>
+          <li>✅ Full ERP System</li>
+          <li>✅ Custom Dashboard</li>
+          <li>✅ Multi-user Access</li>
+          <li>✅ Inventory Management</li>
+          <li>✅ Dedicated Server</li>
+          <li>✅ Dedicated Manager</li>
+        </ul>
+        <a href="https://wa.me/918381848389" class="btn-order" data-lang-key="order_btn"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Demo CTA -->
+<section class="section">
+  <div class="container">
+    <div class="demo-banner">
+      <h3>🚀 <span data-lang-key="demo_title"></span></h3>
+      <p data-lang-key="demo_desc"></p>
+      <div class="demo-steps">
+        <div class="demo-step"><span class="num">1</span><span class="text" data-lang-key="demo_step1"></span></div>
+        <div class="demo-step"><span class="num">2</span><span class="text" data-lang-key="demo_step2"></span></div>
+        <div class="demo-step"><span class="num">3</span><span class="text" data-lang-key="demo_step3"></span></div>
+      </div>
+      <a href="https://wa.me/918381848389" class="btn-primary" style="position:relative;z-index:1;" data-lang-key="demo_cta"></a>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section testimonials-section" id="reviews">
+  <div class="container">
+    <div class="section-tag" data-lang-key="testimonials_tag"></div>
+    <h2>⭐ <span data-lang-key="testimonials_title"></span></h2>
+    <div class="reviews-grid">
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 days ago</div></div>
+        <div class="review-text">"Bahut hi shandaar kaam kiya hai. Mera bot 24/7 order leta hai. Pehle main khud phone uthata tha, ab sab auto hota hai. AutoPilot Hub ne meri life easy kar di. Thank you so much!"</div>
+        <div class="review-author"><div class="review-avatar">RS</div><div><div class="review-name">Rajesh Sharma</div><div class="review-role">Kirana Store, Delhi ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">5 days ago</div></div>
+        <div class="review-text">"Website + App dono ek saath mil gaya. Payment bhi auto collect hota hai. Maine apne business pe itna accha investment kabhi nahi kiya tha. Business double ho gaya! ₹3,999 — best deal ever!"</div>
+        <div class="review-author"><div class="review-avatar">PS</div><div><div class="review-name">Priya Singh</div><div class="review-role">Fashion Boutique, Mumbai ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div>
+        <div class="review-text">"ERP system ne mera inventory management complete kar diya. Pehle bahut loss hota tha stock kharab hone se. Ab sab digital hai. Made in India product — proud to use it. Highly recommended!"</div>
+        <div class="review-author"><div class="review-avatar">AP</div><div><div class="review-name">Amit Patel</div><div class="review-role">Plastic Factory, Gujarat ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">3 days ago</div></div>
+        <div class="review-text">"Pehle main khud coding karta tha, 2 mahine lag jaate the ek bot banane mein. AutoPilot Hub ne 24 ghante mein sab ready kar diya. Game changer for my business. Sameer bhai ka support outstanding hai!"</div>
+        <div class="review-author"><div class="review-avatar">VJ</div><div><div class="review-name">Vikram Joshi</div><div class="review-role">Tech Startup, Bangalore ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">4 days ago</div></div>
+        <div class="review-text">"Mere restaurant ke liye bot banaya. Ab customer online order karte hain, payment bhi auto hota hai. Staff ki zaroorat kam ho gayi. Best decision ever! Freshtiq Innovations rocks!"</div>
+        <div class="review-author"><div class="review-avatar">SK</div><div><div class="review-name">Sunil Kumar</div><div class="review-role">Restaurant Owner, Pune ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 6 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">6 days ago</div></div>
+        <div class="review-text">"I was skeptical at first but Sameer bhai ne personally demo diya aur sab samjhaya. 24 hours mein website ready! My clients are impressed. Thank you for making technology so simple."</div>
+        <div class="review-author"><div class="review-avatar">AM</div><div><div class="review-name">Anita Mehta</div><div class="review-role">Interior Designer, Jaipur ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 7 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div>
+        <div class="review-text">"ERP system ne mera poora business organize kar diya. Inventory, sales, invoice — sab ek dashboard pe. Pehle kitabon mein hisaab rakhta tha. Now fully digital. Thank you AutoPilot Hub!"</div>
+        <div class="review-author"><div class="review-avatar">MM</div><div><div class="review-name">Mohammad Malik</div><div class="review-role">Wholesale Trader, Kolkata ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 8 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 weeks ago</div></div>
+        <div class="review-text">"Mere coaching centre ke liye bot chahiye tha. Ab parents directly bot se fees pay karte hain, attendance check karte hain. Best investment for my business. 100% recommended!"</div>
+        <div class="review-author"><div class="review-avatar">RG</div><div><div class="review-name">Rahul Gupta</div><div class="review-role">Coaching Centre, Lucknow ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 9 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">3 days ago</div></div>
+        <div class="review-text">"Website bahut professional bana hai. Mujhe coding nahi aati but AutoPilot Hub ne itna simple bana diya ki main khud manage kar leta hoon. Support team hamesha ready rehti hai help karne ke liye."</div>
+        <div class="review-author"><div class="review-avatar">DT</div><div><div class="review-name">Deepak Tiwari</div><div class="review-role">Real Estate Agent, Indore ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 10 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div>
+        <div class="review-text">"Payment gateway integration bahut smooth tha. Ab mere customer UPI, card, wallet — sab se pay kar sakte hain. Auto invoice aata hai. Bahut professional lagta hai. Thank you Sameer bhai!"</div>
+        <div class="review-author"><div class="review-avatar">SN</div><div><div class="review-name">Sonia Narang</div><div class="review-role">Beauty Parlor, Chandigarh ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 11 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">5 days ago</div></div>
+        <div class="review-text">"I run a small clinic. Now patients book appointments via bot, get reminders automatically. No more no-shows! Setup was super easy. Worth every rupee. Freshtiq Innovations is doing great work."</div>
+        <div class="review-author"><div class="review-avatar">DR</div><div><div class="review-name">Dr. Rohan Desai</div><div class="review-role">Clinic, Ahmedabad ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 12 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">2 weeks ago</div></div>
+        <div class="review-text">"Pehle social media pe manually order leta tha. Bahot time lagta tha. Ab bot auto order leta hai, payment bhi collect karta hai. Maine apna time double kar liya. AutoPilot Hub ne meri life badal di!"</div>
+        <div class="review-author"><div class="review-avatar">AK</div><div><div class="review-name">Arun Kumar</div><div class="review-role">Bakery Owner, Nagpur ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 13 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">4 days ago</div></div>
+        <div class="review-text">"Mere construction business ke liye custom ERP banaya. Ab material tracking, labour management, invoice — sab ek jagah. Pehle 3 log kaam karte the ab 1 mein kaam ho jata hai. Game changer!"</div>
+        <div class="review-author"><div class="review-avatar">SV</div><div><div class="review-name">Suresh Verma</div><div class="review-role">Construction Contractor, Patna ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <!-- Review 14 -->
+      <div class="review-card">
+        <div class="review-header"><div class="review-stars">★★★★★</div><div class="review-date">1 week ago</div></div>
+        <div class="review-text">"I was using ChatGPT for everything but gol gol ghumata tha. AutoPilot Hub ne 24 ghante mein asli kaam kar diya. Bot, website, app — sab ek saath. Bahut accha hai yaar. Customer support bhi top class!"</div>
+        <div class="review-author"><div class="review-avatar">MN</div><div><div class="review-name">Manish Nagar</div><div class="review-role">E-commerce Seller, Surat ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Company Section -->
+<section class="section company-section" id="company">
+  <div class="container">
+    <div class="section-tag" data-lang-key="company_tag"></div>
+    <h2>🏢 <span data-lang-key="company_title"></span></h2>
+    <div class="company-grid">
+      <div class="company-info">
+        <h3 data-lang-key="company_h"></h3>
+        <p data-lang-key="company_p1"></p>
+        <p data-lang-key="company_p2"></p>
+
+        <!-- Legal Identity -->
+        <div class="company-subsection">
+          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">📋 Legal Identity</h4>
+          <ul class="company-details">
+            <li><strong>CIN:</strong> U47912UP2025OPC236875</li>
+            <li><strong>GSTIN:</strong> 09AAGCF7185A1ZL</li>
+            <li><strong>PAN:</strong> AAGCF7185A</li>
+            <li><strong>Legal Name:</strong> Freshtiq Innovations (OPC) Private Limited</li>
+            <li><strong>Type:</strong> One Person Company (OPC)</li>
+            <li><strong>Registered:</strong> 27-Nov-2025 | Govt of India</li>
+          </ul>
+        </div>
+
+        <!-- Registered Address -->
+        <div class="company-subsection">
+          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">📍 Registered Address</h4>
+          <ul class="company-details">
+            <li>Mohammadpur, Nizamabad,</li>
+            <li>Azamgarh, Uttar Pradesh – 276206</li>
+            <li>India 🇮🇳</li>
+          </ul>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="company-subsection">
+          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">💳 Payment Details</h4>
+          <ul class="company-details">
+            <li><strong>UPI ID:</strong> 7379131322@kotak811</li>
+            <li><strong>UPI Name:</strong> Sameer Ahmad</li>
+            <li><strong>Bank:</strong> Kotak Mahindra Bank</li>
+            <li style="margin-top:10px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.08);"><strong style="color:#fff;">🏦 Current Account (SBI)</strong></li>
+            <li><strong>Account Name:</strong> FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</li>
+            <li><strong>Account No:</strong> 44724335472</li>
+            <li><strong>IFSC:</strong> SBIN0013157</li>
+            <li><strong>Branch:</strong> Mohammadpur, Azamgarh</li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="company-subsection">
+          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">🚀 Our Products</h4>
+          <div class="products-tags">
+            <span class="product-tag">Sameer AI Manager</span>
+            <span class="product-tag">AutoPilot Hub</span>
+            <span class="product-tag">Freshtiq AI Travel Pro</span>
+            <span class="product-tag">Freshtiq Alpha Trader AI</span>
+            <span class="product-tag">EL SALAMA AI ERP PRO</span>
+            <span class="product-tag">OpenClaw Operator</span>
+            <span class="product-tag">AI Automation Bot Factory</span>
+          </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="company-subsection">
+          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">🎯 Mission & Vision</h4>
+          <ul class="company-details">
+            <li><strong>Mission:</strong> Build world-class AI software & automation systems that help businesses automate and scale globally.</li>
+            <li><strong>Vision:</strong> Become a globally recognized AI Automation company serving India, GCC, Europe & North America.</li>
+          </ul>
+        </div>
+
+        <div class="badges-strip">
+          <div class="badge-item">✅ Govt Registered Company</div>
+          <div class="badge-item">✅ GST: 09AAGCF7185A1ZL</div>
+          <div class="badge-item">✅ CIN: U47912UP2025OPC236875</div>
+          <div class="badge-item">✅ UPI / Card / Bank</div>
+          <div class="badge-item">✅ Lifetime Support</div>
+        </div>
+      </div>
+      <div class="company-badge">
+        <div class="reg-icon">🏢</div>
+        <h4>⚡ <span data-lang-key="company_badge_name"></span></h4>
+        <div class="sub" data-lang-key="company_sub"></div>
+        <div class="tagline" data-lang-key="company_tagline"></div>
+        <div style="margin-top:20px;text-align:left;padding:10px;background:rgba(255,255,255,0.03);border-radius:10px;">
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:4px;">📋 CIN: U47912UP2025OPC236875</p>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:4px;">🧾 GST: 09AAGCF7185A1ZL</p>
+          <p style="font-size:0.8rem;color:var(--text-muted);">📞 +91 8381848389</p>
+        </div>
+        <br>
+        <a href="https://wa.me/918381848389" class="btn-primary" data-lang-key="company_cta"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-tag" data-lang-key="contact_tag"></div>
+    <h2>📞 <span data-lang-key="contact_title"></span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 data-lang-key="contact_h"></h3>
+        <p data-lang-key="contact_email"> <a href="mailto:freshtiqinnovations@gmail.com">freshtiqinnovations@gmail.com</a></p>
+        <p data-lang-key="contact_whatsapp"> <a href="https://wa.me/918381848389">+91 8381848389</a></p>
+        <p data-lang-key="contact_hours"></p>
+        <p data-lang-key="contact_response"></p>
+        <p class="contact-tagline" data-lang-key="contact_tagline"></p>
+      </div>
+      <div class="contact-cta">
+        <p style="color:var(--text-muted);text-align:center;margin-bottom:10px;" data-lang-key="contact_cta_text"></p>
+        <a href="https://wa.me/918381848389" class="btn-primary" style="font-size:1.2rem;padding:18px 45px;" data-lang-key="contact_cta_btn"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Float -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/918381848389" target="_blank" aria-label="WhatsApp">💬</a>
+  <div class="whatsapp-tooltip" data-lang-key="float_tooltip"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-line"></div>
+  <p>&copy; 2026 <strong>Freshtiq Innovations OPC Private Limited</strong>. <span data-lang-key="footer_copy"></span></p>
+  <p data-lang-key="footer_made"></p>
+  <div class="footer-links">
+    <a href="https://wa.me/918381848389">WhatsApp</a>
+    <a href="mailto:freshtiqinnovations@gmail.com">Email</a>
+    <a href="#services" data-lang-key="nav_services"></a>
+    <a href="#pricing" data-lang-key="nav_pricing"></a>
+    <a href="#contact" data-lang-key="nav_contact"></a>
+  </div>
+  <p style="margin-top:10px;font-size:0.8rem;opacity:0.5;" data-lang-key="footer_tagline"></p>
+</footer>
+
+<!-- Galaxy Background Script -->
+<script>
+(function() {
+  const canvas = document.getElementById('galaxy-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [], shootingStars = [], width, height;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Create stars
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.5 + 0.3,
+      a: Math.random() * 0.8 + 0.2,
+      speed: Math.random() * 0.02 + 0.005,
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+
+  function createShootingStar() {
+    shootingStars.push({
+      x: Math.random() * width * 0.8 + width * 0.1,
+      y: Math.random() * height * 0.3,
+      len: Math.random() * 80 + 40,
+      speed: Math.random() * 6 + 4,
+      a: Math.random() * 0.6 + 0.4,
+      life: 0,
+      maxLife: 40
+    });
+  }
+  setInterval(createShootingStar, 4000);
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw stars
+    stars.forEach(s => {
+      s.a = 0.3 + Math.sin(Date.now() * s.speed + s.phase) * 0.3;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+      ctx.fill();
+      
+      // Glow effect for bigger stars
+      if (s.r > 1) {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,229,255,${s.a * 0.1})`;
+        ctx.fill();
+      }
+    });
+
+    // Draw shooting stars
+    shootingStars.forEach((ss, i) => {
+      ss.life++;
+      const progress = ss.life / ss.maxLife;
+      const x = ss.x - progress * ss.speed * 15;
+      const y = ss.y + progress * ss.speed * 10;
+      
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x - ss.len * 0.5, y + ss.len * 0.3);
+      const gradient = ctx.createLinearGradient(x, y, x - ss.len * 0.5, y + ss.len * 0.3);
+      gradient.addColorStop(0, `rgba(0,229,255,${ss.a * (1 - progress)})`);
+      gradient.addColorStop(1, 'rgba(0,229,255,0)');
+      ctx.strokeStyle = gradient;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      if (ss.life >= ss.maxLife) shootingStars.splice(i, 1);
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+<script src="translations.js"></script>
+</body>
+</html>
