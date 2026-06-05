@@ -1758,18 +1758,35 @@ footer {
 
 
 /* Founder photo - clean circle crop */
-.founder-photo {
+
+@media (max-width: 600px) {
+  
+
+
+/* Founder photo - circular frame (full image visible, no zoom crop) */
+.founder-photo-frame {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center center;
+  overflow: hidden;
   border: 5px solid #2563eb;
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
-  background: #fff;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.founder-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 0;
+  transform: none;
 }
 @media (max-width: 600px) {
-  .founder-photo {
+  .founder-photo-frame {
     width: 150px;
     height: 150px;
   }
