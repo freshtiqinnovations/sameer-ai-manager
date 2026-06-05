@@ -1714,17 +1714,7 @@ footer {
   .portfolio-grid { grid-template-columns: 1fr; }
 }
 
-/* Founder photo */
-/* Founder photo - improved crop */
-.founder-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  border: 4px solid #2563eb;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
-}
+
 @media (max-width: 600px) {
   .founder-photo {
     width: 150px;
@@ -1754,5 +1744,24 @@ footer {
 @media (max-width: 600px) {
   .pricing-card.active-highlight {
     transform: none !important;
+  }
+}
+
+
+/* Founder photo - GitHub profile style */
+.founder-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border: 4px solid #2563eb;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+  transform: none;
+}
+@media (max-width: 600px) {
+  .founder-photo {
+    width: 150px;
+    height: 150px;
   }
 }

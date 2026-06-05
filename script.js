@@ -505,3 +505,50 @@ async function submitLeadToAPI(project, budget, timeline, name, phone) {
     return id;
   }
 }
+
+
+/* ===== PRICING CAROUSEL — Auto Slide ===== */
+function startPricingCarousel() {
+  const cards = document.querySelectorAll('.pricing-card');
+  const dots = document.querySelectorAll('#pricingDots .dot');
+  if (!cards.length) return;
+  
+  let current = 0;
+  cards.forEach(c => c.classList.remove('active-highlight'));
+  cards[0]?.classList.add('active-highlight');
+  if (dots.length) {
+    dots.forEach((d,i) => d.style.background = i === 0 ? '#1a73e8' : '#d1d5db');
+  }
+  
+  let interval = setInterval(() => {
+    cards.forEach(c => c.classList.remove('active-highlight'));
+    current = (current + 1) % cards.length;
+    cards[current].classList.add('active-highlight');
+    // Update dots
+    if (dots.length) {
+      dots.forEach((d,i) => d.style.background = i === current ? '#1a73e8' : '#d1d5db');
+    }
+  }, 2500);
+  
+  // Pause on hover
+  cards.forEach(c => {
+    c.addEventListener('mouseenter', () => clearInterval(interval));
+    c.addEventListener('mouseleave', () => {
+      interval = setInterval(() => {
+        cards.forEach(c2 => c2.classList.remove('active-highlight'));
+        current = (current + 1) % cards.length;
+        cards[current].classList.add('active-highlight');
+        if (dots.length) {
+          dots.forEach((d,i) => d.style.background = i === current ? '#1a73e8' : '#d1d5db');
+        }
+      }, 2500);
+    });
+  });
+}
+
+// Start on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startPricingCarousel);
+} else {
+  startPricingCarousel();
+}

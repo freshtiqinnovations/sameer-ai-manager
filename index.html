@@ -828,6 +828,13 @@
       </div>
     </div>
   </section>
+      <!-- Pricing carousel dots indicator -->
+      <div id="pricingDots" style="display:flex;justify-content:center;gap:10px;margin-top:20px;">
+        <span data-idx="0" class="dot" style="width:12px;height:12px;border-radius:50%;background:#1a73e8;transition:all .3s;"></span>
+        <span data-idx="1" class="dot" style="width:12px;height:12px;border-radius:50%;background:#d1d5db;transition:all .3s;"></span>
+        <span data-idx="2" class="dot" style="width:12px;height:12px;border-radius:50%;background:#d1d5db;transition:all .3s;"></span>
+      </div>
+
 
 
 
@@ -1573,40 +1580,7 @@
 
 
 <script>
-/* ===== PRICING ROTATE HIGHLIGHT ===== */
-(function() {
-  let pricingInterval;
-  let currentIdx = 0;
-  const pricingCards = document.querySelectorAll('.pricing-card');
-  
-  function rotatePricing() {
-    if (!pricingCards.length) return;
-    pricingCards.forEach(c => c.classList.remove('active-highlight'));
-    currentIdx = (currentIdx + 1) % pricingCards.length;
-    pricingCards[currentIdx].classList.add('active-highlight');
-  }
-  
-  function startPricingRotate() {
-    pricingCards.forEach(c => c.classList.remove('active-highlight'));
-    currentIdx = 0;
-    pricingCards[0]?.classList.add('active-highlight');
-    pricingInterval = setInterval(rotatePricing, 2500);
-  }
-  
-  function stopPricingRotate() {
-    clearInterval(pricingInterval);
-  }
-  
-  // Start rotation
-  if (pricingCards.length) {
-    startPricingRotate();
-    pricingCards.forEach(c => {
-      c.addEventListener('mouseenter', stopPricingRotate);
-      c.addEventListener('mouseleave', startPricingRotate);
-    });
-  }
-})();
-</script>
+
 
 </body>
 </html>
