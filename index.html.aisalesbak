@@ -990,64 +990,7 @@
         </div>
       </div>
     </div>
-  
-  <!-- AI Sales Assistant -->
-  <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:40px;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">🤖 AI Business Consultant</span>
-        <h2 style="font-size:1.8rem;color:#1a1a2e;margin-top:10px;">Talk to Freshtiq <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI Business Consultant</span></h2>
-        <p style="color:#4a4a6a;max-width:600px;margin:10px auto 0;">Share your idea and get package suggestion, estimated timeline, and next step. We build websites, bots, apps, ERP, CRM, and AI automation.</p>
-      </div>
-
-      <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;padding:30px;box-shadow:0 4px 25px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <input type="text" id="salesName" placeholder="Your Name" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
-          <input type="tel" id="salesPhone" placeholder="WhatsApp Number" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
-          
-          <select id="salesProject" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
-            <option value="">Select Project Type</option>
-            <option value="website">Website</option>
-            <option value="app">Mobile App</option>
-            <option value="bot">Telegram Bot</option>
-            <option value="erp">ERP</option>
-            <option value="crm">CRM</option>
-            <option value="travel">Travel Portal</option>
-            <option value="ai">AI Automation</option>
-            <option value="other">Other</option>
-          </select>
-
-          <select id="salesBudget" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
-            <option value="">Select Budget</option>
-            <option value="999-3999">₹999 – ₹3,999</option>
-            <option value="4000-12999">₹4,000 – ₹12,999</option>
-            <option value="13000-50000">₹13,000 – ₹50,000</option>
-            <option value="50000+">₹50,000+</option>
-          </select>
-
-          <select id="salesTimeline" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
-            <option value="">Select Timeline</option>
-            <option value="24h">Urgent 24h</option>
-            <option value="3-7d">3–7 Days</option>
-            <option value="7-15d">7–15 Days</option>
-            <option value="15d+">15+ Days</option>
-          </select>
-
-          <textarea id="salesIdea" placeholder="Describe your idea / project requirements..." style="grid-column:span 2;padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;min-height:90px;resize:vertical;"></textarea>
-        </div>
-
-        <button onclick="handleSalesConsult()" style="margin-top:16px;padding:15px 32px;background:var(--gradient);color:white;border:none;border-radius:10px;font-weight:600;cursor:pointer;width:100%;font-size:1rem;">🚀 Get AI Suggestion</button>
-        
-        <div id="salesResult" style="margin-top:20px;display:none;"></div>
-      </div>
-
-      <div style="text-align:center;margin-top:20px;font-size:0.78rem;color:#7a7a9a;">
-        FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED &bull; +91 8381848389 &bull; @AutoPilotHubBot
-      </div>
-    </div>
-  </section>
-
-</footer>
+  </footer>
 
   <!-- ============ WHATSAPP FLOAT ============ -->
   <a href="https://wa.me/918381848389" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">&#128172;</a>
