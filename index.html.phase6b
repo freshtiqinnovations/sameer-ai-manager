@@ -16,104 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a73e8'/%3E%3Cstop offset='100%25' style='stop-color:%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Ctext x='18' y='14' font-size='12' text-anchor='middle' fill='white' font-weight='800'%3E⚡%3C/text%3E%3Ctext x='18' y='28' font-size='8' text-anchor='middle' fill='white' font-weight='700'%3EAI%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css?v=2026060521">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Freshtiq Automation",
-    "alternateName": "Freshtiq Innovations (OPC) Private Limited",
-    "url": "https://freshtiqautomation.in",
-    "logo": "https://freshtiqinnovations.github.io/sameer-ai-manager/favicon.svg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-8381848389",
-      "contactType": "sales",
-      "availableLanguage": ["English", "Hindi"]
-    },
-    "sameAs": [
-      "https://wa.me/918381848389",
-      "https://t.me/AutoPilotHubBot",
-      "https://github.com/freshtiqinnovations"
-    ],
-    "foundingDate": "2025",
-    "foundingLocation": "Azamgarh, Uttar Pradesh, India",
-    "email": "freshtiqinnovationspvt@gmail.com",
-    "vatID": "09AAGCF7185A1ZL",
-    "taxID": "AAGCF7185",
-    "legalName": "FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Freshtiq Automation",
-    "image": "https://avatars.githubusercontent.com/u/188213401?v=4",
-    "url": "https://freshtiqautomation.in",
-    "telephone": "+91-8381848389",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Azamgarh",
-      "addressRegion": "Uttar Pradesh",
-      "addressCountry": "IN"
-    },
-    "priceRange": "₹1,999 - ₹1,00,000+",
-    "openingHours": "Mo-Su 10:00-22:00",
-    "areaServed": ["IN", "AE", "SA", "QA"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Sameer Ahmad",
-    "givenName": "Sameer",
-    "familyName": "Ahmad",
-    "jobTitle": "Founder & CEO",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED"
-    },
-    "url": "https://freshtiqautomation.in",
-    "image": "https://avatars.githubusercontent.com/u/188213401?v=4",
-    "sameAs": [
-      "https://wa.me/918381848389",
-      "https://t.me/AutoPilotHubBot",
-      "https://github.com/freshtiqinnovations"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://freshtiqautomation.in"},
-      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://freshtiqautomation.in/services.html"},
-      {"@type": "ListItem", "position": 3, "name": "Products", "item": "https://freshtiqautomation.in/products.html"},
-      {"@type": "ListItem", "position": 4, "name": "About", "item": "https://freshtiqautomation.in/about.html"},
-      {"@type": "ListItem", "position": 5, "name": "Contact", "item": "https://freshtiqautomation.in/contact.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type": "Question", "name": "What services does Freshtiq Automation offer?", "acceptedAnswer": {"@type": "Answer", "text": "We offer AI chatbot development, website development, mobile apps, ERP/CRM systems, Telegram/WhatsApp automation bots, and custom AI agent development."}},
-      {"@type": "Question", "name": "What is the cost of an AI chatbot?", "acceptedAnswer": {"@type": "Answer", "text": "AI chatbot packages start from ₹1,999 for basic Telegram/WhatsApp bots. Advanced AI-powered bots with GPT integration start from ₹4,999."}},
-      {"@type": "Question", "name": "Does Freshtiq Automation offer ERP development?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We build full ERP systems with inventory, sales, HR, accounting, WhatsApp reports, and admin dashboards. Packages start from ₹19,999."}},
-      {"@type": "Question", "name": "What technologies does Freshtiq Automation use?", "acceptedAnswer": {"@type": "Answer", "text": "We use Python, Node.js, React, Flutter, PostgreSQL, OpenAI/GPT, Telegram API, WhatsApp Business API, and custom protocols for enterprise solutions."}},
-      {"@type": "Question", "name": "How can I start a project with Freshtiq Automation?", "acceptedAnswer": {"@type": "Answer", "text": "Contact us on WhatsApp at +91 8381848389 or Telegram at @AutoPilotHubBot. Share your idea, get a free quote, and we start within 24 hours."}},
-      {"@type": "Question", "name": "Is Freshtiq Automation a registered company?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Freshtiq Innovations (OPC) Private Limited is registered under CIN U47912UP2025OPC236875 with GST: 09AAGCF7185A1ZL and PAN: AAGCF7185."}},
-      {"@type": "Question", "name": "Do you offer payment plans or EMI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer 50%-50% payment plans for most projects. Half payment at start, half on delivery. Enterprise projects may have milestone-based payments."}},
-      {"@type": "Question", "name": "What is the delivery time for a website?", "acceptedAnswer": {"@type": "Answer", "text": "Standard websites are delivered in 3-5 days. E-commerce and complex sites take 7-14 days. Enterprise projects are delivered in 15-30 days."}},
-      {"@type": "Question", "name": "Do you provide after-sales support?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We provide 7 days free support post-delivery. Extended maintenance and support packages are available on a monthly basis."}},
-      {"@type": "Question", "name": "Can you integrate WhatsApp with my existing system?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. We integrate WhatsApp Business API with existing websites, ERP systems, CRMs, and custom platforms. Real-time notifications, order updates, and lead alerts."}}
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -186,8 +88,8 @@
     <div class="container" style="max-width:800px;margin:0 auto;">
       <div style="display:flex;align-items:center;gap:30px;flex-wrap:wrap;">
         <div style="flex-shrink:0;">
-          <div style="width:130px;height:130px;border-radius:50%;overflow:hidden;border:3px solid var(--gradient);margin:0 auto;">
-            <img src="https://avatars.githubusercontent.com/u/188213401?v=4" alt="Sameer Ahmad" style="width:100%;height:100%;object-fit:cover;">
+          <div style="width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#7c3aed);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <span style="font-size:3rem;color:white;font-weight:800;">SA</span>
           </div>
         </div>
         <div style="flex:1;min-width:280px;">
@@ -204,13 +106,7 @@
             <span style="font-size:0.75rem;background:#f5f0ff;color:#7c3aed;padding:5px 10px;border-radius:6px;">🚀 Founder of AutoPilot Hub</span>
             <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">🔗 Founder of OpenClaw Operator</span>
           </div>
-                    <div style="display:flex;gap:10px;margin-bottom:14px;">
-            <a href="https://wa.me/918381848389" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#25D366;color:white;text-decoration:none;font-size:1rem;">💬</a>
-            <a href="https://t.me/AutoPilotHubBot" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0088cc;color:white;text-decoration:none;font-size:1rem;">📱</a>
-            <a href="https://github.com/freshtiqinnovations" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#333;color:white;text-decoration:none;font-size:1rem;">🐙</a>
-            <a href="mailto:freshtiqinnovationspvt@gmail.com" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#ea4335;color:white;text-decoration:none;font-size:1rem;">✉️</a>
-          </div>
-<a href="https://wa.me/918381848389" target="_blank" style="display:inline-block;padding:10px 22px;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Chat with Founder</a>
+          <a href="https://wa.me/918381848389" target="_blank" style="display:inline-block;padding:10px 22px;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Chat with Founder</a>
         </div>
       </div>
     </div>
@@ -824,91 +720,7 @@
   <section class="section section-bg-light" id="portfolio">
     <div class="container">
       <div class="section-header fade-in">
-        
-  <!-- Featured Projects -->
-  <section class="section" style="background:linear-gradient(135deg,#f8f9fc,#f0f4ff);padding:60px 0;">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:30px;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#1a73e8;">🚀 Featured Projects</span>
-        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">What We've <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built</span></h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;">
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a73e8,#4a9eff);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🤖</span></div>
-          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">Sameer AI Manager</h3>
-          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI admin bot with lead pipeline, payments, QR, analytics</p>
-          <a href="https://github.com/freshtiqinnovations/sameer-ai-manager" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
-        </div>
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">⚡</span></div>
-          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">AutoPilot Hub</h3>
-          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">End-to-end project factory — lead to delivery automation</p>
-          <a href="https://github.com/freshtiqinnovations/autopilot-hub" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
-        </div>
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0891b2,#06b6d4);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🔗</span></div>
-          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">OpenClaw Operator</h3>
-          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI agent orchestration and automation platform</p>
-          <a href="https://github.com/freshtiqinnovations/openclaw-operator" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
-        </div>
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🏭</span></div>
-          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">EL SALAMA AI ERP PRO</h3>
-          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">Full ERP with sales, inventory, HR, accounting modules</p>
-          <a href="https://github.com/freshtiqinnovations/el-salama-erp" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
-        </div>
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#d97706,#f59e0b);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">✈️</span></div>
-          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">Freshtiq AI Travel Pro</h3>
-          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI-powered travel booking and itinerary platform</p>
-          <a href="https://github.com/freshtiqinnovations/ai-travel-pro" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Freshtiq vs Freelancers -->
-  <section class="section" style="background:white;padding:60px 0;">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:30px;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">⚡ Why Freshtiq vs Freelancers</span>
-        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">Freshtiq Automation <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">vs</span> Freelancers</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;">
-        <div style="padding:20px;background:linear-gradient(135deg,#f0f4ff,#f5f0ff);">
-          <h3 style="font-size:0.9rem;color:#1a73e8;margin:0 0 10px;">✅ Freshtiq Automation</h3>
-          <ul style="list-style:none;padding:0;margin:0;font-size:0.78rem;color:#4a4a6a;line-height:1.8;">
-            <li>✅ Registered Company (OPC)</li>
-            <li>✅ GST Registered — 09AAGCF7185A1ZL</li>
-            <li>✅ CIN: U47912UP2025OPC236875</li>
-            <li>✅ Multi-service team (Web, Bot, ERP, App)</li>
-            <li>✅ Post-delivery support included</li>
-            <li>✅ Written contract &amp; agreement</li>
-            <li>✅ Milestone-based payments</li>
-            <li>✅ Hosting &amp; domain assistance</li>
-          </ul>
-        </div>
-        <div style="padding:20px;background:#fef2f2;">
-          <h3 style="font-size:0.9rem;color:#dc2626;margin:0 0 10px;">❌ Typical Freelancer</h3>
-          <ul style="list-style:none;padding:0;margin:0;font-size:0.78rem;color:#4a4a6a;line-height:1.8;">
-            <li>❌ No legal registration</li>
-            <li>❌ No GST invoice</li>
-            <li>❌ No company identity</li>
-            <li>❌ Single person — limited skills</li>
-            <li>❌ No support after delivery</li>
-            <li>❌ No formal agreement</li>
-            <li>❌ Full payment upfront often</li>
-            <li>❌ No infrastructure support</li>
-          </ul>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:20px;">
-        <a href="https://wa.me/918381848389?text=Hi!%20I%20want%20to%20start%20my%20project%20with%20Freshtiq%20Automation" target="_blank" style="display:inline-block;padding:12px 28px;background:var(--gradient);color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">🚀 Start With Freshtiq</a>
-      </div>
-    </div>
-  </section>
-
-<span class="section-label">Portfolio</span>
+        <span class="section-label">Portfolio</span>
         <h2>Our Products in Action</h2>
         <p>Real solutions built by Freshtiq Automation — each one solving real business problems.</p>
       </div>
@@ -1550,15 +1362,5 @@
   </div>
 
   <script src="script.js?v=2026060521"></script>
-  <!-- Floating OpenClaw AI Button -->
-  <a href="#openclaw-section" onclick="document.getElementById('salesProject').focus() || window.scrollTo(0, document.getElementById('salesProject')?.offsetTop - 80 || 0);return false;" style="position:fixed;bottom:80px;right:16px;z-index:9999;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#7c3aed);color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(26,115,232,0.4);text-decoration:none;font-size:1.3rem;animation:pulse 2s infinite;" title="Talk to OpenClaw AI">🤖</a>
-  <style>
-  @keyframes pulse {
-    0% { box-shadow: 0 4px 15px rgba(26,115,232,0.4); }
-    50% { box-shadow: 0 4px 25px rgba(124,58,237,0.6); }
-    100% { box-shadow: 0 4px 15px rgba(26,115,232,0.4); }
-  }
-  </style>
-
 </body>
 </html>

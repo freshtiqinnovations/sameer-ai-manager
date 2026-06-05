@@ -9,16 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=2026060521">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://freshtiqautomation.in"},
-      {"@type": "ListItem", "position": 2, "name": "About", "item": "https://freshtiqautomation.in/about.html"}
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -78,7 +68,7 @@
         <h2>Meet Our Founder</h2>
       </div>
       <div class="founder-card fade-in">
-        <div class="founder-avatar" style="overflow:hidden;border:3px solid #7c3aed;"><img src="https://avatars.githubusercontent.com/u/188213401?v=4" alt="Sameer Ahmad" style="width:100%;height:100%;object-fit:cover;">
+        <div class="founder-avatar">SA</div>
         <div class="founder-info">
           <h3>Sameer Ahmad</h3>
           <div class="founder-role">Founder &amp; CEO</div>
@@ -95,12 +85,6 @@
             <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">⚡ Founder of Sameer AI Manager</span>
             <span style="font-size:0.75rem;background:#f5f0ff;color:#7c3aed;padding:5px 10px;border-radius:6px;">🚀 Founder of AutoPilot Hub</span>
             <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">🔗 Founder of OpenClaw Operator</span>
-          </div>
-          <div style="display:flex;gap:10px;margin:16px 0;">
-            <a href="https://wa.me/918381848389" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#25D366;color:white;text-decoration:none;font-size:1rem;">💬</a>
-            <a href="https://t.me/AutoPilotHubBot" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0088cc;color:white;text-decoration:none;font-size:1rem;">📱</a>
-            <a href="https://github.com/freshtiqinnovations" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#333;color:white;text-decoration:none;font-size:1rem;">🐙</a>
-            <a href="mailto:freshtiqinnovationspvt@gmail.com" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#ea4335;color:white;text-decoration:none;font-size:1rem;">✉️</a>
           </div>
 href="https://wa.me/918381848389?text=Hi%20Sameer!%20I%20want%20to%20discuss%20a%20project" target="_blank" class="btn btn-primary" style="margin-top:16px;display:inline-block;">💬 Chat with Sameer on WhatsApp</a>
         </div>
