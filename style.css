@@ -1713,3 +1713,14 @@ footer {
   .page-header { padding: 100px 0 40px; }
   .portfolio-grid { grid-template-columns: 1fr; }
 }
+
+/* Founder photo */
+.founder-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 6px solid #2563eb;
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.25);
+}
