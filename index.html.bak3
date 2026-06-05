@@ -35,8 +35,8 @@
       <li><a href="#reviews" data-lang-key="nav_reviews"></a></li>
       <li><a href="#process" data-lang-key="nav_process"></a></li>
       <li><a href="#company" data-lang-key="nav_company"></a></li>
-      <li><a href="https://t.me/SameerOpenClawOperatorBot">🤖 Telegram Bot</a></li>
-      <li><a href="#contact" data-lang-key="nav_contact"></a></li>
+      <li><a href="https://t.me/SameerOpenClawOperatorBot">🤖 Telegram Bot</a>
+    <a href="#contact" data-lang-key="nav_contact"></a></li>
       <li class="lang-switcher">
         <button class="lang-btn active" data-lang="hi" onclick="switchLang('hi')">हि</button>
         <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
@@ -77,77 +77,6 @@
     <div class="trust-item"><span class="icon">💳</span> UPI / Card / Bank</div>
   </div>
 </div>
-
-
-<!-- Customer Requirement Form -->
-<section class="section" id="requirement">
-  <div class="container">
-    <div class="section-tag" data-lang-key="req_tag"></div>
-    <h2>📝 <span data-lang-key="req_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="req_sub"></h3>
-    <div class="requirement-box">
-      <p data-lang-key="req_intro" style="color:var(--text-muted);text-align:center;margin-bottom:20px;"></p>
-      <div class="req-form">
-        <div class="req-field">
-          <label data-lang-key="req_name_label"></label>
-          <input type="text" id="req-name" placeholder="e.g. Rajesh Sharma" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_phone_label"></label>
-          <input type="tel" id="req-phone" placeholder="e.g. 9876543210" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_business_label"></label>
-          <input type="text" id="req-business" placeholder="e.g. Kirana Store" class="req-input">
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_service_label"></label>
-          <select id="req-service" class="req-input">
-            <option value="">-- Select --</option>
-            <option value="AI Chatbot">🤖 AI Chatbot (₹999)</option>
-            <option value="WhatsApp Bot">📱 WhatsApp Bot (₹1,499)</option>
-            <option value="Telegram Bot">📨 Telegram Bot (₹999)</option>
-            <option value="Website">🌐 Business Website (₹1,999)</option>
-            <option value="E-commerce">🛒 E-commerce Website (₹3,999)</option>
-            <option value="Mobile App">📱 Mobile App (₹3,999)</option>
-            <option value="ERP System">🏭 ERP System (₹7,999)</option>
-            <option value="CRM">📊 CRM (₹4,999)</option>
-            <option value="Scraper">🕷️ Scraper Tool (₹2,499)</option>
-            <option value="SEO">📊 SEO (₹3,499)</option>
-            <option value="Content">✍️ Content Writer (₹499)</option>
-            <option value="Lead Generation">📢 Lead Generation (₹1,499)</option>
-            <option value="Custom">🎯 Custom Project</option>
-          </select>
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_details_label"></label>
-          <textarea id="req-details" rows="4" class="req-input" placeholder="e.g. Muje ek bot chahiye jo orders le aur payment collect kare..."></textarea>
-        </div>
-        <div class="req-field">
-          <label data-lang-key="req_budget_label"></label>
-          <input type="text" id="req-budget" placeholder="e.g. ₹2,000 - ₹5,000" class="req-input">
-        </div>
-        <div style="text-align:center;margin-top:10px;">
-          <a href="https://wa.me/918381848389" class="btn-primary" onclick="sendRequirement()" data-lang-key="req_submit_btn"></a>
-          <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);" data-lang-key="req_whatsapp_note"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<script>
-function sendRequirement() {
-  const name = document.getElementById('req-name')?.value || '';
-  const phone = document.getElementById('req-phone')?.value || '';
-  const business = document.getElementById('req-business')?.value || '';
-  const service = document.getElementById('req-service')?.value || '';
-  const details = document.getElementById('req-details')?.value || '';
-  const budget = document.getElementById('req-budget')?.value || '';
-  const msg = `*New Requirement from Freshtiq Automation Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Business:* ${encodeURIComponent(business)}%0A*Service:* ${encodeURIComponent(service)}%0A*Details:* ${encodeURIComponent(details)}%0A*Budget:* ${encodeURIComponent(budget)}%0A%0A_Please send quotation and demo._`;
-  window.open(`https://wa.me/918381848389?text=${msg}`, '_blank');
-}
-</script>
-
 
 <!-- Services Catalog -->
 <section class="section" id="services">
@@ -592,83 +521,6 @@ function sendRequirement() {
   </div>
 </section>
 
-
-<!-- Team Section -->
-<section class="section" id="team">
-  <div class="container">
-    <div class="section-tag" data-lang-key="team_tag"></div>
-    <h2>👥 <span data-lang-key="team_title"></span></h2>
-    <h3 class="section-sub" data-lang-key="team_sub"></h3>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">🛠️</div>
-        <h4 data-lang-key="team1_name"></h4>
-        <div class="team-role" data-lang-key="team1_role"></div>
-        <div class="team-desc" data-lang-key="team1_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🤖</div>
-        <h4 data-lang-key="team2_name"></h4>
-        <div class="team-role" data-lang-key="team2_role"></div>
-        <div class="team-desc" data-lang-key="team2_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🌐</div>
-        <h4 data-lang-key="team3_name"></h4>
-        <div class="team-role" data-lang-key="team3_role"></div>
-        <div class="team-desc" data-lang-key="team3_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📱</div>
-        <h4 data-lang-key="team4_name"></h4>
-        <div class="team-role" data-lang-key="team4_role"></div>
-        <div class="team-desc" data-lang-key="team4_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🎨</div>
-        <h4 data-lang-key="team5_name"></h4>
-        <div class="team-role" data-lang-key="team5_role"></div>
-        <div class="team-desc" data-lang-key="team5_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📊</div>
-        <h4 data-lang-key="team6_name"></h4>
-        <div class="team-role" data-lang-key="team6_role"></div>
-        <div class="team-desc" data-lang-key="team6_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">📞</div>
-        <h4 data-lang-key="team7_name"></h4>
-        <div class="team-role" data-lang-key="team7_role"></div>
-        <div class="team-desc" data-lang-key="team7_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">⚙️</div>
-        <h4 data-lang-key="team8_name"></h4>
-        <div class="team-role" data-lang-key="team8_role"></div>
-        <div class="team-desc" data-lang-key="team8_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🔒</div>
-        <h4 data-lang-key="team9_name"></h4>
-        <div class="team-role" data-lang-key="team9_role"></div>
-        <div class="team-desc" data-lang-key="team9_desc"></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">💰</div>
-        <h4 data-lang-key="team10_name"></h4>
-        <div class="team-role" data-lang-key="team10_role"></div>
-        <div class="team-desc" data-lang-key="team10_desc"></div>
-      </div>
-    </div>
-    <div class="team-cta" style="text-align:center;margin-top:30px;">
-      <p style="color:var(--text-muted);margin-bottom:15px;">💪 <span data-lang-key="team_cta_text"></span></p>
-      <a href="https://wa.me/918381848389" class="btn-primary">💬 <span data-lang-key="team_cta_btn"></span></a>
-    </div>
-  </div>
-</section>
-
-
 <!-- Company Section -->
 <section class="section company-section" id="company">
   <div class="container">
@@ -698,31 +550,16 @@ function sendRequirement() {
         </div>
         <div class="company-subsection">
           <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">💳 Payment Details</h4>
-          <div class="payment-info-box">
-            <h5 style="color:#ffd700;margin-bottom:10px;">🏢 Company Payment (Business Transactions)</h5>
-            <ul class="company-details">
-              <li><strong style="color:#fff;">🏦 SBI Current Account</strong></li>
-              <li><strong>Account Holder:</strong> FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</li>
-              <li><strong>A/c No:</strong> 44724335472</li>
-              <li><strong>IFSC:</strong> SBIN0013157</li>
-              <li><strong>Branch:</strong> Mohammadpur, Azamgarh, UP</li>
-            </ul>
-            <div style="margin:12px 0;padding:10px;background:rgba(255,215,0,0.06);border-radius:8px;font-size:0.85rem;color:var(--text-muted);">
-              <strong>📌 Note:</strong> <span data-lang-key="payment_bank_note"></span>
-            </div>
-            <h5 style="color:#22d3ee;margin-top:20px;margin-bottom:10px;">📱 UPI Payment (Personal Account)</h5>
-            <ul class="company-details">
-              <li><strong>UPI ID:</strong> 7379131322@kotak811</li>
-              <li><strong>Bank:</strong> Kotak Mahindra Bank</li>
-            </ul>
-            <div style="margin:12px 0;padding:10px;background:rgba(0,229,255,0.06);border-radius:8px;font-size:0.85rem;color:var(--text-muted);">
-              <strong>📌 Note:</strong> <span data-lang-key="payment_upi_note"></span>
-            </div>
-          </div>
-        </div>
-        
           <ul class="company-details">
-            <div class="company-subsection">
+            <li><strong>UPI ID:</strong> 7379131322@kotak811</li>
+            <li><strong>Bank:</strong> Kotak Mahindra Bank</li>
+            <li style="margin-top:10px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.08);"><strong style="color:#fff;">🏦 SBI Current Account</strong></li>
+            <li><strong>Account:</strong> FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</li>
+            <li><strong>A/c No:</strong> 44724335472</li>
+            <li><strong>IFSC:</strong> SBIN0013157 | Branch: Mohammadpur</li>
+          </ul>
+        </div>
+        <div class="company-subsection">
           <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:8px;margin-top:25px;">🚀 Our Products</h4>
           <div class="products-tags">
             <span class="product-tag">Sameer AI Manager</span>
@@ -765,46 +602,6 @@ function sendRequirement() {
     </div>
   </div>
 </section>
-
-
-<!-- Terms & Policies -->
-<section class="section" id="terms" style="background:rgba(10,10,26,0.3);">
-  <div class="container">
-    <div class="section-tag" data-lang-key="terms_tag"></div>
-    <h2>📜 <span data-lang-key="terms_title"></span></h2>
-    <div class="terms-grid">
-      <div class="terms-card">
-        <h3>💰 <span data-lang-key="terms_payment_title"></span></h3>
-        <div data-lang-key="terms_payment_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>🔄 <span data-lang-key="terms_refund_title"></span></h3>
-        <div data-lang-key="terms_refund_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>📋 <span data-lang-key="terms_how_title"></span></h3>
-        <div data-lang-key="terms_how_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>🔒 <span data-lang-key="terms_privacy_title"></span></h3>
-        <div data-lang-key="terms_privacy_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>📞 <span data-lang-key="terms_support_title"></span></h3>
-        <div data-lang-key="terms_support_body"></div>
-      </div>
-      <div class="terms-card">
-        <h3>⚖️ <span data-lang-key="terms_disclaimer_title"></span></h3>
-        <div data-lang-key="terms_disclaimer_body"></div>
-      </div>
-    </div>
-    <div class="terms-notice" style="text-align:center;margin-top:30px;padding:20px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:12px;">
-      <p style="color:#ff6b35;font-weight:700;font-size:1.1rem;">⚠️ <span data-lang-key="terms_important_title"></span></p>
-      <p data-lang-key="terms_important_body" style="color:var(--text-muted);margin-top:8px;"></p>
-    </div>
-  </div>
-</section>
-
 
 <!-- Contact -->
 <section class="section" id="contact">
