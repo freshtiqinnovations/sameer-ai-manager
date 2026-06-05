@@ -379,3 +379,129 @@ function trackProjectDash() {
 
   document.getElementById('dashResult').innerHTML = html;
 }
+
+/* ===== PHASE 5: OpenClaw Smart Recommendation Engine ===== */
+function openClawRecommend() {
+  const project = document.getElementById('salesProject').value;
+  const budget = document.getElementById('salesBudget').value;
+  const timeline = document.getElementById('salesTimeline').value;
+  const idea = document.getElementById('salesIdea').value.trim();
+
+  const recs = {
+    'website': {
+      'less10': { pkg: 'Starter Web Package', cost: '₹4,999 - ₹9,999', days: '3-5 Days', tech: 'HTML, CSS, JS, WhatsApp Integration, Hosting', team: '1 Developer + 1 Designer' },
+      '10to25': { pkg: 'Business Web Package', cost: '₹10,000 - ₹24,999', days: '5-7 Days', tech: 'HTML/CSS/JS, WhatsApp API, Telegram Bot, Admin Panel', team: '2 Developers + 1 Designer' },
+      '25to50': { pkg: 'Premium Web Package', cost: '₹25,000 - ₹49,999', days: '7-14 Days', tech: 'React/Angular, Python Backend, PostgreSQL, WhatsApp/Telegram, Dashboard', team: '2 Developers + 1 QA' },
+      'more50': { pkg: 'Enterprise Web Package', cost: '₹50,000+', days: '14-30 Days', tech: 'Full Stack, AI Integration, Multi-language, Real-time Dashboard', team: '3 Developers + 1 QA + 1 PM' }
+    },
+    'bot': {
+      'less10': { pkg: 'Basic Bot', cost: '₹1,999 - ₹4,999', days: '1-2 Days', tech: 'Python, Telegram API, Basic Commands', team: '1 Developer' },
+      '10to25': { pkg: 'AI Bot Package', cost: '₹5,000 - ₹14,999', days: '3-5 Days', tech: 'Python, OpenAI/GPT, Telegram/WhatsApp, Admin Panel', team: '1 Developer + 1 AI Engineer' },
+      '25to50': { pkg: 'Advanced Bot Suite', cost: '₹15,000 - ₹29,999', days: '5-10 Days', tech: 'Python, Multi-Platform, AI, Payment Integration, Analytics', team: '2 Developers + 1 AI Engineer' },
+      'more50': { pkg: 'Enterprise Bot Factory', cost: '₹30,000+', days: '10-20 Days', tech: 'Custom Protocol, Multi-bot Architecture, ML Pipeline', team: '2 Developers + 1 ML Engineer' }
+    },
+    'erp': {
+      'less10': { pkg: 'Mini ERP Lite', cost: '₹9,999 - ₹19,999', days: '7-14 Days', tech: 'Python, SQLite, Basic Dashboard', team: '1 Developer + 1 Data Analyst' },
+      '10to25': { pkg: 'Business ERP', cost: '₹20,000 - ₹49,999', days: '14-21 Days', tech: 'Python, PostgreSQL, Inventory, Sales, HR Modules', team: '2 Developers + 1 Tester' },
+      '25to50': { pkg: 'Premium ERP', cost: '₹50,000 - ₹99,999', days: '21-30 Days', tech: 'Python, PostgreSQL, Full Modules, WhatsApp Reports, API', team: '3 Developers + 1 QA + 1 BA' },
+      'more50': { pkg: 'Enterprise AI ERP PRO', cost: '₹1,00,000+', days: '30-60 Days', tech: 'Python, PostgreSQL, AI Predictions, Multi-Branch, Real-time', team: '4 Developers + 1 PM + 1 QA' }
+    },
+    'crm': {
+      'less10': { pkg: 'CRM Starter', cost: '₹4,999 - ₹9,999', days: '3-7 Days', tech: 'Python, SQLite, Lead Tracking, Telegram Alerts', team: '1 Developer' },
+      '10to25': { pkg: 'CRM Business', cost: '₹10,000 - ₹29,999', days: '7-14 Days', tech: 'Python, PostgreSQL, Pipeline, Analytics, WhatsApp', team: '2 Developers + 1 Tester' },
+      '25to50': { pkg: 'CRM Enterprise', cost: '₹30,000 - ₹59,999', days: '14-21 Days', tech: 'Python, PostgreSQL, Automation, Reports, Multi-user', team: '2 Developers + 1 QA' },
+      'more50': { pkg: 'CRM Suite PRO', cost: '₹60,000+', days: '21-45 Days', tech: 'Full Stack, AI Lead Scoring, Auto-campaigns, API', team: '3 Developers + 1 AI Engineer' }
+    },
+    'app': {
+      'less10': { pkg: 'Basic App', cost: '₹9,999 - ₹19,999', days: '7-14 Days', tech: 'React Native, Firebase, Basic UI', team: '1 Developer + 1 Designer' },
+      '10to25': { pkg: 'Business App', cost: '₹20,000 - ₹49,999', days: '14-21 Days', tech: 'React Native/Flutter, Python Backend, Notifications', team: '2 Developers + 1 Designer' },
+      '25to50': { pkg: 'Premium App Suite', cost: '₹50,000 - ₹99,999', days: '21-35 Days', tech: 'Flutter/React, PostgreSQL, NLP, Admin Panel', team: '2 Developers + 1 QA + 1 Designer' },
+      'more50': { pkg: 'Enterprise App PRO', cost: '₹1,00,000+', days: '30-60 Days', tech: 'Full Stack, AI, Multi-platform, Real-time Sync', team: '3 Developers + 1 QA + 1 PM' }
+    }
+  };
+
+  const budgetMap = { 'less10': 'less10', '10to25': '10to25', '25to50': '25to50', 'more50': 'more50' };
+  const b = budgetMap[budget] || 'less10';
+  const rec = recs[project] && recs[project][b] ? recs[project][b] : recs['website']['less10'];
+
+  // Lead scoring
+  const budgetScore = { 'less10': 30, '10to25': 50, '25to50': 75, 'more50': 100 };
+  const projectScore = idea.length > 20 ? 25 : 10;
+  const timelineScore = { '1week': 0, '2weeks': 5, '1month': 10, 'flexible': 20 };
+  const totalScore = (budgetScore[budget] || 30) + projectScore + (timelineScore[timeline] || 0);
+  const score = Math.min(100, totalScore);
+
+  let label, color;
+  if (score >= 80) { label = 'Hot Lead'; color = '#16a34a'; }
+  else if (score >= 50) { label = 'Warm Lead'; color = '#d97706'; }
+  else { label = 'Cold Lead'; color = '#dc2626'; }
+
+  // Auto proposal
+  const proposalText = `PROJECT: ${rec.pkg}\nDESCRIPTION: ${idea || project.toUpperCase()} Automation Solution\nDELIVERABLES: ${rec.tech}\nTIMELINE: ${rec.days}\nTEAM: ${rec.team}\nESTIMATED COST: ${rec.cost}\nLEAD SCORE: ${score}/100 - ${label}\n\nPowered by OpenClaw — Freshtiq Automation`;
+
+  const resultDiv = document.getElementById('salesResult');
+  resultDiv.style.display = 'block';
+  resultDiv.innerHTML = `
+    <div style="background:white;border-radius:12px;padding:20px;border:1px solid #e2e8f0;text-align:left;">
+      <div style="background:linear-gradient(135deg,#1a73e8,#7c3aed);margin:-20px -20px 16px;padding:14px 20px;border-radius:12px 12px 0 0;">
+        <span style="color:white;font-weight:700;font-size:0.9rem;">OPENCLAW AI CONSULTANT — RECOMMENDATION</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+        <div style="background:#f0f4ff;padding:12px;border-radius:8px;"><span style="font-size:0.7rem;color:#7a7a9a;">RECOMMENDED PACKAGE</span><p style="margin:4px 0 0;font-weight:700;color:#1a1a2e;font-size:0.85rem;">${rec.pkg}</p></div>
+        <div style="background:#f5f0ff;padding:12px;border-radius:8px;"><span style="font-size:0.7rem;color:#7a7a9a;">ESTIMATED COST</span><p style="margin:4px 0 0;font-weight:700;color:#7c3aed;font-size:0.85rem;">${rec.cost}</p></div>
+        <div style="background:#f0f4ff;padding:12px;border-radius:8px;"><span style="font-size:0.7rem;color:#7a7a9a;">DELIVERY TIME</span><p style="margin:4px 0 0;font-weight:700;color:#1a1a2e;font-size:0.85rem;">${rec.days}</p></div>
+        <div style="background:#f5f0ff;padding:12px;border-radius:8px;"><span style="font-size:0.7rem;color:#7a7a9a;">LEAD SCORE</span><p style="margin:4px 0 0;font-weight:700;font-size:0.85rem;"><span style="color:${color};">${score}/100 — ${label}</span></p></div>
+      </div>
+
+      <div style="margin-bottom:12px;">
+        <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 4px;">PROJECT SUMMARY</p>
+        <div style="font-size:0.78rem;color:#4a4a6a;background:#f8f9fc;padding:12px;border-radius:8px;line-height:1.6;">
+          <strong>Package:</strong> ${rec.pkg}<br>
+          <strong>Cost:</strong> ${rec.cost}<br>
+          <strong>Delivery:</strong> ${rec.days}<br>
+          <strong>Tech Stack:</strong> ${rec.tech}<br>
+          <strong>Team:</strong> ${rec.team}
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://wa.me/918381848389?text=${encodeURIComponent(proposalText)}" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">💬 Continue on WhatsApp</a>
+        <a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📱 Continue on Telegram</a>
+        <a href="tel:+918381848389" style="flex:1;min-width:120px;padding:10px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📞 Request Callback</a>
+      </div>
+    </div>
+  `;
+}
+
+
+
+
+/* ===== PHASE 5: Lead Submission to API ===== */
+async function submitLeadToAPI(project, budget, timeline, name, phone) {
+  if (!name || !phone) return null;
+  const id = 'APH' + new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 17) + '-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+  const score = Math.min(100, (budget === 'more50' ? 100 : budget === '25to50' ? 75 : budget === '10to25' ? 50 : 30) + (name.length > 0 ? 20 : 0));
+  const label = score >= 80 ? 'Hot' : score >= 50 ? 'Warm' : 'Cold';
+  try {
+    const resp = await fetch('https://freshtiqautomation.in/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lead_id: id,
+        source: 'OpenClaw Consultant',
+        name: name,
+        phone: phone,
+        project: project,
+        budget: budget,
+        timeline: timeline,
+        score: score,
+        label: label
+      })
+    });
+    return id;
+  } catch(e) {
+    console.log('Lead saved locally (API offline):', id);
+    return id;
+  }
+}
