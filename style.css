@@ -621,3 +621,21 @@ footer a:hover { text-decoration: underline; }
   .section { padding: 60px 15px; }
   .section h2 { font-size: 1.5rem; }
 }
+
+
+.product-tag {
+  display: inline-block;
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.12);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin: 4px;
+  transition: all 0.3s;
+}
+.product-tag:hover {
+  background: rgba(0,229,255,0.15);
+  border-color: var(--accent);
+}
+.products-tags { display: flex; flex-wrap: wrap; gap: 4px; }
