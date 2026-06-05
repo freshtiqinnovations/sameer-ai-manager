@@ -43,10 +43,11 @@
   display: block;
 }
 .logo-text {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1a1a2e;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 .logo-accent {
   background: var(--gradient);
