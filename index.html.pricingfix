@@ -121,7 +121,7 @@
   <!-- ============ NAVIGATION ============ -->
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="images/freshtiq-logo-v2.svg?v=2" alt="Freshtiq Automation" style="height:44px;width:auto;"></a>
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="images/freshtiq-logo.svg" alt="Freshtiq Automation" style="height:38px;width:auto;"></a>
       <div class="hamburger"><span></span><span></span><span></span></div>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -764,72 +764,62 @@
   </section>
 
   <!-- ============ PRICING ============ -->
-    <!-- Pricing -->
-  <section class="section" style="background:white;padding:60px 0;">
+  <section class="section section-bg-white" id="pricing">
     <div class="container">
-      <div style="text-align:center;margin-bottom:30px;">
+      <div class="section-header fade-in">
         <span class="section-label">Pricing</span>
-        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">Simple, Transparent <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Pricing</span></h2>
-        <p style="color:#4a4a6a;margin-top:6px;">One price. No hidden charges. Start with confidence.</p>
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Choose the plan that fits your business. All plans include support &amp; maintenance.</p>
       </div>
-      <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;">
-        <!-- Starter -->
-        <div class="pricing-card" style="background:white;border-radius:16px;padding:28px 20px 20px;border:2px solid #e2e8f0;text-align:center;transition:all .3s ease;position:relative;">
-          <div style="width:50px;height:50px;border-radius:13px;background:linear-gradient(135deg,#1a73e8,#4a9eff);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;"><span style="color:white;font-size:1.3rem;">⚡</span></div>
-          <h3 style="font-size:1rem;color:#1a1a2e;margin:0 0 4px;">Starter</h3>
-          <p style="font-size:0.75rem;color:#7a7a9a;margin:0 0 8px;">For small businesses &amp; startups</p>
-          <div style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">₹999</div>
-          <p style="font-size:0.7rem;color:#4a4a6a;margin:4px 0 12px;">per project</p>
-          <ul style="list-style:none;padding:0;margin:0 0 14px;font-size:0.78rem;color:#4a4a6a;line-height:2;">
-            <li>✅ Single page website</li>
-            <li>✅ WhatsApp Integration</li>
-            <li>✅ Basic Contact Form</li>
-            <li>✅ 2 Days Delivery</li>
-            <li>✅ 7 Days Support</li>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">&#8377;999 <span>/project</span></div>
+          <p class="pricing-desc">Ideal for small businesses getting started online.</p>
+          <ul class="pricing-features">
+            <li>5-Page Static Website</li>
+            <li>Mobile Responsive</li>
+            <li>Basic SEO Setup</li>
+            <li>1 Month Support</li>
+            <li>Contact Form Integration</li>
           </ul>
-          <a href="https://wa.me/918381848389?text=I%20want%20Starter%20Package%20%E2%82%B9999" target="_blank" style="display:block;width:100%;padding:12px 0;background:linear-gradient(135deg,#1a73e8,#4a9eff);color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;transition:all .3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">💬 WhatsApp Starter Package</a>
+          <a href="https://wa.me/918381848389?text=I%20want%20Starter%20%E2%82%B9999%20package%20-%205-Page%20Website" target="_blank" class="btn btn-secondary">💬 WhatsApp Now</a>
         </div>
-        <!-- Business — Most Popular -->
-        <div class="pricing-card popular" style="background:white;border-radius:16px;padding:28px 20px 20px;border:2px solid #7c3aed;text-align:center;transition:all .3s ease;position:relative;box-shadow:0 8px 30px rgba(124,58,237,0.15);">
-          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a73e8,#7c3aed);color:white;padding:4px 16px;border-radius:20px;font-size:0.7rem;font-weight:600;">🌟 Most Popular</div>
-          <div style="width:50px;height:50px;border-radius:13px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;"><span style="color:white;font-size:1.3rem;">🚀</span></div>
-          <h3 style="font-size:1rem;color:#1a1a2e;margin:0 0 4px;">Business</h3>
-          <p style="font-size:0.75rem;color:#7a7a9a;margin:0 0 8px;">For growing businesses</p>
-          <div style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">₹3,999</div>
-          <p style="font-size:0.7rem;color:#4a4a6a;margin:4px 0 12px;">per project</p>
-          <ul style="list-style:none;padding:0;margin:0 0 14px;font-size:0.78rem;color:#4a4a6a;line-height:2;">
-            <li>✅ Multi-page website</li>
-            <li>✅ WhatsApp Business API</li>
-            <li>✅ Telegram Bot integration</li>
-            <li>✅ Admin Dashboard</li>
-            <li>✅ 5-7 Days Delivery</li>
-            <li>✅ 15 Days Support</li>
+        <div class="pricing-card featured fade-in">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Business</div>
+          <div class="pricing-price">&#8377;3,999 <span>/project</span></div>
+          <p class="pricing-desc">Perfect for growing businesses needing full solutions.</p>
+          <ul class="pricing-features">
+            <li>Dynamic Website + CMS</li>
+            <li>Mobile App or Admin Panel</li>
+            <li>WhatsApp Integration</li>
+            <li>AI Chatbot Setup</li>
+            <li>3 Months Support</li>
+            <li>SEO + Analytics</li>
+            <li>Priority Support</li>
           </ul>
-          <a href="https://wa.me/918381848389?text=I%20want%20Business%20Package%20%E2%82%B93,999" target="_blank" style="display:block;width:100%;padding:12px 0;background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;transition:all .3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">💼 Start Business Package</a>
+          <a href="https://wa.me/918381848389?text=I%20want%20Business%20%E2%82%B93,999%20package%20-%20Dynamic%20Website%20%2B%20App" target="_blank" class="btn btn-primary">🚀 Start Your Project</a>
         </div>
-        <!-- Enterprise -->
-        <div class="pricing-card" style="background:white;border-radius:16px;padding:28px 20px 20px;border:2px solid #e2e8f0;text-align:center;transition:all .3s ease;position:relative;">
-          <div style="width:50px;height:50px;border-radius:13px;background:linear-gradient(135deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;"><span style="color:white;font-size:1.3rem;">🏭</span></div>
-          <h3 style="font-size:1rem;color:#1a1a2e;margin:0 0 4px;">Enterprise</h3>
-          <p style="font-size:0.75rem;color:#7a7a9a;margin:0 0 8px;">For large organizations</p>
-          <div style="font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">₹12,999+</div>
-          <p style="font-size:0.7rem;color:#4a4a6a;margin:4px 0 12px;">per project</p>
-          <ul style="list-style:none;padding:0;margin:0 0 14px;font-size:0.78rem;color:#4a4a6a;line-height:2;">
-            <li>✅ Full ERP / CRM System</li>
-            <li>✅ AI Chatbot Integration</li>
-            <li>✅ Multi-user Dashboard</li>
-            <li>✅ Payment Gateway</li>
-            <li>✅ WhatsApp Reports</li>
-            <li>✅ 15-30 Days Delivery</li>
-            <li>✅ 30 Days Support</li>
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">&#8377;12,999+ <span>/project</span></div>
+          <p class="pricing-desc">Custom enterprise-grade solutions and systems.</p>
+          <ul class="pricing-features">
+            <li>Custom ERP / CRM System</li>
+            <li>Mobile &amp; Web Applications</li>
+            <li>AI Agents &amp; Automation</li>
+            <li>API Integrations</li>
+            <li>Cloud Hosting Setup</li>
+            <li>6 Months Support</li>
+            <li>Dedicated Account Manager</li>
+            <li>Training &amp; Documentation</li>
           </ul>
-          <a href="https://wa.me/918381848389?text=I%20want%20Enterprise%20Package%20%E2%82%B912,999%2B" target="_blank" style="display:block;width:100%;padding:12px 0;background:linear-gradient(135deg,#059669,#10b981);color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;transition:all .3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">🏢 Get Enterprise Quote</a>
+          <a href="https://wa.me/918381848389?text=I%20want%20Enterprise%20%E2%82%B912,999+%20package%20-%20Custom%20ERP/CRM" target="_blank" class="btn btn-secondary">💬 Get Enterprise Quote</a>
         </div>
       </div>
     </div>
   </section>
-
-
 
   <!-- ============ PORTFOLIO ============ -->
   <section class="section section-bg-light" id="portfolio">
@@ -1506,7 +1496,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="images/freshtiq-logo-v2.svg?v=2" alt="Freshtiq Automation" style="height:44px;width:auto;"></a>
+          <a href="index.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="images/freshtiq-logo.svg" alt="Freshtiq Automation" style="height:38px;width:auto;"></a>
           <p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — India's AI Automation Company. Websites, Apps, AI Bots, ERP, CRM, Business Automation.</p>
           <div class="footer-social">
             <a href="mailto:freshtiqinnovationspvt@gmail.com" aria-label="Email">&#9993;</a>
