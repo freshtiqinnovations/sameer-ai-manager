@@ -843,7 +843,47 @@
     <div class="container">
       <div class="section-header fade-in">
         
-  
+  <!-- Featured Projects -->
+  <section class="section" style="background:linear-gradient(135deg,#f8f9fc,#f0f4ff);padding:60px 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:30px;">
+        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#1a73e8;">🚀 Featured Projects</span>
+        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">What We've <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;">
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a73e8,#4a9eff);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🤖</span></div>
+          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">Sameer AI Manager</h3>
+          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI admin bot with lead pipeline, payments, QR, analytics</p>
+          <a href="https://github.com/freshtiqinnovations/sameer-ai-manager" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">⚡</span></div>
+          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">AutoPilot Hub</h3>
+          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">End-to-end project factory — lead to delivery automation</p>
+          <a href="https://github.com/freshtiqinnovations/autopilot-hub" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0891b2,#06b6d4);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🔗</span></div>
+          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">OpenClaw Operator</h3>
+          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI agent orchestration and automation platform</p>
+          <a href="https://github.com/freshtiqinnovations/openclaw-operator" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">🏭</span></div>
+          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">EL SALAMA AI ERP PRO</h3>
+          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">Full ERP with sales, inventory, HR, accounting modules</p>
+          <a href="https://github.com/freshtiqinnovations/el-salama-erp" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#d97706,#f59e0b);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><span style="color:white;font-weight:800;font-size:0.85rem;">✈️</span></div>
+          <h3 style="font-size:0.8rem;color:#1a1a2e;margin:0 0 4px;">Freshtiq AI Travel Pro</h3>
+          <p style="font-size:0.7rem;color:#7a7a9a;margin:0 0 8px;">AI-powered travel booking and itinerary platform</p>
+          <a href="https://github.com/freshtiqinnovations/ai-travel-pro" target="_blank" style="font-size:0.7rem;color:#1a73e8;">View →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Why Freshtiq vs Freelancers -->
   <section class="section" style="background:white;padding:60px 0;">
@@ -891,8 +931,8 @@
   <section class="section" style="background:linear-gradient(135deg,#f8f9fc,#f0f4ff);padding:60px 0;">
     <div class="container">
       <div style="text-align:center;margin-bottom:30px;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">🚀 Our Live AI Products</span>
-        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">Live AI <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Products</span></h2>
+        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">🏆 Our Successful Products</span>
+        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">Products <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built</span> &amp; Running</h2>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:30px;">
@@ -962,7 +1002,13 @@
       </div>
 
       <!-- Counters -->
-      
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-top:10px;">
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">9</div>
+          <p style="font-size:0.72rem;color:#4a4a6a;margin:4px 0 0;">Projects Built</p>
+        </div>
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7</div>
           <p style="font-size:0.72rem;color:#4a4a6a;margin:4px 0 0;">Bots Running</p>
         </div>
         <div style="background:white;border-radius:12px;padding:16px;border:1px solid #e2e8f0;text-align:center;">
@@ -1157,7 +1203,19 @@
   </section>
 
   
-  
+  <!-- Stats Counters -->
+  <section class="section" style="background:white;padding:50px 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;text-align:center;">
+        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div id="statProjects" style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">500+</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Projects</p></div>
+        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">99.9%</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Success Rate</p></div>
+        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24x7</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Support</p></div>
+        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">2</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Countries</p></div>
+        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">AI Powered</p></div>
+        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">⚡</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Fast Delivery</p></div>
+      </div>
+    </div>
+  </section>
 
 <!-- Testimonials -->
   <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
