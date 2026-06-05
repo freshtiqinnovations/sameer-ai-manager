@@ -1715,44 +1715,12 @@ footer {
 }
 
 /* Founder photo */
-/* Founder photo - improved crop */
 .founder-photo {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center top;
-  border: 4px solid #2563eb;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
-}
-@media (max-width: 600px) {
-  .founder-photo {
-    width: 150px;
-    height: 150px;
-    border: 4px solid #2563eb;
-  }
-}/* Pricing rotate highlight */
-.pricing-card {
-  transition: all .3s ease !important;
-}
-.pricing-card.active-highlight {
-  border-color: #2563eb !important;
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2), 0 0 15px rgba(37, 99, 235, 0.1) !important;
-  transform: scale(1.02) !important;
-}
-.pricing-card.popular.active-highlight {
-  border-color: #7c3aed !important;
-  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.25), 0 0 15px rgba(124, 58, 237, 0.15) !important;
-}
-.pricing-card:hover {
-  animation-play-state: paused !important;
-}
-.pricing-card:hover.active-highlight {
-  transform: scale(1.03) !important;
-}
-/* No rotation on small screens to avoid confusion */
-@media (max-width: 600px) {
-  .pricing-card.active-highlight {
-    transform: none !important;
-  }
+  object-position: center;
+  border: 6px solid #2563eb;
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.25);
 }
