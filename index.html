@@ -225,6 +225,47 @@
     </div>
   </section>
 
+
+  <!-- Project Dashboard -->
+  <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:35px;">
+        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">📊 Live Dashboard</span>
+        <h2 style="font-size:1.8rem;color:#1a1a2e;margin-top:10px;">Track Your <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Project Live</span></h2>
+        <p style="color:#4a4a6a;max-width:550px;margin:10px auto 0;">Enter your project ID to check real-time status. Demo: APH20260605182331-929 or JOB-20260605-002</p>
+      </div>
+
+      <div style="max-width:750px;margin:0 auto;background:white;border-radius:16px;padding:30px;box-shadow:0 4px 25px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;">
+          <input type="text" id="dashProjectId" placeholder="Project ID (e.g. APH20260605182331-929)" value="APH20260605182331-929" style="flex:1;min-width:200px;padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
+          <button onclick="trackProjectDash()" style="padding:13px 28px;background:var(--gradient);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:0.9rem;">🔍 Track</button>
+        </div>
+
+        <div id="dashResult">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+            <div style="flex:1;min-width:80px;padding:14px 8px;background:var(--gradient);color:white;border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">📥 Received</div>
+            <div style="flex:1;min-width:80px;padding:14px 8px;background:var(--gradient);color:white;border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">📋 Planning</div>
+            <div style="flex:1;min-width:80px;padding:14px 8px;background:var(--gradient);color:white;border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">🔧 Development</div>
+            <div style="flex:1;min-width:80px;padding:14px 8px;background:#e2e8f0;color:#7a7a9a;border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">🧪 Testing</div>
+            <div style="flex:1;min-width:80px;padding:14px 8px;background:#e2e8f0;color:#7a7a9a;border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">✅ Delivered</div>
+          </div>
+          <div style="margin-top:16px;padding:14px 18px;background:#f0f4ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <p style="margin:0;font-size:0.82rem;color:#4a4a6a;"><strong style="color:#1a73e8;">APH20260605182331-929</strong> — Currently in <strong style="color:#7c3aed;">Development</strong> phase</p>
+              <p style="margin:4px 0 0;font-size:0.75rem;color:#7a7a9a;">Next update: Every 24h &bull; Started: 5 June 2026</p>
+            </div>
+            <span style="background:#1a73e8;color:white;padding:4px 12px;border-radius:20px;font-size:0.7rem;font-weight:600;">🔴 In Progress</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+          <a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:140px;padding:12px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📱 Track on Telegram</a>
+          <a href="https://wa.me/918381848389?text=Hi!%20I%20want%20to%20check%20my%20project%20status.%20ID:%20APH20260605182331-929" target="_blank" style="flex:1;min-width:140px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 WhatsApp Support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <section class="section section-bg-white" id="services">
     <div class="container">
       <div class="section-header fade-in">

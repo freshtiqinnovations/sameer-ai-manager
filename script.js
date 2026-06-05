@@ -349,3 +349,33 @@ function calculateROI() {
     </div>
   `;
 }
+
+
+/* ===== Project Dashboard ===== */
+function trackProjectDash() {
+  const id = document.getElementById('dashProjectId').value.trim();
+  if (!id) {
+    document.getElementById('dashResult').innerHTML = '<p style="color:#dc2626;text-align:center;">Please enter a Project ID.</p>';
+    return;
+  }
+
+  const steps = ['📥 Received', '📋 Planning', '🔧 Development', '🧪 Testing', '✅ Delivered'];
+  const statusIndex = 2; // Development as default demo
+
+  let html = '<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">';
+  steps.forEach((s, i) => {
+    const active = i <= statusIndex;
+    const bg = active ? 'var(--gradient)' : '#e2e8f0';
+    const color = active ? 'white' : '#7a7a9a';
+    html += '<div style="flex:1;min-width:80px;padding:14px 8px;background:' + bg + ';color:' + color + ';border-radius:8px;text-align:center;font-weight:600;font-size:0.78rem;">' + s + '</div>';
+  });
+  html += '</div>';
+
+  const phase = steps[statusIndex];
+  html += '<div style="margin-top:16px;padding:14px 18px;background:#f0f4ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">';
+  html += '<div><p style="margin:0;font-size:0.82rem;color:#4a4a6a;"><strong style="color:#1a73e8;">' + id + '</strong> — Currently in <strong style="color:#7c3aed;">' + phase + '</strong> phase</p>';
+  html += '<p style="margin:4px 0 0;font-size:0.75rem;color:#7a7a9a;">Status updates every 24h &bull; Track on Telegram for live notifications.</p></div>';
+  html += '<span style="background:#1a73e8;color:white;padding:4px 12px;border-radius:20px;font-size:0.7rem;font-weight:600;">🔴 In Progress</span></div>';
+
+  document.getElementById('dashResult').innerHTML = html;
+}
