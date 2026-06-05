@@ -82,43 +82,13 @@
   </section>
 
   <!-- ============ AI BUSINESS FACTORY ============ -->
-  
-  <!-- CEO Authority -->
-  <section class="section" style="background:white;padding:60px 0;">
-    <div class="container" style="max-width:800px;margin:0 auto;">
-      <div style="display:flex;align-items:center;gap:30px;flex-wrap:wrap;">
-        <div style="flex-shrink:0;">
-          <div style="width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#7c3aed);display:flex;align-items:center;justify-content:center;margin:0 auto;">
-            <span style="font-size:3rem;color:white;font-weight:800;">SA</span>
-          </div>
-        </div>
-        <div style="flex:1;min-width:280px;">
-          <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">👤 Meet The Founder</span>
-          <h2 style="font-size:1.8rem;color:#1a1a2e;margin:10px 0 4px;">Sameer <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ahmad</span></h2>
-          <p style="font-size:0.9rem;color:#7c3aed;font-weight:600;margin:0 0 4px;">Founder &amp; CEO</p>
-          <p style="font-size:0.8rem;color:#4a4a6a;margin:0 0 14px;">Freshtiq Innovations (OPC) Private Limited</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;">
-            <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">🤖 AI Automation Architect</span>
-            <span style="font-size:0.75rem;background:#f5f0ff;color:#7c3aed;padding:5px 10px;border-radius:6px;">🏭 ERP &amp; CRM Specialist</span>
-            <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">🤖 Telegram Bot Factory Creator</span>
-            <span style="font-size:0.75rem;background:#f5f0ff;color:#7c3aed;padding:5px 10px;border-radius:6px;">✈️ Travel AI Platform Builder</span>
-            <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">⚡ Founder of Sameer AI Manager</span>
-            <span style="font-size:0.75rem;background:#f5f0ff;color:#7c3aed;padding:5px 10px;border-radius:6px;">🚀 Founder of AutoPilot Hub</span>
-            <span style="font-size:0.75rem;background:#f0f4ff;color:#1a73e8;padding:5px 10px;border-radius:6px;">🔗 Founder of OpenClaw Operator</span>
-          </div>
-          <a href="https://wa.me/918381848389" target="_blank" style="display:inline-block;padding:10px 22px;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Chat with Founder</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- AI Sales Assistant -->
+  <!-- AI Sales Assistant -->
   <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
     <div class="container">
       <div style="text-align:center;margin-bottom:40px;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">🤖 OpenClaw AI Consultant</span>
-        <h2 style="font-size:1.8rem;color:#1a1a2e;margin-top:10px;">Talk to <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">OpenClaw</span> AI Business Consultant</h2>
-        <p style="color:#4a4a6a;max-width:600px;margin:10px auto 0;">Describe your idea and OpenClaw will recommend the best package, timeline, automation plan and estimated cost. We build websites, bots, apps, ERP, CRM, and AI automation.</p>
+        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#7c3aed;">🤖 AI Business Consultant</span>
+        <h2 style="font-size:1.8rem;color:#1a1a2e;margin-top:10px;">Talk to Freshtiq <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI Business Consultant</span></h2>
+        <p style="color:#4a4a6a;max-width:600px;margin:10px auto 0;">Share your idea and get package suggestion, estimated timeline, and next step. We build websites, bots, apps, ERP, CRM, and AI automation.</p>
       </div>
 
       <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;padding:30px;box-shadow:0 4px 25px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">
@@ -520,7 +490,20 @@
   </section>
 
   <!-- ============ PROJECT TRACKER ============ -->
-  
+  <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Track</span>
+        <h2>Track Your Project</h2>
+        <p>Enter your project ID (FTQ-XXXX) to check live status.</p>
+      </div>
+      <div style="display:flex;gap:12px;max-width:500px;margin:20px auto;flex-wrap:wrap;justify-content:center;">
+        <input type="text" id="projectId" placeholder="FTQ-XXXX" style="flex:1;min-width:200px;padding:14px 18px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem;" value="FTQ-001">
+        <button onclick="trackProject()" style="padding:14px 28px;background:var(--gradient);color:white;border:none;border-radius:10px;font-weight:600;cursor:pointer;">🔍 Track</button>
+      </div>
+      <div id="trackerResult" style="max-width:800px;margin:30px auto 0;"></div>
+    </div>
+  </section>
 
   <!-- ============ AI QUOTE GENERATOR ============ -->
   <section class="section" style="background:white;padding:60px 0;">
@@ -899,22 +882,7 @@
     </div>
   </section>
 
-  
-  <!-- Stats Counters -->
-  <section class="section" style="background:white;padding:50px 0;">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;text-align:center;">
-        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div id="statProjects" style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">500+</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Projects</p></div>
-        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">99.9%</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Success Rate</p></div>
-        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24x7</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Support</p></div>
-        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">2</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Countries</p></div>
-        <div style="padding:20px 10px;background:#f0f4ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#1a73e8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">AI Powered</p></div>
-        <div style="padding:20px 10px;background:#f5f0ff;border-radius:12px;"><div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#1a73e8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">⚡</div><p style="font-size:0.78rem;color:#4a4a6a;margin:6px 0 0;">Fast Delivery</p></div>
-      </div>
-    </div>
-  </section>
-
-<!-- Testimonials -->
+  <!-- Testimonials -->
   <section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f5f0ff);padding:60px 0;">
     <div class="container">
       <div style="text-align:center;margin-bottom:40px;">
@@ -1279,31 +1247,7 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
-  
-  <!-- SEO Keywords -->
-  <section class="section" style="background:white;padding:50px 0;">
-    <div class="container">
-      <div style="text-align:center;">
-        <span class="section-label" style="background:linear-gradient(135deg,rgba(26,115,232,0.1),rgba(124,58,237,0.1));color:#1a73e8;">🔍 AI Automation Services</span>
-        <h2 style="font-size:1.5rem;color:#1a1a2e;margin-top:8px;">AI Automation <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Services</span></h2>
-        <p style="color:#4a4a6a;margin-top:6px;max-width:700px;margin:8px auto 0;">India's trusted AI automation company. We build websites, Telegram bots, WhatsApp automation, ERP, CRM, AI agents, and SaaS platforms for businesses.</p>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px;">
-          <span style="background:#f0f4ff;color:#1a73e8;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">AI Automation Company India</span>
-          <span style="background:#f5f0ff;color:#7c3aed;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">Telegram Bot Development</span>
-          <span style="background:#f0f4ff;color:#1a73e8;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">WhatsApp Automation</span>
-          <span style="background:#f5f0ff;color:#7c3aed;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">ERP Development</span>
-          <span style="background:#f0f4ff;color:#1a73e8;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">CRM Development</span>
-          <span style="background:#f5f0ff;color:#7c3aed;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">AI Agent Development</span>
-          <span style="background:#f0f4ff;color:#1a73e8;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">Travel Portal Development</span>
-          <span style="background:#f5f0ff;color:#7c3aed;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">AI Chatbot Development</span>
-          <span style="background:#f0f4ff;color:#1a73e8;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">Business Automation Solutions</span>
-          <span style="background:#f5f0ff;color:#7c3aed;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;">SaaS Development Company</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<footer>
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
