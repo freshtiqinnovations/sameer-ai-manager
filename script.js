@@ -549,6 +549,362 @@ function startPricingCarousel() {
 // Start on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', startPricingCarousel);
+  document.addEventListener('DOMContentLoaded', initCart);
 } else {
   startPricingCarousel();
+  initCart();
 }
+
+/* ========================================
+   ECOMMERCE — Cart & Checkout System
+   ======================================== */
+
+// Product catalog (matches Flutter app product list)
+const webProducts = [
+  {
+    id: 'sameer-ai-manager',
+    name: 'Sameer AI Manager',
+    price: 4999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'AI',
+    description: 'Central AI admin controller that manages bots, workers, backups, and revenue tracking.'
+  },
+  {
+    id: 'autopilot-hub',
+    name: 'AutoPilot Hub',
+    price: 2999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'AI',
+    description: 'Self-operating AI agent platform for autonomous business workflow execution.'
+  },
+  {
+    id: 'el-salama-erp',
+    name: 'EL SALAMA AI ERP PRO',
+    price: 9999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'ERP',
+    description: 'End-to-end ERP system with AI-powered inventory, billing, HR, and reporting.'
+  },
+  {
+    id: 'freshtiq-travel-pro',
+    name: 'Freshtiq AI Travel Pro',
+    price: 5999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Travel',
+    description: 'AI-powered travel booking, itinerary management, and customer engagement platform.'
+  },
+  {
+    id: 'alpha-trader',
+    name: 'Freshtiq Alpha Trader',
+    price: 7999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Finance',
+    description: 'AI-driven trading signals, portfolio tracker, and market analysis tool.'
+  },
+  {
+    id: 'whatsapp-suite',
+    name: 'WhatsApp Automation Suite',
+    price: 1999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Automation',
+    description: 'Complete WhatsApp Business API automation — bulk messaging, chatbots, CRM sync, and analytics.'
+  },
+  {
+    id: 'telegram-factory',
+    name: 'Telegram Bot Factory',
+    price: 1499,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Automation',
+    description: 'Custom Telegram bot development — admin panels, payments, groups, and broadcast systems.'
+  },
+  {
+    id: 'website-builder',
+    name: 'Website Builder',
+    price: 2499,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Web',
+    description: 'Professional website development — business sites, landing pages, and full CMS solutions.'
+  },
+  {
+    id: 'crm-system',
+    name: 'CRM System',
+    price: 3999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Business',
+    description: 'Customer relationship management with lead tracking, pipeline, and automated follow-ups.'
+  },
+  {
+    id: 'erp-system',
+    name: 'ERP System',
+    price: 9999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'Business',
+    description: 'Enterprise resource planning — inventory, billing, payroll, and reporting modules.'
+  },
+  {
+    id: 'custom-ai-agent',
+    name: 'Custom AI Agent',
+    price: 14999,
+    image: 'images/freshtiq-logo-v2.svg',
+    category: 'AI',
+    description: 'Bespoke AI agent development tailored to your specific business needs and workflows.'
+  }
+];
+
+// Cart state
+let webCart = JSON.parse(localStorage.getItem('freshtiq_cart') || '[]');
+
+function initCart() {
+  updateCartBadge();
+  
+  // Attach Add to Cart buttons on product page
+  document.querySelectorAll('.btn-add-cart').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const productId = this.getAttribute('data-product-id');
+      if (productId) addToCart(productId);
+    });
+  });
+  
+  // Attach Buy Now buttons
+  document.querySelectorAll('.btn-buy-now').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const productId = this.getAttribute('data-product-id');
+      if (productId) {
+        buyNow(productId);
+      }
+    });
+  });
+  
+  // Render cart page if on cart page
+  if (document.getElementById('cart-page')) renderCartPage();
+  
+  // Render checkout page if on checkout page
+  if (document.getElementById('checkout-page')) renderCheckoutPage();
+}
+
+function saveCart() {
+  localStorage.setItem('freshtiq_cart', JSON.stringify(webCart));
+  updateCartBadge();
+}
+
+function updateCartBadge() {
+  const count = webCart.reduce(function(sum, item) { return sum + item.qty; }, 0);
+  var badge = document.getElementById('cart-badge');
+  if (!badge) {
+    badge = document.createElement('span');
+    badge.id = 'cart-badge';
+    badge.style.cssText = 'position:absolute;top:-8px;right:-8px;background:#2563eb;color:white;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;';
+    var cartLink = document.querySelector('.nav-links a[href*="cart"]');
+    if (cartLink) {
+      cartLink.style.position = 'relative';
+      cartLink.appendChild(badge);
+    }
+  }
+  if (count > 0) {
+    badge.textContent = count > 99 ? '99+' : count;
+    badge.style.display = 'flex';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function findProduct(id) {
+  return webProducts.find(function(p) { return p.id === id; });
+}
+
+function addToCart(productId) {
+  var product = findProduct(productId);
+  if (!product) return;
+  var existing = webCart.find(function(item) { return item.id === productId; });
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    webCart.push({ id: productId, name: product.name, price: product.price, qty: 1, image: product.image });
+  }
+  saveCart();
+  showToast(product.name + ' added to cart ✅');
+  updateCartBadge();
+}
+
+function removeFromCart(productId) {
+  webCart = webCart.filter(function(item) { return item.id !== productId; });
+  saveCart();
+  renderCartPage();
+}
+
+function updateQty(productId, qty) {
+  var item = webCart.find(function(i) { return i.id === productId; });
+  if (item) {
+    qty = parseInt(qty) || 1;
+    if (qty < 1) qty = 1;
+    item.qty = qty;
+    saveCart();
+    renderCartPage();
+  }
+}
+
+function buyNow(productId) {
+  // Clear cart, add this product, go to checkout
+  webCart = [];
+  var product = findProduct(productId);
+  if (product) {
+    webCart.push({ id: productId, name: product.name, price: product.price, qty: 1, image: product.image });
+    saveCart();
+    window.location.href = 'cart.html';
+  }
+}
+
+function getCartSubtotal() {
+  return webCart.reduce(function(sum, item) { return sum + item.price * item.qty; }, 0);
+}
+
+function getCartGST() {
+  return getCartSubtotal() * 0.18;
+}
+
+function getCartTotal() {
+  return getCartSubtotal() + getCartGST();
+}
+
+// Render cart page
+function renderCartPage() {
+  var container = document.getElementById('cart-page');
+  if (!container) return;
+  
+  if (webCart.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:60px 20px;">'
+      + '<div style="font-size:60px;margin-bottom:16px;">🛒</div>'
+      + '<h2 style="margin-bottom:8px;">Your cart is empty</h2>'
+      + '<p style="color:#4a4a6a;margin-bottom:24px;">Add some products from our catalog!</p>'
+      + '<a href="products.html" class="btn btn-primary">Browse Products</a>'
+      + '</div>';
+    return;
+  }
+  
+  var html = '<div class="container" style="max-width:800px;margin:0 auto;">';
+  html += '<h2 style="margin-bottom:24px;">Your Cart (' + webCart.length + ' items)</h2>';
+  
+  webCart.forEach(function(item, i) {
+    var subtotal = item.price * item.qty;
+    html += '<div style="display:flex;align-items:center;gap:16px;padding:16px;background:white;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:12px;">';
+    html += '<img src="' + item.image + '" alt="' + item.name + '" style="width:48px;height:48px;border-radius:8px;object-fit:cover;">';
+    html += '<div style="flex:1;">';
+    html += '<h4 style="margin:0 0 4px;font-size:0.95rem;">' + item.name + '</h4>';
+    html += '<span style="color:#2563eb;font-weight:700;">₹' + item.price.toLocaleString('en-IN') + '</span>';
+    html += '</div>';
+    html += '<div style="display:flex;align-items:center;gap:8px;">';
+    html += '<button onclick="updateQty(\'' + item.id + '\',' + (item.qty - 1) + ')" style="width:32px;height:32px;border-radius:50%;border:1px solid #e2e8f0;background:white;cursor:pointer;font-size:18px;">−</button>';
+    html += '<span style="font-weight:600;min-width:24px;text-align:center;">' + item.qty + '</span>';
+    html += '<button onclick="updateQty(\'' + item.id + '\',' + (item.qty + 1) + ')" style="width:32px;height:32px;border-radius:50%;border:1px solid #e2e8f0;background:white;cursor:pointer;font-size:18px;">+</button>';
+    html += '</div>';
+    html += '<div style="text-align:right;min-width:80px;">';
+    html += '<div style="font-weight:700;">₹' + subtotal.toLocaleString('en-IN') + '</div>';
+    html += '<button onclick="removeFromCart(\'' + item.id + '\')" style="background:none;border:none;color:#dc2626;cursor:pointer;font-size:12px;padding:0;margin-top:4px;">Remove</button>';
+    html += '</div>';
+    html += '</div>';
+  });
+  
+  // Summary
+  var subtotal = getCartSubtotal();
+  var gst = getCartGST();
+  var total = getCartTotal();
+  
+  html += '<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:24px;margin-top:16px;">';
+  html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Subtotal</span><span>₹' + subtotal.toLocaleString('en-IN') + '</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#4a4a6a;"><span>GST (18%)</span><span>₹' + gst.toLocaleString('en-IN') + '</span></div>';
+  html += '<hr style="border:0;border-top:1px solid #e2e8f0;margin:12px 0;">';
+  html += '<div style="display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;"><span>Grand Total</span><span style="color:#2563eb;">₹' + total.toLocaleString('en-IN') + '</span></div>';
+  html += '<a href="checkout.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:20px;padding:14px;">Proceed to Checkout 🛒</a>';
+  html += '</div></div>';
+  
+  container.innerHTML = html;
+}
+
+// Render checkout page
+function renderCheckoutPage() {
+  var container = document.getElementById('checkout-page');
+  if (!container) return;
+  
+  if (webCart.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:60px 20px;">'
+      + '<h2>Your cart is empty</h2>'
+      + '<p style="color:#4a4a6a;">Add items before checking out.</p>'
+      + '<a href="products.html" class="btn btn-primary">Browse Products</a></div>';
+    return;
+  }
+  
+  var subtotal = getCartSubtotal();
+  var gst = getCartGST();
+  var total = getCartTotal();
+  
+  var orderItems = '';
+  webCart.forEach(function(item) {
+    orderItems += '<div style="display:flex;justify-content:space-between;padding:6px 0;font-size:0.9rem;">'
+      + '<span>' + item.name + ' × ' + item.qty + '</span>'
+      + '<span>₹' + (item.price * item.qty).toLocaleString('en-IN') + '</span></div>';
+  });
+  
+  container.innerHTML = '<div class="container" style="max-width:800px;margin:0 auto;">'
+    + '<h2 style="margin-bottom:24px;">Checkout</h2>'
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">'
+    
+    // Left: Order Summary
+    + '<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:24px;">'
+    + '<h3 style="margin-bottom:16px;">Order Summary</h3>'
+    + orderItems
+    + '<hr style="border:0;border-top:1px solid #e2e8f0;margin:12px 0;">'
+    + '<div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Subtotal</span><span>₹' + subtotal.toLocaleString('en-IN') + '</span></div>'
+    + '<div style="display:flex;justify-content:space-between;font-size:0.9rem;color:#4a4a6a;"><span>GST (18%)</span><span>₹' + gst.toLocaleString('en-IN') + '</span></div>'
+    + '<hr style="border:0;border-top:1px solid #e2e8f0;margin:12px 0;">'
+    + '<div style="display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;"><span>Grand Total</span><span style="color:#2563eb;">₹' + total.toLocaleString('en-IN') + '</span></div>'
+    + '</div>'
+    
+    // Right: Payment Info
+    + '<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:24px;">'
+    + '<h3 style="margin-bottom:16px;">Payment Instructions</h3>'
+    
+    + '<div style="margin-bottom:16px;padding:12px;background:#f0f5ff;border-radius:8px;border:1px solid #dbeafe;">'
+    + '<h4 style="margin:0 0 8px;font-size:0.95rem;color:#2563eb;">🏦 SBI Bank Transfer</h4>'
+    + '<div style="font-size:0.85rem;color:#4a4a6a;line-height:1.8;">'
+    + '<div><strong>Account Name:</strong> FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</div>'
+    + '<div><strong>Account No:</strong> 44724335472</div>'
+    + '<div><strong>IFSC:</strong> SBIN0013157</div>'
+    + '<div><strong>Branch:</strong> Mohammadpur, Azamgarh</div>'
+    + '</div></div>'
+    
+    + '<div style="margin-bottom:16px;padding:12px;background:#f0fdf4;border-radius:8px;border:1px solid #dcfce7;">'
+    + '<h4 style="margin:0 0 8px;font-size:0.95rem;color:#16a34a;">📱 UPI</h4>'
+    + '<div style="font-size:0.85rem;">'
+    + '<div><strong>UPI ID:</strong> 7379131322@kotak811</div>'
+    + '</div></div>'
+    
+    + '<div style="margin-bottom:16px;padding:12px;background:#fef2f2;border-radius:8px;border:1px solid #fecaca;">'
+    + '<h4 style="margin:0 0 8px;font-size:0.95rem;color:#dc2626;">📞 After Payment</h4>'
+    + '<div style="font-size:0.85rem;color:#4a4a6a;">Send payment screenshot & Order ID on WhatsApp to confirm your order.</div>'
+    + '</div>'
+    
+    + '<a href="https://wa.me/918381848389?text=' + encodeURIComponent('Hi! I want to place order for ' + webCart.map(function(i){return i.name + ' × ' + i.qty;}).join(', ') + '. Total: ₹' + total.toLocaleString('en-IN')) + '" target="_blank" class="btn btn-success" style="display:block;text-align:center;padding:14px;background:#16a34a;color:white;border-radius:8px;text-decoration:none;font-weight:700;">'
+    + '📱 Confirm Order on WhatsApp</a>'
+    
+    + '</div></div></div>';
+}
+
+// Toast notification
+function showToast(msg) {
+  var toast = document.createElement('div');
+  toast.textContent = msg;
+  toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:white;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.15);animation:fadeIn 0.3s;';
+  document.body.appendChild(toast);
+  setTimeout(function() {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s';
+    setTimeout(function() { toast.remove(); }, 300);
+  }, 2500);
+}
+
+// Add fadeIn animation
+var style = document.createElement('style');
+style.textContent = '@keyframes fadeIn { from { opacity:0; transform:translateX(-50%) translateY(10px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }';
+document.head.appendChild(style);
