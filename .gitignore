@@ -4,3 +4,5 @@ backups/
 node_modules/
 *.db
 *.log
+*.bak
+*.bak.*
