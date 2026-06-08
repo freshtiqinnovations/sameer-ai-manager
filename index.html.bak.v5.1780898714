@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j9dbauIqgdcgh2NexpshJQSzPP1ayQUM7XuifqrNZLQ" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Freshtiq Automation — AI business automation agency. Build websites, AI agents for sales/accountant/HR/support/manager, WhatsApp bots, CRM/ERP, travel & restaurant bots. Serving India (₹), Saudi (ر.س), UAE (د.إ).">
+<meta property="og:title" content="Freshtiq Automation — AI Business Automation Agency | India, Saudi, UAE">
+<meta property="og:description" content="Websites, AI agents, WhatsApp bots, CRM, ERP, restaurant bots, travel bots. Serving INR/SAR/AED.">
+<meta property="og:url" content="https://freshtiqautomation.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://freshtiqautomation.com/images/freshtiq-logo-v2.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AutoPilotHubBot">
+<link rel="canonical" href="https://freshtiqautomation.com">
+<link rel="icon" type="image/svg+xml" href="images/freshtiq-logo-v2.svg">
+
+<title>Freshtiq Automation — #1 AI Business Automation Agency | India, Saudi, UAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2026060812">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Freshtiq Automation",
+  "alternateName": "Freshtiq Innovations (OPC) Private Limited",
+  "url": "https://freshtiqautomation.com",
+  "logo": "https://freshtiqautomation.com/images/freshtiq-logo-v2.svg",
+  "description": "AI Business Automation Agency: websites, AI bots, WhatsApp automation, CRM/ERP. Serving India (INR), Saudi Arabia (SAR), UAE (AED).",
+  "foundingDate": "2025",
+  "foundingLocation": "Azamgarh, Uttar Pradesh, India",
+  "legalName": "FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED",
+  "vatID": "09AAGCF7185A1ZL",
+  "taxID": "AAGCF7185",
+  "email": "freshtiqinnovationspvt@gmail.com",
+  "telephone": "+91-8381848389",
+  "areaServed": ["IN", "AE", "SA", "QA", "US", "GB"],
+  "priceRange": "₹1,999 - ₹1,00,000+",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8381848389",
+    "contactType": "sales",
+    "availableLanguage": ["English", "Hindi", "Arabic"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Agent Services",
+    "itemListElement": [
+      {"@type": "Service", "name": "Sales AI Agent"},
+      {"@type": "Service", "name": "Accountant AI Agent"},
+      {"@type": "Service", "name": "Manager AI Agent"},
+      {"@type": "Service", "name": "Support AI Agent"},
+      {"@type": "Service", "name": "HR AI Agent"},
+      {"@type": "Service", "name": "Restaurant AI Agent"},
+      {"@type": "Service", "name": "Travel AI Agent"},
+      {"@type": "Service", "name": "CRM/ERP AI Agent"}
+    ]
+  },
+  "sameAs": [
+    "https://wa.me/918381848389",
+    "https://t.me/AutoPilotHubBot",
+    "https://github.com/freshtiqinnovations"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sameer Ahmad",
+  "jobTitle": "Founder & CEO",
+  "worksFor": {"@type": "Organization", "name": "FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED"}
+}
+</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="10" fill="url(#lg)"/><path d="M10 18L16 24L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="lg" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#1a73e8"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs></svg>
+      </span>
+      <span class="logo-text">Freshtiq</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#ai-agents">AI Agents</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/918381848389" target="_blank" class="nav-cta">WhatsApp</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">AI Business Automation Agency</div>
+    <h1>Your Business, <span class="gradient-text">Supercharged by AI</span></h1>
+    <p class="hero-sub">From websites to custom AI agents, WhatsApp bots, and ERP — we build automation that actually works. Trusted by businesses in <strong>India 🇮🇳</strong>, <strong>Saudi Arabia 🇸🇦</strong>, and <strong>UAE 🇦🇪</strong>.</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/918381848389?text=Hello%20Sameer!%20I%20need%20an%20AI%20agent%20for%20my%20business" target="_blank" class="btn-primary">🚀 Start Your AI Journey</a>
+      <a href="#portfolio" class="btn-secondary">See Our Work</a>
+    </div>
+    <div class="hero-trust">
+      <span>✅ Registered Company (OPC)</span>
+      <span>✅ GST Registered</span>
+      <span>✅ 50+ Projects Delivered</span>
+      <span>✅ ₹ — ر.س — د.إ</span>
+    </div>
+    <div class="hero-currency">
+      <span class="currency-pill">🇮🇳 INR</span>
+      <span class="currency-pill">🇸🇦 SAR</span>
+      <span class="currency-pill">🇦🇪 AED</span>
+      <span class="currency-pill">🇺🇸 USD</span>
+      <span class="currency-pill">🇪🇺 EUR</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">Full-Stack AI Automation Services</h2>
+    <p class="section-desc">AI agents, websites, bots, CRM — everything your business needs to run on autopilot.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="sc-icon">🌐</div>
+        <h3>Websites</h3>
+        <p>Business websites, e-commerce, landing pages, portals. PHP/Node.js/Python.</p>
+        <span class="sc-price">Starting ₹4,999</span>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🤖</div>
+        <h3>WhatsApp / Telegram Bots</h3>
+        <p>Sales bots, support bots, order bots, booking bots. Multi-language, AI-powered.</p>
+        <span class="sc-price">Starting ₹5,000</span>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">⚙️</div>
+        <h3>CRM / ERP Systems</h3>
+        <p>Inventory, billing, HR, sales pipeline, reports. Custom-built for your business.</p>
+        <span class="sc-price">Starting ₹25,000</span>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🧠</div>
+        <h3>Custom AI Agents</h3>
+        <p>Sales executives, accountants, managers, HR, support — we build your AI team.</p>
+        <span class="sc-price">Starting ₹10,000</span>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">🖥️</div>
+        <h3>VPS / Server Setup</h3>
+        <p>Linux servers, security, SSL, monitoring, CI/CD. 24/7 uptime guarantee.</p>
+        <span class="sc-price">Starting ₹5,000</span>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">📈</div>
+        <h3>Digital Marketing & SEO</h3>
+        <p>Google Ads, Facebook Ads, SEO, social media management. Data-driven results.</p>
+        <span class="sc-price">Starting ₹5,000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI AGENTS ============ -->
+<section class="section section-dark" id="ai-agents">
+  <div class="container">
+    <div class="section-label">AI Agents For Every Role</div>
+    <h2 class="section-title">Your AI Team Starts Here</h2>
+    <p class="section-desc">Describe the role — we build the AI agent. Works on WhatsApp, Telegram, website, or any platform.</p>
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="ac-emoji">🤝</div>
+        <h3>Sales Executive AI</h3>
+        <p>Lead qualification, follow-up reminders, quotation tracking, hot lead alerts, meeting scheduling.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20Sales%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">📊</div>
+        <h3>Accountant AI</h3>
+        <p>Invoice tracking, payment reminders, expense records, report generation, GST/VAT calculations.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20an%20Accountant%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">👔</div>
+        <h3>Manager AI</h3>
+        <p>Task assignment, team reminders, progress reports, meeting summaries, KPI tracking.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20Manager%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">🎧</div>
+        <h3>Support AI</h3>
+        <p>FAQ auto-reply, ticket creation, human escalation, 24/7 first-level support.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20Support%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">👥</div>
+        <h3>HR AI</h3>
+        <p>Resume screening, interview scheduling, onboarding reminders, leave tracking, payroll assistance.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20an%20HR%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">🏪</div>
+        <h3>Restaurant AI</h3>
+        <p>Menu display, order taking, table booking, delivery tracking, customer feedback.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20Restaurant%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">✈️</div>
+        <h3>Travel AI</h3>
+        <p>Flight/bus/train booking, hotel search, itinerary planning, travel reminders.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20Travel%20AI%20Agent" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">📱</div>
+        <h3>WhatsApp Business Bot</h3>
+        <p>Sales, support, orders, notifications — all inside WhatsApp. Hinglish, English, Arabic.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20a%20WhatsApp%20Bot" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="ac-emoji">🔧</div>
+        <h3>Custom Automation</h3>
+        <p>Any business process, any platform. You describe — we build. Workflow, alerts, webhooks.</p>
+        <div class="ac-cta">
+          <a href="https://wa.me/918381848389?text=I%20need%20custom%20automation" target="_blank" class="ac-link">Get Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURRENCY SUPPORT ============ -->
+<section class="section" id="currency">
+  <div class="container">
+    <div class="section-label">Global Pricing</div>
+    <h2 class="section-title">We Price in Your Currency</h2>
+    <p class="section-desc">No confusing conversions. We work in your local currency.</p>
+    <div class="currency-grid">
+      <div class="currency-card">
+        <span class="cc-flag">🇮🇳</span>
+        <span class="cc-code">INR</span>
+        <span class="cc-name">Indian Rupee</span>
+        <span class="cc-symbol">₹</span>
+      </div>
+      <div class="currency-card">
+        <span class="cc-flag">🇸🇦</span>
+        <span class="cc-code">SAR</span>
+        <span class="cc-name">Saudi Riyal</span>
+        <span class="cc-symbol">ر.س</span>
+      </div>
+      <div class="currency-card">
+        <span class="cc-flag">🇦🇪</span>
+        <span class="cc-code">AED</span>
+        <span class="cc-name">UAE Dirham</span>
+        <span class="cc-symbol">د.إ</span>
+      </div>
+      <div class="currency-card">
+        <span class="cc-flag">🇺🇸</span>
+        <span class="cc-code">USD</span>
+        <span class="cc-name">US Dollar</span>
+        <span class="cc-symbol">$</span>
+      </div>
+      <div class="currency-card">
+        <span class="cc-flag">🇬🇧</span>
+        <span class="cc-code">GBP</span>
+        <span class="cc-name">British Pound</span>
+        <span class="cc-symbol">£</span>
+      </div>
+      <div class="currency-card">
+        <span class="cc-flag">🇪🇺</span>
+        <span class="cc-code">EUR</span>
+        <span class="cc-name">Euro</span>
+        <span class="cc-symbol">€</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section section-dark" id="pricing">
+  <div class="container">
+    <div class="section-label">Transparent Pricing</div>
+    <h2 class="section-title">Starting Ranges</h2>
+    <p class="section-desc">Every project is custom — but here's what most clients pay.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>🌐 Website</h3>
+        <div class="pc-range">₹4,999 – ₹50,000</div>
+        <ul>
+          <li>✓ Business / E-commerce / Portal</li>
+          <li>✓ Mobile responsive</li>
+          <li>✓ SEO optimized</li>
+          <li>✓ WhatsApp CTA included</li>
+        </ul>
+        <a href="https://wa.me/918381848389?text=I%20want%20a%20website" target="_blank" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-badge">Most Popular</div>
+        <h3>🤖 WhatsApp AI Bot</h3>
+        <div class="pc-range">₹5,000 – ₹50,000</div>
+        <ul>
+          <li>✓ AI-powered sales/support</li>
+          <li>✓ Hinglish / English / Arabic</li>
+          <li>✓ Lead tracking dashboard</li>
+          <li>✓ Multi-agent workflows</li>
+        </ul>
+        <a href="https://wa.me/918381848389?text=I%20want%20a%20WhatsApp%20AI%20bot" target="_blank" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card">
+        <h3>⚙️ CRM / ERP</h3>
+        <div class="pc-range">₹25,000 – ₹1,50,000</div>
+        <ul>
+          <li>✓ Inventory + Billing + HR</li>
+          <li>✓ WhatsApp reports</li>
+          <li>✓ Custom modules</li>
+          <li>✓ Cloud hosted</li>
+        </ul>
+        <a href="https://wa.me/918381848389?text=I%20want%20a%20CRM/ERP" target="_blank" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card">
+        <h3>🧠 Custom AI Agent</h3>
+        <div class="pc-range">₹10,000 – ₹1,00,000</div>
+        <ul>
+          <li>✓ Any business role</li>
+          <li>✓ Any platform</li>
+          <li>✓ Multi-language</li>
+          <li>✓ Dashboard + analytics</li>
+        </ul>
+        <a href="https://wa.me/918381848389?text=I%20want%20a%20custom%20AI%20agent" target="_blank" class="price-cta">Get Quote</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);margin-top:2rem;">SAR and AED pricing available. <a href="https://wa.me/918381848389" style="color:var(--primary);font-weight:600;">Ask on WhatsApp →</a></p>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO / DEMO ============ -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Live Projects & Demos</h2>
+    <p class="section-desc">From restaurant bots to AI managers — here's what we've built.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">🤖</div>
+        <h3>El Salama Restaurant Bot</h3>
+        <p>Full restaurant automation: menu display, order taking, table booking, delivery tracking. WhatsApp + Telegram. Hinglish live.</p>
+        <div class="pfolio-tags">
+          <span>WhatsApp Bot</span>
+          <span>Restaurant</span>
+          <span>AI</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">📊</div>
+        <h3>Azam Radiator ERP</h3>
+        <p>Manufacturing ERP: inventory, billing, purchase orders, sales reports, customer portal. India • INR.</p>
+        <div class="pfolio-tags">
+          <span>ERP</span>
+          <span>Manufacturing</span>
+          <span>Billing</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">✈️</div>
+        <h3>Freshtiq Travel AI Pro</h3>
+        <p>AI travel agent: flight/bus/hotel booking, itinerary planning, multi-city support, WhatsApp + website.</p>
+        <div class="pfolio-tags">
+          <span>Travel Bot</span>
+          <span>AI Agent</span>
+          <span>Booking</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">📱</div>
+        <h3>Freshtiq AI Sales Bot</h3>
+        <p>WhatsApp sales bot with DeepSeek + Ollama two-tier AI. Detects 10+ languages, saves leads, notifies hot leads instantly.</p>
+        <div class="pfolio-tags">
+          <span>Sales AI</span>
+          <span>WhatsApp</span>
+          <span>Multi-Lang</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">🧠</div>
+        <h3>Sameer AI Manager</h3>
+        <p>AI-powered Telegram manager: auto-patches, deploys bots, monitors VPS, backups, rollback. Our internal ops bot.</p>
+        <div class="pfolio-tags">
+          <span>AI Manager</span>
+          <span>DevOps</span>
+          <span>Automation</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="pfolio-emoji">🏫</div>
+        <h3>Kids Education Bot</h3>
+        <p>Interactive learning bot for kids: quizzes, progress tracking, parent dashboard, multi-subject support.</p>
+        <div class="pfolio-tags">
+          <span>Education</span>
+          <span>Bot</span>
+          <span>Dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / QUOTE FORM ============ -->
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="section-label">Get Your AI Agent</div>
+    <h2 class="section-title">Tell Us What You Need</h2>
+    <p class="section-desc">Describe your requirement — we'll respond within 30 minutes on WhatsApp.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="ci-block">
+          <span class="ci-icon">📱</span>
+          <div>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/918381848389">+91 8381848389</a>
+          </div>
+        </div>
+        <div class="ci-block">
+          <span class="ci-icon">📧</span>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:freshtiqinnovationspvt@gmail.com">freshtiqinnovationspvt@gmail.com</a>
+          </div>
+        </div>
+        <div class="ci-block">
+          <span class="ci-icon">🤖</span>
+          <div>
+            <strong>Telegram</strong>
+            <a href="https://t.me/AutoPilotHubBot">@AutoPilotHubBot</a>
+          </div>
+        </div>
+        <div class="ci-block">
+          <span class="ci-icon">🌍</span>
+          <div>
+            <strong>Countries</strong>
+            <span>India (₹) • Saudi (ر.س) • UAE (د.إ) • USA ($) • Europe (€)</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta-block">
+        <div class="ccb-card">
+          <h3>Quick Quote</h3>
+          <p>1. Tell us your requirement</p>
+          <p>2. We detect your country</p>
+          <p>3. We reply with pricing in your currency</p>
+          <a href="https://wa.me/918381848389?text=Hi%20Sameer!%20I%20need%20an%20AI%20agent%20for%20my%20business.%20I%20am%20from%20" target="_blank" class="btn-primary" style="margin-top:1rem;">🚀 Send WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container" style="max-width:800px;">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">🤔 What is an AI Agent?</div>
+        <div class="faq-a">An AI agent is a bot that handles a specific business role — sales, accounting, support, HR, etc. It works on WhatsApp, Telegram, or your website, 24/7.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">🌍 Do you work with Saudi/UAE clients?</div>
+        <div class="faq-a">Yes! We serve clients in Saudi Arabia (SAR ر.س) and UAE (AED د.إ). Pricing and support in your local currency.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">💬 Can my AI agent speak Hindi + Arabic + English?</div>
+        <div class="faq-a">Absolutely. Our agents auto-detect language and reply in the same script — Hinglish, Devanagari, Arabic, English.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">⏱ How fast do you deliver?</div>
+        <div class="faq-a">Most projects: 3-7 days for bots, 2-14 days for websites. ERP/custom: depends on scope.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">🔄 Can you update my existing system?</div>
+        <div class="faq-a">Yes. We upgrade existing websites, bots, and apps to AI-powered versions. Contact us with your current setup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Freshtiq Automation</h4>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem;">AI Business Automation Agency. Websites, AI Agents, Bots, CRM/ERP. Serving India, Saudi, UAE.</p>
+        <p style="font-size:0.85rem;color:var(--text-muted);">FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED<br>GST: 09AAGCF7185A1ZL</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Websites</a>
+        <a href="#ai-agents">AI Agents</a>
+        <a href="#services">WhatsApp Bots</a>
+        <a href="#services">CRM/ERP</a>
+        <a href="#services">VPS/Server</a>
+        <a href="#services">SEO/Marketing</a>
+      </div>
+      <div class="footer-col">
+        <h4>AI Agents</h4>
+        <a href="#ai-agents">Sales AI</a>
+        <a href="#ai-agents">Accountant AI</a>
+        <a href="#ai-agents">Manager AI</a>
+        <a href="#ai-agents">Support AI</a>
+        <a href="#ai-agents">HR AI</a>
+        <a href="#ai-agents">Restaurant AI</a>
+        <a href="#ai-agents">Travel AI</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:freshtiqinnovationspvt@gmail.com">📧 Email</a>
+        <a href="https://wa.me/918381848389">💬 WhatsApp</a>
+        <a href="https://t.me/AutoPilotHubBot">📱 Telegram</a>
+        <a href="https://github.com/freshtiqinnovations">🐙 GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+        <a href="refund-policy.html">Refund</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/918381848389" target="_blank" class="whatsapp-float" aria-label="WhatsApp">💬</a>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-mobile-cta">
+  <a href="https://wa.me/918381848389" target="_blank">💬 WhatsApp</a>
+  <a href="https://t.me/AutoPilotHubBot" target="_blank">📱 Telegram</a>
+  <a href="https://wa.me/918381848389?text=I%20want%20a%20quote" target="_blank">📩 Get Quote</a>
+</div>
+
+<script src="script.js?v=2026060812"></script>
+<script>
+// Hamburger toggle
+document.getElementById('hamburger')?.addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('show');
+});
+// Navbar scroll
+window.addEventListener('scroll', function(){
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    q.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
