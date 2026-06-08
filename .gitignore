@@ -1,0 +1,6 @@
+.bak
+.bak.
+backups/
+node_modules/
+*.db
+*.log
