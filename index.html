@@ -558,14 +558,39 @@
         <span class="rc-badge">Enterprise Partner</span>
       </div>
     </div>
+
+    <div class="reseller-registration" style="margin-bottom:2rem;">
+      <div style="background:var(--bg-white);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--border);max-width:600px;margin:0 auto;">
+        <h3 style="text-align:center;margin-bottom:1rem;">📝 Register as Reseller</h3>
+        <form id="resellerForm" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+          <input type="text" name="name" placeholder="Full Name" required style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+          <input type="tel" name="phone" placeholder="WhatsApp Number" required style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+          <input type="email" name="email" placeholder="Email (optional)" style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+          <select name="country" required style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <option value="">Your Country</option><option>India</option><option>Saudi Arabia</option><option>UAE</option><option>USA</option><option>UK</option><option>Other</option></select>
+          <input type="text" name="city" placeholder="City" style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+          <select name="business_type" required style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <option value="">Business Type</option><option>Freelancer</option><option>Digital Agency</option><option>IT Company</option><option>Individual</option><option>Other</option></select>
+          <input type="text" name="experience" placeholder="Experience (years)" style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+          <select name="referral_source" style="width:100%;padding:0.7rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <option value="">How did you find us?</option><option>Google</option><option>Instagram</option><option>YouTube</option><option>WhatsApp</option><option>Friend Referral</option><option>Other</option></select>
+          <button type="submit" style="grid-column:1/-1;background:var(--gradient);color:white;border:none;padding:0.8rem;border-radius:6px;font-weight:700;font-size:1rem;cursor:pointer;">🤝 Register Now</button>
+        </form>
+        <div id="resellerSuccess" style="display:none;margin-top:1rem;padding:1rem;background:#d1fae5;color:#059669;border-radius:8px;font-weight:600;"></div>
+        <div id="resellerError" style="display:none;margin-top:1rem;padding:1rem;background:#fee2e2;color:#dc2626;border-radius:8px;font-weight:600;"></div>
+      </div>
+    </div>
+
     <div class="reseller-how">
       <h3>How It Works</h3>
       <div class="rh-steps">
-        <div class="rh-step"><span class="rh-num">1</span> You submit a lead via WhatsApp</div>
-        <div class="rh-step"><span class="rh-num">2</span> Freshtiq closes &amp; develops the project</div>
-        <div class="rh-step"><span class="rh-num">3</span> You get commission after full payment received</div>
+        <div class="rh-step"><span class="rh-num">1</span> Register as reseller (get unique ID)</div>
+        <div class="rh-step"><span class="rh-num">2</span> We approve within 24 hours</div>
+        <div class="rh-step"><span class="rh-num">3</span> Submit client leads using your reseller ID</div>
+        <div class="rh-step"><span class="rh-num">4</span> Freshtiq closes &amp; develops the project</div>
+        <div class="rh-step"><span class="rh-num">5</span> You get commission after payment received</div>
       </div>
-      <a href="https://wa.me/918381848389?text=I%20want%20to%20join%20the%20Reseller%20Program" target="_blank" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">🤝 Join Reseller Program</a>
+      <a href="https://wa.me/918381848389?text=I%20want%20to%20join%20the%20Reseller%20Program" target="_blank" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">💬 Ask on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -793,6 +818,42 @@ if(leadForm){
       }
     } catch(e) {
       document.getElementById('leadError').style.display = 'block';
+    }
+    btn.textContent = orig;
+    btn.disabled = false;
+  });
+}
+
+// Reseller registration form
+const resellerForm = document.getElementById('resellerForm');
+if(resellerForm){
+  resellerForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = '⏳ Registering...';
+    btn.disabled = true;
+    const fd = new FormData(this);
+    const data = Object.fromEntries(fd);
+    try{
+      const r = await fetch('http://87.76.199.39:3001/api/reseller/register', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const j = await r.json();
+      if(j.success){
+        document.getElementById('resellerSuccess').innerHTML = '✅ ' + j.message + '<br><br>📋 <strong>Your Reseller ID:</strong> ' + j.reseller_id + '<br>⏳ Status: ' + j.status + ' (we\'ll activate within 24 hours)';
+        document.getElementById('resellerSuccess').style.display = 'block';
+        document.getElementById('resellerError').style.display = 'none';
+        this.reset();
+      } else {
+        document.getElementById('resellerError').textContent = '❌ ' + j.error;
+        document.getElementById('resellerError').style.display = 'block';
+      }
+    } catch(e) {
+      document.getElementById('resellerError').textContent = '❌ Registration failed. Please WhatsApp us.';
+      document.getElementById('resellerError').style.display = 'block';
     }
     btn.textContent = orig;
     btn.disabled = false;
