@@ -476,7 +476,26 @@
           <p>1. Tell us your requirement</p>
           <p>2. We detect your country</p>
           <p>3. We reply with pricing in your currency</p>
-          <a href="https://wa.me/918381848389?text=Hi%20Sameer!%20I%20need%20an%20AI%20agent%20for%20my%20business.%20I%20am%20from%20" target="_blank" class="btn-primary" style="margin-top:1rem;">🚀 Send WhatsApp</a>
+          <form id="leadForm" style="margin-top:1rem;text-align:left;">
+            <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:0.7rem;margin-bottom:0.5rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <input type="tel" name="phone" placeholder="WhatsApp Number" required style="width:100%;padding:0.7rem;margin-bottom:0.5rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <input type="email" name="email" placeholder="Email (optional)" style="width:100%;padding:0.7rem;margin-bottom:0.5rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+            <select name="service" required style="width:100%;padding:0.7rem;margin-bottom:0.5rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;">
+              <option value="">Select Service</option>
+              <option value="Website Development">Website</option>
+              <option value="WhatsApp AI Bot">WhatsApp Bot</option>
+              <option value="Telegram Bot">Telegram Bot</option>
+              <option value="CRM/ERP">CRM / ERP</option>
+              <option value="AI Agent">AI Agent</option>
+              <option value="VPS/Hosting">VPS / Hosting</option>
+              <option value="SEO/Marketing">SEO &amp; Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+            <textarea name="message" placeholder="Describe your requirement..." rows="2" style="width:100%;padding:0.7rem;margin-bottom:0.5rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;"></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;padding:0.8rem;border:none;">📩 Get Free Quote</button>
+          </form>
+          <div id="leadSuccess" style="display:none;margin-top:1rem;padding:1rem;background:#d1fae5;color:#059669;border-radius:8px;font-weight:600;">✅ Quote request sent! We'll WhatsApp you within 30 minutes.</div>
+          <div id="leadError" style="display:none;margin-top:1rem;padding:1rem;background:#fee2e2;color:#dc2626;border-radius:8px;font-weight:600;">❌ Error sending request. Please WhatsApp us directly.</div>
         </div>
       </div>
     </div>
@@ -746,6 +765,39 @@ document.querySelectorAll('.faq-q').forEach(q => {
     q.parentElement.classList.toggle('open');
   });
 });
+
+// Lead capture form
+const leadForm = document.getElementById('leadForm');
+if(leadForm){
+  leadForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = '⏳ Sending...';
+    btn.disabled = true;
+    const fd = new FormData(this);
+    const data = Object.fromEntries(fd);
+    try{
+      const r = await fetch('http://87.76.199.39:3001/api/lead', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const j = await r.json();
+      if(j.success){
+        document.getElementById('leadSuccess').style.display = 'block';
+        document.getElementById('leadError').style.display = 'none';
+        this.reset();
+      } else {
+        document.getElementById('leadError').style.display = 'block';
+      }
+    } catch(e) {
+      document.getElementById('leadError').style.display = 'block';
+    }
+    btn.textContent = orig;
+    btn.disabled = false;
+  });
+}
 </script>
 </body>
 </html>
