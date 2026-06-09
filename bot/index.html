@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>FreshtiqBot - Smart Trading</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,'Segoe UI',sans-serif}
+body{background:#0a0f16;color:#e9edef;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:8px}
+.c{max-width:520px;width:100%;border-radius:16px;overflow:hidden;background:#111b21;box-shadow:0 0 60px rgba(0,168,132,.1)}
+.hd{background:linear-gradient(135deg,#202c33,#15232e);padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #2a3942}
+.av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00a884,#00d4aa);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;box-shadow:0 0 20px rgba(0,168,132,.3)}
+.hd h3{font-size:14px;font-weight:600}.hd span{color:#8696a0;font-size:10px}
+.status-on{color:#00a884;font-size:10px}.status-on::before{content:"●";margin-right:4px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.tabs{display:flex;background:#15232e;border-bottom:1px solid #2a3942;overflow-x:auto;scrollbar-width:none}
+.tab{flex:1;min-width:55px;padding:10px 4px;text-align:center;color:#8696a0;font-size:10px;cursor:pointer;border-bottom:2.5px solid transparent;transition:.2s;white-space:nowrap;font-weight:500}
+.tab:hover{color:#e9edef}.tab.active{color:#00a884;border-bottom-color:#00a884}
+.panel{display:none;padding:14px}
+.panel.active{display:block;animation:fadeIn .3s}
+.chats{height:330px;overflow-y:auto;padding:8px;background:radial-gradient(ellipse at top,#0f1a20,#0a0f16);scroll-behavior:smooth}
+.msg{max-width:82%;margin-bottom:6px;clear:both;animation:fadeIn .25s}
+.msg.bot{float:left}.msg.user{float:right}
+.msg .b{display:inline-block;padding:8px 12px;border-radius:10px;font-size:13px;line-height:1.5;word-wrap:break-word}
+.msg.bot .b{background:#202c33;color:#e9edef;border-bottom-left-radius:4px;border:1px solid #2a3942}
+.msg.user .b{background:linear-gradient(135deg,#005c4b,#007a63);color:#e9edef;border-bottom-right-radius:4px}
+.msg .t{font-size:9px;color:#8696a0;margin-top:2px;text-align:right}
+.cinp{display:flex;padding:8px;gap:6px;background:#202c33;border-top:1px solid #2a3942}
+.cinp input{flex:1;background:#2a3942;border:none;border-radius:8px;padding:10px 12px;color:#e9edef;font-size:13px;outline:none}
+.cinp input:focus{border:1.5px solid #00a88455}
+.cinp button{background:linear-gradient(135deg,#00a884,#00d4aa);border:none;border-radius:8px;padding:10px 16px;color:#fff;cursor:pointer;font-weight:600;font-size:12px;transition:.2s}
+.cinp button:hover{transform:scale(1.02)}
+.fg{margin-bottom:8px}
+.fg label{display:block;color:#8b949e;font-size:10px;margin-bottom:2px;font-weight:500}
+.fg input{width:100%;background:#1c2333;border:1px solid #30363d;border-radius:8px;padding:10px 12px;color:#e9edef;font-size:13px;outline:none;transition:.2s}
+.fg input:focus{border-color:#00a884;box-shadow:0 0 0 2px rgba(0,168,132,.1)}
+.btn{background:linear-gradient(135deg,#00a884,#00d4aa);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;width:100%;transition:.2s;margin-top:4px}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(0,168,132,.3)}
+.btn2{background:#2a3942;color:#e9edef;border:1px solid #3a4954}
+.sg{display:grid;gap:8px;margin:10px 0}
+.sg2{grid-template-columns:1fr 1fr}
+.sc{background:linear-gradient(135deg,#1c2333,#202c33);border:1px solid #30363d;border-radius:8px;padding:10px;text-align:center}
+.sc .n{font-size:18px;font-weight:700}.sc .l{color:#8b949e;font-size:10px;margin-top:2px}
+.rbox{padding:10px;border-radius:8px;margin-top:6px;font-size:12px;line-height:1.5;animation:fadeIn .3s}
+.rbox.ok{background:rgba(0,168,132,.15);border:1px solid rgba(0,168,132,.3);color:#00a884}
+.rbox.err{background:rgba(248,81,73,.15);border:1px solid rgba(248,81,73,.3);color:#f85149}
+.rbox.info{background:rgba(88,166,255,.15);border:1px solid rgba(88,166,255,.3);color:#58a6ff}
+.help-section{margin-bottom:10px;background:#1c2333;border-radius:8px;padding:12px;border:1px solid #30363d}
+.help-section h4{color:#00a884;font-size:12px;margin-bottom:4px}
+.help-section p{color:#c9d1d9;font-size:12px;line-height:1.6}
+.hidden{display:none!important}
+.profit-card{background:linear-gradient(135deg,#162b1f,#0f2a1f);border:1px solid #00a88455;border-radius:8px;padding:10px;margin:4px 0;text-align:center}
+.profit-card .big{font-size:20px;font-weight:800;color:#00a884}
+.profit-card .currs{display:flex;gap:6px;justify-content:center;margin-top:4px;flex-wrap:wrap}
+.profit-card .currs span{background:#1c2333;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600}
+.pay-options{display:flex;gap:6px;margin:8px 0}
+.pay-opt{flex:1;text-align:center;padding:10px 8px;background:#1c2333;border:1px solid #30363d;border-radius:8px;cursor:pointer;transition:.2s}
+.pay-opt:hover{border-color:#00a884;background:#00a88415}
+.pay-opt .ico{font-size:20px}.pay-opt .lb{font-size:10px;color:#8b949e;margin-top:3px}
+.stepper{display:flex;padding:6px 10px;gap:3px;background:#15232e;border-bottom:1px solid #2a3942}
+.step-dot{flex:1;height:3px;border-radius:2px;background:#2a3942;transition:.5s}
+.step-dot.done{background:#00a884}.step-dot.active{background:#00d4aa;animation:glow 1s infinite}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.ft{background:#111b21;padding:6px;text-align:center;color:#8b949e;font-size:9px;border-top:1px solid #2a3942}
+.ft a{color:#00a884;text-decoration:none}
+</style></head><body>
+<div class="c">
+  <div class="hd">
+    <div class="av">FB</div>
+    <div><h3>FreshtiqBot</h3><span class="status-on">online</span></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-tab="chat">💬 Chat</div>
+    <div class="tab" data-tab="register">📝 Register</div>
+    <div class="tab" data-tab="p2p">🎯 P2P</div>
+    <div class="tab" data-tab="calc">🧮 Calc</div>
+    <div class="tab" data-tab="pay">💳 Pay</div>
+    <div class="tab" data-tab="help">❓ Help</div>
+  </div>
+  <div class="panel active" id="p-chat">
+    <div class="stepper" id="stepper"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
+    <div class="chats" id="chats">
+      <div class="msg bot"><div class="b">👋 <b>Hello!</b> Main <b>FreshtiqBot</b>!<br><br>👇 <b>Register</b> tab me jao!<br>• /register<br>• /p2p<br>• /pay<br>• /apiguide</div><div class="t">now</div></div>
+    </div>
+    <div class="cinp"><input id="chatIn" placeholder="Type..." autofocus><button id="chatBtn">Send</button></div>
+  </div>
+  <div class="panel" id="p-register">
+    <h3 style="color:#00a884;font-size:14px;margin-bottom:10px">📝 Registration</h3>
+    <div class="fg"><label>Full Name</label><input id="rName" placeholder="Rahul Sharma"></div>
+    <div class="fg"><label>Phone</label><input id="rPhone" placeholder="+919876543210"></div>
+    <div class="fg"><label>Country</label><input id="rCountry" placeholder="India"></div>
+    <div class="fg"><label>Address</label><input id="rAddr" placeholder="Mumbai, India"></div>
+    <div class="fg"><label>API Key</label><input id="rApi" placeholder="demo"></div>
+    <div class="fg"><label>Secret Key</label><input id="rSecret" placeholder="demo" type="password"></div>
+    <button class="btn" id="rBtn">✅ Register</button>
+    <div id="rRes"></div>
+  </div>
+  <div class="panel" id="p-p2p">
+    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🎯 P2P Auto-Catch</h3>
+    <div class="sg sg2">
+      <div class="sc"><div class="n" style="color:#00a884">₹<span id="p2pRate">--</span></div><div class="l">Cheapest</div></div>
+      <div class="sc"><div class="n" style="color:#58a6ff">₹<span id="p2pMarket">--</span></div><div class="l">Market</div></div>
+    </div>
+    <div class="fg"><label>Buy/Sell</label><select id="p2pType"><option value="buy">Buy USDT</option><option value="sell">Sell USDT</option></select></div>
+    <div class="fg"><label>Target Rate</label><input id="p2pTarget" placeholder="95.00" value="95.00"></div>
+    <div class="fg"><label>Amount (₹)</label><input id="p2pAmount" placeholder="50000" value="50000"></div>
+    <button class="btn" id="p2pBtn">🔍 Find</button>
+    <div id="p2pRes"></div>
+  </div>
+  <div class="panel" id="p-calc">
+    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🧮 Calculator</h3>
+    <div class="sg sg2">
+      <div class="sc"><div class="n green" id="cSaving">₹0</div><div class="l">You Save</div></div>
+      <div class="sc"><div class="n" id="cComm" style="color:#d29922">₹0</div><div class="l">Commission</div></div>
+    </div>
+    <div class="fg"><label>Market Rate (₹)</label><input id="cMarket" placeholder="104" value="104"></div>
+    <div class="fg"><label>Your Rate (₹)</label><input id="cYour" placeholder="95" value="95"></div>
+    <div class="fg"><label>Amount (₹)</label><input id="cAmount" placeholder="50000" value="50000"></div>
+    <button class="btn" id="cBtn">🧮 Calc</button>
+    <div id="cRes"></div>
+  </div>
+  <div class="panel" id="p-pay">
+    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">💳 Payment</h3>
+    <div class="pay-options">
+      <div class="pay-opt" onclick="selectPay(this,'upi')"><div class="ico">📱</div><div class="lb">UPI</div></div>
+      <div class="pay-opt" onclick="selectPay(this,'card')"><div class="ico">💳</div><div class="lb">Card</div></div>
+      <div class="pay-opt" onclick="selectPay(this,'bank')"><div class="ico">🏦</div><div class="lb">Bank</div></div>
+      <div class="pay-opt" onclick="selectPay(this,'crypto')"><div class="ico">₿</div><div class="lb">Crypto</div></div>
+    </div>
+    <div class="fg"><label>Order ID</label><input id="payOrder" placeholder="ORD-123"></div>
+    <div class="fg"><label>Amount (₹)</label><input id="payAmt" placeholder="500"></div>
+    <button class="btn" id="payBtn">💳 Pay</button>
+    <div id="payRes"></div>
+  </div>
+  <div class="panel" id="p-help">
+    <div class="help-section"><h4>🚀 P2P Auto-Catch</h4><p>Register → API → Target → Bot scans → Pay → Commission</p></div>
+    <div class="help-section"><h4>💰 Commission (50%)</h4><p>Savings ka 50% commission. No profit? No commission!</p></div>
+    <div class="help-section"><h4>🔑 API Guide</h4><p>Binance → Profile → API Management → Create → Enable Spot</p></div>
+    <div class="help-section"><h4>📞 Support</h4><p><a href="https://wa.me/918381848389" style="color:#00a884" target="_blank">+918381848389</a></p></div>
+  </div>
+  <div class="ft">🔒 Secure | <a href="https://wa.me/918381848389">+918381848389</a></div>
+</div>
+<script>
+let session = JSON.parse(localStorage.getItem('wsession')||'{"id":"s"+Date.now()}');
+if(!session.id) session.id='s'+Date.now();
+localStorage.setItem('wsession',JSON.stringify(session));
+const api = p => 'https://sometimes-helping-offline-performances.trycloudflare.com/api'+p;
+document.querySelectorAll('.tab').forEach(t=>{t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const p = document.getElementById('p-'+t.dataset.tab);
+  if(p) p.classList.add('active');};});
+function addMsg(html,type){const d=document.createElement('div');d.className='msg '+type;
+  d.innerHTML='<div class="b">'+html+'</div><div class="t">now</div>';
+  document.getElementById('chats').appendChild(d);d.scrollIntoView({behavior:'smooth'});}
+async function sendChat(){const inp=document.getElementById('chatIn');const t=inp.value.trim();if(!t)return;
+  addMsg(t,'user');inp.value='';
+  try{const r=await fetch(api('/webchat'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:t,session:session.id})});
+    const d=await r.json();if(d.reply)addMsg(d.reply,'bot');}catch(e){addMsg('⚠️ Error','bot');}}
+document.getElementById('chatIn').onkeydown=e=>{if(e.key==='Enter')sendChat()};
+document.getElementById('chatBtn').onclick=sendChat;
+document.getElementById('rBtn').onclick=async()=>{
+  const d={name:document.getElementById('rName').value.trim(),phone:document.getElementById('rPhone').value.trim(),
+    country:document.getElementById('rCountry').value.trim(),address:document.getElementById('rAddr').value.trim(),
+    api_key:document.getElementById('rApi').value.trim()||'demo',secret:document.getElementById('rSecret').value.trim()||'demo'};
+  if(!d.name||!d.phone){document.getElementById('rRes').innerHTML='<div class="rbox err">❌ Name aur Phone!</div>';return;}
+  try{const r=await fetch(api('/register'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});
+    const res=await r.json();document.getElementById('rRes').innerHTML='<div class="rbox '+(res.ok?'ok':'err')+'">'+(res.ok?'✅ '+res.msg:'❌ '+res.msg)+'</div>';}catch(e){}};
+document.getElementById('p2pBtn').onclick=async()=>{
+  const t=document.getElementById('p2pTarget').value||'95';const a=document.getElementById('p2pAmount').value||'50000';
+  try{const r=await fetch(api('/p2pscan?target='+t+'&amount='+a));const res=await r.json();
+    if(res.ok){document.getElementById('p2pRate').innerText=res.rate;
+      document.getElementById('p2pRes').innerHTML='<div class="rbox ok">🎯 ₹'+res.rate+' | Savings: ₹'+res.savings+'</div>';}
+    else{document.getElementById('p2pRes').innerHTML='<div class="rbox info">⏳ '+res.msg+'</div>';if(res.rate)document.getElementById('p2pRate').innerText=res.rate;}}catch(e){}};
+document.getElementById('cBtn').onclick=()=>{
+  const mk=parseFloat(document.getElementById('cMarket').value)||0;const yr=parseFloat(document.getElementById('cYour').value)||0;
+  const am=parseFloat(document.getElementById('cAmount').value)||0;
+  if(!mk||!yr||!am){document.getElementById('cRes').innerHTML='<div class="rbox err">❌ Daalo sab!</div>';return;}
+  const usdt=am/yr;const diff=mk-yr;const total=diff*usdt;const save=total*0.5;
+  document.getElementById('cSaving').innerText='₹'+save.toFixed(0);document.getElementById('cComm').innerText='₹'+save.toFixed(0);
+  document.getElementById('cRes').innerHTML='<div class="rbox info">📊 '+usdt.toFixed(2)+' USDT | Save ₹'+diff.toFixed(2)+'/USDT | <b>You: ₹'+save.toFixed(0)+'</b></div>';};
+function selectPay(el,t){document.querySelectorAll('.pay-opt').forEach(x=>x.style.borderColor='#30363d');el.style.borderColor='#00a884';}
+document.getElementById('payBtn').onclick=()=>{document.getElementById('payRes').innerHTML='<div class="rbox ok">✅ Payment ₹'+document.getElementById('payAmt').value+' initiated!</div>';};
+async function loadRates(){try{const r=await fetch(api('/rates'));const d=await r.json();if(d.rate&&d.market){document.getElementById('p2pRate').innerText=d.rate;document.getElementById('p2pMarket').innerText=d.market;}}catch(e){}}
+loadRates();setInterval(loadRates,30000);
+</script></body></html>
