@@ -190,7 +190,7 @@ function renderOrderSummary() {
 renderOrderSummary();
 
 // Load rates
-fetch('/api/exchange-rates').then(r=>r.json()).then(d => {
+fetch('https://87.76.199.39/api/exchange-rates').then(r=>r.json()).then(d => {
   if (d.success) for (const r of d.rates) if (r.from_currency==='INR') exchangeRates[r.to_currency]=r.rate;
 });
 
@@ -208,7 +208,7 @@ async function placeOrder() {
   const emiReq = document.getElementById('emiCheck').checked ? 1 : 0;
   
   try {
-    const resp = await fetch('/api/order/create', {
+    const resp = await fetch('https://87.76.199.39/api/order/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -233,7 +233,7 @@ async function placeOrder() {
     }
     
     // Initiate PayU payment
-    const payResp = await fetch('/api/payment/payu/initiate', {
+    const payResp = await fetch('https://87.76.199.39/api/payment/payu/initiate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ order_no: data.order_no })
@@ -274,7 +274,7 @@ async function placeIntlOrder() {
   document.getElementById('loading').style.display = 'block';
   
   try {
-    const resp = await fetch('/api/order/create', {
+    const resp = await fetch('https://87.76.199.39/api/order/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
