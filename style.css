@@ -265,10 +265,22 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 28p
 .footer-bottom a:hover{background:var(--primary);color:white!important;transform:translateY(-2px);box-shadow:0 4px 16px var(--primary-glow)}
 .footer-bottom a:visited{color:var(--text-dim)!important}
 
+/* Footer Services Premium Cards */
+.footer-services .service-link{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px 0;font-size:0.82rem;color:var(--text-dim)!important;border-radius:8px;transition:all 0.28s ease}
+.footer-services .service-link span{font-size:0.9rem;flex-shrink:0;width:22px;text-align:center}
+.footer-services .service-link:hover{color:var(--primary-light)!important;background:rgba(91,141,239,0.08);transform:translateX(6px);text-shadow:none;box-shadow:0 0 12px rgba(91,141,239,0.06)}
+.footer-services .service-link:visited{color:var(--text-dim)!important}
+.footer-col a:visited{color:var(--text-dim)!important}
+
 /* ═══════ Floating Mobile Bar Premium ═══════ */
 .floating-bar{display:none}
 @media(max-width:768px){
   .floating-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:2147483642;background:rgba(8,11,26,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:8px 12px;gap:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .section{padding:60px 20px}
+  .section-header{margin-bottom:36px}
+  #faq .section-inner{padding-bottom:16px}
+  footer{padding-bottom:80px}
+  .footer-services .service-link{padding:8px 10px}
   .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.75rem;font-weight:600;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0}
   .floating-bar a:first-child{background:linear-gradient(135deg,var(--primary),var(--violet));color:white!important;box-shadow:0 4px 16px var(--primary-glow)}
   .floating-bar a:first-child:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--primary-glow)}
@@ -281,9 +293,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 28p
 }
 @media(max-width:500px){
   .footer-inner{grid-template-columns:1fr;gap:24px}
-  footer{padding:40px 20px 24px}
+  footer{padding:40px 20px 24px;padding-bottom:80px}
   .footer-bottom{flex-direction:column;text-align:center;gap:8px}
   .footer-bottom span:last-child{margin-top:4px}
+  .section{padding:44px 16px}
+  .faq-question{padding:14px 16px;font-size:0.85rem}
+  .faq-answer{font-size:0.8rem}
+  .faq-item.open .faq-answer{padding:0 16px 16px}
 }
 
 /* ═══════ FAQ Accordion ═══════ */
