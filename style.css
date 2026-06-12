@@ -78,7 +78,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .nav-links a:hover{color:#6C63FF;background:rgba(108,99,255,0.06)}
 .nav-links .nav-cta{background:#6C63FF;color:#ffffff!important;padding:8px 20px!important;font-weight:700;min-width:auto;text-align:center;box-shadow:0 2px 8px rgba(108,99,255,0.2);border-radius:8px;margin-left:8px;opacity:1;font-size:0.8rem}
 .nav-links .nav-cta::after{display:none}
-.nav-links .nav-cta:hover{background:#6C63FF;color:#ffffff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
+.nav-links .nav-cta:hover{background:#6C63FF;color:#ffffff!important;transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
 .nav-links .nav-pill{background:rgba(108,99,255,0.08);color:#6C63FF!important;border:1px solid #d4d0ff;font-weight:600;padding:5px 10px!important;font-size:0.75rem!important;border-radius:6px}
 .nav-links .nav-pill:hover{background:rgba(108,99,255,0.16);color:#6C63FF!important}
 .mobile-toggle{display:none;background:none;border:none;color:var(--text-dim);font-size:1.5rem;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.2s}
@@ -129,7 +129,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .btn-primary.gold{background:#6C63FF!important;color:#ffffff!important;box-shadow:0 4px 24px rgba(108,99,255,0.2)}
 .btn-primary.gold:hover{background:#6C63FF!important;color:#ffffff!important;box-shadow:0 10px 48px rgba(108,99,255,0.3);transform:translateY(-3px)}
 .btn-secondary{background:#ffffff;color:#0f172a;border:1.5px solid #cbd5e1}
-.btn-secondary:hover{background:rgba(108,99,255,0.06);border-color:var(--primary);transform:translateY(-3px)}
+.btn-secondary:hover{background:rgba(108,99,255,0.06);color:#0f172a;border-color:var(--primary);transform:translateY(-3px)}
 .hero-visual{position:relative;z-index:2;animation:scaleIn 0.7s ease 0.35s both}
 .hero-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:28px;box-shadow:0 8px 32px rgba(0,0,0,0.06);transition:all 0.4s ease}
 .hero-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.1);border-color:#d4d0ff}
@@ -179,7 +179,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .demo-chat-input input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(108,99,255,0.03)}
 .demo-chat-input input::placeholder{color:var(--text-muted)}
 .demo-chat-input button{width:42px;height:42px;border-radius:50%;border:none;background:#6C63FF;color:white;font-size:1.1rem;cursor:pointer;transition:all 0.25s var(--ease-out);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.demo-chat-input button:hover{transform:scale(1.08);box-shadow:0 4px 20px var(--primary-glow)}
+.demo-chat-input button:hover{background:#6C63FF;color:white;transform:scale(1.08);box-shadow:0 4px 20px var(--primary-glow)}
   --accent-soft: rgba(108,99,255,0.06);
 .demo-chat-input button:active{transform:scale(0.95)}
 .demo-typing{display:flex;gap:4px;padding:8px 12px;align-self:flex-start}
@@ -257,6 +257,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 /* ═══════ Global Premium Link Styling ═══════ */
 a{color:var(--primary-light);text-decoration:none;transition:color 0.25s ease}
 a:hover{color:var(--primary);text-shadow:0 0 20px rgba(108,99,255,0.1)}
+.btn-primary:hover,.btn-secondary:hover,.ind-cta:hover,.nav-cta:hover,.nav-pill:hover,.store-wa-btn:hover,.store-quote-btn:hover,.store-demo-btn:hover,.inv-btn:hover,.partner-wa-btn:hover,.ip-cta:hover,.floating-bar a:hover{text-shadow:none!important}
 a:visited{color:var(--primary-light)}
 a:active{color:var(--primary)}
 
@@ -295,9 +296,9 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
   .footer-services .service-link{padding:8px 10px}
   .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.75rem;font-weight:900;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0;color:#ffffff!important;background:#6C63FF;opacity:1}
   .floating-bar a:first-child{background:#6C63FF;color:#ffffff!important;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-  .floating-bar a:first-child:hover{background:#6C63FF;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+  .floating-bar a:first-child:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
   .floating-bar a:last-child{background:#6C63FF;color:#ffffff!important;border:1px solid rgba(255,255,255,0.2);font-weight:900}
-  .floating-bar a:last-child:hover{background:#6C63FF;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+  .floating-bar a:last-child:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
   .floating-bar a:visited{color:#ffffff!important}
   footer{margin-bottom:64px}
   .footer-inner{grid-template-columns:1fr 1fr;gap:32px 24px}
@@ -432,7 +433,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .partner-cta{text-align:center;margin-top:32px}
 .partner-cta p{font-size:0.95rem;color:var(--text-dim);margin-bottom:16px}
 .partner-wa-btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 30px;border-radius:14px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.3s}
-.partner-wa-btn:hover{background:var(--primary-hover);transform:translateY(-1px)}
+.partner-wa-btn:hover{background:var(--primary-hover);color:#fff;transform:translateY(-1px)}
 
 /* ═══════ Investor Section ═══════ */
 .investor-section{scroll-margin-top:80px}
@@ -472,7 +473,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .ip-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;flex-wrap:wrap}
 .ip-delivery{font-size:0.85rem;color:var(--text-dim)}
 .ip-cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 18px;border-radius:12px;font-weight:600;font-size:0.85rem;text-decoration:none;transition:all 0.3s;white-space:nowrap}
-.ip-cta:hover{background:var(--primary-hover)}
+.ip-cta:hover{background:var(--primary-hover);color:#fff}
 @media(max-width:480px){.ip-grid{grid-template-columns:1fr;gap:16px}.ip-card{padding:20px}.ip-plan{grid-template-columns:50px 1fr 50px}.ip-footer{flex-direction:column;align-items:stretch}.ip-cta{text-align:center}}
 
 
@@ -572,8 +573,8 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .testimonial-carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-ms-overflow-style:none;scrollbar-width:none;padding:4px}
 /* Investor CTA */
 .inv-btn{background:#6C63FF!important;color:#ffffff!important;font-weight:900!important;padding:14px 28px!important;border-radius:12px!important;text-decoration:none!important;display:inline-block!important;opacity:1!important}
-.inv-btn:hover{background:#6C63FF!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,0.25)!important}
+.inv-btn:hover{background:#6C63FF!important;color:#ffffff!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,0.25)!important}
 
 /* Store Demo btn */
 .store-demo-btn{background:#6C63FF!important;color:#ffffff!important;font-weight:900!important;opacity:1!important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;border:none}
-.store-demo-btn:hover{background:#6C63FF!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
+.store-demo-btn:hover{background:#6C63FF!important;color:#ffffff!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
