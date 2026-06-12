@@ -1,4 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50" width="300" height="50">
-  <text x="0" y="33" font-size="22" fill="#0f172a" font-weight="800" font-family="system-ui,-apple-system,sans-serif">Freshtiq</text>
-  <text x="102" y="33" font-size="22" fill="#6C63FF" font-weight="800" font-family="system-ui,-apple-system,sans-serif">Automation</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="gt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <!-- F Mark — rounded square with large F -->
+  <rect x="0" y="4" width="50" height="52" rx="13" fill="url(#g1)"/>
+  <text x="8" y="44" font-size="38" fill="white" font-weight="900" font-family="Arial,Helvetica,sans-serif" letter-spacing="-1">F</text>
+  <!-- Brand name -->
+  <text x="64" y="26" font-size="22" fill="#0f172a" font-weight="900" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.3">Freshtiq</text>
+  <text x="64" y="44" font-size="16" fill="url(#gt)" font-weight="800" font-family="Arial,Helvetica,sans-serif" letter-spacing="2">AUTOMATION</text>
 </svg>
