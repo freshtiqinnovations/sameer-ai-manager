@@ -15,11 +15,10 @@
   --text-muted: #94a3b8;
   --primary: #6C63FF;
   --primary-light: #7C73FF;
-  --primary-dark: #5A52E0;
+  --primary-dark: #4B44D4;
   --primary-glow: rgba(108,99,255,0.10);
-  --accent: #5A52E0;
+  --accent: #6C63FF;
   --accent-glow: rgba(90,82,224,0.08);
-  --violet: #7c3aed;
   --violet-glow: rgba(124,58,237,0.08);
   --green: #059669;
   --green-glow: rgba(5,150,105,0.08);
@@ -115,7 +114,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:100px;border:1px solid #d4d0ff;background:rgba(108,99,255,0.08);font-size:0.8rem;color:#6C63FF;font-weight:700;margin-bottom:28px;animation:fadeUp 0.6s ease both}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite;flex-shrink:0}
 .hero h1{font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:900;line-height:1.12;margin-bottom:20px;letter-spacing:-1.5px;animation:fadeUp 0.7s ease 0.08s both}
-.hero h1 .gradient-text{background:linear-gradient(135deg,var(--primary-light),var(--violet),var(--primary-light));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+.hero h1 .gradient-text{background:linear-gradient(135deg,var(--primary-light),var(--primary),var(--primary-light));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 .hero-sub{font-size:clamp(0.95rem,1.2vw,1.1rem);color:var(--text-dim);max-width:540px;margin-bottom:36px;line-height:1.7;animation:fadeUp 0.7s ease 0.15s both}
 .hero-sub strong{color:var(--text)}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;animation:fadeUp 0.7s ease 0.25s both}
@@ -132,11 +131,11 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .hero-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.1);border-color:#d4d0ff}
 .hero-card-badge{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)}
 .hero-card-badge .live-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite;flex-shrink:0}
-.hero-card-badge span{font-size:0.75rem;color:#1e40af;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.hero-card-badge span{font-size:0.75rem;color:#6C63FF;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
 .hero-card-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .stat-item{padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid var(--border);transition:all 0.3s var(--ease-out)}
 .stat-item:hover{background:rgba(108,99,255,0.04);border-color:rgba(108,99,255,0.12);transform:translateY(-2px)}
-.stat-item .num{font-size:1.05rem;font-weight:800;color:#1e40af;margin-bottom:3px}
+.stat-item .num{font-size:1.05rem;font-weight:800;color:#6C63FF;font-weight:800;margin-bottom:3px}
 .stat-item .label{font-size:0.82rem;color:#334155;line-height:1.4}
 .hero-card-flow{display:flex;flex-direction:column;gap:10px}
 .flow-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,0.02);transition:all 0.3s var(--ease-out);cursor:default}
@@ -190,7 +189,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .section-header{text-align:center;max-width:720px;margin:0 auto 56px}
 .section-tag{display:inline-flex;padding:6px 16px;border-radius:100px;border:1px solid #d4d0ff;background:rgba(108,99,255,0.08);font-size:0.78rem;color:#6C63FF;font-weight:700;margin-bottom:18px;text-transform:uppercase;letter-spacing:1.5px}
 .section-header h2{font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px}
-.section-header h2 .gradient-text{background:linear-gradient(135deg,var(--primary-light),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-header h2 .gradient-text{background:linear-gradient(135deg,var(--primary-light),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-header p{color:var(--text-dim);font-size:clamp(0.9rem,1.1vw,1.05rem);line-height:1.7}
 
 /* ═══════ Grids ═══════ */
@@ -214,7 +213,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .counter-row{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;padding:50px 0}
 .counter-item{text-align:center;padding:24px 20px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);min-width:180px;transition:all 0.3s var(--ease-out);backdrop-filter:blur(10px)}
 .counter-item:hover{transform:translateY(-4px);border-color:rgba(108,99,255,0.12);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
-.counter-item .num{font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--primary-light),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.counter-item .num{font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--primary-light),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .counter-item .num .plus{font-size:1.5rem}
 .counter-item .label{font-size:0.82rem;color:var(--text-dim);margin-top:6px}
 
