@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pay Freshtiq Automation — UPI, Bank Transfer, Payment Proof Upload. Secure milestone payments for your project." />
+  <meta property="og:title" content="Make Payment — Freshtiq Automation" />
+  <meta property="og:description" content="Submit payment via UPI or Bank Transfer. Upload payment proof to confirm your project milestone." />
+  <meta property="og:url" content="https://freshtiqautomation.com/payment.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://freshtiqautomation.com/payment.html" />
+  <title>Make Payment — Freshtiq Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CX1JTWNGB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8CX1JTWNGB');</script>
+  <style>
+    .payment-page{min-height:calc(100vh - 80px);display:flex;align-items:center;justify-content:center;padding:28px}
+    .payment-card{max-width:640px;width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:40px 36px}
+    .payment-card h1{font-size:1.6rem;font-weight:800;margin-bottom:6px}
+    .payment-card .sub{color:var(--text-dim);font-size:0.9rem;margin-bottom:28px}
+    .payment-methods{display:flex;gap:10px;margin-bottom:24px}
+    .payment-method{flex:1;padding:14px;border-radius:12px;border:1px solid var(--border);background:var(--bg);text-align:center;cursor:pointer;transition:all 0.25s;font-size:0.85rem;font-weight:600;color:var(--text-dim)}
+    .payment-method.active,.payment-method:hover{border-color:var(--primary);background:rgba(91,141,239,0.1);color:var(--primary-light)}
+    .payment-method svg{display:block;margin:0 auto 6px;width:28px;height:28px}
+    .payment-detail{display:none;margin-bottom:24px}
+    .payment-detail.active{display:block;animation:fadeIn 0.3s ease}
+    .upi-options{display:flex;flex-direction:column;gap:14px}
+    .upi-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg);border-radius:12px;border:1px solid var(--border)}
+    .upi-item img{width:36px;height:36px;border-radius:8px}
+    .upi-item div{flex:1}
+    .upi-item .name{font-size:0.88rem;font-weight:600}
+    .upi-item .id{font-size:0.78rem;color:var(--text-dim);word-break:break-all}
+    .upi-item .copy-btn{padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.75rem;cursor:pointer;transition:all 0.25s}
+    .upi-item .copy-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
+    .bank-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+    .bank-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text)}
+    .bank-table td:first-child{color:var(--text-dim);font-weight:500;white-space:nowrap;width:120px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:6px}
+    .form-group input,.form-group select{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.85rem;font-family:inherit;transition:border-color 0.25s;box-sizing:border-box}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow)}
+    .form-group input::placeholder{color:var(--text-muted)}
+    .pf-upload{position:relative}
+    .pf-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+    .pf-upload .pf-label{display:flex;align-items:center;justify-content:center;gap:8px;padding:28px;border:2px dashed var(--border);border-radius:12px;color:var(--text-dim);font-size:0.85rem;transition:all 0.25s;text-align:center}
+    .pf-upload .pf-label:hover{border-color:var(--primary);color:var(--primary-light)}
+    .pf-upload .pf-label svg{width:24px;height:24px}
+    .submit-payment{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--violet));color:white;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.3s;margin-top:8px;font-family:inherit}
+    .submit-payment:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--primary-glow)}
+    .submit-payment:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+    .success-msg{display:none;text-align:center;padding:16px}
+    .success-msg.active{display:block;animation:fadeIn 0.4s ease}
+    .success-msg .check{width:56px;height:56px;border-radius:50%;background:rgba(34,211,238,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--accent)}
+    .success-msg h2{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+    .success-msg p{color:var(--text-dim);font-size:0.85rem;margin-bottom:16px}
+    .success-msg .wa-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;background:rgba(37,211,102,0.12);color:#25d366;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.25s}
+    .success-msg .wa-btn:hover{background:#25d366;color:white}
+    .project-id{font-size:1.1rem;font-weight:700;color:var(--accent);text-align:center;margin-bottom:24px}
+    #amountDisplay{font-size:1.1rem;font-weight:700;color:var(--primary-light);margin-bottom:16px;text-align:center}
+    @media(max-width:500px){.payment-card{padding:24px 18px}.payment-methods{flex-direction:column}.bank-table td{display:block;padding:6px 10px}.bank-table td:first-child{width:auto}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">⚡ Freshtiq</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/ai-store.html">AI Store</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/payment.html" style="color:var(--primary-light)">Make Payment</a></li>
+        <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="nav-cta">Book a Demo</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="payment-page">
+    <div class="payment-card">
+      <h1>💰 Make a Payment</h1>
+      <p class="sub">Pay via UPI or Bank Transfer. Upload proof to confirm your milestone.</p>
+
+      <!-- Step 1: Payment Methods -->
+      <div class="payment-methods">
+        <div class="payment-method active" onclick="switchPayment('upi')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+          UPI
+        </div>
+        <div class="payment-method" onclick="switchPayment('bank')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+          Bank Transfer
+        </div>
+      </div>
+
+      <div id="amountDisplay">Amount: Enter project ID to see amount</div>
+      <div class="project-id" id="projectIdDisplay">Project ID: —</div>
+
+      <!-- UPI Details -->
+      <div class="payment-detail active" id="upiDetail">
+        <div class="upi-options">
+          <div class="upi-item">
+            <div>
+              <div class="name">GPay / PhonePe / Paytm</div>
+              <div class="id">freshtiq@paytm</div>
+            </div>
+            <button class="copy-btn" onclick="copyUpi()">📋 Copy</button>
+          </div>
+          <div class="upi-item">
+            <div>
+              <div class="name">Scan & Pay (UPI QR)</div>
+              <div class="id">UPI ID: freshtiq@paytm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank Details -->
+      <div class="payment-detail" id="bankDetail">
+        <table class="bank-table">
+          <tr><td>Bank</td><td>HDFC Bank</td></tr>
+          <tr><td>Account Name</td><td>Freshtiq Innovations OPC Private Limited</td></tr>
+          <tr><td>Account No.</td><td>50200123456789</td></tr>
+          <tr><td>IFSC</td><td>HDFC0001234</td></tr>
+          <tr><td>Branch</td><td>Mumbai, Maharashtra</td></tr>
+        </table>
+      </div>
+
+      <!-- Step 2: Payment Details Form -->
+      <div class="form-group">
+        <label for="projectId">Project ID *</label>
+        <input type="text" id="projectId" placeholder="e.g. FRESHTIQ-001 or the project name" oninput="updateProjectDisplay()" />
+      </div>
+      <div class="form-group">
+        <label for="custName">Your Full Name *</label>
+        <input type="text" id="custName" placeholder="As per bank / UPI" />
+      </div>
+      <div class="form-group">
+        <label for="custPhone">WhatsApp Number *</label>
+        <input type="tel" id="custPhone" placeholder="+91 9876543210" />
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount Paid (₹) *</label>
+        <input type="number" id="amount" placeholder="e.g. 8000" oninput="updateAmountDisplay()" />
+      </div>
+      <div class="form-group">
+        <label for="paymentMode">Payment Mode *</label>
+        <select id="paymentMode">
+          <option value="upi">UPI (GPay/PhonePe/Paytm)</option>
+          <option value="bank">Bank Transfer</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Upload Payment Proof (Screenshot)</label>
+        <div class="pf-upload">
+          <input type="file" id="proofFile" accept="image/*" />
+          <div class="pf-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            Tap to upload screenshot
+          </div>
+        </div>
+      </div>
+
+      <button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Submit Payment Proof via WhatsApp</button>
+
+      <!-- Success -->
+      <div class="success-msg" id="successMsg">
+        <div class="check">✅</div>
+        <h2>Payment Proof Submitted 🎉</h2>
+        <p>We have received your payment submission. Our team will verify and confirm within 1 hour.</p>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." target="_blank" class="wa-btn">💬 Confirm on WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function switchPayment(method) {
+      document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.payment-detail').forEach(el => el.classList.remove('active'));
+      if(method === 'upi') {
+        document.querySelector('.payment-method:first-child').classList.add('active');
+        document.getElementById('upiDetail').classList.add('active');
+      } else {
+        document.querySelector('.payment-method:last-child').classList.add('active');
+        document.getElementById('bankDetail').classList.add('active');
+      }
+    }
+
+    function copyUpi() {
+      navigator.clipboard.writeText('freshtiq@paytm').then(() => {
+        const btn = document.querySelector('.upi-item .copy-btn');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => btn.textContent = '📋 Copy', 2000);
+      });
+    }
+
+    function updateProjectDisplay() {
+      const val = document.getElementById('projectId').value.trim();
+      document.getElementById('projectIdDisplay').textContent = 'Project ID: ' + (val || '—');
+    }
+
+    function updateAmountDisplay() {
+      const val = document.getElementById('amount').value.trim();
+      document.getElementById('amountDisplay').textContent = val ? 'Amount: ₹' + parseInt(val).toLocaleString('en-IN') : 'Amount: Enter project ID to see amount';
+      gtag('event', 'payment_amount_entered', { amount: val });
+    }
+
+    function submitPayment() {
+      const projectId = document.getElementById('projectId').value.trim();
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const amount = document.getElementById('amount').value.trim();
+      const mode = document.getElementById('paymentMode').value;
+      const proof = document.getElementById('proofFile').files[0];
+
+      if (!projectId || !name || !phone || !amount) {
+        alert('⚠️ Please fill all required fields: Project ID, Name, Phone, and Amount.');
+        return;
+      }
+
+      // Store in localStorage as fallback
+      const payment = { projectId, name, phone, amount, mode, timestamp: new Date().toISOString() };
+      const history = JSON.parse(localStorage.getItem('payments') || '[]');
+      history.push(payment);
+      localStorage.setItem('payments', JSON.stringify(history));
+
+      // GA event
+      gtag('event', 'payment_proof_submitted', { projectId, amount, mode });
+
+      // WhatsApp message
+      let msg = `Hi Freshtiq! I have submitted a payment.%0A%0A`;
+      msg += `🏷 Project ID: ${projectId}%0A`;
+      msg += `👤 Name: ${name}%0A`;
+      msg += `📱 Phone: ${phone}%0A`;
+      msg += `💰 Amount: ₹${amount}%0A`;
+      msg += `💳 Mode: ${mode}%0A`;
+      msg += `📎 Payment proof screenshot attached. Please confirm.`;
+
+      // Open WhatsApp
+      const waUrl = `https://wa.me/918381848389?text=${msg}`;
+      window.open(waUrl, '_blank');
+
+      // Show success
+      document.getElementById('submitPayment').style.display = 'none';
+      document.getElementById('successMsg').classList.add('active');
+    }
+
+    // Mobile nav toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    // Close nav on link click
+    document.querySelectorAll('#navLinks a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
