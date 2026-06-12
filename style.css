@@ -15,11 +15,13 @@
   --text-muted: #94a3b8;
   --primary: #6C63FF;
   --primary-light: #7C73FF;
-  --primary-dark: #4B44D4;
+  --primary-dark: #5A52E0;
   --primary-glow: rgba(108,99,255,0.10);
+  --accent-soft: rgba(108,99,255,0.06);
   --accent: #6C63FF;
   --accent-glow: rgba(90,82,224,0.08);
   --primary-glow: rgba(124,58,237,0.08);
+  --accent-soft: rgba(108,99,255,0.06);
   --green: #059669;
   --green-glow: rgba(5,150,105,0.08);
   --gold: #d97706;
@@ -56,6 +58,7 @@ body{font-family:var(--font);background:var(--bg);color:#334155;line-height:1.6;
 
 /* ═══════ Custom Cursor ═══════ */
 .cursor-dot{position:fixed;width:8px;height:8px;background:var(--primary-light);border-radius:50%;pointer-events:none;z-index:999999;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s,background 0.2s;box-shadow:0 0 12px var(--primary-glow)}
+  --accent-soft: rgba(108,99,255,0.06);
 .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(108,99,255,0.25);border-radius:50%;pointer-events:none;z-index:999998;transform:translate(-50%,-50%);transition:width 0.3s var(--ease-out),height 0.3s var(--ease-out),border-color 0.3s,background 0.3s}
 .cursor-ring.hover{width:56px;height:56px;border-color:var(--primary-light);background:rgba(108,99,255,0.06)}
 .cursor-ring.click{width:24px;height:24px;border-color:var(--primary);background:rgba(139,92,246,0.1)}
@@ -113,7 +116,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .hero-content{position:relative;z-index:2}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:100px;border:1px solid #d4d0ff;background:rgba(108,99,255,0.08);font-size:0.8rem;color:#6C63FF;font-weight:700;margin-bottom:28px;animation:fadeUp 0.6s ease both}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite;flex-shrink:0}
-.hero h1{font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:900;line-height:1.12;margin-bottom:20px;letter-spacing:-1.5px;animation:fadeUp 0.7s ease 0.08s both}
+.hero h1{font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:900;line-height:1.25;margin-bottom:20px;letter-spacing:-1.5px;animation:fadeUp 0.7s ease 0.08s both}
 .hero h1 .gradient-text{background:linear-gradient(135deg,var(--primary-light),var(--primary),var(--primary-light));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 .hero-sub{font-size:clamp(0.95rem,1.2vw,1.1rem);color:var(--text-dim);max-width:540px;margin-bottom:36px;line-height:1.7;animation:fadeUp 0.7s ease 0.15s both}
 .hero-sub strong{color:var(--text)}
@@ -176,6 +179,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .demo-chat-input input::placeholder{color:var(--text-muted)}
 .demo-chat-input button{width:42px;height:42px;border-radius:50%;border:none;background:#6C63FF;color:white;font-size:1.1rem;cursor:pointer;transition:all 0.25s var(--ease-out);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .demo-chat-input button:hover{transform:scale(1.08);box-shadow:0 4px 20px var(--primary-glow)}
+  --accent-soft: rgba(108,99,255,0.06);
 .demo-chat-input button:active{transform:scale(0.95)}
 .demo-typing{display:flex;gap:4px;padding:8px 12px;align-self:flex-start}
 .demo-typing span{width:6px;height:6px;background:var(--text-dim);border-radius:50%;animation:typing 1.4s infinite;opacity:0.3}
@@ -201,6 +205,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 /* ═══════ Cards ═══════ */
 .card{background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;transition:all 0.4s ease;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary-glow),transparent);opacity:0;transition:opacity 0.3s}
+  --accent-soft: rgba(108,99,255,0.06);
 .card:hover{transform:translateY(-6px);border-color:#d4d0ff;box-shadow:0 16px 48px rgba(0,0,0,0.085)}
 .card:hover::before{opacity:1}
 .card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;transition:transform 0.3s}
@@ -222,6 +227,7 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .process-step{text-align:center;padding:32px 24px;position:relative}
 .process-step:not(:last-child)::after{content:'→';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--primary);opacity:0.5}
 .process-step .step-num{width:52px;height:52px;border-radius:50%;background:#6C63FF;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:1.1rem;margin:0 auto 16px;box-shadow:0 4px 20px var(--primary-glow)}
+  --accent-soft: rgba(108,99,255,0.06);
 .process-step h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
 .process-step p{font-size:0.85rem;color:var(--text-dim);line-height:1.6}
 
@@ -267,6 +273,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .footer-bottom{border-top:1px solid #e2e8f0;max-width:1280px;margin:40px auto 0;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.9375rem;color:#334155}
 .footer-bottom a{color:#334155!important;font-size:0.9rem;padding:6px 14px;border-radius:8px;background:rgba(108,99,255,0.04);border:1px solid #d4d0ff;transition:all 0.25s ease;display:inline-block}
 .footer-bottom a:hover{background:var(--primary);color:white!important;transform:translateY(-2px);box-shadow:0 4px 16px var(--primary-glow)}
+  --accent-soft: rgba(108,99,255,0.06);
 .footer-bottom a:visited{color:#334155!important}
 
 /* Footer Services Premium Cards */
@@ -543,6 +550,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .search-recent-label{font-size:0.75rem;color:var(--text-muted);padding:4px 0;margin-right:6px}
 .search-recent-tag{padding:4px 12px;background:var(--surface2);border-radius:16px;font-size:0.75rem;color:var(--text-dim);cursor:pointer;border:1px solid var(--border);transition:all 0.2s}
 .search-recent-tag:hover{color:var(--primary-light);border-color:var(--primary-glow)}
+  --accent-soft: rgba(108,99,255,0.06);
 @keyframes fadeSlideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
 @media(max-width:480px){
