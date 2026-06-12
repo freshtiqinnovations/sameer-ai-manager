@@ -233,5 +233,11 @@ nav.scrolled{background:rgba(6,8,16,0.88);backdrop-filter:blur(24px) saturate(1.
 .pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem}
 .pricing-card .btn-primary{width:100%;justify-content:center}
 
+/* ═══════ Store Buttons (used in services section too) ═══════ */
+.store-wa-btn{background:rgba(37,211,102,0.1);color:#25d366;border:1px solid rgba(37,211,102,0.2);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer}
+.store-wa-btn:hover{background:#25d366;color:white;border-color:#25d366;transform:translateY(-2px)}
+.store-quote-btn{background:rgba(91,141,239,0.1);color:var(--primary-light);border:1px solid var(--border-glow);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer}
+.store-quote-btn:hover{background:var(--primary);color:white;border-color:var(--primary);transform:translateY(-2px)}
+
 /* ═══════ Testimonials ═══════ */
 .testimonial-carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-ms-overflow-style:none;scrollbar-width:none;padding:4px}
