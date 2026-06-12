@@ -18,48 +18,55 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8CX1JTWNGB');</script>
   <style>
     .payment-page{min-height:calc(100vh - 80px);display:flex;align-items:center;justify-content:center;padding:28px}
-    .payment-card{max-width:640px;width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:40px 36px}
-    .payment-card h1{font-size:1.6rem;font-weight:800;margin-bottom:6px}
-    .payment-card .sub{color:var(--text-dim);font-size:0.9rem;margin-bottom:28px}
+    .payment-card{max-width:640px;width:100%;background:#ffffff;border:1px solid #e0e7ef;border-radius:20px;padding:40px 36px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+    .payment-card h1{font-size:1.6rem;font-weight:800;margin-bottom:6px;color:#1a2332}
+    .payment-card .sub{color:#6b7a8f;font-size:0.9rem;margin-bottom:28px}
     .payment-methods{display:flex;gap:10px;margin-bottom:24px}
-    .payment-method{flex:1;padding:14px;border-radius:12px;border:1px solid var(--border);background:var(--bg);text-align:center;cursor:pointer;transition:all 0.25s;font-size:0.85rem;font-weight:600;color:var(--text-dim)}
-    .payment-method.active,.payment-method:hover{border-color:var(--primary);background:rgba(91,141,239,0.1);color:var(--primary-light)}
+    .payment-method{flex:1;padding:14px;border-radius:12px;border:1px solid #dce2ec;background:#f7f9fc;text-align:center;cursor:pointer;transition:all 0.25s;font-size:0.85rem;font-weight:600;color:#6b7a8f}
+    .payment-method.active,.payment-method:hover{border-color:#3b7be5;background:rgba(59,123,229,0.08);color:#2b6cdf}
     .payment-method svg{display:block;margin:0 auto 6px;width:28px;height:28px}
     .payment-detail{display:none;margin-bottom:24px}
     .payment-detail.active{display:block;animation:fadeIn 0.3s ease}
     .upi-options{display:flex;flex-direction:column;gap:14px}
-    .upi-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg);border-radius:12px;border:1px solid var(--border)}
-    .upi-item img{width:36px;height:36px;border-radius:8px}
+    .upi-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:#f7f9fc;border-radius:12px;border:1px solid #dce2ec}
     .upi-item div{flex:1}
-    .upi-item .name{font-size:0.88rem;font-weight:600}
-    .upi-item .id{font-size:0.78rem;color:var(--text-dim);word-break:break-all}
-    .upi-item .copy-btn{padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.75rem;cursor:pointer;transition:all 0.25s}
-    .upi-item .copy-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
+    .upi-item .name{font-size:0.88rem;font-weight:600;color:#1a2332}
+    .upi-item .id{font-size:0.78rem;color:#6b7a8f;word-break:break-all}
+    .upi-item .copy-btn{padding:6px 14px;border-radius:8px;border:1px solid #dce2ec;background:#ffffff;color:#1a2332;font-size:0.75rem;cursor:pointer;transition:all 0.25s}
+    .upi-item .copy-btn:hover{background:#3b7be5;color:white;border-color:#3b7be5}
     .bank-table{width:100%;border-collapse:collapse;font-size:0.82rem}
-    .bank-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text)}
-    .bank-table td:first-child{color:var(--text-dim);font-weight:500;white-space:nowrap;width:120px}
+    .bank-table td{padding:10px 12px;border-bottom:1px solid #e4e9f0;color:#1a2332}
+    .bank-table td:first-child{color:#6b7a8f;font-weight:500;white-space:nowrap;width:120px}
     .form-group{margin-bottom:16px}
-    .form-group label{display:block;font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:6px}
-    .form-group input,.form-group select{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.85rem;font-family:inherit;transition:border-color 0.25s;box-sizing:border-box}
-    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow)}
-    .form-group input::placeholder{color:var(--text-muted)}
+    .form-group label{display:block;font-size:0.82rem;font-weight:600;color:#1a2332;margin-bottom:6px}
+    .form-group input,.form-group select{width:100%;padding:11px 14px;border-radius:10px;border:1px solid #dce2ec;background:#ffffff;color:#1a2332;font-size:0.85rem;font-family:inherit;transition:border-color 0.25s;box-sizing:border-box}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:#3b7be5;box-shadow:0 0 0 3px rgba(59,123,229,0.15)}
+    .form-group input::placeholder{color:#9aa8bb}
     .pf-upload{position:relative}
     .pf-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
-    .pf-upload .pf-label{display:flex;align-items:center;justify-content:center;gap:8px;padding:28px;border:2px dashed var(--border);border-radius:12px;color:var(--text-dim);font-size:0.85rem;transition:all 0.25s;text-align:center}
-    .pf-upload .pf-label:hover{border-color:var(--primary);color:var(--primary-light)}
+    .pf-upload .pf-label{display:flex;align-items:center;justify-content:center;gap:8px;padding:28px;border:2px dashed #dce2ec;border-radius:12px;color:#6b7a8f;font-size:0.85rem;transition:all 0.25s;text-align:center;background:#fafbfc}
+    .pf-upload .pf-label:hover{border-color:#3b7be5;color:#2b6cdf}
     .pf-upload .pf-label svg{width:24px;height:24px}
-    .submit-payment{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--violet));color:white;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.3s;margin-top:8px;font-family:inherit}
-    .submit-payment:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--primary-glow)}
+    .submit-payment{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,#3b7be5,#7c4dff);color:white;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.3s;margin-top:8px;font-family:inherit}
+    .submit-payment:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(59,123,229,0.3)}
     .submit-payment:disabled{opacity:0.5;cursor:not-allowed;transform:none}
     .success-msg{display:none;text-align:center;padding:16px}
     .success-msg.active{display:block;animation:fadeIn 0.4s ease}
-    .success-msg .check{width:56px;height:56px;border-radius:50%;background:rgba(34,211,238,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--accent)}
-    .success-msg h2{font-size:1.2rem;font-weight:700;margin-bottom:6px}
-    .success-msg p{color:var(--text-dim);font-size:0.85rem;margin-bottom:16px}
+    .success-msg .check{width:56px;height:56px;border-radius:50%;background:rgba(34,211,238,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#0ec5d6}
+    .success-msg h2{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:#1a2332}
+    .success-msg p{color:#6b7a8f;font-size:0.85rem;margin-bottom:16px}
     .success-msg .wa-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;background:rgba(37,211,102,0.12);color:#25d366;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.25s}
     .success-msg .wa-btn:hover{background:#25d366;color:white}
-    .project-id{font-size:1.1rem;font-weight:700;color:var(--accent);text-align:center;margin-bottom:24px}
-    #amountDisplay{font-size:1.1rem;font-weight:700;color:var(--primary-light);margin-bottom:16px;text-align:center}
+    .project-id-box{background:linear-gradient(135deg,rgba(59,123,229,0.08),rgba(124,77,255,0.08));border:1px solid rgba(59,123,229,0.2);border-radius:12px;padding:16px 20px;text-align:center;margin-bottom:24px}
+    .project-id-box .label{font-size:0.8rem;color:#6b7a8f;font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+    .project-id-box .id-value{font-size:1.4rem;font-weight:800;color:#2b6cdf;margin:4px 0 8px;letter-spacing:0.5px}
+    .project-id-box .gen-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:8px;border:1px solid #3b7be5;background:transparent;color:#3b7be5;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit}
+    .project-id-box .gen-btn:hover{background:#3b7be5;color:white}
+    #amountDisplay{font-size:1rem;font-weight:600;color:#1a2332;margin-bottom:20px;text-align:center;background:#f7f9fc;padding:10px 16px;border-radius:10px;border:1px solid #e4e9f0}
+    .input-with-btn{display:flex;gap:8px}
+    .input-with-btn input{flex:1}
+    .input-with-btn .gen-inline-btn{padding:0 14px;border-radius:10px;border:1px solid #3b7be5;background:#3b7be5;color:white;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:inherit}
+    .input-with-btn .gen-inline-btn:hover{background:#2b6cdf;border-color:#2b6cdf}
     @media(max-width:500px){.payment-card{padding:24px 18px}.payment-methods{flex-direction:column}.bank-table td{display:block;padding:6px 10px}.bank-table td:first-child{width:auto}}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   </style>
@@ -86,6 +93,13 @@
       <h1>💰 Make a Payment</h1>
       <p class="sub">Pay via UPI or Bank Transfer. Upload proof to confirm your milestone.</p>
 
+      <!-- Project ID Display & Generator -->
+      <div class="project-id-box">
+        <div class="label">Project ID</div>
+        <div class="id-value" id="projectIdDisplay">FTQ-20260612-7394</div>
+        <button class="gen-btn" onclick="generateProjectId()">🔄 Generate New Project ID</button>
+      </div>
+
       <!-- Step 1: Payment Methods -->
       <div class="payment-methods">
         <div class="payment-method active" onclick="switchPayment('upi')">
@@ -98,8 +112,7 @@
         </div>
       </div>
 
-      <div id="amountDisplay">Amount: Enter project ID to see amount</div>
-      <div class="project-id" id="projectIdDisplay">Project ID: —</div>
+      <div id="amountDisplay">Enter the amount you paid</div>
 
       <!-- UPI Details -->
       <div class="payment-detail active" id="upiDetail">
@@ -107,14 +120,14 @@
           <div class="upi-item">
             <div>
               <div class="name">GPay / PhonePe / Paytm</div>
-              <div class="id">freshtiq@paytm</div>
+              <div class="id">7379131322@kotak811</div>
             </div>
             <button class="copy-btn" onclick="copyUpi()">📋 Copy</button>
           </div>
           <div class="upi-item">
             <div>
               <div class="name">Scan & Pay (UPI QR)</div>
-              <div class="id">UPI ID: freshtiq@paytm</div>
+              <div class="id">UPI ID: 7379131322@kotak811</div>
             </div>
           </div>
         </div>
@@ -123,18 +136,22 @@
       <!-- Bank Details -->
       <div class="payment-detail" id="bankDetail">
         <table class="bank-table">
-          <tr><td>Bank</td><td>HDFC Bank</td></tr>
-          <tr><td>Account Name</td><td>Freshtiq Innovations OPC Private Limited</td></tr>
-          <tr><td>Account No.</td><td>50200123456789</td></tr>
-          <tr><td>IFSC</td><td>HDFC0001234</td></tr>
-          <tr><td>Branch</td><td>Mumbai, Maharashtra</td></tr>
+          <tr><td>Bank</td><td>State Bank of India</td></tr>
+          <tr><td>Account Name</td><td>FRESHTIQ INNOVATIONS(OPC) PRIVATE LIMITED</td></tr>
+          <tr><td>Account No.</td><td>44724335472</td></tr>
+          <tr><td>Branch</td><td>MOHAMMADPUR</td></tr>
+          <tr><td>IFSC</td><td>SBIN0013157</td></tr>
+          <tr><td>MICR</td><td>276002504</td></tr>
         </table>
       </div>
 
       <!-- Step 2: Payment Details Form -->
       <div class="form-group">
         <label for="projectId">Project ID *</label>
-        <input type="text" id="projectId" placeholder="e.g. FRESHTIQ-001 or the project name" oninput="updateProjectDisplay()" />
+        <div class="input-with-btn">
+          <input type="text" id="projectId" placeholder="Auto-generated on load" oninput="syncProjectDisplay()" />
+          <button class="gen-inline-btn" onclick="generateProjectId()">New ID</button>
+        </div>
       </div>
       <div class="form-group">
         <label for="custName">Your Full Name *</label>
@@ -167,7 +184,7 @@
         </div>
       </div>
 
-      <button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Submit Payment Proof via WhatsApp</button>
+      <button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Send Payment Proof on WhatsApp</button>
 
       <!-- Success -->
       <div class="success-msg" id="successMsg">
@@ -180,6 +197,23 @@
   </main>
 
   <script>
+    function generateProjectId() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const rand = String(Math.floor(1000 + Math.random() * 9000));
+      const pid = `FTQ-${y}${m}${d}-${rand}`;
+      document.getElementById('projectIdDisplay').textContent = pid;
+      document.getElementById('projectId').value = pid;
+      return pid;
+    }
+
+    function syncProjectDisplay() {
+      const val = document.getElementById('projectId').value.trim();
+      document.getElementById('projectIdDisplay').textContent = val || 'FTQ-......';
+    }
+
     function switchPayment(method) {
       document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.payment-detail').forEach(el => el.classList.remove('active'));
@@ -193,21 +227,16 @@
     }
 
     function copyUpi() {
-      navigator.clipboard.writeText('freshtiq@paytm').then(() => {
+      navigator.clipboard.writeText('7379131322@kotak811').then(() => {
         const btn = document.querySelector('.upi-item .copy-btn');
         btn.textContent = '✅ Copied!';
         setTimeout(() => btn.textContent = '📋 Copy', 2000);
       });
     }
 
-    function updateProjectDisplay() {
-      const val = document.getElementById('projectId').value.trim();
-      document.getElementById('projectIdDisplay').textContent = 'Project ID: ' + (val || '—');
-    }
-
     function updateAmountDisplay() {
       const val = document.getElementById('amount').value.trim();
-      document.getElementById('amountDisplay').textContent = val ? 'Amount: ₹' + parseInt(val).toLocaleString('en-IN') : 'Amount: Enter project ID to see amount';
+      document.getElementById('amountDisplay').textContent = val ? 'Amount: ₹' + parseInt(val).toLocaleString('en-IN') : 'Enter the amount you paid';
       gtag('event', 'payment_amount_entered', { amount: val });
     }
 
@@ -233,7 +262,7 @@
       // GA event
       gtag('event', 'payment_proof_submitted', { projectId, amount, mode });
 
-      // WhatsApp message
+      // WhatsApp message with Project ID, Amount, Name, Phone
       let msg = `Hi Freshtiq! I have submitted a payment.%0A%0A`;
       msg += `🏷 Project ID: ${projectId}%0A`;
       msg += `👤 Name: ${name}%0A`;
@@ -258,6 +287,11 @@
     // Close nav on link click
     document.querySelectorAll('#navLinks a').forEach(a => {
       a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // Auto-generate Project ID on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      generateProjectId();
     });
   </script>
 </body>
