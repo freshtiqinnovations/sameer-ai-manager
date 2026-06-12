@@ -258,7 +258,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
   .floating-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:2147483642;background:rgba(8,11,26,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:8px 12px;gap:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
   .section{padding:60px 20px}
   .section-header{margin-bottom:36px}
-  #faq .section-inner{padding-bottom:16px}
   footer{padding-bottom:80px}
   .footer-services .service-link{padding:8px 10px}
   .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.7rem;font-weight:700;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0}
@@ -274,22 +273,9 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
   .footer-bottom{flex-direction:column;text-align:center;gap:8px}
   .footer-bottom span:last-child{margin-top:4px}
   .section{padding:44px 16px}
-  .faq-question{padding:14px 16px;font-size:0.85rem}
-  .faq-answer{font-size:0.8rem}
-  .faq-item.open .faq-answer{padding:0 16px 16px}
 }
 
 /* ═══════ FAQ Accordion ═══════ */
-.faq-grid{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.faq-item{border-radius:14px;border:1px solid var(--border);background:var(--bg2);overflow:hidden;transition:all 0.3s ease}
-.faq-item:hover{border-color:var(--border-glow)}
-.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;padding:18px 22px;cursor:pointer;color:var(--text);font-size:0.92rem;font-weight:600;text-align:left;letter-spacing:-0.1px;transition:color 0.25s;gap:16px}
-.faq-question:hover{color:#3b82f6}
-.faq-question span{flex:1}
-.faq-icon{flex-shrink:0;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1)}
-.faq-item.open .faq-icon{transform:rotate(180deg)}
-.faq-answer{padding:0 22px 0;max-height:0;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);color:var(--text-dim);font-size:0.85rem;line-height:1.6}
-.faq-item.open .faq-answer{padding:0 22px 20px;max-height:200px}
 
 /* ═══════ QR Customer Service Bot ═══════ */
 #qr-bot{scroll-margin-top:80px}
@@ -704,17 +690,13 @@ footer .footer-bottom {
   color:#cbd5e1 !important;
 }
 
-/* ═══════ PHASE 16J — FAQ VISIBILITY FIX ═══════ */
-.faq-item {
   background:#ffffff !important;
   border:1px solid #e2e8f0 !important;
   box-shadow:0 10px 25px rgba(15,23,42,0.06) !important;
 }
-.faq-question {
   color:#0f172a !important;
   background:none !important;
 }
-.faq-answer {
   color:#334155 !important;
   opacity:1 !important;
   display:block !important;
