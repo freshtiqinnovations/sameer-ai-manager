@@ -689,6 +689,13 @@ footer span {
   color:#cbd5e1 !important;
   font-weight:700 !important;
 }
+footer a[href*="ai-store"], footer a[href*="wa.me"], footer a[href*="build"] {
+  color:#cbd5e1 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  border:0 !important;
+  font-weight:700 !important;
+}
 footer a:hover {
   color:#ffffff !important;
 }
@@ -715,6 +722,13 @@ footer .footer-bottom {
 
 /* ═══ Phase 16J override: footer links override button lock ═══ */
 footer a {
+  color:#cbd5e1 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  border:0 !important;
+  font-weight:700 !important;
+}
+footer a[href*="ai-store"], footer a[href*="wa.me"], footer a[href*="build"] {
   color:#cbd5e1 !important;
   background:transparent !important;
   box-shadow:none !important;
