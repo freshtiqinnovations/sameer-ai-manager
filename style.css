@@ -244,12 +244,12 @@ a{color:#3b82f6;text-decoration:none;transition:color 0.25s ease}
 footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;position:relative;z-index:2;margin-bottom:70px}
 .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr 1.8fr;gap:40px}
 .footer-col h4{font-size:1.125rem;font-weight:800;margin-bottom:16px;color:#0f172a;letter-spacing:-0.5px}
-.footer-col p{font-size:0.95rem;color:#334155;line-height:1.7}
-.footer-col a{display:block;padding:5px 0;font-size:0.9375rem;color:#334155!important;transition:all 0.25s ease;border-radius:4px}
-.footer-bottom{border-top:1px solid #e2e8f0;max-width:1280px;margin:40px auto 0;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.9375rem;color:#334155}
+.footer-col p{font-size:0.95rem;color:#cbd5e1;line-height:1.7}
+.footer-col a, .footer-col p, .footer-col li, .footer-col span{display:block;padding:5px 0;font-size:0.9375rem;color:#cbd5e1!important;transition:all 0.15s ease;border-radius:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.12);max-width:1280px;margin:40px auto 0;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.9375rem;color:#cbd5e1}
 
 /* Footer Services Premium Cards */
-.footer-services .service-link{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px 0;font-size:0.95rem;color:#334155!important;border-radius:8px;transition:all 0.28s ease}
+.footer-services .service-link{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px 0;font-size:0.95rem;color:#cbd5e1!important;border-radius:8px;transition:all 0.15s ease}
 .footer-services .service-link span{font-size:0.9rem;flex-shrink:0;width:22px;text-align:center}
 
 /* ═══════ Floating Mobile Bar Premium ═══════ */
