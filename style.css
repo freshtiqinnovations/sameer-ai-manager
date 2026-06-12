@@ -676,3 +676,27 @@ a.btn *,
   color: #ffffff !important;
   opacity: 1 !important;
 }
+
+/* ═══════ PHASE 16I — DARK FOOTER RESTORE ═══════ */
+footer {
+  background:#0f172a !important;
+  color:#e2e8f0 !important;
+}
+footer h4 {
+  color:#ffffff !important;
+  font-weight:800 !important;
+}
+footer a,
+footer p,
+footer li,
+footer span {
+  color:#cbd5e1 !important;
+  font-weight:700 !important;
+}
+footer a:hover {
+  color:#ffffff !important;
+}
+footer .footer-bottom {
+  border-top:1px solid rgba(255,255,255,0.12) !important;
+  color:#cbd5e1 !important;
+}
