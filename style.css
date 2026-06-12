@@ -67,8 +67,8 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:100%}
 .logo{display:flex;align-items:center;gap:8px;font-size:1rem;font-weight:800;color:var(--text);text-decoration:none;transition:opacity 0.2s;flex-shrink:0}
 .logo:hover{opacity:0.9}
-.logo img{height:42px;width:auto;transition:transform 0.3s}
-@media(max-width:768px){.logo img{height:36px}}
+.logo img{height:42px;width:auto;max-width:280px;transition:transform 0.3s}
+@media(max-width:768px){.logo img{height:36px;max-width:220px}}
 .logo:hover img{transform:scale(1.04)}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;white-space:nowrap}
 .nav-links a{padding:6px 10px;color:#0f172a;text-decoration:none;font-size:0.8rem;font-weight:600;border-radius:8px;transition:all 0.25s ease;position:relative}
