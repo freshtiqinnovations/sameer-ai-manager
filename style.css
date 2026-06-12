@@ -246,15 +246,11 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .footer-col h4{font-size:1.125rem;font-weight:800;margin-bottom:16px;color:#0f172a;letter-spacing:-0.5px}
 .footer-col p{font-size:0.95rem;color:#334155;line-height:1.7}
 .footer-col a{display:block;padding:5px 0;font-size:0.9375rem;color:#334155!important;transition:all 0.25s ease;border-radius:4px}
-.footer-col a:hover{color:#3b82f6!important;transform:translateX(4px);text-shadow:none}
 .footer-bottom{border-top:1px solid #e2e8f0;max-width:1280px;margin:40px auto 0;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.9375rem;color:#334155}
-.footer-bottom a{color:#334155!important;font-size:0.9rem;padding:6px 14px;border-radius:8px;background:rgba(37,99,235,0.06);border:1px solid #bfdbfe;transition:all 0.25s ease;display:inline-block}
-.footer-bottom a:hover{background:#0b5cff;color:white!important;transform:translateY(-2px);box-shadow:0 4px 16px rgba(11,92,255,0.10)}
 
 /* Footer Services Premium Cards */
 .footer-services .service-link{display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px 0;font-size:0.95rem;color:#334155!important;border-radius:8px;transition:all 0.28s ease}
 .footer-services .service-link span{font-size:0.9rem;flex-shrink:0;width:22px;text-align:center}
-.footer-services .service-link:hover{color:#3b82f6!important;background:rgba(91,141,239,0.08);transform:translateX(6px);text-shadow:none;box-shadow:0 0 12px rgba(91,141,239,0.06)}
 
 /* ═══════ Floating Mobile Bar Premium ═══════ */
 .floating-bar{display:none}
@@ -699,4 +695,20 @@ footer a:hover {
 footer .footer-bottom {
   border-top:1px solid rgba(255,255,255,0.12) !important;
   color:#cbd5e1 !important;
+}
+
+/* ═══════ PHASE 16J — FAQ VISIBILITY FIX ═══════ */
+.faq-item {
+  background:#ffffff !important;
+  border:1px solid #e2e8f0 !important;
+  box-shadow:0 10px 25px rgba(15,23,42,0.06) !important;
+}
+.faq-question {
+  color:#0f172a !important;
+  background:none !important;
+}
+.faq-answer {
+  color:#334155 !important;
+  opacity:1 !important;
+  display:block !important;
 }
