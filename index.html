@@ -120,7 +120,7 @@
       <li><a href="/payment.html">Make Payment</a></li>
       <li><a href="/customer">Portal</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="nav-cta">Book a Demo</a></li>
+      <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
     </ul>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -141,9 +141,9 @@
         We build <strong>Telegram bots, WhatsApp automation, premium websites, CRM/ERP, AI agents and marketing systems</strong> for businesses in India &amp; GCC. Custom-built. Source code yours. Delivered in <strong>5-10 days</strong>.
       </p>
       <div class="hero-ctas">
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20consultation%20for%20my%20business" target="_blank" class="btn-primary">📞 Get Free Consultation</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20consultation%20for%20my%20business" target="_blank" rel="noopener" class="btn-primary">📞 Get Free Consultation</a>
         <a href="/ai-store.html" class="btn-secondary">🛒 View AI Store</a>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Chat%20now" target="_blank" class="btn-secondary">💬 WhatsApp Now</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Chat%20now" target="_blank" rel="noopener" class="btn-secondary">💬 WhatsApp Now</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -210,6 +210,35 @@
 </div>
 
 <!-- ════════════════════════════════════════
+     PREMIUM SEARCH — Find Your Solution
+     ════════════════════════════════════════ -->
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-box-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="siteSearch" placeholder="Search your business need — clinic, hotel, QR bot, CRM, laundry..." autocomplete="off">
+      <button class="search-clear" id="searchClear">✕</button>
+    </div>
+    <div class="search-tags" id="searchTags">
+      <span class="search-tag" data-q="clinic">🏥 Clinic</span>
+      <span class="search-tag" data-q="restaurant">🍽️ Restaurant</span>
+      <span class="search-tag" data-q="laundry">🧺 Laundry</span>
+      <span class="search-tag" data-q="hr">👥 HR</span>
+      <span class="search-tag" data-q="accountant">💰 Accountant</span>
+      <span class="search-tag" data-q="sales">📊 Sales Team</span>
+      <span class="search-tag" data-q="qr">📱 QR Bot</span>
+      <span class="search-tag" data-q="website">🌐 Website</span>
+      <span class="search-tag" data-q="whatsapp">💬 WhatsApp Bot</span>
+      <span class="search-tag" data-q="erp">📊 ERP / CRM</span>
+      <span class="search-tag" data-q="reseller">🤝 Reseller</span>
+      <span class="search-tag" data-q="investor">💎 Investor</span>
+    </div>
+    <div class="search-recent" id="searchRecent"></div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
      INDUSTRIES WE SERVE — 12 Industry Cards
      ════════════════════════════════════════ -->
 <section class="section" id="industries">
@@ -235,7 +264,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Patient portal + digital records + AI triage</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-clinic ERP + telemedicine + analytics</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Clinic%20Hospital%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Clinic%20Hospital%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 2. Hotel / Resort -->
@@ -251,7 +280,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Room service bot + guest portal + PMS sync</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-property ERP + channel manager + AI concierge</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Hotel%20Resort%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Hotel%20Resort%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 3. Restaurant / Cafe -->
@@ -267,7 +296,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Table booking bot + billing + inventory</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-branch ERP + kitchen display + analytics</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Restaurant%20Cafe%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Restaurant%20Cafe%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 4. Travel Agency -->
@@ -283,7 +312,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Flight/hotel search bot + booking portal</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-source aggregator + CRM + payment gateway</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Travel%20Agency%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Travel%20Agency%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 5. Factory / Manufacturing -->
@@ -299,7 +328,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Production ERP + order management + dashboards</span><span class="ind-plan-price">₹35K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Full factory ERP + multi-site + AI predictive</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Factory%20Manufacturing%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Factory%20Manufacturing%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 6. HR & Payroll -->
@@ -315,7 +344,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Payroll automation + HR helpdesk bot</span><span class="ind-plan-price">₹35K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Full HRMS + performance mgmt + compliance</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20HR%20Payroll%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20HR%20Payroll%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 7. Accountant / Finance -->
@@ -331,7 +360,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Expense tracking + client portal + reports</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Full accounting ERP + GST auto-filing + multi-client</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Accountant%20Finance%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Accountant%20Finance%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 8. Sales Team Tracking -->
@@ -347,7 +376,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ GPS tracking + pipeline dashboard + assignments</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Full CRM + analytics + manager portal + GPS routes</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Sales%20Team%20Tracking%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Sales%20Team%20Tracking%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 9. Real Estate -->
@@ -363,7 +392,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Lead CRM + visit scheduler + listing portal</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Full ERP + multi-branch + payment + analytics</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Real%20Estate%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Real%20Estate%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 10. E-commerce / Retail -->
@@ -379,7 +408,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Cart recovery + inventory dashboard + CRM</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-store ERP + AI recommendations + analytics</span><span class="ind-plan-price">₹70K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Ecommerce%20Retail%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Ecommerce%20Retail%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 11. Laundry -->
@@ -395,7 +424,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Order dashboard + status tracking + CRM</span><span class="ind-plan-price">₹20K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ Multi-branch ERP + inventory + SMS/WhatsApp alerts</span><span class="ind-plan-price">₹50K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Laundry%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20Laundry%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
       <!-- 12. QR Customer Service -->
@@ -411,7 +440,7 @@
           <div class="ind-plan"><span class="ind-plan-name">Business</span><span class="ind-plan-desc">+ Multi-location QR + CRM + ticket tracking</span><span class="ind-plan-price">₹25K</span></div>
           <div class="ind-plan"><span class="ind-plan-name">Premium</span><span class="ind-plan-desc">+ AI agent + full analytics + human handoff + portal</span><span class="ind-plan-price">₹60K+</span></div>
         </div>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20QR%20Customer%20Service%20automation%20-%20please%20send%20quote" target="_blank" class="ind-cta">💬 Get Quote on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20QR%20Customer%20Service%20automation%20-%20please%20send%20quote" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote on WhatsApp</a>
       </div>
 
     </div>
@@ -467,7 +496,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹8,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20Telegram%20bot.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20Telegram%20bot.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -477,7 +506,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹15,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20WhatsApp%20bot.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20WhatsApp%20bot.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -487,7 +516,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹25,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20an%20AI%20agent.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20an%20AI%20agent.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -497,7 +526,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹10,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20website.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20website.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -507,7 +536,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹25,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20CRM%20or%20ERP.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20CRM%20or%20ERP.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -517,7 +546,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹50,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20mobile%20app.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20mobile%20app.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -527,7 +556,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Starts at ₹3,000</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20SEO%20and%20marketing.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20SEO%20and%20marketing.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
       <div class="card">
@@ -537,7 +566,7 @@
         <div style="margin-top:16px;font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:12px">Custom Quote</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/ai-store.html" class="store-quote-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">🛒 View in AI Store</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20business%20automation.%20Please%20send%20details." target="_blank" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20business%20automation.%20Please%20send%20details." target="_blank" rel="noopener" class="store-wa-btn" style="padding:8px 14px;border-radius:8px;font-size:0.78rem;flex:1;text-align:center">💬 WhatsApp Quote</a>
         </div>
       </div>
     </div>
@@ -680,7 +709,7 @@
           <li>3-5 days delivery</li>
           <li>7 days support included</li>
         </ul>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Starter%20plan.%20Please%20send%20details." target="_blank" class="btn-secondary store-wa-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Starter%20plan.%20Please%20send%20details." target="_blank" rel="noopener" class="btn-secondary store-wa-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
         <a href="/ai-store.html" class="store-quote-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px">🛒 View in AI Store</a>
       </div>
       <!-- BUSINESS - MOST POPULAR -->
@@ -697,7 +726,7 @@
           <li>7-10 days delivery</li>
           <li>30 days support included</li>
         </ul>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Business%20plan.%20Please%20send%20details." target="_blank" class="btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Business%20plan.%20Please%20send%20details." target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
         <a href="/ai-store.html" class="store-wa-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px">🛒 View in AI Store</a>
       </div>
       <!-- ENTERPRISE -->
@@ -713,7 +742,7 @@
           <li>Custom integrations (any platform)</li>
           <li>14-30 days delivery + priority support</li>
         </ul>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Enterprise%20plan.%20Please%20send%20details." target="_blank" class="btn-secondary store-wa-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20the%20Enterprise%20plan.%20Please%20send%20details." target="_blank" rel="noopener" class="btn-secondary store-wa-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px;margin-bottom:8px">💬 WhatsApp Quote</a>
         <a href="/ai-store.html" class="store-quote-btn" style="width:100%;justify-content:center;padding:12px;font-size:0.85rem;border-radius:10px">🛒 View in AI Store</a>
       </div>
     </div>
@@ -789,7 +818,7 @@
         <div><strong>💰 Starting ₹10,000</strong> — QR code + WhatsApp bot + CRM</div>
         <div><strong>⚡ Delivery 2-5 days</strong> — QR print karo, setup karo, launch karo</div>
       </div>
-      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20QR%20Customer%20Service%20Bot%20for%20my%20shop" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px">💬 Get QR Bot Quote →</a>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20QR%20Customer%20Service%20Bot%20for%20my%20shop" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px">💬 Get QR Bot Quote →</a>
     </div>
   </div>
 </section>
@@ -877,7 +906,7 @@ document.addEventListener('DOMContentLoaded', function() {
       '<div class="ip-workflow"><strong>Workflow:</strong> ' + ind.workflow + '</div>' +
       '<div class="ip-updates"><div class="ip-upd-group"><strong>🧑 Customer:</strong> ' + ind.customerUpdates + '</div><div class="ip-upd-group"><strong>👑 Owner:</strong> ' + ind.ownerUpdates + '</div><div class="ip-upd-group"><strong>👥 Staff:</strong> ' + ind.workerUpdates + '</div></div>' +
       '<div class="ip-plans">' + plansHtml + '</div>' +
-      '<div class="ip-footer"><span class="ip-delivery">⚡ ' + ind.delivery + '</span><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20' + encodeURIComponent(ind.name) + '%20automation" target="_blank" class="ip-cta">💬 ' + ind.cta + ' →</a></div>';
+      '<div class="ip-footer"><span class="ip-delivery">⚡ ' + ind.delivery + '</span><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20' + encodeURIComponent(ind.name) + '%20automation" target="_blank" rel="noopener" class="ip-cta">💬 ' + ind.cta + ' →</a></div>';
     grid.appendChild(card);
   });
 });
@@ -921,7 +950,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="partner-cta">
       <p>Interested? Let's talk on WhatsApp. No obligation. Just info.</p>
-      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20become%20a%20reseller.%20Please%20send%20details." target="_blank" class="partner-wa-btn">💬 I want to become Freshtiq Reseller →</a>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20become%20a%20reseller.%20Please%20send%20details." target="_blank" rel="noopener" class="partner-wa-btn">💬 I want to become Freshtiq Reseller →</a>
     </div>
   </div>
 </section>
@@ -959,7 +988,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="partner-cta">
       <p>Want to discuss investment opportunities? Let's connect on WhatsApp.</p>
-      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20discuss%20Freshtiq%20investment%20opportunity." target="_blank" class="partner-wa-btn inv-btn">💬 Discuss Investment Opportunity →</a>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20discuss%20Freshtiq%20investment%20opportunity." target="_blank" rel="noopener" class="partner-wa-btn inv-btn">💬 Discuss Investment Opportunity →</a>
     </div>
   </div>
 </section>
@@ -1001,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', function() {
       '<div class="ip-workflow"><strong>Workflow:</strong> '+ind.workflow+'</div>' +
       '<div class="ip-updates"><div class="ip-upd-group"><strong>🧑 Employee/Customer:</strong> '+ind.customer+'</div><div class="ip-upd-group"><strong>👑 Owner/Manager:</strong> '+ind.owner+'</div><div class="ip-upd-group"><strong>👥 Staff:</strong> '+ind.staff+'</div></div>' +
       '<div class="ip-plans">'+plansHtml+'</div>' +
-      '<div class="ip-footer"><span class="ip-delivery">⚡ '+ind.delivery+'</span><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20'+encodeURIComponent(ind.name)+'%20automation" target="_blank" class="ip-cta">💬 '+ind.cta+' →</a></div>';
+      '<div class="ip-footer"><span class="ip-delivery">⚡ '+ind.delivery+'</span><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20'+encodeURIComponent(ind.name)+'%20automation" target="_blank" rel="noopener" class="ip-cta">💬 '+ind.cta+' →</a></div>';
     grid.appendChild(card);
   });
 });
@@ -1087,15 +1116,15 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2 style="font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:16px">This Website Is Proof of What We Can Build.<br>Yours Will Be <span class="gradient-text">Even Better</span></h2>
     <p style="color:var(--text-dim);font-size:1rem;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">You're already experiencing the quality. Now imagine what we can build for your business. <strong style="color:var(--text)">One conversation.</strong></p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20consultation%20for%20my%20business." target="_blank" class="btn-primary" style="font-size:1rem;padding:16px 32px">📞 Get Free Consultation</a>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20consultation%20for%20my%20business." target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:16px 32px">📞 Get Free Consultation</a>
       <a href="/ai-store.html" class="btn-secondary" style="font-size:1rem;padding:16px 32px">🛒 Browse AI Store</a>
-      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="btn-secondary" style="font-size:1rem;padding:16px 32px">💬 Talk on WhatsApp</a>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="btn-secondary" style="font-size:1rem;padding:16px 32px">💬 Talk on WhatsApp</a>
     </div>
   </div>
 </section>
 
 <!-- Floating WhatsApp Button (Desktop) -->
-<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="wa-float" id="waFloat" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="wa-float" id="waFloat" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -1237,7 +1266,7 @@ document.addEventListener('DOMContentLoaded', function() {
       '<span class="ind-roi">📈 ' + ind.roi + '</span>' +
       '<span class="ind-price">💰 ' + ind.price + '</span>' +
     '</div>' +
-    '<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20' + encodeURIComponent(ind.name) + '%20automation" target="_blank" class="ind-cta">💬 Get Quote for ' + ind.name + ' →</a>';
+    '<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20' + encodeURIComponent(ind.name) + '%20automation" target="_blank" rel="noopener" class="ind-cta">💬 Get Quote for ' + ind.name + ' →</a>';
     
     grid.appendChild(card);
   });
@@ -1247,7 +1276,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Floating Mobile Bar -->
 <div class="floating-bar">
   <a href="/build">🔧 Build My Project</a>
-  <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business">💬 WhatsApp</a>
+  <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener">💬 WhatsApp</a>
 </div>
 
 <script>

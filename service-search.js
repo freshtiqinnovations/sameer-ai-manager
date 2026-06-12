@@ -165,7 +165,7 @@
         '<div class="sr-footer">' +
           '<span class="sr-price">' + item.price + '</span>' +
           '<div class="sr-ctas">' +
-            '<a href="https://wa.me/918381848389?text=' + waText + '" target="_blank" class="sr-cta sr-cta-wa">💬 WhatsApp Quote</a>' +
+            '<a href="https://wa.me/918381848389?text=' + waText + '" target="_blank" rel="noopener" class="sr-cta sr-cta-wa">💬 WhatsApp Quote</a>' +
             '<a href="' + viewHref + '" class="sr-cta sr-cta-view">👁️ ' + viewLabel + '</a>' +
           '</div>' +
         '</div>' +
@@ -186,7 +186,7 @@
       }
     }
     noResult.className = 'search-no-result visible';
-    noResult.innerHTML = '<p>❌ Couldn\'t find "<strong>' + escapeHtml(q) + '</strong>" in our services.</p><p>Tell us on WhatsApp — we can build custom automation for your business.</p><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20custom%20automation%20for%20' + encodeURIComponent(q) + '" target="_blank">💬 Ask on WhatsApp</a>';
+    noResult.innerHTML = '<p>❌ Couldn\'t find "<strong>' + escapeHtml(q) + '</strong>" in our services.</p><p>Tell us on WhatsApp — we can build custom automation for your business.</p><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20custom%20automation%20for%20' + encodeURIComponent(q) + '" target="_blank" rel="noopener">💬 Ask on WhatsApp</a>';
   }
 
   function hideNoResult() {

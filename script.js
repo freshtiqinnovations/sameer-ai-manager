@@ -159,7 +159,7 @@ document.getElementById('quoteResult').innerHTML = `
 <tr><td style="padding:6px 0;color:#7a7a9a;">Estimate</td><td style="font-weight:600;color:#1a73e8;">${estimate}</td></tr>
 <tr><td style="padding:6px 0;color:#7a7a9a;">Delivery</td><td style="font-weight:600;">${delivery}</td></tr>
 </table>
-<a href="https://wa.me/918381848389?text=Hi!%20I%20need%20a%20${t}%20project.%20Budget%20${b}.%20Name:%20${name}" target="_blank" style="display:block;text-align:center;margin-top:14px;padding:12px;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-weight:600;">💬 Send Quote on WhatsApp</a>
+<a href="https://wa.me/918381848389?text=Hi!%20I%20need%20a%20${t}%20project.%20Budget%20${b}.%20Name:%20${name}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:14px;padding:12px;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-weight:600;">💬 Send Quote on WhatsApp</a>
 </div>
 `;
 }
@@ -220,9 +220,9 @@ document.getElementById('salesResult').innerHTML = `
 </div>
 <p style="color:#6b7280;font-size:0.82rem;text-align:center;margin:0 0 14px;">Your request is ready. Click below to continue.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a href="https://wa.me/918381848389?text=${msg}" target="_blank" style="flex:1;min-width:150px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Continue on WhatsApp</a>
+<a href="https://wa.me/918381848389?text=${msg}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Continue on WhatsApp</a>
 <a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:150px;padding:12px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📱 Start on Telegram</a>
-<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Please%20call%20me%20back.%20${name}%20${phone}" target="_blank" style="flex:1;min-width:150px;padding:12px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📞 Request Call Back</a>
+<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Please%20call%20me%20back.%20${name}%20${phone}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📞 Request Call Back</a>
 </div>
 </div>
 `;
@@ -289,7 +289,7 @@ document.getElementById('roiResult').innerHTML = `
 <span style="font-weight:700;color:#7c3aed;font-size:0.9rem;">${pkgName}</span>
 </div>
 </div>
-<a href="https://wa.me/918381848389?text=${msg}" target="_blank" style="display:block;margin-top:14px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Get This Quote on WhatsApp</a>
+<a href="https://wa.me/918381848389?text=${msg}" target="_blank" rel="noopener" style="display:block;margin-top:14px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Get This Quote on WhatsApp</a>
 </div>
 `;
 }
@@ -390,7 +390,7 @@ resultDiv.innerHTML = `
 </div>
 </div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;">
-<a href="https://wa.me/918381848389?text=${encodeURIComponent(proposalText)}" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">💬 Continue on WhatsApp</a>
+<a href="https://wa.me/918381848389?text=${encodeURIComponent(proposalText)}" target="_blank" rel="noopener" style="flex:1;min-width:120px;padding:10px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">💬 Continue on WhatsApp</a>
 <a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📱 Continue on Telegram</a>
 <a href="tel:+918381848389" style="flex:1;min-width:120px;padding:10px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📞 Request Callback</a>
 </div>
@@ -743,7 +743,7 @@ container.innerHTML = '<div class="container" style="max-width:800px;margin:0 au
 + '<h4 style="margin:0 0 8px;font-size:0.95rem;color:#dc2626;">📞 After Payment</h4>'
 + '<div style="font-size:0.85rem;color:#4a4a6a;">Send payment screenshot & Order ID on WhatsApp to confirm your order.</div>'
 + '</div>'
-+ '<a href="https://wa.me/918381848389?text=' + encodeURIComponent('Hi! I want to place order for ' + webCart.map(function(i){return i.name + ' × ' + i.qty;}).join(', ') + '. Total: ₹' + total.toLocaleString('en-IN')) + '" target="_blank" class="btn btn-success" style="display:block;text-align:center;padding:14px;background:#16a34a;color:white;border-radius:8px;text-decoration:none;font-weight:700;">'
++ '<a href="https://wa.me/918381848389?text=' + encodeURIComponent('Hi! I want to place order for ' + webCart.map(function(i){return i.name + ' × ' + i.qty;}).join(', ') + '. Total: ₹' + total.toLocaleString('en-IN')) + '" target="_blank" rel="noopener" class="btn btn-success" style="display:block;text-align:center;padding:14px;background:#16a34a;color:white;border-radius:8px;text-decoration:none;font-weight:700;">'
 + '📱 Confirm Order on WhatsApp</a>'
 + '</div></div></div>';
 }

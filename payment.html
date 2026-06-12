@@ -73,7 +73,7 @@
         <li><a href="/ai-store.html">AI Store</a></li>
         <li><a href="/portfolio/">Portfolio</a></li>
         <li><a href="/payment.html" style="color:var(--primary-light)">Make Payment</a></li>
-        <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="nav-cta">Book a Demo</a></li>
+        <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
       </ul>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -174,7 +174,7 @@
         <div class="check">✅</div>
         <h2>Payment Proof Submitted 🎉</h2>
         <p>We have received your payment submission. Our team will verify and confirm within 1 hour.</p>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." target="_blank" class="wa-btn">💬 Confirm on WhatsApp</a>
+        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." target="_blank" rel="noopener" class="wa-btn">💬 Confirm on WhatsApp</a>
       </div>
     </div>
   </main>
@@ -244,7 +244,7 @@
 
       // Open WhatsApp
       const waUrl = `https://wa.me/918381848389?text=${msg}`;
-      window.open(waUrl, '_blank');
+      window.open(waUrl, "_blank", "noopener");
 
       // Show success
       document.getElementById('submitPayment').style.display = 'none';

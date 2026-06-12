@@ -76,11 +76,11 @@
 
     // Demo request
     if (/\bdemo\b/i.test(lower)) {
-      return "Of course! I'd love to show you what we can build. 📅\n\nPlease WhatsApp me at +91 8381848389 and I'll arrange a live demo of our work.\n\n👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20book%20a%20demo.' target='_blank' style='color:#818cf8;font-weight:600'>Book Demo on WhatsApp</a>";
+      return "Of course! I'd love to show you what we can build. 📅\n\nPlease WhatsApp me at +91 8381848389 and I'll arrange a live demo of our work.\n\n👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20book%20a%20demo.' target='_blank' rel='noopener' style='color:#818cf8;font-weight:600'>Book Demo on WhatsApp</a>";
     }
 
     // No match — generic help
-    return "I'm here to help! 🤖\n\nI can tell you about:\n• **Pricing** — services & rates\n• **Websites** — business, e-commerce, booking\n• **WhatsApp Bots** — sales, support, CRM\n• **AI Agents** — custom AI for your business\n• **CRM/ERP** — manage customers and operations\n\nWhat would you like to know? Or 👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help%20with%20automation.' target='_blank' style='color:#818cf8;font-weight:600'>Chat on WhatsApp</a>";
+    return "I'm here to help! 🤖\n\nI can tell you about:\n• **Pricing** — services & rates\n• **Websites** — business, e-commerce, booking\n• **WhatsApp Bots** — sales, support, CRM\n• **AI Agents** — custom AI for your business\n• **CRM/ERP** — manage customers and operations\n\nWhat would you like to know? Or 👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help%20with%20automation.' target='_blank' rel='noopener' style='color:#818cf8;font-weight:600'>Chat on WhatsApp</a>";
   }
 
   // ─── SESSION ID ───
@@ -259,7 +259,7 @@
     if (!window._ftOfflineNoted) {
       window._ftOfflineNoted = true;
       setTimeout(() => {
-        addMessage('💡 *Tip:* You can also WhatsApp me directly for immediate response — <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help." target="_blank">Chat on WhatsApp →</a>', 'bot');
+        addMessage('💡 *Tip:* You can also WhatsApp me directly for immediate response — <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help." target="_blank" rel="noopener">Chat on WhatsApp →</a>', 'bot');
       }, 800);
     }
     setBusy(false);
