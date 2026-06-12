@@ -120,6 +120,7 @@
       <li><a href="/payment.html">Make Payment</a></li>
       <li><a href="/customer">Portal</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="#reseller" style="color:var(--accent);font-weight:700;">Become Reseller</a></li>
       <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
     </ul>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -955,6 +956,47 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
+<!-- Affiliate / Partner Marketing -->
+<section class="section partnership-section" id="affiliate">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Earn With Us</div>
+      <h2>Affiliate / Partner <span class="gradient-text">Marketing</span></h2>
+      <p>Earn by referring automation clients. No coding needed. Freshtiq builds, you earn commission.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="partner-card reseller-products">
+        <h4>📦 What You Can Promote</h4>
+        <div class="partner-tags">
+          <span>Telegram Bots</span><span>WhatsApp Bots</span><span>Websites</span><span>CRM / ERP</span><span>AI Agents</span><span>SEO Services</span><span>Industry Solutions</span>
+        </div>
+      </div>
+      <div class="partner-card reseller-flow">
+        <h4>🔁 How Affiliate Works</h4>
+        <div class="partner-step"><span class="step-num">1</span> Refer a client to us</div>
+        <div class="partner-step"><span class="step-num">2</span> We handle everything</div>
+        <div class="partner-step"><span class="step-num">3</span> Client pays for project</div>
+        <div class="partner-step"><span class="step-num">4</span> We build &amp; deliver</div>
+        <div class="partner-step"><span class="step-num">5</span> You earn commission</div>
+      </div>
+      <div class="partner-card reseller-benefits">
+        <h4>✅ Affiliate Benefits</h4>
+        <ul>
+          <li>No technical skills required</li>
+          <li>Ready-made portfolio &amp; pricing</li>
+          <li>Commission on every referred client</li>
+          <li>Recurring referral bonuses</li>
+          <li>Full Freshtiq support throughout</li>
+        </ul>
+      </div>
+    </div>
+    <div class="partner-cta">
+      <p>Interested in becoming an Affiliate Partner? Start earning today.</p>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20become%20an%20affiliate%20partner.%20Please%20send%20details." target="_blank" rel="noopener" class="partner-wa-btn">💬 Become Affiliate Partner →</a>
+    </div>
+  </div>
+</section>
+
 <section class="section investor-section" id="investor">
   <div class="section-inner">
     <div class="section-header">
@@ -1175,7 +1217,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="quote-success" id="quoteSuccess">
       <div class="icon">✅</div>
       <h3>Thanks! We've Got Your Request</h3>
-      <p>We'll reach out on WhatsApp within 1 hour with a custom quote. — Sameer, FRESHTIQ</p>
+      <p id="quoteSuccessText">We'll reach out on WhatsApp within 1 hour with a custom quote. — Sameer, FRESHTIQ</p>
+      <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20submitted%20a%20quote%20request.%20Please%20check." target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;padding:10px 20px;background:#25d366;color:white;border-radius:8px;text-decoration:none;font-weight:600;">💬 Send on WhatsApp</a>
     </div>
   </div>
 </div>
@@ -1275,8 +1318,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Floating Mobile Bar -->
 <div class="floating-bar">
-  <a href="/build">🔧 Build My Project</a>
-  <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a href="/ai-store.html" style="background:linear-gradient(135deg,#2563eb,#7c3aed);color:white!important;">🤖 Freshtiq Automation — AI Bots, Websites, ERP/CRM &amp; Business Automation</a>
+  <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="btn-cta-wa">💬 Trusted in India • Saudi • UAE</a>
 </div>
 
 <script>
@@ -1328,7 +1371,17 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
+    // Generate Project ID
+    const now = new Date();
+    const dateStr = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0');
+    const rand = String(Math.floor(1000 + Math.random() * 9000));
+    const projectId = 'FTQ-' + dateStr + '-' + rand;
+
+    // Store Project ID for success display
+    window._latestProjectId = projectId;
+
     const lead = {
+      project_id: projectId,
       name, phone: phone.replace(/[^0-9]/g,''),
       service,
       budget: document.getElementById('qBudget').value,
@@ -1378,9 +1431,17 @@ document.addEventListener('DOMContentLoaded', function() {
       new Image().src = 'https://api.telegram.org/bot7803901698:AAF46eXq0cHzvHf9TYgJz1N7ak0HQcPMuH8/sendMessage?chat_id=8649581921&text=' + msg;
     } catch(e) {}
 
-    // Show success
+    // Show success with Project ID
     if (formDiv) formDiv.style.display = 'none';
     if (successDiv) successDiv.classList.add('open');
+    const projSpan = document.createElement('p');
+    projSpan.style.cssText = 'font-size:0.9rem;margin-top:8px;color:var(--accent);font-weight:700;';
+    projSpan.innerHTML = '📋 Project ID: <strong>' + projectId + '</strong>';
+    document.getElementById('quoteSuccessText').parentNode.insertBefore(projSpan, document.getElementById('quoteSuccessText').nextSibling);
+    const waBtn = document.querySelector('#quoteSuccess a');
+    if (waBtn) {
+      waBtn.href = 'https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20submitted%20a%20quote%20request.%20Project%20ID%3A%20' + projectId + '.%20Please%20check.';
+    }
 
     // GA event
     if (typeof gtag === 'function') gtag('event', 'lead_form_submit', { service: service });
