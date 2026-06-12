@@ -77,7 +77,6 @@ nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(24px) satura
 .nav-links a:hover::after{width:50%}
 .nav-links .nav-cta{background:#0b5cff;color:#ffffff!important;padding:8px 18px!important;font-weight:900;min-width:110px;text-align:center;box-shadow:0 4px 24px rgba(11,92,255,0.2);white-space:nowrap;margin-left:10px;opacity:1}
 .nav-links .nav-cta::after{display:none}
-.nav-links .nav-cta:hover{color:#ffffff;background:#0b5cff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(11,92,255,0.2)}
 .nav-links .nav-pill{background:#eff6ff;color:#1e40af!important;border:1px solid #bfdbfe;font-weight:700;padding:6px 12px!important;font-size:0.8rem!important}
 .mobile-toggle{display:none;background:none;border:none;color:var(--text-dim);font-size:1.6rem;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.2s}
 .mobile-toggle:hover{background:rgba(255,255,255,0.04)}
@@ -118,15 +117,7 @@ nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(24px) satura
 .hero h1 .gradient-text{background:linear-gradient(135deg,#3b82f6,var(--violet),#3b82f6);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
 .hero-sub{font-size:clamp(0.95rem,1.2vw,1.1rem);color:var(--text-dim);max-width:540px;margin-bottom:36px;line-height:1.7;animation:fadeUp 0.7s ease 0.15s both}
 .hero-sub strong{color:var(--text)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;animation:fadeUp 0.7s ease 0.25s both}
-.btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:12px;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.35s var(--ease-out);cursor:pointer;border:none;font-family:var(--font);white-space:nowrap;position:relative;overflow:hidden}
-.btn-primary{background:#0b5cff!important;color:#ffffff!important;font-weight:900!important;opacity:1!important;box-shadow:0 4px 24px rgba(11,92,255,0.2);border:none}
-.btn-primary::before{display:none}
-.btn-primary:hover{background:#0b5cff!important;opacity:1!important;transform:translateY(-3px);box-shadow:0 10px 48px rgba(11,92,255,0.3)}
-.btn-primary.gold{background:#0b5cff!important;color:#ffffff!important;box-shadow:0 4px 24px rgba(11,92,255,0.2)}
-.btn-primary.gold:hover{background:#0b5cff!important;box-shadow:0 10px 48px rgba(11,92,255,0.3);transform:translateY(-3px)}
-.btn-secondary{background:#ffffff;color:#0f172a;border:1.5px solid #cbd5e1}
-.btn-secondary:hover{background:rgba(11,92,255,0.08);border-color:#0b5cff;transform:translateY(-1px);color:#0f172a}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;}
 .hero-visual{position:relative;z-index:2;animation:scaleIn 0.7s ease 0.35s both}
 .hero-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:28px;box-shadow:0 8px 32px rgba(0,0,0,0.06);transition:all 0.4s ease}
 .hero-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.1);border-color:#bfdbfe}
@@ -176,7 +167,6 @@ nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(24px) satura
 .demo-chat-input input:focus{border-color:#0b5cff;box-shadow:0 0 0 3px rgba(37,99,235,0.04)}
 .demo-chat-input input::placeholder{color:var(--text-muted)}
 .demo-chat-input button{width:42px;height:42px;border-radius:50%;border:none;background:linear-gradient(135deg,#2563eb,#7c3aed);color:white;font-size:1.1rem;cursor:pointer;transition:all 0.25s var(--ease-out);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.demo-chat-input button:hover{background:#0b5cff;color:#ffffff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(11,92,255,0.2)}
 .demo-chat-input button:active{transform:scale(0.95)}
 .demo-typing{display:flex;gap:4px;padding:8px 12px;align-self:flex-start}
 .demo-typing span{width:6px;height:6px;background:var(--text-dim);border-radius:50%;animation:typing 1.4s infinite;opacity:0.3}
@@ -240,18 +230,13 @@ nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(24px) satura
 .pricing-features{list-style:none;text-align:left;margin-bottom:32px}
 .pricing-features li{padding:7px 0;font-size:0.87rem;color:var(--text-dim);display:flex;align-items:flex-start;gap:10px;line-height:1.4}
 .pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem}
-.pricing-card .btn-primary{width:100%;justify-content:center}
 
 /* ═══════ Store Buttons (used in services section too) ═══════ */
 .store-wa-btn{background:#0b5cff;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-wa-btn:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(11,92,255,0.3)}
 .store-quote-btn{background:#0b5cff;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-quote-btn:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(11,92,255,0.3)}
 
 /* ═══════ Global Premium Link Styling ═══════ */
 a{color:#3b82f6;text-decoration:none;transition:color 0.25s ease}
-a:hover{color:var(--accent)}
-a:active{color:var(--violet)}
 
 /* Button classes — never apply visited color */
 
@@ -282,9 +267,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
   .footer-services .service-link{padding:8px 10px}
   .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.7rem;font-weight:700;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0}
   .floating-bar a:first-child{background:#0b5cff;color:#ffffff!important;box-shadow:0 4px 16px rgba(11,92,255,0.2);opacity:1}
-  .floating-bar a:first-child:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 6px 24px rgba(11,92,255,0.3)}
   .floating-bar a:last-child{background:#0b5cff;color:#ffffff!important;border:none;font-weight:700;opacity:1}
-  .floating-bar a:last-child:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 6px 24px rgba(11,92,255,0.3)}
   footer{margin-bottom:64px}
   .footer-inner{grid-template-columns:1fr 1fr;gap:32px 24px}
   .footer-col:first-child{grid-column:1/-1}
@@ -418,7 +401,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .partner-cta{text-align:center;margin-top:32px}
 .partner-cta p{font-size:0.95rem;color:var(--text-dim);margin-bottom:16px}
 .partner-wa-btn{display:inline-block;background:#0b5cff;color:#ffffff;padding:14px 30px;border-radius:14px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.3s}
-.partner-wa-btn:hover{background:#0b5cff;color:#ffffff;transform:translateY(-1px)}
 
 /* ═══════ Investor Section ═══════ */
 .investor-section{scroll-margin-top:80px}
@@ -458,7 +440,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .ip-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;flex-wrap:wrap}
 .ip-delivery{font-size:0.85rem;color:var(--text-dim)}
 .ip-cta{display:inline-block;background:#0b5cff;color:#ffffff;padding:10px 18px;border-radius:12px;font-weight:600;font-size:0.85rem;text-decoration:none;transition:all 0.3s;white-space:nowrap}
-.ip-cta:hover{background:#0b5cff;color:#ffffff}
 @media(max-width:480px){.ip-grid{grid-template-columns:1fr;gap:16px}.ip-card{padding:20px}.ip-plan{grid-template-columns:50px 1fr 50px}.ip-footer{flex-direction:column;align-items:stretch}.ip-cta{text-align:center}}
 
 
@@ -486,7 +467,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .ind-roi{font-size:0.82rem;color:#059669;font-weight:700}
 .ind-price{font-size:0.9rem;color:#1d4ed8;font-weight:800}
 .ind-cta{display:block;text-align:center;background:linear-gradient(135deg,#1d4ed8,#4f46e5);color:#ffffff;padding:12px;border-radius:12px;font-weight:800;font-size:0.88rem;text-decoration:none;margin-top:auto;transition:all 0.3s}
-.ind-cta:hover{background:#0b5cff;color:#ffffff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(11,92,255,0.2)}
 @media(max-width:480px){.industry-grid{grid-template-columns:1fr;gap:16px}.industry-card{padding:20px}.ind-footer{flex-direction:column;align-items:flex-start;gap:6px}}
 
 /* ═══════ Premium Search Section ═══════ */
@@ -552,23 +532,147 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .testimonial-carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-ms-overflow-style:none;scrollbar-width:none;padding:4px}
 /* Investor CTA */
 .inv-btn{background:#0b5cff!important;color:#ffffff!important;font-weight:900!important;padding:14px 28px!important;border-radius:12px!important;text-decoration:none!important;display:inline-block!important;opacity:1!important}
-.inv-btn:hover{background:#0b5cff!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,92,255,0.25)!important}
 
 /* Store Demo btn */
 .store-demo-btn{background:#0b5cff!important;color:#ffffff!important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;border:none}
-.store-demo-btn:hover{background:#0b5cff!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(11,92,255,0.3)}
 
-/* ═══ BUTTON STATE LOCK — PHASE 16G ═══ */
-.nav-cta,.nav-cta:hover,.nav-cta:focus,.nav-cta:active,
-.btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active,
-.btn-secondary,.btn-secondary:hover,.btn-secondary:focus,.btn-secondary:active,
-.ind-cta,.ind-cta:hover,.ind-cta:focus,.ind-cta:active,
-.store-wa-btn,.store-wa-btn:hover,.store-wa-btn:focus,.store-wa-btn:active,
-.store-quote-btn,.store-quote-btn:hover,.store-quote-btn:focus,.store-quote-btn:active,
-.store-demo-btn,.store-demo-btn:hover,.store-demo-btn:focus,.store-demo-btn:active,
-.inv-btn,.inv-btn:hover,.inv-btn:focus,.inv-btn:active,
-.partner-wa-btn,.partner-wa-btn:hover,.partner-wa-btn:focus,.partner-wa-btn:active,
-.ip-cta,.ip-cta:hover,.ip-cta:focus,.ip-cta:active,
-.floating-bar a,.floating-bar a:hover,.floating-bar a:focus,.floating-bar a:active,
-.demo-chat-input button,.demo-chat-input button:hover,.demo-chat-input button:focus,.demo-chat-input button:active
-{color:#ffffff!important;text-shadow:none!important;transition:none!important}
+
+/* ═══════ PHASE 16H — FINAL BUTTON STATE LOCK ═══════ */
+a.btn,
+.btn,
+.btn-primary,
+.btn-secondary,
+.store-wa-btn,
+.store-quote-btn,
+.store-demo-btn,
+.partner-wa-btn,
+.inv-btn,
+.nav-cta,
+.floating-bar a,
+.hero-actions a,
+.card-actions a,
+.pricing-card a,
+.industry-card a,
+.biz-card a,
+.ip-card a,
+.qr-section a,
+a[href*="wa.me"],
+a[href*="ai-store"],
+a[href*="build"] {
+  background: linear-gradient(135deg,#0b5cff,#1d4ed8) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: 0 10px 24px rgba(11,92,255,0.25) !important;
+}
+
+a.btn:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.store-wa-btn:hover,
+.store-quote-btn:hover,
+.store-demo-btn:hover,
+.partner-wa-btn:hover,
+.inv-btn:hover,
+.nav-cta:hover,
+.floating-bar a:hover,
+.hero-actions a:hover,
+.card-actions a:hover,
+.pricing-card a:hover,
+.industry-card a:hover,
+.biz-card a:hover,
+.ip-card a:hover,
+.qr-section a:hover,
+a[href*="wa.me"]:hover,
+a[href*="ai-store"]:hover,
+a[href*="build"]:hover,
+a.btn:focus,
+.btn:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.store-wa-btn:focus,
+.store-quote-btn:focus,
+.store-demo-btn:focus,
+.partner-wa-btn:focus,
+.inv-btn:focus,
+.nav-cta:focus,
+.floating-bar a:focus,
+.hero-actions a:focus,
+.card-actions a:focus,
+.pricing-card a:focus,
+.industry-card a:focus,
+.biz-card a:focus,
+.ip-card a:focus,
+.qr-section a:focus,
+a[href*="wa.me"]:focus,
+a[href*="ai-store"]:focus,
+a[href*="build"]:focus,
+a.btn:active,
+.btn:active,
+.btn-primary:active,
+.btn-secondary:active,
+.store-wa-btn:active,
+.store-quote-btn:active,
+.store-demo-btn:active,
+.partner-wa-btn:active,
+.inv-btn:active,
+.nav-cta:active,
+.floating-bar a:active,
+.hero-actions a:active,
+.card-actions a:active,
+.pricing-card a:active,
+.industry-card a:active,
+.biz-card a:active,
+.ip-card a:active,
+.qr-section a:active,
+a[href*="wa.me"]:active,
+a[href*="ai-store"]:active,
+a[href*="build"]:active,
+a.btn:visited,
+.btn:visited,
+.btn-primary:visited,
+.btn-secondary:visited,
+.store-wa-btn:visited,
+.store-quote-btn:visited,
+.store-demo-btn:visited,
+.partner-wa-btn:visited,
+.inv-btn:visited,
+.nav-cta:visited,
+.floating-bar a:visited,
+.hero-actions a:visited,
+.card-actions a:visited,
+.pricing-card a:visited,
+.industry-card a:visited,
+.biz-card a:visited,
+.ip-card a:visited,
+.qr-section a:visited,
+a[href*="wa.me"]:visited,
+a[href*="ai-store"]:visited,
+a[href*="build"]:visited {
+  background: linear-gradient(135deg,#0b5cff,#1d4ed8) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: 0 10px 24px rgba(11,92,255,0.25) !important;
+  transform: none !important;
+  text-shadow: none !important;
+}
+
+/* Force child icons/spans to white */
+button *,
+.btn *,
+a.btn *,
+.store-wa-btn *,
+.store-quote-btn *,
+.store-demo-btn *,
+.inv-btn *,
+.nav-cta *,
+.floating-bar a * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
