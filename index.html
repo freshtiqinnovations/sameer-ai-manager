@@ -859,26 +859,30 @@ document.getElementById('mobileToggle').addEventListener('click', () => {
       const data = await res.json();
       addMsg(data.reply || 'Thanks! Let me connect you with our team.', 'bot');
     } catch(e) {
-      addMsg('Thanks for reaching out! Our team will get back to you on WhatsApp. Meanwhile, tell me about your business!', 'bot');
+      // Fallback — show friendly reply with pricing options
+      addMsg('Thanks for reaching out! 🙏 Meanwhile, here is what I can help with:', 'bot');
+      setTimeout(() => {
+        addMsg('💰 Pricing — All services with rates\n🌐 Websites — Business, E-commerce, Booking\n🤖 WhatsApp Bots — Sales, Support, CRM\n🧠 AI Agents — Custom AI for your business\n📊 CRM/ERP — Manage customers & operations\n📱 Mobile Apps — iOS & Android\n\n👉 <a href=\'https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help%20with%20automation.\' target=\'_blank\' style=\'color:#818cf8;font-weight:600\'>Chat on WhatsApp →</a>', 'bot');
+      }, 600);
     }
     sendBtn.disabled = false;
   }
 
+  function addMsg(text, role) {
+    const div = document.createElement('div');
+    div.className = 'demo-msg ' + role;
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    if (role === 'bot' && text.includes('<a href')) {
+      div.innerHTML = text.replace(/\n/g, '<br>') + '<div class="demo-msg-time" style="font-size:0.65rem;opacity:0.5;margin-top:4px;text-align:right">' + time + '</div>';
+    } else {
+      div.textContent = text;
+    }
+    msgContainer.appendChild(div);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
+
   sendBtn.addEventListener('click', sendDemoMessage);
   input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendDemoMessage(); });
-
-  // Quick demo responses
-  ['.stat-item', '.card'].forEach(sel => {
-    document.querySelectorAll(sel).forEach(el => {
-      el.addEventListener('click', function() {
-        const text = this.querySelector('.num, h3')?.textContent || '';
-        if (text && text.length < 40) {
-          input.value = "I want a " + text;
-          input.focus();
-        }
-      });
-    });
-  });
 })();
 
 // ─── SMOOTH SCROLL ───

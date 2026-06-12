@@ -1,6 +1,5 @@
-// === WEBSITE AI CHAT WIDGET — Freshtiq Automation AI Business Brain ===
-// Self-contained widget injected into any Freshtiq page.
-// Uses same Business Brain + DeepSeek as WhatsApp bot.
+// === WEBSITE AI CHAT WIDGET — Freshtiq Automation AI Assistant ===
+// Hybrid: tries API first, falls back to smart static assistant with local responses
 
 (function() {
   if (document.getElementById('ft-chat-loading')) return;
@@ -11,49 +10,80 @@
   const API = window.location.hostname === 'freshtiqautomation.com' || window.location.hostname.includes('87.76')
     ? '/api/chat'
     : 'http://87.76.199.39/api/chat';
-  const BRAIN_PROMPT = `You are Freshtiq Automation AI — a senior business automation consultant at Freshtiq Innovations OPC Private Limited.
+  const WA = 'https://wa.me/918381848389?text=';
 
-## IDENTITY
-- Name: Freshtiq Automation AI (never say "I am Sameer")
-- Company: Freshtiq Innovations OPC Private Limited
-- Handoff: +91 8381848389 (only for qualified leads)
+  // ─── STATIC KNOWLEDGE BASE (fallback when API is down) ───
+  const KB = {
+    website: { name: 'Website', min: '₹10,000', monthly: '₹0', delivery: '3-7 days' },
+    'business website': { name: 'Business Website', min: '₹10,000+', monthly: '₹0', delivery: '3-5 days' },
+    'premium website': { name: 'Premium Website', min: '₹25,000+', monthly: '₹0', delivery: '5-7 days' },
+    'booking website': { name: 'Booking Website', min: '₹45,000+', monthly: '₹0', delivery: '7-10 days' },
+    ecommerce: { name: 'E-commerce Website', min: '₹60,000+', monthly: '₹0', delivery: '7-14 days' },
+    shop: { name: 'E-commerce Website', min: '₹60,000+', monthly: '₹0', delivery: '7-14 days' },
+    'whatsapp bot': { name: 'Lead Capture Bot', min: '₹25,000', monthly: '₹8,000/mo', delivery: '5-7 days' },
+    'whatsapp': { name: 'WhatsApp Bot', min: '₹25,000', monthly: '₹8,000/mo', delivery: '5-7 days' },
+    bot: { name: 'WhatsApp Bot', min: '₹25,000', monthly: '₹8,000/mo', delivery: '5-7 days' },
+    'sales bot': { name: 'Sales Automation Bot', min: '₹30,000', monthly: '₹10,000/mo', delivery: '7-10 days' },
+    'crm bot': { name: 'Full WhatsApp CRM Bot', min: '₹70,000', monthly: '₹20,000/mo', delivery: '10-14 days' },
+    'telegram bot': { name: 'Telegram Bot', min: '₹8,000', monthly: '₹3,000/mo', delivery: '3-5 days' },
+    telegram: { name: 'Telegram Bot', min: '₹8,000', monthly: '₹3,000/mo', delivery: '3-5 days' },
+    'ai agent': { name: 'Custom AI Agent', min: '₹25,000', monthly: '₹10,000/mo', delivery: '7-14 days' },
+    agent: { name: 'AI Agent', min: '₹25,000', monthly: '₹10,000/mo', delivery: '7-14 days' },
+    crm: { name: 'Mini CRM', min: '₹25,000+', monthly: '₹0', delivery: '7-10 days' },
+    erp: { name: 'Branch ERP', min: '₹75,000+', monthly: '₹0', delivery: '14-21 days' },
+    seo: { name: 'SEO Starter', min: '₹5,000/mo', monthly: '', delivery: 'Ongoing' },
+    'social media': { name: 'Social Media Management', min: '₹10,000/mo', monthly: '', delivery: 'Ongoing' },
+    'mobile app': { name: 'Mobile App', min: '₹50,000+', monthly: '₹0', delivery: '14-21 days' },
+    app: { name: 'Mobile App', min: '₹50,000+', monthly: '₹0', delivery: '14-21 days' },
+    demo: null, // special handler
+    hi: null, hello: null, hey: null,
+    thanks: null, thank: null
+  };
 
-## SERVICES
-- Websites & E-commerce Stores
-- WhatsApp Business Bots (support, sales, order, booking)
-- AI Agents (sales, accountant, manager, HR, receptionist, travel, restaurant)
-- CRM & ERP Systems
-- Mobile Apps (iOS & Android)
-- Travel Automation (flight/hotel/visa booking bots)
-- Restaurant Automation (menu, order, table booking, delivery)
-- Sales Automation (lead tracking, follow-ups, quotations)
-- Customer Support Automation (ticket, FAQ, chatbot)
-- Custom Software & AI Business Factory
+  function getLocalReply(text) {
+    const lower = text.toLowerCase().trim();
 
-## BEHAVIOR
-1. FIRST MESSAGE: Ask about their business in a friendly way.
-2. Understand what they need — website, bot, app, CRM, agent, or custom.
-3. Ask what problem they're trying to solve.
-4. Only ask country after understanding the need.
-5. Ask budget naturally after understanding scope.
-6. NEVER send IP addresses, server URLs, portal links, or technology details.
-7. NEVER start with pricing or services list.
-8. Reply warmly in 2-3 lines. Ask ONE question at a time.
+    // Greetings
+    if (/^(hi|hello|hey|hii|hlo)\b/.test(lower)) {
+      return "Hey there! 👋 Welcome to Freshtiq. I'm your business automation consultant. What are you looking to build?";
+    }
+    if (/\b(thanks|thank you|thx)\b/.test(lower)) {
+      return "You're welcome! 😊 Feel free to explore our services at freshtiqautomation.com or message me anytime. You can also WhatsApp me directly at +91 8381848389.";
+    }
 
-## OBJECTION HANDLING
-- Budget low: "No problem! We can start with a basic version and upgrade later."
-- Need demo: "Of course! I can arrange a demo. What feature would you like to see?"
-- Price: "Pricing depends on scope. Tell me what you need and I'll share options."
-- Payment: "Payment details shared after we finalize scope."
-- Saudi/UAE: "Great! We work across KSA and UAE. Support in Arabic available."
+    // Pricing requests
+    if (/price|cost|rate|kitna|charges|how much|fee/i.test(lower)) {
+      // Check for specific product mention
+      for (const [key, val] of Object.entries(KB)) {
+        if (!val) continue;
+        if (lower.includes(key)) {
+          return `**${val.name} Pricing:**\nStarting at ${val.min}${val.monthly ? ' + ' + val.monthly : ''}\nDelivery: ${val.delivery}\n\nWant detailed quote? 👉 <a href="${WA}Hi%20Freshtiq!%20I%20want%20${encodeURIComponent(val.name)}%2C%20please%20send%20details." target="_blank" style="color:#818cf8;font-weight:600">WhatsApp par details bhejein</a>`;
+        }
+      }
+      // General pricing
+      return `**Our Services & Pricing:**\n\n🌐 Website: ₹10,000+\n🤖 WhatsApp Bot: ₹25,000+\n🧠 AI Agent: ₹25,000+\n📊 CRM: ₹25,000+\n✈️ Telegram Bot: ₹8,000+\n🔍 SEO: ₹5,000/mo\n📱 Mobile App: ₹50,000+\n\n👉 <a href="${WA}Hi%20Freshtiq!%20I%20want%20pricing%20details." target="_blank" style="color:#818cf8;font-weight:600">WhatsApp par details bhejein</a>`;
+    }
 
-## LANGUAGE RULES
-- Arabic → reply in Arabic
-- Hindi → reply in Hindi
-- Hinglish → reply in SIMPLE ENGLISH
-- English → reply in English`;
+    // WhatsApp bot specific
+    if (lower.includes('whatsapp') && (lower.includes('bot') || lower.includes('price') || lower.includes('cost'))) {
+      return `**WhatsApp Bot Pricing:**\n\n🥇 Starter (Lead Capture): ₹25,000 + ₹8,000/mo\n🥈 Business (Sales Auto): ₹30,000 + ₹10,000/mo\n🥇 Full CRM Bot: ₹70,000 + ₹20,000/mo\n\nAll include: 24/7 AI, Lead capture, Multi-language, Analytics\n\n👉 <a href="${WA}Hi%20Freshtiq!%20I%20want%20WhatsApp%20bot%20details." target="_blank" style="color:#818cf8;font-weight:600">WhatsApp par details bhejein</a>`;
+    }
 
-  // ─── SESSION ID (per visitor) ───
+    // Website specific
+    if (lower.includes('website') && (lower.includes('price') || lower.includes('cost') || lower.includes('kitna'))) {
+      return `**Website Pricing:**\n\n🌐 Business Website: ₹10,000+\n✨ Premium Website: ₹25,000+\n📅 Booking Website: ₹45,000+\n🛒 E-commerce: ₹60,000+\n\nAll include: Mobile responsive, SEO, AI Chat widget, WhatsApp integration\n\n👉 <a href="${WA}Hi%20Freshtiq!%20I%20want%20website%20details." target="_blank" style="color:#818cf8;font-weight:600">WhatsApp par details bhejein</a>`;
+    }
+
+    // Demo request
+    if (/\bdemo\b/i.test(lower)) {
+      return "Of course! I'd love to show you what we can build. 📅\n\nPlease WhatsApp me at +91 8381848389 and I'll arrange a live demo of our work.\n\n👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20book%20a%20demo.' target='_blank' style='color:#818cf8;font-weight:600'>Book Demo on WhatsApp</a>";
+    }
+
+    // No match — generic help
+    return "I'm here to help! 🤖\n\nI can tell you about:\n• **Pricing** — services & rates\n• **Websites** — business, e-commerce, booking\n• **WhatsApp Bots** — sales, support, CRM\n• **AI Agents** — custom AI for your business\n• **CRM/ERP** — manage customers and operations\n\nWhat would you like to know? Or 👉 <a href='https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help%20with%20automation.' target='_blank' style='color:#818cf8;font-weight:600'>Chat on WhatsApp</a>";
+  }
+
+  // ─── SESSION ID ───
   const SID = 'web_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now();
 
   // ─── STYLES ───
@@ -68,31 +98,31 @@
 #ft-chat-header .ft-info span{font-size:0.75rem;opacity:0.8}
 #ft-chat-header .ft-close{background:none;border:none;color:white;font-size:1.3rem;cursor:pointer;padding:4px;opacity:0.7;transition:opacity 0.2s}
 #ft-chat-header .ft-close:hover{opacity:1}
-#ft-chat-messages{flex:1;min-height:320px;max-height:400px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:8px;background:#0b0f19;scroll-behavior:smooth}
+#ft-chat-messages{flex:1;min-height:320px;max-height:400px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:8px;background:#0b0f19;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 #ft-chat-messages::-webkit-scrollbar{width:4px}
 #ft-chat-messages::-webkit-scrollbar-track{background:transparent}
 #ft-chat-messages::-webkit-scrollbar-thumb{background:rgba(99,102,241,0.3);border-radius:4px}
-.ft-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:0.88rem;line-height:1.5;animation:ftFadeIn 0.3s ease;word-wrap:break-word}
+.ft-msg{max-width:88%;padding:10px 14px;border-radius:16px;font-size:0.85rem;line-height:1.55;animation:ftFadeIn 0.3s ease;word-wrap:break-word}
 .ft-msg.bot{align-self:flex-start;background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.15);color:#e2e8f0;border-bottom-left-radius:4px}
 .ft-msg.user{align-self:flex-end;background:linear-gradient(135deg,#6366f1,#4f46e5);color:white;border-bottom-right-radius:4px}
 .ft-msg .ft-time{font-size:0.65rem;opacity:0.5;margin-top:4px;text-align:right}
+.ft-msg a{color:#818cf8;text-decoration:underline}
 .ft-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 16px;background:rgba(99,102,241,0.08);border-radius:16px;border-bottom-left-radius:4px;align-items:center}
 .ft-typing span{width:6px;height:6px;border-radius:50%;background:#6366f1;animation:ftTyping 1.4s infinite;opacity:0.3}
 .ft-typing span:nth-child(2){animation-delay:0.2s}
 .ft-typing span:nth-child(3){animation-delay:0.4s}
 @keyframes ftTyping{0%,80%,100%{opacity:0.3;transform:translateY(0)} 40%{opacity:1;transform:translateY(-4px)}}
 #ft-chat-input{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(99,102,241,0.1);background:#0b0f19}
-#ft-chat-input input{flex:1;padding:10px 14px;border-radius:50px;border:1px solid rgba(99,102,241,0.15);background:rgba(255,255,255,0.04);color:white;font-size:0.88rem;outline:none;transition:border 0.2s}
+#ft-chat-input input{flex:1;padding:10px 14px;border-radius:50px;border:1px solid rgba(99,102,241,0.15);background:rgba(255,255,255,0.04);color:white;font-size:0.85rem;outline:none;transition:border 0.2s;font-family:inherit}
 #ft-chat-input input:focus{border-color:#6366f1}
 #ft-chat-input input::placeholder{color:#64748b}
 #ft-chat-input button{width:40px;height:40px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1,#4f46e5);color:white;font-size:1.2rem;cursor:pointer;transition:transform 0.2s;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 #ft-chat-input button:hover{transform:scale(1.05)}
 #ft-chat-input button:disabled{opacity:0.4;cursor:default;transform:none}
-#ft-chat-toggle{position:fixed;bottom:24px;right:24px;z-index:2147483641;width:56px;height:56px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1 0%,#06b6d4 100%);color:white;font-size:1.6rem;cursor:pointer;box-shadow:0 4px 20px rgba(99,102,241,0.4);transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+#ft-chat-toggle{position:fixed;bottom:24px;right:24px;z-index:2147483641;width:56px;height:56px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1 0%,#06b6d4 100%);color:white;font-size:1.6rem;cursor:pointer;box-shadow:0 4px 20px rgba(99,102,241,0.4);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;justify-content:center}
 #ft-chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(99,102,241,0.5)}
-#ft-chat-toggle.has-unread::after{content:'';position:absolute;top:-2px;right:-2px;width:12px;height:12px;background:#ef4444;border-radius:50%;border:2px solid #0b0f19}
 .ft-quick-actions{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 0;background:#0b0f19}
-.ft-quick-btn{padding:6px 12px;font-size:0.75rem;border-radius:50px;border:1px solid rgba(99,102,241,0.2);background:rgba(99,102,241,0.06);color:#818cf8;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.ft-quick-btn{padding:6px 12px;font-size:0.72rem;border-radius:50px;border:1px solid rgba(99,102,241,0.2);background:rgba(99,102,241,0.06);color:#818cf8;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .ft-quick-btn:hover{background:rgba(99,102,241,0.15);border-color:#6366f1}
 @keyframes ftFadeIn{from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)}}
 @media(max-width:500px){
@@ -100,10 +130,9 @@
   #ft-chat-toggle{bottom:12px;right:12px;width:48px;height:48px;font-size:1.4rem}
 }
 `;
-
-  // ─── BUILD DOM ───
   document.head.appendChild(style);
 
+  // ─── BUILD DOM ───
   const toggleBtn = document.createElement('button');
   toggleBtn.id = 'ft-chat-toggle';
   toggleBtn.innerHTML = '💬';
@@ -122,25 +151,22 @@
   <button class="ft-close" id="ft-chat-close">✕</button>
 </div>
 <div class="ft-quick-actions">
+  <button class="ft-quick-btn" data-action="pricing">💰 Pricing</button>
   <button class="ft-quick-btn" data-action="website">🌐 Website</button>
   <button class="ft-quick-btn" data-action="bot">🤖 WhatsApp Bot</button>
-  <button class="ft-quick-btn" data-action="agent">🧠 AI Agent</button>
-  <button class="ft-quick-btn" data-action="crm">📊 CRM</button>
-  <button class="ft-quick-btn" data-action="demo">📅 Book Demo</button>
+  <button class="ft-quick-btn" data-action="demo">📅 Demo</button>
 </div>
 <div id="ft-chat-messages"></div>
 <div id="ft-chat-input">
-  <input type="text" id="ft-msg-input" placeholder="Type your message..." autocomplete="off">
+  <input type="text" id="ft-msg-input" placeholder="Ask me about pricing, services..." autocomplete="off">
   <button id="ft-send-btn">➤</button>
-</div>
-`;
-
+</div>`;
   document.body.appendChild(widget);
 
   // ─── STATE ───
   let isOpen = false;
   let isSending = false;
-  let chatHistory = [];
+  let isOffline = false; // tracks if API is unavailable
 
   const msgContainer = document.getElementById('ft-chat-messages');
   const msgInput = document.getElementById('ft-msg-input');
@@ -162,6 +188,7 @@
   }
 
   function showTyping() {
+    if (document.getElementById('ft-typing-indicator')) return;
     const div = document.createElement('div');
     div.className = 'ft-typing';
     div.id = 'ft-typing-indicator';
@@ -182,52 +209,58 @@
   }
 
   function formatReply(text) {
-    // Convert markdown-like bold to HTML
     text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     text = text.replace(/```([\s\S]*?)```/g, '<code>$1</code>');
     return text;
   }
 
-  // ─── SEND MESSAGE ───
+  // ─── SEND (Hybrid: API first, static fallback) ───
   async function sendMessage(text) {
     text = text.trim();
     if (!text || isSending) return;
 
     addMessage(text, 'user');
-    chatHistory.push({ role: 'user', content: text });
     msgInput.value = '';
     setBusy(true);
     showTyping();
 
     try {
+      // Always try API first (even on new session)
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: text,
           session_id: SID,
-          history: chatHistory,
-          brain: BRAIN_PROMPT
-        })
+          history: []
+        }),
+        signal: AbortSignal.timeout(8000) // 8s timeout
       });
       const data = await res.json();
       hideTyping();
 
       if (data.reply) {
-        const reply = formatReply(data.reply);
-        addMessage(reply, 'bot');
-        chatHistory.push({ role: 'assistant', content: data.reply });
-
-        // If lead captured, show notification
-        if (data.lead_id) {
-          console.log('[Freshtiq Chat] Lead #' + data.lead_id + ' captured');
-        }
-      } else {
-        addMessage('Sorry, I hit a glitch. Could you rephrase that? 🤔', 'bot');
+        isOffline = false;
+        addMessage(formatReply(data.reply), 'bot');
+        setBusy(false);
+        return;
       }
     } catch(e) {
-      hideTyping();
-      addMessage('Connection issue. Please try again or WhatsApp me at +91 8381848389.', 'bot');
+      // API failed — silent fallback
+    }
+
+    // Fallback: local static reply
+    hideTyping();
+    isOffline = true;
+    const reply = getLocalReply(text);
+    addMessage(reply, 'bot');
+
+    // If this is the first fallback, show a note
+    if (!window._ftOfflineNoted) {
+      window._ftOfflineNoted = true;
+      setTimeout(() => {
+        addMessage('💡 *Tip:* You can also WhatsApp me directly for immediate response — <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20help." target="_blank">Chat on WhatsApp →</a>', 'bot');
+      }, 800);
     }
     setBusy(false);
   }
@@ -237,15 +270,11 @@
     isOpen = !isOpen;
     widget.classList.toggle('open', isOpen);
     toggleBtn.innerHTML = isOpen ? '✕' : '💬';
-    toggleBtn.classList.remove('has-unread');
     if (isOpen) {
       msgInput.focus();
-      // Welcome message on first open
-      if (chatHistory.length === 0) {
-        const welcome = "Hey there! 👋 Welcome to Freshtiq Automation AI. I'm your senior business consultant. Tell me about your business — what are you looking to build or automate?";
+      if (msgContainer.children.length === 0) {
         setTimeout(() => {
-          addMessage(welcome, 'bot');
-          chatHistory.push({ role: 'assistant', content: welcome });
+          addMessage("Hey there! 👋 Welcome to Freshtiq Automation AI. I'm your business consultant. Ask me about our services, pricing, or anything automation!", 'bot');
         }, 400);
       }
     }
@@ -267,23 +296,25 @@
     btn.addEventListener('click', () => {
       const action = btn.dataset.action;
       const prompts = {
-        website: "I need a website for my business. Can you help?",
-        bot: "I want a WhatsApp bot for my business. What do you suggest?",
-        agent: "I need an AI agent for my business. Tell me more.",
-        crm: "I need a CRM system for my business.",
-        demo: "I'd like to book a demo. What do I need to do?"
+        pricing: "What are your prices?",
+        website: "Tell me about websites",
+        bot: "WhatsApp bot price batao",
+        demo: "I want a demo"
       };
-      const msg = prompts[action] || "I need help with " + action;
-      sendMessage(msg);
+      const msg = prompts[action] || "I need help";
       if (!widget.classList.contains('open')) {
-        // Open widget first
         isOpen = true;
         widget.classList.add('open');
         toggleBtn.innerHTML = '✕';
-        setTimeout(() => sendMessage(msg), 300);
+        setTimeout(() => {
+          msgContainer.innerHTML = '';
+          sendMessage(msg);
+        }, 400);
+      } else {
+        sendMessage(msg);
       }
     });
   });
 
-  console.log('[Freshtiq Chat] Widget loaded — session ' + SID + ' 🤖');
+  console.log('[Freshtiq Chat] v2 — Hybrid mode loaded ✅');
 })();
