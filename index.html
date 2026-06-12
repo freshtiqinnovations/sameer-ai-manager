@@ -762,7 +762,23 @@
       budget: document.getElementById('qBudget').value,
       timeline: document.getElementById('qTimeline').value,
       message: document.getElementById('qMessage').value.trim(),
-      source: 'website_form',
+      source: (function(){
+        // Auto-detect source: URL params > referrer > default
+        var p = new URLSearchParams(window.location.search);
+        if (p.get('utm_source')) return 'google_'+p.get('utm_source');
+        if (p.get('source')) return p.get('source');
+        if (p.get('ref')) return 'referral_'+p.get('ref');
+        var r = document.referrer || '';
+        if (r.includes('instagram')) return 'instagram';
+        if (r.includes('facebook') || r.includes('fb.com')) return 'facebook';
+        if (r.includes('linkedin')) return 'linkedin';
+        if (r.includes('google')) return 'google_organic';
+        if (r.includes('wa.me') || r.includes('whatsapp')) return 'whatsapp';
+        if (r.includes('telegram') || r.includes('t.me')) return 'telegram';
+        if (r.includes('youtube') || r.includes('youtu.be')) return 'youtube';
+        if (r) return 'referral';
+        return 'website_form';
+      })(),
       page: window.location.pathname,
       ts: new Date().toISOString(),
       status: 'new'
