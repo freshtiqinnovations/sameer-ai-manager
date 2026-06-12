@@ -47,9 +47,9 @@
           </div>
         </div>
         <div class="store-card-actions" style="display:flex;flex-wrap:wrap;gap:6px;">
-          <a href="${getWAUrl(p)}" target="_blank" class="store-wa-btn" style="background:#1a56db;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'inquiry'})">💬 WhatsApp</a>
-          <a href="${getQuoteWA(p)}" target="_blank" class="store-quote-btn" style="background:#1a56db;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','lead_form_submit',{'product':'${p.title}','action':'quote'})">📄 Get Quote</a>
-          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20demo%20of%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener" class="store-demo-btn" style="background:#1a56db;color:#ffffff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'demo'})">📅 Book Demo</a>
+          <a href="${getWAUrl(p)}" target="_blank" class="store-wa-btn" style="background:#6C63FF;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'inquiry'})">💬 WhatsApp</a>
+          <a href="${getQuoteWA(p)}" target="_blank" class="store-quote-btn" style="background:#6C63FF;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','lead_form_submit',{'product':'${p.title}','action':'quote'})">📄 Get Quote</a>
+          <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20demo%20of%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener" class="store-demo-btn" style="background:#6C63FF;color:#ffffff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'demo'})">📅 Book Demo</a>
         </div>
       `;
       grid.appendChild(card);
