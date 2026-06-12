@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Store — Freshtiq Automation | Ready-to-Deploy Business Automation</title>
+  <meta name="description" content="Browse 24+ ready-to-deploy automation products. Telegram bots, WhatsApp bots, websites, ERP/CRM, SEO, AI agents. Starting at ₹3,000." />
+  <link rel="icon" type="image/svg+xml" href="images/freshtiq-logo-v2.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CX1JTWNGB"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-8CX1JTWNGB');</script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Freshtiq AI Store",
+    "description": "Ready-to-deploy automation products. Bots, websites, ERP, AI agents.",
+    "url": "https://freshtiqautomation.com/ai-store.html",
+    "telephone": "+918381848389",
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "INR",
+      "lowPrice": "3000",
+      "highPrice": "150000"
+    }
+  }
+  </script>
+
+  <style>
+    /* AI Store specific styles */
+    .store-hero { padding: 140px 28px 60px; text-align: center; position: relative; z-index: 2; }
+    .store-hero h1 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 14px; }
+    .store-hero p { color: var(--text-dim); font-size: 1.05rem; max-width: 640px; margin: 0 auto 28px; line-height: 1.7; }
+    .store-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0 auto 40px; max-width: 900px; padding: 0 20px; }
+    .store-filter { padding: 8px 20px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.25s ease; font-family: var(--font); }
+    .store-filter:hover, .store-filter.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 16px var(--primary-glow); }
+    .store-filter.active { background: linear-gradient(135deg, var(--primary), var(--violet)); }
+
+    .store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1280px; margin: 0 auto; padding: 0 28px 60px; }
+
+    .store-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); backdrop-filter: blur(10px); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .store-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary-glow), transparent); opacity: 0; transition: opacity 0.3s; }
+    .store-card:hover { transform: translateY(-4px); border-color: var(--border-glow); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+    .store-card:hover::before { opacity: 1; }
+
+    .store-card-badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.68rem; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
+    .store-card-badge.popular { background: rgba(34, 197, 94, 0.12); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.15); }
+    .store-card-badge.premium { background: rgba(139, 92, 246, 0.12); color: var(--violet); border: 1px solid rgba(139, 92, 246, 0.15); }
+
+    .store-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .store-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .store-card .desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 16px; flex: 1; }
+
+    .store-card-price { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 16px; gap: 8px; }
+    .store-card-price .main { font-size: 1.3rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-light), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .store-card-price .sub { font-size: 0.75rem; color: var(--text-dim); text-align: right; }
+    .store-card-price .sub strong { color: var(--text); font-weight: 600; }
+    .store-card-price .delivery { font-size: 0.72rem; color: var(--text-muted); text-align: right; }
+    .store-card-price .delivery strong { color: var(--text); font-weight: 600; }
+
+    .store-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .store-card-actions a { display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.25s ease; gap: 6px; }
+    .store-wa-btn { background: rgba(37, 211, 102, 0.1); color: #25d366; border: 1px solid rgba(37, 211, 102, 0.2); }
+    .store-wa-btn:hover { background: #25d366; color: white; border-color: #25d366; transform: translateY(-2px); }
+    .store-quote-btn { background: rgba(91, 141, 239, 0.1); color: var(--primary-light); border: 1px solid var(--border-glow); }
+    .store-quote-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+
+    .store-footer-cta { text-align: center; padding: 60px 28px 80px; position: relative; z-index: 2; }
+    .store-footer-cta h2 { font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 800; margin-bottom: 12px; }
+    .store-footer-cta p { color: var(--text-dim); margin-bottom: 28px; font-size: 1rem; }
+
+    /* Mobile */
+    @media(max-width:600px) {
+      .store-hero { padding: 120px 20px 40px; }
+      .store-grid { grid-template-columns: 1fr; padding: 0 16px 40px; gap: 16px; }
+      .store-filters { gap: 6px; }
+      .store-filter { font-size: 0.78rem; padding: 6px 14px; }
+      .store-card-actions { grid-template-columns: 1fr 1fr; gap: 6px; }
+    }
+
+    /* Count badge */
+    .store-count { text-align: center; font-size: 0.85rem; color: var(--text-dim); margin: -20px 0 30px; }
+    .store-count strong { color: var(--text); }
+
+    /* Loading / empty state */
+    .store-empty { text-align: center; padding: 60px 20px; color: var(--text-dim); display: none; }
+    .store-empty.visible { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-gradient"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-bg"></div>
+
+  <!-- Nav -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img src="images/freshtiq-logo-v2.svg" alt="Freshtiq Automation" />
+        <span>Freshtiq</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/ai-store.html" style="color:var(--primary-light)">AI Store</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/build">Build</a></li>
+        <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" class="nav-cta">Book a Demo</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="store-hero">
+    <div class="section-tag">🛒 AI Store</div>
+    <h1>Ready-to-Deploy <span class="gradient-text">Business Automation</span></h1>
+    <p>Browse our collection of 40+ automation products — from Telegram bots to AI agents. Every product is custom-built to your needs. Source code yours. Delivered fast.</p>
+    <div class="store-filters" id="storeFilters">
+      <button class="store-filter active" data-filter="all">All</button>
+      <button class="store-filter" data-filter="Telegram Bots">✈️ Telegram Bots</button>
+      <button class="store-filter" data-filter="WhatsApp Bots">💬 WhatsApp Bots</button>
+      <button class="store-filter" data-filter="Websites">🌐 Websites</button>
+      <button class="store-filter" data-filter="ERP / CRM">📊 ERP / CRM</button>
+      <button class="store-filter" data-filter="SEO & Marketing">📈 SEO & Marketing</button>
+      <button class="store-filter" data-filter="AI Agents">🧠 AI Agents</button>
+      <button class="store-filter" data-filter="popular">⭐ Popular</button>
+      <button class="store-filter" data-filter="premium">💎 Premium</button>
+    </div>
+    <div class="store-count">Showing <strong id="storeCount">24</strong> products</div>
+  </section>
+
+  <!-- Products Grid -->
+  <div class="store-grid" id="storeGrid"></div>
+
+  <!-- Empty state -->
+  <div class="store-empty" id="storeEmpty">No products match this filter.</div>
+
+  <!-- Footer CTA -->
+  <section class="store-footer-cta">
+    <h2>Need Something <span class="gradient-text">Custom</span>?</h2>
+    <p>Don't see exactly what you need? Tell us your requirements and we'll build it for you.</p>
+    <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20need%20a%20custom%20automation%20solution.%20Please%20help." target="_blank" class="btn-primary">📞 Get Custom Quote</a>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid var(--border); padding: 40px 28px; text-align: center; position: relative; z-index: 2;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px;">
+        <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Home</a>
+        <a href="/ai-store.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">AI Store</a>
+        <a href="/portfolio/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Portfolio</a>
+        <a href="/build" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Build</a>
+        <a href="https://wa.me/918381848389" target="_blank" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">WhatsApp</a>
+      </div>
+      <div style="color: var(--text-muted); font-size: 0.78rem;">
+        &copy; 2026 Freshtiq Innovations. India · Saudi · UAE
+      </div>
+    </div>
+  </footer>
+
+  <!-- Data + Render scripts -->
+  <script src="/ai-store-data.js"></script>
+  <script src="/ai-store-render.js"></script>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    document.getElementById('mobileToggle')?.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    // Nav scroll effect
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+  <!-- Chat widget -->
+  <script src="/freshtiq-chat.js"></script>
+</body>
+</html>
