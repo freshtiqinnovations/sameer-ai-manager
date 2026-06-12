@@ -42,44 +42,46 @@
     /* AI Store specific styles */
     .store-hero { padding: 140px 28px 60px; text-align: center; position: relative; z-index: 2; }
     .store-hero h1 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 14px; }
-    .store-hero p { color: var(--text-dim); font-size: 1.05rem; max-width: 640px; margin: 0 auto 28px; line-height: 1.7; }
+    .store-hero p { color: #334155; font-size: 1.05rem; max-width: 640px; margin: 0 auto 28px; line-height: 1.7; }
     .store-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0 auto 40px; max-width: 900px; padding: 0 20px; }
-    .store-filter { padding: 8px 20px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.25s ease; font-family: var(--font); }
-    .store-filter:hover, .store-filter.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 16px var(--primary-glow); }
-    .store-filter.active { background: linear-gradient(135deg, var(--primary), var(--violet)); }
+    .store-filter { padding: 8px 20px; border-radius: 100px; border: 1px solid #e2e8f0; background: transparent; color: #475569; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.25s ease; font-family: var(--font); }
+    .store-filter:hover, .store-filter.active { background: linear-gradient(135deg,#1d4ed8,#4f46e5); color: white; border-color: transparent; box-shadow: 0 4px 16px rgba(37,99,235,0.2); }
+    .store-filter.active { background: linear-gradient(135deg, #1d4ed8, #4f46e5); }
 
     .store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1280px; margin: 0 auto; padding: 0 28px 60px; }
 
-    .store-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); backdrop-filter: blur(10px); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .store-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; transition: all 0.35s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
     .store-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary-glow), transparent); opacity: 0; transition: opacity 0.3s; }
-    .store-card:hover { transform: translateY(-4px); border-color: var(--border-glow); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+    .store-card:hover { transform: translateY(-4px); border-color: #bfdbfe; box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
     .store-card:hover::before { opacity: 1; }
 
     .store-card-badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.68rem; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
-    .store-card-badge.popular { background: rgba(34, 197, 94, 0.12); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.15); }
-    .store-card-badge.premium { background: rgba(139, 92, 246, 0.12); color: var(--violet); border: 1px solid rgba(139, 92, 246, 0.15); }
+    .store-card-badge.popular { background: rgba(29,78,216,0.08); color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .store-card-badge.premium { background: rgba(139,92,246,0.08); color: #7c3aed; border: 1px solid #ddd6fe; }
 
     .store-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .store-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .store-card .desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 16px; flex: 1; }
+    .store-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; color: #0f172a; }
+    .store-card .desc { font-size: 0.82rem; color: #334155; line-height: 1.55; margin-bottom: 16px; flex: 1; }
 
-    .store-card-price { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 16px; gap: 8px; }
-    .store-card-price .main { font-size: 1.3rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-light), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .store-card-price .sub { font-size: 0.75rem; color: var(--text-dim); text-align: right; }
-    .store-card-price .sub strong { color: var(--text); font-weight: 600; }
-    .store-card-price .delivery { font-size: 0.72rem; color: var(--text-muted); text-align: right; }
-    .store-card-price .delivery strong { color: var(--text); font-weight: 600; }
+    .store-card-price { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; margin-bottom: 16px; gap: 8px; }
+    .store-card-price .main { font-size: 1.3rem; font-weight: 900; background: linear-gradient(135deg, #1d4ed8, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .store-card-price .sub { font-size: 0.75rem; color: #475569; text-align: right; }
+    .store-card-price .sub strong { color: #0f172a; font-weight: 600; }
+    .store-card-price .delivery { font-size: 0.72rem; color: #64748b; text-align: right; }
+    .store-card-price .delivery strong { color: #0f172a; font-weight: 600; }
 
-    .store-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .store-card-actions a { display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.25s ease; gap: 6px; }
-    .store-wa-btn { background: rgba(37, 211, 102, 0.1); color: #25d366; border: 1px solid rgba(37, 211, 102, 0.2); }
-    .store-wa-btn:hover { background: #25d366; color: white; border-color: #25d366; transform: translateY(-2px); }
-    .store-quote-btn { background: rgba(91, 141, 239, 0.1); color: var(--primary-light); border: 1px solid var(--border-glow); }
-    .store-quote-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+    .store-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .store-card-actions a { display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 800; text-decoration: none; transition: all 0.25s ease; gap: 6px; }
+    .store-wa-btn { background: linear-gradient(135deg,#1d4ed8,#4f46e5); color: #ffffff; border: none; font-weight: 800; }
+    .store-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+    .store-quote-btn { background: linear-gradient(135deg,#1d4ed8,#4f46e5); color: #ffffff; border: none; font-weight: 800; }
+    .store-quote-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+    .store-demo-btn { background: linear-gradient(135deg,#1d4ed8,#4f46e5); color: #ffffff; border: none; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.25s ease; cursor: pointer; }
+    .store-demo-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 
     .store-footer-cta { text-align: center; padding: 60px 28px 80px; position: relative; z-index: 2; }
     .store-footer-cta h2 { font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 800; margin-bottom: 12px; }
-    .store-footer-cta p { color: var(--text-dim); margin-bottom: 28px; font-size: 1rem; }
+    .store-footer-cta p { color: #334155; margin-bottom: 28px; font-size: 1rem; }
 
     /* Mobile */
     @media(max-width:600px) {
@@ -91,11 +93,11 @@
     }
 
     /* Count badge */
-    .store-count { text-align: center; font-size: 0.85rem; color: var(--text-dim); margin: -20px 0 30px; }
-    .store-count strong { color: var(--text); }
+    .store-count { text-align: center; font-size: 0.85rem; color: #475569; margin: -20px 0 30px; }
+    .store-count strong { color: #0f172a; }
 
     /* Loading / empty state */
-    .store-empty { text-align: center; padding: 60px 20px; color: var(--text-dim); display: none; }
+    .store-empty { text-align: center; padding: 60px 20px; color: #475569; display: none; }
     .store-empty.visible { display: block; }
   </style>
 </head>
@@ -117,7 +119,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/#services">Services</a></li>
-        <li><a href="/ai-store.html" style="color:var(--primary-light)">AI Store</a></li>
+        <li><a href="/ai-store.html" style="color:#1d4ed8;font-weight:700">AI Store</a></li>
         <li><a href="/portfolio/">Portfolio</a></li>
         <li><a href="/build">Build</a></li>
         <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20to%20automate%20my%20business" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
@@ -159,16 +161,16 @@
   </section>
 
   <!-- Footer -->
-  <footer style="border-top: 1px solid var(--border); padding: 40px 28px; text-align: center; position: relative; z-index: 2;">
+  <footer style="border-top: 1px solid #e2e8f0; padding: 40px 28px; text-align: center; position: relative; z-index: 2;">
     <div style="max-width: 1280px; margin: 0 auto;">
       <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px;">
-        <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Home</a>
-        <a href="/ai-store.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">AI Store</a>
-        <a href="/portfolio/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Portfolio</a>
-        <a href="/build" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">Build</a>
-        <a href="https://wa.me/918381848389" target="_blank" rel="noopener" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">WhatsApp</a>
+        <a href="/" style="color: #334155; text-decoration: none; font-size: 0.9rem;">Home</a>
+        <a href="/ai-store.html" style="color: #334155; text-decoration: none; font-size: 0.9rem;">AI Store</a>
+        <a href="/portfolio/" style="color: #334155; text-decoration: none; font-size: 0.9rem;">Portfolio</a>
+        <a href="/build" style="color: #334155; text-decoration: none; font-size: 0.9rem;">Build</a>
+        <a href="https://wa.me/918381848389" target="_blank" rel="noopener" style="color: #334155; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
-      <div style="color: var(--text-muted); font-size: 0.78rem;">
+      <div style="color: #64748b; font-size: 0.82rem;">
         &copy; 2026 Freshtiq Innovations. India · Saudi · UAE
       </div>
     </div>
