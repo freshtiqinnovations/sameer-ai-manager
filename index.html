@@ -883,22 +883,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Industry Solutions (full grid) -->
-<section class="section" id="industries">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">Industries</div>
-      <h2>Industry-Specific <span class="gradient-text">Solutions</span></h2>
-      <p>We don't make generic bots. We build automation for your exact business workflow.</p>
-    </div>
-    <div class="industry-filter">
-      <button class="filter-btn active" data-filter="all">All Industries</button>
-    </div>
-    <div class="industry-grid" id="industryGrid">
-      <!-- Rendered by industry-workflows.js -->
-    </div>
-  </div>
-</section>
+<!-- REMOVED: Old empty industries section (replaced by full industry cards above) -->
 
 <!-- Reseller + Investor Sections -->
 <section class="section partnership-section" id="reseller">
@@ -1213,7 +1198,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </footer>
 
-<script src="industry-workflows.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof INDUSTRIES === 'undefined') return;
