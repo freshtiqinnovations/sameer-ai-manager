@@ -280,18 +280,18 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 /* ═══════ Floating Mobile Bar Premium ═══════ */
 .floating-bar{display:none}
 @media(max-width:768px){
-  .floating-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:2147483642;background:rgba(8,11,26,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:8px 12px;gap:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .floating-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:2147483642;background:#0b5cff;padding:6px 8px;gap:6px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
   .section{padding:60px 20px}
   .section-header{margin-bottom:36px}
   #faq .section-inner{padding-bottom:16px}
   footer{padding-bottom:80px}
   .footer-services .service-link{padding:8px 10px}
-  .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.7rem;font-weight:700;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0}
-  .floating-bar a:first-child{background:#0b5cff;color:#ffffff!important;box-shadow:0 4px 16px rgba(11,92,255,0.2);opacity:1}
-  .floating-bar a:first-child:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 6px 24px rgba(11,92,255,0.3)}
-  .floating-bar a:last-child{background:#0b5cff;color:#ffffff!important;border:none;font-weight:700;opacity:1}
-  .floating-bar a:last-child:hover{background:#0b5cff;opacity:1;transform:translateY(-2px);box-shadow:0 6px 24px rgba(11,92,255,0.3)}
-  .floating-bar a:visited{color:inherit!important}
+  .floating-bar a{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:10px;font-size:0.75rem;font-weight:900;text-decoration:none!important;transition:all 0.25s ease;gap:4px;white-space:nowrap;min-width:0;color:#ffffff!important;background:#0b5cff;opacity:1}
+  .floating-bar a:first-child{background:#0b5cff;color:#ffffff!important;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+  .floating-bar a:first-child:hover{background:#0b5cff;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+  .floating-bar a:last-child{background:#0b5cff;color:#ffffff!important;border:1px solid rgba(255,255,255,0.2);font-weight:900}
+  .floating-bar a:last-child:hover{background:#0b5cff;opacity:1;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+  .floating-bar a:visited{color:#ffffff!important}
   footer{margin-bottom:64px}
   .footer-inner{grid-template-columns:1fr 1fr;gap:32px 24px}
   .footer-col:first-child{grid-column:1/-1}
