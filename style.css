@@ -78,8 +78,9 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .nav-links a:hover{color:#6C63FF;background:rgba(108,99,255,0.06)}
 .nav-links .nav-cta{background:#6C63FF;color:#ffffff!important;padding:8px 20px!important;font-weight:700;min-width:auto;text-align:center;box-shadow:0 2px 8px rgba(108,99,255,0.2);border-radius:8px;margin-left:8px;opacity:1;font-size:0.8rem}
 .nav-links .nav-cta::after{display:none}
-.nav-links .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
+.nav-links .nav-cta:hover{background:#6C63FF;color:#ffffff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
 .nav-links .nav-pill{background:rgba(108,99,255,0.08);color:#6C63FF!important;border:1px solid #d4d0ff;font-weight:600;padding:5px 10px!important;font-size:0.75rem!important;border-radius:6px}
+.nav-links .nav-pill:hover{background:rgba(108,99,255,0.16);color:#6C63FF!important}
 .mobile-toggle{display:none;background:none;border:none;color:var(--text-dim);font-size:1.5rem;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.2s}
 .mobile-toggle:hover{background:rgba(0,0,0,0.04)}
 @media(max-width:768px){
@@ -124,9 +125,9 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:12px;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.35s var(--ease-out);cursor:pointer;border:none;font-family:var(--font);white-space:nowrap;position:relative;overflow:hidden}
 .btn-primary{background:#6C63FF!important;color:#ffffff!important;font-weight:900!important;opacity:1!important;box-shadow:0 4px 24px rgba(108,99,255,0.2);border:none}
 .btn-primary::before{display:none}
-.btn-primary:hover{background:#6C63FF!important;opacity:1!important;transform:translateY(-3px);box-shadow:0 10px 48px rgba(108,99,255,0.3)}
+.btn-primary:hover{background:#6C63FF!important;color:#ffffff!important;opacity:1!important;transform:translateY(-3px);box-shadow:0 10px 48px rgba(108,99,255,0.3)}
 .btn-primary.gold{background:#6C63FF!important;color:#ffffff!important;box-shadow:0 4px 24px rgba(108,99,255,0.2)}
-.btn-primary.gold:hover{background:#6C63FF!important;box-shadow:0 10px 48px rgba(108,99,255,0.3);transform:translateY(-3px)}
+.btn-primary.gold:hover{background:#6C63FF!important;color:#ffffff!important;box-shadow:0 10px 48px rgba(108,99,255,0.3);transform:translateY(-3px)}
 .btn-secondary{background:#ffffff;color:#0f172a;border:1.5px solid #cbd5e1}
 .btn-secondary:hover{background:rgba(108,99,255,0.06);border-color:var(--primary);transform:translateY(-3px)}
 .hero-visual{position:relative;z-index:2;animation:scaleIn 0.7s ease 0.35s both}
@@ -249,9 +250,9 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 
 /* ═══════ Store Buttons (used in services section too) ═══════ */
 .store-wa-btn{background:#6C63FF;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-wa-btn:hover{background:#6C63FF;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
+.store-wa-btn:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
 .store-quote-btn{background:#6C63FF;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-quote-btn:hover{background:#6C63FF;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
+.store-quote-btn:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
 
 /* ═══════ Global Premium Link Styling ═══════ */
 a{color:var(--primary-light);text-decoration:none;transition:color 0.25s ease}
@@ -499,7 +500,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:64px 28px 32px;po
 .ind-roi{font-size:0.8rem;color:#10b981;font-weight:600}
 .ind-price{font-size:0.9rem;color:#6C63FF;font-weight:800}
 .ind-cta{display:block;text-align:center;background:#6C63FF;color:#ffffff;padding:12px;border-radius:12px;font-weight:700;font-size:0.85rem;text-decoration:none;margin-top:auto;transition:all 0.25s ease}
-.ind-cta:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
+.ind-cta:hover{background:#6C63FF;color:#ffffff;transform:translateY(-2px);box-shadow:0 4px 16px rgba(108,99,255,0.25)}
 .ind-workflow{background:#f8fafc;border-radius:10px;padding:12px 14px;font-size:0.82rem;color:#0f172a;line-height:1.5;border-left:3px solid #6C63FF}
 .ind-updates{font-size:0.8rem;color:#64748b}
 .update-tag{display:inline-block;background:#eff6ff;color:#6C63FF;padding:2px 8px;border-radius:16px;font-size:0.75rem;font-weight:600;margin:2px;border:none}
