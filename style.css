@@ -286,5 +286,17 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 28p
   .footer-bottom span:last-child{margin-top:4px}
 }
 
+/* ═══════ FAQ Accordion ═══════ */
+.faq-grid{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{border-radius:14px;border:1px solid var(--border);background:var(--bg2);overflow:hidden;transition:all 0.3s ease}
+.faq-item:hover{border-color:var(--border-glow)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;padding:18px 22px;cursor:pointer;color:var(--text);font-size:0.92rem;font-weight:600;text-align:left;letter-spacing:-0.1px;transition:color 0.25s;gap:16px}
+.faq-question:hover{color:var(--primary-light)}
+.faq-question span{flex:1}
+.faq-icon{flex-shrink:0;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1)}
+.faq-item.open .faq-icon{transform:rotate(180deg)}
+.faq-answer{padding:0 22px 0;max-height:0;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);color:var(--text-dim);font-size:0.85rem;line-height:1.6}
+.faq-item.open .faq-answer{padding:0 22px 20px;max-height:200px}
+
 /* ═══════ Testimonials ═══════ */
 .testimonial-carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-ms-overflow-style:none;scrollbar-width:none;padding:4px}
