@@ -249,15 +249,15 @@ nav.scrolled{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webki
 .pricing-card .btn-primary{width:100%;justify-content:center}
 
 /* ═══════ Store Buttons (used in services section too) ═══════ */
-.store-wa-btn{background:#6C63FF;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-wa-btn:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
-.store-quote-btn{background:#6C63FF;color:#ffffff;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
-.store-quote-btn:hover{background:#6C63FF;color:#ffffff;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
+.store-wa-btn{background:#6C63FF;color:#ffffff!important;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
+.store-wa-btn:hover{background:#6C63FF;color:#ffffff!important;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
+.store-quote-btn{background:#6C63FF;color:#ffffff!important;border:none;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all 0.25s ease;cursor:pointer;opacity:1}
+.store-quote-btn:hover{background:#6C63FF;color:#ffffff!important;opacity:1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,99,255,0.3)}
 
 /* ═══════ Global Premium Link Styling ═══════ */
 a{color:var(--primary-light);text-decoration:none;transition:color 0.25s ease}
 a:hover{color:var(--primary);text-shadow:0 0 20px rgba(108,99,255,0.1)}
-.btn-primary:hover,.btn-secondary:hover,.ind-cta:hover,.nav-cta:hover,.nav-pill:hover,.store-wa-btn:hover,.store-quote-btn:hover,.store-demo-btn:hover,.inv-btn:hover,.partner-wa-btn:hover,.ip-cta:hover,.floating-bar a:hover{text-shadow:none!important}
+.btn-primary:hover,.btn-secondary:hover,.ind-cta:hover,.nav-cta:hover,.nav-pill:hover,.store-wa-btn,.store-wa-btn:hover,.store-quote-btn,.store-quote-btn:hover,.store-demo-btn:hover,.inv-btn:hover,.partner-wa-btn:hover,.ip-cta:hover,.floating-bar a:hover{text-shadow:none!important;transition:color 0s!important}
 a:visited{color:var(--primary-light)}
 a:active{color:var(--primary)}
 
