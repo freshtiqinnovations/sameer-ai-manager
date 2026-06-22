@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add an admin-only command to display project statistics.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new async function 'projectdashboard' to handle the command.",
+    "2. In 'projectdashboard', calculate and format the counts for total projects, paid projects, pending payments, completed deliveries, active deliveries, and hot leads.",
+    "3. Use 'await update.message.reply_text()' to send the formatted message to the admin.",
+    "4. Add a new CommandHandler for '/projectdashboard' that links to the 'projectdashboard' function.",
+    "5. Ensure that the command is restricted to admin users only."
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionality."
+}
+```

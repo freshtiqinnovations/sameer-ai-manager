@@ -1,0 +1,57 @@
+ROOT CAUSE FOUND
+
+Investigation complete.
+
+approval_mover.py exists.
+approve_patch_worker.py exists.
+approval_bridge.py exists.
+auto_deploy_worker.py exists.
+
+Problem:
+
+No worker monitors:
+
+/root/sameer_ai_manager/approval_queue/approved
+
+Result:
+
+Approved reports stop in approved queue.
+
+Deploy never starts automatically.
+
+MISSION:
+
+Create Approved Queue Monitor.
+
+Responsibilities:
+
+1. Watch approved folder.
+2. Read approved report.
+3. Find patch via approval_bridge.py.
+4. Run auto_deploy_worker.py.
+5. Save deploy result.
+6. Verify service.
+7. Create deployment report.
+8. Archive completed approval.
+
+DO NOT create duplicate deploy worker.
+
+Reuse existing:
+
+- approval_bridge.py
+- auto_deploy_worker.py
+- approval_reporter.py
+
+Goal:
+
+Approved
+↓
+Auto Deploy
+↓
+Verify
+↓
+Report
+
+without human action.
+
+ROOT CAUSE VERIFIED.

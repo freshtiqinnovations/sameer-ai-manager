@@ -1,0 +1,97 @@
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+"""
+Auto-backup every major change — monitors bridge files and auto-backups.
+Runs as a systemd service.
+"""
+import json, time, hashlib, subprocess
+from pathlib import Path
+from datetime import datetime, timezone
+
+BRIDGE = Path("/root/sameer_ai_manager/openclaw_bridge")
+BACKUP_DIR = Path("/root/backups/auto_bridge_backups")
+BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+STATE_FILE = BRIDGE / ".backup_state.json"
+
+WATCHED_FILES = [
+    "tasks_inbox.jsonl", "tasks_done.jsonl", "openclaw_status.json",
+    "security_policy.json", "fortress_worker.py", "bridge_worker.py",
+    "rules.md", "chat_log.jsonl", "security.log", "audit.log"
+]
+
+def log(msg):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    with open(BRIDGE / "auto_backup.log", "a") as f:
+        f.write(f"[{ts}] {msg}\n")
+    print(f"[{ts}] {msg}")
+
+def get_state():
+    if STATE_FILE.exists():
+        return json.loads(STATE_FILE.read_text())
+    return {}
+
+def save_state(state):
+    STATE_FILE.write_text(json.dumps(state))
+
+def get_hashes():
+    hashes = {}
+    for fname in WATCHED_FILES:
+        fp = BRIDGE / fname
+        if fp.exists() and fp.stat().st_size > 0:
+            content = fp.read_bytes()[:10240]  # First 10KB for speed
+            hashes[fname] = hashlib.md5(content).hexdigest()
+        else:
+            hashes[fname] = ""
+    return hashes
+
+def backup_changed(old, new):
+    changed = []
+    for key in new:
+        if old.get(key) != new[key] and new[key]:
+            changed.append(key)
+    
+    if changed:
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        fname = f"bridge_backup_{ts}.tar.gz"
+        backup_file = BACKUP_DIR / fname
+        
+        files_to_backup = " ".join([str(BRIDGE / f) for f in changed])
+        subprocess.getoutput(f"tar czf {backup_file} -C /root/sameer_ai_manager openclaw_bridge/ 2>/dev/null")
+        
+        # Keep only last 20 backups
+        backups = sorted(BACKUP_DIR.glob("bridge_backup_*.tar.gz"))
+        for old_backup in backups[:-20]:
+            old_backup.unlink()
+        
+        log(f"📦 Backup saved: {fname} ({len(changed)} files changed: {', '.join(changed)})")
+        return True
+    return False
+
+def monitor():
+    log("📡 Auto-backup monitor started")
+    state = get_state()
+    
+    while True:
+        try:
+            new_hashes = get_hashes()
+            if state:
+                backup_changed(state, new_hashes)
+            state = new_hashes
+            save_state(state)
+            time.sleep(30)  # Check every 30 seconds
+        except Exception as e:
+            log(f"Monitor error: {e}")
+            time.sleep(60)
+
+if __name__ == "__main__":
+    monitor()

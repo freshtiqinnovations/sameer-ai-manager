@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 08:11:19.986498",
+  "bot": "autopilot_hub_bot",
+  "task": "remove duplicate status_cmd definitions at lines 212, 372, 387 and duplicate status CommandHandler at line 215 and 375 only; keep status_cmd at line 117 and handler at line 129; do not edit any other code; backup compile restart verify",
+  "status": "queued"
+}

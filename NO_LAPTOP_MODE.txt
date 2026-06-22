@@ -1,0 +1,22 @@
+NO LAPTOP MODE ACTIVE
+
+All future work should be done from Telegram:
+- /status
+- /bots
+- /logs
+- /backup
+- /doctor
+- /repair
+- /ai_fix
+- /approve_patch
+- /rollback
+- /deploy_customer
+- /customer_status
+- /customer_logs
+- /customer_restart
+- /customer_backup
+- /run
+
+Rule:
+If something breaks, first use /doctor, then /logs, then /repair.
+Never patch without backup and compile.

@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add a real factory dashboard with live worker counts to the Telegram bot.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["worker", "status", "dashboard"],
+  "patch_plan": [
+    "1. Define a new async function `factory_dashboard` to handle the dashboard command.",
+    "2. In the `factory_dashboard` function, retrieve the live worker counts from the relevant source (e.g., a database or API).",
+    "3. Format the retrieved data into a user-friendly message.",
+    "4. Use `await update.message.reply_text` to send the formatted message back to the user.",
+    "5. Add a command handler for the new `factory_dashboard` function in the main bot setup."
+  ],
+  "risk": "Low - The patch adds a new feature without modifying existing functionalities."
+}
+```

@@ -1,0 +1,24 @@
+{
+  "id": "1780306724065",
+  "bot": "autopilot",
+  "task": "add project dashboard",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780306723_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780306724.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "approved_auto",
+  "created": 1780306724.0657592,
+  "auto_test_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "auto_approval_decision": "AUTO_APPROVE",
+  "auto_approval_time": 1780306726.341985,
+  "tester_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "patch_file": "/root/sameer_ai_manager/ai_worker/plans/1780306723_autopilot.patch.json",
+  "deploy_time": 1780306733.581184,
+  "deploy_result": "tar: Removing leading `/' from member names\nTraceback (most recent call last):\n  File \"/root/sameer_ai_manager/ai_brain/patch_engine.py\", line 122, in safe_live_patch\n    result = apply_text_patch(bot, search_text, replace_text)\n  File \"/root/sameer_ai_manager/ai_brain/patch_engine.py\", line 85, in apply_text_patch\n    compile_file(main)\n  File \"/root/sameer_ai_manager/ai_brain/patch_engine.py\", line 49, in compile_file\n    raise Exception(\"COMPILE_FAILED \"+out[:700])\nException: COMPILE_FAILED File \"/root/monster_bot/admin_panel.py\", line 143\n    msg='\ud83d\udcca PROJECT DASHBOARD\n        ^\nSyntaxError: unterminated string literal (detected at line 143)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/sameer_ai_manager/workers/auto_deploy_worker/auto_deploy_worker.py\", line 13, in <module>\n    print(deploy(sys.argv[1]))\n  File \"/root/sameer_ai_manager/workers/auto_deploy_worker/auto_deploy_worker.py\", line 10, in deploy\n    return safe_live_patch(d[\"bot\"],d[\"search_text\"],d[\"replace_text\"])\n  File \"/root/sameer_ai_manager/ai_brain/patch_engine.py\", line 132, in safe_live_patch\n    raise Exception(\"SAFE_PATCH_FAILED_ROLLED_BACK \"+str(e))\nException: SAFE_PATCH_FAILED_ROLLED_BACK COMPILE_FAILED File \"/root/monster_bot/admin_panel.py\", line 143\n    msg='\ud83d\udcca PROJECT DASHBOARD\n        ^\nSyntaxError: unterminated string literal (detected at line 143)",
+  "final_status": "deploy_check_required"
+}

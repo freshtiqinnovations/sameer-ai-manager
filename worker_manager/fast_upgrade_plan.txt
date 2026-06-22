@@ -1,0 +1,6 @@
+FAST_UPGRADE_PLAN_2026_06_02
+1. Do not edit live patch_generator directly.
+2. Create patch_generator_v2.py separately.
+3. Test v2 with dashboard task.
+4. If v2 passes quality, switch worker_auto to v2.
+5. Keep old patch_generator as rollback.

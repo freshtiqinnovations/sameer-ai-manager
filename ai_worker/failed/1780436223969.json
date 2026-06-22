@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:07:03.969733",
+  "bot": "autopilot_hub_bot",
+  "task": "clean duplicate exportleads function and duplicate CommandHandler only, no dashboard text rewrite, preserve strings exactly, backup compile restart verify",
+  "status": "queued"
+}

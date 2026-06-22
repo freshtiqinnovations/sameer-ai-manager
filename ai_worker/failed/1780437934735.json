@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:35:34.735710",
+  "bot": "sameer_ai_manager",
+  "task": "improve worker_auto quality gate only: when PATCH_QUALITY has ok false or NEEDS_HUMAN_REVIEW, stop immediately, move task to failed folder, send CEO failed report, do not run dry_run or auto_deploy; backup compile restart verify",
+  "status": "queued"
+}

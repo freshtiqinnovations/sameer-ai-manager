@@ -1,0 +1,10 @@
+{
+  "id": "1780384335087",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def wdashboard(update, context):\n    import glob\n    base='/root/sameer_ai_manager'\n    queue=len(glob.glob(base+'/ai_worker/queue/*.json'))\n    plans=len(glob.glob(base+'/ai_worker/plans/*.json'))\n    failed=len(glob.glob(base+'/ai_worker/failed/*.json'))\n    msg=f'\ud83d\udcca WORKER DASHBOARD\\n\\n\ud83d\udce5 Queue: {queue}\\n\ud83e\udde0 Plans: {plans}\\n\ud83d\udca5 Failed: {failed}'\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler(\"wdashboard\", wdashboard))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds functionality without altering existing features.",
+  "status": "READY_FOR_APPROVAL"
+}

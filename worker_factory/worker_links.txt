@@ -1,0 +1,6 @@
+worker_creator: sameer_worker_creator.service
+service_creator: internal_tool
+worker_tester: internal_tool
+worker_deployer: approved_monitor + patch_engine
+worker_repair: repair_engine
+failure_analyzer: planned

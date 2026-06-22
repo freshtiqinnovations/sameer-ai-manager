@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:25:34.307481",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /verifylogic command only, show message that real JSON logic upgrade is pending human-safe patch mode and current automation commands are installed; follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

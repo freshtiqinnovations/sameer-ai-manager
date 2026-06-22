@@ -1,0 +1,8 @@
+{
+  "time": "2026-06-03 11:36:20.473202",
+  "bot": "autopilot_hub_bot",
+  "task": "add command /hellogpt55",
+  "status": "failed",
+  "error": "PLAN_FAILED Traceback (most recent call last):\n  File \"/root/sameer_ai_manager/ai_worker/plan_runner.py\", line 20, in <module>\n    print(run(bot, task))\n  File \"/root/sameer_ai_manager/ai_worker/plan_runner.py\", line 12, in run\n    plan_text=ai_plan(bot, task)\n  File \"/root/sameer_ai_manager/ai_brain/auto_coder.py\", line 34, in plan\n    r=client.chat.completions.create(model=os.getenv(\"OPENROUTER_MODEL\",\"anthropic/claude-opus-4.8\"),messages=[{\"role\":\"system\",\"content\":SYSTEM},{\"role\":\"user\",\"content\":prompt",
+  "failed_time": "2026-06-03 11:42:31.371675"
+}

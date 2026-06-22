@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add admin-only /projectstatus command to update project status.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def status_cmd", "async def admin_dashboard"],
+  "patch_plan": [
+    "1. Define a new command handler for /projectstatus.",
+    "2. Implement the command to check if the user is an admin.",
+    "3. Update the project's status in the corresponding JSON file.",
+    "4. Ensure the command only updates the status and does not alter other features.",
+    "5. Add appropriate responses for success and failure cases."
+  ],
+  "risk": "Low - The patch only adds a new command and modifies existing JSON data without affecting other functionalities."
+}
+```

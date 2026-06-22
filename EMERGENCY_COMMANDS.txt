@@ -1,0 +1,22 @@
+EMERGENCY COMMANDS
+
+Restart Sameer AI Manager:
+systemctl restart sameer_ai_manager
+
+Logs:
+journalctl -u sameer_ai_manager -n 100 --no-pager
+
+Status:
+systemctl status sameer_ai_manager --no-pager
+
+Compile:
+python3 -m py_compile bot.py
+
+Salama Restart:
+systemctl restart salama_radiator_bot
+
+Travel Bot Restart:
+systemctl restart freshtiq_travel_bot
+
+Rollback Rule:
+backup -> compile -> restart -> verify

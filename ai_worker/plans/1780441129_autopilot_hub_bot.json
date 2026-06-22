@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Enhance the verifylogic_cmd handler to display the count of installed automation commands and milestone status from a specified file.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["verifylogic_cmd", "AUTOPILOT_HUB_MILESTONE_2026_06_03.txt"],
+  "patch_plan": [
+    "1. Read the contents of AUTOPILOT_HUB_MILESTONE_2026_06_03.txt to extract milestone status.",
+    "2. Count the number of installed automation commands by checking the relevant data structure.",
+    "3. Modify the verifylogic_cmd handler to include the count of installed commands and the milestone status in its response."
+  ],
+  "risk": "Low - The patch only modifies the response of an existing command without altering the command's core functionality."
+}
+```

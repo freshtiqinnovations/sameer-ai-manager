@@ -1,0 +1,68 @@
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv("/root/sameer_ai_manager/.env")
+
+OPENAI_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+OPENROUTER_KEY = os.getenv("OPENROUTER_API_KEY", "").strip()
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.5").strip()
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "anthropic/claude-opus-4.8").strip()
+OPENROUTER_URL = "https://openrouter.ai/api/v1"
+
+SYSTEM = (
+    "You are Sameer AI Autonomous CTO. "
+    "Reply short, smart, safe, and execution-ready. "
+    "For VPS commands use Telegram /run format."
+)
+
+def ask_openai(prompt):
+    client = OpenAI(api_key=OPENAI_KEY)
+    r = client.chat.completions.create(
+        model=OPENAI_MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    return r.choices[0].message.content
+
+def ask_openrouter(prompt):
+    client = OpenAI(
+        api_key=OPENROUTER_KEY,
+        base_url=OPENROUTER_URL,
+        default_headers={
+            "HTTP-Referer": "https://sameer-ai-manager.local",
+            "X-Title": "Sameer AI Manager",
+        },
+    )
+    r = client.chat.completions.create(
+        model=OPENROUTER_MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    return r.choices[0].message.content
+
+def ask_ai(prompt):
+    openai_error = None
+
+    try:
+        if OPENAI_KEY:
+            return ask_openai(prompt)
+    except Exception as e:
+        openai_error = str(e)
+
+    try:
+        if OPENROUTER_KEY:
+            return "🔁 BACKUP OPENROUTER USED\n\n" + ask_openrouter(prompt)
+    except Exception as e:
+        return f"AI_ERROR OpenAI={openai_error} OpenRouter={e}"
+
+    return "AI_ERROR: No OpenAI or OpenRouter key configured."
+
+if __name__ == "__main__":
+    print(ask_ai("Reply only SAMEER_AI_ROUTER_OK"))

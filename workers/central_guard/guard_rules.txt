@@ -1,0 +1,11 @@
+BLOCK: UNKNOWN_BOT
+BLOCK: context.bot without context
+BLOCK: HARD_CODED_AUTOPILOT
+BLOCK: MANUAL_REQUIRED deploy
+BLOCK: SEARCH_NOT_FOUND bypass
+BLOCK: target_file mismatch
+BLOCK: bot mismatch
+BLOCK: service mismatch
+BLOCK: compile failure
+BLOCK: literal backslash n
+ALLOW: verified bot map

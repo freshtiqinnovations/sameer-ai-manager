@@ -1,0 +1,34 @@
+{
+  "manager": "sameer_worker_manager",
+  "mode": "supervisor",
+  "workers": {
+    "planner": {
+      "status": "active",
+      "job": "Create AI plan from task"
+    },
+    "dryrun": {
+      "status": "active",
+      "job": "Backup + compile check + service verify"
+    },
+    "patcher": {
+      "status": "pending",
+      "job": "Apply safe code patches"
+    },
+    "tester": {
+      "status": "pending",
+      "job": "Test bot after patch"
+    },
+    "rollback": {
+      "status": "active",
+      "job": "Restore backup if patch fails"
+    },
+    "reporter": {
+      "status": "pending",
+      "job": "Send final report to Sameer AI Manager"
+    },
+    "security_guard": {
+      "status": "pending",
+      "job": "Block unsafe or fake upgrades"
+    }
+  }
+}

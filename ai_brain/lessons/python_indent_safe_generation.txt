@@ -1,0 +1,5 @@
+LESSON: PYTHON_INDENT_SAFE_GENERATION
+Problem: auto_failure_lessons.py failed with IndentationError after try block.
+Rule: Do not generate indented Python blocks using plain /run printf unless indentation is verified.
+Rule: Prefer /runpy or simple non-indented scripts for quick worker tasks.
+Rule: Always compile generated Python before running.

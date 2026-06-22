@@ -1,0 +1,42 @@
+```json
+{
+  "summary": "Clean up duplicate function definitions and command handlers in admin_panel.py. Remove redundant code while preserving all unique functionality.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": [
+    "async def admin_dashboard",
+    "async def exportleads", 
+    "async def project_dashboard",
+    "app.add_handler(CommandHandler(\"admin\"",
+    "app.add_handler(CommandHandler(\"exportleads\"",
+    "app.add_handler(CommandHandler(\"projects\""
+  ],
+  "patch_plan": [
+    {
+      "action": "remove_duplicate_functions",
+      "description": "Remove duplicate admin_dashboard function definitions (keep only first one)",
+      "lines_to_remove": "Lines containing duplicate async def admin_dashboard functions"
+    },
+    {
+      "action": "remove_duplicate_exportleads", 
+      "description": "Remove duplicate exportleads function definitions (keep the most complete one)",
+      "lines_to_remove": "Lines containing duplicate async def exportleads functions"
+    },
+    {
+      "action": "remove_duplicate_project_dashboard",
+      "description": "Remove duplicate project_dashboard function definitions (keep only first one)", 
+      "lines_to_remove": "Lines containing duplicate async def project_dashboard functions"
+    },
+    {
+      "action": "remove_duplicate_handlers",
+      "description": "Remove duplicate command handler registrations for admin, exportleads, projects",
+      "lines_to_remove": "Duplicate app.add_handler lines for same commands"
+    },
+    {
+      "action": "fix_truncated_handler",
+      "description": "Complete the truncated paidprojects command handler at end of file",
+      "fix": "Complete the incomplete handler registration"
+    }
+  ],
+  "risk": "LOW - Only removing duplicate code, preserving all unique functionality and command handlers"
+}
+```

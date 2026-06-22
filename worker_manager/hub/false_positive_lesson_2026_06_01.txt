@@ -1,0 +1,66 @@
+
+🚨 MANAGER LESSON
+
+Workers,
+
+Aaj Quality Checker ne valid patch ko reject kar diya.
+
+Reason:
+
+Patch me:
+
+"📊 ADMIN DASHBOARD\n\nCommands..."
+
+tha.
+
+Quality Checker ne ise LITERAL_BACKSLASH_N error samjha.
+
+Ye galat tha.
+
+LESSON:
+
+Har detected issue real issue nahi hota.
+
+False positive bhi hota hai.
+
+RULE:
+
+1. Error detect hua
+2. Actual code dekho
+3. Context samjho
+4. Phir reject karo
+
+Matlab:
+
+Quality Checker ka output final truth nahi hai.
+
+Code inspection final truth hai.
+
+NEW RULE:
+
+False Positive != Real Bug
+
+Agar valid Python string hai:
+
+"hello\nworld"
+
+toh ise bug mat bolo.
+
+Agar escaped code ya broken patch hai:
+
+\\n
+\"
+MANUAL_REQUIRED
+
+toh reject karo.
+
+Root Cause:
+Quality Checker over-sensitive tha.
+
+Action:
+Improve checker.
+Do not blindly reject.
+
+Save this lesson permanently.
+
+Same mistake repeat mat karna.

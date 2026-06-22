@@ -1,0 +1,1 @@
+#!/usr/bin/env python3\nimport time\nprint('BOT_READY: ek support')\nwhile True:\n    time.sleep(60)\n

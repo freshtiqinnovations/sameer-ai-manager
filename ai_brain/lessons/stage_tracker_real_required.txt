@@ -1,0 +1,6 @@
+LESSON: STAGE_TRACKER_MUST_BE_REAL
+Task: add live stage tracker and ETA.
+Problem: patch_generator produced FAKE_PLACEHOLDER.
+Rule: Stage tracker is not a bot.py feature first. It must update ai_worker/current_status.txt inside worker_auto.py at START, AI_PLAN, PATCH_GENERATED, QUALITY_CHECK, DRY_RUN, APPROVAL_REPORT, DONE, FAILED, BLOCKED.
+Rule: ETA can be simple: START=0s, PLAN~10s, PATCH~15s, QUALITY~20s, DRY_RUN~35s, APPROVAL~40s.
+Rule: Do not generate placeholder Telegram command for stage tracker.

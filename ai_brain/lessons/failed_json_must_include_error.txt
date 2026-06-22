@@ -1,0 +1,5 @@
+LESSON: FAILED_JSON_MUST_INCLUDE_ERROR
+Problem: old failed jobs have no error field, so failure analyzer cannot learn.
+Rule: Every failed task JSON must include status=failed, error, failed_time, worker_name, stage, and traceback if available.
+Rule: Worker Auto already patched for future failure reason saving.
+Rule: Boss Manager must ignore old failed files without error and only learn from detailed failures.

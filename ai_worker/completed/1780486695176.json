@@ -1,0 +1,7 @@
+{
+  "time": "2026-06-03 17:08:15 IST",
+  "bot": "autopilot_hub_bot",
+  "task": "inspect_registry",
+  "details": "Check factory registry, duplicate handlers, and report only. Do not patch.",
+  "status": "queued"
+}

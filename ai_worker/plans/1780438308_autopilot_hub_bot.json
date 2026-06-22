@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add admin-only /setquote command to update quotation_amount in lead/project JSON and display it in /status command.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["status", "quotation_amount", "admin"],
+  "patch_plan": [
+    "1. Define a new command handler for /setquote that checks if the user is an admin.",
+    "2. Update the quotation_amount field in the corresponding lead/project JSON file based on the provided PROJECT_ID and AMOUNT.",
+    "3. Modify the existing /status command to include the updated quotation_amount in the response message.",
+    "4. Ensure no changes are made to the dashboard or other existing features.",
+    "5. Backup the current state of the bot before applying the patch.",
+    "6. Compile and restart the bot to verify the changes."
+  ],
+  "risk": "Low - The patch is minimal and preserves existing features, but requires careful handling of JSON updates."
+}
+```

@@ -1,0 +1,83 @@
+COMMON BUGS AND FIXES
+
+BUG #1
+Wrong:
+if name=="main":
+
+Correct:
+if name=="main":
+
+Reason:
+Python automatically provides name.
+"name" variable does not exist.
+Causes:
+NameError: name "name" is not defined
+
+BUG #2
+Function between handlers
+
+Wrong:
+app.add_handler(...)
+async def myfunc(...)
+app.add_handler(...)
+
+Correct:
+async def myfunc(...)
+...
+app=ApplicationBuilder(...)
+app.add_handler(...)
+app.add_handler(...)
+
+BUG #3
+Blind patching
+
+Wrong:
+Patch without checking nearby code
+
+Correct:
+Read 20-50 lines before patch
+
+BUG #4
+Duplicate feature
+
+Wrong:
+Apply patch again
+
+Correct:
+grep first
+verify feature not already exists
+
+BUG #5
+Success without proof
+
+Wrong:
+Mark success immediately
+
+Correct:
+Compile
+Restart
+Verify service active
+Then success
+
+BUG #6
+Moving missing queue file
+
+Wrong:
+shutil.move(path,...)
+
+Correct:
+if os.path.exists(path):
+    shutil.move(path,...)
+
+BUG #7
+Multiline /run corruption
+
+Wrong:
+Huge multiline edits using /run
+
+Correct:
+Use /runpy chunks or fresh file writes
+
+RULE:
+Every new bug must be added to this file.
+Never repeat solved mistakes.

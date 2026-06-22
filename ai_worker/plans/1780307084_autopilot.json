@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add a /help command to provide users with information about available commands.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["app.add_handler", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new asynchronous function 'help_command' that sends a message listing all available commands.",
+    "2. Add a CommandHandler for the /help command that calls the 'help_command' function.",
+    "3. Ensure the help message is clear and concise, providing users with a brief description of each command."
+  ],
+  "risk": "Low - The addition of the help command is straightforward and does not interfere with existing functionality."
+}
+```

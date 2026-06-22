@@ -1,0 +1,66 @@
+🚨 NEXT FACTORY MISSION
+
+Workers,
+
+Milestone complete.
+
+First automatic production deployment succeeded.
+
+Good.
+
+Now stop celebrating.
+
+Current unfinished work:
+
+1. Approved Queue -> Auto Deploy Trigger
+2. Deployment Report Generator
+3. Rollback Helper
+4. Patch Generator Improvement
+5. Archive Completed Deployments
+
+Priority Order:
+
+HIGH
+-----
+Auto Deploy Trigger
+Rollback Helper
+
+MEDIUM
+------
+Deployment Reports
+
+LOW
+---
+New workers
+New theories
+New folders
+
+Rules:
+
+No worker may create new modules until current pipeline is complete.
+
+Every worker must focus on:
+
+Approved
+↓
+Deploy
+↓
+Verify
+↓
+Report
+↓
+Archive
+
+Goal:
+
+Sameer should be able to send:
+
+/upgrade BOT TASK
+
+and factory should handle the rest automatically.
+
+Focus on completion.
+
+Not expansion.
+
+Back to work.

@@ -1,0 +1,385 @@
+{
+  "next_id": 238,
+  "projects": {
+    "sameer_ai_manager": {
+      "id": 200,
+      "slug": "sameer_ai_manager",
+      "name": "Sameer AI Manager",
+      "type": "core",
+      "path": "/root/sameer_ai_manager",
+      "service": "sameer_ai_manager.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "freshtiq_whatsapp_sales_bot": {
+      "id": 201,
+      "slug": "freshtiq_whatsapp_sales_bot",
+      "name": "Freshtiq WhatsApp Sales Bot",
+      "type": "whatsapp_bot",
+      "path": "/root/workspaces/customers/freshtiq_whatsapp_sales_bot",
+      "service": "freshtiq_sales_bot.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "flight_fare_ai": {
+      "id": 202,
+      "slug": "flight_fare_ai",
+      "name": "Flight Fare AI",
+      "type": "telegram_bot",
+      "path": "/root/workspaces/customers/flight_fare_ai",
+      "service": "flight_fare_ai.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "sameer_speaking_english_commander_ai": {
+      "id": 203,
+      "slug": "sameer_speaking_english_commander_ai",
+      "name": "Sameer English Commander",
+      "type": "education_bot",
+      "path": "/root/workspaces/customers/sameer_speaking_english_commander_ai",
+      "service": "sameer_english_commander.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "el_salama_radiator_factory": {
+      "id": 204,
+      "slug": "el_salama_radiator_factory",
+      "name": "EL SALAMA AI ERP PRO",
+      "type": "erp",
+      "path": "/root/workspaces/customers/el_salama_radiator_factory",
+      "service": "salama_radiator_bot.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "hawala_token_system": {
+      "id": 205,
+      "slug": "hawala_token_system",
+      "name": "USDT Deal Backend",
+      "type": "flask_backend",
+      "path": "/root/workspaces/customers/hawala_token_system",
+      "service": "hawala_token_system.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "usdt_deal_apk": {
+      "id": 206,
+      "slug": "usdt_deal_apk",
+      "name": "USDT Deal Android App",
+      "type": "android_app",
+      "path": "/root/workspaces/customers/usdt_deal_apk",
+      "service": "",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "openclaw_whatsapp_bridge": {
+      "id": 207,
+      "slug": "openclaw_whatsapp_bridge",
+      "name": "OpenClaw WhatsApp Bridge",
+      "type": "operator",
+      "path": "/root/workspaces/customers/openclaw_whatsapp_bridge",
+      "service": "openclaw-whatsapp.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "freshtiq_portal": {
+      "id": 208,
+      "slug": "freshtiq_portal",
+      "name": "Freshtiq Portal",
+      "type": "web_portal",
+      "path": "/root/workspaces/customers/freshtiq_portal",
+      "service": "freshtiq_portal.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "binance_ai_trading_bot": {
+      "id": 209,
+      "slug": "binance_ai_trading_bot",
+      "name": "Freshtiq Alpha Trader AI",
+      "type": "trading_bot",
+      "path": "/root/workspaces/customers/binance_ai_trading_bot",
+      "service": "freshtiq_trader_bot.service",
+      "status": "active",
+      "updated_at": "2026-06-22 00:08:23"
+    },
+    "azam_radiator": {
+      "id": 210,
+      "slug": "azam_radiator",
+      "name": "Azam Radiator",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/azam_radiator",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "demo_customer_bot": {
+      "id": 211,
+      "slug": "demo_customer_bot",
+      "name": "Demo Customer Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/demo_customer_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "demo_test_bot": {
+      "id": 212,
+      "slug": "demo_test_bot",
+      "name": "Demo Test Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/demo_test_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo": {
+      "id": 213,
+      "slug": "el_salama_hotel_demo",
+      "name": "El Salama Hotel Demo",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_backup_1780844267": {
+      "id": 214,
+      "slug": "el_salama_hotel_demo_backup_1780844267",
+      "name": "El Salama Hotel Demo Backup 1780844267",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_backup_1780844267",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_backup_restaurant_1780845132": {
+      "id": 215,
+      "slug": "el_salama_hotel_demo_backup_restaurant_1780845132",
+      "name": "El Salama Hotel Demo Backup Restaurant 1780845132",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_backup_restaurant_1780845132",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_cleanup_1780844677": {
+      "id": 216,
+      "slug": "el_salama_hotel_demo_cleanup_1780844677",
+      "name": "El Salama Hotel Demo Cleanup 1780844677",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_cleanup_1780844677",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_polish_1780845636": {
+      "id": 217,
+      "slug": "el_salama_hotel_demo_polish_1780845636",
+      "name": "El Salama Hotel Demo Polish 1780845636",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_polish_1780845636",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_stability_1780847363": {
+      "id": 218,
+      "slug": "el_salama_hotel_demo_stability_1780847363",
+      "name": "El Salama Hotel Demo Stability 1780847363",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_stability_1780847363",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "el_salama_hotel_demo_uxfix_1780846852": {
+      "id": 219,
+      "slug": "el_salama_hotel_demo_uxfix_1780846852",
+      "name": "El Salama Hotel Demo Uxfix 1780846852",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/el_salama_hotel_demo_uxfix_1780846852",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "engineering_academy": {
+      "id": 220,
+      "slug": "engineering_academy",
+      "name": "Engineering Academy",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/engineering_academy",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "football_school_bot": {
+      "id": 221,
+      "slug": "football_school_bot",
+      "name": "Football School Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/football_school_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "freshtiq_android_app": {
+      "id": 222,
+      "slug": "freshtiq_android_app",
+      "name": "Freshtiq Android App",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/freshtiq_android_app",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "freshtiq_test": {
+      "id": 223,
+      "slug": "freshtiq_test",
+      "name": "Freshtiq Test",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/freshtiq_test",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "freshtiqautomation_website": {
+      "id": 224,
+      "slug": "freshtiqautomation_website",
+      "name": "Freshtiqautomation Website",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/freshtiqautomation_website",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "kids_education_bot": {
+      "id": 225,
+      "slug": "kids_education_bot",
+      "name": "Kids Education Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/kids_education_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "mybot_deleted_20260510_105808": {
+      "id": 226,
+      "slug": "mybot_deleted_20260510_105808",
+      "name": "Mybot Deleted 20260510 105808",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/mybot_deleted_20260510_105808",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "radiator_customer_bot": {
+      "id": 227,
+      "slug": "radiator_customer_bot",
+      "name": "Radiator Customer Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/radiator_customer_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "restaurant_demo_bot": {
+      "id": 228,
+      "slug": "restaurant_demo_bot",
+      "name": "Restaurant Demo Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/restaurant_demo_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "salama_radiator_bot": {
+      "id": 229,
+      "slug": "salama_radiator_bot",
+      "name": "Salama Radiator Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/salama_radiator_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "salama_service_bot": {
+      "id": 230,
+      "slug": "salama_service_bot",
+      "name": "Salama Service Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/salama_service_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "test_customer": {
+      "id": 231,
+      "slug": "test_customer",
+      "name": "Test Customer",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/test_customer",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "test_customer_bot": {
+      "id": 232,
+      "slug": "test_customer_bot",
+      "name": "Test Customer Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/test_customer_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "test_demo_bot": {
+      "id": 233,
+      "slug": "test_demo_bot",
+      "name": "Test Demo Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/test_demo_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "test_radiator_bot": {
+      "id": 234,
+      "slug": "test_radiator_bot",
+      "name": "Test Radiator Bot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/test_radiator_bot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "testbot": {
+      "id": 235,
+      "slug": "testbot",
+      "name": "Testbot",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/testbot",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "usdt_deal_android": {
+      "id": 236,
+      "slug": "usdt_deal_android",
+      "name": "Usdt Deal Android",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/usdt_deal_android",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    },
+    "voice_pipeline": {
+      "id": 237,
+      "slug": "voice_pipeline",
+      "name": "Voice Pipeline",
+      "type": "unknown",
+      "path": "/root/workspaces/customers/voice_pipeline",
+      "service": "",
+      "status": "detected",
+      "updated_at": "2026-06-21 13:25:03"
+    }
+  }
+}

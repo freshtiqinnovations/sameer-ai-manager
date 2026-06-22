@@ -1,0 +1,7 @@
+LESSON: BACKUP_BEFORE_DEPLOY
+Failure source: FINAL_AUTO_TEST.json
+Problem: tar backup command returned exit status 1.
+Rule: Before deploy, verify backup target exists.
+Rule: Run tar test first.
+Rule: If backup fails, stop deploy immediately.
+Rule: Deploy worker must require BACKUP_OK before patch apply.

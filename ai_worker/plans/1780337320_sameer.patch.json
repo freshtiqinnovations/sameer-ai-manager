@@ -1,0 +1,10 @@
+{
+  "id": "1780337320311",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def dashboard(update, context):\n    import subprocess\n    from datetime import datetime\n\n    # Get service statuses\n    manager_status = subprocess.getoutput('systemctl is-active sameer_ai_manager.service')\n    worker_status = subprocess.getoutput('systemctl is-active sameer_ai_worker_auto.service')\n\n    # Get task counts\n    queue_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/queue') if x.endswith('.json')])\n    completed_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/completed') if x.endswith('.json')])\n    failed_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/failed') if x.endswith('.json')])\n\n    # Get recent logs\n    recent_logs = subprocess.getoutput('journalctl -u sameer_ai_manager.service -n 10 --no-pager')\n\n    # Create dashboard message\n    msg = f\"\"\"\n    \ud83d\udcca DASHBOARD STATUS\n\n    \ud83e\udd16 Sameer Manager: {manager_status}\n    \ud83d\udee0 Worker: {worker_status}\n\n    \ud83d\udce6 Queue: {queue_count}\n    \ud83d\udfe2 Completed: {completed_count}\n    \ud83d\udd34 Failed: {failed_count}\n\n    \ud83d\udcdc Recent Logs:\n    {recent_logs}\n    \"\"\"\n\n    await update.message.reply_text(msg)\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new command without altering existing functionality. Ensure proper testing of the new command.",
+  "status": "READY_FOR_APPROVAL"
+}

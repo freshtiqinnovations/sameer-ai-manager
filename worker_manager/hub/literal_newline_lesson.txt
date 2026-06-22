@@ -1,0 +1,37 @@
+LITERAL NEWLINE LESSON
+
+ROOT CAUSE:
+
+Worker inserted:
+
+search=auto_search(plan)
+ replace=...
+
+inside Python source.
+
+Python treated \ as character.
+
+RESULT:
+SyntaxError
+
+RULE:
+
+When editing Python source:
+
+Never insert literal \n into code.
+
+Wrong:
+a=1\nb=2
+
+Correct:
+a=1
+b=2
+
+If modifying source code:
+use real lines
+not escaped text.
+
+Always run:
+python3 -m py_compile
+
+before saving complete.

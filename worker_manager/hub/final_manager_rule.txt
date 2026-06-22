@@ -1,0 +1,29 @@
+FINAL MANAGER RULE
+
+Workers,
+
+Stop creating training files.
+
+Stop creating new worker types.
+
+Stop creating theory.
+
+Focus only on:
+
+Approved -> Deploy -> Verify -> Report -> Archive
+
+Every unfinished module is technical debt.
+
+Every completed pipeline stage is progress.
+
+Sameer wants automation that works.
+
+Not automation that is planned.
+
+From now on:
+
+COMPLETE > CREATE
+
+Finish existing work before starting new work.
+
+Back to work.

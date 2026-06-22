@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:55:04.111330",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /projectsummary PROJECT_ID command only, show project id, quotation amount, payment status, delivery status, progress, deadline and latest note from json in one summary message, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

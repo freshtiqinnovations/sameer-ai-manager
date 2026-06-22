@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 08:06:20.728514",
+  "bot": "autopilot_hub_bot",
+  "task": "remove duplicate placeholder status_cmd functions and duplicate status CommandHandler registrations after line 200 only; keep original status_cmd near line 117; do not edit dashboard strings; do not add new commands; backup compile restart verify",
+  "status": "queued"
+}

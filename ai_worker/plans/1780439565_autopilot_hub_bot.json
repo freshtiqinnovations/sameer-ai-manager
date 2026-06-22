@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add admin-only /overdueprojects command to show projects with deadlines and incomplete delivery status.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new command handler function named overdue_projects.",
+    "2. In the overdue_projects function, retrieve all project files from LEAD_DIR.",
+    "3. Filter projects where deadline exists and delivery_status is not completed.",
+    "4. Format the filtered projects into a message string.",
+    "5. Send the formatted message to the admin user.",
+    "6. Add the CommandHandler for /overdueprojects to the application."
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionalities."
+}
+```

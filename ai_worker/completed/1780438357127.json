@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:42:37.127236",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setdeadline PROJECT_ID DATE command only, update deadline field in lead/project json, show deadline in existing /status PROJECT_ID, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

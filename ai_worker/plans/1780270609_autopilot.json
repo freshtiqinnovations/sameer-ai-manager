@@ -1,0 +1,25 @@
+```json
+{
+  "summary": "Add an admin dashboard to the Telegram bot for managing leads and monitoring activities.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin dashboard", "manage leads", "admin commands"],
+  "patch_plan": [
+    {
+      "action": "add",
+      "code": "async def admin_dashboard(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    await update.message.reply_text('Admin Dashboard: Choose an action:', reply_markup=ReplyKeyboardMarkup([['📋 View Leads', '📤 Export Leads']], resize_keyboard=True))",
+      "location": "after existing command handlers"
+    },
+    {
+      "action": "add",
+      "code": "app.add_handler(CommandHandler('admin', admin_dashboard))",
+      "location": "after defining the app"
+    },
+    {
+      "action": "modify",
+      "code": "async def leads(update, context):\n    # Existing code\n    await update.message.reply_text(msg)\n    await update.message.reply_text('Use /admin to return to the dashboard.')",
+      "location": "inside the existing leads function"
+    }
+  ],
+  "risk": "Low - The patch adds new functionality without altering existing features. Ensure proper testing of new commands."
+}
+```

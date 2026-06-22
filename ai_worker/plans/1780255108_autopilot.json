@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add a lead export button to the admin panel of the Telegram bot.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["export", "lead", "button"],
+  "patch_plan": [
+    "1. Define a new command handler for the export leads functionality.",
+    "2. Create a function to export leads from the LEAD_DIR to a CSV file.",
+    "3. Add a new button to the menu for exporting leads.",
+    "4. Update the existing menu function to include the new export button.",
+    "5. Ensure the export functionality is accessible only to authorized users."
+  ],
+  "risk": "Low - The patch adds new functionality without altering existing features."
+}
+```

@@ -1,0 +1,717 @@
+ .env                                                              |     8 [32m+[m[31m-[m
+ __pycache__/assistant_engine.cpython-310.pyc                      |   Bin [31m1291[m -> [32m990[m bytes
+ __pycache__/bot.cpython-310.pyc                                   |   Bin [31m42801[m -> [32m0[m bytes
+ __pycache__/builder_engine.cpython-310.pyc                        |   Bin [31m3475[m -> [32m3836[m bytes
+ __pycache__/safe_engine.cpython-310.pyc                           |   Bin [31m2969[m -> [32m0[m bytes
+ __pycache__/template_deploy_cmds.cpython-310.pyc                  |   Bin [31m1696[m -> [32m2027[m bytes
+ assistant_engine.py                                               |    66 [32m+[m[31m-[m
+ .../el_salama_radiator_factory/__pycache__/bot.cpython-310.pyc    |   Bin [31m10676[m -> [32m0[m bytes
+ .../backups/bot_auto_2026-05-08_0200.py                           |   282 [31m-[m
+ .../backups/bot_auto_2026-05-08_0205.py                           |   284 [31m-[m
+ .../backups/bot_auto_2026-05-08_0210.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0215.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0220.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0225.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0230.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0235.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0240.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0245.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0250.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0255.py                           |   316 [31m-[m
+ backups/bot_auto_2026-05-11_1220.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1225.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1230.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1235.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1240.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1245.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1250.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1255.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1300.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1305.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1310.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1315.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1320.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1325.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1330.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1335.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1340.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1345.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1350.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1355.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1400.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1405.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1410.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1415.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1420.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1425.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1430.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1435.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1440.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1445.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1450.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1455.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1500.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1505.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1510.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1515.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1520.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1525.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1530.py                               |  1543 [31m--[m
+ backups/bot_auto_2026-05-11_1535.py                               |  1543 [31m--[m
+ bot.py                                                            |  1597 [32m+[m[31m-[m
+ builder_engine.py                                                 |    11 [32m+[m
+ .../__pycache__/assistant_engine.cpython-310.pyc                  |   Bin [31m1291[m -> [32m0[m bytes
+ .../backup_20260511_153023/__pycache__/bot.cpython-310.pyc        |   Bin [31m42801[m -> [32m0[m bytes
+ .../__pycache__/builder_engine.cpython-310.pyc                    |   Bin [31m3475[m -> [32m0[m bytes
+ .../__pycache__/safe_engine.cpython-310.pyc                       |   Bin [31m2969[m -> [32m0[m bytes
+ .../__pycache__/template_deploy_cmds.cpython-310.pyc              |   Bin [31m1696[m -> [32m0[m bytes
+ .../el_salama_radiator_factory/__pycache__/bot.cpython-310.pyc    |   Bin [31m10676[m -> [32m0[m bytes
+ .../backups/bot_auto_2026-05-08_0200.py                           |   282 [31m-[m
+ .../backups/bot_auto_2026-05-08_0205.py                           |   284 [31m-[m
+ .../backups/bot_auto_2026-05-08_0210.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0215.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0220.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0225.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0230.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0235.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0240.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0245.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0250.py                           |   316 [31m-[m
+ .../backups/bot_auto_2026-05-08_0255.py                           |   316 [31m-[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1215.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1220.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1225.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1230.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1235.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1240.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1245.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1250.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1255.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1300.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1305.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1310.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1315.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1320.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1325.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1330.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1335.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1340.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1345.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1350.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1355.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1400.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1405.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1410.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1415.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1420.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1425.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1430.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1435.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1440.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1445.py    |  1543 [31m--[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1450.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1455.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1500.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1505.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1510.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1515.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1520.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1525.py    |    11 [32m+[m
+ .../backup_20260511_153023/backups/bot_auto_2026-05-11_1530.py    |    11 [32m+[m
+ full_backup/backup_20260511_153023/builder_engine.py              |    11 [32m+[m
+ .../modules/__pycache__/ai_fix_engine.cpython-310.pyc             |   Bin [31m1091[m -> [32m0[m bytes
+ .../modules/__pycache__/ai_repair.cpython-310.pyc                 |   Bin [31m2552[m -> [32m0[m bytes
+ .../modules/__pycache__/patch_apply_engine.cpython-310.pyc        |   Bin [31m1323[m -> [32m0[m bytes
+ .../modules/__pycache__/patch_rollback_engine.cpython-310.pyc     |   Bin [31m787[m -> [32m0[m bytes
+ .../modules/__pycache__/safe_runner.cpython-310.pyc               |   Bin [31m1083[m -> [32m0[m bytes
+ .../modules/__pycache__/template_engine.cpython-310.pyc           |   Bin [31m423[m -> [32m0[m bytes
+ .../modules/__pycache__/upgrade_manager.cpython-310.pyc           |   Bin [31m1496[m -> [32m0[m bytes
+ full_backup/backup_20260511_153023/modules/ai_fix_engine.py       |    11 [32m+[m
+ full_backup/backup_20260511_153023/modules/ai_repair.py           |    11 [32m+[m
+ full_backup/backup_20260511_153023/modules/patch_apply_engine.py  |    11 [32m+[m
+ .../backup_20260511_153023/modules/patch_rollback_engine.py       |    11 [32m+[m
+ full_backup/backup_20260511_153023/modules/safe_runner.py         |    11 [32m+[m
+ full_backup/backup_20260511_153023/modules/template_engine.py     |    11 [32m+[m
+ full_backup/backup_20260511_153023/patch_tool.py                  |    11 [32m+[m
+ full_backup/backup_20260511_153023/safe_engine.py                 |    11 [32m+[m
+ full_backup/backup_20260511_153023/template_deploy_cmds.py        |    11 [32m+[m
+ .../venv/bin/__pycache__/dumppdf.cpython-310.pyc                  |   Bin [31m11345[m -> [32m0[m bytes
+ .../venv/bin/__pycache__/pdf2txt.cpython-310.pyc                  |   Bin [31m7757[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/PIL/EpsImagePlugin.py       |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/PIL/GifImagePlugin.py       |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/PIL/ImageGrab.py            |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/PIL/ImageShow.py            |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/PIL/JpegImagePlugin.py      |    11 [32m+[m
+ .../site-packages/PIL/__pycache__/AvifImagePlugin.cpython-310.pyc |   Bin [31m6594[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/BdfFontFile.cpython-310.pyc     |   Bin [31m2544[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/BlpImagePlugin.cpython-310.pyc  |   Bin [31m13441[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/BmpImagePlugin.cpython-310.pyc  |   Bin [31m9889[m -> [32m0[m bytes
+ .../PIL/__pycache__/BufrStubImagePlugin.cpython-310.pyc           |   Bin [31m1967[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ContainerIO.cpython-310.pyc     |   Bin [31m5558[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/CurImagePlugin.cpython-310.pyc  |   Bin [31m1482[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/DcxImagePlugin.cpython-310.pyc  |   Bin [31m1867[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/DdsImagePlugin.cpython-310.pyc  |   Bin [31m14737[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/EpsImagePlugin.cpython-310.pyc  |   Bin [31m9376[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ExifTags.cpython-310.pyc        |   Bin [31m10303[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/FitsImagePlugin.cpython-310.pyc |   Bin [31m3844[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/FliImagePlugin.cpython-310.pyc  |   Bin [31m4189[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/FontFile.cpython-310.pyc        |   Bin [31m3512[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/FpxImagePlugin.cpython-310.pyc  |   Bin [31m4613[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/FtexImagePlugin.cpython-310.pyc |   Bin [31m3882[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/GbrImagePlugin.cpython-310.pyc  |   Bin [31m2110[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/GdImageFile.cpython-310.pyc     |   Bin [31m2731[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/GifImagePlugin.cpython-310.pyc  |   Bin [31m23880[m -> [32m0[m bytes
+ .../PIL/__pycache__/GimpGradientFile.cpython-310.pyc              |   Bin [31m3752[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/GimpPaletteFile.cpython-310.pyc |   Bin [31m2023[m -> [32m0[m bytes
+ .../PIL/__pycache__/GribStubImagePlugin.cpython-310.pyc           |   Bin [31m2000[m -> [32m0[m bytes
+ .../PIL/__pycache__/Hdf5StubImagePlugin.cpython-310.pyc           |   Bin [31m1969[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/IcnsImagePlugin.cpython-310.pyc |   Bin [31m10026[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/IcoImagePlugin.cpython-310.pyc  |   Bin [31m8727[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImImagePlugin.cpython-310.pyc   |   Bin [31m7188[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/Image.cpython-310.pyc           |   Bin [31m125660[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageChops.cpython-310.pyc      |   Bin [31m7383[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageCms.cpython-310.pyc        |   Bin [31m35120[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageColor.cpython-310.pyc      |   Bin [31m8175[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageDraw.cpython-310.pyc       |   Bin [31m24134[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageDraw2.cpython-310.pyc      |   Bin [31m7242[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageEnhance.cpython-310.pyc    |   Bin [31m3794[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageFile.cpython-310.pyc       |   Bin [31m23232[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageFilter.cpython-310.pyc     |   Bin [31m18303[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageFont.cpython-310.pyc       |   Bin [31m59824[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageGrab.cpython-310.pyc       |   Bin [31m4463[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageMath.cpython-310.pyc       |   Bin [31m9728[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageMode.cpython-310.pyc       |   Bin [31m2118[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageMorph.cpython-310.pyc      |   Bin [31m9759[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageOps.cpython-310.pyc        |   Bin [31m20694[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImagePalette.cpython-310.pyc    |   Bin [31m8494[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImagePath.cpython-310.pyc       |   Bin [31m276[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageQt.cpython-310.pyc         |   Bin [31m5677[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageSequence.cpython-310.pyc   |   Bin [31m2803[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageShow.cpython-310.pyc       |   Bin [31m10127[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageStat.cpython-310.pyc       |   Bin [31m5819[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageText.cpython-310.pyc       |   Bin [31m13721[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageTk.cpython-310.pyc         |   Bin [31m6937[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageTransform.cpython-310.pyc  |   Bin [31m4695[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImageWin.cpython-310.pyc        |   Bin [31m9257[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/ImtImagePlugin.cpython-310.pyc  |   Bin [31m1481[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/IptcImagePlugin.cpython-310.pyc |   Bin [31m4874[m -> [32m0[m bytes
+ .../PIL/__pycache__/Jpeg2KImagePlugin.cpython-310.pyc             |   Bin [31m10690[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/JpegImagePlugin.cpython-310.pyc |   Bin [31m19858[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/JpegPresets.cpython-310.pyc     |   Bin [31m7941[m -> [32m0[m bytes
+ .../PIL/__pycache__/McIdasImagePlugin.cpython-310.pyc             |   Bin [31m1518[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/MicImagePlugin.cpython-310.pyc  |   Bin [31m2482[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/MpegImagePlugin.cpython-310.pyc |   Bin [31m2371[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/MpoImagePlugin.cpython-310.pyc  |   Bin [31m5248[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/MspImagePlugin.cpython-310.pyc  |   Bin [31m3475[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PSDraw.cpython-310.pyc          |   Bin [31m6136[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PaletteFile.cpython-310.pyc     |   Bin [31m1549[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PalmImagePlugin.cpython-310.pyc |   Bin [31m6791[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PcdImagePlugin.cpython-310.pyc  |   Bin [31m1554[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PcfFontFile.cpython-310.pyc     |   Bin [31m6180[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PcxImagePlugin.cpython-310.pyc  |   Bin [31m4160[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PdfImagePlugin.cpython-310.pyc  |   Bin [31m5009[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PdfParser.cpython-310.pyc       |   Bin [31m29934[m -> [32m0[m bytes
+ .../PIL/__pycache__/PixarImagePlugin.cpython-310.pyc              |   Bin [31m1295[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PngImagePlugin.cpython-310.pyc  |   Bin [31m34555[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PpmImagePlugin.cpython-310.pyc  |   Bin [31m8367[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/PsdImagePlugin.cpython-310.pyc  |   Bin [31m6235[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/QoiImagePlugin.cpython-310.pyc  |   Bin [31m6345[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/SgiImagePlugin.cpython-310.pyc  |   Bin [31m4249[m -> [32m0[m bytes
+ .../PIL/__pycache__/SpiderImagePlugin.cpython-310.pyc             |   Bin [31m7547[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/SunImagePlugin.cpython-310.pyc  |   Bin [31m2091[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/TarIO.cpython-310.pyc           |   Bin [31m1344[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/TgaImagePlugin.cpython-310.pyc  |   Bin [31m4719[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/TiffImagePlugin.cpython-310.pyc |   Bin [31m59457[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/TiffTags.cpython-310.pyc        |   Bin [31m13940[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/WalImageFile.cpython-310.pyc    |   Bin [31m3177[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/WebPImagePlugin.cpython-310.pyc |   Bin [31m7260[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/WmfImagePlugin.cpython-310.pyc  |   Bin [31m4036[m -> [32m0[m bytes
+ .../PIL/__pycache__/XVThumbImagePlugin.cpython-310.pyc            |   Bin [31m1628[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/XbmImagePlugin.cpython-310.pyc  |   Bin [31m2398[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/XpmImagePlugin.cpython-310.pyc  |   Bin [31m3529[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/__init__.cpython-310.pyc        |   Bin [31m1961[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/__main__.cpython-310.pyc        |   Bin [31m327[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_binary.cpython-310.pyc         |   Bin [31m3007[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_deprecate.cpython-310.pyc      |   Bin [31m2135[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_tkinter_finder.cpython-310.pyc |   Bin [31m547[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_typing.cpython-310.pyc         |   Bin [31m1282[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_util.cpython-310.pyc           |   Bin [31m1419[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/_version.cpython-310.pyc        |   Bin [31m239[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/features.cpython-310.pyc        |   Bin [31m9731[m -> [32m0[m bytes
+ .../site-packages/PIL/__pycache__/report.cpython-310.pyc          |   Bin [31m289[m -> [32m0[m bytes
+ .../lib/python3.10/site-packages/__pycache__/six.cpython-310.pyc  |   Bin [31m27636[m -> [32m0[m bytes
+ .../site-packages/__pycache__/typing_extensions.cpython-310.pyc   |   Bin [31m115606[m -> [32m0[m bytes
+ .../_distutils_hack/__pycache__/__init__.cpython-310.pyc          |   Bin [31m5104[m -> [32m0[m bytes
+ .../_distutils_hack/__pycache__/override.cpython-310.pyc          |   Bin [31m229[m -> [32m0[m bytes
+ .../annotated_types/__pycache__/__init__.cpython-310.pyc          |   Bin [31m14595[m -> [32m0[m bytes
+ .../annotated_types/__pycache__/test_cases.cpython-310.pyc        |   Bin [31m5635[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/anyio/__init__.py           |    11 [32m+[m
+ .../site-packages/anyio/__pycache__/__init__.cpython-310.pyc      |   Bin [31m4283[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/from_thread.cpython-310.pyc   |   Bin [31m18774[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/functools.cpython-310.pyc     |   Bin [31m11222[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/lowlevel.cpython-310.pyc      |   Bin [31m6166[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/pytest_plugin.cpython-310.pyc |   Bin [31m10939[m -> [32m0[m bytes
+ .../anyio/__pycache__/to_interpreter.cpython-310.pyc              |   Bin [31m7062[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/to_process.cpython-310.pyc    |   Bin [31m6735[m -> [32m0[m bytes
+ .../site-packages/anyio/__pycache__/to_thread.cpython-310.pyc     |   Bin [31m2864[m -> [32m0[m bytes
+ .../anyio/_backends/__pycache__/__init__.cpython-310.pyc          |   Bin [31m178[m -> [32m0[m bytes
+ .../anyio/_backends/__pycache__/_asyncio.cpython-310.pyc          |   Bin [31m79593[m -> [32m0[m bytes
+ .../anyio/_backends/__pycache__/_trio.cpython-310.pyc             |   Bin [31m44760[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/anyio/_backends/_asyncio.py |    11 [32m+[m
+ .../anyio/_core/__pycache__/__init__.cpython-310.pyc              |   Bin [31m174[m -> [32m0[m bytes
+ .../_core/__pycache__/_asyncio_selector_thread.cpython-310.pyc    |   Bin [31m4104[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_contextmanagers.cpython-310.pyc      |   Bin [31m6981[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_eventloop.cpython-310.pyc            |   Bin [31m6335[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_exceptions.cpython-310.pyc           |   Bin [31m6042[m -> [32m0[m bytes
+ .../site-packages/anyio/_core/__pycache__/_fileio.cpython-310.pyc |   Bin [31m27612[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_resources.cpython-310.pyc            |   Bin [31m753[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_signals.cpython-310.pyc              |   Bin [31m1300[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_sockets.cpython-310.pyc              |   Bin [31m29594[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_streams.cpython-310.pyc              |   Bin [31m1986[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_subprocesses.cpython-310.pyc         |   Bin [31m7508[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_synchronization.cpython-310.pyc      |   Bin [31m24579[m -> [32m0[m bytes
+ .../site-packages/anyio/_core/__pycache__/_tasks.cpython-310.pyc  |   Bin [31m6527[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_tempfile.cpython-310.pyc             |   Bin [31m19310[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_testing.cpython-310.pyc              |   Bin [31m3131[m -> [32m0[m bytes
+ .../anyio/_core/__pycache__/_typedattr.cpython-310.pyc            |   Bin [31m3313[m -> [32m0[m bytes
+ .../lib/python3.10/site-packages/anyio/_core/_subprocesses.py     |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/anyio/abc/__init__.py       |    11 [32m+[m
+ .../site-packages/anyio/abc/__pycache__/__init__.cpython-310.pyc  |   Bin [31m2163[m -> [32m0[m bytes
+ .../anyio/abc/__pycache__/_eventloop.cpython-310.pyc              |   Bin [31m13693[m -> [32m0[m bytes
+ .../anyio/abc/__pycache__/_resources.cpython-310.pyc              |   Bin [31m1447[m -> [32m0[m bytes
+ .../site-packages/anyio/abc/__pycache__/_sockets.cpython-310.pyc  |   Bin [31m13320[m -> [32m0[m bytes
+ .../site-packages/anyio/abc/__pycache__/_streams.cpython-310.pyc  |   Bin [31m8579[m -> [32m0[m bytes
+ .../anyio/abc/__pycache__/_subprocesses.cpython-310.pyc           |   Bin [31m2980[m -> [32m0[m bytes
+ .../site-packages/anyio/abc/__pycache__/_tasks.cpython-310.pyc    |   Bin [31m4693[m -> [32m0[m bytes
+ .../site-packages/anyio/abc/__pycache__/_testing.cpython-310.pyc  |   Bin [31m2604[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/anyio/abc/_eventloop.py     |    11 [32m+[m
+ .../venv/lib/python3.10/site-packages/anyio/abc/_subprocesses.py  |    11 [32m+[m
+ .../anyio/streams/__pycache__/__init__.cpython-310.pyc            |   Bin [31m176[m -> [32m0[m bytes
+ .../anyio/streams/__pycache__/buffered.cpython-310.pyc            |   Bin [31m6474[m -> [32m0[m bytes
+ .../site-packages/anyio/streams/__pycache__/file.cpython-310.pyc  |   Bin [31m5526[m -> [32m0[m bytes
+ .../anyio/streams/__pycache__/memory.cpython-310.pyc              |   Bin [31m10095[m -> [32m0[m bytes
+ .../anyio/streams/__pycache__/stapled.cpython-310.pyc             |   Bin [31m5407[m -> [32m0[m bytes
+ .../site-packages/anyio/streams/__pycache__/text.cpython-310.pyc  |   Bin [31m7134[m -> [32m0[m bytes
+ .../site-packages/anyio/streams/__pycache__/tls.cpython-310.pyc   |   Bin [31m12778[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/anyio/to_process.py         |    11 [32m+[m
+ .../site-packages/bs4/__pycache__/__init__.cpython-310.pyc        |   Bin [31m28549[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/_deprecation.cpython-310.pyc    |   Bin [31m2746[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/_typing.cpython-310.pyc         |   Bin [31m3060[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/_warnings.cpython-310.pyc       |   Bin [31m5308[m -> [32m0[m bytes
+ .../python3.10/site-packages/bs4/__pycache__/css.cpython-310.pyc  |   Bin [31m12490[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/dammit.cpython-310.pyc          |   Bin [31m35453[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/diagnose.cpython-310.pyc        |   Bin [31m8591[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/element.cpython-310.pyc         |   Bin [31m87027[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/exceptions.cpython-310.pyc      |   Bin [31m1477[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/filter.cpython-310.pyc          |   Bin [31m21883[m -> [32m0[m bytes
+ .../site-packages/bs4/__pycache__/formatter.cpython-310.pyc       |   Bin [31m8411[m -> [32m0[m bytes
+ .../bs4/builder/__pycache__/__init__.cpython-310.pyc              |   Bin [31m22642[m -> [32m0[m bytes
+ .../bs4/builder/__pycache__/_html5lib.cpython-310.pyc             |   Bin [31m15369[m -> [32m0[m bytes
+ .../bs4/builder/__pycache__/_htmlparser.cpython-310.pyc           |   Bin [31m10740[m -> [32m0[m bytes
+ .../site-packages/bs4/builder/__pycache__/_lxml.cpython-310.pyc   |   Bin [31m12686[m -> [32m0[m bytes
+ .../site-packages/certifi/__pycache__/__init__.cpython-310.pyc    |   Bin [31m283[m -> [32m0[m bytes
+ .../site-packages/certifi/__pycache__/__main__.cpython-310.pyc    |   Bin [31m421[m -> [32m0[m bytes
+ .../site-packages/certifi/__pycache__/core.cpython-310.pyc        |   Bin [31m1396[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/__init__.cpython-310.pyc       |   Bin [31m507[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/_imp_emulation.cpython-310.pyc |   Bin [31m2483[m -> [32m0[m bytes
+ .../cffi/__pycache__/_shimmed_dist_utils.cpython-310.pyc          |   Bin [31m1732[m -> [32m0[m bytes
+ .../python3.10/site-packages/cffi/__pycache__/api.cpython-310.pyc |   Bin [31m34375[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/backend_ctypes.cpython-310.pyc |   Bin [31m39591[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/cffi_opcode.cpython-310.pyc    |   Bin [31m5076[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/commontypes.cpython-310.pyc    |   Bin [31m1995[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/cparser.cpython-310.pyc        |   Bin [31m23937[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/error.cpython-310.pyc          |   Bin [31m1475[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/ffiplatform.cpython-310.pyc    |   Bin [31m3304[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/lock.cpython-310.pyc           |   Bin [31m412[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/model.cpython-310.pyc          |   Bin [31m19857[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/pkgconfig.cpython-310.pyc      |   Bin [31m4946[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/recompiler.cpython-310.pyc     |   Bin [31m46975[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/setuptools_ext.cpython-310.pyc |   Bin [31m7501[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/vengine_cpy.cpython-310.pyc    |   Bin [31m35844[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/vengine_gen.cpython-310.pyc    |   Bin [31m21195[m -> [32m0[m bytes
+ .../site-packages/cffi/__pycache__/verifier.cpython-310.pyc       |   Bin [31m9339[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/cffi/pkgconfig.py           |    11 [32m+[m
+ .../charset_normalizer/__pycache__/__init__.cpython-310.pyc       |   Bin [31m1625[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/__main__.cpython-310.pyc       |   Bin [31m314[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/api.cpython-310.pyc            |   Bin [31m14839[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/cd.cpython-310.pyc             |   Bin [31m10614[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/constant.cpython-310.pyc       |   Bin [31m34464[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/legacy.cpython-310.pyc         |   Bin [31m2266[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/md.cpython-310.pyc             |   Bin [31m18003[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/models.cpython-310.pyc         |   Bin [31m12237[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/utils.cpython-310.pyc          |   Bin [31m10033[m -> [32m0[m bytes
+ .../charset_normalizer/__pycache__/version.cpython-310.pyc        |   Bin [31m316[m -> [32m0[m bytes
+ .../charset_normalizer/cli/__pycache__/__init__.cpython-310.pyc   |   Bin [31m317[m -> [32m0[m bytes
+ .../charset_normalizer/cli/__pycache__/__main__.cpython-310.pyc   |   Bin [31m8751[m -> [32m0[m bytes
+ .../cryptography/__pycache__/__about__.cpython-310.pyc            |   Bin [31m416[m -> [32m0[m bytes
+ .../cryptography/__pycache__/__init__.cpython-310.pyc             |   Bin [31m343[m -> [32m0[m bytes
+ .../cryptography/__pycache__/exceptions.cpython-310.pyc           |   Bin [31m1987[m -> [32m0[m bytes
+ .../site-packages/cryptography/__pycache__/fernet.cpython-310.pyc |   Bin [31m7001[m -> [32m0[m bytes
+ .../site-packages/cryptography/__pycache__/utils.cpython-310.pyc  |   Bin [31m4853[m -> [32m0[m bytes
+ .../cryptography/hazmat/__pycache__/__init__.cpython-310.pyc      |   Bin [31m230[m -> [32m0[m bytes
+ .../cryptography/hazmat/__pycache__/_oid.cpython-310.pyc          |   Bin [31m12760[m -> [32m0[m bytes
+ .../cryptography/hazmat/asn1/__pycache__/__init__.cpython-310.pyc |   Bin [31m568[m -> [32m0[m bytes
+ .../cryptography/hazmat/asn1/__pycache__/asn1.cpython-310.pyc     |   Bin [31m8166[m -> [32m0[m bytes
+ .../hazmat/backends/__pycache__/__init__.cpython-310.pyc          |   Bin [31m486[m -> [32m0[m bytes
+ .../hazmat/backends/openssl/__pycache__/__init__.cpython-310.pyc  |   Bin [31m343[m -> [32m0[m bytes
+ .../hazmat/backends/openssl/__pycache__/backend.cpython-310.pyc   |   Bin [31m9205[m -> [32m0[m bytes
+ .../hazmat/bindings/__pycache__/__init__.cpython-310.pyc          |   Bin [31m191[m -> [32m0[m bytes
+ .../hazmat/bindings/openssl/__pycache__/__init__.cpython-310.pyc  |   Bin [31m199[m -> [32m0[m bytes
+ .../bindings/openssl/__pycache__/_conditional.cpython-310.pyc     |   Bin [31m5138[m -> [32m0[m bytes
+ .../hazmat/bindings/openssl/__pycache__/binding.cpython-310.pyc   |   Bin [31m3758[m -> [32m0[m bytes
+ .../hazmat/decrepit/__pycache__/__init__.cpython-310.pyc          |   Bin [31m237[m -> [32m0[m bytes
+ .../hazmat/decrepit/ciphers/__pycache__/__init__.cpython-310.pyc  |   Bin [31m245[m -> [32m0[m bytes
+ .../decrepit/ciphers/__pycache__/algorithms.cpython-310.pyc       |   Bin [31m4445[m -> [32m0[m bytes
+ .../hazmat/decrepit/ciphers/__pycache__/modes.cpython-310.pyc     |   Bin [31m1653[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/__init__.cpython-310.pyc        |   Bin [31m193[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/_asymmetric.cpython-310.pyc     |   Bin [31m713[m -> [32m0[m bytes
+ .../primitives/__pycache__/_cipheralgorithm.cpython-310.pyc       |   Bin [31m2006[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/_modes.cpython-310.pyc          |   Bin [31m3990[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/_serialization.cpython-310.pyc  |   Bin [31m4182[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/cmac.cpython-310.pyc            |   Bin [31m359[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/constant_time.cpython-310.pyc   |   Bin [31m541[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/hashes.cpython-310.pyc          |   Bin [31m6487[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/hmac.cpython-310.pyc            |   Bin [31m457[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/hpke.cpython-310.pyc            |   Bin [31m585[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/keywrap.cpython-310.pyc         |   Bin [31m4709[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/padding.cpython-310.pyc         |   Bin [31m2548[m -> [32m0[m bytes
+ .../hazmat/primitives/__pycache__/poly1305.cpython-310.pyc        |   Bin [31m371[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/__init__.cpython-310.pyc    |   Bin [31m204[m -> [32m0[m bytes
+ .../hazmat/primitives/asymmetric/__pycache__/dh.cpython-310.pyc   |   Bin [31m5132[m -> [32m0[m bytes
+ .../hazmat/primitives/asymmetric/__pycache__/dsa.cpython-310.pyc  |   Bin [31m5759[m -> [32m0[m bytes
+ .../hazmat/primitives/asymmetric/__pycache__/ec.cpython-310.pyc   |   Bin [31m11160[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/ed25519.cpython-310.pyc     |   Bin [31m4245[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/ed448.cpython-310.pyc       |   Bin [31m4680[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/mldsa.cpython-310.pyc       |   Bin [31m10370[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/mlkem.cpython-310.pyc       |   Bin [31m7571[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/padding.cpython-310.pyc     |   Bin [31m3740[m -> [32m0[m bytes
+ .../hazmat/primitives/asymmetric/__pycache__/rsa.cpython-310.pyc  |   Bin [31m8555[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/types.cpython-310.pyc       |   Bin [31m2050[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/utils.cpython-310.pyc       |   Bin [31m1221[m -> [32m0[m bytes
+ .../primitives/asymmetric/__pycache__/x25519.cpython-310.pyc      |   Bin [31m4506[m -> [32m0[m bytes
+ .../hazmat/primitives/asymmetric/__pycache__/x448.cpython-310.pyc |   Bin [31m4510[m -> [32m0[m bytes
+ .../primitives/ciphers/__pycache__/__init__.cpython-310.pyc       |   Bin [31m611[m -> [32m0[m bytes
+ .../hazmat/primitives/ciphers/__pycache__/aead.cpython-310.pyc    |   Bin [31m502[m -> [32m0[m bytes
+ .../primitives/ciphers/__pycache__/algorithms.cpython-310.pyc     |   Bin [31m3762[m -> [32m0[m bytes
+ .../hazmat/primitives/ciphers/__pycache__/base.cpython-310.pyc    |   Bin [31m5225[m -> [32m0[m bytes
+ .../hazmat/primitives/ciphers/__pycache__/modes.cpython-310.pyc   |   Bin [31m5532[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/__init__.cpython-310.pyc    |   Bin [31m1517[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/argon2.cpython-310.pyc      |   Bin [31m546[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/concatkdf.cpython-310.pyc   |   Bin [31m522[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/hkdf.cpython-310.pyc        |   Bin [31m505[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/kbkdf.cpython-310.pyc       |   Bin [31m950[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/pbkdf2.cpython-310.pyc      |   Bin [31m472[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/scrypt.cpython-310.pyc      |   Bin [31m521[m -> [32m0[m bytes
+ .../hazmat/primitives/kdf/__pycache__/x963kdf.cpython-310.pyc     |   Bin [31m470[m -> [32m0[m bytes
+ .../primitives/serialization/__pycache__/__init__.cpython-310.pyc |   Bin [31m1323[m -> [32m0[m bytes
+ .../primitives/serialization/__pycache__/base.cpython-310.pyc     |   Bin [31m523[m -> [32m0[m bytes
+ .../primitives/serialization/__pycache__/pkcs12.cpython-310.pyc   |   Bin [31m4611[m -> [32m0[m bytes
+ .../primitives/serialization/__pycache__/pkcs7.cpython-310.pyc    |   Bin [31m10891[m -> [32m0[m bytes
+ .../primitives/serialization/__pycache__/ssh.cpython-310.pyc      |   Bin [31m39839[m -> [32m0[m bytes
+ .../primitives/twofactor/__pycache__/__init__.cpython-310.pyc     |   Bin [31m423[m -> [32m0[m bytes
+ .../hazmat/primitives/twofactor/__pycache__/hotp.cpython-310.pyc  |   Bin [31m3528[m -> [32m0[m bytes
+ .../hazmat/primitives/twofactor/__pycache__/totp.cpython-310.pyc  |   Bin [31m1999[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/__init__.cpython-310.pyc        |   Bin [31m6469[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/base.cpython-310.pyc            |   Bin [31m19965[m -> [32m0[m bytes
+ .../x509/__pycache__/certificate_transparency.cpython-310.pyc     |   Bin [31m1222[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/extensions.cpython-310.pyc      |   Bin [31m76203[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/general_name.cpython-310.pyc    |   Bin [31m9212[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/name.cpython-310.pyc            |   Bin [31m16043[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/ocsp.cpython-310.pyc            |   Bin [31m9952[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/oid.cpython-310.pyc             |   Bin [31m726[m -> [32m0[m bytes
+ .../cryptography/x509/__pycache__/verification.cpython-310.pyc    |   Bin [31m706[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/__init__.cpython-310.pyc   |   Bin [31m938[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/_common.cpython-310.pyc    |   Bin [31m1418[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/_version.cpython-310.pyc   |   Bin [31m272[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/easter.cpython-310.pyc     |   Bin [31m2202[m -> [32m0[m bytes
+ .../dateutil/__pycache__/relativedelta.cpython-310.pyc            |   Bin [31m15732[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/rrule.cpython-310.pyc      |   Bin [31m43294[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/tzwin.cpython-310.pyc      |   Bin [31m191[m -> [32m0[m bytes
+ .../site-packages/dateutil/__pycache__/utils.cpython-310.pyc      |   Bin [31m2255[m -> [32m0[m bytes
+ .../dateutil/parser/__pycache__/__init__.cpython-310.pyc          |   Bin [31m2066[m -> [32m0[m bytes
+ .../dateutil/parser/__pycache__/_parser.cpython-310.pyc           |   Bin [31m40501[m -> [32m0[m bytes
+ .../dateutil/parser/__pycache__/isoparser.cpython-310.pyc         |   Bin [31m11298[m -> [32m0[m bytes
+ .../dateutil/tz/__pycache__/__init__.cpython-310.pyc              |   Bin [31m664[m -> [32m0[m bytes
+ .../site-packages/dateutil/tz/__pycache__/_common.cpython-310.pyc |   Bin [31m10750[m -> [32m0[m bytes
+ .../dateutil/tz/__pycache__/_factories.cpython-310.pyc            |   Bin [31m2933[m -> [32m0[m bytes
+ .../site-packages/dateutil/tz/__pycache__/tz.cpython-310.pyc      |   Bin [31m44915[m -> [32m0[m bytes
+ .../site-packages/dateutil/tz/__pycache__/win.cpython-310.pyc     |   Bin [31m11428[m -> [32m0[m bytes
+ .../dateutil/zoneinfo/__pycache__/__init__.cpython-310.pyc        |   Bin [31m5759[m -> [32m0[m bytes
+ .../dateutil/zoneinfo/__pycache__/rebuild.cpython-310.pyc         |   Bin [31m2686[m -> [32m0[m bytes
+ .../lib/python3.10/site-packages/dateutil/zoneinfo/rebuild.py     |    11 [32m+[m
+ .../deep_translator/__pycache__/__init__.cpython-310.pyc          |   Bin [31m1328[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/__main__.cpython-310.pyc          |   Bin [31m442[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/baidu.cpython-310.pyc             |   Bin [31m3506[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/base.cpython-310.pyc              |   Bin [31m6115[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/chatgpt.cpython-310.pyc           |   Bin [31m2406[m -> [32m0[m bytes
+ .../site-packages/deep_translator/__pycache__/cli.cpython-310.pyc |   Bin [31m3162[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/constants.cpython-310.pyc         |   Bin [31m17221[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/deepl.cpython-310.pyc             |   Bin [31m3234[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/detection.cpython-310.pyc         |   Bin [31m2901[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/engines.cpython-310.pyc           |   Bin [31m519[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/exceptions.cpython-310.pyc        |   Bin [31m7385[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/google.cpython-310.pyc            |   Bin [31m3719[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/libre.cpython-310.pyc             |   Bin [31m3670[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/linguee.cpython-310.pyc           |   Bin [31m3591[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/microsoft.cpython-310.pyc         |   Bin [31m4197[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/mymemory.cpython-310.pyc          |   Bin [31m3625[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/papago.cpython-310.pyc            |   Bin [31m3279[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/pons.cpython-310.pyc              |   Bin [31m3647[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/qcri.cpython-310.pyc              |   Bin [31m3549[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/validate.cpython-310.pyc          |   Bin [31m1396[m -> [32m0[m bytes
+ .../deep_translator/__pycache__/yandex.cpython-310.pyc            |   Bin [31m4432[m -> [32m0[m bytes
+ .../site-packages/distro/__pycache__/__init__.cpython-310.pyc     |   Bin [31m894[m -> [32m0[m bytes
+ .../site-packages/distro/__pycache__/__main__.cpython-310.pyc     |   Bin [31m248[m -> [32m0[m bytes
+ .../site-packages/distro/__pycache__/distro.cpython-310.pyc       |   Bin [31m42131[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/distro/distro.py            |    11 [32m+[m
+ .../site-packages/dotenv/__pycache__/__init__.cpython-310.pyc     |   Bin [31m1251[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/__main__.cpython-310.pyc     |   Bin [31m318[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/cli.cpython-310.pyc          |   Bin [31m5980[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/ipython.cpython-310.pyc      |   Bin [31m1476[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/main.cpython-310.pyc         |   Bin [31m10256[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/parser.cpython-310.pyc       |   Bin [31m6145[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/variables.cpython-310.pyc    |   Bin [31m3534[m -> [32m0[m bytes
+ .../site-packages/dotenv/__pycache__/version.cpython-310.pyc      |   Bin [31m189[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/dotenv/cli.py               |    11 [32m+[m
+ .../site-packages/et_xmlfile/__pycache__/__init__.cpython-310.pyc |   Bin [31m409[m -> [32m0[m bytes
+ .../et_xmlfile/__pycache__/incremental_tree.cpython-310.pyc       |   Bin [31m16741[m -> [32m0[m bytes
+ .../site-packages/et_xmlfile/__pycache__/xmlfile.cpython-310.pyc  |   Bin [31m3671[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/__init__.cpython-310.pyc           |   Bin [31m873[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/_catch.cpython-310.pyc             |   Bin [31m3258[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/_exceptions.cpython-310.pyc        |   Bin [31m10211[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/_formatting.cpython-310.pyc        |   Bin [31m12302[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/_suppress.cpython-310.pyc          |   Bin [31m1559[m -> [32m0[m bytes
+ .../exceptiongroup/__pycache__/_version.cpython-310.pyc           |   Bin [31m660[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/__init__.cpython-310.pyc        |   Bin [31m995[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_abnf.cpython-310.pyc           |   Bin [31m1239[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_connection.cpython-310.pyc     |   Bin [31m16201[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_events.cpython-310.pyc         |   Bin [31m10079[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_headers.cpython-310.pyc        |   Bin [31m5624[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_readers.cpython-310.pyc        |   Bin [31m6338[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_receivebuffer.cpython-310.pyc  |   Bin [31m3182[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_state.cpython-310.pyc          |   Bin [31m5567[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_util.cpython-310.pyc           |   Bin [31m3845[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_version.cpython-310.pyc        |   Bin [31m188[m -> [32m0[m bytes
+ .../site-packages/h11/__pycache__/_writers.cpython-310.pyc        |   Bin [31m4504[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/__init__.cpython-310.pyc   |   Bin [31m2774[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/_api.cpython-310.pyc       |   Bin [31m3323[m -> [32m0[m bytes
+ .../httpcore/__pycache__/_exceptions.cpython-310.pyc              |   Bin [31m2387[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/_models.cpython-310.pyc    |   Bin [31m16879[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/_ssl.cpython-310.pyc       |   Bin [31m436[m -> [32m0[m bytes
+ .../httpcore/__pycache__/_synchronization.cpython-310.pyc         |   Bin [31m9451[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/_trace.cpython-310.pyc     |   Bin [31m3535[m -> [32m0[m bytes
+ .../site-packages/httpcore/__pycache__/_utils.cpython-310.pyc     |   Bin [31m922[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/__init__.cpython-310.pyc          |   Bin [31m1434[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/connection.cpython-310.pyc        |   Bin [31m6825[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/connection_pool.cpython-310.pyc   |   Bin [31m13025[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/http11.cpython-310.pyc            |   Bin [31m11591[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/http2.cpython-310.pyc             |   Bin [31m16736[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/http_proxy.cpython-310.pyc        |   Bin [31m12407[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/interfaces.cpython-310.pyc        |   Bin [31m4481[m -> [32m0[m bytes
+ .../httpcore/_async/__pycache__/socks_proxy.cpython-310.pyc       |   Bin [31m10271[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/__init__.cpython-310.pyc       |   Bin [31m181[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/anyio.cpython-310.pyc          |   Bin [31m4941[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/auto.cpython-310.pyc           |   Bin [31m1885[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/base.cpython-310.pyc           |   Bin [31m3931[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/mock.cpython-310.pyc           |   Bin [31m5671[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/sync.cpython-310.pyc           |   Bin [31m7029[m -> [32m0[m bytes
+ .../httpcore/_backends/__pycache__/trio.cpython-310.pyc           |   Bin [31m5264[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/__init__.cpython-310.pyc           |   Bin [31m1388[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/connection.cpython-310.pyc         |   Bin [31m6511[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/connection_pool.cpython-310.pyc    |   Bin [31m12709[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/http11.cpython-310.pyc             |   Bin [31m11029[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/http2.cpython-310.pyc              |   Bin [31m15955[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/http_proxy.cpython-310.pyc         |   Bin [31m12130[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/interfaces.cpython-310.pyc         |   Bin [31m4332[m -> [32m0[m bytes
+ .../httpcore/_sync/__pycache__/socks_proxy.cpython-310.pyc        |   Bin [31m9980[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/__init__.cpython-310.pyc      |   Bin [31m1882[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/__version__.cpython-310.pyc   |   Bin [31m286[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_api.cpython-310.pyc          |   Bin [31m7661[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_auth.cpython-310.pyc         |   Bin [31m10581[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_client.cpython-310.pyc       |   Bin [31m41465[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_config.cpython-310.pyc       |   Bin [31m7107[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_content.cpython-310.pyc      |   Bin [31m7312[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_decoders.cpython-310.pyc     |   Bin [31m10829[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_exceptions.cpython-310.pyc   |   Bin [31m10363[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_main.cpython-310.pyc         |   Bin [31m12424[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_models.cpython-310.pyc       |   Bin [31m39140[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_multipart.cpython-310.pyc    |   Bin [31m8978[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_status_codes.cpython-310.pyc |   Bin [31m6311[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_types.cpython-310.pyc        |   Bin [31m2850[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_urlparse.cpython-310.pyc     |   Bin [31m11042[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_urls.cpython-310.pyc         |   Bin [31m21835[m -> [32m0[m bytes
+ .../site-packages/httpx/__pycache__/_utils.cpython-310.pyc        |   Bin [31m6710[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/__init__.cpython-310.pyc        |   Bin [31m404[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/asgi.cpython-310.pyc            |   Bin [31m5173[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/base.cpython-310.pyc            |   Bin [31m3431[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/default.cpython-310.pyc         |   Bin [31m10028[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/mock.cpython-310.pyc            |   Bin [31m1414[m -> [32m0[m bytes
+ .../httpx/_transports/__pycache__/wsgi.cpython-310.pyc            |   Bin [31m5228[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/__init__.cpython-310.pyc       |   Bin [31m831[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/codec.cpython-310.pyc          |   Bin [31m3252[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/compat.cpython-310.pyc         |   Bin [31m734[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/core.cpython-310.pyc           |   Bin [31m9831[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/idnadata.cpython-310.pyc       |   Bin [31m202706[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/intranges.cpython-310.pyc      |   Bin [31m1963[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/package_data.cpython-310.pyc   |   Bin [31m191[m -> [32m0[m bytes
+ .../site-packages/idna/__pycache__/uts46data.cpython-310.pyc      |   Bin [31m143975[m -> [32m0[m bytes
+ .../site-packages/jiter/__pycache__/__init__.cpython-310.pyc      |   Bin [31m256[m -> [32m0[m bytes
+ .../site-packages/langdetect/__pycache__/__init__.cpython-310.pyc |   Bin [31m363[m -> [32m0[m bytes
+ .../site-packages/langdetect/__pycache__/detector.cpython-310.pyc |   Bin [31m8452[m -> [32m0[m bytes
+ .../langdetect/__pycache__/detector_factory.cpython-310.pyc       |   Bin [31m4461[m -> [32m0[m bytes
+ .../langdetect/__pycache__/lang_detect_exception.cpython-310.pyc  |   Bin [31m1018[m -> [32m0[m bytes
+ .../site-packages/langdetect/__pycache__/language.cpython-310.pyc |   Bin [31m910[m -> [32m0[m bytes
+ .../langdetect/tests/__pycache__/__init__.cpython-310.pyc         |   Bin [31m179[m -> [32m0[m bytes
+ .../langdetect/tests/__pycache__/test_detector.cpython-310.pyc    |   Bin [31m2722[m -> [32m0[m bytes
+ .../langdetect/tests/__pycache__/test_language.cpython-310.pyc    |   Bin [31m1047[m -> [32m0[m bytes
+ .../langdetect/utils/__pycache__/__init__.cpython-310.pyc         |   Bin [31m179[m -> [32m0[m bytes
+ .../langdetect/utils/__pycache__/lang_profile.cpython-310.pyc     |   Bin [31m2220[m -> [32m0[m bytes
+ .../langdetect/utils/__pycache__/messages.cpython-310.pyc         |   Bin [31m1105[m -> [32m0[m bytes
+ .../langdetect/utils/__pycache__/ngram.cpython-310.pyc            |   Bin [31m7670[m -> [32m0[m bytes
+ .../langdetect/utils/__pycache__/unicode_block.cpython-310.pyc    |   Bin [31m15217[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/__config__.cpython-310.pyc    |   Bin [31m4082[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/__init__.cpython-310.pyc      |   Bin [31m22447[m -> [32m0[m bytes
+ .../numpy/__pycache__/_array_api_info.cpython-310.pyc             |   Bin [31m9205[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/_configtool.cpython-310.pyc   |   Bin [31m1138[m -> [32m0[m bytes
+ .../numpy/__pycache__/_distributor_init.cpython-310.pyc           |   Bin [31m613[m -> [32m0[m bytes
+ .../numpy/__pycache__/_expired_attrs_2_0.cpython-310.pyc          |   Bin [31m3774[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/_globals.cpython-310.pyc      |   Bin [31m3486[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/_pytesttester.cpython-310.pyc |   Bin [31m5702[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/conftest.cpython-310.pyc      |   Bin [31m7184[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/ctypeslib.cpython-310.pyc     |   Bin [31m16129[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/dtypes.cpython-310.pyc        |   Bin [31m1295[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/exceptions.cpython-310.pyc    |   Bin [31m8220[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/matlib.cpython-310.pyc        |   Bin [31m10662[m -> [32m0[m bytes
+ .../site-packages/numpy/__pycache__/version.cpython-310.pyc       |   Bin [31m451[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/__init__.cpython-310.pyc              |   Bin [31m4133[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_add_newdocs.cpython-310.pyc          |   Bin [31m192876[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_add_newdocs_scalars.cpython-310.pyc  |   Bin [31m11313[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_asarray.cpython-310.pyc              |   Bin [31m3788[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/_dtype.cpython-310.pyc  |   Bin [31m8272[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_dtype_ctypes.cpython-310.pyc         |   Bin [31m3061[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_exceptions.cpython-310.pyc           |   Bin [31m5821[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_internal.cpython-310.pyc             |   Bin [31m23769[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/_machar.cpython-310.pyc |   Bin [31m8317[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_methods.cpython-310.pyc              |   Bin [31m6022[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_string_helpers.cpython-310.pyc       |   Bin [31m3013[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_type_aliases.cpython-310.pyc         |   Bin [31m2593[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/_ufunc_config.cpython-310.pyc         |   Bin [31m14505[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/arrayprint.cpython-310.pyc            |   Bin [31m53076[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/cversions.cpython-310.pyc             |   Bin [31m556[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/defchararray.cpython-310.pyc          |   Bin [31m37002[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/einsumfunc.cpython-310.pyc            |   Bin [31m39941[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/fromnumeric.cpython-310.pyc           |   Bin [31m139658[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/function_base.cpython-310.pyc         |   Bin [31m17611[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/getlimits.cpython-310.pyc             |   Bin [31m19298[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/memmap.cpython-310.pyc  |   Bin [31m10833[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/multiarray.cpython-310.pyc            |   Bin [31m56213[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/numeric.cpython-310.pyc |   Bin [31m77919[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/numerictypes.cpython-310.pyc          |   Bin [31m14746[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/overrides.cpython-310.pyc             |   Bin [31m6381[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/printoptions.cpython-310.pyc          |   Bin [31m858[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/records.cpython-310.pyc |   Bin [31m29260[m -> [32m0[m bytes
+ .../numpy/_core/__pycache__/shape_base.cpython-310.pyc            |   Bin [31m29791[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/strings.cpython-310.pyc |   Bin [31m42508[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/__pycache__/umath.cpython-310.pyc   |   Bin [31m1940[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/_locales.cpython-310.pyc        |   Bin [31m2497[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/_natype.cpython-310.pyc         |   Bin [31m4868[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test__exceptions.cpython-310.pyc      |   Bin [31m3452[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_abc.cpython-310.pyc        |   Bin [31m2012[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_api.cpython-310.pyc        |   Bin [31m15522[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_argparse.cpython-310.pyc   |   Bin [31m3768[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_array_api_info.cpython-310.pyc   |   Bin [31m3177[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_array_coercion.cpython-310.pyc   |   Bin [31m29542[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_array_interface.cpython-310.pyc  |   Bin [31m6107[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_arraymethod.cpython-310.pyc      |   Bin [31m3140[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_arrayobject.cpython-310.pyc      |   Bin [31m2310[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_arrayprint.cpython-310.pyc |   Bin [31m43010[m -> [32m0[m bytes
+ .../__pycache__/test_casting_floatingpoint_errors.cpython-310.pyc |   Bin [31m5550[m -> [32m0[m bytes
+ .../tests/__pycache__/test_casting_unittests.cpython-310.pyc      |   Bin [31m20518[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_conversion_utils.cpython-310.pyc |   Bin [31m8541[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_cpu_dispatcher.cpython-310.pyc   |   Bin [31m1056[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_cpu_features.cpython-310.pyc     |   Bin [31m13388[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_custom_dtypes.cpython-310.pyc    |   Bin [31m10552[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_cython.cpython-310.pyc     |   Bin [31m9086[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_datetime.cpython-310.pyc   |   Bin [31m70031[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_defchararray.cpython-310.pyc     |   Bin [31m32237[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_deprecations.cpython-310.pyc     |   Bin [31m35559[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_dlpack.cpython-310.pyc     |   Bin [31m7084[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_dtype.cpython-310.pyc      |   Bin [31m66017[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_einsum.cpython-310.pyc     |   Bin [31m34810[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_errstate.cpython-310.pyc   |   Bin [31m4714[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_extint128.cpython-310.pyc  |   Bin [31m6599[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_function_base.cpython-310.pyc    |   Bin [31m18371[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_getlimits.cpython-310.pyc  |   Bin [31m7870[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_half.cpython-310.pyc       |   Bin [31m16653[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_hashtable.cpython-310.pyc  |   Bin [31m1137[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_indexerrors.cpython-310.pyc      |   Bin [31m6972[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_indexing.cpython-310.pyc   |   Bin [31m47494[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_item_selection.cpython-310.pyc   |   Bin [31m5477[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_limited_api.cpython-310.pyc      |   Bin [31m2658[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_longdouble.cpython-310.pyc |   Bin [31m12973[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_machar.cpython-310.pyc     |   Bin [31m1408[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_mem_overlap.cpython-310.pyc      |   Bin [31m25857[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_mem_policy.cpython-310.pyc |   Bin [31m13629[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_memmap.cpython-310.pyc     |   Bin [31m8335[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_multiarray.cpython-310.pyc |   Bin [31m339687[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_multithreading.cpython-310.pyc   |   Bin [31m8969[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_nditer.cpython-310.pyc     |   Bin [31m81957[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_nep50_promotions.cpython-310.pyc |   Bin [31m7849[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_numeric.cpython-310.pyc    |   Bin [31m130563[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_numerictypes.cpython-310.pyc     |   Bin [31m22193[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_overrides.cpython-310.pyc  |   Bin [31m33414[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_print.cpython-310.pyc      |   Bin [31m5955[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_protocols.cpython-310.pyc  |   Bin [31m2419[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_records.cpython-310.pyc    |   Bin [31m19744[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_regression.cpython-310.pyc |   Bin [31m101109[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_scalar_ctors.cpython-310.pyc     |   Bin [31m7442[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_scalar_methods.cpython-310.pyc   |   Bin [31m9169[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_scalarbuffer.cpython-310.pyc     |   Bin [31m5332[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_scalarinherit.cpython-310.pyc    |   Bin [31m4048[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_scalarmath.cpython-310.pyc |   Bin [31m37214[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_scalarprint.cpython-310.pyc      |   Bin [31m13027[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_shape_base.cpython-310.pyc |   Bin [31m26886[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_simd.cpython-310.pyc       |   Bin [31m42780[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_simd_module.cpython-310.pyc      |   Bin [31m4028[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_stringdtype.cpython-310.pyc      |   Bin [31m53062[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_strings.cpython-310.pyc    |   Bin [31m40835[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_ufunc.cpython-310.pyc      |   Bin [31m105654[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_umath.cpython-310.pyc      |   Bin [31m161958[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_umath_accuracy.cpython-310.pyc   |   Bin [31m4941[m -> [32m0[m bytes
+ .../_core/tests/__pycache__/test_umath_complex.cpython-310.pyc    |   Bin [31m17136[m -> [32m0[m bytes
+ .../numpy/_core/tests/__pycache__/test_unicode.cpython-310.pyc    |   Bin [31m10809[m -> [32m0[m bytes
+ .../_core/tests/examples/cython/__pycache__/setup.cpython-310.pyc |   Bin [31m963[m -> [32m0[m bytes
+ .../tests/examples/limited_api/__pycache__/setup.cpython-310.pyc  |   Bin [31m644[m -> [32m0[m bytes
+ .../site-packages/numpy/_core/tests/test_cpu_features.py          |    11 [32m+[m
+ .../lib/python3.10/site-packages/numpy/_core/tests/test_cython.py |    11 [32m+[m
+ .../site-packages/numpy/_core/tests/test_limited_api.py           |    11 [32m+[m
+ .../lib/python3.10/site-packages/numpy/_core/tests/test_nditer.py |    11 [32m+[m
+ .../numpy/_pyinstaller/__pycache__/__init__.cpython-310.pyc       |   Bin [31m181[m -> [32m0[m bytes
+ .../numpy/_pyinstaller/__pycache__/hook-numpy.cpython-310.pyc     |   Bin [31m878[m -> [32m0[m bytes
+ .../numpy/_pyinstaller/tests/__pycache__/__init__.cpython-310.pyc |   Bin [31m469[m -> [32m0[m bytes
+ .../tests/__pycache__/pyinstaller-smoke.cpython-310.pyc           |   Bin [31m1508[m -> [32m0[m bytes
+ .../tests/__pycache__/test_pyinstaller.cpython-310.pyc            |   Bin [31m1084[m -> [32m0[m bytes
+ .../site-packages/numpy/_pyinstaller/tests/test_pyinstaller.py    |    11 [32m+[m
+ .../numpy/_typing/__pycache__/__init__.cpython-310.pyc            |   Bin [31m3638[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_add_docstring.cpython-310.pyc      |   Bin [31m3877[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_array_like.cpython-310.pyc         |   Bin [31m4457[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_char_codes.cpython-310.pyc         |   Bin [31m6421[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_dtype_like.cpython-310.pyc         |   Bin [31m4179[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_extended_precision.cpython-310.pyc |   Bin [31m868[m -> [32m0[m bytes
+ .../site-packages/numpy/_typing/__pycache__/_nbit.cpython-310.pyc |   Bin [31m807[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_nbit_base.cpython-310.pyc          |   Bin [31m3435[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_nested_sequence.cpython-310.pyc    |   Bin [31m3302[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_scalars.cpython-310.pyc            |   Bin [31m885[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_shape.cpython-310.pyc              |   Bin [31m392[m -> [32m0[m bytes
+ .../numpy/_typing/__pycache__/_ufunc.cpython-310.pyc              |   Bin [31m330[m -> [32m0[m bytes
+ .../numpy/_utils/__pycache__/__init__.cpython-310.pyc             |   Bin [31m3389[m -> [32m0[m bytes
+ .../numpy/_utils/__pycache__/_convertions.cpython-310.pyc         |   Bin [31m617[m -> [32m0[m bytes
+ .../numpy/_utils/__pycache__/_inspect.cpython-310.pyc             |   Bin [31m7604[m -> [32m0[m bytes
+ .../numpy/_utils/__pycache__/_pep440.cpython-310.pyc              |   Bin [31m12728[m -> [32m0[m bytes
+ .../site-packages/numpy/char/__pycache__/__init__.cpython-310.pyc |   Bin [31m262[m -> [32m0[m bytes
+ .../numpy/compat/__pycache__/__init__.cpython-310.pyc             |   Bin [31m930[m -> [32m0[m bytes
+ .../site-packages/numpy/compat/__pycache__/py3k.cpython-310.pyc   |   Bin [31m4704[m -> [32m0[m bytes
+ .../numpy/compat/tests/__pycache__/__init__.cpython-310.pyc       |   Bin [31m181[m -> [32m0[m bytes
+ .../venv/lib/python3.10/site-packages/numpy/conftest.py           |    11 [32m+[m
+ .../site-packages/numpy/core/__pycache__/__init__.cpython-310.pyc |   Bin [31m1019[m -> [32m0[m bytes
+ .../site-pa

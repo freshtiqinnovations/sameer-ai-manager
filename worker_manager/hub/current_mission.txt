@@ -1,0 +1,73 @@
+
+🚨 CURRENT FACTORY MISSION
+
+Workers,
+
+Training mode finished.
+
+Rule writing finished.
+
+Lesson writing finished.
+
+Now focus on WORK.
+
+CURRENT BOTTLENECK:
+
+Patch Generator
+→ Quality Check
+→ Deploy
+
+MISSION:
+
+1. Generate real patch.
+2. Generate clean search_text.
+3. Generate clean replace_text.
+4. Pass quality gate.
+5. Pass tester.
+6. Connect approved queue to deploy.
+7. Deploy safely.
+8. Verify service.
+9. Create report.
+10. Archive task.
+
+STOP CREATING:
+
+- new workers
+- new folders
+- new theory files
+- new ideas
+
+START COMPLETING:
+
+- existing pipeline
+- deploy chain
+- reporting chain
+- rollback chain
+
+MANAGER RULE:
+
+Every worker must report:
+
+- what is broken
+- why broken
+- root cause
+- fix
+- proof
+
+DO NOT SAY:
+
+'Done'
+
+Say:
+
+- compile ok
+- service active
+- feature verified
+
+Factory is now in COMPLETION MODE.
+
+Sameer wants completed automation.
+
+Not unfinished modules.
+
+Back to work.

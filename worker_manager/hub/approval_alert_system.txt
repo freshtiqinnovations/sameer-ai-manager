@@ -1,0 +1,70 @@
+APPROVAL + ALERT SYSTEM A TO Z
+
+APPROVAL FLOW:
+1. Worker creates plan
+2. Dry run runs
+3. Backup verified
+4. Compile verified
+5. Service active verified
+6. Approval report created
+7. Manager sends alert to Sameer
+
+APPROVAL ALERT FORMAT:
+- Task ID
+- Bot name
+- Task
+- Risk level
+- Plan path
+- Backup path
+- Service status
+- Recommendation:
+  AUTO_APPROVE / HUMAN_REVIEW / REJECT
+
+TELEGRAM COMMANDS NEEDED:
+- /pending_approvals
+- /approve_patch ID
+- /reject_patch ID
+- /factory_status
+- /worker_status
+- /rollback_last
+- /pause_factory
+- /resume_factory
+
+AUTO APPROVAL:
+- Low risk
+- Tester PASS
+- No duplicate
+- No real data delete
+- No token/API/security change
+- Backup exists
+- Service active
+
+HUMAN APPROVAL REQUIRED:
+- Deletes data
+- Payment change
+- Token/API key change
+- Core manager change
+- Database schema change
+- Unknown bot
+- Medium/high risk
+
+ALERT TYPES:
+1. SUCCESS ALERT
+2. FAILED ALERT
+3. ROLLBACK ALERT
+4. HUMAN APPROVAL ALERT
+5. DUPLICATE DETECTED ALERT
+6. WORKER DEAD ALERT
+7. SERVICE DOWN ALERT
+
+REPORT AFTER DEPLOY:
+- Patch applied
+- Compile result
+- Service result
+- Backup path
+- Rollback path
+- Final status
+
+RULE:
+No silent production patch.
+Every important action must create report and alert.

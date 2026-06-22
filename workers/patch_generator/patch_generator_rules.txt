@@ -1,0 +1,24 @@
+PATCH GENERATOR
+
+INPUT:
+- plan json
+
+OUTPUT:
+- patch_request.json
+
+MUST GENERATE:
+target_file
+search_text
+replace_text
+compile_required
+
+RULES:
+- no fake patch
+- no placeholder patch
+- no empty search_text
+- no empty replace_text
+- patch must be reversible
+- patch must target real file
+
+IF CANNOT GENERATE:
+status=NEEDS_HUMAN_REVIEW

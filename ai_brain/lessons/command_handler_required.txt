@@ -1,0 +1,5 @@
+LESSON: COMMAND_HANDLER_REQUIRED
+Problem: patch created worker_dashboard() function but no Telegram command handler.
+Rule: New command feature requires function + CommandHandler registration + menu/help entry if applicable.
+Rule: Function alone is incomplete feature.
+Rule: Patch generator must verify command is reachable by user.

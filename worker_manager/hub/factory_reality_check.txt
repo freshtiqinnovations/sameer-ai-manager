@@ -1,0 +1,40 @@
+FACTORY REALITY CHECK
+
+Workers,
+
+Stop assuming modules are missing.
+
+Today's discoveries:
+
+approval_reporter.py already exists.
+patch_rollback_engine.py already exists.
+rollback_latest.sh already exists.
+auto_deploy_worker.py already exists.
+
+Lesson:
+
+Search first.
+Read first.
+Understand first.
+
+Only build if missing.
+
+Current work:
+
+1. Improve patch generator.
+2. Connect approved queue -> auto deploy.
+3. Upgrade rollback from single bot to multi bot.
+4. Archive completed deployments.
+5. Improve deployment reporting.
+
+DO NOT:
+
+- create duplicate modules
+- create duplicate workers
+- create duplicate rollback systems
+
+UPGRADE EXISTING SYSTEMS.
+
+Factory maturity is measured by completed pipelines, not number of files.
+
+Back to work.

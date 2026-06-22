@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:47:34.739511",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /paidprojects command only, show latest paid projects from lead json files where payment_status is paid, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

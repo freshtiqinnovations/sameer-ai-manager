@@ -1,0 +1,24 @@
+{
+  "id": "1780306490272",
+  "bot": "autopilot",
+  "task": "add project dashboard",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780306490_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780306490.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "approved_auto",
+  "created": 1780306490.2726216,
+  "auto_test_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "auto_approval_decision": "AUTO_APPROVE",
+  "auto_approval_time": 1780306491.0312965,
+  "tester_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "patch_file": "/root/sameer_ai_manager/ai_worker/plans/1780306490_autopilot.patch.json",
+  "deploy_time": 1780306500.6249442,
+  "deploy_result": "tar: Removing leading `/' from member names\n{'ok': True, 'backup': '/root/backups/ai_patch_engine/autopilot_1780306494.tar.gz', 'file': '/root/monster_bot/admin_panel.py', 'verify': {'service': 'autopilot_hub_bot.service', 'status': 'active', 'ok': True}, 'safe_backup_file': '/root/monster_bot/admin_panel.py.safe_1780306494'}",
+  "final_status": "deployed"
+}

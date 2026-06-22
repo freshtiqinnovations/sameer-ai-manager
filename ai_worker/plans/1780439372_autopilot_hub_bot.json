@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add admin-only /hotleads command to show latest projects with pending payment status and existing quotation amount.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin", "leads", "payment_status", "quotation_amount"],
+  "patch_plan": [
+    "1. Define a new command handler for /hotleads.",
+    "2. Implement logic to filter leads based on payment_status and quotation_amount.",
+    "3. Format the response message to display the filtered leads.",
+    "4. Add the new command handler to the application.",
+    "5. Ensure existing features remain unaffected."
+  ],
+  "risk": "Low - The patch is minimal and only adds a new command without altering existing functionalities."
+}
+```

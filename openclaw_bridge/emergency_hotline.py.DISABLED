@@ -1,0 +1,130 @@
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+"""
+Emergency Hotline — instant crisis response.
+Detects critical issues and auto-responds within 5 seconds.
+"""
+import json, subprocess, time, os
+from pathlib import Path
+from datetime import datetime, timezone
+
+BRIDGE = Path("/root/sameer_ai_manager/openclaw_bridge")
+OUTBOX = BRIDGE / "chat_outbox.jsonl"
+INBOX = BRIDGE / "chat_inbox.jsonl"
+EMERGENCY_LOG = BRIDGE / "emergency_log.jsonl"
+
+def sh(cmd):
+    return subprocess.getoutput(cmd).strip()
+
+def log(msg, level="INFO"):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    entry = {"timestamp": ts, "level": level, "message": msg}
+    with open(EMERGENCY_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+    print(f"[{ts}] [{level}] {msg}")
+
+def get_health():
+    """Quick health check — faster than full fortress."""
+    return {
+        "disk": int(sh("df / | awk 'NR==2 {gsub(/%/,\"\",$5); print $5}'") or "0"),
+        "ram": sh("free -h | awk '/Mem:/{print $3}'") ,
+        "swap": sh("free -h | awk '/Swap:/{print $3}'"),
+        "failed": int(sh("systemctl list-units --type=service --state=failed --no-pager 2>/dev/null | grep -v masked | awk '/failed/ {count++} END {print count+0}'") or "0"),
+        "sameer": sh("systemctl is-active sameer_ai_manager.service 2>/dev/null || echo unknown"),
+        "oc_pid": sh("ps aux | grep 'openclaw.*gateway' | grep -v grep | awk '{print $2}' | head -1"),
+        "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    }
+
+def send_alert(msg):
+    """Send emergency alert to CEO."""
+    entry = {
+        "id": f"emergency_{int(time.time())}",
+        "type": "emergency",
+        "text": f"🚨 EMERGENCY: {msg}",
+        "priority": "P0",
+        "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    }
+    with open(OUTBOX, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+    # Also send via Telegram
+    subprocess.getoutput(f"""
+        curl -s -X POST "https://api.telegram.org/bot$(python3 -c "import json;print(json.load(open('/root/.openclaw/openclaw.json'))['channels']['telegram']['botToken'])" 2>/dev/null)/sendMessage" \
+        -d "chat_id=8649581921" \
+        -d "text=🚨 EMERGENCY: {msg}" >/dev/null 2>&1
+    """)
+    log(f"Alert sent: {msg}", "CRITICAL")
+
+def patrol():
+    """Run continuous patrol — checks every 10 seconds for emergencies."""
+    log("🚨 Emergency Hotline started")
+    
+    while True:
+        try:
+            health = get_health()
+            emergency = False
+            
+            # Check thresholds
+            if health["disk"] >= 90:
+                send_alert(f"DISK CRITICAL: {health['disk']}%")
+                # Auto-clean
+                sh("find /tmp -type f -mtime +1 -delete 2>/dev/null")
+                sh("journalctl --vacuum-time=1d >/dev/null 2>&1")
+                sh("apt clean >/dev/null 2>&1")
+                log("Auto-clean ran for disk emergency")
+                emergency = True
+            
+            if health["failed"] > 0:
+                failed_list = sh("systemctl list-units --type=service --state=failed --no-pager 2>/dev/null | grep -v masked | awk '/failed/ && /loaded/ {gsub(/[^a-zA-Z0-9_.-]/,\"\",$1); print $1}'")
+                send_alert(f"FAILED SERVICES: {health['failed']} — {failed_list[:60]}")
+                for svc in failed_list.splitlines():
+                    if svc.strip():
+                        sh(f"systemctl restart {svc.strip()} 2>/dev/null")
+                        log(f"Restarted: {svc.strip()}")
+                emergency = True
+            
+            if health["sameer"] != "active":
+                send_alert(f"SAMEER AI MANAGER DOWN: {health['sameer']}")
+                sh("systemctl restart sameer_ai_manager.service 2>/dev/null")
+                emergency = True
+            
+            if not health["oc_pid"]:
+                send_alert("OPENCLAW GATEWAY DOWN — attempting restart")
+                sh("openclaw gateway restart 2>/dev/null")
+                emergency = True
+            
+            # Check if inbox has P0 tasks
+            p = BRIDGE / "tasks_inbox.jsonl"
+            if p.exists() and p.stat().st_size > 0:
+                with open(p) as f:
+                    for line in f:
+                        if line.strip():
+                            try:
+                                task = json.loads(line)
+                                if task.get("priority") == "P0":
+                                    # Process immediately
+                                    sh(f"python3 {BRIDGE / 'fortress_worker.py'} process")
+                                    log(f"P0 task processed: {task.get('description','?')[:40]}")
+                                    emergency = True
+                            except:
+                                pass
+            
+            if not emergency:
+                log("Patrol OK — all systems nominal", "DEBUG")
+            
+            time.sleep(10)  # Check every 10 seconds
+        except Exception as e:
+            log(f"Patrol error: {e}", "ERROR")
+            time.sleep(30)
+
+if __name__ == "__main__":
+    patrol()

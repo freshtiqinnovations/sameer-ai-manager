@@ -1,0 +1,51 @@
+ROLLBACK ANALYSIS
+
+Current rollback engine status:
+
+WORKING:
+- restore backup
+- compile
+- restart service
+
+LIMITATION:
+
+Current rollback only restores:
+
+/root/sameer_ai_manager/bot.py
+
+It is not yet a generic rollback system for:
+
+- autopilot
+- freshtiq
+- salama
+- future bots
+
+NEW RULE:
+
+Before creating new rollback modules:
+
+Understand existing rollback engine.
+
+Reuse existing code.
+
+Upgrade existing code.
+
+Do not create duplicate rollback systems.
+
+MISSION:
+
+Convert rollback engine from:
+
+Single Bot Rollback
+
+to
+
+Multi Bot Rollback
+
+using bot registry and backup metadata.
+
+Current status:
+
+Rollback exists.
+Needs expansion.
+Not replacement.

@@ -1,0 +1,46 @@
+PATCH GENERATOR FINAL LESSON
+
+ROOT CAUSE:
+
+replace_text still contains:
+
+\n
+\"
+
+inside actual string.
+
+Proof:
+
+repr(replace_text) shows:
+\n
+\"
+
+instead of real newlines and quotes.
+
+RESULT:
+
+Patch deploys text literals instead of Python code.
+
+RULE:
+
+Patch generator must output:
+
+async def admin_dashboard(update, context):
+    msg = "📊 ADMIN DASHBOARD"
+
+NOT:
+
+async def admin_dashboard(update, context):\n
+    msg = \"📊 ADMIN DASHBOARD\"
+
+Before marking READY_FOR_APPROVAL:
+
+1. Generate patch
+2. Verify:
+   "\n" not present
+   "\"" not present
+3. Verify code looks like real Python
+4. Compile generated patch content if possible
+5. Only then READY_FOR_APPROVAL
+
+Current patch still requires repair.

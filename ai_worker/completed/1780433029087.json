@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 02:13:49.087500",
+  "bot": "autopilot_hub_bot",
+  "task": "clean duplicate exportleads handler and duplicate admin dashboard text only, keep one exportleads function and one CommandHandler, backup compile restart verify",
+  "status": "queued"
+}

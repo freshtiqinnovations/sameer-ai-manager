@@ -1,0 +1,77 @@
+TODAY ISSUES AND SOLUTIONS
+
+1. IndentationError
+CAUSE:
+- /run or sed removed leading spaces.
+- Inline patch inside Python function broke indentation.
+SOLUTION:
+- Avoid inline edits inside functions.
+- Use /runpy chunks.
+- Inspect with nl -ba.
+- Compile after every edit.
+
+2. if name=="main" NameError
+CAUSE:
+- Wrong Python entrypoint.
+SOLUTION:
+- Use if name=="main": OR avoid entrypoint and print directly.
+- Add this to common bugs.
+
+3. Heredoc failed in /run
+CAUSE:
+- Telegram /run cannot handle cat <<EOF reliably.
+SOLUTION:
+- Use printf single-line for systemd.
+- Use /runpy for Python files.
+
+4. JSONDecodeError on plan files
+CAUSE:
+- AI plan saved as markdown fenced json: `json ... ```
+SOLUTION:
+- Strip markdown fence before json.loads.
+
+5. Duplicate patch risk
+CAUSE:
+- /exportleads already existed after first patch.
+SOLUTION:
+- grep before patch.
+- If exists once, mark already_applied_verified.
+
+6. Function inserted between handlers
+CAUSE:
+- Patch inserted async def after app.add_handler.
+SOLUTION:
+- Functions must be before app=ApplicationBuilder.
+- Handlers only after app creation.
+
+7. Queue file missing error
+CAUSE:
+- File moved to DONE, then exception handler tried moving same file to FAILED.
+SOLUTION:
+- if os.path.exists(path): shutil.move(...)
+
+8. Blind patch risk
+CAUSE:
+- Plan did not include exact search_text/replace_text.
+SOLUTION:
+- Inspect target code 20-50 lines.
+- Build patch_request.
+- Verify newlines and imports.
+
+9. Auto worker confusion v3/v4
+CAUSE:
+- Multiple worker versions.
+SOLUTION:
+- Main active worker is worker_auto.py under sameer_ai_worker_auto.service.
+- Old workers are backups/lab only.
+
+10. Success proof
+REQUIRED:
+- backup path
+- compile ok
+- service active
+- grep feature
+- rollback path
+
+GOLDEN PROCESS:
+READ → THINK → CHECK EXISTING → PATCH → COMPILE → VERIFY → REPORT → SAVE LESSON

@@ -1,0 +1,486 @@
+
+import subprocess; subprocess.getoutput("python3 /root/.openclaw/workspace/brain_bootstrap.py")
+# --- CLEAN_AI_ROUTER_GUARD START ---
+def should_execute_as_shell(text_input):
+    clean = str(text_input).strip().lower()
+    if not clean: return False
+    # Only these exact words are allowed to trigger terminal subprocess
+    allowed_cmds = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'id']
+    first_word = clean.split()[0]
+    # If it's a long sentence or doesn't start with allowed commands, DO NOT RUN IN SHELL
+    if first_word not in allowed_cmds or len(clean.split()) > 4:
+        return False
+    return True
+# --- CLEAN_AI_ROUTER_GUARD END ---
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+import json, subprocess, asyncio, os, urllib.request
+import openclaw_brain
+from datetime import datetime, timezone
+from telegram import Update
+from telegram.constants import ChatAction
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.constants import ChatAction
+from telegram.ext import Application, MessageHandler, CommandHandler, CallbackQueryHandler, ContextTypes, filters, CallbackContext
+import sys, os, json, time
+from ai_router import AutoRouter
+_ai_router = AutoRouter()
+from datetime import datetime
+sys.path.insert(0, "/root/workspaces/customers/freshtiq_whatsapp_sales_bot")
+from binance_scraper import (
+    build_session, fetch_p2p_rates, fetch_spot_balance, format_rates_message, format_balance_message
+)
+
+CONFIG="/root/.openclaw/openclaw.json"
+
+_user_sessions = {}
+def _get_session_dir(uid):
+    d = f"/root/sameer_ai_manager/sessions/{uid}"
+    os.makedirs(d, exist_ok=True)
+    return d
+
+def load_user_session(user_id):
+    if user_id in _user_sessions:
+        return _user_sessions[user_id]
+    cfg = f"/root/sameer_ai_manager/sessions/{user_id}/binance.json"
+    if os.path.exists(cfg):
+        try:
+            with open(cfg) as f:
+                c = json.load(f)
+            s = build_session(c.get("cookies",""), c.get("csrftoken",""), c.get("user_agent",""))
+            _user_sessions[user_id] = s
+            return s
+        except: pass
+    return None
+
+def save_user_session(uid, ck, ct, ua=""):
+    d = _get_session_dir(uid)
+    with open(f"{d}/binance.json","w") as f:
+        json.dump({"cookies":ck,"csrftoken":ct,"user_agent":ua}, f)
+    _user_sessions.pop(uid, None)
+
+def get_user_session(uid):
+    """Return cached or load from file."""
+    if uid in _user_sessions:
+        return _user_sessions[uid]
+    cfg = f"/root/sameer_ai_manager/sessions/{uid}/binance.json"
+    if os.path.exists(cfg):
+        try:
+            with open(cfg) as f:
+                data = json.load(f)
+            _user_sessions[uid] = data
+            return data
+        except: pass
+    return None
+
+def clear_user_session(uid):
+    cfg = f"/root/sameer_ai_manager/sessions/{uid}/binance.json"
+    if os.path.exists(cfg): os.remove(cfg)
+    _user_sessions.pop(uid, None)
+
+def sh_now():
+    return datetime.now().strftime('%I:%M %p IST')
+
+
+
+def read_memory():
+    base="/root/.openclaw/workspace/memory_core"
+    parts=[]
+    for name in ["MASTER_MEMORY.md","PROJECT_REGISTRY.md","CURRENT_STATUS.md","LESSONS_LEARNED.md","KNOWN_BOTS.md"]:
+        f=os.path.join(base,name)
+        if os.path.exists(f):
+            try:
+                parts.append(f"\n--- {name} ---\n"+open(f,errors="ignore").read()[:3500])
+            except Exception:
+                pass
+    return "\n".join(parts)[:12000]
+
+def evidence_report(text):
+    t=text.lower()
+    if any(x in t for x in ["project","bot","freshtiq","travel","app","website","sameer ai","openclaw","status","service"]):
+        try:
+            import projects_manager
+            r=projects_manager.status_all()
+            return "🧠 OPERATOR MODE\n\n"+str(r)[:3500]
+        except Exception as e:
+            pass
+        import subprocess, os
+        cmds=[
+            "systemctl list-units --type=service --state=running --no-pager --no-legend | egrep 'sameer|openclaw|freshtiq|salama|autopilot|trader' || true",
+            "find /root/workspaces/customers -maxdepth 2 -type d 2>/dev/null | head -80",
+            "ls -la /root/.openclaw/workspace/memory_core 2>/dev/null"
+        ]
+        out=[]
+        for c in cmds:
+            out.append("$ "+c+"\n"+subprocess.getoutput(c))
+        return "🧠 OPERATOR MODE — real VPS evidence\n\n"+"\n\n".join(out)[:3500]
+    return None
+
+
+def deepseek_reply(text):
+    key = os.getenv("DEEPSEEK_API_KEY")
+    if not key:
+        for f in ["/root/sameer_ai_manager/.env", "/root/.openclaw/.env", "/root/.openclaw/openclaw.env"]:
+            if os.path.exists(f):
+                for line in open(f, errors="ignore"):
+                    if line.startswith("DEEPSEEK_API_KEY="):
+                        key=line.split("=",1)[1].strip().strip('"').strip("'")
+                        break
+            if key:
+                break
+    if not key:
+        return "DeepSeek API key nahi mili bro. .env me DEEPSEEK_API_KEY set karo."
+
+    data=json.dumps({
+        "model":"deepseek-chat",
+        "messages":[
+            {"role":"system","content":"You are Sameer OpenClaw Operator. You are an AI Operator, not a generic chatbot. Use MEMORY below as source of truth, use Hinglish, never invent evidence. Normal chat is not shell. MEMORY:\n"+read_memory()},
+            {"role":"user","content":text}
+        ],
+        "max_tokens":350,
+        "temperature":0.4
+    }).encode()
+
+    req=urllib.request.Request(
+        "https://api.deepseek.com/v1/chat/completions",
+        data=data,
+        headers={"Authorization":"Bearer "+key, "Content-Type":"application/json"}
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as r:
+            j=json.loads(r.read())
+        return j["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        return "DeepSeek error: "+str(e)[:300]
+
+
+def token():
+    return json.load(open(CONFIG))["channels"]["telegram"]["botToken"]
+
+def sh(cmd, timeout=60):
+    try:
+        return subprocess.getoutput(cmd)[:3500] or "OK"
+    except Exception as e:
+        return str(e)
+
+def health():
+    names=[
+        "tor.service","sameer_ai_manager.service","openclaw_telegram.service",
+        "openclaw_chat.service","openclaw_webhook.service",
+        "openclaw_fortress.service","openclaw_watcher.service"
+    ]
+    out=["🧠 OPENCLAW LIVE STATUS"]
+    for n in names:
+        s=sh(f"systemctl is-active {n}").strip()
+        out.append(f"{'✅' if s=='active' else '❌'} {n}: {s}")
+    out.append("Failed units: "+sh("systemctl --failed --no-legend | wc -l").strip())
+    return "\n".join(out)
+
+async def send_long(msg, text):
+    for i in range(0, len(text), 3500):
+        await msg.reply_text(text[i:i+3500])
+
+async def start(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    keyboard = [
+        [InlineKeyboardButton("\U0001f4c8 Spot Balance", callback_data="balance")],
+        [InlineKeyboardButton("\U0001f4b0 P2P Rates", callback_data="p2p_rates")],
+        [InlineKeyboardButton("\U0001f50d Spot Deal \u20b91000", callback_data="spot_deal")],
+        [InlineKeyboardButton("\u2699\ufe0f Register / Login", callback_data="register")],
+        [InlineKeyboardButton("\u2753 Help", callback_data="help")],
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text(
+        "\u2501" * 30 + "\n"
+        "\u2699\ufe0f *FRESHTIQ BINANCE SYSTEM*\n"
+        "\u2501" * 30 + "\n\n"
+        "\U0001f916 *Sameer OpenClaw Operator*\n\n"
+        "Choose an option below:",
+        reply_markup=reply_markup,
+        parse_mode="Markdown"
+    )
+
+async def _make_link():
+    proc = subprocess.run(
+        ["node", "-e", "const h=require('http');const d=JSON.stringify({ttl:120});const r=h.request({hostname:'127.0.0.1',port:3099,path:'/api/binance/generate-link',method:'POST',headers:{'Content-Type':'application/json','Content-Length':Buffer.byteLength(d)}},e=>{let b='';e.on('data',c=>b+=c);e.on('end',()=>console.log(JSON.parse(b).link))});r.write(d);r.end()"],
+        capture_output=True, text=True, timeout=15
+    )
+    return proc.stdout.strip()
+
+async def button_callback(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    data = query.data
+    uid = update.effective_user.id
+    if uid != 8649581921:
+        return await query.edit_message_text("Unauthorized")
+
+    if data == "main_menu":
+        keyboard = [
+            [InlineKeyboardButton("\U0001f4c8 Spot Balance", callback_data="balance")],
+            [InlineKeyboardButton("\U0001f4b0 P2P Rates", callback_data="p2p_rates")],
+            [InlineKeyboardButton("\U0001f50d Spot Deal \u20b91000", callback_data="spot_deal")],
+            [InlineKeyboardButton("\u2699\ufe0f Register / Login", callback_data="register")],
+            [InlineKeyboardButton("\u2753 Help", callback_data="help")],
+        ]
+        await query.edit_message_text("\u2501"*30+"\n\u2699\ufe0f *FRESHTIQ BINANCE SYSTEM*\n"+"\u2501"*30+"\n\nChoose an option:", reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+    if data == "balance":
+        await query.edit_message_text("Fetching spot balance...")
+        session = load_user_session(uid)
+        if not session:
+            return await query.edit_message_text("No session found! /register karein")
+        r = fetch_spot_balance(session)
+        text = format_balance_message(r)
+        keyboard = [[InlineKeyboardButton("Back", callback_data="main_menu")]]
+        await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+    if data == "p2p_rates":
+        await query.edit_message_text("Fetching P2P rates...")
+        buy = fetch_p2p_rates("INR", "USDT", "BUY", 3)
+        sell = fetch_p2p_rates("INR", "USDT", "SELL", 3)
+        lines = ["*Live P2P Rates - USDT/INR*", "="*25]
+        if buy.get("success"):
+            lines.append("\nBUY (Buy USDT)")
+            for i, r in enumerate(buy["rates"][:3], 1):
+                pm = ", ".join(r["paymentMethods"][:3])
+                lines.append(f"  {i}. *\u20b9{r['price']}* - {r['seller']}\n     {pm}")
+        if sell.get("success"):
+            lines.append("\nSELL (Sell USDT)")
+            for i, r in enumerate(sell["rates"][:3], 1):
+                pm = ", ".join(r["paymentMethods"][:3])
+                lines.append(f"  {i}. *\u20b9{r['price']}* - {r['seller']}\n     {pm}")
+        lines.append(f"\n{sh_now()}")
+        keyboard = [[InlineKeyboardButton("Back", callback_data="main_menu")]]
+        await query.edit_message_text("\n".join(lines), reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+    if data == "spot_deal":
+        await query.edit_message_text("Finding cheapest deal...")
+        buy = fetch_p2p_rates("INR", "USDT", "BUY", 10)
+        if buy.get("success"):
+            valid = [r for r in buy["rates"] if r.get("minAmount",0) <= 1000 <= r.get("maxAmount",1e9)] or buy["rates"]
+            valid.sort(key=lambda x: x["price"])
+            best = valid[0]
+            qty = round(1000 / best["price"], 2)
+            pm = ", ".join(best["paymentMethods"][:3])
+            text = (f"*Best Spot Deal*\n"+"="*25+f"\nRate: *\u20b9{best['price']}*/USDT\nQty: *{qty} USDT* for \u20b91000\nSeller: {best['seller']}\nPayment: {pm}\nOrders: {best['orders']}")
+        else:
+            text = "Error fetching rates"
+        keyboard = [[InlineKeyboardButton("Back", callback_data="main_menu")]]
+        await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+    if data == "register":
+        txt = (
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "📌 *SAMPLE COPY KARO:*\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+            "`/register abc123|uuid-987654|csrftoken=abc123xyz; bnc-uuid=uuid-987654;`\n\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "💡 Chrome -> web.binance.com login -> F12 -> Cookies -> copy\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "YA /connect one-click auto!"
+        )
+        keyboard = [
+            [InlineKeyboardButton("🔗 One-Click Connect", callback_data="connect")],
+            [InlineKeyboardButton("↩ Back", callback_data="main_menu")],
+        ]
+        await query.edit_message_text(txt, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+    if data == "connect":
+        await query.edit_message_text("Generating link...")
+        try:
+            link = await _make_link()
+            await query.edit_message_text(f"Click: {link}\n\nOpen karo aur 'Open Binance' pe click karo. Auto-capture hoga!")
+        except Exception as e:
+            await query.edit_message_text(f"Error: {str(e)[:100]}")
+        return
+
+    if data == "manual_register":
+        await query.edit_message_text("Send:\n`/register COOKIES_STRING CSRFT_TOKEN`")
+        return
+
+    if data == "help":
+        text = ("*Commands:*\n\n"
+                "/balance - Spot wallet\n"
+                "/rates ASSET FIAT - P2P rates\n"
+                "/spot ASSET FIAT AMOUNT - Best deal\n"
+                "/register - Register cookies\n"
+                "/connect - One-click connect\n"
+                "/disconnect - Remove cookies")
+        keyboard = [[InlineKeyboardButton("Back", callback_data="main_menu")]]
+        await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+        return
+
+
+async def cmd_balance(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    session = load_user_session(uid)
+    if not session:
+        return await update.message.reply_text("No session! /register karein")
+    r = fetch_spot_balance(session)
+    await update.message.reply_text(format_balance_message(r), parse_mode="Markdown")
+
+async def cmd_rates(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    args = context.args or []
+    asset = args[0].upper() if len(args) > 0 else "USDT"
+    fiat = args[1].upper() if len(args) > 1 else "INR"
+    buy = fetch_p2p_rates(fiat, asset, "BUY", 3)
+    sell = fetch_p2p_rates(fiat, asset, "SELL", 3)
+    lines = [f"*Live P2P - {asset}/{fiat}*", "="*25]
+    if buy.get("success"):
+        lines.append(f"\nBUY:")
+        for i, r in enumerate(buy["rates"][:3], 1):
+            lines.append(f"  {i}. *\u20b9{r['price']}* - {r['seller']}")
+    if sell.get("success"):
+        lines.append(f"\nSELL:")
+        for i, r in enumerate(sell["rates"][:3], 1):
+            lines.append(f"  {i}. *\u20b9{r['price']}* - {r['seller']}")
+    lines.append(f"\n{sh_now()}")
+    await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
+
+async def cmd_spot(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    args = context.args or []
+    asset = args[0].upper() if len(args) > 0 else "USDT"
+    fiat = args[1].upper() if len(args) > 1 else "INR"
+    amt = float(args[2]) if len(args) > 2 else 1000
+    buy = fetch_p2p_rates(fiat, asset, "BUY", 10)
+    if not buy.get("success"):
+        return await update.message.reply_text(f"Error: {buy.get('error')}")
+    valid = [r for r in buy["rates"] if r.get("minAmount",0) <= amt <= r.get("maxAmount",1e9)] or buy["rates"]
+    valid.sort(key=lambda x: x["price"])
+    if not valid: return await update.message.reply_text("No deals")
+    best = valid[0]
+    qty = round(amt / best["price"], 2)
+    text = f"*Best Deal - {asset}/{fiat}*\nRate: \u20b9{best['price']}/USDT\nQty: {qty} {asset} for \u20b9{int(amt)}\nSeller: {best['seller']}\nPayment: {', '.join(best['paymentMethods'][:3])}"
+    await update.message.reply_text(text, parse_mode="Markdown")
+
+async def cmd_register(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    args = context.args or []
+    if not args:
+        txt = (
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "📌 *SAMPLE — YEH COPY KARO:*\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+            "`/register abc123|uuid-987654|csrftoken=abc123xyz; bnc-uuid=uuid-987654;`\n\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "💡 *Cookies kaise nikalein (2 min):*\n"
+            "1️⃣ Chrome me `web.binance.com` login karo\n"
+            "2️⃣ F12 dabao → *Application* → *Cookies* → `binance.com`\n"
+            "3️⃣ `csrftoken` ki value copy karo\n"
+            "4️⃣ Neeche diya sample copy karke `/register` ke saath bhej do\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "*YA /connect use karo one-click auto ke liye!*"
+        )
+        keyboard = [
+            [InlineKeyboardButton("🔗 One-Click Connect", callback_data="connect")],
+            [InlineKeyboardButton("📊 Check Balance", callback_data="balance")],
+            [InlineKeyboardButton("↩ Back", callback_data="main_menu")],
+        ]
+        return await update.message.reply_text(txt, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode="Markdown")
+    
+    cookies_raw = "|".join(args)
+    parts = cookies_raw.split('|')
+    ck = parts[0]
+    ct = parts[1] if len(parts) > 1 else ""
+    ua = parts[2] if len(parts) > 2 else ""
+    try:
+        s = build_session(ck, ct, ua)
+        r = fetch_spot_balance(s)
+        save_user_session(uid, ck, ct, ua)
+        if r.get("success"):
+            bal = r["result"].get("balance", "?")
+            await update.message.reply_text(f"✅ *COOKIES REGISTERED!* 🔥\nBalance: `${bal}`\n\nAb /balance, /rates, /spot use karo!", parse_mode="Markdown")
+        else:
+            await update.message.reply_text(f"⚠️ Saved but balance fetch failed. Cookies expire ho sakti hain. /connect try karo.")
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)[:200]}. /connect use karo.")
+
+async def cmd_connect(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    await update.message.reply_text("Generating link...")
+    try:
+        link = await _make_link()
+        await update.message.reply_text(f"Click: {link}\n\nOpen karo - auto cookies capture!")
+    except Exception as e:
+        await update.message.reply_text(f"Error: {str(e)[:200]}")
+
+async def cmd_disconnect(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    clear_user_session(uid)
+    await update.message.reply_text("Disconnected! Cookies deleted.")
+
+
+
+async def cmd_ask(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    prompt = " ".join(context.args) if context.args else ""
+    if not prompt:
+        return await update.message.reply_text("Usage: /ask YOUR_QUESTION")
+    await update.message.reply_text("Processing via best AI engine...")
+    result = _ai_router.route(prompt)
+    text = f"*[{result.get('engine','?')}]*\n{result.get('response','❌ '+result.get('error','Failed'))}"
+    await update.message.reply_text(text, parse_mode="Markdown")
+
+async def cmd_ai_status(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    if uid != 8649581921: return
+    await update.message.reply_text(_ai_router.status(), parse_mode="Markdown")
+async def handle(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    msg=update.message
+    uid=update.effective_user.id
+    text=(msg.text or "").strip()
+    if uid != ADMIN_ID:
+        return await msg.reply_text("Unauthorized")
+    await context.bot.send_chat_action(chat_id=msg.chat_id, action=ChatAction.TYPING)
+    low=text.lower()
+    if low in ["status","/status","health","/health"]:
+        return await msg.reply_text(health())
+    if low in ["who are you","/who","hi","hello"]:
+        return await msg.reply_text("🧠 I am Sameer OpenClaw Operator. I am online and ready to repair/manage your VPS.")
+    if low.startswith("/sh "):
+        return await send_long(msg, "🖥 OUTPUT\n\n"+sh(text[4:]))
+    if low.startswith("/run "):
+        return await send_long(msg, "🖥 OUTPUT\n\n"+sh(text[5:]))
+    return await msg.reply_text(openclaw_brain.ask(text))
+
+def main():
+    app=Application.builder().token(token()).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("balance", cmd_balance))
+    app.add_handler(CommandHandler("rates", cmd_rates))
+    app.add_handler(CommandHandler("spot", cmd_spot))
+    app.add_handler(CommandHandler("register", cmd_register))
+    app.add_handler(CommandHandler("connect", cmd_connect))
+    app.add_handler(CommandHandler("disconnect", cmd_disconnect))
+    app.add_handler(CommandHandler("ask", cmd_ask))
+    app.add_handler(CommandHandler("aistatus", cmd_ai_status))
+    app.add_handler(CallbackQueryHandler(button_callback))
+    app.add_handler(MessageHandler(filters.TEXT, handle))
+    app.run_polling(drop_pending_updates=True)
+
+if __name__=="__main__":
+    main()

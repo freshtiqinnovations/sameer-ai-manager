@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add /orderwebsite command to save a website project inquiry lead and reply with project ID and next step.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new command handler function 'order_website' that processes the /orderwebsite command.",
+    "2. In 'order_website', extract the user's message and save it as a lead with type 'website_order'.",
+    "3. Generate a project ID using the existing 'job_id' function.",
+    "4. Reply to the user with the project ID and the next step '/pay'.",
+    "5. Add the command handler for /orderwebsite to the application."
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionalities."
+}
+```

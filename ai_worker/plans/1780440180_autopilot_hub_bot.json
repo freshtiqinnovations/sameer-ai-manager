@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add /ordererp command to save a CRM ERP project inquiry lead and reply with project ID and next step.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new function `async def ordererp(update, context):` to handle the /ordererp command.",
+    "2. Inside the function, extract user information and text from the update.",
+    "3. Call `save_lead(user, text, typ='erp_order')` to save the lead with type 'erp_order'.",
+    "4. Reply to the user with the project ID and the next step '/pay'.",
+    "5. Add the command handler for /ordererp using `app.add_handler(CommandHandler('ordererp', ordererp))`."
+  ],
+  "risk": "Low - Minimal changes to existing code structure, preserving current features."
+}
+```

@@ -1,0 +1,7 @@
+LESSON: NO PLACEHOLDER DEPLOY
+Problem: add factory dashboard patch used placeholder text and still deployed.
+Rule 1: If patch contains placeholder/demo/todo/status and metrics will be displayed later, block deployment.
+Rule 2: Quality checker result must be stored in approval report.
+Rule 3: Approved monitor must not deploy if patch_quality ok=false OR issues not empty.
+Rule 4: Compile PASS is not enough. Real feature check required.
+Rule 5: If blocked, worker must generate better patch, not deploy fake patch.

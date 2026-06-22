@@ -1,0 +1,65 @@
+{
+  "updated": 1780272518.210707,
+  "pending": [
+    {
+      "id": "T1",
+      "task": "Build /pending_approvals command",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T2",
+      "task": "Build /approve_patch ID command",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T3",
+      "task": "Build /factory_status command",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T4",
+      "task": "Build /rollback_last command",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T5",
+      "task": "Connect reporter worker to Telegram",
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "id": "T6",
+      "task": "Create bot registry with paths and services",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T7",
+      "task": "Add lock file system to stop two workers patching same bot",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T8",
+      "task": "Add worker health monitor",
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "id": "T9",
+      "task": "Improve patch generator to create real search_text and replace_text",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "T10",
+      "task": "Connect auto deploy after tester PASS and auto approval",
+      "priority": "high",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+FINAL LOCKED RULES:
+- No blind live patch.
+- Backup before change.
+- Compile before restart.
+- Rollback on failure.
+- No duplicate handlers.
+- No duplicate run_polling.
+- No random apt/pip upgrade.
+- Telegram-first work.
+- Sameer AI Manager is master admin for all customer bots.

@@ -1,0 +1,9 @@
+TODAY PRIORITY:
+1. Keep Sameer AI Manager stable.
+2. Use /ai for smart help.
+3. Upgrade Salama Radiator bot with AI multilingual replies.
+4. Add hardcoded premium button handlers before AI fallback.
+5. Add stable quotation session.
+6. Add Excel item parser and PDF quotation.
+7. Add customer/company memory.
+8. Add Telegram-only safe admin workflow.

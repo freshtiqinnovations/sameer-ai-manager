@@ -1,0 +1,10 @@
+async def wdashboard(update, context):
+ import os, subprocess
+ q=len([x for x in os.listdir("/root/sameer_ai_manager/ai_worker/queue") if x.endswith(".json")])
+ c=len([x for x in os.listdir("/root/sameer_ai_manager/ai_worker/completed") if x.endswith(".json")])
+ f=len([x for x in os.listdir("/root/sameer_ai_manager/ai_worker/failed") if x.endswith(".json")])
+ st=subprocess.getoutput("systemctl is-active sameer_ai_worker_auto.service")
+ msg=f"📊 WORKER DASHBOARD\n\n🤖 Worker: {st}\n📂 Queue: {q}\n✅ Completed: {c}\n❌ Failed: {f}"
+ await update.message.reply_text(msg)
+
+app.add_handler(CommandHandler("wdashboard", wdashboard))

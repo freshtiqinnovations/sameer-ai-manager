@@ -1,0 +1,5 @@
+LESSON: TEST_ONLY_PATCH_REJECT
+Problem: worker dashboard generated test_worker_dashboard and message 'Testing worker dashboard...'.
+Rule: Test-only patch is not production feature.
+Rule: Dashboard must include live counts using os.listdir or equivalent real data source.
+Rule: Quality checker now rejects TEST_ONLY_PATCH and NO_LIVE_COUNTS.

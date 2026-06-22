@@ -1,0 +1,18 @@
+{
+  "id": "1780439115694",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /projectsummary PROJECT_ID command only, show project id, quotation amount, payment status, delivery status, progress, deadline and latest note from json in one summary message, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780439115_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780439115.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780439115.6941962,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

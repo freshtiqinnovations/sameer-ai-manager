@@ -1,0 +1,19 @@
+LOCK SYSTEM
+
+Before patch:
+1. Create lock file: bot_name.lock
+
+If lock exists:
+2. Stop patch
+3. Wait or report BUSY
+
+After success:
+4. Remove lock
+
+After failure:
+5. Remove lock
+
+Never allow two workers to edit same bot at same time.
+
+Lock path:
+/root/sameer_ai_manager/locks/

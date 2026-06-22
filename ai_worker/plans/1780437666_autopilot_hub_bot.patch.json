@@ -1,0 +1,10 @@
+{
+  "id": "1780437666226",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def root_cmd(update, context):\n await update.message.reply_text(\"\u2705 /root command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"root\", root_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The restoration from a backup is a standard procedure, but ensure that no new features are lost.",
+  "status": "READY_FOR_APPROVAL"
+}

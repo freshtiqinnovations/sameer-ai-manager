@@ -1,0 +1,9 @@
+CODING RULES
+1. All async def command functions must be placed BEFORE app=ApplicationBuilder().token(TOKEN).build()
+2. All app.add_handler lines must be placed AFTER app is created
+3. Never insert def between app.add_handler lines
+4. Check existing code location before patch
+5. Do not duplicate handlers
+6. Compile before restart
+7. Verify service active
+8. If placement is wrong, refactor safely before new features

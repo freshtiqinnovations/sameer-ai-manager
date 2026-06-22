@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:59:24.813279",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /hotleads command only, show latest projects where payment_status is pending and quotation_amount exists, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

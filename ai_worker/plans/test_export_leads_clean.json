@@ -1,0 +1,10 @@
+{
+  "summary": "Add lead export button",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": [
+    "export",
+    "lead",
+    "button"
+  ],
+  "risk": "low"
+}

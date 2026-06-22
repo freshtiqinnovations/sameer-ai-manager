@@ -1,0 +1,18 @@
+{
+  "id": "1780438308485",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setquote PROJECT_ID AMOUNT command only, update quotation_amount field in lead/project json, show quotation amount in existing /status PROJECT_ID, no dashboard rewrite, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780438308_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780438308.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780438308.4857304,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

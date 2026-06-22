@@ -1,0 +1,18 @@
+{
+  "id": "1780441129613",
+  "bot": "autopilot_hub_bot",
+  "task": "improve verifylogic_cmd handler body only: show count of installed automation commands and milestone status from AUTOPILOT_HUB_MILESTONE_2026_06_03.txt; do not add new commands; follow AUTOPILOT_RULE_001 to 005; backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780441129_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780441129.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780441129.6139913,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

@@ -1,0 +1,15 @@
+{
+  "owner_bot": "sameer_ai_manager",
+  "customer_bots": [
+    "freshtiq_ai_travel_pro",
+    "salama_service_bot",
+    "salama_radiator_bot",
+    "restaurant_demo_bot"
+  ],
+  "rules": [
+    "backup_first",
+    "compile_before_restart",
+    "rollback_on_error",
+    "never_edit_owner_bot_unsafely"
+  ]
+}

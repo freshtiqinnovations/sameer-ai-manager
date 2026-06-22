@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:15:05.218948",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /support command only, show WhatsApp +918381848389 and ask user to send Project ID plus issue, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

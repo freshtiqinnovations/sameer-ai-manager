@@ -1,0 +1,10 @@
+{
+  "id": "1780408310357",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def factory_cmd(update, context):\n await update.message.reply_text(\"\u2705 /factory command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"factory\", factory_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The addition of a new command is isolated and should not affect existing features if implemented correctly.",
+  "status": "READY_FOR_APPROVAL"
+}

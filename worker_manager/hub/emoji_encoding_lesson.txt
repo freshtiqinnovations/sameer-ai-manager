@@ -1,0 +1,29 @@
+EMOJI ENCODING LESSON
+
+ROOT CAUSE:
+
+unicode_escape decoding converted:
+
+📊
+
+into:
+
+ð
+
+RULE:
+
+Never run unicode_escape decode on text containing emojis.
+
+Use original UTF-8 text.
+
+Before saving patch:
+1. Generate patch
+2. Check for:
+   ð
+   
+   
+3. If found:
+   reject patch
+4. Mark NEEDS_HUMAN_REVIEW
+
+Emoji corruption is patch failure.

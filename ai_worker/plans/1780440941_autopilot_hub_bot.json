@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add an admin-only command /verifylogic to notify users about pending JSON logic upgrades.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def admin_dashboard", "app.add_handler(CommandHandler"],
+  "patch_plan": [
+    "1. Define a new async function 'verify_logic' to handle the /verifylogic command.",
+    "2. In the 'verify_logic' function, send a message to the user indicating that a real JSON logic upgrade is pending and that the current automation commands are installed.",
+    "3. Add a CommandHandler for the /verifylogic command to the application."
+  ],
+  "risk": "Low - The patch introduces a new command without altering existing functionalities."
+}
+```

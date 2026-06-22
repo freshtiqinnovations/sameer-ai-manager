@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a new command /factory to the Telegram bot for managing factory-related tasks.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": "async def factory_cmd",
+  "patch_plan": [
+    "1. Define a new asynchronous function named factory_cmd.",
+    "2. Implement the logic for the /factory command, which could include status checks, task management, or other factory-related functionalities.",
+    "3. Register the factory_cmd function with the Telegram bot using CommandHandler.",
+    "4. Ensure that the new command does not interfere with existing commands and maintains the bot's current functionality."
+  ],
+  "risk": "Low - The addition of a new command is isolated and should not affect existing features if implemented correctly."
+}
+```

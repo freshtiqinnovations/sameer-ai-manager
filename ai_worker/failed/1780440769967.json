@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:22:49.967260",
+  "bot": "autopilot_hub_bot",
+  "task": "improve projectdashboard_cmd handler body only: calculate totals from lead json files for total projects, paid projects, pending payments, active deliveries and completed deliveries; do not add new commands or handlers; follow AUTOPILOT_RULE_001 to 005; backup compile restart verify",
+  "status": "queued"
+}

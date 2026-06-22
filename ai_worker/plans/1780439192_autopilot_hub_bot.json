@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add admin-only /revenue command to calculate total quotation_amount for paid projects from lead JSON files and count paid projects.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler", "async def"],
+  "patch_plan": [
+    "1. Define a new command handler function 'revenue_cmd' to calculate total quotation_amount and count paid projects.",
+    "2. Read all lead JSON files in LEAD_DIR, filter for paid projects, and sum their quotation_amount.",
+    "3. Send a message to the admin with the total amount and count of paid projects.",
+    "4. Add the new command handler to the application with app.add_handler(CommandHandler('revenue', revenue_cmd)).",
+    "5. Ensure the command is only accessible to admin users by checking user ID."
+  ],
+  "risk": "Low - The patch is minimal and preserves existing features. Ensure proper testing to avoid any disruption."
+}
+```

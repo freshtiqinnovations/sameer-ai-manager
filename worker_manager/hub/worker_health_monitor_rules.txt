@@ -1,0 +1,29 @@
+WORKER HEALTH MONITOR
+
+Check every 5 minutes:
+
+1. sameer_ai_worker_auto.service
+2. sameer_ai_manager.service
+3. autopilot_hub_bot.service
+4. freshtiq_ai_travel_pro.service
+5. salama_radiator_bot.service
+
+If service inactive:
+- restart once
+- verify active
+
+If restart fails:
+- create alert
+- create incident report
+
+If worker log not updated for 15 minutes:
+- mark worker STALLED
+- restart worker
+
+Daily report:
+- Active services
+- Failed services
+- Restart count
+- Last task processed
+
+Never silently fail.

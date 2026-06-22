@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:46:40.884792",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /projects command only, show latest 10 project ids with user name, payment_status, delivery_status, progress_percent from lead json files, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

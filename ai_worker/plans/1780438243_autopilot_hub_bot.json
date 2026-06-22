@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add admin-only /setdelivery command to update delivery status in lead/project JSON and show it in existing /status command.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["/status", "status", "delivery_status"],
+  "patch_plan": [
+    "1. Define a new command handler for /setdelivery.",
+    "2. Implement logic to check if the user is an admin.",
+    "3. Update the delivery_status field in the corresponding lead/project JSON file.",
+    "4. Modify the existing /status command to include the delivery status in the response."
+  ],
+  "risk": "Low - The patch only adds new functionality without altering existing features."
+}
+```

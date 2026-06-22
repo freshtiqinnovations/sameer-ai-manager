@@ -1,0 +1,18 @@
+```json
+{
+  "summary": "Implement a safe patch to improve the logging functionality of the Telegram bot by adding a feature to limit the number of log entries returned to the user.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def logs", "journalctl -u sameer_ai_manager.service -n 30 --no-pager"],
+  "patch_plan": [
+    {
+      "action": "Modify the logs function to accept an optional argument for the number of log entries to return.",
+      "code_change": "async def logs(update, context):\n    import subprocess\n    import re\n\n    num_entries = int(context.args[0]) if context.args else 30\n    out = subprocess.getoutput(\n        f\"journalctl -u sameer_ai_manager.service -n {num_entries} --no-pager\"\n    )"
+    },
+    {
+      "action": "Update the reply message to inform the user about the number of logs being returned.",
+      "code_change": "await update.message.reply_text(\n        f\"📜 LOGS: sameer_ai_manager (last {num_entries} entries)\\n\\n\" + out[:3500]\n    )"
+    }
+  ],
+  "risk": "Low - The change preserves existing functionality while enhancing user experience by allowing them to specify the number of log entries."
+}
+```

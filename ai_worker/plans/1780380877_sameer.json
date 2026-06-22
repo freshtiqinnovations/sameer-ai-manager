@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a worker dashboard command to the Telegram bot for monitoring worker status and task statistics.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def wdashboard", "worker", "dashboard"],
+  "patch_plan": [
+    {
+      "action": "add",
+      "code": "async def wdashboard(update, context):\n    import os, subprocess, glob\n    q=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/queue\") if x.endswith(\".json\")])\n    c=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/completed\") if x.endswith(\".json\")])\n    f=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/failed\") if x.endswith(\".json\")])\n    lessons=len(glob.glob(\"/root/sameer_ai_manager/ai_brain/lessons/*.txt\"))\n    st=subprocess.getoutput(\"systemctl is-active sameer_ai_worker_auto.service\")\n    await update.message.reply_text(f\"📊 WORKER DASHBOARD\\n\\n🤖 Worker: {st}\\n📚 Lessons: {lessons}\\n📂 Queue: {q}\\n✅ Completed: {c}\\n❌ Failed: {f}\")"
+    }
+  ],
+  "risk": "Low risk as the new command is self-contained and does not interfere with existing functionalities."
+}
+```

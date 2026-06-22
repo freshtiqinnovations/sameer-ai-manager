@@ -1,0 +1,10 @@
+{
+  "id": "1780307084395",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def help_cmd(update, context):\n    msg=\"\"\"\ud83c\udd98 HELP CENTER\n\n/ceo - CEO Dashboard\n/worker - Worker Status\n/queue - Queue Status\n/upgrade BOT TASK - Start AI upgrade\"\"\"\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler('help', help_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The addition of the help command is straightforward and does not interfere with existing functionality.",
+  "status": "READY_FOR_APPROVAL"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "1780293542502",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.add_handler(CommandHandler(\"exportleads\", exportleads))",
+  "replace_text": "async def status_cmd(update, context):\n    if not context.args:\n        return await update.message.reply_text(\"Use: /status PROJECT_ID\")\n    pid = context.args[0].strip()\n    f = Path(LEAD_DIR, pid + \".json\")\n    if not f.exists():\n        return await update.message.reply_text(\"\u274c Project ID not found.\")\n    d = json.loads(f.read_text())\n    msg = \"\ud83d\udccc PROJECT STATUS\\n\\nID: \" + d.get(\"job_id\", pid) + \"\\nName: \" + str(d.get(\"name\",\"\")) + \"\\nStatus: \" + str(d.get(\"status\",\"pending\"))\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler(\"exportleads\", exportleads))\napp.add_handler(CommandHandler(\"status\", status_cmd))",
+  "compile_required": true,
+  "risk": "low",
+  "status": "READY_FOR_APPROVAL"
+}

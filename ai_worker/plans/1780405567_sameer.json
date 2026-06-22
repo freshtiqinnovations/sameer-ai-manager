@@ -1,0 +1,22 @@
+```json
+{
+  "summary": "Analyze current architecture for potential improvements and optimizations.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def", "subprocess", "systemctl", "os.listdir", "await update.message.reply_text"],
+  "patch_plan": {
+    "1": {
+      "description": "Refactor subprocess calls to use a dedicated function for better error handling.",
+      "code_change": "Create a new function `async def run_command(command):` to handle subprocess calls."
+    },
+    "2": {
+      "description": "Implement logging for subprocess outputs to track command execution.",
+      "code_change": "Add logging statements before and after subprocess calls."
+    },
+    "3": {
+      "description": "Optimize file listing by using a single function to count files in directories.",
+      "code_change": "Create a function `async def count_files_in_directory(directory, extension):`."
+    }
+  },
+  "risk": "Low - Changes are non-intrusive and aim to enhance maintainability without altering existing features."
+}
+```

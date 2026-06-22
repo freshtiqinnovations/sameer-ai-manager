@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add /track PROJECT_ID command to retrieve project details.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def track_project"],
+  "patch_plan": [
+    "1. Define a new command handler for /track.",
+    "2. Implement the logic to read the project JSON file using the provided PROJECT_ID.",
+    "3. Extract and format the required fields: project_id, quotation_amount, payment_status, delivery_status, progress_percent, deadline, latest note, and latest followup.",
+    "4. Send the formatted message back to the user."
+  ],
+  "risk": "Low - Minimal changes to existing code structure."
+}
+```

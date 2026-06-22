@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:10:42.671553",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /orderwebsite command only, save a website project inquiry lead with type website_order and reply with project id plus next step /pay, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

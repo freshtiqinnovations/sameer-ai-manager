@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:17:52.466221",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /howitworks command only, explain steps: choose service, send requirement, get quotation, pay advance, track project id, delivery and support, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "1780440180453",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def ordererp_cmd(update, context):\n await update.message.reply_text(\"\u2705 /ordererp command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"ordererp\", ordererp_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - Minimal changes to existing code structure, preserving current features.",
+  "status": "READY_FOR_APPROVAL"
+}

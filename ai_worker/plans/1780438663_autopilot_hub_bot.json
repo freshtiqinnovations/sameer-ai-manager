@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add admin-only /paidprojects command to show latest paid projects.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": "async def admin_dashboard",
+  "patch_plan": [
+    "1. Define a new command handler for /paidprojects.",
+    "2. Implement logic to read JSON files from LEAD_DIR where payment_status is 'paid'.",
+    "3. Format the output to display the latest paid projects.",
+    "4. Add the new command handler to the application.",
+    "5. Ensure existing features remain unchanged."
+  ],
+  "risk": "Low - The patch only adds a new command without altering existing functionality."
+}
+```

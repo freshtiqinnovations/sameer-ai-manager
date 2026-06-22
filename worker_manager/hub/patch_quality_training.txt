@@ -1,0 +1,71 @@
+PATCH QUALITY TRAINING
+
+Before any patch is approved or deployed, check these rules:
+
+1. search_text must be exact text from real target file.
+   Bad:
+   app.add_handler(CommandHandler(\"myid\", myid))
+
+   Good:
+   app.add_handler(CommandHandler("myid", myid))
+
+2. replace_text must be valid Python code.
+   Bad:
+   code containing literal \n where real newline is needed.
+
+   Good:
+   real new lines in code.
+
+3. No escaped quotes in final patch code.
+   Bad:
+   \"myid\"
+
+   Good:
+   "myid"
+
+4. Function placement must be correct.
+   Good order:
+   imports
+   constants
+   helper functions
+   command functions
+   app = ApplicationBuilder...
+   app.add_handler(...)
+   app.run_polling(...)
+
+5. Never insert async def between app.add_handler lines.
+
+6. Before deploy, simulate mentally:
+   If this replace_text is written into file, will Python compile?
+
+7. Always run:
+   python3 -m py_compile target_file
+
+8. Then verify service:
+   systemctl is-active service_name
+
+9. If any patch contains:
+   MANUAL_REQUIRED
+   fake
+   demo
+   dummy
+   placeholder
+   escaped quotes
+   suspicious literal \n
+
+   then mark:
+   NEEDS_HUMAN_REVIEW
+
+10. Do not deploy bad patch.
+    Stopping a bad patch is success, not failure.
+
+ROOT CAUSE LESSON:
+If deploy is blocked, do not blame deploy worker first.
+Check patch quality first.
+
+GOLDEN RULE:
+Exact search text.
+Valid replace text.
+Compile proof.
+Service proof.
+Then success.

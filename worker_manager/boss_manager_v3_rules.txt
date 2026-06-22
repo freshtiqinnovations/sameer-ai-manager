@@ -1,0 +1,9 @@
+BOSS MANAGER V3
+1. Detect failed tasks automatically.
+2. If failed count increases, log FAILED_SPIKE.
+3. Auto retry only safe failed tasks.
+4. Track last 10 deployments.
+5. Track last 10 failures.
+6. Create daily CEO summary data.
+7. Recommend best worker for each task.
+8. Prepare OpenAI/OpenRouter task analysis integration.

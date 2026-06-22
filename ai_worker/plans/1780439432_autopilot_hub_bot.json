@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add admin-only /lostleads command to show projects with pending payment status and progress percent of 0 or missing.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new async function 'lostleads' to handle the /lostleads command.",
+    "2. In the 'lostleads' function, read all lead files from LEAD_DIR.",
+    "3. Filter leads where payment_status is 'pending' and progress_percent is 0 or missing.",
+    "4. Format the filtered leads into a message string.",
+    "5. Send the message back to the admin using 'await update.message.reply_text()'.",
+    "6. Add a CommandHandler for /lostleads to the app."
+  ],
+  "risk": "Low - The patch only adds a new command without altering existing functionality."
+}
+```

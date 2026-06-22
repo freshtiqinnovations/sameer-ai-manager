@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:05:39.955997",
+  "bot": "autopilot_hub_bot",
+  "task": "clean duplicate CommandHandler registrations only: keep first admin, first exportleads, first status handler; remove duplicate handler lines only; do not edit functions or strings; follow AUTOPILOT_RULE_001 to 005; backup compile restart verify",
+  "status": "queued"
+}

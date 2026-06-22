@@ -1,0 +1,18 @@
+{
+  "id": "1780270609789",
+  "bot": "autopilot",
+  "task": "add admin dashboard",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780270609_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780270609.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "approved_auto",
+  "created": 1780270609.7897549,
+  "note": "low risk dryrun ok tester pass candidate",
+  "deploy_result": "tar: Removing leading `/' from member names\n{'ok': True, 'backup': '/root/backups/ai_patch_engine/autopilot_1780276189.tar.gz', 'file': '/root/monster_bot/admin_panel.py', 'verify': {'service': 'autopilot_hub_bot.service', 'status': 'active', 'ok': True}, 'safe_backup_file': '/root/monster_bot/admin_panel.py.safe_1780276189'}"
+}

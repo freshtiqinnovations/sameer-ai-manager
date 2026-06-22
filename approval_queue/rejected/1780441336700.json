@@ -1,0 +1,18 @@
+{
+  "id": "1780441336700",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /logicplan command only, show message: Real JSON logic phase pending; status_cmd/projects_cmd/projectdashboard_cmd need human-safe body patch; no deploy without approval; follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780441336_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780441336.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780441336.7007945,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

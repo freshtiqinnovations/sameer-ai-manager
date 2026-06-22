@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Calculate totals from lead JSON files for total projects, paid projects, pending payments, active deliveries, and completed deliveries in the projectdashboard_cmd handler.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": "async def project_dashboard",
+  "patch_plan": [
+    "1. Modify the existing project_dashboard function to calculate totals from the lead JSON files.",
+    "2. Read all lead JSON files from LEAD_DIR.",
+    "3. Initialize counters for total projects, paid projects, pending payments, active deliveries, and completed deliveries.",
+    "4. Loop through each lead JSON file and update the counters based on the status of each lead.",
+    "5. Construct a message that includes the calculated totals and send it as a reply to the user."
+  ],
+  "risk": "Low - The patch only modifies the existing handler without introducing new commands or handlers."
+}
+```

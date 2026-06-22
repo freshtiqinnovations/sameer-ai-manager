@@ -1,0 +1,10 @@
+{
+  "id": "1780436235703",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.add_handler(CommandHandler(\"myid\", myid))",
+  "replace_text": "async def admin_dashboard(update, context):\n    msg = \"\ud83d\udcca ADMIN DASHBOARD\n\nCommands:\n/leads - View last leads\n/exportleads - Export all leads\"\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler(\"myid\", myid))\napp.add_handler(CommandHandler(\"admin\", admin_dashboard))",
+  "compile_required": true,
+  "risk": "Low - Existing features preserved, minimal changes made.",
+  "status": "READY_FOR_APPROVAL"
+}

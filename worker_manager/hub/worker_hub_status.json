@@ -1,0 +1,15 @@
+{
+  "created": 1780270550.0745153,
+  "manager": "active",
+  "rules": "master_rules.txt",
+  "workers": {
+    "planner": "active",
+    "patch_generator": "active",
+    "tester": "active",
+    "auto_approval": "active",
+    "auto_deploy": "active",
+    "router": "active",
+    "pool_manager": "active"
+  },
+  "last_success": "autopilot /exportleads real safe patch verified"
+}

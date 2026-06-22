@@ -1,0 +1,43 @@
+FUTURE DEVELOPMENT CHECKLIST
+
+1. Code Structure Fixer
+- functions before app creation
+- handlers after app creation
+- no function inside handler block
+
+2. AI Patch Generator Upgrade
+- generate real search_text
+- generate real replace_text
+- avoid MANUAL_REQUIRED
+
+3. Auto Deploy Integration
+- tester PASS + low risk = auto deploy
+- high risk = human approval
+
+4. Reporter Worker
+- send final Telegram report
+- include proof, backup, service status
+
+5. Multi Bot Router
+- map bot name to project path and service
+- support autopilot, freshtiq, salama, future bots
+
+6. Duplicate Detector
+- check if feature already exists
+- never reapply same patch
+
+7. Secret Guard
+- never expose tokens
+- never overwrite .env/API keys
+
+8. Queue Cleanup
+- archive old completed/failed tasks
+- keep system clean
+
+9. Worker Health Monitor
+- check worker_auto
+- restart/report if dead
+
+10. Night Mode
+- low risk work automatic
+- high risk pending approval

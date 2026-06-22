@@ -1,0 +1,43 @@
+ADVANCED SAFETY LESSONS
+
+1. Self Edit Protection
+- Do not directly patch Sameer AI Manager core bot.py.
+- Use copy, test, compile, then replace.
+
+2. Bot Registry
+- Store every bot path, service, main file.
+- Never guess project paths.
+
+3. Permission Levels
+- LOW = auto approval allowed.
+- MEDIUM = approval required.
+- HIGH = Sameer only.
+
+4. Rollback Drill
+- Rollback must be tested.
+- Backup path must be verified.
+
+5. Worker Memory
+- Save every success/failure lesson to hub.
+- Do not repeat known mistakes.
+
+6. Customer Safety
+- No fake price/data/report in public bots.
+- Real API or real stored data only.
+
+7. Monitoring Report
+- Daily report: completed, pending, failed, patched, rolled back.
+
+8. Rate Limit
+- One active patch per bot at a time.
+- Never let two workers edit same file.
+
+9. Lock File System
+- Create lock before patch.
+- Remove lock after done/fail.
+
+10. Human Override
+- /stop_factory
+- /pause_worker
+- /rollback_last
+- /factory_status

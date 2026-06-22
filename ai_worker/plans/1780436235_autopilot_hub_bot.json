@@ -1,0 +1,26 @@
+```json
+{
+  "summary": "Cleaned duplicate exportleads function and CommandHandler for admin dashboard.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["def exportleads", "async def admin_dashboard"],
+  "patch_plan": [
+    {
+      "action": "remove",
+      "code": "async def exportleads(update, context):\n    files=sorted(Path(LEAD_DIR).glob(\"APH*.json\"), reverse=True)\n    if not files:\n        return await update.message.reply_text(\"No leads to export.\")\n    export_file=Path(LEAD_DIR, \"exported_leads.json\")\n    data=[json.loads(f.read_text()) for f in files]\n    export_file.write_text(json.dumps(data, indent=2))\n    await update.message.reply_text(\"✅ Leads exported on server:\\n\"+str(export_file))"
+    },
+    {
+      "action": "remove",
+      "code": "async def admin_dashboard(update, context):\n    msg = \"📊 ADMIN DASHBOARD\\n\\nCommands:\\n/leads - View last leads\\n/exportleads - Export all leads\"\n    await update.message.reply_text(msg)"
+    },
+    {
+      "action": "keep",
+      "code": "app.add_handler(CommandHandler(\"exportleads\", exportleads))"
+    },
+    {
+      "action": "keep",
+      "code": "app.add_handler(CommandHandler(\"admin\", admin_dashboard))"
+    }
+  ],
+  "risk": "Low - Existing features preserved, minimal changes made."
+}
+```

@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Restore admin_panel.py from backup due to SyntaxError.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["SyntaxError", "line 91"],
+  "patch_plan": [
+    "1. Replace the current admin_panel.py with the backup file located at /root/monster_bot/admin_panel.py.safe_1780419302.",
+    "2. Verify that the new admin_panel.py does not contain any syntax errors.",
+    "3. Compile the bot to ensure it runs without issues.",
+    "4. Restart the bot service.",
+    "5. Verify that the bot service is active and functioning correctly.",
+    "6. Prepare a report for the CEO detailing the restoration process and the current status of the bot."
+  ],
+  "risk": "Low - The restoration from a backup is a standard procedure, but ensure that no new features are lost."
+}
+```

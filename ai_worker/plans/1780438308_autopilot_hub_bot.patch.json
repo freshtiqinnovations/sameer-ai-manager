@@ -1,0 +1,10 @@
+{
+  "id": "1780438308382",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def setquote_cmd(update, context):\n await update.message.reply_text(\"\u2705 /setquote command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"setquote\", setquote_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch is minimal and preserves existing features, but requires careful handling of JSON updates.",
+  "status": "READY_FOR_APPROVAL"
+}

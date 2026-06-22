@@ -1,0 +1,1044 @@
+from telegram.ext import Application, CommandHandler
+import os
+import logging
+import subprocess
+from datetime import datetime
+from dotenv import load_dotenv
+from openai import OpenAI
+from assistant_engine import ask_ai
+from telegram import Update, BotCommand, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from modules.health import health_report
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
+from modules.health import health_report
+from modules.health import health_report
+from builder_engine import create_customer_bot
+from modules.safe_runner import run_shell
+import safe_editor
+from modules.ai_fix_engine import run_ai_fix
+from modules.ai_repair import ai_repair
+from template_deploy_cmds import deploy_template_cmd
+
+load_dotenv()
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ADMIN_ID = os.getenv("ADMIN_ID")
+MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+ALLOWED_USER_IDS = os.getenv("ALLOWED_USER_IDS", "").split(",")
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+logging.basicConfig(level=logging.INFO)
+pending_task = {}
+
+SYSTEM_PROMPT = """
+You are Sameer AI Manager with Telegram-controlled VPS access.
+
+Important working rules:
+
+1. Sameer has given permission to manage this VPS.
+
+2. Use /run command for VPS work when needed.
+
+3. Before risky changes, always create backup.
+
+4. For code edit:
+- backup file first
+- modify file
+- run python3 -m py_compile
+- restart service
+- check status
+- report result
+
+5. Never delete important files unless Sameer clearly says delete.
+
+6. Never show or ask for secret keys/passwords.
+
+7. For Sameer's commands like:
+repair karo
+upgrade karo
+feature add karo
+bot banao
+restart karo
+logs check karo
+deploy karo
+
+make practical action plan and tell exact /run commands.
+
+8. If command is safe, execute using existing /run flow.
+
+9. If change can break bot, backup first:
+
+cp /root/sameer_ai_manager/bot.py /root/sameer_ai_manager/backups/bot_before_change_$(date +%F_%H%M).py
+
+10. Always keep Sameer AI Manager and customer bots running.
+
+11. You can guide Sameer step-by-step for:
+- VPS management
+- Telegram bots
+- WhatsApp automation
+- deployments
+- repair
+- upgrades
+- AI systems
+- customer support bots
+
+12. If user asks for repair:
+- check logs
+- detect issue
+- suggest fix
+- restart services
+- verify status
+
+13. Prefer safe automation over dangerous direct system modification.
+
+14. Reply in simple Hinglish unless professional English or Arabic is requested.
+
+15. Always think practically like a real DevOps + AI automation manager.
+"""
+SAFE_ROOT = "/root/workspaces/customers/el_salama_radiator_factory"
+
+def run_shell(cmd):
+    try:
+        out = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, text=True)
+        return out[:3500]
+    except subprocess.CalledProcessError as e:
+        return e.output[:3500]
+
+async def salama_status_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    out = run_shell("systemctl status salama_radiator_bot --no-pager")
+    await update.message.reply_text(f"📊 SALAMA STATUS\n\n{out}")
+
+async def salama_logs_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    out = run_shell("journalctl -u salama_radiator_bot -n 40 --no-pager")
+    await update.message.reply_text(f"📜 LAST LOGS\n\n{out}")
+
+async def salama_restart_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    out = run_shell("systemctl restart salama_radiator_bot && systemctl status salama_radiator_bot --no-pager")
+    await update.message.reply_text(f"🔄 RESTART DONE\n\n{out}")
+
+async def salama_backup_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    cmd = f"""
+    mkdir -p /root/sameer_ai_manager/backups/{ts}
+    cp -r {SAFE_ROOT} /root/sameer_ai_manager/backups/{ts}/
+    echo BACKUP_OK
+    """
+    out = run_shell(cmd)
+    await update.message.reply_text(f"💾 BACKUP CREATED\n\n{out}")
+
+async def salama_health_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("SALAMA_HEALTH COMMAND RECEIVED")
+    out1 = run_shell("systemctl is-active salama_radiator_bot")
+    out2 = run_shell("systemctl is-active sameer_ai_manager")
+    await update.message.reply_text(f"🤖 Sameer AI Manager: {out2.strip()}\n🏭 Salama Bot: {out1.strip()}")
+
+async def repair_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    out = run_shell(f"cd {SAFE_ROOT} && python3 -m py_compile bot.py")
+    if out.strip() == "":
+        run_shell("systemctl restart salama_radiator_bot")
+        await update.message.reply_text("✅ Compile OK + Restart Success")
+    else:
+        await update.message.reply_text(f"❌ ERROR FOUND\n\n{out}")
+
+def is_admin(user_id: int) -> bool:
+    if not ADMIN_ID:
+        return True
+    return str(user_id) == str(ADMIN_ID)
+
+async def send_long(update: Update, text: str):
+    for i in range(0, len(text), 3900):
+        await update.message.reply_text(text[i:i+3900])
+
+
+def main_keyboard():
+    return ReplyKeyboardMarkup(
+        [
+            ["👑 Master", "🤖 Bots"],
+            ["🩺 Doctor", "🔧 Repair"],
+            ["📊 Status", "🧠 Brain"],
+            ["⚡ Do", "💾 Backup"],
+            ["📜 Logs", "🚀 Version"],
+        ],
+        resize_keyboard=True
+    )
+
+
+async def panel_button_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    txt = (update.message.text or "").strip()
+
+    if txt == "👑 Master":
+        return await master_cmd(update, context)
+
+    if txt == "🤖 Bots":
+        context.args = []
+        return await bots_cmd(update, context)
+
+    if txt == "🩺 Doctor":
+        context.args = ["sameer_ai_manager"]
+        return await doctor_cmd(update, context)
+
+    if txt == "🔧 Repair":
+        return await repair_cmd(update, context)
+
+    if txt == "📊 Status":
+        return await status(update, context)
+
+    if txt == "🧠 Brain":
+        return await update.message.reply_text("Use: /brain your idea")
+
+    if txt == "⚡ Do":
+        return await update.message.reply_text("Use: /do your task")
+
+    if txt == "💾 Backup":
+        return await backup_cmd(update, context)
+
+    if txt == "📜 Logs":
+        context.args = ["logs", "sameer_ai_manager"]
+        return await bots_cmd(update, context)
+
+    if txt == "🚀 Version":
+        return await version_cmd(update, context)
+
+async def panel_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "👑 Sameer AI Manager Control Panel\nSelect button:",
+        reply_markup=main_keyboard()
+    )
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+ "🚀 SAMEER AI MANAGER PRO v2.0 🔥💎\n\n"
+        "✨ Premium AI Server Active\n🟢 Status: ONLINE 24/7\n💎 Plan: PREMIUM\n🤖 Bots Managed: 5\n📊 Tasks Completed: 100+\n\n"
+        "━━━ 🎯 QUICK COMMANDS ━━━\n"
+        "/idea - idea ko plan me convert karo\n"
+        "/ok - pending plan approve karo\n"
+        "/status - system status\n"
+        "/help - help menu\n\n"
+        "━━━ 💡 EXAMPLE ━━━\n"
+ "/idea Travel agency ke liye fare alert bot banao",
+ reply_markup=ReplyKeyboardRemove()
+    )
+
+
+async def version_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Sameer AI Manager v1.2 - Stable Safe Runner")
+
+async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "📌 Sameer AI Manager Help\n\n"
+        "Use:\n"
+        "/idea your idea\n"
+        "/ok\n"
+        "/status\n\n"
+        "Main bana sakta hoon:\n"
+        "✅ Travel bot plan\n"
+        "✅ Quotation PDF system\n"
+        "✅ Tea business bot\n"
+        "✅ Baby products business bot\n"
+        "✅ Study helper bot\n"
+        "✅ Customer sales chat bot\n"
+        "✅ Marketing message\n"
+        "✅ Business strategy\n\n"
+        "High-risk kaam se pehle main aapse OK loonga."
+    )
+
+async def ping_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Pong ✅")
+
+async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "✅ 🚀 SAMEER AI MANAGER PRO ONLINE 🚀\n"
+        f"Model: {MODEL}\n"
+        "Mode: Approval-based safe manager"
+    )
+
+async def idea(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+    idea_text = " ".join(context.args).strip()
+    if not idea_text:
+        return await update.message.reply_text("━━━ 💡 EXAMPLE ━━━\n/idea el salama radiator factory ke liye customer support bot banao")
+
+    await update.message.reply_text("🧠 Idea analyze kar raha hoon...")
+
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Is idea ka premium execution plan banao. Idea: {idea_text}"}
+        ]
+    )
+
+    plan = response.choices[0].message.content
+    pending_task[update.effective_user.id] = plan
+
+    await send_long(update, "📋 PREMIUM PLAN:\n\n" + plan + "\n\n✅ Approve karne ke liye /ok likho.")
+
+async def ok(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_admin(update.effective_user.id):
+        return await update.message.reply_text("❌ Access denied.")
+
+    plan = pending_task.get(update.effective_user.id)
+    if not plan:
+        return await update.message.reply_text("❌ Koi pending plan nahi hai. Pehle /idea bhejo.")
+
+    await update.message.reply_text(
+        "✅ Approved.\n\n"
+        "Ab next version me main is approval ke baad:\n"
+        "1. backup loonga\n"
+        "2. code file banaunga\n"
+        "3. test karunga\n"
+        "4. restart/report dunga\n\n"
+        "Abhi safe mode me plan approved store ho gaya."
+    )
+
+async def excel_upload_cmd(update, context):
+ await update.message.reply_text('EXCEL_HANDLER_READY')
+
+
+async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_admin(update.effective_user.id):
+        return await update.message.reply_text("❌ Access denied.")
+
+    user_msg = update.message.text
+
+    await update.message.reply_text("💭 Soch raha hoon...")
+
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_msg}
+            ]
+        )
+
+        reply = response.choices[0].message.content
+        await send_long(update, reply)
+
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error aaya:\n{str(e)}")
+
+
+async def upgrade_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Upgrade system ready. Use /auto_upgrade or /fix.")
+
+async def auto_upgrade(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Auto upgrade planning ready. Send /agent your upgrade idea.")
+
+async def create_bot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Bot builder ready. Use /deploy_customer customer_name.")
+
+async def apply_ai_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Apply AI placeholder ready. Use /approve_patch for safe patch apply.")
+
+
+
+
+async def do_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    task = " ".join(context.args).strip()
+
+    if not task:
+        return await update.message.reply_text(
+            "⚡ Use:\n/do your task"
+        )
+
+    await update.message.reply_text("⚡ Master Controller preparing execution...")
+
+    prompt = f"""
+You are Sameer Master Controller running on Sameer's VPS.
+
+VPS facts:
+- Main project: /root/sameer_ai_manager
+- Customer bots path: /root/workspaces/customers
+- Python venv: /root/sameer_ai_manager/venv
+- Services: sameer_ai_manager, salama_radiator_bot
+- Use Telegram /run commands for execution.
+- Always backup before changing files.
+- Always run python3 -m py_compile before restart.
+- Always use systemctl restart/status for services.
+- Do NOT give generic cloud setup advice.
+- Give exact practical commands for THIS VPS.
+
+User task:
+{task}
+
+Create:
+1. Direct action plan
+2. Exact /run commands
+3. Files to create/edit
+4. Service setup commands
+5. Test commands
+6. Safety backup/rollback commands
+
+Keep response short, practical, and execution-ready.
+"""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role":"system","content":"You are an elite AI DevOps architect."},
+                {"role":"user","content":prompt}
+            ],
+            max_tokens=900
+        )
+
+        result = response.choices[0].message.content
+
+    except Exception as e:
+        result = f"❌ DO error:\n{e}"
+
+    await update.message.reply_text(result[:3900])
+
+async def brain_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    idea = " ".join(context.args).strip()
+
+    if not idea:
+        return await update.message.reply_text(
+            "🧠 Use:\n/brain your idea"
+        )
+
+    await update.message.reply_text("🧠 Master Brain thinking...")
+
+    prompt = f"""
+You are Sameer Master Controller AI.
+
+User idea:
+{idea}
+
+Make:
+1. Powerful execution plan
+2. Step-by-step roadmap
+3. Required files/tools
+4. Risks
+5. Smart automation ideas
+
+Keep response short but powerful.
+"""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role":"system","content":"You are a powerful AI automation architect."},
+                {"role":"user","content":prompt}
+            ],
+            max_tokens=700
+        )
+
+        result = response.choices[0].message.content
+
+    except Exception as e:
+        result = f"❌ Brain error:\n{e}"
+
+    await update.message.reply_text(result[:3900])
+
+
+async def service_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    args = context.args
+    if len(args) < 3:
+        return await update.message.reply_text(
+            "Use:\n/service service_name working_dir bot_file\n\n━━━ 💡 EXAMPLE ━━━\n/service freshtiq_travel_bot /root/workspaces/customers/freshtiq_travel_agency_automation bot.py"
+        )
+
+    name = args[0].replace(".service", "")
+    workdir = args[1]
+    botfile = args[2]
+
+    service_path = f"/etc/systemd/system/{name}.service"
+
+    cmd = f"""
+cat > {service_path} <<'EOF'
+[Unit]
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=5
+
+[Install]
+EOF
+
+python3 -m py_compile {workdir}/{botfile} &&
+systemctl daemon-reload &&
+systemctl enable {name} &&
+systemctl restart {name} &&
+systemctl status {name} --no-pager
+"""
+    output = run_shell(cmd)
+    await update.message.reply_text(output[-3900:])
+
+
+
+
+
+async def smartfix_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    if not context.args:
+        return await update.message.reply_text("Use:\n/smartfix service_name")
+
+    service = context.args[0].replace(".service", "")
+    allowed = ["sameer_ai_manager", "freshtiq_travel_bot", "salama_radiator_bot"]
+
+    if service not in allowed:
+        return await update.message.reply_text("Allowed:\n" + "\n".join(allowed))
+
+    status = run_shell(f"systemctl is-active {service}").strip()
+
+    if status == "active":
+        out = run_shell(f"systemctl status {service} --no-pager | head -20")
+        return await update.message.reply_text(
+            "✅ Service active hai. Repair needed nahi.\n\n" + out[-3000:]
+        )
+
+    await update.message.reply_text("⚠️ Service active nahi hai. Logs analyze kar raha hoon...")
+
+    logs = run_shell(f"systemctl status {service} --no-pager; echo; journalctl -u {service} -n 100 --no-pager")
+
+    prompt = f"""
+You are Sameer AI Manager SmartFix.
+
+Service: {service}
+Status: {status}
+
+Logs:
+{logs[-8000:]}
+
+Give exact repair commands for THIS VPS only.
+Rules:
+- Backup first.
+- Check token/env/path/syntax/service file first.
+- Compile Python before restart.
+- No random package upgrade unless logs clearly prove it.
+- Include rollback command.
+- Short and practical.
+"""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role":"system","content":"You are a strict Linux Python Telegram bot repair engineer."},
+                {"role":"user","content":prompt}
+            ],
+            max_tokens=900
+        )
+        result = r.choices[0].message.content
+    except Exception as e:
+        result = "❌ SmartFix AI error:\n" + str(e)
+
+    await update.message.reply_text("🧠 SMARTFIX PLAN:\n\n" + result[-3600:])
+
+async def autofix_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    if not context.args:
+        return await update.message.reply_text("Use:\n/autofix service_name")
+
+    service = context.args[0].replace(".service", "")
+    allowed = ["sameer_ai_manager", "freshtiq_travel_bot", "salama_radiator_bot"]
+
+    if service not in allowed:
+        return await update.message.reply_text("Allowed:\n" + "\n".join(allowed))
+
+    await update.message.reply_text("🧠 Autofix analyzing logs...")
+
+    logs = run_shell(f"systemctl status {service} --no-pager; echo; journalctl -u {service} -n 100 --no-pager")
+
+    prompt = f"""
+You are Sameer AI Manager Autofix.
+
+Service: {service}
+
+Logs:
+{logs[-8000:]}
+
+Create a SAFE repair plan only.
+Rules:
+- Do NOT suggest package upgrade unless clearly necessary.
+- First check token, syntax, path, service file, env file, missing imports.
+- Give exact commands for this VPS.
+- Must backup before editing.
+- Must compile Python before restart.
+- Must include rollback command.
+- Do not apply anything automatically.
+- Short and practical.
+"""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role":"system","content":"You are a senior Linux Python Telegram bot repair engineer."},
+                {"role":"user","content":prompt}
+            ],
+            max_tokens=900
+        )
+        result = r.choices[0].message.content
+    except Exception as e:
+        result = "❌ Autofix AI error:\n" + str(e)
+
+    await update.message.reply_text("🧠 AUTOFIX PLAN:\n\n" + result[-3600:] + "\n\n✅ If OK, run commands manually or ask me to convert to /run.")
+
+async def doctor_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    if not context.args:
+        return await update.message.reply_text("Use:\n/doctor service_name")
+
+    service = context.args[0].replace(".service", "")
+    allowed = ["sameer_ai_manager", "freshtiq_travel_bot", "salama_radiator_bot"]
+
+    if service not in allowed:
+        return await update.message.reply_text("Allowed:\n" + "\n".join(allowed))
+
+    await update.message.reply_text("🩺 Doctor checking logs...")
+
+    logs = run_shell(f"systemctl status {service} --no-pager; echo; journalctl -u {service} -n 80 --no-pager")
+
+    prompt = f"""
+You are Sameer AI Manager Doctor.
+Analyze this service problem and give exact VPS commands to fix it.
+Service: {service}
+
+Logs:
+{logs[-7000:]}
+
+Rules:
+- Be short.
+- Give exact commands only for this VPS.
+- Backup before editing.
+- Compile Python before restart.
+- No generic advice.
+"""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        r = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role":"system","content":"You are an expert Linux Python Telegram bot repair engineer."},
+                {"role":"user","content":prompt}
+            ],
+            max_tokens=800
+        )
+        result = r.choices[0].message.content
+    except Exception as e:
+        result = "❌ Doctor AI error:\n" + str(e)
+
+    await update.message.reply_text(result[-3900:])
+
+async def bots_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    args = context.args
+
+    if not args:
+        cmd = """
+echo "🤖 SAMEER BOT CONTROL"
+echo "===================="
+systemctl list-units --type=service --all --no-pager | grep -E "sameer|freshtiq|salama|bot" | head -50
+"""
+        output = run_shell(cmd)
+        return await update.message.reply_text(output[-3900:])
+
+    action = args[0]
+    service = args[1] if len(args) > 1 else ""
+
+    allowed = ["sameer_ai_manager", "freshtiq_travel_bot", "salama_radiator_bot"]
+
+    if action in ["status", "restart", "logs"] and service not in allowed:
+        return await update.message.reply_text(
+            "Allowed services:\n" + "\n".join(allowed)
+        )
+
+    if action == "status":
+        output = run_shell(f"systemctl status {service} --no-pager")
+    elif action == "restart":
+        output = run_shell(f"systemctl restart {service} && systemctl status {service} --no-pager")
+    elif action == "logs":
+        output = run_shell(f"journalctl -u {service} -n 80 --no-pager")
+    else:
+        output = "Use:\n/bots\n/bots status service_name\n/bots restart service_name\n/bots logs service_name"
+
+    await update.message.reply_text(output[-3900:])
+
+async def master_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    cmd = """
+echo "👑 SAMEER MASTER CONTROLLER v1.3"
+echo "=============================="
+echo "📍 WHOAMI:"; whoami
+echo
+echo "📂 PATH:"; pwd
+echo
+echo "🟢 SAMEER AI MANAGER:"; systemctl is-active sameer_ai_manager
+echo
+echo "🧠 PYTHON:"; python3 --version
+echo
+echo "💾 DISK:"; df -h / | tail -1
+echo
+echo "🧮 MEMORY:"; free -h | head -2
+echo
+echo "🤖 RUNNING BOTS:"; ps aux | grep -E "bot.py|python" | grep -v grep | head -20
+echo
+echo "📝 LAST ERRORS:"; journalctl -u sameer_ai_manager -n 20 --no-pager | tail -20
+"""
+    output = run_shell(cmd)
+    await update.message.reply_text(output[-3900:])
+
+async def run_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    import subprocess
+    cmd = " ".join(context.args).strip()
+    if not cmd:
+        return await update.message.reply_text("Use: /run command")
+
+    await update.message.reply_text("⚙️ Command run kar raha hoon...")
+
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=120)
+        out = (r.stdout or "") + (r.stderr or "")
+        if not out.strip():
+            out = f"✅ Done. Exit code: {r.returncode}"
+        await update.message.reply_text(out[-3500:])
+    except subprocess.TimeoutExpired:
+        await update.message.reply_text("⏱️ Command timeout after 120s. Use shorter command.")
+    except Exception as e:
+        await update.message.reply_text(f"❌ Run error: {e}")
+
+async def restart_bot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+    await update.message.reply_text("🔄 Restarting bot...")
+    subprocess.Popen("systemctl restart sameer_ai_manager", shell=True)
+
+async def files_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+    result = subprocess.run(
+        "cd /root/sameer_ai_manager && ls -lah",
+        shell=True,
+        capture_output=True,
+        text=True,
+        timeout=30
+    )
+    await send_long(update, "📁 Files:\n\n" + result.stdout[-3500:])
+
+async def logs_live_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    try:
+        cmd = "journalctl -u sameer_ai_manager -n 50 --no-pager"
+
+        result = subprocess.run(
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=20
+        )
+
+        output = (result.stdout + result.stderr).strip()
+
+        if not output:
+            output = "No logs found."
+
+        await update.message.reply_text(
+            "📜 LIVE LOGS:\n\n" + output[-3500:]
+        )
+
+    except Exception as e:
+        await update.message.reply_text(
+            f"❌ Logs error:\n{str(e)}"
+        )
+async def logs_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+    result = subprocess.run(
+        "journalctl -u sameer_ai_manager -n 50 --no-pager",
+        shell=True,
+        capture_output=True,
+        text=True,
+        timeout=30
+    )
+    await send_long(update, result.stdout[-12000:])
+
+async def auto_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    prompt = " ".join(context.args).strip()
+    if not prompt:
+        return await update.message.reply_text("━━━ 💡 EXAMPLE ━━━\n/auto el salama radiator factory ke liye customer support bot banao")
+
+    return await update.message.reply_text("🤖 AUTO DONE\n\nAI auto system temporary active")
+
+
+async def agent_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    prompt = " ".join(context.args).strip()
+    if not prompt:
+        return await update.message.reply_text("━━━ 💡 EXAMPLE ━━━\n/agent check system")
+
+    return await update.message.reply_text("AI agent temporary active")
+
+
+async def buildbot_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    if len(context.args) < 2:
+        return await update.message.reply_text(
+            "Usage:\n/buildbot type botname\n━━━ 💡 EXAMPLE ━━━\n/buildbot radiator sameer_radiator"
+        )
+
+    bot_type = context.args[0]
+    bot_name = context.args[1]
+
+    try:
+        path = create_customer_bot(bot_type, bot_name)
+        await update.message.reply_text(
+            f"✅ Customer bot project ready\n\nType: {bot_type}\nName: {bot_name}\nPath: {path}"
+        )
+    except Exception as e:
+        await update.message.reply_text(f"❌ Build failed: {e}")
+
+async def backup_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+    cmd = "cd /root/sameer_ai_manager && mkdir -p backups && cp bot.py backups/bot_$(date +%F_%H%M).py && cp .env backups/env_$(date +%F_%H%M).env"
+    result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
+    if result.returncode == 0:
+        await update.message.reply_text("✅ Backup complete.")
+    else:
+        await update.message.reply_text("❌ Backup failed:\n" + result.stderr)
+
+async def auto_code_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+        return await update.message.reply_text("❌ Access denied.")
+
+    prompt = " ".join(context.args)
+
+    if not prompt:
+        return await update.message.reply_text(
+            "━━━ 💡 EXAMPLE ━━━\n/autocode add whatsapp auto reply system"
+        )
+
+    await update.message.reply_text("🤖 AI coding plan bana raha hoon...")
+
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an expert Python Telegram bot developer."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.3
+        )
+
+        ai_code = response.choices[0].message.content
+
+        with open("/root/sameer_ai_manager/ai_patch.txt", "w") as f:
+            f.write(ai_code)
+
+        await send_long(update, ai_code[:12000])
+
+    except Exception as e:
+        await update.message.reply_text(f"❌ AI Error: {e}")
+
+async def apply_ai_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    result = subprocess.run(
+        ["python3", "patch_tool.py"],
+        cwd="/root/sameer_ai_manager",
+        capture_output=True,
+        text=True
+    )
+
+    output = (result.stdout + result.stderr).strip()
+
+    if not output:
+        output = "APPLY SUCCESS"
+
+    await update.message.reply_text(
+        "APPLY RESULT:\n\n" + output[-3500:]
+    )
+
+async def rollback_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    try:
+        if str(update.effective_user.id) not in ALLOWED_USER_IDS:
+            return await update.message.reply_text("❌ Access denied.")
+
+        await update.message.reply_text("♻️ Rollback check kar raha hoon...")
+
+        cmd = """
+cd /root/sameer_ai_manager
+LATEST=$(ls -t backups/bot_*.py 2>/dev/null | head -1)
+if [ -z "$LATEST" ]; then
+  echo "NO_BACKUP_FOUND"
+  exit 1
+fi
+cp bot.py bot.py.failed_$(date +%F_%H%M)
+cp "$LATEST" bot.py
+python3 -m py_compile bot.py
+"""
+
+        result = subprocess.run(
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+
+        output = (result.stdout + result.stderr).strip()
+
+        if result.returncode != 0:
+            return await update.message.reply_text(
+                "❌ Rollback failed:\n\n" + output[-3500:]
+            )
+
+        subprocess.Popen("systemctl restart sameer_ai_manager", shell=True)
+
+        await update.message.reply_text(
+            "✅ Rollback successful.\nBot.py latest backup se restore ho gaya.\nService restart ho raha hai..."
+        )
+
+    except Exception as e:
+        await update.message.reply_text(f"❌ Rollback error:\n{str(e)}")
+
+    try:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        backup_name = f"full_backup_{timestamp}.tar.gz"
+
+        backup_path = f"/root/sameer_ai_manager/backups/{backup_name}"
+
+        cmd = f"tar --exclude='/root/sameer_ai_manager/backups' -czf {backup_path} /root/sameer_ai_manager"
+
+        result = subprocess.run(
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True
+        )
+
+        if result.returncode == 0:
+            await update.message.reply_text(
+                f"✅ Full backup created:\n{backup_name}"
+            )
+        else:
+            await update.message.reply_text(
+                f"❌ Backup failed:\n{result.stderr}"
+            )
+
+    except Exception as e:
+        await update.message.reply_text(
+            f"❌ Error:\n{str(e)}"
+        )
+
+
+async def allbots(update, context):
+    import subprocess
+    out = subprocess.getoutput("systemctl list-units --type=service --all --no-pager | grep -E 'sameer|freshtiq|salama|restaurant|bot' || true")
+    await update.message.reply_text("🤖 ALL BOTS / SERVICES\n\n" + out[:3500])
+
+async def logs_cmd(update, context):
+    import subprocess
+    service = context.args[0] if context.args else "sameer_ai_manager"
+    out = subprocess.getoutput(f"journalctl -u {service}.service -n 40 --no-pager")
+    await update.message.reply_text(f"📜 LOGS: {service}\n\n{out[-3500:]}")
+
+async def backup_cmd(update, context):
+    import subprocess, datetime
+    name = f"/root/backups/tg_backup_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.tar.gz"
+    subprocess.call(f"tar --exclude='/root/backups' -czf {name} /root/sameer_ai_manager /etc/systemd/system 2>/dev/null", shell=True)
+    await update.message.reply_text(f"✅ BACKUP CREATED\n{name}")
+
+async def restartbot(update, context):
+    import subprocess
+    if not context.args:
+        await update.message.reply_text("Use: /restartbot service_name")
+        return
+    service = context.args[0].replace(".service","")
+    subprocess.call(f"systemctl restart {service}.service", shell=True)
+    status = subprocess.getoutput(f"systemctl is-active {service}.service")
+    await update.message.reply_text(f"🔁 {service}\nStatus: {status}")
+
+async def fixbot(update, context):
+    import subprocess
+    if not context.args:
+        await update.message.reply_text("Use: /fixbot service_name")
+        return
+    service = context.args[0].replace(".service","")
+    subprocess.call(f"systemctl restart {service}.service", shell=True)
+    log = subprocess.getoutput(f"journalctl -u {service}.service -n 25 --no-pager")
+    status = subprocess.getoutput(f"systemctl is-active {service}.service")
+    await update.message.reply_text(f"🛠 FIXBOT {service}\nStatus: {status}\n\n{log[-2500:]}")
+
+async def run_cmd(update, context):
+    import subprocess
+    cmd = " ".join(context.args)
+    if not cmd:
+        await update.message.reply_text("Use: /run command")
+        return
+    out = subprocess.getoutput(cmd)
+    await update.message.reply_text("🖥 RUN OUTPUT\n\n" + out[-3500:])
+
+
+app = Application.builder().token(TELEGRAM_TOKEN).build()
+
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("help", help_cmd))
+
+app.add_handler(CommandHandler("health", lambda u,c: u.message.reply_text(health_report())))
+app.add_handler(CommandHandler("health", lambda u,c: u.message.reply_text(health_report())))
+
+print("🚀 Sameer AI Manager Starting...")
+
+
+app.add_handler(CommandHandler("allbots", allbots))
+app.add_handler(CommandHandler("logs", logs_cmd))
+app.add_handler(CommandHandler("backup", backup_cmd))
+app.add_handler(CommandHandler("restartbot", restartbot))
+app.add_handler(CommandHandler("fixbot", fixbot))
+app.add_handler(CommandHandler("run", run_cmd))
+
+app.run_polling()
+

@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:16:37.408307",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /terms command only, show 25 percent advance required, scope-based pricing, no refund after development starts, timeline depends on requirement, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

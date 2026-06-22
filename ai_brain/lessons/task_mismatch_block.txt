@@ -1,0 +1,5 @@
+LESSON: TASK_MISMATCH_BLOCK
+Problem: dashboard task generated notify_ceo code.
+Rule: Patch must match requested task intent.
+Rule: If task says dashboard, generated code must include dashboard function and command handler.
+Rule: If generated code contains unrelated feature like notify_ceo for dashboard task, reject TASK_MISMATCH.

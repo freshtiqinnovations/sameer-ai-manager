@@ -1,0 +1,10 @@
+{
+  "id": "1780340791536",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def worker_dashboard(update, context):\n    import subprocess\n    worker_status = subprocess.getoutput(\"systemctl is-active sameer_ai_worker_auto.service\")\n    task_status = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/queue | wc -l\")\n    completed_tasks = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/completed | wc -l\")\n    failed_tasks = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/failed | wc -l\")\n    msg = f\"\ud83d\udcca WORKER DASHBOARD\n\n\ud83d\udee0 Worker Status: {worker_status}\n\ud83d\udfe1 Tasks in Queue: {task_status}\n\ud83d\udfe2 Completed Tasks: {completed_tasks}\n\ud83d\udd34 Failed Tasks: {failed_tasks}\"\n    await update.message.reply_text(msg)\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new command without altering existing functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

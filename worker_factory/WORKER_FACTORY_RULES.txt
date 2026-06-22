@@ -1,0 +1,7 @@
+WORKER_FACTORY_V1
+1. Read worker_template.json
+2. Register new workers in registry/
+3. Track worker name, service, status
+4. Prevent duplicate worker creation
+5. Boss Manager can read registry
+6. Future: auto-generate service file

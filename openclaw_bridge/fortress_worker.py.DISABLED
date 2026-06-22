@@ -1,0 +1,482 @@
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+"""
+FORTRESS — Security, Audit, and Auto-Recovery Worker for OpenClaw Bridge
+
+Architecture:
+- Sameer AI Manager = MASTER
+- OpenClaw = WORKER
+- Watchdog = MONITOR
+
+This script enforces:
+- Task safety (duplicate guard, infinite loop guard, max retries, stuck timeout)
+- Command blocking (dangerous ops require CEO approval)
+- Audit trail (every action logged)
+- Auto-recovery (restart failed workers, run retention, generate reports)
+- Self-health monitoring (disk, RAM, swap, services, queue, backups)
+"""
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+from datetime import datetime, timezone
+
+BRIDGE = Path("/root/sameer_ai_manager/openclaw_bridge")
+INBOX = BRIDGE / "tasks_inbox.jsonl"
+DONE = BRIDGE / "tasks_done.jsonl"
+STATUS = BRIDGE / "openclaw_status.json"
+POLICY = BRIDGE / "security_policy.json"
+AUDIT_LOG = BRIDGE / "audit.log"
+SECURITY_LOG = BRIDGE / "security.log"
+REPAIR_LOG = BRIDGE / "repair.log"
+
+HEALTH_SCRIPT = "/tmp/fortress_health.sh"
+
+def log_audit(msg):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    with open(AUDIT_LOG, "a") as f:
+        f.write(ts + " " + msg + "\n")
+
+def log_security(msg):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    with open(SECURITY_LOG, "a") as f:
+        f.write(ts + " " + msg + "\n")
+
+def log_repair(msg):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    with open(REPAIR_LOG, "a") as f:
+        f.write(ts + " " + msg + "\n")
+
+def sh(cmd):
+    return subprocess.getoutput(cmd).strip()
+
+def load_policy():
+    if POLICY.exists():
+        return json.loads(POLICY.read_text())
+    return {}
+
+def read_inbox():
+    if not INBOX.exists() or INBOX.stat().st_size == 0:
+        return []
+    tasks = []
+    with open(INBOX) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    tasks.append(json.loads(line))
+                except json.JSONDecodeError:
+                    log_security("Invalid JSON in inbox: " + line[:80])
+    return tasks
+
+def load_done_tasks(hours=24):
+    if not DONE.exists() or DONE.stat().st_size == 0:
+        return []
+    tasks = []
+    now = time.time()
+    cutoff = now - (hours * 3600)
+    with open(DONE) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    t = json.loads(line)
+                    ts_str = t.get("completed_at", "")
+                    if ts_str:
+                        try:
+                            ts_clean = ts_str.split(".")[0].split("+")[0].strip()
+                            completed = datetime.strptime(ts_clean, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc).timestamp()
+                            if completed >= cutoff:
+                                tasks.append(t)
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+    return tasks
+
+def get_health_vals():
+    raw = sh("bash " + HEALTH_SCRIPT)
+    vals = {}
+    for line in raw.splitlines():
+        if "=" in line:
+            k, v = line.split("=", 1)
+            vals[k] = v
+    return vals
+
+def is_duplicate(task, recent_done):
+    desc = task.get("description", "").strip().lower()
+    for done in recent_done:
+        if done.get("description", "").strip().lower() == desc:
+            return True
+    return False
+
+def is_blocked_command(task):
+    policy = load_policy()
+    blocked = policy.get("blocked_commands", [])
+    cmd = task.get("command", "")
+    for pattern in blocked:
+        if pattern in cmd:
+            return True, pattern
+    return False, None
+
+def requires_approval(task):
+    policy = load_policy()
+    require = policy.get("require_ceo_approval", [])
+    desc = task.get("description", "")
+    cmd = task.get("command", "")
+    for pattern in require:
+        if pattern in desc or pattern in cmd:
+            return True, pattern
+    return False, None
+
+SAFE_COMMANDS = [
+    "ls", "cat", "head", "tail", "wc", "du", "df", "free", "uptime",
+    "ps", "uname", "date", "whoami", "id", "pwd", "echo", "which",
+    "grep", "find", "sort", "cut", "awk", "sed -n", "stat", "file",
+    "diff", "cmp", "sha256sum", "sha1sum", "md5sum",
+    "pip list", "pip show", "npm list", "npm view",
+    "git status", "git diff --stat", "git log --oneline -5",
+    "systemctl status", "systemctl is-active", "systemctl list-units",
+    "journalctl --no-pager -n 20",
+]
+
+def is_safe_command(task):
+    cmd = task.get("command", "").strip()
+    for safe in SAFE_COMMANDS:
+        if cmd.startswith(safe):
+            return True
+    return False
+
+def record_task_status(status_data):
+    data = {}
+    if STATUS.exists():
+        try:
+            data = json.loads(STATUS.read_text())
+        except Exception:
+            pass
+    data.update(status_data)
+    STATUS.write_text(json.dumps(data, indent=2))
+
+def health_check():
+    vals = get_health_vals()
+    alerts = []
+    repairs = []
+
+    disk = int(vals.get("DISK", "0"))
+    ram = int(vals.get("RAM", "0"))
+    swap = int(vals.get("SWAP", "0"))
+    failed = int(vals.get("FAILED", "0"))
+    backup_mb = int(vals.get("BACKUP_MB", "0"))
+    backup_gb = backup_mb // 1024
+    queue = int(vals.get("QUEUE", "0"))
+    sameer = vals.get("SAMEER", "unknown")
+    oc_pid = vals.get("OC", "")
+
+    policy = load_policy()
+    th = policy.get("self_health_thresholds", {})
+    disk_th = th.get("disk_pct", 80)
+    ram_th = th.get("ram_pct", 90)
+    swap_th = th.get("swap_pct", 90)
+    backup_th = th.get("backup_gb", 20)
+
+    if disk > disk_th:
+        alerts.append("DISK " + str(disk) + "% > " + str(disk_th) + "%")
+        subprocess.getoutput("find /tmp -type f -mtime +1 -delete 2>/dev/null")
+        subprocess.getoutput("journalctl --vacuum-time=1d >/dev/null 2>&1")
+        subprocess.getoutput("apt clean >/dev/null 2>&1")
+        repairs.append("cleaned-tmp-logs-journal")
+
+    if ram > ram_th:
+        alerts.append("RAM " + str(ram) + "% > " + str(ram_th) + "%")
+        if ram > 95:
+            subprocess.getoutput("pkill -f qemu-system-x86_64 2>/dev/null")
+            repairs.append("killed-emulator")
+
+    if swap > swap_th:
+        alerts.append("SWAP " + str(swap) + "% > " + str(swap_th) + "%")
+
+    if failed > 0:
+        alerts.append("FAILED_SERVICES: " + str(failed))
+        failed_list = subprocess.getoutput(
+            "systemctl list-units --type=service --state=failed --no-pager 2>/dev/null | "
+            "awk '/failed/ && /loaded/ {gsub(/[^a-zA-Z0-9_.-]/,\"\",$1); print $1}'"
+        )
+        for svc in failed_list.splitlines():
+            svc = svc.strip()
+            if svc:
+                r = subprocess.getoutput("systemctl restart " + svc + " 2>/dev/null && echo ok || echo fail")
+                if r == "ok":
+                    repairs.append("restarted-" + svc)
+
+    if backup_gb > backup_th:
+        alerts.append("BACKUPS " + str(backup_gb) + "GB > " + str(backup_th) + "GB")
+        subprocess.getoutput("bash /root/sameer_ai_manager/ai_brain/patch_engine_retention.sh 2>/dev/null")
+        repairs.append("ran-retention-cleanup")
+
+    if queue > 50:
+        alerts.append("QUEUE " + str(queue) + " > 50")
+
+    if sameer != "active":
+        alerts.append("SAMEER_AI_MANAGER: " + sameer)
+        subprocess.getoutput("systemctl restart sameer_ai_manager.service 2>/dev/null")
+        repairs.append("restarted-sameer-ai-manager")
+
+    if not oc_pid:
+        alerts.append("OPENCLAW_GATEWAY: DOWN")
+        repairs.append("openclaw-gateway-needs-manual-restart")
+
+    health = {
+        "disk": disk,
+        "ram": ram,
+        "swap": swap,
+        "failed_services": failed,
+        "backup_gb": backup_gb,
+        "queue": queue,
+        "sameer_ai_manager": sameer,
+        "openclaw_pid": oc_pid or "DOWN",
+        "alerts": alerts,
+        "repairs": repairs,
+        "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+    }
+
+    if alerts:
+        log_security("HEALTH_ALERTS: " + "; ".join(alerts))
+    if repairs:
+        log_repair("AUTO_REPAIR: " + "; ".join(repairs))
+
+    return health
+
+def process_inbox():
+    log_audit("FORTRESS cycle started")
+
+    tasks = read_inbox()
+    if not tasks:
+        log_audit("No pending tasks in inbox")
+        return
+
+    recent_done = load_done_tasks(hours=24)
+    log_audit("Inbox: " + str(len(tasks)) + " tasks | Recent done (24h): " + str(len(recent_done)))
+
+    # Sort by priority: P0 first, then P1, then P2
+    priority_order = {"P0": 0, "P1": 1, "P2": 2}
+    tasks.sort(key=lambda t: priority_order.get(t.get("priority", "P2"), 99))
+    kept = []
+    for task in tasks:
+        task_id = task.get("id", "?")
+        desc = task.get("description", "")
+        cmd = task.get("command", "")
+
+        if is_duplicate(task, recent_done):
+            log_security("DUPLICATE_BLOCKED [" + str(task_id) + "]: '" + desc + "' already ran in last 24h")
+            result = {"status": "duplicate_blocked", "reason": "Same task ran within 24 hours"}
+            task["result"] = result
+            task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+            with open(DONE, "a") as f:
+                f.write(json.dumps(task) + "\n")
+            continue
+
+        retries = task.get("retries", 0)
+        if retries >= 5:
+            log_security("MAX_RETRIES [" + str(task_id) + "]: retried " + str(retries) + " times")
+            result = {"status": "max_retries_exceeded", "reason": "Retried " + str(retries) + " times"}
+            task["result"] = result
+            task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+            with open(DONE, "a") as f:
+                f.write(json.dumps(task) + "\n")
+            continue
+
+        created_at = task.get("created_at", "")
+        if created_at:
+            try:
+                ts_clean = created_at.split(".")[0].split("+")[0].strip()
+                created = datetime.strptime(ts_clean, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc).timestamp()
+                if datetime.now(timezone.utc).timestamp() - created > 1800:
+                    log_security("STUCK_TASK [" + str(task_id) + "]: '" + desc + "' stuck >30min")
+                    result = {"status": "stuck_timeout", "reason": "Exceeded 30-minute timeout"}
+                    task["result"] = result
+                    task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+                    with open(DONE, "a") as f:
+                        f.write(json.dumps(task) + "\n")
+                    continue
+            except Exception:
+                pass
+
+        blocked, pattern = is_blocked_command(task)
+        if blocked and cmd:
+            log_security("BLOCKED_COMMAND [" + str(task_id) + "]: matched '" + str(pattern) + "'")
+            result = {"status": "blocked", "reason": "Command blocked: " + str(pattern) + ". CEO approval required."}
+            task["result"] = result
+            task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+            with open(DONE, "a") as f:
+                f.write(json.dumps(task) + "\n")
+            continue
+
+        needs_ceo, reason = requires_approval(task)
+        if needs_ceo:
+            log_security("CEO_APPROVAL_REQUIRED [" + str(task_id) + "]: '" + desc + "' needs CEO approval (" + str(reason) + ")")
+            result = {"status": "pending_ceo_approval", "reason": "CEO approval required: " + str(reason)}
+            task["result"] = result
+            task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+            with open(DONE, "a") as f:
+                f.write(json.dumps(task) + "\n")
+            continue
+
+        if task.get("type") == "test" and cmd:
+            if is_safe_command(task):
+                log_audit("SAFE_CMD [" + str(task_id) + "]: '" + desc + "'")
+                task["retries"] = retries + 1
+                kept.append(task)
+            else:
+                log_security("UNSAFE_CMD [" + str(task_id) + "]: not in safe list")
+                result = {"status": "blocked_safe_list", "reason": "Command not in safe-allow list. CEO approval required."}
+                task["result"] = result
+                task["completed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+                with open(DONE, "a") as f:
+                    f.write(json.dumps(task) + "\n")
+            continue
+
+        kept.append(task)
+
+    with open(INBOX, "w") as f:
+        for task in kept:
+            f.write(json.dumps(task) + "\n")
+
+    log_audit("Inbox after fortress guard: " + str(len(kept)) + " tasks kept (" + str(len(tasks) - len(kept)) + " blocked/routed)")
+
+def generate_weekly_report():
+    lines = []
+    lines.append("# FORTRESS Weekly Report")
+    lines.append("**Generated:** " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"))
+    lines.append("")
+
+    uptime = sh("uptime")
+    lines.append("## Uptime")
+    lines.append(uptime)
+    lines.append("")
+
+    vals = get_health_vals()
+    lines.append("## Current System State")
+    lines.append("- Disk: " + vals.get("DISK", "?") + "%")
+    lines.append("- RAM: " + vals.get("RAM", "?") + "%")
+    lines.append("- Swap: " + vals.get("SWAP", "?") + "%")
+    lines.append("- Failed services: " + vals.get("FAILED", "0"))
+    lines.append("- Backups: " + str(int(vals.get("BACKUP_MB", "0")) // 1024) + "GB")
+    lines.append("- Queue: " + vals.get("QUEUE", "0"))
+    lines.append("- Sameer AI: " + vals.get("SAMEER", "unknown"))
+    lines.append("- OpenClaw: " + (vals.get("OC") or "DOWN"))
+    lines.append("")
+
+    rep = ""
+    if REPAIR_LOG.exists():
+        rep = sh("wc -l < " + str(REPAIR_LOG))
+    lines.append("## Repairs (total log lines)")
+    lines.append(rep if rep else "0")
+    lines.append("")
+
+    sec = ""
+    if SECURITY_LOG.exists():
+        sec = sh("wc -l < " + str(SECURITY_LOG))
+    lines.append("## Security Events (total log lines)")
+    lines.append(sec if sec else "0")
+    lines.append("")
+
+    aud = ""
+    if AUDIT_LOG.exists():
+        aud = sh("wc -l < " + str(AUDIT_LOG))
+    lines.append("## Audit Entries (total log lines)")
+    lines.append(aud if aud else "0")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+def auto_learn():
+    """Auto-learn blocked patterns — if same command blocked 3+ times, add to policy."""
+    BLOCK_THRESHOLD = 3
+    import json
+    from pathlib import Path
+    
+    policy_path = Path("/root/sameer_ai_manager/openclaw_bridge/security_policy.json")
+    policy = json.loads(policy_path.read_text())
+    
+    # Count blocked commands from security log
+    sec_log = Path("/root/sameer_ai_manager/openclaw_bridge/security.log")
+    if not sec_log.exists():
+        return
+    
+    blocked_counts = {}
+    with open(sec_log) as f:
+        for line in f:
+            if "BLOCKED_COMMAND" in line:
+                # Extract the blocked pattern
+                for bp in policy["blocked_commands"]:
+                    if bp in line:
+                        blocked_counts[bp] = blocked_counts.get(bp, 0) + 1
+            
+            if "UNSAFE_CMD" in line:
+                # Track unsafe commands that repeat
+                for bp in policy["blocked_commands"]:
+                    if bp in line:
+                        blocked_counts[bp] = blocked_counts.get(bp, 0) + 1
+    
+    new_additions = 0
+    for cmd, count in blocked_counts.items():
+        if count >= BLOCK_THRESHOLD and cmd not in policy.get("auto_blocked", []):
+            if "auto_blocked" not in policy:
+                policy["auto_blocked"] = []
+            if cmd not in policy["blocked_commands"]:
+                policy["blocked_commands"].append(cmd)
+                policy["auto_blocked"].append(cmd)
+                new_additions += 1
+    
+    if new_additions:
+        policy_path.write_text(json.dumps(policy, indent=2))
+        log_repair(f"AUTO_LEARN: Added {new_additions} new blocked patterns (threshold={BLOCK_THRESHOLD})")
+        log_security(f"AUTO_LEARN: {new_additions} patterns auto-blocked")
+
+def main():
+    if len(sys.argv) > 1:
+        mode = sys.argv[1]
+    else:
+        mode = "full"
+
+    if mode == "health":
+        h = health_check()
+        print(json.dumps(h, indent=2))
+
+    elif mode == "process":
+        process_inbox()
+
+    elif mode == "report":
+        report = generate_weekly_report()
+        report_path = BRIDGE / "fortress_weekly_report.md"
+        report_path.write_text(report)
+        print("Weekly report saved: " + str(report_path))
+
+    elif mode == "full":
+        log_audit("=== FORTRESS full cycle ===")
+        h = health_check()
+        record_task_status({
+            "fortress_health": h,
+            "fortress_last_run": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        })
+        process_inbox()
+
+    else:
+        print("Unknown mode: " + mode)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

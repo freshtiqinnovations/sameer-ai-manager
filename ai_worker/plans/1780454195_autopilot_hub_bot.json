@@ -1,0 +1,26 @@
+```json
+{
+  "summary": "Remove duplicate status_cmd functions and CommandHandler registrations while preserving existing features.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["def status_cmd", "app.add_handler(CommandHandler(\"status\", status_cmd))"],
+  "patch_plan": [
+    {
+      "action": "remove",
+      "code": "async def status_cmd(update, context):\n    await update.message.reply_text(\"✅ /status command working from AutoPilot Hub!\")"
+    },
+    {
+      "action": "remove",
+      "code": "app.add_handler(CommandHandler(\"status\", status_cmd))"
+    },
+    {
+      "action": "remove",
+      "code": "async def status_cmd(update, context):\n    if not context.args:\n        return await update.message.reply_text(\"Use: /status PROJECT_ID\")\n    pid = context.args[0].strip()\n    f = Path(LEAD_DIR, pid + \".json\")\n    if not f.exists():\n        return await update.message.reply_text(\"❌ Project ID not found.\")\n    d = json.loads(f.read_text())\n    msg = \"📌 PROJECT STATUS\\n\\nID: \" + d.get(\"job_id\", pid) + \"\\nName: \" + str(d.get(\"name\",\"\")) + \"\\nStatus: \" + str(d.get(\"status\",\"pending\"))\n    await update.message.reply_text(msg)"
+    },
+    {
+      "action": "add",
+      "code": "app.add_handler(CommandHandler(\"status\", status_cmd))"
+    }
+  ],
+  "risk": "Low - The patch only removes duplicates and preserves existing functionality."
+}
+```

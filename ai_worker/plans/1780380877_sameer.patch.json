@@ -1,0 +1,10 @@
+{
+  "id": "1780380877808",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def wdashboard(update, context):\n    import os, subprocess, glob\n    q=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/queue\") if x.endswith(\".json\")])\n    c=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/completed\") if x.endswith(\".json\")])\n    f=len([x for x in os.listdir(\"/root/sameer_ai_manager/ai_worker/failed\") if x.endswith(\".json\")])\n    lessons=len(glob.glob(\"/root/sameer_ai_manager/ai_brain/lessons/*.txt\"))\n    st=subprocess.getoutput(\"systemctl is-active sameer_ai_worker_auto.service\")\n    await update.message.reply_text(f\"\ud83d\udcca WORKER DASHBOARD\n\n\ud83e\udd16 Worker: {st}\n\ud83d\udcda Lessons: {lessons}\n\ud83d\udcc2 Queue: {q}\n\u2705 Completed: {c}\n\u274c Failed: {f}\")\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low risk as the new command is self-contained and does not interfere with existing functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

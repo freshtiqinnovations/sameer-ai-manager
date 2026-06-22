@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:51:24.144660",
+  "bot": "sameer_ai_manager",
+  "task": "improve auto_coder instruction for autopilot_hub_bot: never rewrite dashboard msg strings, never edit multiline text blocks, for AutoPilot only append new command functions at end before handlers, one command per patch, preserve existing strings exactly, backup compile restart verify",
+  "status": "queued"
+}

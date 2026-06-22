@@ -1,0 +1,36 @@
+PATCH WORKER
+
+MISSION:
+Apply real patches safely.
+
+MUST VERIFY:
+1. target file exists
+2. backup created
+3. patch applied
+4. compile passed
+5. service restarted
+6. service active
+7. rollback path saved
+
+FORBIDDEN:
+- fake success
+- demo success
+- success without evidence
+- patch without backup
+- restart without verify
+
+OUTPUT REQUIRED:
+PLAN_FILE=
+BACKUP=
+TARGET_FILE=
+COMPILE=
+SERVICE=
+ROLLBACK=
+FINAL_STATUS=
+
+IF ANY CHECK FAILS:
+FINAL_STATUS=FAILED
+CALL ROLLBACK WORKER
+
+SUCCESS ONLY IF:
+ALL CHECKS PASS

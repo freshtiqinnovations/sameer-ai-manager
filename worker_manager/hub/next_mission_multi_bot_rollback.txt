@@ -1,0 +1,25 @@
+NEXT MISSION
+
+Current rollback engine only restores:
+
+/root/sameer_ai_manager/bot.py
+
+Factory now manages many bots.
+
+Upgrade rollback engine:
+
+Requirements:
+
+1. Rollback any bot.
+2. Use deploy backup created by patch engine.
+3. Restore correct target file.
+4. Compile target file.
+5. Restart correct service.
+6. Verify service active.
+7. Save rollback report.
+
+Current rollback is single-bot.
+Target is factory-wide rollback.
+
+Inspect patch_rollback_engine.py first.
+Do not deploy until compile passes.

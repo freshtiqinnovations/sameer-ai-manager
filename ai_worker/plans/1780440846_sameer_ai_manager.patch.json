@@ -1,0 +1,10 @@
+{
+  "id": "1780440846225",
+  "bot": "sameer_ai_manager",
+  "target_file": "",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "unknown",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

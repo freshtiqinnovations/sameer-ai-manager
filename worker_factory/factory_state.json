@@ -1,0 +1,10 @@
+{
+  "time": 1780336332.2490187,
+  "total_workers": 8,
+  "status_count": {
+    "active": 1,
+    "planned": 1,
+    "generated": 6
+  },
+  "mode": "AUTO_WORKER_NETWORK"
+}

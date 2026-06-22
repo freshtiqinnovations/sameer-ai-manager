@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add a /stats command to display bot usage statistics.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new async function 'stats_cmd' to handle the /stats command.",
+    "2. In 'stats_cmd', gather statistics such as total leads saved and active users.",
+    "3. Format the statistics into a message string.",
+    "4. Use 'await update.message.reply_text' to send the statistics to the user.",
+    "5. Add a CommandHandler for the /stats command to the application."
+  ],
+  "risk": "Low - The new command is isolated and does not interfere with existing functionality."
+}
+```

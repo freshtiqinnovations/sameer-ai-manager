@@ -1,0 +1,18 @@
+{
+  "id": "1780433852874",
+  "bot": "sameer_ai_manager",
+  "task": "teach worker_auto strict stop rules: if PATCH_QUALITY ok false stop immediately move task to failed folder send CEO failed report; if AUTO_DEPLOY_RESULT contains NOT_APPROVED SAFE_PATCH_FAILED COMPILE_FAILED Traceback ok False then move task to failed folder not completed; never mark DONE unless deploy result ok True and service verify active; backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780433822_sameer_ai_manager.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "sameer_ai_manager",
+    "main": "/root/sameer_ai_manager/bot.py",
+    "service": "sameer_ai_manager.service",
+    "backup": "/root/backups/ai_patch_engine/sameer_ai_manager_1780433822.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780433852.8748028,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

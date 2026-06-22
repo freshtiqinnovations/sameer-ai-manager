@@ -1,0 +1,6 @@
+LOW_RISK=auto approve
+TEST_PASS=auto approve
+HIGH_RISK=human approval
+COMPILE_FAIL=reject
+SERVICE_FAIL=reject
+ROLLBACK_REQUIRED=reject

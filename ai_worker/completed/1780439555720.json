@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:02:35.720780",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /overdueprojects command only, show projects where deadline exists and delivery_status is not completed, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

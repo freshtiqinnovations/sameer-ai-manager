@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add /pay command to the Telegram bot to facilitate payment instructions.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new command handler function for /pay.",
+    "2. In the function, send a message with payment details including UPI, name, WhatsApp contact, and instructions to send a payment screenshot with the project ID.",
+    "3. Add the command handler to the application."
+  ],
+  "risk": "Low - Minimal changes to existing code and functionality."
+}
+```

@@ -1,0 +1,10 @@
+{
+  "id": "1780439925518",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def pricing_cmd(update, context):\n await update.message.reply_text(\"\u2705 /pricing command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"pricing\", pricing_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - Minimal changes to existing code, preserves all current functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

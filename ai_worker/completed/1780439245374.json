@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:57:25.374912",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /pipeline command only, show counts of projects by payment_status and delivery_status from lead json files, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

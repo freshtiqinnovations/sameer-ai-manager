@@ -1,0 +1,23 @@
+{
+  "factory": "ACTIVE",
+  "mode": "REAL_ONLY",
+  "progress_percent": 93,
+  "checks": {
+    "manager_active": true,
+    "worker_active": true,
+    "monitor_active": true,
+    "registry_file": true,
+    "status_file": true,
+    "rules_file": true,
+    "ceo_reporter": true,
+    "queue_folder": true,
+    "completed_folder": true,
+    "failed_zero": true,
+    "worker_network": true,
+    "pool_file": true,
+    "manager_file": true,
+    "auto_coder_rules": true
+  },
+  "last_update": "2026-06-03 02:04:49",
+  "auto_coder_rules": "CONNECTED"
+}

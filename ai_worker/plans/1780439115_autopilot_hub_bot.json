@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add an admin-only command to summarize project details.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin", "command", "project", "summary"],
+  "patch_plan": [
+    "1. Define a new command handler for /projectsummary.",
+    "2. Implement the command to check if the user is an admin.",
+    "3. Retrieve project details from the JSON file using PROJECT_ID.",
+    "4. Format the response message to include project ID, quotation amount, payment status, delivery status, progress, deadline, and latest note.",
+    "5. Send the formatted message to the admin."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, only adding a new command."
+}
+```

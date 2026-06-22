@@ -1,0 +1,10 @@
+{
+  "id": "1780256877312",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.add_handler(CommandHandler(\"leads\", leads))",
+  "replace_text": "async def exportleads(update, context):\n    files=sorted(Path(LEAD_DIR).glob(\"APH*.json\"), reverse=True)\n    if not files:\n        return await update.message.reply_text(\"No leads to export.\")\n    export_file=Path(LEAD_DIR, \"exported_leads.json\")\n    data=[json.loads(f.read_text()) for f in files]\n    export_file.write_text(json.dumps(data, indent=2))\n    await update.message.reply_text(\"\u2705 Leads exported on server:\\n\"+str(export_file))\n\napp.add_handler(CommandHandler(\"leads\", leads))\napp.add_handler(CommandHandler(\"exportleads\", exportleads))",
+  "compile_required": true,
+  "risk": "low",
+  "status": "READY_FOR_APPROVAL"
+}

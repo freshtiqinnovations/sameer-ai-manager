@@ -1,0 +1,16 @@
+MOBILE WORKFLOW
+
+/customer_list
+/customer_status BOTNAME
+/customer_logs BOTNAME
+/customer_restart BOTNAME
+/customer_backup BOTNAME
+/customer_files BOTNAME
+/customer_set_token BOTNAME TOKEN
+
+DEPLOY:
+ /deploy_customer NAME TOKEN
+
+EMERGENCY:
+ systemctl restart sameer_ai_manager
+ python3 -m py_compile /root/sameer_ai_manager/bot.py

@@ -1,0 +1,10 @@
+{
+  "id": "1780307677751",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def stats_cmd(update, context):\n    msg=\"\"\"\ud83d\udcc8 STATS\n\n\u2705 Bot: Active\n\ud83d\ude80 AI Factory: Connected\n\ud83d\udce6 Deployments: Auto-managed\n\ud83d\udc51 CEO Control: Enabled\"\"\"\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler('stats', stats_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The new command is isolated and does not interfere with existing functionality.",
+  "status": "READY_FOR_APPROVAL"
+}

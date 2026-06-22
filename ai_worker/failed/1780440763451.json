@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:22:43.451219",
+  "bot": "autopilot_hub_bot",
+  "task": "improve projects_cmd handler body only: read lead json files and show latest 10 projects with payment_status, delivery_status and progress_percent; do not add new commands or handlers; follow AUTOPILOT_RULE_001 to 005; backup compile restart verify",
+  "status": "queued"
+}

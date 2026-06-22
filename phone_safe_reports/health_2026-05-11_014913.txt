@@ -1,0 +1,25 @@
+SAMEER AI 24/7 HEALTH REPORT 2026-05-11_014913
+
+=== ALL SERVICES ===
+active
+active
+active
+
+=== MANAGER ===
+MANAGER_COMPILE_OK
+=== SALAMA ===
+SALAMA_COMPILE_OK
+=== FRESHTIQ ===
+FRESHTIQ_COMPILE_OK
+
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           388M  1.1M  387M   1% /run
+/dev/vda1       9.6G  4.5G  5.1G  48% /
+tmpfs           1.9G     0  1.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/vda15      105M  6.1M   99M   6% /boot/efi
+tmpfs           388M  4.0K  388M   1% /run/user/0
+
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       510Mi       879Mi       1.0Mi       2.4Gi       3.0Gi
+Swap:          511Mi          0B       511Mi

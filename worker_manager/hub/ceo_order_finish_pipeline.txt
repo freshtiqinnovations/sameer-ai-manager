@@ -1,0 +1,50 @@
+🚨 CEO ORDER
+
+Workers,
+
+Training complete.
+
+Factory deployed first production patch successfully.
+
+Good.
+
+Now no more theory.
+
+No more training documents.
+
+No more worker creation.
+
+Current objective:
+
+1. Auto trigger approved -> deploy
+2. Auto rollback helper
+3. Deployment report generator
+4. Archive completed deployments
+5. Improve patch generator quality
+
+Mandatory rule:
+
+If feature already exists:
+DO NOT REBUILD
+
+If lesson already exists:
+DO NOT REWRITE
+
+If module already works:
+DO NOT TOUCH
+
+Focus on:
+
+COMPLETE
+VERIFY
+REPORT
+
+Sameer wants:
+
+/upgrade BOT TASK
+
+and factory handles everything automatically.
+
+This is now the only priority.
+
+Back to work.

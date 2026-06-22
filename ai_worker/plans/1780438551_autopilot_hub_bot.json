@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add /myprojects command to list latest project IDs created by the user.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["app.add_handler(CommandHandler", "async def"],
+  "patch_plan": [
+    "1. Define a new command handler function `async def myprojects(update, context):`.",
+    "2. In the function, retrieve the user ID from `update.effective_user.id`.",
+    "3. Load all JSON files from `LEAD_DIR` and filter them based on the user ID.",
+    "4. Sort the filtered projects by creation time and limit to the latest 10.",
+    "5. Construct a message with the project IDs and send it to the user.",
+    "6. Add the command handler to the application: `app.add_handler(CommandHandler('myprojects', myprojects))`."
+  ],
+  "risk": "Low - Minimal changes to existing code structure, preserving all current features."
+}
+```

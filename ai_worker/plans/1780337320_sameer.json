@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Implement a dashboard command to provide a summary of bot status, including active services, task counts, and recent logs.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def tasks", "async def health", "async def logs"],
+  "patch_plan": [
+    {
+      "action": "add",
+      "code": "async def dashboard(update, context):\n    import subprocess\n    from datetime import datetime\n\n    # Get service statuses\n    manager_status = subprocess.getoutput('systemctl is-active sameer_ai_manager.service')\n    worker_status = subprocess.getoutput('systemctl is-active sameer_ai_worker_auto.service')\n\n    # Get task counts\n    queue_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/queue') if x.endswith('.json')])\n    completed_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/completed') if x.endswith('.json')])\n    failed_count = len([x for x in os.listdir('/root/sameer_ai_manager/ai_worker/failed') if x.endswith('.json')])\n\n    # Get recent logs\n    recent_logs = subprocess.getoutput('journalctl -u sameer_ai_manager.service -n 10 --no-pager')\n\n    # Create dashboard message\n    msg = f\"\"\"\n    📊 DASHBOARD STATUS\n\n    🤖 Sameer Manager: {manager_status}\n    🛠 Worker: {worker_status}\n\n    📦 Queue: {queue_count}\n    🟢 Completed: {completed_count}\n    🔴 Failed: {failed_count}\n\n    📜 Recent Logs:\n    {recent_logs}\n    \"\"\"\n\n    await update.message.reply_text(msg)",
+      "position": "after existing command handlers"
+    }
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionality. Ensure proper testing of the new command."
+}
+```

@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add /support command to provide WhatsApp contact and request Project ID plus issue.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["support", "buttons"],
+  "patch_plan": [
+    "1. Define a new command handler for /support.",
+    "2. Add the /support command to the existing command handlers.",
+    "3. Update the replies dictionary to include the new support message.",
+    "4. Ensure the /support command prompts the user to send their Project ID and issue."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, only adding a new command."
+}
+```

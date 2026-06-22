@@ -1,0 +1,18 @@
+```json
+{
+  "summary": "Add deploy success notification for CEO after deployment.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def deploy", "send notification", "CEO notification"],
+  "patch_plan": [
+    {
+      "action": "add",
+      "code": "async def notify_ceo(success):\n    ceo_chat_id = os.getenv('CEO_CHAT_ID')\n    message = 'Deployment was successful!' if success else 'Deployment failed!'\n    await context.bot.send_message(chat_id=ceo_chat_id, text=message)"
+    },
+    {
+      "action": "modify",
+      "code": "await notify_ceo(True)  # Call this after successful deployment"
+    }
+  ],
+  "risk": "Low - Minimal changes to existing code, preserves current functionality."
+}
+```

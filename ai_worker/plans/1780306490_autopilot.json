@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add a project dashboard command to the Telegram bot for better project management.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new function 'project_dashboard' that sends a message with project statistics.",
+    "2. Add a new command handler for '/project_dashboard' that links to the new function.",
+    "3. Ensure the new function does not interfere with existing commands and maintains the current functionality."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

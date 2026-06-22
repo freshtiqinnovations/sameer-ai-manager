@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add admin-only /logicplan command to notify about pending JSON logic phase.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def admin_dashboard", "app.add_handler(CommandHandler"],
+  "patch_plan": [
+    "1. Define a new async function 'logicplan' to handle the /logicplan command.",
+    "2. In the 'logicplan' function, send a message: 'Real JSON logic phase pending'.",
+    "3. Add a CommandHandler for the /logicplan command to the app."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, only adding a new command."
+}
+```

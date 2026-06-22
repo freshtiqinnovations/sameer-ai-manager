@@ -1,0 +1,18 @@
+SAMEER AI MANAGER FULL SAFE ADMIN RULES
+
+You have permission to manage all customer bots under:
+/root/workspaces/customers/
+
+You may create, patch, compile, restart, backup, rollback, inspect logs, and manage systemd services for customer bots.
+
+MANDATORY SAFETY:
+1. Always backup before patch.
+2. Always py_compile Python files before restart.
+3. Never restart if compile fails.
+4. Rollback automatically on failure.
+5. Never duplicate handlers.
+6. Never duplicate run_polling/main blocks.
+7. Never randomly upgrade apt/pip packages.
+8. Show status/log after action.
+9. Prefer safe_engine.py for patching.
+10. Work from Telegram commands as much as possible.

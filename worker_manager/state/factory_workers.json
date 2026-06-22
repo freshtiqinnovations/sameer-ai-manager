@@ -1,0 +1,41 @@
+{
+  "total": 6,
+  "workers": [
+    {
+      "worker_name": "worker_factory",
+      "service": "sameer_boss_manager.service",
+      "status": "active",
+      "created": "2026-06-01"
+    },
+    {
+      "worker_name": "failure_analyzer",
+      "service": "future_failure_analyzer.service",
+      "status": "planned",
+      "created": "2026-06-01"
+    },
+    {
+      "worker_name": "worker_creator",
+      "service": "future_worker_creator.service",
+      "status": "planned",
+      "created": "2026-06-01"
+    },
+    {
+      "worker_name": "test_worker",
+      "service": "future_test_worker.service",
+      "status": "generated",
+      "created": "2026-06-01"
+    },
+    {
+      "worker_name": "service_creator",
+      "service": "future_service_creator.service",
+      "status": "planned",
+      "purpose": "create systemd services for generated workers"
+    },
+    {
+      "worker_name": "worker_tester",
+      "service": "future_worker_tester.service",
+      "status": "planned",
+      "purpose": "compile and verify generated workers"
+    }
+  ]
+}

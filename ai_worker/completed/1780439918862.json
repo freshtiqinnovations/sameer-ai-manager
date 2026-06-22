@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:08:38.862601",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /pricing command only, show Website $999+, Bot $1500+, App/Web App $2500+, CRM/ERP $3000+, 25 percent advance required, final price depends on scope, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

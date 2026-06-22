@@ -1,0 +1,18 @@
+```json
+{
+  "summary": "Add deploy success notification for CEO in Telegram bot.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def deploy", "await update.message.reply_text"],
+  "patch_plan": [
+    {
+      "step": "Add a new function to handle deployment notifications.",
+      "code": "async def notify_ceo_deployment_success():\n    await context.bot.send_message(chat_id=ADMIN_ID, text='🚀 Deployment Successful!')"
+    },
+    {
+      "step": "Call the notification function after a successful deployment.",
+      "code": "await notify_ceo_deployment_success()"
+    }
+  ],
+  "risk": "Low - The patch adds a notification feature without altering existing functionalities."
+}
+```

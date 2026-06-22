@@ -1,0 +1,11 @@
+.env
+.env*
+venv/
+venv_new/
+__pycache__/
+*.log
+*.jsonl
+*.bak
+*.bak_*
+*.backup
+logs/

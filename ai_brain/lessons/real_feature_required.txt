@@ -1,0 +1,6 @@
+LESSON: REAL_FEATURE_REQUIRED
+Before deploy, worker must verify command exists.
+Verify handler registered.
+Verify menu/button exists.
+Verify output returns real data.
+If feature request is dashboard, dashboard must show live stats, not placeholder text.

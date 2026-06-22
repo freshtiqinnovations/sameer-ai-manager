@@ -1,0 +1,6 @@
+Before closing laptop:
+1. systemctl status sameer_ai_manager --no-pager
+2. /bots in Telegram
+3. /status in Telegram
+4. Do not run apt upgrade randomly
+5. Future work from Telegram only

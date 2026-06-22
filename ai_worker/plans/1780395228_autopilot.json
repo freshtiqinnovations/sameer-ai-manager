@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a new command /teststatus to check the status of a test project.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["app.add_handler", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new asynchronous function 'test_status_cmd' that takes 'update' and 'context' as parameters.",
+    "2. Inside 'test_status_cmd', send a message to the user indicating the status of the test project.",
+    "3. Add a new CommandHandler for '/teststatus' that links to the 'test_status_cmd' function.",
+    "4. Ensure the new command does not interfere with existing commands."
+  ],
+  "risk": "Low - The patch only adds a new command without modifying existing functionality."
+}
+```

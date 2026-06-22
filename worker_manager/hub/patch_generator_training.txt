@@ -1,0 +1,44 @@
+PATCH GENERATOR TRAINING
+
+Problem found in patch_generator.py:
+
+1. It returned escaped quotes:
+   CommandHandler(\"myid\", myid)
+
+Correct:
+   CommandHandler("myid", myid)
+
+2. It inserted function after app.add_handler.
+
+Wrong:
+   app.add_handler(...)
+   async def admin_dashboard(...)
+
+Correct:
+   async def admin_dashboard(...)
+   ...
+   app=ApplicationBuilder...
+   app.add_handler(...)
+
+3. It returned MANUAL_REQUIRED for export lead.
+
+Rule:
+If patch generator cannot create clean patch:
+- mark NEEDS_HUMAN_REVIEW
+- do not deploy
+
+Patch generator must produce:
+- exact search_text from file
+- valid replace_text Python
+- no escaped quotes
+- no broken structure
+- no duplicate handlers
+
+Before generating patch:
+1. inspect target file
+2. check feature exists
+3. find safe anchor
+4. create valid code
+5. run quality checker
+
+Never output broken patch.

@@ -1,0 +1,10 @@
+{
+  "id": "1780336809618",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new feature without modifying existing functionalities.",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

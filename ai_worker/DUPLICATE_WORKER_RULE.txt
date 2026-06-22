@@ -1,0 +1,1 @@
+ONLY sameer_ai_worker_auto.service is allowed to process queue. Do NOT run ai_worker/worker.py. If worker.py process appears, kill it and alert CEO. Keep worker.py disabled/renamed.\n

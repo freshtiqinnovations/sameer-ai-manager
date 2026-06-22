@@ -1,0 +1,10 @@
+{
+  "id": "1780309349072",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def notify_ceo(success):\n    ceo_chat_id = os.getenv('CEO_CHAT_ID')\n    message = 'Deployment was successful!' if success else 'Deployment failed!'\n    await context.bot.send_message(chat_id=ceo_chat_id, text=message)\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - Minimal changes to existing code, preserves current functionality.",
+  "status": "READY_FOR_APPROVAL"
+}

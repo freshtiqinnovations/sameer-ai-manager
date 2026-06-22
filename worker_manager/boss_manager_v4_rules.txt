@@ -1,0 +1,8 @@
+BOSS MANAGER V4
+1. Read failed/*.json automatically.
+2. Detect failure category.
+3. Categories: compile_error, backup_error, deploy_error, service_error, guard_error, unknown.
+4. Count failures by category.
+5. Store analysis in boss_report.json.
+6. Recommend retry or manual review.
+7. Include failure summary in CEO report.

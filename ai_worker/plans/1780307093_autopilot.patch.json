@@ -1,0 +1,10 @@
+{
+  "id": "1780307093203",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "Low - The new command is independent and does not affect existing functionality.",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

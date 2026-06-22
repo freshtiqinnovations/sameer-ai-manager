@@ -1,0 +1,22 @@
+{
+  "time": 1782129691.215059,
+  "services": {
+    "sameer_ai_manager.service": "active",
+    "sameer_ai_worker_auto.service": "active",
+    "sameer_approved_monitor.service": "active",
+    "autopilot_hub_bot.service": "active",
+    "freshtiq_ai_travel_pro.service": "inactive",
+    "salama_radiator_bot.service": "active"
+  },
+  "queue": 0,
+  "pending": 0,
+  "approved": 0,
+  "deployed": 32,
+  "rejected": 86,
+  "failed": 17,
+  "worker_auto_processes": "1",
+  "approved_monitor_processes": "1",
+  "latest_deployed": "/root/sameer_ai_manager/approval_queue/deployed/1780338864042.json",
+  "recent_deployments": "10",
+  "recent_failures": "10"
+}

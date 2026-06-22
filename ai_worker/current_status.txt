@@ -1,0 +1,3 @@
+🧪 Dry run OK
+Bot: autopilot_hub_bot
+Task: inspect_registry

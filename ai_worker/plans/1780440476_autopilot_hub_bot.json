@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add /howitworks command to explain project steps.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": "async def howitworks",
+  "patch_plan": [
+    "Define a new command handler for /howitworks.",
+    "Create an async function that sends a message detailing the steps: choose service, send requirement, get quotation, pay advance, track project id, delivery and support.",
+    "Add the command handler to the application."
+  ],
+  "risk": "Low - Minimal changes to existing features."
+}
+```

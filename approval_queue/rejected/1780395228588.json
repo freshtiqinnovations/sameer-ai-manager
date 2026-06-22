@@ -1,0 +1,18 @@
+{
+  "id": "1780395228588",
+  "bot": "autopilot",
+  "task": "add command /teststatus",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780395228_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780395228.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780395228.5889614,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

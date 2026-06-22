@@ -1,0 +1,10 @@
+{
+  "id": "1780440779454",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "Low - The patch only modifies the existing handler without introducing new commands or handlers.",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

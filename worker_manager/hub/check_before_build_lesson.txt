@@ -1,0 +1,31 @@
+CHECK BEFORE BUILD
+
+Today we almost created a rollback helper.
+
+Investigation found:
+
+patch_rollback_engine.py already exists
+rollback_latest.sh already exists
+
+Lesson:
+
+Before creating any module:
+
+1. Search project
+2. Check backups
+3. Check modules
+4. Check workers
+
+Only create if missing.
+
+Rule:
+
+Existing Working Module
+>
+New Duplicate Module
+
+Factory wastes time when duplicates are created.
+
+Factory wins when existing modules are reused.
+
+Always check before build.

@@ -1,0 +1,28 @@
+APPROVAL WORKER
+
+INPUT:
+- AI Plan
+- Dry Run Result
+- Backup Evidence
+- Compile Evidence
+- Service Verify Result
+
+APPROVE ONLY IF:
+- plan exists
+- backup exists
+- compile passed
+- service active
+- no fake/demo indicators
+
+REJECT IF:
+- missing evidence
+- compile fail
+- service fail
+- unsafe patch
+
+OUTPUT:
+APPROVED
+or
+REJECTED
+
+Every decision must include evidence.

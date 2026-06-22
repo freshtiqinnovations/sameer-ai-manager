@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add admin-only /projects command to display the latest 10 project IDs with user name, payment status, delivery status, and progress percentage from lead JSON files.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "CommandHandler", "async def"],
+  "patch_plan": [
+    "1. Define a new async function 'admin_projects' to handle the /projects command.",
+    "2. In 'admin_projects', read the latest 10 lead JSON files from LEAD_DIR.",
+    "3. Extract user name, payment_status, delivery_status, and progress_percent from each JSON file.",
+    "4. Format the extracted data into a message string.",
+    "5. Send the formatted message back to the admin using 'update.message.reply_text'.",
+    "6. Add a CommandHandler for the /projects command that points to the new 'admin_projects' function."
+  ],
+  "risk": "Low - The patch only adds a new command without altering existing functionalities."
+}
+```

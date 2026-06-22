@@ -1,0 +1,18 @@
+{
+  "id": "1780438914846",
+  "bot": "sameer_ai_manager",
+  "task": "improve auto_coder instruction for autopilot_hub_bot: never rewrite dashboard msg strings, never edit multiline text blocks, for AutoPilot only append new command functions at end before handlers, one command per patch, preserve existing strings exactly, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780438885_sameer_ai_manager.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "sameer_ai_manager",
+    "main": "/root/sameer_ai_manager/bot.py",
+    "service": "sameer_ai_manager.service",
+    "backup": "/root/backups/ai_patch_engine/sameer_ai_manager_1780438885.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780438914.8464515,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Implement a progress status live test command for the Telegram bot.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def tasks", "async def health"],
+  "patch_plan": [
+    "Add a new command handler for '/progress_status' that invokes a function to check the status of various components.",
+    "Create a new async function 'progress_status' that gathers and formats the status of the bot's components.",
+    "Use existing subprocess commands to check the status of the bot and its services.",
+    "Ensure the function replies to the user with the formatted status message."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

@@ -1,0 +1,22 @@
+TESTER WORKER
+
+INPUT:
+- target file
+- service name
+
+TESTS:
+1. python compile
+2. service active
+3. file exists
+4. backup exists
+
+RESULT:
+PASS
+FAIL
+
+IF FAIL:
+STOP DEPLOY
+REQUEST ROLLBACK
+
+IF PASS:
+READY_FOR_DEPLOY

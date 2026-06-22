@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add /ceotest2002 command to autopilot_hub_bot admin panel",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["app.add_handler(CommandHandler(\"paidprojects\", paidprojec", "app.run_polling()"],
+  "patch_plan": [
+    {
+      "action": "add_after_line",
+      "search": "app.add_handler(CommandHandler(\"paidprojects\", paidprojec",
+      "new_code": "async def ceotest2002_cmd(update, context):\n await update.message.reply_text(\"✅ /ceotest2002 command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"ceotest2002\", ceotest2002_cmd))"
+    }
+  ],
+  "risk": "LOW - Simple command addition following existing pattern. No existing functionality affected."
+}
+```

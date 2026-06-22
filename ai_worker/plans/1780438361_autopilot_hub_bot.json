@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add admin-only /setdeadline command to update project deadlines.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def admin_dashboard", "async def status_cmd"],
+  "patch_plan": [
+    "1. Define a new command handler for /setdeadline.",
+    "2. Implement the logic to parse PROJECT_ID and DATE from the command arguments.",
+    "3. Load the corresponding project JSON file using PROJECT_ID.",
+    "4. Update the 'deadline' field in the project JSON with the provided DATE.",
+    "5. Save the updated JSON back to the file.",
+    "6. Modify the existing /status command to include the updated deadline in the response."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, only adding a new command and modifying the status response."
+}
+```

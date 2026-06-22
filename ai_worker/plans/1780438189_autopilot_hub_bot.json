@@ -1,0 +1,19 @@
+```json
+{
+  "summary": "Add admin-only /setpayment command to update payment status and modify existing /status command to show payment status.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": [
+    "async def status_cmd",
+    "async def admin_dashboard"
+  ],
+  "patch_plan": [
+    "1. Add a new command handler for /setpayment.",
+    "2. Implement the /setpayment command to accept 'paid' or 'pending' and update the corresponding lead's payment_status field in the JSON file.",
+    "3. Modify the existing /status command to include the payment_status in the response.",
+    "4. Ensure that the /setpayment command is restricted to admin users only.",
+    "5. Backup the current state of the bot before applying changes.",
+    "6. Compile and restart the bot to verify the changes."
+  ],
+  "risk": "Low - The changes are minimal and focused on adding new functionality without altering existing features significantly."
+}
+```

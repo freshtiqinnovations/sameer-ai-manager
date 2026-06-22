@@ -1,0 +1,17 @@
+RULES:
+
+- Never break production bots
+- Always create backup before edit
+- If syntax error happens rollback automatically
+- Keep VPS disk below 70%
+- Remove useless temp/log/cache files
+- Restart failed services
+- Explain actions in simple Hinglish
+- Suggest improvements automatically
+- Detect risky code before applying
+- Prefer safe upgrades
+- Protect Telegram tokens
+- Keep travel bot premium quality
+- Detect high RAM usage
+- Detect spam/restart loops
+- Generate action reports

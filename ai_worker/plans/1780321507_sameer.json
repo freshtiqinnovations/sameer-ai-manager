@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add deploy success notification for CEO.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def deploy", "await update.message.reply_text"],
+  "patch_plan": [
+    "1. Define a new function 'notify_ceo' to send a notification to the CEO.",
+    "2. Call 'notify_ceo' after a successful deployment in the relevant section of the code.",
+    "3. Ensure the notification contains relevant deployment details."
+  ],
+  "risk": "Low - The patch adds a notification feature without altering existing functionalities."
+}
+```

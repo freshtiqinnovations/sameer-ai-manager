@@ -1,0 +1,71 @@
+MANAGER REPORTING SYSTEM
+
+EVERY WORKER MUST REPORT TO MANAGER:
+1. What task received
+2. What it checked
+3. What it found
+4. What it changed
+5. What backup created
+6. Compile result
+7. Service result
+8. Final status
+9. Next recommended action
+
+MANAGER MUST TRACK:
+- completed work
+- pending work
+- failed work
+- approved work
+- rejected work
+- duplicate work
+- human review work
+
+CURRENT COMPLETED:
+- First real production auto patch succeeded
+- AutoPilot Hub /exportleads added
+- safe_live_patch verified
+- autopilot_hub_bot.service active
+- Main worker_auto active
+- Planner working
+- Dry run working
+- Approval report working
+- Tester worker working
+- Auto approval worker working
+- Auto deploy worker compiled
+- Router worker working
+- Pool manager working
+- Worker hub created
+- Master rules saved
+- Full worker brain saved
+- Approval alert system saved
+
+CURRENT PENDING:
+- Admin dashboard approval pending
+- Patch generator AI must improve real search_text/replace_text
+- Auto deploy integration must be fully connected
+- Reporter worker must send Telegram reports
+- Multi-bot router needs full registry
+- Lock file system needed
+- Worker health monitor needed
+- /approve_patch command integration needed
+- /pending_approvals command needed
+- /factory_status command needed
+- /rollback_last command needed
+
+TEAMWORK RULES:
+- Workers read hub before work
+- Workers write results to hub after work
+- Workers do not hide errors
+- Workers do not duplicate patches
+- Workers ask Manager for high risk
+- Manager reports to Sameer
+- Sameer is final boss
+
+QUALITY RULE:
+Perfect means:
+- no fake success
+- no silent failure
+- no duplicate patch
+- no broken service
+- no missing rollback
+- no missing report

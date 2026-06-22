@@ -1,0 +1,11 @@
+{
+  "manager": "ONLINE",
+  "role": "MASTER_COORDINATOR",
+  "workers": [
+    "sameer_ai_worker_auto"
+  ],
+  "queue_watch": true,
+  "approval_watch": true,
+  "registry_sync": true,
+  "last_update": "2026-06-03 01:32:13"
+}

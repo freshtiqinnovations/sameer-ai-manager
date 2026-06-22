@@ -1,0 +1,7 @@
+{
+  "bot": "sameer",
+  "task": "add deploy success ceo notification final test",
+  "status": "failed",
+  "error": "Command 'tar -czf /root/backups/ai_patch_engine/sameer_1780321198.tar.gz /root/sameer_ai_manager' returned non-zero exit status 1.",
+  "failed_time": "2026-06-01 19:10:28.111287"
+}

@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add admin-only /todayprojects command to show project IDs created today from lead JSON files.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["def admin_dashboard", "app.add_handler(CommandHandler"],
+  "patch_plan": [
+    "1. Define a new function 'today_projects' to handle the /todayprojects command.",
+    "2. In 'today_projects', get the current date and filter JSON files in LEAD_DIR that match today's date.",
+    "3. Format the response message with the project IDs and send it to the admin.",
+    "4. Add a CommandHandler for the /todayprojects command to the application."
+  ],
+  "risk": "Low - The patch only adds a new command without altering existing functionalities."
+}
+```

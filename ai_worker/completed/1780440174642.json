@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:12:54.642832",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /ordererp command only, save a CRM ERP project inquiry lead with type erp_order and reply with project id plus next step /pay, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

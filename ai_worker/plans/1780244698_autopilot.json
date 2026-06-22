@@ -1,0 +1,20 @@
+```json
+{
+  "summary": "Add a lead export button to the admin panel of the Telegram bot.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["export", "lead", "button", "leads"],
+  "patch_plan": [
+    {
+      "action": "Add a new command handler for exporting leads.",
+      "code": "async def export_leads(update, context):\n    files = sorted(Path(LEAD_DIR).glob('APH*.json'), reverse=True)\n    if not files:\n        return await update.message.reply_text('No leads to export.')\n    export_data = [json.loads(f.read_text()) for f in files]\n    export_file = Path(LEAD_DIR, 'exported_leads.json')\n    with export_file.open('w') as f:\n        json.dump(export_data, f, indent=2)\n    await update.message.reply_text('Leads exported successfully! You can download it from the server.'),
+      "location": "After the existing command handlers."
+    },
+    {
+      "action": "Add a command to the menu for exporting leads.",
+      "code": "['📥 Export Leads', '📞 Contact']",
+      "location": "In the menu function."
+    }
+  ],
+  "risk": "Low - The new feature is isolated and does not interfere with existing functionalities."
+}
+```

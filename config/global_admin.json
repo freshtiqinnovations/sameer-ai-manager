@@ -1,0 +1,38 @@
+{
+  "sameer_ai_manager_mode": "FULL_SAFE_ADMIN",
+  "global_customer_workspace": "/root/workspaces/customers",
+  "allow_all_customer_bots": true,
+  "allow_create_new_bot": true,
+  "allow_patch_existing_bot": true,
+  "allow_backup": true,
+  "allow_compile": true,
+  "allow_restart": true,
+  "allow_logs": true,
+  "allow_rollback": true,
+  "allow_file_read": true,
+  "allow_file_write": true,
+  "allow_systemd_manage": true,
+  "safe_rules": {
+    "auto_backup_before_any_change": true,
+    "compile_before_restart": true,
+    "rollback_on_compile_fail": true,
+    "rollback_on_service_fail": true,
+    "avoid_duplicate_handlers": true,
+    "avoid_duplicate_run_polling": true,
+    "no_random_package_upgrade": true,
+    "customer_projects_only_by_default": true
+  },
+  "default_commands_required": [
+    "/master",
+    "/bots",
+    "/customer_files",
+    "/customer_compile",
+    "/customer_restart",
+    "/customer_logs",
+    "/customer_backup",
+    "/ai_fix",
+    "/approve_patch",
+    "/rollback",
+    "/deploy_customer"
+  ]
+}

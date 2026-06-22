@@ -1,0 +1,18 @@
+{
+  "id": "1780439192942",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /revenue command only, calculate total quotation_amount for paid projects from lead json files and count paid projects, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780439192_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780439192.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780439192.9425979,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

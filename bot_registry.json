@@ -1,0 +1,14 @@
+[
+{"service":"autopilot_hub_bot"},
+{"service":"freshtiq_ai_travel_pro"},
+{"service":"restaurant_demo_bot"},
+{"service":"salama_radiator_bot"},
+{"service":"salama_service_bot"},
+{"service":"sameer_ai_brain_loop"},
+{"service":"sameer_ai_manager"},
+{"service":"sameer_ai_worker"},
+{"service":"sameer_auto_heal"},
+{"service":"sameer_master_ai"},
+{"service":"sameer_repair_engine"},
+{"service":"sameer_watchdog"}
+]

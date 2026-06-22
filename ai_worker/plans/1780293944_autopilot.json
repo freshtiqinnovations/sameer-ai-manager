@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add a new /myprojects command to the Telegram bot to display user projects.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": [
+    "app.add_handler",
+    "CommandHandler"
+  ],
+  "patch_plan": [
+    "1. Define a new async function 'myprojects' that retrieves and displays the user's projects.",
+    "2. Add a CommandHandler for the /myprojects command to the application.",
+    "3. Ensure the function returns a message indicating no projects if the user has none."
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionality."
+}
+```

@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:40:37.658119",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setdelivery PROJECT_ID STATUS command only, update delivery_status field in lead/project json, show delivery status in existing /status PROJECT_ID, no payment changes, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

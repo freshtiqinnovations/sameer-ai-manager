@@ -1,0 +1,11 @@
+{
+  "id": "1780342042403",
+  "bot": "sameer",
+  "task": "Add a new command handler for the worker dashboard with live task counts.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "Low - The patch only adds a new command without modifying existing functionality.",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

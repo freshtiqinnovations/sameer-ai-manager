@@ -1,0 +1,7 @@
+{
+ "worker_name":"example_worker",
+ "purpose":"describe_worker_purpose",
+ "entrypoint":"worker.py",
+ "service":"example_worker.service",
+ "status":"template"
+}

@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:00:23.427784",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /lostleads command only, show projects where payment_status is pending or missing and progress_percent is 0 or missing, follow AUTOPILOT_RULE_001 to 005, backup compile restart verify",
+  "status": "queued"
+}

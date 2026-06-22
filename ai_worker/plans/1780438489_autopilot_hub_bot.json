@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add admin-only command to append project notes and display latest notes in status.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["status", "notes", "projectnote"],
+  "patch_plan": [
+    "1. Define a new command handler for /projectnote.",
+    "2. Check if the user is an admin before proceeding.",
+    "3. Append the provided note to the project's notes list in the corresponding JSON file.",
+    "4. Modify the existing /status command to include the latest notes from the project's notes list."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, but requires careful handling of file I/O."
+}
+```

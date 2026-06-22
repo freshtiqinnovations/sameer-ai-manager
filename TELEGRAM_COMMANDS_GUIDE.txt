@@ -1,0 +1,24 @@
+DAILY TELEGRAM COMMANDS
+
+/status
+/bots
+/master
+/backup
+/logs
+/logs_live
+/doctor
+/repair
+/rollback
+/customer_status
+/customer_backup
+/customer_compile
+/customer_restart
+/customer_logs
+/ai_fix
+/approve_patch
+/deploy_customer
+/brain your idea
+/run command
+
+SAFETY RULE:
+backup -> compile -> restart -> verify

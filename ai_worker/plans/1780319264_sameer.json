@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a notification for the CEO upon successful deployment of the bot.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def deploy", "async def handle_command"],
+  "patch_plan": [
+    "1. Define a new function `notify_ceo` that sends a message to the CEO's Telegram account.",
+    "2. Call `notify_ceo` after a successful deployment in the relevant command handling function.",
+    "3. Ensure that the notification includes details about the deployment status.",
+    "4. Test the notification functionality to confirm it works as intended."
+  ],
+  "risk": "Low - The patch adds a notification feature without altering existing functionalities."
+}
+```

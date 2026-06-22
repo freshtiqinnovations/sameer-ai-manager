@@ -1,0 +1,10 @@
+{
+  "id": "1780462457480",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def realtrack_cmd(update, context):\n await update.message.reply_text(\"\u2705 /realtrack command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"realtrack\", realtrack_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new command without altering existing functionality. Ensure proper error handling for file access.",
+  "status": "READY_FOR_APPROVAL"
+}

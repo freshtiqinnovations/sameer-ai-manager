@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:48:35.677387",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /pendingpayments command only, show latest projects where payment_status is not paid or missing, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

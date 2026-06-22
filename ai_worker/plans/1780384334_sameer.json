@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add a worker dashboard command to the Telegram bot while ensuring existing features remain intact.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def wdashboard"],
+  "patch_plan": [
+    "1. Add a new command handler for the worker dashboard.",
+    "2. Ensure the command is registered with the bot.",
+    "3. Test the command to verify it returns the correct worker status and statistics."
+  ],
+  "risk": "Low - The patch adds functionality without altering existing features."
+}
+```

@@ -1,0 +1,50 @@
+============================================================
+SAMEER OS — DISASTER RECOVERY MODE
+Generated: 2026-06-12T14:11:52
+============================================================
+
+📡 ACTIVE BOT SERVICES
+  🟢 flight_fare_ai.service → active (PID 3338200)
+  🟢 freshtiq_trader_bot.service → active (PID 3333153)
+  🟢 freshtiq_sales_bot.service → active (PID 3278605)
+  🟢 salama_service_bot.service → active (PID 3038585)
+  🟢 salama_radiator_bot.service → active (PID 3038607)
+  🟢 freshtiq_hotel_demo.service → active (PID 3354429)
+  🟢 autopilot_hub_bot.service → active (PID 3044120)
+  🟢 flight_scanner.service → active (PID 206518)
+  🟢 freshtiq_portal.service → active (PID 3346372)
+  🟢 website_lead_api.service → active (PID 205618)
+  🟢 sameer_ai_manager.service → active (PID 3354402)
+
+💾 BACKUPS STATUS
+  Brain snapshots: 2
+  Latest: brain_20260612_141107.json
+  daily: 10 files, 43KB
+  weekly: 0 files, 0KB
+  latest: 10 files, 43KB
+  Last backup: 2026-06-12T14:10:57
+
+🔄 RESTORE POINTS
+  brain_20260612_141107.json — 10KB, 7 lessons, 5 fixes
+  brain_20260612_141152.json — 10KB, 7 lessons, 5 fixes
+
+📌 LAST SNAPSHOT: brain_20260612_141152.json
+
+🚨 EMERGENCY RECOVERY STEPS
+  1. systemctl start sameer_ai_manager.service
+  2. python3 -m py_compile bot.py (verify code)
+  3. python3 -c 'import sam_disaster; r=sam_disaster.brain_snapshot(); print(r)'
+  4. python3 -c 'import sam_disaster; r=sam_disaster.restore_from_snapshot(); print(r)'
+  5. python3 sam_sync.py (restore registries)
+  6. /regsync via bot or wait 30min cron
+  7. /boss to verify health
+  8. /learnsync to rebuild learner.db if corrupted
+
+🤝 CROSS-SYSTEM HEALTH
+  SAM service: active
+  SAM PID: 3354402
+  SAM router entries: 40
+  OpenClaw registries: 6/6
+  Verdict: ALL_HEALTHY
+
+============================================================

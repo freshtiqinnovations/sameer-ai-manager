@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 02:23:57.209485",
+  "bot": "sameer_ai_manager",
+  "task": "fix worker_auto so failed deploy result must move task to failed folder not completed folder, detect SAFE_PATCH_FAILED COMPILE_FAILED Traceback ok false, send CEO failed report, backup compile restart verify",
+  "status": "queued"
+}

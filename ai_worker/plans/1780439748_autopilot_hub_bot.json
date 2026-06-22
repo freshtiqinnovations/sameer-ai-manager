@@ -1,0 +1,29 @@
+```json
+{
+  "summary": "Cleaned duplicate CommandHandler registrations in the admin_panel.py file.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": [
+    "app.add_handler(CommandHandler(\"admin\", admin_dashboard))",
+    "app.add_handler(CommandHandler(\"exportleads\", exportleads))",
+    "app.add_handler(CommandHandler(\"projects\", project_dashboard))"
+  ],
+  "patch_plan": [
+    {
+      "action": "remove",
+      "line": "app.add_handler(CommandHandler(\"admin\", admin_dashboard))",
+      "reason": "Duplicate registration of admin_dashboard handler."
+    },
+    {
+      "action": "remove",
+      "line": "app.add_handler(CommandHandler(\"exportleads\", exportleads))",
+      "reason": "Duplicate registration of exportleads handler."
+    },
+    {
+      "action": "remove",
+      "line": "app.add_handler(CommandHandler(\"projects\", project_dashboard))",
+      "reason": "Duplicate registration of project_dashboard handler."
+    }
+  ],
+  "risk": "Low - Existing features will remain intact as only duplicate registrations are removed."
+}
+```

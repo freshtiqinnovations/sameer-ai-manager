@@ -1,0 +1,17 @@
+```json
+{
+  "summary": "Add /projecttrack command to retrieve project details from JSON file.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new async function 'projecttrack_cmd' that takes 'update' and 'context' as parameters.",
+    "2. Check if context.args is provided; if not, reply with usage instructions.",
+    "3. Extract the PROJECT_ID from context.args.",
+    "4. Construct the file path using PROJECT_ID and check if the file exists.",
+    "5. If the file exists, read the JSON data and extract 'quotation_amount', 'payment_status', 'delivery_status', 'progress_percent', 'deadline', 'latest note', and 'latest followup'.",
+    "6. Format the extracted data into a message and send it as a reply.",
+    "7. Add a CommandHandler for '/projecttrack' that points to the new function."
+  ],
+  "risk": "Low - Minimal changes to existing code structure; ensures existing features remain intact."
+}
+```

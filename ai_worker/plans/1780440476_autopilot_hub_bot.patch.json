@@ -1,0 +1,10 @@
+{
+  "id": "1780440476983",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def howitworks_cmd(update, context):\n await update.message.reply_text(\"\u2705 /howitworks command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"howitworks\", howitworks_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - Minimal changes to existing features.",
+  "status": "READY_FOR_APPROVAL"
+}

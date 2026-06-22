@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a command to create a real worker dashboard summary for the Telegram bot.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def worker", "async def tasks"],
+  "patch_plan": [
+    {
+      "operation": "add",
+      "code": "async def worker_dashboard(update, context):\n    import subprocess\n    worker_status = subprocess.getoutput(\"systemctl is-active sameer_ai_worker_auto.service\")\n    task_status = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/queue | wc -l\")\n    completed_tasks = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/completed | wc -l\")\n    failed_tasks = subprocess.getoutput(\"ls /root/sameer_ai_manager/ai_worker/failed | wc -l\")\n    msg = f\"📊 WORKER DASHBOARD\\n\\n🛠 Worker Status: {worker_status}\\n🟡 Tasks in Queue: {task_status}\\n🟢 Completed Tasks: {completed_tasks}\\n🔴 Failed Tasks: {failed_tasks}\"\n    await update.message.reply_text(msg)"
+    }
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionalities."
+}
+```

@@ -1,0 +1,1 @@
+print("AUTO MODE OK")

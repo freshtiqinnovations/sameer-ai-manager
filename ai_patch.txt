@@ -1,0 +1,18 @@
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
+import asyncio
+
+async def handle_message(update: Update, context):
+    message_text = update.message.text.lower()
+    if any(keyword in message_text for keyword in ["upgrade", "feature add", "khud ko upgrade"]):
+        await update.message.reply_text("✅ Samjha. Main patch prepare kar sakta hoon. Approve karne ke liye /approve_patch bhejo.")
+        async with aiofiles.open('/root/sameer_ai_manager/ai_patch_request.txt', mode='a') as f:
+            await f.write(message_text + '\n')
+
+async def main():
+    application = ApplicationBuilder().token('YOUR_BOT_TOKEN').build()
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    await application.run_polling()
+
+if __name__ == '__main__':
+    asyncio.run(main())

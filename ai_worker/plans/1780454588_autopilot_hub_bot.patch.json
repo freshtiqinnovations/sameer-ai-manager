@@ -1,0 +1,10 @@
+{
+  "id": "1780454588486",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def track_cmd(update, context):\n await update.message.reply_text(\"\u2705 /track command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"track\", track_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - Minimal changes to existing code structure.",
+  "status": "READY_FOR_APPROVAL"
+}

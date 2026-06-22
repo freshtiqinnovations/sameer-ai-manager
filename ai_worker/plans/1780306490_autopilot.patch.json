@@ -1,0 +1,10 @@
+{
+  "id": "1780306490203",
+  "bot": "autopilot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def project_dashboard(update, context):\n    msg='\ud83d\udcca PROJECT DASHBOARD\\n\\n\u2705 Active Projects: AutoPilot Hub\\n\ud83d\ude80 AI Factory: Running\\n\ud83d\udc51 CEO: Sameer Ahmad\\n\ud83d\udccc Status: Under AI worker control'\n    await update.message.reply_text(msg)\n\napp.add_handler(CommandHandler('projects', project_dashboard))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new feature without altering existing functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

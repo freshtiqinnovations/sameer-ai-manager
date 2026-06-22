@@ -1,0 +1,1 @@
+{"factory_mode":"AUTO","boss":"sameer_boss_manager","workers":["worker_factory","worker_creator","failure_analyzer"],"next_workers":["service_creator","worker_tester","worker_repair","worker_deployer"],"goal":"workers_create_workers"}

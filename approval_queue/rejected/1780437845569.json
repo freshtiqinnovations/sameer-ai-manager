@@ -1,0 +1,18 @@
+{
+  "id": "1780437845569",
+  "bot": "sameer_ai_manager",
+  "task": "improve duplicate guard intelligence: if one feature already exists then continue scanning remaining requested features; show EXISTS and MISSING separately; only block exact duplicates; create upgrade plan for missing features only; backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780437815_sameer_ai_manager.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "sameer_ai_manager",
+    "main": "/root/sameer_ai_manager/bot.py",
+    "service": "sameer_ai_manager.service",
+    "backup": "/root/backups/ai_patch_engine/sameer_ai_manager_1780437816.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780437845.569461,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

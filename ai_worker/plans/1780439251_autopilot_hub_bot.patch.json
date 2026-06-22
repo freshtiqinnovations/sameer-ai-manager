@@ -1,0 +1,10 @@
+{
+  "id": "1780439252052",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def pipeline_cmd(update, context):\n await update.message.reply_text(\"\u2705 /pipeline command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"pipeline\", pipeline_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch is minimal and does not interfere with existing features.",
+  "status": "READY_FOR_APPROVAL"
+}

@@ -1,0 +1,164 @@
+
+import subprocess; subprocess.getoutput("python3 /root/.openclaw/workspace/brain_bootstrap.py")
+# --- CLEAN_AI_ROUTER_GUARD START ---
+def should_execute_as_shell(text_input):
+    clean = str(text_input).strip().lower()
+    if not clean: return False
+    # Only these exact words are allowed to trigger terminal subprocess
+    allowed_cmds = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'id']
+    first_word = clean.split()[0]
+    # If it's a long sentence or doesn't start with allowed commands, DO NOT RUN IN SHELL
+    if first_word not in allowed_cmds or len(clean.split()) > 4:
+        return False
+    return True
+# --- CLEAN_AI_ROUTER_GUARD END ---
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+import json, subprocess, asyncio, os, urllib.request
+import openclaw_brain
+from datetime import datetime, timezone
+from telegram import Update
+from telegram.constants import ChatAction
+from telegram.ext import Application, MessageHandler, CommandHandler, ContextTypes, filters
+
+CONFIG="/root/.openclaw/openclaw.json"
+ADMIN_ID=8649581921
+
+
+
+def read_memory():
+    base="/root/.openclaw/workspace/memory_core"
+    parts=[]
+    for name in ["MASTER_MEMORY.md","PROJECT_REGISTRY.md","CURRENT_STATUS.md","LESSONS_LEARNED.md","KNOWN_BOTS.md"]:
+        f=os.path.join(base,name)
+        if os.path.exists(f):
+            try:
+                parts.append(f"\n--- {name} ---\n"+open(f,errors="ignore").read()[:3500])
+            except Exception:
+                pass
+    return "\n".join(parts)[:12000]
+
+def evidence_report(text):
+    t=text.lower()
+    if any(x in t for x in ["project","bot","freshtiq","travel","app","website","sameer ai","openclaw","status","service"]):
+        try:
+            import projects_manager
+            r=projects_manager.status_all()
+            return "🧠 OPERATOR MODE\n\n"+str(r)[:3500]
+        except Exception as e:
+            pass
+        import subprocess, os
+        cmds=[
+            "systemctl list-units --type=service --state=running --no-pager --no-legend | egrep 'sameer|openclaw|freshtiq|salama|autopilot|trader' || true",
+            "find /root/workspaces/customers -maxdepth 2 -type d 2>/dev/null | head -80",
+            "ls -la /root/.openclaw/workspace/memory_core 2>/dev/null"
+        ]
+        out=[]
+        for c in cmds:
+            out.append("$ "+c+"\n"+subprocess.getoutput(c))
+        return "🧠 OPERATOR MODE — real VPS evidence\n\n"+"\n\n".join(out)[:3500]
+    return None
+
+
+def deepseek_reply(text):
+    key = os.getenv("DEEPSEEK_API_KEY")
+    if not key:
+        for f in ["/root/sameer_ai_manager/.env", "/root/.openclaw/.env", "/root/.openclaw/openclaw.env"]:
+            if os.path.exists(f):
+                for line in open(f, errors="ignore"):
+                    if line.startswith("DEEPSEEK_API_KEY="):
+                        key=line.split("=",1)[1].strip().strip('"').strip("'")
+                        break
+            if key:
+                break
+    if not key:
+        return "DeepSeek API key nahi mili bro. .env me DEEPSEEK_API_KEY set karo."
+
+    data=json.dumps({
+        "model":"deepseek-chat",
+        "messages":[
+            {"role":"system","content":"You are Sameer OpenClaw Operator. You are an AI Operator, not a generic chatbot. Use MEMORY below as source of truth, use Hinglish, never invent evidence. Normal chat is not shell. MEMORY:\n"+read_memory()},
+            {"role":"user","content":text}
+        ],
+        "max_tokens":350,
+        "temperature":0.4
+    }).encode()
+
+    req=urllib.request.Request(
+        "https://api.deepseek.com/v1/chat/completions",
+        data=data,
+        headers={"Authorization":"Bearer "+key, "Content-Type":"application/json"}
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as r:
+            j=json.loads(r.read())
+        return j["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        return "DeepSeek error: "+str(e)[:300]
+
+
+def token():
+    return json.load(open(CONFIG))["channels"]["telegram"]["botToken"]
+
+def sh(cmd, timeout=60):
+    try:
+        return subprocess.getoutput(cmd)[:3500] or "OK"
+    except Exception as e:
+        return str(e)
+
+def health():
+    names=[
+        "tor.service","sameer_ai_manager.service","openclaw_telegram.service",
+        "openclaw_chat.service","openclaw_webhook.service",
+        "openclaw_fortress.service","openclaw_watcher.service"
+    ]
+    out=["🧠 OPENCLAW LIVE STATUS"]
+    for n in names:
+        s=sh(f"systemctl is-active {n}").strip()
+        out.append(f"{'✅' if s=='active' else '❌'} {n}: {s}")
+    out.append("Failed units: "+sh("systemctl --failed --no-legend | wc -l").strip())
+    return "\n".join(out)
+
+async def send_long(msg, text):
+    for i in range(0, len(text), 3500):
+        await msg.reply_text(text[i:i+3500])
+
+async def start(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ OpenClaw Operator online.\nSend: status\nSend command: /sh systemctl --failed")
+
+async def handle(update:Update, context:ContextTypes.DEFAULT_TYPE):
+    msg=update.message
+    uid=update.effective_user.id
+    text=(msg.text or "").strip()
+    if uid != ADMIN_ID:
+        return await msg.reply_text("Unauthorized")
+    await context.bot.send_chat_action(chat_id=msg.chat_id, action=ChatAction.TYPING)
+    low=text.lower()
+    if low in ["status","/status","health","/health"]:
+        return await msg.reply_text(health())
+    if low in ["who are you","/who","hi","hello"]:
+        return await msg.reply_text("🧠 I am Sameer OpenClaw Operator. I am online and ready to repair/manage your VPS.")
+    if low.startswith("/sh "):
+        return await send_long(msg, "🖥 OUTPUT\n\n"+sh(text[4:]))
+    if low.startswith("/run "):
+        return await send_long(msg, "🖥 OUTPUT\n\n"+sh(text[5:]))
+    return await msg.reply_text(openclaw_brain.ask(text))
+
+def main():
+    app=Application.builder().token(token()).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT, handle))
+    app.run_polling(drop_pending_updates=True)
+
+if __name__=="__main__":
+    main()

@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add /terms command to provide pricing and project terms.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "Define a new async function 'terms_cmd' to handle the /terms command.",
+    "In 'terms_cmd', send a message detailing the terms: '25% advance required, scope-based pricing, no refund after development starts, timeline depends on requirement.'",
+    "Add the command handler for /terms to the application."
+  ],
+  "risk": "Low - Minimal changes to existing code, only adding a new command."
+}
+```

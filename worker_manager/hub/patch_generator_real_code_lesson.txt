@@ -1,0 +1,33 @@
+PATCH GENERATOR REAL CODE LESSON
+
+ROOT CAUSE VERIFIED
+
+Current code returns:
+
+return 'async def ...\n msg = \"...'
+
+This is TEXT.
+
+Manager needs REAL PYTHON CODE.
+
+RULE:
+
+replace_text must contain real newlines.
+
+BAD:
+\n
+\"
+
+GOOD:
+actual newline
+actual quote
+
+Before READY_FOR_APPROVAL:
+
+assert "\\n" not in replace_text
+assert "\\\"" not in replace_text
+
+If found:
+status=NEEDS_HUMAN_REVIEW
+
+Worker must generate executable code, not escaped text.

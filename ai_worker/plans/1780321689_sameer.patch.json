@@ -1,0 +1,10 @@
+{
+  "id": "1780321689579",
+  "bot": "sameer",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def notify_ceo(context, deployment_status):\n    import os\n    ceo_chat_id = os.getenv('CEO_CHAT_ID')\n    if ceo_chat_id:\n        await context.bot.send_message(chat_id=ceo_chat_id, text=f'\ud83d\ude80 DEPLOY REPORT\n\nStatus: {deployment_status}')\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a notification feature without altering existing functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

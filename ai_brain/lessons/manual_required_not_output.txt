@@ -1,0 +1,5 @@
+LESSON: MANUAL_REQUIRED_IS_NOT_OUTPUT
+Problem: dashboard with CommandHandler generated MANUAL_REQUIRED.
+Rule: Patch generator must not output MANUAL_REQUIRED for simple dashboard commands.
+Rule: If exact code cannot be generated, worker must output NEEDS_BETTER_PLAN and stop before patch quality.
+Rule: For worker dashboard, required code reads queue/completed/failed counts and registers CommandHandler('wdashboard', worker_dashboard).

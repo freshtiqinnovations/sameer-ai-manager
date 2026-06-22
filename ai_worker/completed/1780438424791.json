@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:43:44.791630",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setprogress PROJECT_ID PERCENT command only, update progress_percent field in lead/project json, show progress in existing /status PROJECT_ID, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

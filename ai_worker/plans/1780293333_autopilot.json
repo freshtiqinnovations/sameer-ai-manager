@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add a /status command to the Telegram bot to allow users to check the status of their project using the Project ID.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "CommandHandler"],
+  "patch_plan": [
+    "1. Define a new async function 'status' that takes 'update' and 'context' as parameters.",
+    "2. In the 'status' function, extract the project ID from the user's message.",
+    "3. Check if the corresponding JSON file exists in the LEAD_DIR.",
+    "4. If the file exists, read its content and send the status back to the user.",
+    "5. If the file does not exist, inform the user that the Project ID is invalid.",
+    "6. Add a CommandHandler for the /status command to the application."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

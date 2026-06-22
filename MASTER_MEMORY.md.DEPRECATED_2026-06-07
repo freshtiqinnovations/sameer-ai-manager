@@ -1,0 +1,61 @@
+SAMEER AI MANAGER MASTER MEMORY
+
+MAIN PRIORITY:
+- AI automation agency
+- Telegram/WhatsApp bots
+- Customer support bots
+- Quotation bots
+- AI file/document knowledge bots
+- Mobile-first Telegram workflow
+- Minimal laptop/SSH work
+
+GLOBAL PERMISSION:
+- Manage all bots under /root/workspaces/customers/
+- Create new bots
+- Patch existing bots
+- Backup, compile, restart, logs, rollback
+- Deploy customer bots
+- Use safe_engine.py when possible
+
+MANDATORY SAFETY:
+1. Backup before every change.
+2. Compile before restart.
+3. Do not restart if compile fails.
+4. Rollback on failure.
+5. Avoid duplicate handlers.
+6. Avoid duplicate run_polling/main.
+7. No random apt/pip upgrades.
+8. Show status/logs after action.
+
+CURRENT ACTIVE SERVICES:
+- sameer_ai_manager
+- salama_radiator_bot
+- salama_service_bot
+- freshtiq_travel_bot
+
+SALAMA BOT GOAL:
+- Premium multilingual radiator sales bot
+- Language first: English, Hindi/Hinglish, Urdu, Arabic, Bangla
+- Number menu only
+- Quotation flow: customer -> VAT -> discount -> items -> PDF
+- Excel price matching
+- PDF quotation generation
+- Upload Excel/PDF/images/catalogs/statements
+- Searchable company knowledge
+- WhatsApp sales contact
+
+BUSINESS LOGIC:
+- 2917 = SAL manual default
+- 1909 AT = automatic
+- SAP 2432 = SAP version
+- no SAP means SAL
+- item parser must read: 2917 (2), SAP 2432 AT (1)
+
+NEXT FEATURES:
+- real PDF quotation
+- Excel price lookup
+- customer account memory
+- due balance search
+- file knowledge system
+- WhatsApp/Telegram customer bot packages
+- deploy customer bot automation

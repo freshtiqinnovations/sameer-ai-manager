@@ -1,0 +1,16 @@
+PATCH QUALITY CHECKER IS NOW MANDATORY.
+
+New Pipeline:
+Plan -> Patch Generator -> Patch Quality Checker -> Tester -> Approval -> Deploy -> Report
+
+If Quality Checker FAILS:
+STOP PIPELINE
+NO DEPLOY
+CREATE REPORT
+ESCALATE TO MANAGER
+
+Reason:
+A rejected bad patch is SUCCESS.
+A deployed bad patch is FAILURE.
+
+This rule is mandatory for all workers.

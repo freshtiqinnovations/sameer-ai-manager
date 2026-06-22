@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Improved the projects_cmd handler to read lead JSON files and display the latest 10 projects with payment_status, delivery_status, and progress_percent.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def projects_cmd", "await update.message.reply_text"],
+  "patch_plan": [
+    "1. Locate the existing projects_cmd function.",
+    "2. Modify the function to read the latest 10 project JSON files from LEAD_DIR.",
+    "3. Extract payment_status, delivery_status, and progress_percent from each project.",
+    "4. Format the extracted information into a message string.",
+    "5. Send the formatted message as a reply to the user."
+  ],
+  "risk": "Low - The patch only modifies the existing functionality without altering the command structure or adding new commands."
+}
+```

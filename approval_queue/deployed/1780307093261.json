@@ -1,0 +1,24 @@
+{
+  "id": "1780307093261",
+  "bot": "autopilot",
+  "task": "add about command",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780307093_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780307093.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "approved_auto",
+  "created": 1780307093.261806,
+  "auto_test_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "auto_approval_decision": "AUTO_APPROVE",
+  "auto_approval_time": 1780307096.9933946,
+  "tester_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "patch_file": "/root/sameer_ai_manager/ai_worker/plans/1780307093_autopilot.patch.json",
+  "deploy_time": 1780307099.4943545,
+  "deploy_result": "{'ok': False, 'reason': 'NOT_APPROVED'}",
+  "final_status": "deploy_check_required"
+}

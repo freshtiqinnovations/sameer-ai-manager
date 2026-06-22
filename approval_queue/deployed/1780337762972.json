@@ -1,0 +1,22 @@
+{
+  "id": "1780337762972",
+  "bot": "sameer",
+  "task": "test worker progress status system",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780337732_sameer.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "sameer",
+    "main": "/root/sameer_ai_manager/bot.py",
+    "service": "sameer_ai_manager.service",
+    "backup": "/root/backups/ai_patch_engine/sameer_1780337733.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "approved_auto",
+  "created": 1780337762.972341,
+  "auto_test_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "auto_approval_decision": "AUTO_APPROVE",
+  "auto_approval_time": 1780337763.2874022,
+  "tester_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "guard_result": "{\n  \"ok\": false,\n  \"issues\": [\n    \"MANUAL_REQUIRED\"\n  ],\n  \"bot\": \"sameer\",\n  \"target_file\": \"/root/sameer_ai_manager/bot.py\"\n}",
+  "final_status": "blocked_by_guard"
+}

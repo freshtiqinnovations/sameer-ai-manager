@@ -1,0 +1,8 @@
+{
+  "time": "2026-06-02 22:08:35.810130",
+  "bot": "autopilot_hub_bot",
+  "task": "add command /factorytest2",
+  "status": "failed",
+  "error": "UNKNOWN_BOT autopilot_hub_bot",
+  "failed_time": "2026-06-02 22:08:41.187935"
+}

@@ -1,0 +1,32 @@
+APPROVE PATCH WORKER
+
+INPUT:
+- approved report
+- target bot
+- patch request
+
+USE ONLY:
+- patch_engine.safe_live_patch()
+- patch_engine.verify_service()
+- patch_engine.rollback_file()
+
+REQUIRED:
+1. backup exists
+2. patch applied
+3. compile passed
+4. service restarted
+5. service active
+6. evidence logged
+
+IF FAIL:
+- rollback immediately
+- mark FAILED
+
+IF SUCCESS:
+- mark SUCCESS
+- send report
+
+NEVER:
+- fake success
+- bypass verification
+- patch without backup

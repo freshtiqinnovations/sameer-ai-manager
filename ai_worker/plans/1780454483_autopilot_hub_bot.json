@@ -1,0 +1,18 @@
+```json
+{
+  "summary": "Remove duplicate status_cmd definitions and CommandHandler instances to clean up the code.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["status_cmd", "CommandHandler"],
+  "patch_plan": [
+    {
+      "action": "remove",
+      "lines": [212, 372, 387]
+    },
+    {
+      "action": "remove",
+      "lines": [215, 375]
+    }
+  ],
+  "risk": "Low - The patch only removes duplicates and preserves existing functionality."
+}
+```

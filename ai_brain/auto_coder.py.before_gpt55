@@ -1,0 +1,41 @@
+import os
+import pathlib
+from openai import OpenAI
+from dotenv import load_dotenv
+
+BASE="/root/sameer_ai_manager"
+load_dotenv(BASE+"/.env")
+client=OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+BOT_MAP={
+ "autopilot_hub_bot":{"path":"/root/monster_bot","main":"admin_panel.py","service":"autopilot_hub_bot.service"},
+ "sameer":{"path":"/root/sameer_ai_manager","main":"bot.py","service":"sameer_ai_manager.service"},
+ "freshtiq":{"path":"/root/workspaces/customers/freshtiq_ai_travel_pro","main":"bot.py","service":"freshtiq_ai_travel_pro.service"},
+ "salama":{"path":"/root/workspaces/customers/el_salama_radiator_factory","main":"bot.py","service":"salama_radiator_bot.service"}
+}
+
+FACTORY_RULES_PATH="/root/sameer_ai_manager/ai_brain/factory_master_rules.txt"
+
+def load_factory_rules():
+    try:
+        return Path(FACTORY_RULES_PATH).read_text(errors="ignore")[:8000]
+    except Exception:
+        return ""
+
+SYSTEM = """You are Sameer AI Auto Coder. Return ONLY JSON. Create safe patch plans for Telegram bot projects. Never fake success. Use minimal patch. Preserve existing features. Output keys: summary, target_file, search_terms, patch_plan, risk.\n\nYou MUST follow FACTORY MASTER RULES provided in the user prompt."""
+
+def plan(bot, task):
+    info=BOT_MAP.get(bot)
+    if not info:
+        return {"error":"UNKNOWN_BOT"}
+    target=pathlib.Path(info["path"], info["main"])
+    code=target.read_text(errors="ignore")[:12000]
+    prompt=f"FACTORY MASTER RULES:\n{load_factory_rules()}\n\nBOT={bot}\nTASK={task}\nFILE={target}\nCURRENT_CODE_HEAD:\n{code}"
+    r=client.chat.completions.create(model="gpt-4o-mini",messages=[{"role":"system","content":SYSTEM},{"role":"user","content":prompt}],temperature=0.2)
+    return r.choices[0].message.content
+
+if __name__=="__main__":
+    import sys
+    bot=sys.argv[1] if len(sys.argv)>1 else "autopilot"
+    task=" ".join(sys.argv[2:]) if len(sys.argv)>2 else "analyze project"
+    print(plan(bot, task))

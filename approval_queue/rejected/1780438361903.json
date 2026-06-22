@@ -1,0 +1,18 @@
+{
+  "id": "1780438361903",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setdeadline PROJECT_ID DATE command only, update deadline field in lead/project json, show deadline in existing /status PROJECT_ID, no dashboard rewrite, backup compile restart verify",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780438361_autopilot_hub_bot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot_hub_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_hub_bot_1780438361.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_quality",
+  "created": 1780438361.9030883,
+  "patch_quality_result": "{\"ok\": false, \"issues\":[\"NO_PATCH_FILE\"]}",
+  "auto_approval_decision": "REJECT_QUALITY"
+}

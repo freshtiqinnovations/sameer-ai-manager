@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a project status menu button to the Telegram bot.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["menu", "ReplyKeyboardMarkup", "KeyboardButton"],
+  "patch_plan": [
+    "1. Define a new button '📊 Project Status' in the existing menu function.",
+    "2. Update the menu function to include the new button.",
+    "3. Create a new handler function for the 'status' command to respond to the button.",
+    "4. Ensure the new button triggers the existing status command functionality."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

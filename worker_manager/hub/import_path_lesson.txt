@@ -1,0 +1,1 @@
+If a worker imports ai_brain, ai_worker, or factory modules, add: sys.path.append("/root/sameer_ai_manager") before imports. Root cause today: ModuleNotFoundError for ai_brain.

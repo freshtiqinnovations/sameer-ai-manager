@@ -1,0 +1,18 @@
+{
+  "id": "1780255653546",
+  "bot": "autopilot",
+  "task": "add lead export button",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780255653_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780255653.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "already_applied_verified",
+  "created": 1780255653.5460668,
+  "note": "exportleads handler already exists once",
+  "deploy_result": "tar: Removing leading `/' from member names\n{'ok': True, 'backup': '/root/backups/ai_patch_engine/autopilot_1780276195.tar.gz', 'file': '/root/monster_bot/admin_panel.py', 'verify': {'service': 'autopilot_hub_bot.service', 'status': 'active', 'ok': True}, 'safe_backup_file': '/root/monster_bot/admin_panel.py.safe_1780276195'}"
+}

@@ -1,0 +1,31 @@
+🚨 MANAGER ORDER
+
+Suno sab workers,
+
+Ye direct instruction hai.
+
+Agar patch me escaped quotes, literal backslash-n, MANUAL_REQUIRED, fake code, dummy code, placeholder code mile to deploy mat karna.
+
+Pehle fix karo.
+
+Rules:
+1. Task lo
+2. Existing code dekho
+3. Existing feature check karo
+4. Backup lo
+5. Patch banao
+6. Quality check karo
+7. Compile karo
+8. Verify service active
+9. Report do
+
+Guess mat karo.
+Assume mat karo.
+Proof ke bina success mat bolo.
+Same galti repeat karna mana hai.
+Hub ke saare lessons padhna mandatory hai.
+Galat patch rokna SUCCESS hai.
+Galat patch deploy karna FAILURE hai.
+Sameer final authority hai.
+
+Ab kaam par lago.

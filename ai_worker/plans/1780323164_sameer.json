@@ -1,0 +1,13 @@
+```json
+{
+  "summary": "Add a notification for the CEO after a successful deployment, ensuring it occurs only after a backup is completed.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def backupbot", "await update.message.reply_text"],
+  "patch_plan": [
+    "1. After the backup is completed successfully, add a notification message to the CEO.",
+    "2. Use the existing method of sending messages to notify the CEO.",
+    "3. Ensure that the notification includes details about the backup and the deployment status."
+  ],
+  "risk": "Low - The patch preserves existing features and only adds a notification after a successful backup."
+}
+```

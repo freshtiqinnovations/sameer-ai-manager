@@ -1,0 +1,18 @@
+```json
+{
+  "summary": "Add a factory dashboard command to the Telegram bot for monitoring factory status.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def salama_status_cmd", "async def salama_logs_cmd", "async def salama_health_cmd"],
+  "patch_plan": [
+    {
+      "action": "add",
+      "code": "async def factory_dashboard(update, context):\n    # Placeholder for factory dashboard logic\n    await update.message.reply_text('🏭 Factory Dashboard: Status and metrics will be displayed here.')"
+    },
+    {
+      "action": "add",
+      "code": "application.add_handler(CommandHandler('factory_dashboard', factory_dashboard))"
+    }
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionality."
+}
+```

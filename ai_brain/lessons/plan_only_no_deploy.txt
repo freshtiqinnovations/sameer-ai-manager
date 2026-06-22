@@ -1,0 +1,5 @@
+LESSON: PLAN_ONLY_NO_DEPLOY
+Problem: task said generate improvement plan only, but worker still created MANUAL_REQUIRED patch for bot.py.
+Rule: If task contains 'plan only' or 'generate plan only', worker must NOT create deploy patch.
+Rule: For plan-only tasks, write output to /root/sameer_ai_manager/ai_worker/plans/*.plan_only.txt and mark status PLAN_ONLY_DONE.
+Rule: Do not send plan-only task to patch_generator, quality checker, approval, or deploy.

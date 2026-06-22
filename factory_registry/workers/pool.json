@@ -1,0 +1,12 @@
+{
+  "pool": "ACTIVE",
+  "workers": [
+    "sameer_ai_worker_auto",
+    "planner_worker",
+    "tester_worker",
+    "deploy_worker",
+    "registry_worker"
+  ],
+  "status": "READY",
+  "last_update": "2026-06-03 01:32:43"
+}

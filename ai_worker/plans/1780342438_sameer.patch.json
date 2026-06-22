@@ -1,0 +1,11 @@
+{
+  "id": "1780342438618",
+  "bot": "sameer",
+  "task": "Safe patch plan to test the worker dashboard functionality after repair.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def test_worker_dashboard(update, context):\n    await update.message.reply_text('Testing worker dashboard...')\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The patch adds a new test command without affecting existing functionalities.",
+  "status": "READY_FOR_APPROVAL"
+}

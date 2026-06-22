@@ -1,0 +1,9 @@
+BOSS MANAGER V2 RULES
+1. Only one worker_auto process allowed.
+2. Only one approved_monitor process allowed.
+3. If duplicate worker found, alert/restart.
+4. If queue > 0 for long time, mark QUEUE_STUCK.
+5. If approved > 0 for long time, mark APPROVAL_STUCK.
+6. Track failed task count.
+7. Track latest deployed report.
+8. Write full status to boss_report.json.

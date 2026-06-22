@@ -1,0 +1,39 @@
+{
+  "time": 1780335563.8949156,
+  "task": {
+    "task": "factory_self_check",
+    "status": "queued",
+    "created": "2026-06-01"
+  },
+  "network_mode": "CONNECTED",
+  "steps": [
+    {
+      "boss_manager": "active"
+    },
+    {
+      "worker_creator": "active"
+    },
+    {
+      "worker_auto": "active"
+    },
+    {
+      "approved_monitor": "active"
+    },
+    {
+      "generated_worker": "active"
+    }
+  ],
+  "status": "CONNECTED_READY",
+  "handoff_chain": [
+    "boss_manager",
+    "worker_creator",
+    "worker_auto",
+    "approved_monitor",
+    "generated_worker"
+  ],
+  "work_started": true,
+  "worker_assignment": {
+    "factory_self_check": "generated_worker"
+  },
+  "final_status": "WORKERS_CONNECTED_TASK_STARTED"
+}

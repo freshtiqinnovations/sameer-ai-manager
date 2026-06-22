@@ -1,0 +1,19 @@
+{
+  "id": "1780293333797",
+  "bot": "autopilot",
+  "task": "add status command",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780293333_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780293333.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "rejected_auto",
+  "created": 1780293333.7978284,
+  "auto_test_result": "{\n  \"file_exists\": true,\n  \"compile_ok\": true,\n  \"service_active\": true,\n  \"status\": \"PASS\"\n}",
+  "auto_approval_decision": "REJECT",
+  "auto_approval_time": 1780296644.0941937
+}

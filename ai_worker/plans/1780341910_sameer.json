@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add a new command handler for the worker dashboard with live counts.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["from telegram.ext import CommandHandler", "async def tasks(update, context):"],
+  "patch_plan": [
+    "1. Define a new asynchronous function 'wdashboard' to handle the command.",
+    "2. Inside 'wdashboard', retrieve the current counts of tasks in the queue, completed, and failed directories.",
+    "3. Format the message to include these counts.",
+    "4. Use 'context.bot.send_message' to send the formatted message to the user.",
+    "5. Add a CommandHandler for 'wdashboard' to the application."
+  ],
+  "risk": "Low - The patch adds a new feature without modifying existing functionality."
+}
+```

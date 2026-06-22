@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:45:45.243190",
+  "bot": "autopilot_hub_bot",
+  "task": "add customer /myprojects command only, list latest project ids created by same Telegram user from lead json files, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

@@ -1,0 +1,102 @@
+===== SAMEER AI MANAGER V5 INVENTORY =====
+
+[SERVICES]
+  UNIT                           LOAD   ACTIVE SUB     DESCRIPTION
+  autopilot_hub_bot.service      loaded active running AutoPilot Hub Admin Panel
+  containerd.service             loaded active running containerd container runtime
+  cron.service                   loaded active running Regular background program processing daemon
+  dbus.service                   loaded active running D-Bus System Message Bus
+  docker.service                 loaded active running Docker Application Container Engine
+  fail2ban.service               loaded active running Fail2Ban Service
+  flight_scanner.service         loaded active running Freshtiq Flight Scanner Engine
+  freshtiq_ai_travel_pro.service loaded active running Freshtiq AI Travel Pro
+  getty@tty1.service             loaded active running Getty on tty1
+  irqbalance.service             loaded active running irqbalance daemon
+  multipathd.service             loaded active running Device-Mapper Multipath Device Controller
+  networkd-dispatcher.service    loaded active running Dispatcher daemon for systemd-networkd
+  packagekit.service             loaded active running PackageKit Daemon
+  polkit.service                 loaded active running Authorization Manager
+  qemu-guest-agent.service       loaded active running QEMU Guest Agent
+  restaurant_demo_bot.service    loaded active running Restaurant AI Demo Bot
+  rsyslog.service                loaded active running System Logging Service
+  salama_radiator_bot.service    loaded active running Salama Radiator Customer Bot
+  salama_service_bot.service     loaded active running salama_service_bot Bot
+  sameer_ai_brain_loop.service   loaded active running Sameer AI Brain Loop
+  sameer_ai_manager.service      loaded active running Sameer AI Manager Bot
+  sameer_ai_worker.service       loaded active running Sameer AI Autonomous Worker
+  sameer_auto_heal.service       loaded active running Sameer AI Auto Heal Engine
+  sameer_master_ai.service       loaded active running Sameer Master AI Engine
+  sameer_repair_engine.service   loaded active running Sameer AI Repair Engine
+  sameer_watchdog.service        loaded active running Sameer AI Watchdog
+  serial-getty@ttyS0.service     loaded active running Serial Getty on ttyS0
+  snap.cups.cups-browsed.service loaded active running Service for snap application cups.cups-browsed
+  snap.cups.cupsd.service        loaded active running Service for snap application cups.cupsd
+  snapd.service                  loaded active running Snap Daemon
+  ssh.service                    loaded active running OpenBSD Secure Shell server
+  systemd-journald.service       loaded active running Journal Service
+  systemd-logind.service         loaded active running User Login Management
+  systemd-networkd.service       loaded active running Network Configuration
+  systemd-resolved.service       loaded active running Network Name Resolution
+  systemd-timesyncd.service      loaded active running Network Time Synchronization
+  systemd-udevd.service          loaded active running Rule-based Manager for Device Events and Files
+  tor@default.service            loaded active running Anonymizing overlay network for TCP
+  unattended-upgrades.service    loaded active running Unattended Upgrades Shutdown
+  user@0.service                 loaded active running User Manager for UID 0
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+40 loaded units listed.
+
+[TIMERS]
+NEXT                        LEFT          LAST                        PASSED       UNIT                           ACTIVATES
+Sun 2026-05-31 13:11:22 IST 4min 8s left  Sun 2026-05-31 12:56:22 IST 10min ago    sameer_night_guard.timer       sameer_night_guard.service
+Sun 2026-05-31 13:21:21 IST 14min left    n/a                         n/a          sameer_self_check.timer        sameer_self_check.service
+Sun 2026-05-31 17:19:57 IST 4h 12min left n/a                         n/a          sameer_auto_cleanup.timer      sameer_auto_cleanup.service
+Sun 2026-05-31 22:17:13 IST 9h left       Sun 2026-05-31 08:27:41 IST 4h 39min ago motd-news.timer                motd-news.service
+Sun 2026-05-31 23:11:35 IST 10h left      Sun 2026-05-31 08:17:33 IST 4h 49min ago apt-daily.timer                apt-daily.service
+Sun 2026-05-31 23:40:00 IST 10h left      Sat 2026-05-30 23:40:00 IST 13h ago      update-notifier-download.timer update-notifier-download.service
+Sun 2026-05-31 23:49:59 IST 10h left      Sat 2026-05-30 23:49:59 IST 13h ago      systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Mon 2026-06-01 00:00:00 IST 10h left      Sun 2026-05-31 00:00:01 IST 13h ago      dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-06-01 00:00:00 IST 10h left      Sun 2026-05-31 00:00:01 IST 13h ago      logrotate.timer                logrotate.service
+Mon 2026-06-01 00:48:37 IST 11h left      Mon 2026-05-25 00:58:26 IST 6 days ago   fstrim.timer                   fstrim.service
+Mon 2026-06-01 03:30:00 IST 14h left      Sun 2026-05-31 03:30:01 IST 9h ago       sameer_auto_backup.timer       sameer_auto_backup.service
+Mon 2026-06-01 06:59:46 IST 17h left      Sun 2026-05-31 06:36:29 IST 6h ago       apt-daily-upgrade.timer        apt-daily-upgrade.service
+Mon 2026-06-01 07:18:09 IST 18h left      Sun 2026-05-31 03:41:20 IST 9h ago       man-db.timer                   man-db.service
+Tue 2026-06-02 13:41:50 IST 2 days left   Tue 2026-05-26 00:19:15 IST 5 days ago   update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-06-07 03:10:50 IST 6 days left   Sun 2026-05-31 03:10:33 IST 9h ago       e2scrub_all.timer              e2scrub_all.service
+
+15 timers listed.
+Pass --all to see loaded but inactive timers, too.
+
+[BOT PROJECTS]
+/root/deleted_customers/demo_client_2026-05-11_03-04/bot.py
+/root/customer_templates/appointment_bot/bot.py
+/root/customer_templates/travel_agency/bot.py
+/root/customer_templates/telegram_basic/bot.py
+/root/sameer_ai_manager/bot.py
+/root/workspaces/customers/salama_service_bot/bot.py
+/root/workspaces/customers/radiator_customer_bot/bot.py
+/root/workspaces/customers/football_school_bot/bot.py
+/root/workspaces/customers/testbot/bot.py
+/root/workspaces/customers/freshtiq_travel_agency_automation_add_ro/bot.py
+/root/workspaces/customers/testtravelbot_deleted_20260510_105812/bot.py
+/root/workspaces/customers/freshtiq_ai_travel_pro/bot.py
+/root/workspaces/customers/freshtiq_travel_automation/bot.py
+/root/workspaces/customers/mybot_deleted_20260510_105808/bot.py
+/root/workspaces/customers/mytravelbot/bot.py
+/root/workspaces/customers/test_radiator_bot/bot.py
+/root/workspaces/customers/azam_radiator/bot.py
+/root/workspaces/customers/kids_education_bot/bot.py
+/root/workspaces/customers/demo_test_bot/bot.py
+/root/workspaces/customers/el_salama_radiator_factory/bot.py
+/root/workspaces/customers/restaurant_demo_bot/bot.py
+/root/workspaces/customers/freshtiq_travel_agency_automation/bot.py
+/root/bot.py
+
+[SYSTEM]
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       117G   22G   95G  19% /
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       788Mi       491Mi       1.0Mi       6.5Gi       6.6Gi
+Swap:          511Mi       0.0Ki       511Mi

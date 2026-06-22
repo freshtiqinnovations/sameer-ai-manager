@@ -1,0 +1,68 @@
+
+# --- SMART_CONVERSATION_FILTER START ---
+def is_valid_terminal_command(text_input):
+    clean_text = str(text_input).strip().lower()
+    allowed = ['pwd', 'df', 'free', 'systemctl', 'ls', 'top', 'uptime', 'ifconfig']
+    if not clean_text: return False
+    first_word = clean_text.split()[0]
+    if first_word in allowed and len(clean_text.split()) <= 4:
+        return True
+    return False
+# --- SMART_CONVERSATION_FILTER END ---
+#!/usr/bin/env python3
+"""
+Real-time Inbox Watcher
+Monitors tasks_inbox.jsonl for changes using inotify (Linux).
+Processes tasks immediately instead of waiting for 5-min cron.
+"""
+import os
+import sys
+import time
+import json
+import subprocess
+from pathlib import Path
+
+INBOX = "/root/sameer_ai_manager/openclaw_bridge/tasks_inbox.jsonl"
+BRIDGE_WORKER = "/root/sameer_ai_manager/openclaw_bridge/bridge_worker.py"
+FORT_WORKER = "/root/sameer_ai_manager/openclaw_bridge/fortress_worker.py"
+LOG = "/root/sameer_ai_manager/openclaw_bridge/inbox_watcher.log"
+
+def log(msg):
+    ts = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
+    with open(LOG, "a") as f:
+        f.write(f"[{ts}] {msg}\n")
+    print(f"[{ts}] {msg}")
+
+def get_inbox_size():
+    p = Path(INBOX)
+    return p.stat().st_size if p.exists() else 0
+
+def process():
+    log("🔔 Inbox changed — processing")
+    # Run fortress first (safety checks)
+    subprocess.getoutput(f"python3 {FORT_WORKER} process")
+    # Then bridge worker (execute safe tasks)
+    subprocess.getoutput(f"python3 {BRIDGE_WORKER}")
+    log("✅ Processing complete")
+
+def watch():
+    log("📡 Inbox watcher started")
+    last_size = get_inbox_size()
+    
+    while True:
+        time.sleep(2)  # Poll every 2 seconds — lightweight
+        current_size = get_inbox_size()
+        
+        if current_size != last_size:
+            if current_size > 0:
+                process()
+            last_size = current_size
+        
+        # Also check if fortress service is running
+        status = subprocess.getoutput("systemctl is-active openclaw_fortress.service 2>/dev/null")
+        if status != "active":
+            log("⚠️ Fortress service down — attempting restart")
+            subprocess.getoutput("systemctl restart openclaw_fortress.service 2>/dev/null")
+
+if __name__ == "__main__":
+    watch()

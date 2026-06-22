@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 04:28:47.409419",
+  "bot": "autopilot_hub_bot",
+  "task": "improve status_cmd handler body only: if PROJECT_ID exists then read project json and display fields; do not add commands; follow AUTOPILOT_RULE_001 to 005; backup compile restart verify",
+  "status": "queued"
+}

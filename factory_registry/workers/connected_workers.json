@@ -1,0 +1,61 @@
+{
+  "network": "SAMEER_AI_FACTORY_WORKER_NETWORK",
+  "status": "CONNECTED",
+  "fake_demo_allowed": false,
+  "duplicate_guard": "REQUIRED",
+  "registry_required": true,
+  "backup_compile_verify_required": true,
+  "workers": {
+    "pool_manager": {
+      "path": "/root/sameer_ai_manager/workers/pool_manager",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "patch_generator": {
+      "path": "/root/sameer_ai_manager/workers/patch_generator",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "central_guard": {
+      "path": "/root/sameer_ai_manager/workers/central_guard",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "tester_worker": {
+      "path": "/root/sameer_ai_manager/workers/tester_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "patch_worker": {
+      "path": "/root/sameer_ai_manager/workers/patch_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "router_worker": {
+      "path": "/root/sameer_ai_manager/workers/router_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "auto_deploy_worker": {
+      "path": "/root/sameer_ai_manager/workers/auto_deploy_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "auto_approval_worker": {
+      "path": "/root/sameer_ai_manager/workers/auto_approval_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "approve_patch_worker": {
+      "path": "/root/sameer_ai_manager/workers/approve_patch_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    },
+    "ceo_manager_worker": {
+      "path": "/root/sameer_ai_manager/workers/ceo_manager_worker",
+      "status": "CONNECTED",
+      "rule": "REAL_ONLY_NO_FAKE_NO_DEMO"
+    }
+  },
+  "last_update": "2026-06-03 01:36:05"
+}

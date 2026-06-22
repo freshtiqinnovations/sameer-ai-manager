@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add a new command '/status' to check the status of a project by its ID.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def status_cmd", "app.add_handler(CommandHandler(\"status\", status_cmd))"],
+  "patch_plan": [
+    "Define the status_cmd function to handle the '/status' command.",
+    "Check if the user provided a project ID as an argument.",
+    "If the project ID is not provided, send a message prompting the user to use the correct format.",
+    "Check if the project file exists in the LEAD_DIR.",
+    "If the project file exists, read its content and extract relevant information.",
+    "Send a message back to the user with the project status details."
+  ],
+  "risk": "Low - The patch adds a new command without altering existing functionalities."
+}
+```

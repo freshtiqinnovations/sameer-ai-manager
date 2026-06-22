@@ -1,0 +1,42 @@
+import json
+import sys
+import time
+
+def load_plan(plan_file):
+    txt=open(plan_file).read().strip()
+    if txt.startswith(chr(96)*3):
+        txt=txt.split(chr(10),1)[1].rsplit(chr(96)*3,1)[0].strip()
+    return json.loads(txt)
+
+def auto_search(plan):
+    summary=(plan.get("summary","")+" "+" ".join(plan.get("search_terms",[]))).lower()
+    if "admin dashboard" in summary or "admin commands" in summary:
+        return 'app.add_handler(CommandHandler("myid", myid))'
+    if "export" in summary and "lead" in summary:
+        return 'app.add_handler(CommandHandler("leads", leads))'
+    return "MANUAL_REQUIRED"
+
+def auto_replace(plan):
+    summary=(plan.get("summary","")+" "+" ".join(plan.get("search_terms",[]))).lower()
+    if "admin dashboard" in summary or "admin commands" in summary:
+        return """async def admin_dashboard(update, context):
+    msg = "📊 ADMIN DASHBOARD\n\nCommands:\n/leads - View last leads\n/exportleads - Export all leads"
+    await update.message.reply_text(msg)
+
+app.add_handler(CommandHandler("myid", myid))
+app.add_handler(CommandHandler("admin", admin_dashboard))"""
+    if "export" in summary and "lead" in summary:
+        return "MANUAL_REQUIRED"
+    return "MANUAL_REQUIRED"
+
+def generate(plan_file):
+    plan=load_plan(plan_file)
+    search=auto_search(plan)
+    replace=auto_replace(plan)
+    req={"id":str(int(time.time()*1000)),"bot":"autopilot","target_file":plan.get("target_file",""),"search_text":search,"replace_text":replace,"compile_required":True,"risk":plan.get("risk","unknown"),"status":"READY_FOR_APPROVAL" if search!="MANUAL_REQUIRED" and replace!="MANUAL_REQUIRED" else "NEEDS_HUMAN_REVIEW"}
+    out=plan_file.replace('.json','.patch.json')
+    open(out,'w').write(json.dumps(req,indent=2))
+    return out
+
+if len(sys.argv)>1:
+    print(generate(sys.argv[1]))

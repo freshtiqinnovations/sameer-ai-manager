@@ -1,0 +1,16 @@
+```json
+{
+  "summary": "Add an admin-only /pipeline command to show counts of projects by payment_status and delivery_status from lead JSON files.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin", "pipeline", "payment_status", "delivery_status"],
+  "patch_plan": [
+    "1. Define a new command handler for /pipeline.",
+    "2. Implement logic to read all lead JSON files from LEAD_DIR.",
+    "3. Count projects based on payment_status and delivery_status.",
+    "4. Format the counts into a message.",
+    "5. Send the message to the admin when the /pipeline command is invoked.",
+    "6. Ensure the command is restricted to admin users only."
+  ],
+  "risk": "Low - The patch is minimal and does not interfere with existing features."
+}
+```

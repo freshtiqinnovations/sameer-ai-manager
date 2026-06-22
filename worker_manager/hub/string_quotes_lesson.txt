@@ -1,0 +1,46 @@
+STRING QUOTES LESSON
+
+ROOT CAUSE:
+
+Patch generator produced:
+
+return "CommandHandler("myid", myid)"
+
+Python closed string before myid.
+
+RESULT:
+
+SyntaxError
+
+RULE:
+
+If outer string uses:
+
+" ... "
+
+then inner quotes must be:
+
+"..."
+
+or
+
+'...'
+
+Examples:
+
+WRONG:
+return "CommandHandler("myid", myid)"
+
+CORRECT:
+return 'CommandHandler("myid", myid)'
+
+CORRECT:
+return "CommandHandler(\"myid\", myid)"
+
+Before saving patch_generator.py:
+
+1. Run py_compile
+2. Fix all quote collisions
+3. Never deploy SyntaxError code
+
+This failure is now saved as permanent worker memory.

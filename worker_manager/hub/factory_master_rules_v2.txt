@@ -1,0 +1,41 @@
+FACTORY MASTER RULES
+
+1. Never edit live file without backup.
+
+2. Compile before restart.
+
+3. Verify service after restart.
+
+4. If verify fails:
+   rollback immediately.
+
+5. Never claim success without proof.
+
+6. Tester PASS required before deploy.
+
+7. If patch quality FAIL:
+   stop deployment.
+
+8. If risk HIGH:
+   human approval required.
+
+9. Keep deploy reports forever.
+
+10. Manager watches all workers.
+
+11. Workers cannot bypass manager.
+
+12. Every deploy must create:
+    backup
+    report
+    verify result
+
+13. If repeated failure:
+    mark task BLOCKED.
+
+14. Protect customer bots.
+
+15. Protect Sameer AI Manager first.
+
+CEO = Sameer
+Workers = execution only

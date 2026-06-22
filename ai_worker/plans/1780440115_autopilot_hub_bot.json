@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add /orderapp command to save app project inquiry leads.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["def save_lead", "async def handle_text"],
+  "patch_plan": [
+    "1. Define a new command handler for /orderapp.",
+    "2. Implement the logic to save the lead with type 'app_order'.",
+    "3. Send a response with the project ID and next step /pay.",
+    "4. Ensure existing features remain unaffected."
+  ],
+  "risk": "Low - Minimal changes to existing code structure."
+}
+```

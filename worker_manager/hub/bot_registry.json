@@ -1,0 +1,22 @@
+{
+  "autopilot": {
+    "project": "/root/monster_bot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service"
+  },
+  "freshtiq": {
+    "project": "/root/workspaces/customers/freshtiq_ai_travel_pro",
+    "main": "/root/workspaces/customers/freshtiq_ai_travel_pro/bot.py",
+    "service": "freshtiq_ai_travel_pro.service"
+  },
+  "salama": {
+    "project": "/root/workspaces/customers/el_salama_radiator_factory",
+    "main": "/root/workspaces/customers/el_salama_radiator_factory/bot.py",
+    "service": "salama_radiator_bot.service"
+  },
+  "sameer": {
+    "project": "/root/sameer_ai_manager",
+    "main": "/root/sameer_ai_manager/bot.py",
+    "service": "sameer_ai_manager.service"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "1780438190038",
+  "bot": "autopilot_hub_bot",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "async def setpayment_cmd(update, context):\n await update.message.reply_text(\"\u2705 /setpayment command working from AutoPilot Hub!\")\n\napp.add_handler(CommandHandler(\"setpayment\", setpayment_cmd))\n\napp.run_polling(drop_pending_updates=True)",
+  "compile_required": true,
+  "risk": "Low - The changes are minimal and focused on adding new functionality without altering existing features significantly.",
+  "status": "READY_FOR_APPROVAL"
+}

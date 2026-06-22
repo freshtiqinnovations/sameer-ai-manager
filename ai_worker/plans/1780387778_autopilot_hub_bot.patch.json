@@ -1,0 +1,10 @@
+{
+  "id": "1780387779017",
+  "bot": "autopilot_hub_bot",
+  "target_file": "",
+  "search_text": "app.run_polling(drop_pending_updates=True)",
+  "replace_text": "MANUAL_REQUIRED",
+  "compile_required": true,
+  "risk": "unknown",
+  "status": "NEEDS_HUMAN_REVIEW"
+}

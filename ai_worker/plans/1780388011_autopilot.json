@@ -1,0 +1,12 @@
+```json
+{
+  "summary": "Add a new command /hello to the Telegram bot that replies with a greeting message.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["app.add_handler", "CommandHandler"],
+  "patch_plan": [
+    "Define a new asynchronous function hello_cmd that sends a greeting message.",
+    "Add a CommandHandler for the /hello command to the application."
+  ],
+  "risk": "Low - The addition of a simple command should not interfere with existing functionality."
+}
+```

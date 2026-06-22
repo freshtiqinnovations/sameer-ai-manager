@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add a new command for the worker dashboard to test live deployment.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["async def wdashboard"],
+  "patch_plan": [
+    "1. Define a new command function 'async def test_live_deploy(update, context)'.",
+    "2. Inside the function, use subprocess to run the deployment command.",
+    "3. Capture the output and send a reply message with the result.",
+    "4. Register the new command with the Telegram bot using CommandHandler."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

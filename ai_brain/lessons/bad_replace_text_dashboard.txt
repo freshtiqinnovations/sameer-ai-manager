@@ -1,0 +1,6 @@
+LESSON: BAD_REPLACE_TEXT_BLOCKED
+Task: add real factory dashboard with live worker counts.
+Result: worker generated bad replace_text and guard blocked.
+Rule: Worker must read bot.py first, find correct insertion point, add command handler, and return real dashboard code with live counts from boss_report.json and worker_factory registry.
+Rule: Dashboard task must include: /factorydashboard command, queue/pending/approved/deployed/failed counts, worker counts, active services, latest deployed report.
+Rule: If patch_generator cannot generate full feature, return NEEDS_BETTER_PLAN not deploy.

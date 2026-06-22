@@ -1,0 +1,13 @@
+[Unit]
+Description=Sameer AI Worker Creator Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/sameer_ai_manager/worker_factory
+ExecStart=/root/sameer_ai_manager/venv/bin/python /root/sameer_ai_manager/worker_factory/generated/worker_creator_service.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

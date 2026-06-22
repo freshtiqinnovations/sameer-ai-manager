@@ -1,0 +1,7 @@
+NEXT TASK: Add Freshtiq control commands
+1 /freshtiq_status
+2 /freshtiq_logs
+3 /freshtiq_backup
+4 /freshtiq_restart
+5 /freshtiq_patch_plan
+RULES: no duplicate handlers, backup before edit, compile before restart

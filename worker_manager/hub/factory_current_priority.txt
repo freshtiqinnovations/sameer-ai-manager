@@ -1,0 +1,35 @@
+CURRENT FACTORY PRIORITY
+
+DO NOT CREATE NEW WORKERS.
+
+DO NOT CREATE NEW THEORY FILES.
+
+MAIN GOAL:
+
+1. Fix patch_generator.
+2. Generate clean search_text.
+3. Generate clean replace_text.
+4. Pass patch_quality_checker.
+5. Pass tester.
+6. Connect approved -> deploy.
+7. Connect deploy -> report.
+8. Connect report -> archive.
+
+NO NEW WORKERS UNTIL THIS PIPELINE WORKS.
+
+Factory is now in STABILIZATION MODE.
+
+Focus on:
+quality
+deploy
+report
+rollback
+
+Not on:
+new workers
+new ideas
+new folders
+
+Manager must enforce this rule.
+
+Sameer wants working automation, not more unfinished modules.

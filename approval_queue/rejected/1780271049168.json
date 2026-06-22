@@ -1,0 +1,17 @@
+{
+  "id": "1780271049168",
+  "bot": "autopilot",
+  "task": "test auto worker final pipeline",
+  "plan_path": "/root/sameer_ai_manager/ai_worker/plans/1780271049_autopilot.json",
+  "dry_run": {
+    "ok": true,
+    "bot": "autopilot",
+    "main": "/root/monster_bot/admin_panel.py",
+    "service": "autopilot_hub_bot.service",
+    "backup": "/root/backups/ai_patch_engine/autopilot_1780271049.tar.gz",
+    "mode": "dry_run"
+  },
+  "status": "human_review_required",
+  "created": 1780271049.168365,
+  "reason": "deletelead can delete real lead data"
+}

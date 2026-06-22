@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 03:41:42.170827",
+  "bot": "autopilot_hub_bot",
+  "task": "add admin-only /setquote PROJECT_ID AMOUNT command only, update quotation_amount field in lead/project json, show quotation amount in existing /status PROJECT_ID, no dashboard rewrite, backup compile restart verify",
+  "status": "queued"
+}

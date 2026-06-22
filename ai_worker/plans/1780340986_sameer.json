@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add a new command handler for the worker dashboard with live counts.",
+  "target_file": "/root/sameer_ai_manager/bot.py",
+  "search_terms": ["CommandHandler", "async def"],
+  "patch_plan": [
+    "1. Define a new asynchronous function 'wdashboard' to handle the command.",
+    "2. Inside 'wdashboard', retrieve the current counts of tasks in the queue, completed, and failed directories.",
+    "3. Format the counts into a message string.",
+    "4. Use 'await update.message.reply_text()' to send the formatted message back to the user.",
+    "5. Register the new command handler with the application using 'CommandHandler('wdashboard', wdashboard)'."
+  ],
+  "risk": "Low - The patch adds a new feature without altering existing functionalities."
+}
+```

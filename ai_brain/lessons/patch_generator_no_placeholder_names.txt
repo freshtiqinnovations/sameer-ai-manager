@@ -1,0 +1,6 @@
+LESSON: PATCH_GENERATOR_NO_PLACEHOLDER_NAMES
+Problem: patch_generator created function name placeholder_test_quality_gate and text Placeholder test quality gate passed.
+Rule: Patch generator must never use placeholder/test/demo names for production tasks.
+Rule: If task is a test, create no deploy patch unless explicitly requested as safe test command.
+Rule: Function names must describe real feature, not placeholder/test.
+Rule: Quality checker must reject placeholder in function names and message text.

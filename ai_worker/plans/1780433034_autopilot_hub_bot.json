@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Cleaned duplicate exportleads handler and duplicate admin dashboard text, preserving functionality.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin_dashboard", "exportleads"],
+  "patch_plan": [
+    "Remove duplicate admin_dashboard function definitions, keeping only one.",
+    "Remove duplicate exportleads function definitions, keeping only one.",
+    "Ensure all references to the cleaned functions are intact.",
+    "Backup the current code before applying changes.",
+    "Compile and restart the bot to verify functionality."
+  ],
+  "risk": "Low - Existing features are preserved and only duplicates are removed."
+}
+```

@@ -1,0 +1,6 @@
+{
+  "time": "2026-06-03 02:27:01.969739",
+  "bot": "sameer_ai_manager",
+  "task": "teach worker_auto strict stop rules: if PATCH_QUALITY ok false stop immediately move task to failed folder send CEO failed report; if AUTO_DEPLOY_RESULT contains NOT_APPROVED SAFE_PATCH_FAILED COMPILE_FAILED Traceback ok False then move task to failed folder not completed; never mark DONE unless deploy result ok True and service verify active; backup compile restart verify",
+  "status": "queued"
+}

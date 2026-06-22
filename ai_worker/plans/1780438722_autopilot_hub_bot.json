@@ -1,0 +1,14 @@
+```json
+{
+  "summary": "Add admin-only /pendingpayments command to show latest projects with payment_status not paid or missing.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["admin", "dashboard", "commands"],
+  "patch_plan": [
+    "1. Define a new command handler for /pendingpayments.",
+    "2. Implement the logic to filter and display projects where payment_status is not 'paid' or 'missing'.",
+    "3. Ensure the command is accessible only to admin users.",
+    "4. Add the command handler to the application."
+  ],
+  "risk": "Low - Minimal changes to existing code, only adding a new command."
+}
+```

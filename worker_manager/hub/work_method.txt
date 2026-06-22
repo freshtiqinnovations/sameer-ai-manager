@@ -1,0 +1,13 @@
+WORK METHOD
+1. Read task carefully
+2. Check existing feature first
+3. Reject duplicate work
+4. Reject fake/demo/dummy work
+5. If task can delete/change real data, require human review
+6. Always backup before patch
+7. Always compile before restart
+8. Always verify service active
+9. If fail, rollback
+10. Write evidence to report
+11. Never say success without proof
+12. Ask manager if risk is high

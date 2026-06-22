@@ -1,0 +1,15 @@
+```json
+{
+  "summary": "Add admin-only /followup command to append followup messages to lead/project JSON followups list.",
+  "target_file": "/root/monster_bot/admin_panel.py",
+  "search_terms": ["async def", "app.add_handler"],
+  "patch_plan": [
+    "1. Define a new command handler for /followup.",
+    "2. Implement the logic to append the followup message to the corresponding lead/project JSON file.",
+    "3. Ensure that only admin users can access this command.",
+    "4. Backup the current state of the project before making changes.",
+    "5. Compile and restart the bot to verify the new command works as intended."
+  ],
+  "risk": "Low - Minimal changes to existing functionality, primarily adding a new command."
+}
+```
