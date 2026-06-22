@@ -9,3 +9,42 @@ __pycache__/
 *.bak_*
 *.backup
 logs/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Sessions
+session/
+sessions/
+*.session
+
+# Runtime
+tmp/
+temp/
+cache/
+
+# Python
+.pytest_cache/
+.mypy_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Secrets
+secrets/
+keys/
+*.pem
+*.key
+*.crt
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+
