@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
 Sitemap: https://freshtiqautomation.com/sitemap.xml
+
+# Disallow backup/old files
+Disallow: /*.bak
+Disallow: /*.bak2
+Disallow: /*.messy
+Disallow: /tmp/
