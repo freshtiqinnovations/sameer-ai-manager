@@ -34,6 +34,13 @@
   }
   </script>
   <meta name="google-site-verification" content="j9dbauIqgdcgh2NexpshJQSzPP1ayQUM7XuifqrNZLQ" />
+<style>
+  @media (max-width:600px){
+    .contact-form-grid{grid-template-columns:1fr !important;}
+    .contact-form-grid input,.contact-form-grid select,.contact-form-grid textarea{width:100% !important;box-sizing:border-box;}
+    textarea{width:100% !important;box-sizing:border-box;}
+  }
+</style>
 </head>
 <body>
 
@@ -211,7 +218,7 @@
       </div>
 
       <div style="max-width:700px;margin:0 auto;background:white;border-radius:16px;padding:30px;box-shadow:0 4px 25px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="contact-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
           <input type="text" id="salesName" placeholder="Your Name" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
           <input type="tel" id="salesPhone" placeholder="WhatsApp Number" style="padding:13px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;">
           
