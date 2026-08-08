@@ -1,4 +1,24 @@
 // Freshtiq AI Store — Render Engine
+const PRODUCT_PAGES = {
+  "Basic Support Bot": "products/telegram-crm-bot.html",
+  "Sales Bot": "products/whatsapp-ai-sales-bot.html",
+  "CRM Bot": "products/telegram-crm-bot.html",
+  "ERP Bot": "products/factory-erp.html",
+  "Factory ERP": "products/factory-erp.html",
+  "AI Assistant": "products/ai-customer-support.html",
+  "AI Agent": "products/ai-customer-support.html",
+  "Customer Support AI": "products/ai-customer-support.html",
+  "Sales AI": "products/whatsapp-ai-sales-bot.html",
+  "Lead Capture Bot": "products/field-sales-crm.html",
+  "Clinic Appointment Bot": "products/clinic-appointment-bot.html",
+  "Restaurant Bot": "products/restaurant-automation.html",
+  "Travel Bot": "products/travel-automation.html",
+  "Laundry Bot": "products/laundry-management.html",
+  "Inventory ERP": "products/factory-erp.html",
+  "HR System": "products/business-dashboard.html",
+  "Sales CRM": "products/field-sales-crm.html"
+};
+
 (function() {
   const grid = document.getElementById('storeGrid');
   const count = document.getElementById('storeCount');
@@ -47,6 +67,7 @@
           </div>
         </div>
         <div class="store-card-actions" style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${PRODUCT_PAGES[p.title] ? `<a href="${PRODUCT_PAGES[p.title]}" class="store-demo-btn" style="color:#0b5cff;font-weight:700;text-decoration:none;font-size:0.85rem;">📄 Details →</a>` : ''}
           <a href="${getWAUrl(p)}" target="_blank" class="store-wa-btn" style="background:#0b5cff;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'inquiry'})">💬 WhatsApp</a>
           <a href="${getQuoteWA(p)}" target="_blank" class="store-quote-btn" style="background:#0b5cff;color:#fff;font-weight:900;opacity:1;border:none" onclick="gtag('event','lead_form_submit',{'product':'${p.title}','action':'quote'})">📄 Get Quote</a>
           <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20demo%20of%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener" class="store-demo-btn" style="background:#0b5cff;color:#ffffff;font-weight:900;opacity:1;border:none" onclick="gtag('event','whatsapp_click',{'product':'${p.title}','action':'demo'})">📅 Book Demo</a>

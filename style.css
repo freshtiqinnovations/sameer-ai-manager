@@ -910,3 +910,9 @@ body { transition: background 0.3s ease, color 0.3s ease; }
 [data-theme="dark"] .bg-gradient { opacity: 0.3; }
 [data-theme="dark"] .orb { opacity: 0.4; }
 [data-theme="dark"] .nav { background: rgba(10,10,20,0.85); }
+
+/* ── Mobile trust-bar fix (Phase 2 candidate) ── */
+@media (max-width:480px){
+  .trust-item{white-space:normal;text-align:center;font-size:0.78rem}
+  .trust-inner{gap:14px;padding:14px 16px}
+}

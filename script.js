@@ -403,7 +403,7 @@ const id = 'APH' + new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 17)
 const score = Math.min(100, (budget === 'more50' ? 100 : budget === '25to50' ? 75 : budget === '10to25' ? 50 : 30) + (name.length > 0 ? 20 : 0));
 const label = score >= 80 ? 'Hot' : score >= 50 ? 'Warm' : 'Cold';
 try {
-const resp = await fetch('https://freshtiqautomation.in/api/lead', {
+const resp = await fetch('https://freshtiqautomation.in/api/lead  // GATE: switch to https://portal.freshtiqautomation.com/api/lead after portal DNS+TLS verified (payload mapping needed: project->service, budget->numeric, timeline->message)', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({
