@@ -10,7 +10,7 @@
   // ─── CONFIG ───
   const API = window.location.hostname.includes('87.76')
     ? '/api/chat'
-    : 'http://87.76.199.39/api/chat';  // GATE: switch to https://portal.freshtiqautomation.com/api/chat after DNS+TLS+CORS verified
+    : 'https://portal.freshtiqautomation.com/api/chat';
   const BRAIN_PROMPT = `You are Freshtiq Automation AI — a senior business automation consultant at Freshtiq Innovations OPC Private Limited.
 
 ## IDENTITY

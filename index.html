@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://freshtiqautomation.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Freshtiq Automation">
-  <meta property="og:image" content="https://freshtiqautomation.com/images/freshtiq-logo-v2.svg">
+  <meta property="og:image" content="https://freshtiqautomation.com/images/og-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://freshtiqautomation.com/">
   <link rel="icon" type="image/x-icon" href="https://freshtiqautomation.com/favicon.ico">
@@ -51,7 +51,7 @@
     "mainEntity": [
       {"@type": "Question", "name": "How much does automation cost?", "acceptedAnswer": {"@type": "Answer", "text": "One-time development starts at around ₹8,000 for a basic bot and scales with scope (CRM/ERP and full systems typically ₹25,000–₹2,00,000+). Managed support is optional, from ₹3,000/month. Every project gets a fixed written proposal before work starts."}},
       {"@type": "Question", "name": "How long does development take?", "acceptedAnswer": {"@type": "Answer", "text": "Simple bots usually ship in 3–7 days, most custom systems in 1–4 weeks depending on scope. You get a clear timeline in the proposal and weekly progress updates."}},
-      {"@type": "Question", "name": "Do I own the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You receive full source code and full ownership of what we build for you. No vendor lock-in, no hidden subscriptions."}},
+      {"@type": "Question", "name": "Do I own the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You receive the full source code for the custom work we build for you, with no vendor lock-in. Third-party and open-source components remain under their original licenses, and framework terms are stated in your proposal."}},
       {"@type": "Question", "name": "Can you work with Saudi and UAE companies?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We deliver remotely from India for clients across Saudi Arabia and the UAE, with English + Arabic support and local currency examples (SAR/AED) in proposals."}},
       {"@type": "Question", "name": "Is support optional?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. One-time development includes a short post-delivery support window. Optional managed support plans (from ₹3,000/month) cover monitoring, updates and priority assistance."}},
       {"@type": "Question", "name": "Do you integrate WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We build WhatsApp automation on the official WhatsApp Business API and provider platforms, including sales bots, order management, booking and support flows."}},
@@ -85,7 +85,7 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="logo" style="display:flex;align-items:center;gap:8px;text-decoration:none;"><img src="images/freshtiq-logo-v2.svg?v=2" alt="Freshtiq Automation" style="height:44px;width:auto;"></a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="services.html">Solutions</a>
         <a href="industries.html">Industries</a>
@@ -308,14 +308,14 @@
         <div class="section-tag">Questions</div>
         <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
       </div>
-      <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">How much does automation cost?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>One-time development starts at around ₹8,000 for a basic bot and scales with scope (CRM/ERP and full systems typically ₹25,000–₹2,00,000+). Managed support is optional, from ₹3,000/month. Every project gets a fixed written proposal before work starts.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does development take?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Simple bots usually ship in 3–7 days, most custom systems in 1–4 weeks depending on scope. You get a clear timeline in the proposal and weekly progress updates.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I own the source code?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. You receive full source code and full ownership of what we build for you. No vendor lock-in, no hidden subscriptions.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you work with Saudi and UAE companies?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We deliver remotely from India for clients across Saudi Arabia and the UAE, with English + Arabic support and local currency examples (SAR/AED) in proposals.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is support optional?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. One-time development includes a short post-delivery support window. Optional managed support plans (from ₹3,000/month) cover monitoring, updates and priority assistance.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you integrate WhatsApp?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We build WhatsApp automation on the official WhatsApp Business API and provider platforms, including sales bots, order management, booking and support flows.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you integrate with my existing CRM/ERP?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We integrate with common CRMs, ERPs, spreadsheets and existing tools — or build a custom system that centralises your operations.</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How does payment work?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Milestone-based: typically 50% to start and 50% on delivery for projects. Larger systems are split into agreed milestones. Payments via UPI, bank transfer or gateway, with a formal invoice and receipt.</p></div></div>
+      <div class="faq-item open"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How much does automation cost?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>One-time development starts at around ₹8,000 for a basic bot and scales with scope (CRM/ERP and full systems typically ₹25,000–₹2,00,000+). Managed support is optional, from ₹3,000/month. Every project gets a fixed written proposal before work starts.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How long does development take?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Simple bots usually ship in 3–7 days, most custom systems in 1–4 weeks depending on scope. You get a clear timeline in the proposal and weekly progress updates.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Do I own the source code?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. You receive the full source code for the custom work we build for you, with no vendor lock-in. Third-party and open-source components remain under their original licenses, and framework terms are stated in your proposal.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Can you work with Saudi and UAE companies?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We deliver remotely from India for clients across Saudi Arabia and the UAE, with English + Arabic support and local currency examples (SAR/AED) in proposals.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Is support optional?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. One-time development includes a short post-delivery support window. Optional managed support plans (from ₹3,000/month) cover monitoring, updates and priority assistance.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Do you integrate WhatsApp?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We build WhatsApp automation on the official WhatsApp Business API and provider platforms, including sales bots, order management, booking and support flows.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Can you integrate with my existing CRM/ERP?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We integrate with common CRMs, ERPs, spreadsheets and existing tools — or build a custom system that centralises your operations.</p></div></div>
+      <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How does payment work?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Milestone-based: typically 50% to start and 50% on delivery for projects. Larger systems are split into agreed milestones. Payments via UPI, bank transfer or gateway, with a formal invoice and receipt.</p></div></div>
     </div>
   </section>
 
@@ -381,7 +381,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p>
+        <p>&copy; 2025–2026 Freshtiq Innovations (OPC) Private Limited. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="privacy-policy.html">Privacy</a>
           <a href="terms-and-conditions.html">Terms</a>

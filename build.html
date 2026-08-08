@@ -120,7 +120,7 @@
           <a href="https://wa.me/918381848389" target="_blank" rel="noopener">&#128172; WhatsApp</a>
         </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; 2025–2026 Freshtiq Innovations (OPC) Private Limited. All rights reserved.</p></div>
     </div>
   </footer>
 
@@ -153,12 +153,32 @@
     localStorage.setItem('ftq_submitted', '1');
     // GA4 event
     gtag('event', 'build_form_submit', { industry: data.industry, country: data.country, budget: data.budget });
-    // Local queue (portal API integration pending DNS+TLS verification — see Phase 2 gate)
+    // Local queue (safety net)
     try {
       const q = JSON.parse(localStorage.getItem('ftq_build_requests') || '[]');
       q.push({ t: new Date().toISOString(), ...data });
       localStorage.setItem('ftq_build_requests', JSON.stringify(q));
     } catch(err) {}
+    // Portal API (live) — best effort; WhatsApp remains the fallback CTA
+    (async () => {
+      try {
+        const budgetMap = { 'Under ₹25,000 / SAR 1,100 / AED 1,100': 20000, '₹25,000–₹1,00,000': 75000, '₹1,00,000–₹3,00,000': 200000, '₹3,00,000+': 400000 };
+        await fetch('https://portal.freshtiqautomation.com/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            phone: data.phone,
+            email: data.email || '',
+            service: 'Build My Automation: ' + (data.automation || data.industry),
+            budget: budgetMap[data.budget] || 0,
+            country: data.country,
+            message: 'Industry: ' + data.industry + ' | Problem: ' + data.problem + ' | Team: ' + (data.team||'—') + ' | Tools: ' + (data.tools||'—') + ' | Timeline: ' + (data.timeline||'—'),
+            source: 'Build My Automation Form'
+          })
+        });
+      } catch(err) { console.log('Portal lead API unavailable; WhatsApp fallback shown:', err); }
+    })();
     // WhatsApp handoff with full context
     const msg = 'Hi Freshtiq! I want to automate my business.%0A%0A' +
       'Industry: ' + encodeURIComponent(data.industry) + '%0A' +

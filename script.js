@@ -403,19 +403,18 @@ const id = 'APH' + new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 17)
 const score = Math.min(100, (budget === 'more50' ? 100 : budget === '25to50' ? 75 : budget === '10to25' ? 50 : 30) + (name.length > 0 ? 20 : 0));
 const label = score >= 80 ? 'Hot' : score >= 50 ? 'Warm' : 'Cold';
 try {
-const resp = await fetch('https://freshtiqautomation.in/api/lead  // GATE: switch to https://portal.freshtiqautomation.com/api/lead after portal DNS+TLS verified (payload mapping needed: project->service, budget->numeric, timeline->message)', {
+const budgetNum = budget === 'more50' ? 200000 : budget === '25to50' ? 75000 : budget === '10to25' ? 20000 : 10000;
+const resp = await fetch('https://portal.freshtiqautomation.com/api/lead', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({
-lead_id: id,
-source: 'OpenClaw Consultant',
 name: name,
 phone: phone,
-project: project,
-budget: budget,
-timeline: timeline,
-score: score,
-label: label
+service: project,
+budget: budgetNum,
+message: timeline,
+source: 'Website Consultant Form',
+utm_source: new URLSearchParams(window.location.search).get('utm_source') || ''
 })
 });
 return id;
