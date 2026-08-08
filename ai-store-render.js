@@ -22,8 +22,20 @@ const PRODUCT_PAGES = {
 (function() {
   const grid = document.getElementById('storeGrid');
   const count = document.getElementById('storeCount');
-  const empty = document.getElementById('storeEmpty');
+  let empty = null;
   let currentFilter = 'all';
+
+  function ensureEmpty() {
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.className = 'store-empty';
+      empty.id = 'storeEmpty';
+      empty.textContent = 'No products match this filter.';
+      empty.style.display = 'none';
+      grid.parentNode.insertBefore(empty, grid.nextSibling);
+    }
+    return empty;
+  }
 
   function getWAUrl(product) {
     return 'https://wa.me/918381848389?text=I%20want%20' + encodeURIComponent(product.title) + '%2C%20please%20send%20details.';
@@ -37,11 +49,12 @@ const PRODUCT_PAGES = {
     grid.innerHTML = '';
 
     if (products.length === 0) {
-      empty.classList.add('visible');
+      const e = ensureEmpty();
+      e.style.display = 'block';
       count.textContent = '0';
       return;
     }
-    empty.classList.remove('visible');
+    if (empty) empty.style.display = 'none';
     count.textContent = products.length;
 
     products.forEach(p => {
