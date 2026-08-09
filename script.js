@@ -201,6 +201,7 @@ const estTime = timelineTexts[timeline] || '7–15 days';
 const msg = encodeURIComponent(
 `Hi Freshtiq Automation! I need a ${project}. Budget ${budget}. Timeline ${estTime}. Idea: ${idea || 'Tell me more'}. Name: ${name}`
 );
+if (typeof gtag === 'function') { try { gtag('event', 'sales_consult', { project: project, budget: budget, page: window.location.pathname }); } catch (err) {} }
 document.getElementById('salesResult').style.display = 'block';
 document.getElementById('salesResult').innerHTML = `
 <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:20px;">
@@ -474,3 +475,17 @@ setTimeout(function() { toast.remove(); }, 300);
 var style = document.createElement('style');
 style.textContent = '@keyframes fadeIn { from { opacity:0; transform:translateX(-50%) translateY(10px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }';
 document.head.appendChild(style);
+
+/* ===== Conversion tracking (GA4 events) — delegated, sitewide, CSP-safe ===== */
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a') : null;
+  if (!a || typeof gtag !== 'function') return;
+  var href = a.getAttribute('href') || '';
+  try {
+    if (href.indexOf('wa.me/918381848389') >= 0) {
+      gtag('event', 'whatsapp_click', { page: window.location.pathname });
+    } else if (href.indexOf('tel:') === 0) {
+      gtag('event', 'call_click', { page: window.location.pathname });
+    }
+  } catch (err) {}
+});
