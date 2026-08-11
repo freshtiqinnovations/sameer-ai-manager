@@ -89,13 +89,18 @@ const PRODUCT_PAGES = {
       grid.appendChild(card);
     });
 
-    // Trigger reveal animations
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight + 100) el.classList.add('visible');
-      });
-    });
+    // Trigger reveal animations — observer + safety net (never leave cards hidden → no empty store grid)
+    const revealCards = () => document.querySelectorAll('#storeGrid .store-card.reveal');
+    const showCard = (el) => el.classList.add('visible');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { showCard(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
+      revealCards().forEach((el) => io.observe(el));
+      setTimeout(() => revealCards().forEach((el) => { if (!el.classList.contains('visible')) showCard(el); }), 1500);
+    } else {
+      revealCards().forEach(showCard);
+    }
   }
 
   function filterProducts(filter) {

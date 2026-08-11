@@ -37,6 +37,32 @@ fadeElements.forEach(function(el) {
 fadeObserver.observe(el);
 });
 }
+/* ═══ UNIFIED REVEAL-ON-SCROLL — .reveal / .reveal-left / .reveal-right / .reveal-scale / .stagger ═══
+   Fixes: content previously stayed opacity:0 forever (no observer attached), causing giant blank gaps. */
+(function () {
+  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger');
+  if (!revealEls.length) return;
+  function show(el) {
+    if (el.classList.contains('stagger')) el.classList.add('active');
+    el.classList.add('visible');
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { show(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+    /* Safety net: never leave content hidden after load (prevents blank gaps even if observer misfires) */
+    setTimeout(function () {
+      revealEls.forEach(function (el) {
+        if (!el.classList.contains('visible') && !el.classList.contains('active')) show(el);
+      });
+    }, 1200);
+  } else {
+    revealEls.forEach(show);
+  }
+})();
 const track = document.querySelector('.testimonials-track');
 const dots = document.querySelectorAll('.dot');
 const prevBtn = document.querySelector('.testimonial-arrow.prev');
