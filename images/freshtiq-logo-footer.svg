@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 72" width="330" height="72" role="img" aria-label="Freshtiq Automation">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12bff3"/><stop offset="0.48" stop-color="#0b5cff"/><stop offset="1" stop-color="#6d28d9"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#030b1c" flood-opacity=".35"/></filter></defs>
+<g filter="url(#s)"><rect x="2" y="2" width="68" height="68" rx="18" fill="url(#g)"/><path d="M20 18h34v11H31v8h20v10H31v16H20V18z" fill="#fff"/><circle cx="55" cy="55" r="6" fill="#67e8f9"/><path d="M51 55h8M55 51v8" stroke="#083278" stroke-width="2" stroke-linecap="round"/></g>
+<text x="88" y="33" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="25" letter-spacing=".6">FRESHTIQ</text>
+<text x="89" y="55" fill="#a9c8ff" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="13" letter-spacing="4.1">AUTOMATION</text>
+</svg>

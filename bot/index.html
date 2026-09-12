@@ -183,4 +183,5 @@ function selectPay(el,t){document.querySelectorAll('.pay-opt').forEach(x=>x.styl
 document.getElementById('payBtn').onclick=()=>{document.getElementById('payRes').innerHTML='<div class="rbox ok">✅ Payment ₹'+document.getElementById('payAmt').value+' initiated!</div>';};
 async function loadRates(){try{const r=await fetch(api('/rates'));const d=await r.json();if(d.rate&&d.market){document.getElementById('p2pRate').innerText=d.rate;document.getElementById('p2pMarket').innerText=d.market;}}catch(e){}}
 loadRates();setInterval(loadRates,30000);
-</script></body></html>
+</script>  <script src="/freshtiq-i18n.js?v=20260912p3"></script>
+</body></html>
