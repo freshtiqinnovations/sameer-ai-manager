@@ -515,3 +515,29 @@ document.addEventListener('click', function (e) {
     }
   } catch (err) {}
 });
+
+/* === Homepage high-intent lead capture 2026-09-12 === */
+(function(){
+  var form=document.getElementById('heroLeadForm'); if(!form) return;
+  var status=document.getElementById('heroLeadStatus');
+  var qs=new URLSearchParams(window.location.search);
+  form.addEventListener('submit',async function(e){
+    e.preventDefault(); if(document.getElementById('heroLeadWebsite').value) return;
+    var btn=form.querySelector('button[type="submit"]');
+    var name=document.getElementById('heroLeadName').value.trim();
+    var phone=document.getElementById('heroLeadPhone').value.trim();
+    var country=document.getElementById('heroLeadCountry').value;
+    var need=document.getElementById('heroLeadNeed').value;
+    if(!name||!phone||!country||!need){status.className='lead-status err';status.textContent='Please fill all 4 fields.';return;}
+    btn.disabled=true; btn.textContent='Sending…'; status.className='lead-status'; status.textContent='';
+    try{
+      var payload={name:name,phone:phone,country:country,service:need,message:'Homepage free automation audit request',source:'Homepage Free Audit',utm_source:qs.get('utm_source')||'organic_direct',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',utm_term:qs.get('utm_term')||''};
+      var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');
+      status.className='lead-status ok'; status.textContent='✓ Request received. We will review your workflow and contact you on WhatsApp.';
+      try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_source:'homepage_audit',country:country,service:need});}catch(_e){}
+      form.reset();
+    }catch(err){status.className='lead-status err';status.innerHTML='Could not save the request. <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20automation%20audit." target="_blank" rel="noopener">Continue on WhatsApp</a>.';}
+    finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
+  });
+})();

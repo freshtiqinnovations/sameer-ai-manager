@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Freshtiq Automation">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06b6d4"/><stop offset=".5" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+<rect x="8" y="8" width="240" height="240" rx="68" fill="url(#g)"/>
+<path d="M70 56h118c13 0 23 10 23 23s-10 23-23 23h-76v31h57c13 0 23 10 23 23s-10 23-23 23h-57v47H70V56Z" fill="#fff"/>
+<circle cx="192" cy="199" r="17" fill="#67e8f9"/><path d="M187 180v-48h27" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,22 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 76" role="img" aria-labelledby="title desc">
+  <title id="title">Freshtiq Automation</title><desc id="desc">Freshtiq Automation premium AI automation logo</desc>
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1d4ed8"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb"/>
-      <stop offset="100%" style="stop-color:#7c3aed"/>
-    </linearGradient>
-    <linearGradient id="gt" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1d4ed8"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06b6d4"/><stop offset=".48" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1d4ed8" flood-opacity=".18"/></filter>
   </defs>
-  <!-- F Mark — rounded square with large F -->
-  <rect x="0" y="4" width="50" height="52" rx="13" fill="url(#g1)"/>
-  <text x="8" y="44" font-size="38" fill="white" font-weight="900" font-family="Arial,Helvetica,sans-serif" letter-spacing="-1">F</text>
-  <!-- Brand name -->
-  <text x="64" y="26" font-size="22" fill="#0f172a" font-weight="900" font-family="Arial,Helvetica,sans-serif" letter-spacing="0.3">Freshtiq</text>
-  <text x="64" y="44" font-size="16" fill="url(#gt)" font-weight="800" font-family="Arial,Helvetica,sans-serif" letter-spacing="2">AUTOMATION</text>
+  <g filter="url(#shadow)"><rect x="4" y="4" width="68" height="68" rx="20" fill="url(#mark)"/>
+    <path d="M24 20h31a5 5 0 0 1 0 10H34v9h16a5 5 0 0 1 0 10H34v13H24V20Z" fill="#fff"/>
+    <circle cx="58" cy="58" r="5" fill="#67e8f9"/><path d="M56 52V39h7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="88" y="36" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" letter-spacing="-.8" fill="url(#word)">FRESHTIQ</text>
+  <text x="90" y="58" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="4.1" fill="#2563eb">AUTOMATION</text>
+  <circle cx="304" cy="20" r="4" fill="#06b6d4"/><circle cx="314" cy="20" r="2" fill="#7c3aed" opacity=".75"/>
 </svg>
