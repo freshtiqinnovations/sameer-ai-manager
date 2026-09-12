@@ -1,22 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pay Freshtiq Automation — UPI, Bank Transfer, Payment Proof Upload. Secure milestone payments for your project." />
-  <meta property="og:title" content="Make Payment — Freshtiq Automation" />
-  <meta property="og:description" content="Submit payment via UPI or Bank Transfer. Upload payment proof to confirm your project milestone." />
-  <meta property="og:url" content="https://freshtiqautomation.com/payment.html" />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://freshtiqautomation.com/payment.html" />
-  <title>Make Payment — Freshtiq Automation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260912p3" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y80ZGMYR1Y"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y80ZGMYR1Y');</script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Pay Freshtiq Automation — UPI, Bank Transfer, Payment Proof Upload. Secure milestone payments for your project." name="description"/>
+<meta content="Make Payment — Freshtiq Automation" property="og:title"/>
+<meta content="Submit payment via UPI or Bank Transfer. Upload payment proof to confirm your project milestone." property="og:description"/>
+<meta content="https://freshtiqautomation.com/payment.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<link href="https://freshtiqautomation.com/payment.html" rel="canonical"/>
+<title>Make Payment — Freshtiq Automation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="/style.css?v=20260912p3" rel="stylesheet"/>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y80ZGMYR1Y"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y80ZGMYR1Y');</script>
+<style>
     .payment-page{min-height:calc(100vh - 80px);display:flex;align-items:center;justify-content:center;padding:28px}
     .payment-card{max-width:640px;width:100%;background:#ffffff;border:1px solid #e0e7ef;border-radius:20px;padding:40px 36px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
     .payment-card h1{font-size:1.6rem;font-weight:800;margin-bottom:6px;color:#1a2332}
@@ -70,136 +71,126 @@
     @media(max-width:500px){.payment-card{padding:24px 18px}.payment-methods{flex-direction:column}.bank-table td{display:block;padding:6px 10px}.bank-table td:first-child{width:auto}}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   </style>
-</head>
+<meta content="noindex, follow" name="robots"/></head>
 <body>
-  <header id="navbar">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">⚡ Freshtiq</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="services.html">Solutions</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="portfolio/">Case Studies</a></li>
-        <li><a href="ai-store.html">AI Store</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="build.html" class="nav-cta">Get Free Audit</a></li>
-      </ul>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <main class="payment-page">
-    <div class="payment-card">
-      <h1>💰 Make a Payment</h1>
-      <p class="sub">Pay via UPI or Bank Transfer. Upload proof to confirm your milestone.</p>
-
-      <!-- Project ID Display & Generator -->
-      <div class="project-id-box">
-        <div class="label">Project ID</div>
-        <div class="id-value" id="projectIdDisplay">FTQ-20260612-7394</div>
-        <button class="gen-btn" onclick="generateProjectId()">🔄 Generate New Project ID</button>
-      </div>
-
-      <!-- Step 1: Payment Methods -->
-      <div class="payment-methods">
-        <div class="payment-method active" onclick="switchPayment('upi')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+<header id="navbar">
+<div class="nav-inner">
+<a class="nav-logo" href="/">⚡ Freshtiq</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="services.html">Solutions</a></li>
+<li><a href="industries.html">Industries</a></li>
+<li><a href="portfolio/">Case Studies</a></li>
+<li><a href="ai-store.html">AI Store</a></li>
+<li><a href="index.html#pricing">Pricing</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a class="nav-cta" href="build.html">Get Free Audit</a></li>
+</ul>
+<button aria-label="Menu" class="mobile-toggle" id="mobileToggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="24"><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+</div>
+</header>
+<main class="payment-page">
+<div class="payment-card">
+<h1>💰 Make a Payment</h1>
+<p class="sub">Pay via UPI or Bank Transfer. Upload proof to confirm your milestone.</p>
+<!-- Project ID Display & Generator -->
+<div class="project-id-box">
+<div class="label">Project ID</div>
+<div class="id-value" id="projectIdDisplay">FTQ-20260612-7394</div>
+<button class="gen-btn" onclick="generateProjectId()">🔄 Generate New Project ID</button>
+</div>
+<!-- Step 1: Payment Methods -->
+<div class="payment-methods">
+<div class="payment-method active" onclick="switchPayment('upi')">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="M12 8v8M8 12h8"></path></svg>
           UPI
         </div>
-        <div class="payment-method" onclick="switchPayment('bank')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+<div class="payment-method" onclick="switchPayment('bank')">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
           Bank Transfer
         </div>
-      </div>
-
-      <div id="amountDisplay">Enter the amount you paid</div>
-
-      <!-- UPI Details -->
-      <div class="payment-detail active" id="upiDetail">
-        <div class="upi-options">
-          <div class="upi-item">
-            <div>
-              <div class="name">GPay / PhonePe / Paytm</div>
-              <div class="id">7379131322@kotak811</div>
-            </div>
-            <button class="copy-btn" onclick="copyUpi()">📋 Copy</button>
-          </div>
-          <div class="upi-item">
-            <div>
-              <div class="name">Scan & Pay (UPI QR)</div>
-              <div class="id">UPI ID: 7379131322@kotak811</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bank Details -->
-      <div class="payment-detail" id="bankDetail">
-        <table class="bank-table">
-          <tr><td>Bank</td><td>State Bank of India</td></tr>
-          <tr><td>Account Name</td><td>FRESHTIQ INNOVATIONS(OPC) PRIVATE LIMITED</td></tr>
-          <tr><td>Account No.</td><td>44724335472</td></tr>
-          <tr><td>Branch</td><td>MOHAMMADPUR</td></tr>
-          <tr><td>IFSC</td><td>SBIN0013157</td></tr>
-          <tr><td>MICR</td><td>276002504</td></tr>
-        </table>
-      </div>
-
-      <!-- Step 2: Payment Details Form -->
-      <div class="form-group">
-        <label for="projectId">Project ID *</label>
-        <div class="input-with-btn">
-          <input type="text" id="projectId" placeholder="Auto-generated on load" oninput="syncProjectDisplay()" />
-          <button class="gen-inline-btn" onclick="generateProjectId()">New ID</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="custName">Your Full Name *</label>
-        <input type="text" id="custName" placeholder="As per bank / UPI" />
-      </div>
-      <div class="form-group">
-        <label for="custPhone">WhatsApp Number *</label>
-        <input type="tel" id="custPhone" placeholder="+91 9876543210" />
-      </div>
-      <div class="form-group">
-        <label for="amount">Amount Paid (₹) *</label>
-        <input type="number" id="amount" placeholder="e.g. 8000" oninput="updateAmountDisplay()" />
-      </div>
-      <div class="form-group">
-        <label for="paymentMode">Payment Mode *</label>
-        <select id="paymentMode">
-          <option value="upi">UPI (GPay/PhonePe/Paytm)</option>
-          <option value="bank">Bank Transfer</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Upload Payment Proof (Screenshot)</label>
-        <div class="pf-upload">
-          <input type="file" id="proofFile" accept="image/*" />
-          <div class="pf-label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+</div>
+<div id="amountDisplay">Enter the amount you paid</div>
+<!-- UPI Details -->
+<div class="payment-detail active" id="upiDetail">
+<div class="upi-options">
+<div class="upi-item">
+<div>
+<div class="name">GPay / PhonePe / Paytm</div>
+<div class="id">7379131322@kotak811</div>
+</div>
+<button class="copy-btn" onclick="copyUpi()">📋 Copy</button>
+</div>
+<div class="upi-item">
+<div>
+<div class="name">Scan &amp; Pay (UPI QR)</div>
+<div class="id">UPI ID: 7379131322@kotak811</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bank Details -->
+<div class="payment-detail" id="bankDetail">
+<table class="bank-table">
+<tr><td>Bank</td><td>State Bank of India</td></tr>
+<tr><td>Account Name</td><td>FRESHTIQ INNOVATIONS(OPC) PRIVATE LIMITED</td></tr>
+<tr><td>Account No.</td><td>44724335472</td></tr>
+<tr><td>Branch</td><td>MOHAMMADPUR</td></tr>
+<tr><td>IFSC</td><td>SBIN0013157</td></tr>
+<tr><td>MICR</td><td>276002504</td></tr>
+</table>
+</div>
+<!-- Step 2: Payment Details Form -->
+<div class="form-group">
+<label for="projectId">Project ID *</label>
+<div class="input-with-btn">
+<input id="projectId" oninput="syncProjectDisplay()" placeholder="Auto-generated on load" type="text"/>
+<button class="gen-inline-btn" onclick="generateProjectId()">New ID</button>
+</div>
+</div>
+<div class="form-group">
+<label for="custName">Your Full Name *</label>
+<input id="custName" placeholder="As per bank / UPI" type="text"/>
+</div>
+<div class="form-group">
+<label for="custPhone">WhatsApp Number *</label>
+<input id="custPhone" placeholder="+91 9876543210" type="tel"/>
+</div>
+<div class="form-group">
+<label for="amount">Amount Paid (₹) *</label>
+<input id="amount" oninput="updateAmountDisplay()" placeholder="e.g. 8000" type="number"/>
+</div>
+<div class="form-group">
+<label for="paymentMode">Payment Mode *</label>
+<select id="paymentMode">
+<option value="upi">UPI (GPay/PhonePe/Paytm)</option>
+<option value="bank">Bank Transfer</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label>Upload Payment Proof (Screenshot)</label>
+<div class="pf-upload">
+<input accept="image/*" id="proofFile" type="file"/>
+<div class="pf-label">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"></path></svg>
             Tap to upload screenshot
           </div>
-        </div>
-      </div>
-
-      <button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Send Payment Proof on WhatsApp</button>
-
-      <!-- Success -->
-      <div class="success-msg" id="successMsg">
-        <div class="check">✅</div>
-        <h2>Payment Proof Submitted 🎉</h2>
-        <p>We have received your payment submission. Our team will verify and confirm within 1 hour.</p>
-        <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." target="_blank" rel="noopener" class="wa-btn">💬 Confirm on WhatsApp</a>
-      </div>
-    </div>
-  </main>
-
-  <script>
+</div>
+</div>
+<button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Send Payment Proof on WhatsApp</button>
+<!-- Success -->
+<div class="success-msg" id="successMsg">
+<div class="check">✅</div>
+<h2>Payment Proof Submitted 🎉</h2>
+<p>We have received your payment submission. Our team will verify and confirm within 1 hour.</p>
+<a class="wa-btn" href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." rel="noopener" target="_blank">💬 Confirm on WhatsApp</a>
+</div>
+</div>
+</main>
+<script>
     function generateProjectId() {
       const now = new Date();
       const y = now.getFullYear();
@@ -297,6 +288,6 @@
       generateProjectId();
     });
   </script>
-  <script src="/freshtiq-i18n.js?v=20260912p3"></script>
+<script src="/freshtiq-i18n.js?v=20260912p3"></script>
 </body>
 </html>

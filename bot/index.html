@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
 <title>FreshtiqBot - Smart Trading</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,'Segoe UI',sans-serif}
@@ -62,82 +63,82 @@ body{background:#0a0f16;color:#e9edef;display:flex;justify-content:center;align-
 @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .ft{background:#111b21;padding:6px;text-align:center;color:#8b949e;font-size:9px;border-top:1px solid #2a3942}
 .ft a{color:#00a884;text-decoration:none}
-</style></head><body>
+</style><meta content="noindex, follow" name="robots"/></head><body>
 <div class="c">
-  <div class="hd">
-    <div class="av">FB</div>
-    <div><h3>FreshtiqBot</h3><span class="status-on">online</span></div>
-  </div>
-  <div class="tabs" id="tabs">
-    <div class="tab active" data-tab="chat">💬 Chat</div>
-    <div class="tab" data-tab="register">📝 Register</div>
-    <div class="tab" data-tab="p2p">🎯 P2P</div>
-    <div class="tab" data-tab="calc">🧮 Calc</div>
-    <div class="tab" data-tab="pay">💳 Pay</div>
-    <div class="tab" data-tab="help">❓ Help</div>
-  </div>
-  <div class="panel active" id="p-chat">
-    <div class="stepper" id="stepper"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
-    <div class="chats" id="chats">
-      <div class="msg bot"><div class="b">👋 <b>Hello!</b> Main <b>FreshtiqBot</b>!<br><br>👇 <b>Register</b> tab me jao!<br>• /register<br>• /p2p<br>• /pay<br>• /apiguide</div><div class="t">now</div></div>
-    </div>
-    <div class="cinp"><input id="chatIn" placeholder="Type..." autofocus><button id="chatBtn">Send</button></div>
-  </div>
-  <div class="panel" id="p-register">
-    <h3 style="color:#00a884;font-size:14px;margin-bottom:10px">📝 Registration</h3>
-    <div class="fg"><label>Full Name</label><input id="rName" placeholder="Rahul Sharma"></div>
-    <div class="fg"><label>Phone</label><input id="rPhone" placeholder="+919876543210"></div>
-    <div class="fg"><label>Country</label><input id="rCountry" placeholder="India"></div>
-    <div class="fg"><label>Address</label><input id="rAddr" placeholder="Mumbai, India"></div>
-    <div class="fg"><label>API Key</label><input id="rApi" placeholder="demo"></div>
-    <div class="fg"><label>Secret Key</label><input id="rSecret" placeholder="demo" type="password"></div>
-    <button class="btn" id="rBtn">✅ Register</button>
-    <div id="rRes"></div>
-  </div>
-  <div class="panel" id="p-p2p">
-    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🎯 P2P Auto-Catch</h3>
-    <div class="sg sg2">
-      <div class="sc"><div class="n" style="color:#00a884">₹<span id="p2pRate">--</span></div><div class="l">Cheapest</div></div>
-      <div class="sc"><div class="n" style="color:#58a6ff">₹<span id="p2pMarket">--</span></div><div class="l">Market</div></div>
-    </div>
-    <div class="fg"><label>Buy/Sell</label><select id="p2pType"><option value="buy">Buy USDT</option><option value="sell">Sell USDT</option></select></div>
-    <div class="fg"><label>Target Rate</label><input id="p2pTarget" placeholder="95.00" value="95.00"></div>
-    <div class="fg"><label>Amount (₹)</label><input id="p2pAmount" placeholder="50000" value="50000"></div>
-    <button class="btn" id="p2pBtn">🔍 Find</button>
-    <div id="p2pRes"></div>
-  </div>
-  <div class="panel" id="p-calc">
-    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🧮 Calculator</h3>
-    <div class="sg sg2">
-      <div class="sc"><div class="n green" id="cSaving">₹0</div><div class="l">You Save</div></div>
-      <div class="sc"><div class="n" id="cComm" style="color:#d29922">₹0</div><div class="l">Commission</div></div>
-    </div>
-    <div class="fg"><label>Market Rate (₹)</label><input id="cMarket" placeholder="104" value="104"></div>
-    <div class="fg"><label>Your Rate (₹)</label><input id="cYour" placeholder="95" value="95"></div>
-    <div class="fg"><label>Amount (₹)</label><input id="cAmount" placeholder="50000" value="50000"></div>
-    <button class="btn" id="cBtn">🧮 Calc</button>
-    <div id="cRes"></div>
-  </div>
-  <div class="panel" id="p-pay">
-    <h3 style="color:#00a884;font-size:14px;margin-bottom:8px">💳 Payment</h3>
-    <div class="pay-options">
-      <div class="pay-opt" onclick="selectPay(this,'upi')"><div class="ico">📱</div><div class="lb">UPI</div></div>
-      <div class="pay-opt" onclick="selectPay(this,'card')"><div class="ico">💳</div><div class="lb">Card</div></div>
-      <div class="pay-opt" onclick="selectPay(this,'bank')"><div class="ico">🏦</div><div class="lb">Bank</div></div>
-      <div class="pay-opt" onclick="selectPay(this,'crypto')"><div class="ico">₿</div><div class="lb">Crypto</div></div>
-    </div>
-    <div class="fg"><label>Order ID</label><input id="payOrder" placeholder="ORD-123"></div>
-    <div class="fg"><label>Amount (₹)</label><input id="payAmt" placeholder="500"></div>
-    <button class="btn" id="payBtn">💳 Pay</button>
-    <div id="payRes"></div>
-  </div>
-  <div class="panel" id="p-help">
-    <div class="help-section"><h4>🚀 P2P Auto-Catch</h4><p>Register → API → Target → Bot scans → Pay → Commission</p></div>
-    <div class="help-section"><h4>💰 Commission (50%)</h4><p>Savings ka 50% commission. No profit? No commission!</p></div>
-    <div class="help-section"><h4>🔑 API Guide</h4><p>Binance → Profile → API Management → Create → Enable Spot</p></div>
-    <div class="help-section"><h4>📞 Support</h4><p><a href="https://wa.me/918381848389" target="_blank" rel="noopener" style="color:#00a884" target="_blank">+918381848389</a></p></div>
-  </div>
-  <div class="ft">🔒 Secure | <a href="https://wa.me/918381848389" target="_blank" rel="noopener">+918381848389</a></div>
+<div class="hd">
+<div class="av">FB</div>
+<div><h3>FreshtiqBot</h3><span class="status-on">online</span></div>
+</div>
+<div class="tabs" id="tabs">
+<div class="tab active" data-tab="chat">💬 Chat</div>
+<div class="tab" data-tab="register">📝 Register</div>
+<div class="tab" data-tab="p2p">🎯 P2P</div>
+<div class="tab" data-tab="calc">🧮 Calc</div>
+<div class="tab" data-tab="pay">💳 Pay</div>
+<div class="tab" data-tab="help">❓ Help</div>
+</div>
+<div class="panel active" id="p-chat">
+<div class="stepper" id="stepper"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
+<div class="chats" id="chats">
+<div class="msg bot"><div class="b">👋 <b>Hello!</b> Main <b>FreshtiqBot</b>!<br/><br/>👇 <b>Register</b> tab me jao!<br/>• /register<br/>• /p2p<br/>• /pay<br/>• /apiguide</div><div class="t">now</div></div>
+</div>
+<div class="cinp"><input autofocus="" id="chatIn" placeholder="Type..."/><button id="chatBtn">Send</button></div>
+</div>
+<div class="panel" id="p-register">
+<h3 style="color:#00a884;font-size:14px;margin-bottom:10px">📝 Registration</h3>
+<div class="fg"><label>Full Name</label><input id="rName" placeholder="Rahul Sharma"/></div>
+<div class="fg"><label>Phone</label><input id="rPhone" placeholder="+919876543210"/></div>
+<div class="fg"><label>Country</label><input id="rCountry" placeholder="India"/></div>
+<div class="fg"><label>Address</label><input id="rAddr" placeholder="Mumbai, India"/></div>
+<div class="fg"><label>API Key</label><input id="rApi" placeholder="demo"/></div>
+<div class="fg"><label>Secret Key</label><input id="rSecret" placeholder="demo" type="password"/></div>
+<button class="btn" id="rBtn">✅ Register</button>
+<div id="rRes"></div>
+</div>
+<div class="panel" id="p-p2p">
+<h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🎯 P2P Auto-Catch</h3>
+<div class="sg sg2">
+<div class="sc"><div class="n" style="color:#00a884">₹<span id="p2pRate">--</span></div><div class="l">Cheapest</div></div>
+<div class="sc"><div class="n" style="color:#58a6ff">₹<span id="p2pMarket">--</span></div><div class="l">Market</div></div>
+</div>
+<div class="fg"><label>Buy/Sell</label><select id="p2pType"><option value="buy">Buy USDT</option><option value="sell">Sell USDT</option></select></div>
+<div class="fg"><label>Target Rate</label><input id="p2pTarget" placeholder="95.00" value="95.00"/></div>
+<div class="fg"><label>Amount (₹)</label><input id="p2pAmount" placeholder="50000" value="50000"/></div>
+<button class="btn" id="p2pBtn">🔍 Find</button>
+<div id="p2pRes"></div>
+</div>
+<div class="panel" id="p-calc">
+<h3 style="color:#00a884;font-size:14px;margin-bottom:8px">🧮 Calculator</h3>
+<div class="sg sg2">
+<div class="sc"><div class="n green" id="cSaving">₹0</div><div class="l">You Save</div></div>
+<div class="sc"><div class="n" id="cComm" style="color:#d29922">₹0</div><div class="l">Commission</div></div>
+</div>
+<div class="fg"><label>Market Rate (₹)</label><input id="cMarket" placeholder="104" value="104"/></div>
+<div class="fg"><label>Your Rate (₹)</label><input id="cYour" placeholder="95" value="95"/></div>
+<div class="fg"><label>Amount (₹)</label><input id="cAmount" placeholder="50000" value="50000"/></div>
+<button class="btn" id="cBtn">🧮 Calc</button>
+<div id="cRes"></div>
+</div>
+<div class="panel" id="p-pay">
+<h3 style="color:#00a884;font-size:14px;margin-bottom:8px">💳 Payment</h3>
+<div class="pay-options">
+<div class="pay-opt" onclick="selectPay(this,'upi')"><div class="ico">📱</div><div class="lb">UPI</div></div>
+<div class="pay-opt" onclick="selectPay(this,'card')"><div class="ico">💳</div><div class="lb">Card</div></div>
+<div class="pay-opt" onclick="selectPay(this,'bank')"><div class="ico">🏦</div><div class="lb">Bank</div></div>
+<div class="pay-opt" onclick="selectPay(this,'crypto')"><div class="ico">₿</div><div class="lb">Crypto</div></div>
+</div>
+<div class="fg"><label>Order ID</label><input id="payOrder" placeholder="ORD-123"/></div>
+<div class="fg"><label>Amount (₹)</label><input id="payAmt" placeholder="500"/></div>
+<button class="btn" id="payBtn">💳 Pay</button>
+<div id="payRes"></div>
+</div>
+<div class="panel" id="p-help">
+<div class="help-section"><h4>🚀 P2P Auto-Catch</h4><p>Register → API → Target → Bot scans → Pay → Commission</p></div>
+<div class="help-section"><h4>💰 Commission (50%)</h4><p>Savings ka 50% commission. No profit? No commission!</p></div>
+<div class="help-section"><h4>🔑 API Guide</h4><p>Binance → Profile → API Management → Create → Enable Spot</p></div>
+<div class="help-section"><h4>📞 Support</h4><p><a href="https://wa.me/918381848389" rel="noopener" style="color:#00a884" target="_blank">+918381848389</a></p></div>
+</div>
+<div class="ft">🔒 Secure | <a href="https://wa.me/918381848389" rel="noopener" target="_blank">+918381848389</a></div>
 </div>
 <script>
 let session = JSON.parse(localStorage.getItem('wsession')||'{"id":"s"+Date.now()}');
@@ -183,5 +184,5 @@ function selectPay(el,t){document.querySelectorAll('.pay-opt').forEach(x=>x.styl
 document.getElementById('payBtn').onclick=()=>{document.getElementById('payRes').innerHTML='<div class="rbox ok">✅ Payment ₹'+document.getElementById('payAmt').value+' initiated!</div>';};
 async function loadRates(){try{const r=await fetch(api('/rates'));const d=await r.json();if(d.rate&&d.market){document.getElementById('p2pRate').innerText=d.rate;document.getElementById('p2pMarket').innerText=d.market;}}catch(e){}}
 loadRates();setInterval(loadRates,30000);
-</script>  <script src="/freshtiq-i18n.js?v=20260912p3"></script>
+</script> <script src="/freshtiq-i18n.js?v=20260912p3"></script>
 </body></html>
