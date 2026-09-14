@@ -74,8 +74,13 @@ const PRODUCT_PAGES = {
           <div>
             <div class="main">${p.price}</div>
           </div>
+          ${p.tiers ? `<div class="store-tier-mini" style="font-size:0.78rem;line-height:1.65;margin-top:7px;">
+            <div><strong>Standard:</strong> ${p.tiers.standard}</div>
+            <div><strong>Professional:</strong> ${p.tiers.professional}</div>
+            <div><strong>Premium:</strong> ${p.tiers.premium}</div>
+          </div>` : ''}
           <div class="sub">
-            ${p.monthly ? '<strong>Support:</strong> ' + p.monthly : ''}
+            ${p.monthly ? '<strong>Support:</strong> ' + p.monthly : '<span>Final scope in written proposal</span>'}
             <div class="delivery"><strong>📅</strong> ${p.delivery}</div>
           </div>
         </div>

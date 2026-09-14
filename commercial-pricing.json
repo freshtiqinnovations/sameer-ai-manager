@@ -1,0 +1,994 @@
+{
+  "version": "2026-09-14-premium-v2",
+  "effective_date": "2026-09-14",
+  "brand": "Freshtiq Automation",
+  "policy": {
+    "currency_rule": "Quote India in INR, Saudi Arabia in SAR, UAE in AED.",
+    "regional_rule": "India is the leanest entry market; Saudi/UAE use premium regional pricing.",
+    "truth_rule": "Published website starting prices are the floor/source of truth; final scope is fixed in writing.",
+    "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
+    "quality_rule": "Standard, Professional and Premium differ by scope, integrations, roles, analytics and support priority — not by intentionally lowering code quality."
+  },
+  "regions": {
+    "India": {
+      "currency": "INR",
+      "prefix": "₹",
+      "factor_from_inr": 1,
+      "round_to": 1,
+      "floors": {}
+    },
+    "Saudi Arabia": {
+      "currency": "SAR",
+      "prefix": "SAR ",
+      "factor_from_inr": 0.1,
+      "round_to": 50,
+      "floors": {
+        "website": 600,
+        "bot": 900,
+        "crm": 3000,
+        "ai": 1500,
+        "app": 3000,
+        "automation": 900
+      }
+    },
+    "UAE": {
+      "currency": "AED",
+      "prefix": "AED ",
+      "factor_from_inr": 0.07,
+      "round_to": 50,
+      "floors": {
+        "website": 350,
+        "bot": 550,
+        "crm": 1750,
+        "ai": 1000,
+        "app": 2000,
+        "automation": 500
+      }
+    }
+  },
+  "tiers": {
+    "standard": {
+      "label": "Standard",
+      "position": "Smallest useful production-ready scope"
+    },
+    "professional": {
+      "label": "Professional",
+      "position": "Best-value recommended scope for growing businesses"
+    },
+    "premium": {
+      "label": "Premium",
+      "position": "Advanced custom scope for multi-team, multi-branch or deeper integrations"
+    }
+  },
+  "products": {
+    "website": {
+      "name": "Website / Store",
+      "family": "website",
+      "aliases": [
+        "website",
+        "web site",
+        "landing page",
+        "store",
+        "ecommerce website"
+      ],
+      "inr": {
+        "standard": 4999,
+        "professional": 12000,
+        "premium": 25000
+      },
+      "timeline": "3–7 days",
+      "features": {
+        "standard": [
+          "Mobile-ready business site",
+          "Lead/contact form",
+          "WhatsApp CTA",
+          "Basic SEO"
+        ],
+        "professional": [
+          "Multi-page custom design",
+          "CMS/forms/analytics",
+          "Conversion-focused sections",
+          "Business integrations"
+        ],
+        "premium": [
+          "Advanced custom UI",
+          "Store/booking/customer portal options",
+          "Automation/CRM integrations",
+          "Advanced analytics and launch support"
+        ]
+      }
+    },
+    "basic_bot": {
+      "name": "Basic WhatsApp / Telegram Bot",
+      "family": "bot",
+      "aliases": [
+        "basic bot",
+        "telegram bot",
+        "faq bot",
+        "simple chatbot"
+      ],
+      "inr": {
+        "standard": 8000,
+        "professional": 15000,
+        "premium": 25000
+      },
+      "timeline": "3–7 days",
+      "features": {
+        "standard": [
+          "FAQ/auto replies",
+          "Lead capture",
+          "Basic handoff"
+        ],
+        "professional": [
+          "Sales/support flows",
+          "Follow-ups",
+          "CRM/sheet integration",
+          "Admin controls"
+        ],
+        "premium": [
+          "AI knowledge layer",
+          "Advanced workflows",
+          "Analytics",
+          "Multiple integrations"
+        ]
+      }
+    },
+    "whatsapp_automation": {
+      "name": "WhatsApp Automation",
+      "family": "bot",
+      "aliases": [
+        "whatsapp automation",
+        "whatsapp business api",
+        "booking bot",
+        "order bot"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 28000,
+        "premium": 45000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Core WhatsApp workflow",
+          "Lead/order/booking capture",
+          "Human handoff"
+        ],
+        "professional": [
+          "CRM integration",
+          "Automated follow-ups",
+          "Admin dashboard",
+          "Status notifications"
+        ],
+        "premium": [
+          "Multi-flow automation",
+          "AI-assisted replies",
+          "Advanced integrations",
+          "Analytics and team roles"
+        ]
+      }
+    },
+    "whatsapp_ai_sales_bot": {
+      "name": "WhatsApp AI Sales Bot",
+      "family": "bot",
+      "aliases": [
+        "ai sales bot",
+        "sales bot",
+        "whatsapp ai sales",
+        "sales assistant bot"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 30000,
+        "premium": 50000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "AI-assisted enquiries",
+          "Lead capture",
+          "Quotes and handoff"
+        ],
+        "professional": [
+          "Qualification/scoring",
+          "Automated follow-ups",
+          "CRM pipeline sync",
+          "Booking/proposal flow"
+        ],
+        "premium": [
+          "Multi-language sales brain",
+          "Advanced CRM/actions",
+          "Analytics",
+          "Multi-team routing and custom integrations"
+        ]
+      }
+    },
+    "restaurant_automation": {
+      "name": "Restaurant Automation",
+      "family": "automation",
+      "aliases": [
+        "restaurant",
+        "cafe",
+        "hotel restaurant",
+        "qr menu",
+        "table booking",
+        "kitchen flow"
+      ],
+      "inr": {
+        "standard": 12000,
+        "professional": 25000,
+        "premium": 45000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "QR menu",
+          "WhatsApp enquiry/order flow",
+          "Table booking"
+        ],
+        "professional": [
+          "Kitchen/order dashboard",
+          "Payment links",
+          "Customer CRM",
+          "Daily reporting"
+        ],
+        "premium": [
+          "Multi-branch roles",
+          "POS/API integrations",
+          "Reorder campaigns",
+          "Advanced analytics and operations dashboard"
+        ]
+      }
+    },
+    "customer_support_ai": {
+      "name": "AI Customer Support Bot",
+      "family": "ai",
+      "aliases": [
+        "customer support ai",
+        "support bot",
+        "ai support",
+        "helpdesk bot"
+      ],
+      "inr": {
+        "standard": 12000,
+        "professional": 25000,
+        "premium": 40000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Knowledge-base answers",
+          "Ticket/human handoff",
+          "FAQ automation"
+        ],
+        "professional": [
+          "Order/status lookup",
+          "Support analytics",
+          "Multi-channel support",
+          "CRM/helpdesk integration"
+        ],
+        "premium": [
+          "Advanced AI routing",
+          "Multiple knowledge sources",
+          "Team workflows",
+          "Custom integrations and analytics"
+        ]
+      }
+    },
+    "clinic_automation": {
+      "name": "Clinic Appointment Automation",
+      "family": "automation",
+      "aliases": [
+        "clinic",
+        "doctor",
+        "appointment bot",
+        "patient booking"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 28000,
+        "premium": 45000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "WhatsApp appointment booking",
+          "Reminders",
+          "Basic patient intake"
+        ],
+        "professional": [
+          "Queue/room workflow",
+          "Patient records",
+          "Reports",
+          "Staff dashboard"
+        ],
+        "premium": [
+          "Multi-doctor/branch roles",
+          "Advanced integrations",
+          "Recall campaigns",
+          "Custom analytics"
+        ]
+      }
+    },
+    "travel_automation": {
+      "name": "Travel Automation Bot",
+      "family": "automation",
+      "aliases": [
+        "travel",
+        "tourism",
+        "fare bot",
+        "visa bot",
+        "booking travel"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 30000,
+        "premium": 50000
+      },
+      "timeline": "7–21 days",
+      "features": {
+        "standard": [
+          "Travel enquiry capture",
+          "Package/fare workflow",
+          "Status notifications"
+        ],
+        "professional": [
+          "Booking workflow",
+          "Lead CRM",
+          "Multi-language replies",
+          "API integrations where available"
+        ],
+        "premium": [
+          "Multi-source/API orchestration",
+          "Agent dashboard",
+          "Advanced notifications",
+          "Custom customer portal and analytics"
+        ]
+      }
+    },
+    "crm_erp": {
+      "name": "Custom CRM / ERP",
+      "family": "crm",
+      "aliases": [
+        "crm",
+        "erp",
+        "inventory",
+        "sales pipeline",
+        "business management"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 50000,
+        "premium": 90000
+      },
+      "timeline": "1–4 weeks",
+      "features": {
+        "standard": [
+          "Lead/customer records",
+          "Pipeline/tasks",
+          "Core reports"
+        ],
+        "professional": [
+          "Inventory/orders/billing modules",
+          "Role-based access",
+          "Automation and dashboards"
+        ],
+        "premium": [
+          "Multi-branch ERP",
+          "Deep integrations",
+          "Advanced reports",
+          "Custom workflows and migration"
+        ]
+      }
+    },
+    "field_sales_crm": {
+      "name": "Field Sales CRM",
+      "family": "crm",
+      "aliases": [
+        "field sales",
+        "sales crm",
+        "visit tracking",
+        "sales team crm"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 45000,
+        "premium": 75000
+      },
+      "timeline": "1–4 weeks",
+      "features": {
+        "standard": [
+          "Lead capture",
+          "Visit logs",
+          "Follow-up tasks"
+        ],
+        "professional": [
+          "Targets/pipeline dashboards",
+          "Geo/photo proof options",
+          "Automated follow-ups"
+        ],
+        "premium": [
+          "Multi-team hierarchy",
+          "Advanced reporting",
+          "ERP/inventory integrations",
+          "Custom workflows"
+        ]
+      }
+    },
+    "telegram_crm_bot": {
+      "name": "Telegram CRM Bot",
+      "family": "crm",
+      "aliases": [
+        "telegram crm",
+        "crm bot",
+        "telegram business bot"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 45000,
+        "premium": 75000
+      },
+      "timeline": "1–4 weeks",
+      "features": {
+        "standard": [
+          "Lead/customer management",
+          "Tasks and reminders",
+          "Basic roles"
+        ],
+        "professional": [
+          "Invoices/tickets",
+          "Reports",
+          "Payment links",
+          "Advanced roles"
+        ],
+        "premium": [
+          "Multi-team CRM",
+          "Integrations",
+          "Automation rules",
+          "Advanced analytics"
+        ]
+      }
+    },
+    "factory_erp": {
+      "name": "Factory ERP System",
+      "family": "crm",
+      "aliases": [
+        "factory erp",
+        "manufacturing erp",
+        "production system",
+        "factory automation"
+      ],
+      "inr": {
+        "standard": 35000,
+        "professional": 75000,
+        "premium": 150000
+      },
+      "timeline": "2–6 weeks",
+      "features": {
+        "standard": [
+          "Orders/production queue",
+          "Inventory",
+          "Basic staff workflow"
+        ],
+        "professional": [
+          "Purchase/sales/HR modules",
+          "Management dashboard",
+          "Alerts and reports"
+        ],
+        "premium": [
+          "Multi-branch ERP",
+          "Advanced costing/reporting",
+          "Deep integrations",
+          "Custom shop-floor workflows"
+        ]
+      }
+    },
+    "laundry_system": {
+      "name": "Laundry Management System",
+      "family": "automation",
+      "aliases": [
+        "laundry",
+        "pickup delivery",
+        "laundry management"
+      ],
+      "inr": {
+        "standard": 10000,
+        "professional": 20000,
+        "premium": 35000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Order intake",
+          "Pickup/delivery status",
+          "Customer notifications"
+        ],
+        "professional": [
+          "Worker assignment",
+          "Billing",
+          "Owner reports",
+          "Multi-status workflow"
+        ],
+        "premium": [
+          "Multi-branch operations",
+          "Advanced CRM",
+          "Route/integration options",
+          "Analytics"
+        ]
+      }
+    },
+    "dashboard_reporting": {
+      "name": "Business Dashboard & Reporting",
+      "family": "automation",
+      "aliases": [
+        "dashboard",
+        "reporting",
+        "analytics dashboard",
+        "business reports"
+      ],
+      "inr": {
+        "standard": 18000,
+        "professional": 35000,
+        "premium": 60000
+      },
+      "timeline": "1–3 weeks",
+      "features": {
+        "standard": [
+          "Core KPI dashboard",
+          "Manual/CSV data sources",
+          "Exportable reports"
+        ],
+        "professional": [
+          "Live system integrations",
+          "Role-based views",
+          "Scheduled digests"
+        ],
+        "premium": [
+          "Multi-source BI",
+          "Custom alerts",
+          "Advanced analytics",
+          "Executive and team dashboards"
+        ]
+      }
+    },
+    "ai_agent": {
+      "name": "Custom AI Agent",
+      "family": "ai",
+      "aliases": [
+        "ai agent",
+        "sales agent",
+        "support agent",
+        "operations agent",
+        "voice agent"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 45000,
+        "premium": 85000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Business knowledge agent",
+          "One primary channel",
+          "Human handoff"
+        ],
+        "professional": [
+          "Workflow actions",
+          "CRM/calendar integrations",
+          "Memory and analytics"
+        ],
+        "premium": [
+          "Multi-agent or multi-channel orchestration",
+          "Advanced tools/integrations",
+          "Governance",
+          "Custom analytics"
+        ]
+      }
+    },
+    "mobile_app": {
+      "name": "Mobile App Development",
+      "family": "app",
+      "aliases": [
+        "mobile app",
+        "android app",
+        "ios app",
+        "app development"
+      ],
+      "inr": {
+        "standard": 30000,
+        "professional": 65000,
+        "premium": 120000
+      },
+      "timeline": "3–8 weeks",
+      "features": {
+        "standard": [
+          "Core mobile workflow",
+          "Authentication",
+          "Basic admin/backend"
+        ],
+        "professional": [
+          "Payments/notifications",
+          "Advanced dashboard",
+          "API integrations"
+        ],
+        "premium": [
+          "Android + iOS scope",
+          "Complex roles/workflows",
+          "Advanced integrations",
+          "Analytics and launch support"
+        ]
+      }
+    },
+    "custom_integration": {
+      "name": "Custom Automation & Integration",
+      "family": "automation",
+      "aliases": [
+        "integration",
+        "custom automation",
+        "api automation",
+        "workflow automation",
+        "n8n"
+      ],
+      "inr": {
+        "standard": 4999,
+        "professional": 12000,
+        "premium": 25000
+      },
+      "timeline": "3–14 days",
+      "features": {
+        "standard": [
+          "One focused workflow",
+          "Basic integration",
+          "Logging"
+        ],
+        "professional": [
+          "Multi-step workflow",
+          "Multiple systems",
+          "Alerts and dashboard"
+        ],
+        "premium": [
+          "Complex orchestration",
+          "Advanced error handling",
+          "Multi-system integrations",
+          "Monitoring and analytics"
+        ]
+      }
+    },
+    "hotel_automation": {
+      "name": "Hotel / Hospitality Automation",
+      "family": "automation",
+      "aliases": [
+        "hotel",
+        "resort",
+        "guest house",
+        "room booking",
+        "hospitality"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 30000,
+        "premium": 50000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Room/package enquiry",
+          "WhatsApp lead capture",
+          "Booking request flow"
+        ],
+        "professional": [
+          "Booking management",
+          "Guest CRM",
+          "Automated confirmations/reminders",
+          "Staff dashboard"
+        ],
+        "premium": [
+          "Multi-property/branch roles",
+          "Payment/integration options",
+          "Guest service workflows",
+          "Advanced reports and analytics"
+        ]
+      }
+    },
+    "ecommerce_website": {
+      "name": "E-commerce Website / Store",
+      "family": "website",
+      "aliases": [
+        "e-commerce website",
+        "ecommerce website",
+        "online store",
+        "shopping website",
+        "e-commerce store"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 30000,
+        "premium": 60000
+      },
+      "timeline": "7–21 days",
+      "features": {
+        "standard": [
+          "Product catalog",
+          "Cart and checkout",
+          "Payment gateway setup"
+        ],
+        "professional": [
+          "Order/admin dashboard",
+          "Coupons and notifications",
+          "Analytics and integrations"
+        ],
+        "premium": [
+          "Advanced storefront",
+          "CRM/ERP integration",
+          "Automation and scaling support"
+        ]
+      }
+    },
+    "hr_system": {
+      "name": "HR & Employee Management System",
+      "family": "crm",
+      "aliases": [
+        "hr system",
+        "employee management",
+        "attendance system",
+        "leave management",
+        "payroll system"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 45000,
+        "premium": 75000
+      },
+      "timeline": "1–4 weeks",
+      "features": {
+        "standard": [
+          "Employee records",
+          "Attendance/leave workflow",
+          "Basic reports"
+        ],
+        "professional": [
+          "Payroll/reporting workflows",
+          "Role-based dashboard",
+          "Notifications"
+        ],
+        "premium": [
+          "Multi-branch roles",
+          "Advanced integrations",
+          "Analytics and custom workflows"
+        ]
+      }
+    },
+    "seo_service": {
+      "name": "SEO & Search Growth",
+      "family": "marketing",
+      "aliases": [
+        "seo",
+        "search engine optimization",
+        "technical seo",
+        "on-page seo"
+      ],
+      "inr": {
+        "standard": 5000,
+        "professional": 10000,
+        "premium": 18000
+      },
+      "timeline": "Monthly service",
+      "features": {
+        "standard": [
+          "Technical/on-page audit",
+          "Core metadata fixes",
+          "Indexing checks"
+        ],
+        "professional": [
+          "Keyword/content plan",
+          "Technical SEO work",
+          "Monthly reporting"
+        ],
+        "premium": [
+          "Broader content/search program",
+          "Conversion tracking",
+          "Priority optimization"
+        ]
+      },
+      "billing_unit": "/month"
+    },
+    "google_business_profile": {
+      "name": "Google Business Profile Setup & Growth",
+      "family": "marketing",
+      "aliases": [
+        "google business profile",
+        "gbp",
+        "google maps listing",
+        "google listing"
+      ],
+      "inr": {
+        "standard": 3000,
+        "professional": 6000,
+        "premium": 10000
+      },
+      "timeline": "3–10 days",
+      "features": {
+        "standard": [
+          "Profile setup/cleanup",
+          "Business details optimization",
+          "Verification guidance"
+        ],
+        "professional": [
+          "Photos/services/posts setup",
+          "Review workflow",
+          "Local visibility checks"
+        ],
+        "premium": [
+          "Multi-location setup",
+          "Reporting workflow",
+          "Ongoing optimization handoff"
+        ]
+      }
+    },
+    "content_marketing": {
+      "name": "Content Marketing",
+      "family": "marketing",
+      "aliases": [
+        "content marketing",
+        "blog writing",
+        "social media content",
+        "newsletter content"
+      ],
+      "inr": {
+        "standard": 10000,
+        "professional": 20000,
+        "premium": 35000
+      },
+      "timeline": "Monthly service",
+      "features": {
+        "standard": [
+          "Monthly content plan",
+          "Core posts/articles",
+          "Basic reporting"
+        ],
+        "professional": [
+          "Multi-format content",
+          "Case studies/newsletters",
+          "Performance review"
+        ],
+        "premium": [
+          "Higher content volume",
+          "Campaign coordination",
+          "Priority strategy and reporting"
+        ]
+      },
+      "billing_unit": "/month"
+    },
+    "lead_generation": {
+      "name": "Lead Generation Management",
+      "family": "marketing",
+      "aliases": [
+        "lead generation",
+        "google ads management",
+        "facebook ads",
+        "meta ads",
+        "lead campaign"
+      ],
+      "inr": {
+        "standard": 15000,
+        "professional": 30000,
+        "premium": 50000
+      },
+      "timeline": "Monthly service",
+      "features": {
+        "standard": [
+          "Campaign setup/management",
+          "Landing/lead tracking guidance",
+          "Monthly reporting"
+        ],
+        "professional": [
+          "Multi-campaign management",
+          "Conversion tracking",
+          "Optimization and lead workflow"
+        ],
+        "premium": [
+          "Multi-channel management",
+          "Advanced reporting",
+          "CRM/follow-up integration"
+        ]
+      },
+      "billing_unit": "/month"
+    },
+    "cloud_hosting": {
+      "name": "Cloud Hosting & VPS Management",
+      "family": "hosting",
+      "aliases": [
+        "cloud hosting",
+        "vps",
+        "server hosting",
+        "server management",
+        "hosting"
+      ],
+      "inr": {
+        "standard": 999,
+        "professional": 1999,
+        "premium": 3999
+      },
+      "timeline": "Monthly service",
+      "features": {
+        "standard": [
+          "Basic VPS/hosting management",
+          "SSL/basic monitoring",
+          "Routine maintenance"
+        ],
+        "professional": [
+          "Performance/security monitoring",
+          "Backups and updates",
+          "Priority maintenance"
+        ],
+        "premium": [
+          "Advanced monitoring",
+          "Multi-service/server support",
+          "Priority incident response"
+        ]
+      },
+      "billing_unit": "/month"
+    },
+    "managed_support": {
+      "name": "Managed Support & Maintenance",
+      "family": "support",
+      "aliases": [
+        "managed support",
+        "maintenance plan",
+        "support plan",
+        "monthly support"
+      ],
+      "inr": {
+        "standard": 3000,
+        "professional": 5000,
+        "premium": 10000
+      },
+      "timeline": "Monthly service",
+      "features": {
+        "standard": [
+          "Routine fixes",
+          "Basic monitoring",
+          "Standard response queue"
+        ],
+        "professional": [
+          "Priority support",
+          "Regular health checks",
+          "Minor improvements"
+        ],
+        "premium": [
+          "Priority response",
+          "Proactive monitoring",
+          "Higher change allowance and reporting"
+        ]
+      },
+      "billing_unit": "/month"
+    }
+  },
+  "discounts": {
+    "new_customer_courtesy_pct": 3,
+    "returning_second_project_pct": 5,
+    "returning_third_project_pct": 7.5,
+    "returning_fourth_plus_pct": 10,
+    "bundle_two_services_pct": 5,
+    "bundle_three_plus_pct": 8,
+    "max_auto_discount_pct": 10,
+    "owner_approval_above_pct": 10,
+    "exclude": [
+      "third-party API/provider fees",
+      "ad spend",
+      "hosting/VPS charges",
+      "licenses/subscriptions",
+      "government/tax fees",
+      "recurring managed support unless explicitly included"
+    ]
+  },
+  "sales_behavior": {
+    "not_interested_first": "One soft value-save attempt only: offer the smallest useful option, a free audit or a relevant example without pressure.",
+    "not_interested_second": "Respect the decision, stop selling and leave the door open.",
+    "interested": "Summarize the need, recommend one tier, explain why, then ask one clean next-step question.",
+    "price_objection": "Explain scope/value first; offer smaller scope or an eligible transparent discount. Never invent a discount.",
+    "competitor": "Compare scope, source-code ownership, support, integrations and delivery process calmly. Never attack competitors.",
+    "trust": "Use verified company registration, website, official email, written proposal, milestone payments and real published proof."
+  }
+}

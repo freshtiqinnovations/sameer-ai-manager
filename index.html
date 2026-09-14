@@ -34,11 +34,11 @@
       "streetAddress": "Mohammadpur, Nizamabad",
       "addressLocality": "Azamgarh",
       "addressRegion": "Uttar Pradesh",
-      "postalCode": "276206",
+      "postalCode": "276205",
       "addressCountry": "IN"
     },
     "areaServed": ["IN", "SA", "AE"],
-    "priceRange": "₹15,000 - ₹5,00,000",
+    "priceRange": "₹4,999 - ₹5,00,000+",
     "sameAs": ["https://t.me/FreshtiqTeam"]
   }
   </script>
@@ -103,7 +103,7 @@
         <a href="portfolio/">Case Studies</a>
           <a href="/insights/">Insights &amp; Guides</a>
         <a href="ai-store.html">AI Store</a>
-        <a href="index.html#pricing">Pricing</a>
+        <a href="pricing.html">Pricing</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="build.html" class="nav-cta">Get Free Audit</a>
@@ -332,6 +332,7 @@
         </div>
       </div>
       <div style="text-align:center;margin-top:24px;font-size:0.9rem;opacity:0.85;">Every project: fixed written proposal · milestone payments · source-code handover.</div>
+      <div style="text-align:center;margin-top:18px;"><a href="pricing.html" class="btn-secondary">View Full Pricing &amp; Packages →</a></div>
     </div>
   </section>
 
@@ -396,7 +397,7 @@
           <a href="industries.html">Industries</a>
           <a href="portfolio/">Case Studies</a>
           <a href="ai-store.html">AI Store</a>
-          <a href="index.html#pricing">Pricing</a>
+          <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
@@ -441,10 +442,10 @@
   <script>
   // Industry pack data (preserved from previous homepage)
   const PACK_INDUSTRIES = [
-    {id:'laundry', icon:'👕', name:'Laundry & Dry Cleaning', problem:'Manual order tracking, lost tickets, delayed pickup/delivery', solution:'Full WhatsApp order management — pickup to delivery with auto-notifications', workflow:'Customer QR scan/WhatsApp → Pickup request → Worker assigned → Cleaning → Ready → Delivery', customerUpdates:'Pickup confirmed | Cleaning started | Ready for delivery | Delivered', ownerUpdates:'New order | Pending pickup | Revenue report | Worker workload', workerUpdates:'Pickup task | Cleaning task | Delivery task', plans:[{name:'Basic',desc:'Order inquiry bot + lead capture + manual follow-up',price:'₹10K'},{name:'Medium',desc:'Bot + CRM + status updates + staff assignment + customer history',price:'₹18K'},{name:'Premium',desc:'Full system + owner dashboard + staff dashboard + payment + reports + auto-workflow',price:'₹28K'}], delivery:'3-7 days', cta:'Get Laundry Bot Quote'},
-    {id:'clinic', icon:'🏥', name:'Clinic / Doctor', problem:'Missed appointments, manual records, no patient recall, long queues', solution:'WhatsApp appointment system with reminders, queue management, patient records', workflow:'Patient WhatsApp → Book appointment → Confirm → Reminder → Check-in → Prescription → Follow-up', customerUpdates:'Appointment confirmed | Reminder: Visit time | Your turn | Prescription sent | Follow-up', ownerUpdates:'Today appointments | Patient history | Daily bookings | Cancellations', workerUpdates:'Appointment confirm | Reminder send | Patient queue', plans:[{name:'Basic',desc:'Appointment inquiry bot + lead capture + manual confirm',price:'₹12K'},{name:'Medium',desc:'Bot + CRM + auto-reminders + patient history + queue mgmt',price:'₹25K'},{name:'Premium',desc:'Full system + doctor dashboard + e-prescription + follow-up + reports + staff login',price:'₹40K'}], delivery:'3-7 days', cta:'Get Clinic Bot Quote'},
-    {id:'hotel', icon:'🏨', name:'Hotel / Resort', problem:'No 24/7 inquiry handling, manual booking, guest communication gaps', solution:'Hotel booking bot with room management, guest updates, lead tracking', workflow:'Guest WhatsApp → Room inquiry → Package details → Booking → Check-in info → Room service → Check-out → Review', customerUpdates:'Room details sent | Booking confirmed | Check-in info | Room service on way | Review request', ownerUpdates:'New booking lead | Guest list | Package inquiries | Revenue', workerUpdates:'Room availability | Booking follow-up | Guest support', plans:[{name:'Basic',desc:'Inquiry bot + package sharing + lead capture',price:'₹15K'},{name:'Medium',desc:'Bot + CRM + booking mgmt + guest history + check-in automation',price:'₹30K'},{name:'Premium',desc:'Full system + owner dashboard + staff dashboard + room mgmt + payments + reports',price:'₹50K'}], delivery:'5-10 days', cta:'Get Hotel Bot Quote'},
-    {id:'restaurant', icon:'🍽️', name:'Restaurant / Cafe', problem:'Missed orders, peak hour chaos, manual billing, no customer database', solution:'QR menu + WhatsApp ordering with kitchen display, auto-billing, customer CRM', workflow:'Customer scans QR → Menu → Order → Kitchen display → Ready → Payment → Review', customerUpdates:'Order received | Preparing | Ready for collect/delivery | Bill paid | Review', ownerUpdates:'New order | Table booking | Customer list | Daily order report | Revenue', workerUpdates:'Order preparation | Delivery task | Booking confirm', plans:[{name:'Basic',desc:'QR menu + WhatsApp order bot + manual kitchen display',price:'₹12K'},{name:'Medium',desc:'Bot + CRM + kitchen display + auto-billing + customer records',price:'₹25K'},{name:'Premium',desc:'Full system + owner dashboard + staff dashboard + payment + reports + loyalty + inventory',price:'₹45K'}], delivery:'3-7 days', cta:'Get Restaurant Bot Quote'}
+    {id:'laundry', icon:'👕', name:'Laundry & Dry Cleaning', problem:'Manual order tracking, lost tickets, delayed pickup/delivery', solution:'Full WhatsApp order management — pickup to delivery with auto-notifications', workflow:'Customer QR scan/WhatsApp → Pickup request → Worker assigned → Cleaning → Ready → Delivery', customerUpdates:'Pickup confirmed | Cleaning started | Ready for delivery | Delivered', ownerUpdates:'New order | Pending pickup | Revenue report | Worker workload', workerUpdates:'Pickup task | Cleaning task | Delivery task', plans:[{name:'Standard',desc:'Order intake + pickup/delivery status + customer notifications',price:'₹10K'},{name:'Professional',desc:'Worker assignment + billing + owner reports + multi-status workflow',price:'₹20K'},{name:'Premium',desc:'Multi-branch + advanced CRM + integrations + analytics',price:'₹35K'}], delivery:'5-14 days', cta:'Get Laundry Bot Quote'},
+    {id:'clinic', icon:'🏥', name:'Clinic / Doctor', problem:'Missed appointments, manual records, no patient recall, long queues', solution:'WhatsApp appointment system with reminders, queue management, patient records', workflow:'Patient WhatsApp → Book appointment → Confirm → Reminder → Check-in → Prescription → Follow-up', customerUpdates:'Appointment confirmed | Reminder: Visit time | Your turn | Prescription sent | Follow-up', ownerUpdates:'Today appointments | Patient history | Daily bookings | Cancellations', workerUpdates:'Appointment confirm | Reminder send | Patient queue', plans:[{name:'Standard',desc:'WhatsApp appointment booking + reminders + basic patient intake',price:'₹15K'},{name:'Professional',desc:'Queue/room workflow + patient records + reports + staff dashboard',price:'₹28K'},{name:'Premium',desc:'Multi-doctor/branch roles + integrations + recall campaigns + analytics',price:'₹45K'}], delivery:'5-14 days', cta:'Get Clinic Bot Quote'},
+    {id:'hotel', icon:'🏨', name:'Hotel / Resort', problem:'No 24/7 inquiry handling, manual booking, guest communication gaps', solution:'Hotel booking bot with room management, guest updates, lead tracking', workflow:'Guest WhatsApp → Room inquiry → Package details → Booking → Check-in info → Room service → Check-out → Review', customerUpdates:'Room details sent | Booking confirmed | Check-in info | Room service on way | Review request', ownerUpdates:'New booking lead | Guest list | Package inquiries | Revenue', workerUpdates:'Room availability | Booking follow-up | Guest support', plans:[{name:'Standard',desc:'Room/package enquiry + WhatsApp lead capture + booking request flow',price:'₹15K'},{name:'Professional',desc:'Booking management + guest CRM + confirmations + staff dashboard',price:'₹30K'},{name:'Premium',desc:'Multi-property roles + payment/integrations + guest workflows + analytics',price:'₹50K'}], delivery:'5-14 days', cta:'Get Hotel Bot Quote'},
+    {id:'restaurant', icon:'🍽️', name:'Restaurant / Cafe', problem:'Missed orders, peak hour chaos, manual billing, no customer database', solution:'QR menu + WhatsApp ordering with kitchen display, auto-billing, customer CRM', workflow:'Customer scans QR → Menu → Order → Kitchen display → Ready → Payment → Review', customerUpdates:'Order received | Preparing | Ready for collect/delivery | Bill paid | Review', ownerUpdates:'New order | Table booking | Customer list | Daily order report | Revenue', workerUpdates:'Order preparation | Delivery task | Booking confirm', plans:[{name:'Standard',desc:'QR menu + WhatsApp enquiry/order flow + table booking',price:'₹12K'},{name:'Professional',desc:'Kitchen/order dashboard + payment links + CRM + daily reporting',price:'₹25K'},{name:'Premium',desc:'Multi-branch roles + POS/API integrations + campaigns + analytics',price:'₹45K'}], delivery:'5-14 days', cta:'Get Restaurant Bot Quote'}
   ];
   document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('industryPackGrid');

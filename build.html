@@ -67,7 +67,7 @@
           </div>
           <div class="bf">
             <div><label for="fAuto">What should be automated?</label><select id="fAuto"><option value="">Select…</option><option>WhatsApp replies / sales bot</option><option>AI agent for customers</option><option>CRM / lead tracking</option><option>ERP / inventory / orders</option><option>Bookings / appointments</option><option>Follow-ups / reminders</option><option>Website / store</option><option>Not sure — recommend me</option></select></div>
-            <div><label for="fBudget">Budget range</label><select id="fBudget"><option value="">Select…</option><option>Under ₹25,000 / SAR 1,100 / AED 1,100</option><option>₹25,000–₹1,00,000</option><option>₹1,00,000–₹3,00,000</option><option>₹3,00,000+</option><option>Unsure</option></select></div>
+            <div><label for="fBudget">Budget range</label><select id="fBudget"><option value="">Select…</option><option>Standard / Starter scope</option><option>Professional / Growth scope</option><option>Premium / Complex scope</option><option>Enterprise / Multi-system scope</option><option>Unsure</option></select></div>
           </div>
           <div class="bf">
             <div><label for="fTimeline">Timeline</label><select id="fTimeline"><option value="">Select…</option><option>ASAP (this month)</option><option>Within 1-2 months</option><option>Just exploring</option></select></div>
@@ -162,7 +162,7 @@
     // Portal API (live) — best effort; WhatsApp remains the fallback CTA
     (async () => {
       try {
-        const budgetMap = { 'Under ₹25,000 / SAR 1,100 / AED 1,100': 20000, '₹25,000–₹1,00,000': 75000, '₹1,00,000–₹3,00,000': 200000, '₹3,00,000+': 400000 };
+        const budgetMap = { 'Standard / Starter scope': 15000, 'Professional / Growth scope': 50000, 'Premium / Complex scope': 150000, 'Enterprise / Multi-system scope': 400000 };
         await fetch('https://portal.freshtiqautomation.com/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
