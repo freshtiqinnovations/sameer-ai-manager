@@ -40,7 +40,7 @@ const storeProducts = [
     title: "ERP Bot",
     description: "Enterprise resource planning via Telegram — inventory, orders, HR, reports & analytics.",
     price: "From ₹35,000",
-    tiers: { standard: "₹35,000", professional: "₹75,000", premium: "₹150,000" },
+    tiers: { standard: "₹35,000", professional: "₹75,000", premium: "₹1,50,000" },
     monthly: "",
     delivery: "2–6 weeks",
     tags: ["bot", "premium"]
@@ -178,7 +178,7 @@ const storeProducts = [
     title: "Factory ERP",
     description: "Complete factory management: production, inventory, orders, workforce, maintenance & reports.",
     price: "From ₹35,000",
-    tiers: { standard: "₹35,000", professional: "₹75,000", premium: "₹150,000" },
+    tiers: { standard: "₹35,000", professional: "₹75,000", premium: "₹1,50,000" },
     monthly: "",
     delivery: "2–6 weeks",
     tags: ["erp", "premium"]

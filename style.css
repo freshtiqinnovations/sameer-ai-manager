@@ -1057,3 +1057,14 @@ html[dir="rtl"] body{font-family:Inter,Tahoma,Arial,sans-serif}.rtl-ui .nav-link
 .pricing-grid .glass-card > a:not(.btn-primary){color:#1d4ed8!important}
 .industry-card .ip-card strong{color:#1e40af!important}
 .pricing-detail{opacity:1!important;color:#475569!important}
+
+/* RTL safety: technical identifiers must never be visually reversed. */
+.ftq-ltr-value,
+html[dir="rtl"] a[href^="tel:"],
+html[dir="rtl"] a[href^="mailto:"],
+html[dir="rtl"] .pricing-table-wrap td:not(:first-child),
+html[dir="rtl"] .store-card-price .main,
+html[dir="rtl"] .store-tier-mini>div,
+html[dir="rtl"] [data-ltr]{direction:ltr!important;unicode-bidi:isolate!important;}
+html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] a[href^="mailto:"]{display:inline-block!important;}
+html[dir="rtl"] bdi[dir="ltr"]{direction:ltr!important;unicode-bidi:isolate!important;}
