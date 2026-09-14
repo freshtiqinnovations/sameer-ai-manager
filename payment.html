@@ -93,62 +93,23 @@
 </header>
 <main class="payment-page">
 <div class="payment-card">
-<h1>💰 Make a Payment</h1>
-<p class="sub">Pay via UPI or Bank Transfer. Upload proof to confirm your milestone.</p>
-<!-- Project ID Display & Generator -->
+<h1>🔐 Verified Payment Onboarding</h1>
+<p class="sub">For approved projects only. Use the Tracking ID and payment instructions issued by Freshtiq in your written proposal or verified WhatsApp onboarding.</p>
+<!-- Issued Tracking ID -->
 <div class="project-id-box">
-<div class="label">Project ID</div>
-<div class="id-value" id="projectIdDisplay">FTQ-20260612-7394</div>
-<button class="gen-btn" onclick="generateProjectId()">🔄 Generate New Project ID</button>
+  <div class="label">Issued Tracking ID</div>
+  <div class="id-value ftq-ltr-value" dir="ltr" id="projectIdDisplay">FA-YYYY-XXXX</div>
+  <p style="margin:10px 0 0;font-size:.82rem;line-height:1.55;color:#64748b;">Tracking IDs are created only after an approved proposal/deal. This page does not generate project IDs.</p>
 </div>
-<!-- Step 1: Payment Methods -->
-<div class="payment-methods">
-<div class="payment-method active" onclick="switchPayment('upi')">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="M12 8v8M8 12h8"></path></svg>
-          UPI
-        </div>
-<div class="payment-method" onclick="switchPayment('bank')">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
-          Bank Transfer
-        </div>
+<div style="padding:16px 18px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:12px;margin:18px 0;line-height:1.65;color:#1e3a5f;">
+  <strong>🔒 Payment details are verification-gated.</strong><br>
+  Bank/UPI credentials are not published on this public page. Use only the payment instructions sent for your approved Tracking ID through Freshtiq's verified WhatsApp/onboarding message. If you have not received them, contact us before paying.
 </div>
-<div id="amountDisplay">Enter the amount you paid</div>
-<!-- UPI Details -->
-<div class="payment-detail active" id="upiDetail">
-<div class="upi-options">
-<div class="upi-item">
-<div>
-<div class="name">GPay / PhonePe / Paytm</div>
-<div class="id">7379131322@kotak811</div>
-</div>
-<button class="copy-btn" onclick="copyUpi()">📋 Copy</button>
-</div>
-<div class="upi-item">
-<div>
-<div class="name">Scan &amp; Pay (UPI QR)</div>
-<div class="id">UPI ID: 7379131322@kotak811</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Bank Details -->
-<div class="payment-detail" id="bankDetail">
-<table class="bank-table">
-<tr><td>Bank</td><td>State Bank of India</td></tr>
-<tr><td>Account Name</td><td>FRESHTIQ INNOVATIONS(OPC) PRIVATE LIMITED</td></tr>
-<tr><td>Account No.</td><td>44724335472</td></tr>
-<tr><td>Branch</td><td>MOHAMMADPUR</td></tr>
-<tr><td>IFSC</td><td>SBIN0013157</td></tr>
-<tr><td>MICR</td><td>276002504</td></tr>
-</table>
-</div>
+<div id="amountDisplay">Enter the amount exactly as paid</div>
 <!-- Step 2: Payment Details Form -->
 <div class="form-group">
 <label for="projectId">Project ID *</label>
-<div class="input-with-btn">
-<input id="projectId" oninput="syncProjectDisplay()" placeholder="Auto-generated on load" type="text"/>
-<button class="gen-inline-btn" onclick="generateProjectId()">New ID</button>
-</div>
+<input id="projectId" oninput="syncProjectDisplay()" placeholder="FA-2026-0001" type="text" autocomplete="off"/>
 </div>
 <div class="form-group">
 <label for="custName">Your Full Name *</label>
@@ -159,8 +120,17 @@
 <input id="custPhone" placeholder="+91 9876543210" type="tel"/>
 </div>
 <div class="form-group">
-<label for="amount">Amount Paid (₹) *</label>
-<input id="amount" oninput="updateAmountDisplay()" placeholder="e.g. 8000" type="number"/>
+<label for="currency">Currency *</label>
+<select id="currency" onchange="updateAmountDisplay()">
+<option value="INR">INR — India</option>
+<option value="SAR">SAR — Saudi Arabia</option>
+<option value="AED">AED — UAE</option>
+<option value="USD">USD — if stated in your proposal</option>
+</select>
+</div>
+<div class="form-group">
+<label for="amount">Amount Paid *</label>
+<input id="amount" oninput="updateAmountDisplay()" placeholder="e.g. 25000" inputmode="decimal" type="text"/>
 </div>
 <div class="form-group">
 <label for="paymentMode">Payment Mode *</label>
@@ -171,105 +141,67 @@
 </select>
 </div>
 <div class="form-group">
-<label>Upload Payment Proof (Screenshot)</label>
-<div class="pf-upload">
-<input accept="image/*" id="proofFile" type="file"/>
-<div class="pf-label">
+<label>Payment Proof</label>
+<div class="pf-upload" style="cursor:default;">
+<div class="pf-label" style="pointer-events:none;">
 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"></path></svg>
-            Tap to upload screenshot
+            After WhatsApp opens, attach your payment screenshot there before sending.
           </div>
 </div>
 </div>
-<button class="submit-payment" id="submitPayment" onclick="submitPayment()">📩 Send Payment Proof on WhatsApp</button>
+<button class="submit-payment" id="submitPayment" onclick="submitPayment()">💬 Open WhatsApp &amp; Submit Proof</button>
 <!-- Success -->
 <div class="success-msg" id="successMsg">
 <div class="check">✅</div>
-<h2>Payment Proof Submitted 🎉</h2>
-<p>We have received your payment submission. Our team will verify and confirm within 1 hour.</p>
+<h2>WhatsApp Ready ✅</h2>
+<p>Attach the payment screenshot in WhatsApp and send the pre-filled message. Verification starts only after Freshtiq receives the message and proof.</p>
 <a class="wa-btn" href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20just%20submitted%20payment%20proof.%20Please%20confirm." rel="noopener" target="_blank">💬 Confirm on WhatsApp</a>
 </div>
 </div>
 </main>
 <script>
-    function generateProjectId() {
-      const now = new Date();
-      const y = now.getFullYear();
-      const m = String(now.getMonth() + 1).padStart(2, '0');
-      const d = String(now.getDate()).padStart(2, '0');
-      const rand = String(Math.floor(1000 + Math.random() * 9000));
-      const pid = `FTQ-${y}${m}${d}-${rand}`;
-      document.getElementById('projectIdDisplay').textContent = pid;
-      document.getElementById('projectId').value = pid;
-      return pid;
-    }
-
     function syncProjectDisplay() {
-      const val = document.getElementById('projectId').value.trim();
-      document.getElementById('projectIdDisplay').textContent = val || 'FTQ-......';
-    }
-
-    function switchPayment(method) {
-      document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.payment-detail').forEach(el => el.classList.remove('active'));
-      if(method === 'upi') {
-        document.querySelector('.payment-method:first-child').classList.add('active');
-        document.getElementById('upiDetail').classList.add('active');
-      } else {
-        document.querySelector('.payment-method:last-child').classList.add('active');
-        document.getElementById('bankDetail').classList.add('active');
-      }
-    }
-
-    function copyUpi() {
-      navigator.clipboard.writeText('7379131322@kotak811').then(() => {
-        const btn = document.querySelector('.upi-item .copy-btn');
-        btn.textContent = '✅ Copied!';
-        setTimeout(() => btn.textContent = '📋 Copy', 2000);
-      });
+      const val = document.getElementById('projectId').value.trim().toUpperCase();
+      document.getElementById('projectIdDisplay').textContent = val || 'FA-YYYY-XXXX';
     }
 
     function updateAmountDisplay() {
       const val = document.getElementById('amount').value.trim();
-      document.getElementById('amountDisplay').textContent = val ? 'Amount: ₹' + parseInt(val).toLocaleString('en-IN') : 'Enter the amount you paid';
-      gtag('event', 'payment_amount_entered', { amount: val });
+      const currency = document.getElementById('currency').value;
+      document.getElementById('amountDisplay').textContent = val ? `Amount: ${currency} ${val}` : 'Enter the amount exactly as paid';
     }
 
     function submitPayment() {
-      const projectId = document.getElementById('projectId').value.trim();
+      const projectId = document.getElementById('projectId').value.trim().toUpperCase();
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const amount = document.getElementById('amount').value.trim();
+      const currency = document.getElementById('currency').value;
       const mode = document.getElementById('paymentMode').value;
-      const proof = document.getElementById('proofFile').files[0];
 
       if (!projectId || !name || !phone || !amount) {
-        alert('⚠️ Please fill all required fields: Project ID, Name, Phone, and Amount.');
+        alert('⚠️ Please fill Tracking ID, Name, Phone, and Amount.');
+        return;
+      }
+      if (!/^FA-\d{4}-\d{4,8}$/i.test(projectId)) {
+        alert('⚠️ Please enter the Tracking ID issued by Freshtiq (example: FA-2026-0001). Do not create your own ID.');
         return;
       }
 
-      // Store in localStorage as fallback
-      const payment = { projectId, name, phone, amount, mode, timestamp: new Date().toISOString() };
-      const history = JSON.parse(localStorage.getItem('payments') || '[]');
-      history.push(payment);
-      localStorage.setItem('payments', JSON.stringify(history));
-
-      // GA event
-      gtag('event', 'payment_proof_submitted', { projectId, amount, mode });
-
-      // WhatsApp message with Project ID, Amount, Name, Phone
-      let msg = `Hi Freshtiq! I have submitted a payment.%0A%0A`;
-      msg += `🏷 Project ID: ${projectId}%0A`;
-      msg += `👤 Name: ${name}%0A`;
-      msg += `📱 Phone: ${phone}%0A`;
-      msg += `💰 Amount: ₹${amount}%0A`;
-      msg += `💳 Mode: ${mode}%0A`;
-      msg += `📎 Payment proof screenshot attached. Please confirm.`;
-
-      // Open WhatsApp
-      const waUrl = `https://wa.me/918381848389?text=${msg}`;
-      window.open(waUrl, "_blank", "noopener");
-
-      // Show success
+      if (typeof gtag === 'function') gtag('event', 'payment_proof_whatsapp_started', { currency, mode });
+      const lines = [
+        'Hi Freshtiq! I am submitting payment proof for verification.',
+        '',
+        `🏷 Tracking ID: ${projectId}`,
+        `👤 Name: ${name}`,
+        `📱 Phone: ${phone}`,
+        `💰 Amount: ${currency} ${amount}`,
+        `💳 Mode: ${mode}`,
+        '',
+        '📎 I will attach the payment screenshot to this WhatsApp message before sending. Please verify it against my approved project.'
+      ];
+      const waUrl = 'https://wa.me/918381848389?text=' + encodeURIComponent(lines.join('\n'));
+      window.open(waUrl, '_blank', 'noopener');
       document.getElementById('submitPayment').style.display = 'none';
       document.getElementById('successMsg').classList.add('active');
     }
@@ -281,11 +213,6 @@
     // Close nav on link click
     document.querySelectorAll('#navLinks a').forEach(a => {
       a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-    });
-
-    // Auto-generate Project ID on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      generateProjectId();
     });
   </script>
 <script src="/freshtiq-i18n.js?v=20260914rtl1"></script>
