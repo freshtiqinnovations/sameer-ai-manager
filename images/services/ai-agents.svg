@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Illustration: AI agent noding enquiry into qualified lead with human handoff">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061428"/><stop offset=".55" stop-color="#0a1c3a"/><stop offset="1" stop-color="#081126"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b5cff"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0b5cff"/><stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#2563eb" stop-opacity=".5"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#7dd3fc" stroke-opacity=".09"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#grid)"/>
+  <circle cx="80" cy="40" r="180" fill="url(#glow)"/>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <circle cx="170" cy="150" r="62" fill="none" stroke="url(#brand)" stroke-width="3" stroke-opacity=".5"/>
+    <circle cx="170" cy="150" r="44" fill="url(#brand)"/>
+    <rect x="150" y="140" width="40" height="28" rx="8" fill="#fff"/>
+    <circle cx="161" cy="154" r="4" fill="#2563eb"/><circle cx="179" cy="154" r="4" fill="#2563eb"/>
+    <line x1="170" y1="140" x2="170" y2="126" stroke="#fff" stroke-width="3"/>
+    <circle cx="170" cy="122" r="6" fill="#fff"/>
+    <path d="M228 118 L300 96" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 6"/>
+    <path d="M228 182 L300 204" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="6 6"/>
+    <rect x="308" y="70" width="292" height="60" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".13"/>
+    <text x="328" y="97" font-size="14" font-weight="700" fill="#fff">Understands intent</text>
+    <text x="328" y="116" font-size="11.5" fill="#9fb3d1">Budget · urgency · service needed</text>
+    <rect x="308" y="146" width="292" height="60" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".13"/>
+    <text x="328" y="173" font-size="14" font-weight="700" fill="#fff">Qualifies the lead</text>
+    <text x="328" y="192" font-size="11.5" fill="#9fb3d1">Score + reason, no guesswork</text>
+    <rect x="308" y="222" width="292" height="60" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".13"/>
+    <text x="328" y="249" font-size="14" font-weight="700" fill="#fff">Hands off to your team</text>
+    <text x="328" y="268" font-size="11.5" fill="#9fb3d1">Human closes the deal</text>
+    <circle cx="86" cy="292" r="20" fill="#0891b2"/>
+    <text x="86" y="299" font-size="16" text-anchor="middle" fill="#fff">24/7</text>  </g>
+</svg>

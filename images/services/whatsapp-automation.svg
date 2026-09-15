@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Illustration: WhatsApp automation chat handling an order enquiry with automatic reply">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061428"/><stop offset=".55" stop-color="#0a1c3a"/><stop offset="1" stop-color="#081126"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b5cff"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0b5cff"/><stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#2563eb" stop-opacity=".5"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#7dd3fc" stroke-opacity=".09"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#grid)"/>
+  <circle cx="80" cy="40" r="180" fill="url(#glow)"/>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <rect x="40" y="36" width="300" height="288" rx="22" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".13"/>
+    <rect x="40" y="36" width="300" height="46" rx="22" fill="#25d366" fill-opacity=".9"/>
+    <rect x="40" y="64" width="300" height="18" fill="#25d366" fill-opacity=".9"/>
+    <circle cx="70" cy="59" r="13" fill="#04231a"/><text x="66" y="64" font-size="13" font-weight="700" fill="#25d366">F</text>
+    <text x="92" y="57" font-size="14" font-weight="700" fill="#04231a">Freshtiq Business</text>
+    <text x="92" y="72" font-size="10" fill="#05402c">online · replies instantly</text>
+    <rect x="66" y="104" width="196" height="44" rx="14" fill="#fff" fill-opacity=".10"/>
+    <text x="82" y="131" font-size="12.5" fill="#dbeafe">Do you deliver to Dubai?</text>
+    <rect x="112" y="162" width="212" height="44" rx="14" fill="#25d366"/>
+    <text x="128" y="189" font-size="12.5" font-weight="600" fill="#04231a">Yes — Arabic + English</text>
+    <rect x="66" y="220" width="150" height="44" rx="14" fill="#fff" fill-opacity=".10"/>
+    <text x="82" y="247" font-size="12.5" fill="#dbeafe">Price list?</text>
+    <rect x="150" y="278" width="174" height="30" rx="12" fill="#fff" fill-opacity=".14"/>
+    <text x="166" y="298" font-size="11.5" fill="#86efac">Typing… auto-reply</text>
+    <g>
+      <rect x="384" y="80" width="216" height="70" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".12"/>
+      <text x="404" y="108" font-size="12" fill="#9fb3d1">Response time</text>
+      <text x="404" y="136" font-size="26" font-weight="800" fill="#fff">12s</text>
+      <rect x="512" y="116" width="70" height="8" rx="4" fill="#25d366"/>
+      <rect x="384" y="170" width="216" height="70" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".12"/>
+      <text x="404" y="198" font-size="12" fill="#9fb3d1">Answered 24/7</text>
+      <text x="404" y="226" font-size="26" font-weight="800" fill="#fff">100%</text>
+      <rect x="384" y="260" width="216" height="64" rx="16" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".12"/>
+      <text x="404" y="288" font-size="12" fill="#9fb3d1">Orders booked today</text>
+      <text x="404" y="312" font-size="24" font-weight="800" fill="#38bdf8">37</text>
+    </g>  </g>
+</svg>

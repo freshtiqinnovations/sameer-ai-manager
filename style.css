@@ -1076,3 +1076,16 @@ html[dir="rtl"] bdi[dir="ltr"]{direction:ltr!important;unicode-bidi:isolate!impo
 .svc-tags span{font-size:.7rem;font-weight:700;letter-spacing:.2px;padding:4px 9px;border-radius:999px;background:#eef4ff;color:#1d4ed8;border:1px solid #dbeafe;white-space:nowrap}
 @media(max-width:920px){.hero-banner{border-radius:18px}}
 @media(max-width:600px){.hero-banner-wrap{margin-bottom:2px}.hero-banner{border-radius:14px;box-shadow:0 16px 40px rgba(7,20,38,.22)}}
+
+/* === Service card visuals 2026-09-15 === */
+.glass-card .svc-visual{margin:0 0 14px;padding:0;border-radius:14px;overflow:hidden;
+  background:linear-gradient(135deg,#061428,#0a1c3a 55%,#081126);
+  border:1px solid rgba(120,170,255,.16);aspect-ratio:16/9;width:100%;}
+.glass-card .svc-visual img{display:block;width:100%;height:100%;object-fit:cover;}
+.glass-card .svc-visual{box-shadow:0 10px 26px -14px rgba(6,18,42,.55);}
+@media (max-width:640px){
+  .glass-card .svc-visual{border-radius:12px;margin-bottom:12px;}
+}
+@media (prefers-reduced-motion:no-preference){
+  .glass-card{transition:transform .25s ease, box-shadow .25s ease;}
+}
