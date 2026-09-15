@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 820" width="720" height="820" role="img" aria-label="Freshtiq Automation dashboard and services: WhatsApp automation, AI agents, CRM and ERP, custom workflows">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050f22"/>
+      <stop offset="0.52" stop-color="#0a1c3a"/>
+      <stop offset="1" stop-color="#081428"/>
+    </linearGradient>
+    <linearGradient id="mbrand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b5cff"/>
+      <stop offset="0.55" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="mbar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0b5cff"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="mglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="mgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#7dd3fc" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="720" height="820" fill="url(#mbg)"/>
+  <rect width="720" height="820" fill="url(#mgrid)"/>
+  <circle cx="80" cy="60" r="220" fill="url(#mglow)"/>
+
+  <!-- Dashboard card -->
+  <rect x="30" y="30" width="660" height="400" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.15"/>
+  <circle cx="70" cy="68" r="8" fill="#ff5f57"/>
+  <circle cx="94" cy="68" r="8" fill="#febc2e"/>
+  <circle cx="118" cy="68" r="8" fill="#28c840"/>
+  <text x="146" y="75" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e8f1ff">Freshtiq · Live Operations</text>
+  <line x1="54" y1="96" x2="666" y2="96" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <rect x="54" y="116" width="196" height="92" rx="16" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="72" y="148" font-size="13" fill="#9fb3d1">Enquiries</text>
+    <text x="72" y="188" font-size="28" font-weight="800" fill="#ffffff">128</text>
+
+    <rect x="262" y="116" width="196" height="92" rx="16" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="280" y="148" font-size="13" fill="#9fb3d1">Qualified</text>
+    <text x="280" y="188" font-size="28" font-weight="800" fill="#ffffff">74</text>
+
+    <rect x="470" y="116" width="196" height="92" rx="16" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="488" y="148" font-size="13" fill="#9fb3d1">First reply</text>
+    <text x="488" y="188" font-size="28" font-weight="800" fill="#ffffff">12s</text>
+
+    <!-- Pipeline -->
+    <rect x="54" y="226" width="612" height="176" rx="16" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.09"/>
+    <text x="76" y="254" font-size="13.5" font-weight="700" fill="#9fb3d1">Follow-up pipeline</text>
+    <rect x="86" y="330" width="42" height="46" rx="7" fill="url(#mbar)" fill-opacity="0.85"/>
+    <rect x="156" y="306" width="42" height="70" rx="7" fill="url(#mbar)" fill-opacity="0.88"/>
+    <rect x="226" y="282" width="42" height="94" rx="7" fill="url(#mbar)" fill-opacity="0.92"/>
+    <rect x="296" y="270" width="42" height="106" rx="7" fill="url(#mbar)"/>
+    <text x="107" y="392" font-size="10.5" fill="#8fa6c4" text-anchor="middle">New</text>
+    <text x="177" y="392" font-size="10.5" fill="#8fa6c4" text-anchor="middle">Chat</text>
+    <text x="247" y="392" font-size="10.5" fill="#8fa6c4" text-anchor="middle">Qual</text>
+    <text x="317" y="392" font-size="10.5" fill="#8fa6c4" text-anchor="middle">Won</text>
+
+    <!-- WhatsApp mini chat -->
+    <rect x="380" y="272" width="266" height="112" rx="14" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="396" y="286" width="150" height="34" rx="11" fill="#ffffff" fill-opacity="0.10"/>
+    <text x="408" y="308" font-size="11.5" fill="#dbeafe">Price for automation?</text>
+    <rect x="470" y="330" width="164" height="34" rx="11" fill="#25d366"/>
+    <text x="482" y="352" font-size="11.5" font-weight="600" fill="#04231a">Sharing plan in 1 min</text>
+  </g>
+
+  <!-- Service chips 2x2 -->
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <!-- WhatsApp -->
+    <rect x="30" y="460" width="320" height="120" rx="18" fill="#ffffff" fill-opacity="0.058" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="52" y="484" width="44" height="44" rx="13" fill="#25d366"/>
+    <g transform="translate(74,506) scale(1.4) translate(-12,-12)">
+      <rect x="3" y="4" width="18" height="13" rx="3" fill="#04231a"/>
+      <path d="M8 17l-1 3 5-3z" fill="#04231a"/>
+    </g>
+    <text x="110" y="500" font-size="16" font-weight="700" fill="#ffffff">WhatsApp</text>
+    <text x="110" y="522" font-size="11.5" fill="#9fb3d1">Automation</text>
+    <text x="110" y="544" font-size="11" fill="#8fa6c4">Booking · FAQs · follow-ups</text>
+
+    <!-- AI Agents -->
+    <rect x="370" y="460" width="320" height="120" rx="18" fill="#ffffff" fill-opacity="0.058" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="392" y="484" width="44" height="44" rx="13" fill="url(#mbrand)"/>
+    <g transform="translate(414,506) scale(1.4) translate(-12,-12)">
+      <rect x="4" y="8" width="16" height="11" rx="3" fill="#ffffff"/>
+      <line x1="12" y1="8" x2="12" y2="5" stroke="#ffffff" stroke-width="1.6"/>
+      <circle cx="12" cy="4" r="1.5" fill="#ffffff"/>
+      <circle cx="9" cy="13.5" r="1.7" fill="#2563eb"/>
+      <circle cx="15" cy="13.5" r="1.7" fill="#2563eb"/>
+    </g>
+    <text x="450" y="500" font-size="16" font-weight="700" fill="#ffffff">AI Agents</text>
+    <text x="450" y="522" font-size="11.5" fill="#9fb3d1">Sales · support · reception</text>
+    <text x="450" y="544" font-size="11" fill="#8fa6c4">Trained on your business</text>
+
+    <!-- CRM & ERP -->
+    <rect x="30" y="600" width="320" height="120" rx="18" fill="#ffffff" fill-opacity="0.058" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="52" y="624" width="44" height="44" rx="13" fill="url(#mbrand)"/>
+    <g transform="translate(74,646) scale(1.4) translate(-12,-12)">
+      <rect x="4" y="12" width="4" height="8" rx="1.5" fill="#ffffff"/>
+      <rect x="10" y="8" width="4" height="12" rx="1.5" fill="#ffffff"/>
+      <rect x="16" y="5" width="4" height="15" rx="1.5" fill="#ffffff"/>
+    </g>
+    <text x="110" y="640" font-size="16" font-weight="700" fill="#ffffff">CRM &amp; ERP</text>
+    <text x="110" y="662" font-size="11.5" fill="#9fb3d1">Custom systems</text>
+    <text x="110" y="684" font-size="11" fill="#8fa6c4">Pipeline · stock · reporting</text>
+
+    <!-- Workflows -->
+    <rect x="370" y="600" width="320" height="120" rx="18" fill="#ffffff" fill-opacity="0.058" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="392" y="624" width="44" height="44" rx="13" fill="#0891b2"/>
+    <g transform="translate(414,646) scale(1.4) translate(-12,-12)">
+      <circle cx="12" cy="12" r="3.2" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+      <g fill="#ffffff">
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2"/>
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2" transform="rotate(60 12 12)"/>
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2" transform="rotate(120 12 12)"/>
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2" transform="rotate(180 12 12)"/>
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2" transform="rotate(240 12 12)"/>
+        <rect x="10.7" y="1.4" width="2.6" height="5" rx="1.2" transform="rotate(300 12 12)"/>
+      </g>
+    </g>
+    <text x="450" y="640" font-size="16" font-weight="700" fill="#ffffff">Workflows</text>
+    <text x="450" y="662" font-size="11.5" fill="#9fb3d1">Integrations</text>
+    <text x="450" y="684" font-size="11" fill="#8fa6c4">Fits your existing tools</text>
+  </g>
+
+  <rect x="30" y="748" width="660" height="46" rx="14" fill="#ffffff" fill-opacity="0.05"/>
+  <circle cx="56" cy="771" r="6" fill="#34d399"/>
+  <text x="72" y="776" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#9fb3d1">India · Saudi Arabia · UAE · Source-code handover</text>
+</svg>

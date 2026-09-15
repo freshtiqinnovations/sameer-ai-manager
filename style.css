@@ -1068,3 +1068,11 @@ html[dir="rtl"] .store-tier-mini>div,
 html[dir="rtl"] [data-ltr]{direction:ltr!important;unicode-bidi:isolate!important;}
 html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] a[href^="mailto:"]{display:inline-block!important;}
 html[dir="rtl"] bdi[dir="ltr"]{direction:ltr!important;unicode-bidi:isolate!important;}
+
+/* === FRESHTIQ HERO BANNER + SERVICE CARDS · 2026-09-15 === */
+.hero-banner-wrap{grid-column:1/-1;margin:0 0 6px;width:100%}
+.hero-banner{display:block;width:100%;height:auto;border-radius:22px;border:1px solid #dbe4f0;box-shadow:0 26px 70px rgba(7,20,38,.26),0 6px 18px rgba(7,20,38,.08)}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.svc-tags span{font-size:.7rem;font-weight:700;letter-spacing:.2px;padding:4px 9px;border-radius:999px;background:#eef4ff;color:#1d4ed8;border:1px solid #dbeafe;white-space:nowrap}
+@media(max-width:920px){.hero-banner{border-radius:18px}}
+@media(max-width:600px){.hero-banner-wrap{margin-bottom:2px}.hero-banner{border-radius:14px;box-shadow:0 16px 40px rgba(7,20,38,.22)}}
