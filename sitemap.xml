@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://freshtiqautomation.com/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-17</lastmod>
   </url>
   <url>
     <loc>https://freshtiqautomation.com/about.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://freshtiqautomation.com/india/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://freshtiqautomation.com/india/" />
     <xhtml:link rel="alternate" hreflang="hi-IN" href="https://freshtiqautomation.com/india/hi/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://freshtiqautomation.com/india/" />
@@ -72,7 +72,7 @@
   </url>
   <url>
     <loc>https://freshtiqautomation.com/insights/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-17</lastmod>
   </url>
   <url>
     <loc>https://freshtiqautomation.com/insights/ai-sales-agent-guide.html</loc>
@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>https://freshtiqautomation.com/saudi-arabia/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://freshtiqautomation.com/saudi-arabia/" />
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://freshtiqautomation.com/saudi-arabia/ar/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://freshtiqautomation.com/saudi-arabia/" />
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://freshtiqautomation.com/uae/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://freshtiqautomation.com/uae/" />
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://freshtiqautomation.com/uae/ar/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://freshtiqautomation.com/uae/" />
@@ -258,4 +258,18 @@
   <url><loc>https://freshtiqautomation.com/industries/salon.html</loc><lastmod>2026-09-17</lastmod></url>
   <url><loc>https://freshtiqautomation.com/industries/dental.html</loc><lastmod>2026-09-17</lastmod></url>
   <url><loc>https://freshtiqautomation.com/industries/auto-service.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url>
+    <loc>https://freshtiqautomation.com/insights/real-estate-whatsapp-automation-dubai.html</loc>
+    <lastmod>2026-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://freshtiqautomation.com/insights/clinic-whatsapp-automation-saudi-arabia.html</loc>
+    <lastmod>2026-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://freshtiqautomation.com/insights/lead-follow-up-automation-india.html</loc>
+    <lastmod>2026-09-17</lastmod>
+  </url>
+  <url><loc>https://freshtiqautomation.com/international/</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://freshtiqautomation.com/insights/ai-automation-agency-for-business.html</loc><lastmod>2026-09-17</lastmod></url>
 </urlset>
