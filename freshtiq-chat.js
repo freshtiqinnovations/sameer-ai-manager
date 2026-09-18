@@ -219,14 +219,12 @@
     if (isOpen) {
       try { if (window.gtag) gtag('event','chat_open',{page:location.pathname}); } catch(_) {}
       msgInput.focus();
-      // Welcome message on first open
+      // Welcome message once, synchronously, so it can never race into the middle of a reply.
       if (chatHistory.length === 0) {
         const welcome = "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
-        setTimeout(() => {
-          addMessage(welcome, 'bot');
-          chatHistory.push({ role: 'assistant', content: welcome });
-          persistHistory();
-        }, 400);
+        addMessage(welcome, 'bot');
+        chatHistory.push({ role: 'assistant', content: welcome });
+        persistHistory();
       }
     }
   });

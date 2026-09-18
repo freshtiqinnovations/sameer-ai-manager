@@ -16,8 +16,7 @@
   <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../lead-capture.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y80ZGMYR1Y"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y80ZGMYR1Y');</script>
+
 <style>
 .case-header{background:var(--gradient);padding:100px 0 60px;text-align:center;color:white;}
 .case-header h1{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;margin:0 0 12px;}
@@ -44,7 +43,7 @@
   <meta name="twitter:title" content="FlightFare AI Case Study — Freshtiq Automation">
   <meta name="twitter:description" content="FlightFare AI Case Study — How Freshtiq built a Telegram travel bot with real-time flight fare search and price drop alerts.">
   <meta name="twitter:image" content="https://freshtiqautomation.com/images/og-preview.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"FlightFare AI Case Study — Freshtiq Automation","url":"https://freshtiqautomation.com/portfolio/flight-fare-ai.html","description":"FlightFare AI Case Study — How Freshtiq built a Telegram travel bot with real-time flight fare search and price drop alerts.","isPartOf":{"@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/"},"publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark.svg"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"FlightFare AI Case Study — Freshtiq Automation","url":"https://freshtiqautomation.com/portfolio/flight-fare-ai.html","description":"FlightFare AI Case Study — How Freshtiq built a Telegram travel bot with real-time flight fare search and price drop alerts.","isPartOf":{"@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/"},"publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark.svg","sameAs":["https://github.com/freshtiqinnovations"]}}</script>
 </head>
 <body>
 
@@ -72,7 +71,7 @@
   <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;max-width:600px;margin:0 auto 20px">A Telegram bot that searches multiple fare sources, compares options and can notify travellers about relevant fare changes.</p>
   <div class="meta">
     <span>📅 Built: Mar 2026</span>
-    <span>👤 Client: FRESHTIQ (Internal)</span>
+    <span>🧪 Status: Internal Freshtiq Build</span>
     <span>🏭 Industry: Travel</span>
     <span>✈️ Real-time fare search</span>
   </div>
@@ -126,7 +125,7 @@
 
 <!-- Results -->
 <section class="case-section">
-  <h2>📊 The Results</h2>
+  <h2>📊 What This Build Demonstrates</h2><p class="evidence-note">This is an internal Freshtiq build. Measured customer business outcomes are not published for this item; the page demonstrates implemented workflow and engineering capability.</p>
   <div class="result-grid">
     <div class="result-card"><span class="num">Multi</span><span class="label">Source Search</span></div>
     <div class="result-card"><span class="num">Instant</span><span class="label">Price Alerts</span></div>
@@ -176,6 +175,7 @@
       <p class="sub">We'll normally reply on WhatsApp within one business day</p>
       <label for="qName">Name *</label><input type="text" id="qName" placeholder="Your full name" required>
       <label for="qPhone">WhatsApp Number *</label><input type="tel" id="qPhone" placeholder="+91 9876543210" required>
+      <label for="qEmail">Email (optional)</label><input type="email" id="qEmail" placeholder="you@company.com" autocomplete="email">
       <label for="qService">I'm interested in *</label>
       <select id="qService" required>
         <option value="">Select a service</option>
@@ -212,47 +212,13 @@
     <div class="quote-success" id="quoteSuccess">
       <div class="icon">✅</div>
       <h3>Thanks! We've Got Your Request</h3>
-      <p>We'll normally reach out on WhatsApp within one business day. — Freshtiq Automation</p>
+      <p id="quoteSuccessText">Request saved. Keep your Freshtiq Lead Ref for follow-up.</p>
     </div>
   </div>
 </div>
 
 <!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>Freshtiq Automation</h4>
-      <p>Freshtiq Innovations OPC Private Limited. Building reliable automation systems for businesses in India, Saudi Arabia and the UAE.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="/">Home</a>
-      <a href="/ai-store.html">AI Store</a>
-      <a href="/build.html">Build</a>
-      <a href="/portfolio/">Portfolio</a>
-      <a href="/customer">Portal</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Portfolio</h4>
-      <a href="flight-fare-ai.html">✈️ FlightFare AI</a>
-      <a href="trader-bot.html">📈 Trader Bot</a>
-      <a href="salama-erp.html">🏭 Salama ERP</a>
-      <a href="sales-bot.html">💬 Sales Bot</a>
-      <a href="autopilot-hub.html">🤖 AutoPilot Hub</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>📞 +91 83818 48389</p>
-      <p>📧 hello@freshtiqautomation.com</p>
-      <p style="margin-top:12px;font-size:0.75rem;color:var(--text-muted)">GST Registered<br>Milestone Based Payment</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Freshtiq Innovations OPC Private Limited</span>
-    <span>Built with ❤️ in India · Saudi · UAE</span>
-  </div>
-</footer>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20260912p2" alt="Freshtiq Automation" width="210" height="52"></a><p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — custom AI bots, websites, apps, CRM/ERP and workflow automation for India, Saudi Arabia, UAE and international teams.</p><p style="font-size:.74rem;color:#8fa2bb">CIN U47912UP2025OPC236875 · GSTIN 09AAGCF7185A1ZL</p></div><div class="footer-col"><div class="footer-heading">Solutions</div><a href="/services/ai-chatbot-development.html">AI Chatbots</a><a href="/services/whatsapp-automation.html">WhatsApp Automation</a><a href="/services/website-development.html">Websites &amp; Apps</a><a href="/services/crm-erp-development.html">CRM / ERP</a></div><div class="footer-col"><div class="footer-heading">Markets</div><a href="/india/">India</a><a href="/saudi-arabia/">Saudi Arabia</a><a href="/uae/">UAE</a><a href="/international/">International</a><a href="/ar/" lang="ar" dir="rtl">العربية</a></div><div class="footer-col"><div class="footer-heading">Trust &amp; Delivery</div><a href="/evidence.html">Live Evidence</a><a href="/portfolio/">Case Studies</a><a href="/delivery.html">Delivery &amp; Handover</a><a href="/security.html">Security Overview</a><a href="/privacy.html">Privacy</a></div><div class="footer-col"><div class="footer-heading">Start</div><a href="/pricing.html">Pricing</a><a href="/demo/">Interactive Demo</a><a href="/build.html">Request Consultation</a><a href="https://portal.freshtiqautomation.com/" rel="noopener">Customer Portal</a></div></div><div class="footer-language-row"><span class="footer-language-label">Language</span><a href="/ar/" style="color:#dbeafe">العربية</a></div><div class="footer-bottom"><p>© 2025–2026 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p><div><a href="/privacy.html">Privacy</a> · <a href="/terms-and-conditions.html">Terms</a> · <a href="/refund-policy.html">Refund</a> · <a href="/security.html">Security</a></div></div></div></footer>
 
 <script>
 // ─── LEAD CAPTURE SYSTEM ───
@@ -271,20 +237,12 @@
   if(overlay) overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
 
   if(submitBtn) submitBtn.addEventListener('click', async function() {
-    const name = document.getElementById('qName').value.trim();
-    const phone = document.getElementById('qPhone').value.trim();
-    const service = document.getElementById('qService').value;
-    if(!name||name.length<2){alert('Please enter your name');return;}
-    if(!phone||phone.replace(/[^0-9]/g,'').length<10){alert('Please enter a valid WhatsApp number');return;}
-    if(!service){alert('Please select a service');return;}
+    const name=document.getElementById('qName').value.trim(),phone=document.getElementById('qPhone').value.trim(),email=(document.getElementById('qEmail')||{value:''}).value.trim(),service=document.getElementById('qService').value;
+    if(!name||name.length<2){alert('Please enter your name');return;} if(!phone&&!email){alert('Please enter a WhatsApp number or email');return;} if(phone&&phone.replace(/[^0-9]/g,'').length<8){alert('Please enter a valid WhatsApp number or use email');return;} if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email');return;} if(!service){alert('Please select a service');return;}
     submitBtn.disabled=true;submitBtn.textContent='Sending...';
-    const lead={name,phone:phone.replace(/[^0-9]/g,''),service,budget:document.getElementById('qBudget').value,timeline:document.getElementById('qTimeline').value,message:document.getElementById('qMessage').value.trim(),source:'website_form',page:window.location.pathname,ts:new Date().toISOString(),status:'new'};
-    try{const e=JSON.parse(localStorage.getItem('freshtiq_leads')||'[]');e.push(lead);localStorage.setItem('freshtiq_leads',JSON.stringify(e));}catch(e){}
-    try{await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)});}catch(e){}
-    try{const msg='📩 NEW LEAD (Portfolio-FlightFare)%0AName: '+encodeURIComponent(name)+'%0APhone: '+encodeURIComponent(phone)+'%0AService: '+encodeURIComponent(service);new Image().src='https://api.telegram.org/bot7803901698:AAGY16FJLMy37b5qFE0CozXfnSQYp-VMuH8/sendMessage?chat_id=8649581921&text='+msg;}catch(e){}
-    if(formDiv)formDiv.style.display='none';
-    if(successDiv)successDiv.classList.add('open');
-    if(typeof gtag==='function')gtag('event','lead_form_submit',{service:service,page:'flight-fare-ai'});
+    const timeline=(document.getElementById('qTimeline')||{value:''}).value,msg=(document.getElementById('qMessage')||{value:''}).value.trim();
+    const lead={name,phone,email,service,budget:(document.getElementById('qBudget')||{value:''}).value,message:[msg,timeline?('Timeline: '+timeline):''].filter(Boolean).join(' | '),source:'Portfolio - flight_fare_ai',whatsapp_opt_in:!!phone,marketing_opt_in:false,consent_source:'portfolio_quote_request'};
+    try{const rr=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)});const d=await rr.json().catch(()=>({}));if(!rr.ok||!d.success)throw new Error(d.error||'Request failed');if(formDiv)formDiv.style.display='none';if(successDiv)successDiv.classList.add('open');const st=document.getElementById('quoteSuccessText');if(st)st.textContent='Request saved. Your Freshtiq Lead Ref is '+(d.lead_ref||('#'+d.lead_id))+'. We will follow up using the contact you provided.';if(typeof gtag==='function')gtag('event','generate_lead',{service:service,page:'flight-fare-ai'});}catch(err){alert('Could not save your request right now. Please use WhatsApp or email from the Contact page.');}finally{submitBtn.disabled=false;submitBtn.textContent='→ Get My Free Quote';}
   });
 })();
 
@@ -294,6 +252,8 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
 // Nav toggle
 document.getElementById('mobileToggle')?.addEventListener('click',function(){document.getElementById('navLinks')?.classList.toggle('open');});
 </script>
-  <script src="/freshtiq-i18n.js?v=20260914rtl1"></script>
+  <script src="/freshtiq-i18n.js?v=20260918audit2"></script>
+<script src="/script.js?v=20260918audit2"></script>
+<script src="/site-consent.js?v=20260918audit2"></script>
 </body>
 </html>
