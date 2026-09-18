@@ -1,0 +1,13 @@
+(function(){'use strict';
+ const grid=document.getElementById('priceCardGrid'); if(!grid)return;
+ const regionTabs=document.getElementById('priceRegionTabs'),tierTabs=document.getElementById('priceTierTabs');
+ const featured=[['website','🌐'],['basic_bot','🤖'],['whatsapp_automation','💬'],['crm_erp','📊'],['ai_agent','🧠'],['mobile_app','📱'],['custom_integration','⚙️'],['ecommerce_website','🛒']];
+ let cfg=null,region='India',tier='professional';
+ function ceilTo(n,s){return Math.ceil((n/s)-1e-10)*s}
+ function amount(prod){const base=Number(prod.inr[tier]||0),r=cfg.regions[region];if(region==='India')return base;let v=ceilTo(base*Number(r.factor_from_inr||1),Number(r.round_to||1));const floor=Number((r.floors||{})[prod.family]||0);return Math.max(v,floor)}
+ function fmt(v){const r=cfg.regions[region],currency=r.currency;try{return new Intl.NumberFormat(region==='India'?'en-IN':'en-US',{style:'currency',currency,maximumFractionDigits:0}).format(v)}catch(_){return (r.prefix||currency+' ')+Number(v).toLocaleString()}}
+ function render(){if(!cfg)return;grid.innerHTML='';featured.forEach(([key,icon])=>{const p=cfg.products[key];if(!p)return;const card=document.createElement('article');card.className='price-service-card';card.innerHTML='<div class="price-service-icon">'+icon+'</div><div class="price-service-name">'+p.name+'</div><div class="price-service-time">Estimated '+p.timeline+'</div><div class="price-service-amount">'+fmt(amount(p))+'</div><div class="price-service-tier">'+tier+' · '+region+'</div><a href="build.html?service='+encodeURIComponent(key)+'">Get written scope →</a>';grid.appendChild(card)});}
+ function bind(group,type){group.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;group.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(type==='region')region=b.dataset.region;else tier=b.dataset.tier;render();try{localStorage.setItem('ft_price_'+type,type==='region'?region:tier)}catch(_){}})}
+ fetch('/commercial-pricing.json?v=20260918px1').then(r=>r.json()).then(d=>{cfg=d;try{const sr=localStorage.getItem('ft_price_region'),st=localStorage.getItem('ft_price_tier');if(sr&&cfg.regions[sr])region=sr;if(st&&['standard','professional','premium'].includes(st))tier=st}catch(_){};regionTabs.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.region===region));tierTabs.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.tier===tier));render();}).catch(()=>{grid.innerHTML='<div class="policy-box">Pricing explorer is temporarily unavailable. The detailed published pricing table is still available below.</div>'});
+ bind(regionTabs,'region');bind(tierTabs,'tier');
+})();
