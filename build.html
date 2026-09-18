@@ -69,14 +69,20 @@
             <div><label for="fPhone">WhatsApp number *</label><input id="fPhone" required type="tel" placeholder="+91 / +966 / +971 …"></div>
             <div><label for="fEmail">Email (optional)</label><input id="fEmail" type="email" placeholder="you@company.com"></div>
           </div>
+          <label style="display:flex;gap:9px;align-items:flex-start;font-size:.8rem;line-height:1.45;margin:4px 0 14px;"><input id="fWaConsent" type="checkbox" required style="width:auto;margin-top:3px;"> <span>Freshtiq may reply on WhatsApp about this request. No marketing unless I separately opt in.</span></label>
           <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:14px;">Submit &amp; Get Free Audit</button>
+          <div id="buildFormStatus" role="status" aria-live="polite" style="font-size:.82rem;margin-top:10px;text-align:center;"></div>
           <p style="font-size:0.8rem;opacity:0.7;text-align:center;margin-top:12px;">No payment now. We reply within 1 business day with recommended next steps and a fixed proposal. This form is not a binding quotation.</p>
         </form>
         <div class="build-success" id="buildSuccess">
           <div class="big">✅</div>
           <h2 style="margin-bottom:10px;">Thank You! Request Received</h2>
-          <p style="opacity:0.85;margin-bottom:18px;">Our team will reply within 1 business day on WhatsApp with recommended next steps.<br>For instant help, tap below:</p>
-          <a id="waSuccess" href="https://wa.me/918381848389" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center;">💬 Continue on WhatsApp</a>
+          <p style="opacity:0.85;margin-bottom:10px;">Our team will reply within 1 business day on WhatsApp with recommended next steps.</p>
+          <p id="buildLeadRef" style="font-weight:800;margin:0 0 16px;"></p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <a id="waSuccess" href="https://wa.me/918381848389" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center;">💬 Continue on WhatsApp</a>
+            <button id="aiSuccess" type="button" class="btn-primary" style="justify-content:center;border:0;cursor:pointer;">🤖 Continue with AI</button>
+          </div>
           <p style="font-size:0.82rem;opacity:0.7;margin-top:16px;"><a href="/">← Back to home</a></p>
         </div>
       </div>
@@ -86,8 +92,11 @@
   <!-- FT-POLISH-20260918 --><section class="section"><div class="container" style="max-width:900px"><h2>What happens after you request the free audit?</h2><p>We review the workflow you described, identify where information currently gets lost or repeated, and recommend the smallest useful first automation. The audit is not a promise that every process should be automated. If a manual approval or existing tool is safer, that stays in the design.</p><p>For a build that moves forward, the next step is a written scope covering the workflow, required integrations, owner responsibilities, acceptance criteria and commercial terms. Sensitive credentials are not requested through this public form.</p></div></section><footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20260912p2" alt="Freshtiq Automation" width="210" height="52"></a><p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — custom AI bots, websites, apps, CRM/ERP and workflow automation for India, Saudi Arabia, UAE and international teams.</p><p style="font-size:.74rem;color:#8fa2bb">CIN U47912UP2025OPC236875 · GSTIN 09AAGCF7185A1ZL</p></div><div class="footer-col"><div class="footer-heading">Solutions</div><a href="/services/ai-chatbot-development.html">AI Chatbots</a><a href="/services/whatsapp-automation.html">WhatsApp Automation</a><a href="/services/website-development.html">Websites &amp; Apps</a><a href="/services/crm-erp-development.html">CRM / ERP</a></div><div class="footer-col"><div class="footer-heading">Markets</div><a href="/india/">India</a><a href="/saudi-arabia/">Saudi Arabia</a><a href="/uae/">UAE</a><a href="/international/">International</a><a href="/ar/" lang="ar" dir="rtl">العربية</a></div><div class="footer-col"><div class="footer-heading">Trust &amp; Delivery</div><a href="/evidence.html">Live Evidence</a><a href="/portfolio/">Case Studies</a><a href="/delivery.html">Delivery &amp; Handover</a><a href="/security.html">Security Overview</a><a href="/privacy.html">Privacy</a></div><div class="footer-col"><div class="footer-heading">Start</div><a href="/pricing.html">Pricing</a><a href="/demo/">Interactive Demo</a><a href="/build.html">Request Consultation</a><a href="https://portal.freshtiqautomation.com/" rel="noopener">Customer Portal</a></div></div><div class="footer-language-row"><span class="footer-language-label">Language</span><a href="/ar/" style="color:#dbeafe">العربية</a></div><div class="footer-bottom"><p>© 2025–2026 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p><div><a href="/privacy.html">Privacy</a> · <a href="/terms-and-conditions.html">Terms</a> · <a href="/refund-policy.html">Refund</a> · <a href="/security.html">Security</a></div></div></div></footer>
 
   <script>
-  function submitBuild(e) {
+  async function submitBuild(e) {
     e.preventDefault();
+    const form=document.getElementById('buildForm');
+    const status=document.getElementById('buildFormStatus');
+    const btn=form.querySelector('button[type="submit"]');
     const data = {
       industry: document.getElementById('fIndustry').value,
       country: document.getElementById('fCountry').value,
@@ -97,70 +106,75 @@
       automation: document.getElementById('fAuto').value,
       budget: document.getElementById('fBudget').value,
       timeline: document.getElementById('fTimeline').value,
-      name: document.getElementById('fName').value,
-      phone: document.getElementById('fPhone').value,
-      email: document.getElementById('fEmail').value
+      name: document.getElementById('fName').value.trim(),
+      phone: document.getElementById('fPhone').value.trim(),
+      email: document.getElementById('fEmail').value.trim(),
+      consent: document.getElementById('fWaConsent').checked
     };
-    if (!data.industry || !data.country || !data.problem || !data.name || !data.phone) {
-      alert('Please fill the required fields.'); return false;
+    if (!data.industry || !data.country || !data.problem || !data.name || !data.phone || !data.consent) {
+      status.style.color='#dc2626'; status.textContent='Please complete the required fields and WhatsApp reply consent.'; return false;
     }
-    // Duplicate-submission protection
-    if (localStorage.getItem('ftq_submitted')) {
-      document.getElementById('waSuccess').href = 'https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20already%20submitted%20my%20automation%20request.%20Any%20update%3F';
-      document.getElementById('buildForm').style.display = 'none';
-      document.getElementById('buildSuccess').style.display = 'block';
-      return false;
+    if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      status.style.color='#dc2626'; status.textContent='Please enter a valid email address.'; return false;
     }
-    localStorage.setItem('ftq_submitted', '1');
-    // GA4 event
-    gtag('event', 'build_form_submit', { industry: data.industry, country: data.country, budget: data.budget });
-    // Local queue (safety net)
+
+    // Prevent accidental double-submit for 30 minutes, not forever.
     try {
-      const q = JSON.parse(localStorage.getItem('ftq_build_requests') || '[]');
-      q.push({ t: new Date().toISOString(), ...data });
-      localStorage.setItem('ftq_build_requests', JSON.stringify(q));
-    } catch(err) {}
-    // Portal API (live) — best effort; WhatsApp remains the fallback CTA
-    (async () => {
-      try {
-        const budgetMap = { 'Standard / Starter scope': 15000, 'Professional / Growth scope': 50000, 'Premium / Complex scope': 150000, 'Enterprise / Multi-system scope': 400000 };
-        const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
-        await fetch('https://portal.freshtiqautomation.com/api/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.assign({},journey,{
-            name: data.name,
-            phone: data.phone,
-            email: data.email || '',
-            service: 'Build My Automation: ' + (data.automation || data.industry),
-            budget: budgetMap[data.budget] || 0,
-            country: data.country,
-            message: 'Industry: ' + data.industry + ' | Problem: ' + data.problem + ' | Team: ' + (data.team||'—') + ' | Tools: ' + (data.tools||'—') + ' | Timeline: ' + (data.timeline||'—'),
-            source: 'Build My Automation Form'
-          }))
-        });
-      } catch(err) { console.log('Portal lead API unavailable; WhatsApp fallback shown:', err); }
-    })();
-    // WhatsApp handoff with full context
-    const msg = 'Hi Freshtiq! I want to automate my business.%0A%0A' +
-      'Industry: ' + encodeURIComponent(data.industry) + '%0A' +
-      'Country: ' + encodeURIComponent(data.country) + '%0A' +
-      'Problem: ' + encodeURIComponent(data.problem) + '%0A' +
-      'Team size: ' + encodeURIComponent(data.team || '—') + '%0A' +
-      'Tools: ' + encodeURIComponent(data.tools || '—') + '%0A' +
-      'Automation needed: ' + encodeURIComponent(data.automation || '—') + '%0A' +
-      'Budget: ' + encodeURIComponent(data.budget || '—') + '%0A' +
-      'Timeline: ' + encodeURIComponent(data.timeline || '—') + '%0A' +
-      'Name: ' + encodeURIComponent(data.name) + '%0A' +
-      'Phone: ' + encodeURIComponent(data.phone);
-    document.getElementById('waSuccess').href = 'https://wa.me/918381848389?text=' + msg;
-    document.getElementById('buildForm').style.display = 'none';
-    document.getElementById('buildSuccess').style.display = 'block';
+      const prev=JSON.parse(localStorage.getItem('ftq_submitted_v2')||'null');
+      if(prev && prev.t && (Date.now()-prev.t)<1800000) {
+        const ref=String(prev.lead_ref||'');
+        if(ref && window.FreshtiqLead) window.FreshtiqLead.saveRef(ref);
+        document.getElementById('buildLeadRef').textContent=ref?'Lead Ref: '+ref:'Your request is already saved.';
+        document.getElementById('waSuccess').href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq! I already submitted my automation request.'+(ref?' Lead Ref: '+ref:''));
+        form.style.display='none'; document.getElementById('buildSuccess').style.display='block';
+        return false;
+      }
+    } catch(_e) {}
+
+    btn.disabled=true; btn.textContent='Saving your request…'; status.style.color=''; status.textContent='';
+    try {
+      const budgetMap = { 'Standard / Starter scope': 15000, 'Professional / Growth scope': 50000, 'Premium / Complex scope': 150000, 'Enterprise / Multi-system scope': 400000 };
+      const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
+      const resp=await fetch('https://portal.freshtiqautomation.com/api/lead', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(Object.assign({},journey,{
+          name:data.name, phone:data.phone, email:data.email||'',
+          service:'Build My Automation: '+(data.automation||data.industry),
+          budget:budgetMap[data.budget]||0, country:data.country,
+          message:'Industry: '+data.industry+' | Problem: '+data.problem+' | Team: '+(data.team||'—')+' | Tools: '+(data.tools||'—')+' | Timeline: '+(data.timeline||'—'),
+          source:'Build My Automation Form', preferred_contact:'WhatsApp',
+          whatsapp_opt_in:true, marketing_opt_in:false, consent_source:'build_form_whatsapp_reply_v2'
+        }))
+      });
+      const result=await resp.json().catch(()=>({}));
+      if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
+      const ref=String(result.lead_ref||'');
+      if(ref && window.FreshtiqLead) window.FreshtiqLead.saveRef(ref);
+      try{localStorage.setItem('ftq_submitted_v2',JSON.stringify({t:Date.now(),lead_ref:ref}));}catch(_e){}
+      try{if(typeof gtag==='function'){gtag('event','build_form_submit',{industry:data.industry,country:data.country,budget:data.budget});gtag('event','generate_lead',{lead_source:'build_form',country:data.country,service:data.automation||data.industry,lead_ref_present:!!ref});}}catch(_e){}
+
+      const msg='Hi Freshtiq! I submitted my automation request.'+(ref?'\nLead Ref: '+ref:'')+
+        '\nIndustry: '+data.industry+'\nCountry: '+data.country+'\nProblem: '+data.problem+
+        '\nAutomation: '+(data.automation||'—')+'\nBudget: '+(data.budget||'—')+'\nTimeline: '+(data.timeline||'—');
+      document.getElementById('waSuccess').href='https://wa.me/918381848389?text='+encodeURIComponent(msg);
+      document.getElementById('buildLeadRef').textContent=ref?'Lead Ref: '+ref:'Request saved.';
+      form.style.display='none'; document.getElementById('buildSuccess').style.display='block';
+    } catch(err) {
+      status.style.color='#dc2626';
+      status.textContent='We could not save the request right now. Please try again or continue on WhatsApp.';
+    } finally {
+      btn.disabled=false; btn.textContent='Submit & Get Free Audit';
+    }
     return false;
   }
+
+  document.getElementById('aiSuccess').addEventListener('click',function(){
+    const ref=(window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():'';
+    if(window.FreshtiqLead) window.FreshtiqLead.openChat('I just submitted my automation audit request'+(ref?' with Lead Ref '+ref:'')+'. Please help me refine the scope and tell me the next useful step.');
+  });
   </script>
   <script src="/freshtiq-i18n.js?v=20260918connected1"></script>
-<script src="/script.js?v=20260918connected1"></script>
+<script src="/script.js?v=20260918connected2"></script>
 <script src="/site-consent.js?v=20260918audit2"></script>
 </body>
 </html>

@@ -19,6 +19,29 @@ document.addEventListener('DOMContentLoaded', function() {
   }catch(_e){}
 })();
 
+/* === UNIFIED LEAD CONTINUITY — forms + chatbot + WhatsApp === */
+(function initFreshtiqLeadContinuity(){
+  try{
+    const key='ft_lead_ref_v1', pendingKey='ft_chat_pending_prompt_v1';
+    const clean=function(v){v=String(v||'').trim().toUpperCase();return /^[A-Z0-9-]{5,48}$/.test(v)?v:'';};
+    window.FreshtiqLead={
+      getRef:function(){try{return clean(sessionStorage.getItem(key)||'');}catch(_e){return '';}},
+      saveRef:function(ref){
+        ref=clean(ref); if(!ref) return '';
+        try{sessionStorage.setItem(key,ref);}catch(_e){}
+        try{window.dispatchEvent(new CustomEvent('ft:lead-saved',{detail:{lead_ref:ref}}));}catch(_e){}
+        try{if(typeof gtag==='function')gtag('event','lead_ref_saved',{lead_ref_present:true,page:location.pathname});}catch(_e){}
+        return ref;
+      },
+      openChat:function(prompt){
+        prompt=String(prompt||'').trim().slice(0,600);
+        if(prompt){try{sessionStorage.setItem(pendingKey,prompt);}catch(_e){}}
+        try{window.dispatchEvent(new CustomEvent('ft:open-chat',{detail:{prompt:prompt}}));}catch(_e){}
+      }
+    };
+  }catch(_e){}
+})();
+
 const nav = document.querySelector('nav');
 if (nav) {
 window.addEventListener('scroll', function() {
@@ -522,16 +545,36 @@ var style = document.createElement('style');
 style.textContent = '@keyframes fadeIn { from { opacity:0; transform:translateX(-50%) translateY(10px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }';
 document.head.appendChild(style);
 
-/* ===== Conversion tracking (GA4 events) — delegated, sitewide, CSP-safe ===== */
+/* ===== Unified conversion + channel continuity — sitewide ===== */
 document.addEventListener('click', function (e) {
   var a = e.target && e.target.closest ? e.target.closest('a') : null;
-  if (!a || typeof gtag !== 'function') return;
+  if (!a) return;
   var href = a.getAttribute('href') || '';
+  var leadRef = (window.FreshtiqLead && window.FreshtiqLead.getRef) ? window.FreshtiqLead.getRef() : '';
   try {
+    // Keep the same customer-safe Lead Ref when a website visitor moves to WhatsApp.
+    if (href.indexOf('wa.me/918381848389') >= 0 && leadRef) {
+      var u = new URL(a.href, window.location.href);
+      var text = u.searchParams.get('text') || 'Hello Freshtiq';
+      if (text.indexOf(leadRef) < 0) {
+        text += '\n\nFreshtiq Lead Ref: ' + leadRef;
+        u.searchParams.set('text', text);
+        a.href = u.toString();
+        href = a.getAttribute('href') || href;
+      }
+    }
+  } catch (_e) {}
+  if (typeof gtag !== 'function') return;
+  try {
+    var label=(a.textContent||a.getAttribute('aria-label')||'').trim().replace(/\s+/g,' ').slice(0,80);
     if (href.indexOf('wa.me/918381848389') >= 0) {
-      gtag('event', 'whatsapp_click', { page: window.location.pathname });
+      gtag('event', 'whatsapp_click', { page: window.location.pathname, cta_text:label, lead_ref_present:!!leadRef });
     } else if (href.indexOf('tel:') === 0) {
-      gtag('event', 'call_click', { page: window.location.pathname });
+      gtag('event', 'call_click', { page: window.location.pathname, cta_text:label });
+    } else if (/build\.html|\/build\/?$/.test(href)) {
+      gtag('event','consultation_intent',{page:window.location.pathname,cta_text:label,lead_ref_present:!!leadRef});
+    } else if (/pricing/.test(href)) {
+      gtag('event','pricing_intent',{page:window.location.pathname,cta_text:label});
     }
   } catch (err) {}
 });
@@ -564,8 +607,16 @@ document.addEventListener('click', function (e) {
       if(!payload.utm_source)payload.utm_source=qs.get('utm_source')||'organic_direct';if(!payload.utm_medium)payload.utm_medium=qs.get('utm_medium')||'';if(!payload.utm_campaign)payload.utm_campaign=qs.get('utm_campaign')||'';if(!payload.utm_content)payload.utm_content=qs.get('utm_content')||'';if(!payload.utm_term)payload.utm_term=qs.get('utm_term')||'';
       var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');
-      status.className='lead-status ok'; status.textContent='✓ Request received. Lead Ref: '+(d.lead_ref||('#'+d.lead_id))+'. We will reply by '+preferred+'.';
-      try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_source:'homepage_audit',country:country,service:need});}catch(_e){}
+      var leadRef=d.lead_ref||'';
+      if(leadRef && window.FreshtiqLead) window.FreshtiqLead.saveRef(leadRef);
+      status.className='lead-status ok'; status.textContent='✓ Request received. Lead Ref: '+(leadRef||('#'+d.lead_id))+'. Website, AI chat and WhatsApp will keep this reference during this visit.';
+      if(leadRef && window.FreshtiqLead){
+        var aiContinue=document.createElement('button'); aiContinue.type='button'; aiContinue.textContent='🤖 Continue with AI';
+        aiContinue.style.cssText='display:inline-block;margin:9px 0 0;padding:8px 12px;border:0;border-radius:999px;background:#6C63FF;color:#fff;font-weight:800;cursor:pointer';
+        aiContinue.addEventListener('click',function(){window.FreshtiqLead.openChat('I just submitted my free automation audit with Lead Ref '+leadRef+'. Help me refine the requirement and next step.');});
+        status.appendChild(document.createElement('br')); status.appendChild(aiContinue);
+      }
+      try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_source:'homepage_audit',country:country,service:need,lead_ref_present:!!leadRef});}catch(_e){}
       form.reset();
     }catch(err){status.className='lead-status err';status.innerHTML='Could not save the request. <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20automation%20audit." target="_blank" rel="noopener">Continue on WhatsApp</a>.';}
     finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
@@ -582,7 +633,7 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918connected1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918connected2'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
     window.addEventListener('load',()=>{

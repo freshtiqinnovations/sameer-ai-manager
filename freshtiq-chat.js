@@ -153,7 +153,13 @@
   let isOpen = false;
   let isSending = false;
   let chatHistory = (()=>{try{const x=JSON.parse(sessionStorage.getItem('ft_chat_history_v2')||'[]');return Array.isArray(x)?x.slice(-18):[]}catch(_){return[]}})();
-  let shownLeadRef = null;
+  let shownLeadRef = (()=>{try{return (window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():(sessionStorage.getItem('ft_lead_ref_v1')||'');}catch(_){return '';}})();
+  function rememberLeadRef(ref){
+    ref=String(ref||'').trim(); if(!ref)return '';
+    shownLeadRef=ref;
+    try{if(window.FreshtiqLead&&window.FreshtiqLead.saveRef)window.FreshtiqLead.saveRef(ref);else sessionStorage.setItem('ft_lead_ref_v1',ref);}catch(_){}
+    return ref;
+  }
 
   const msgContainer = document.getElementById('ft-chat-messages');
   const msgInput = document.getElementById('ft-msg-input');
@@ -174,17 +180,21 @@
 
   function marketCurrency(m){ return m==='Saudi Arabia'?'SAR':m==='UAE'?'AED':m==='India'?'INR':''; }
   function pageContextLabel(){
-    if(PAGE_META.market) return '📍 '+PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'');
-    if(PAGE_META.service) return '🧭 Viewing: '+PAGE_META.service;
-    return '🧭 Ask about pricing, scope, demos, integrations or delivery';
+    const ref=shownLeadRef ? ' · Request '+shownLeadRef : '';
+    if(PAGE_META.market) return '📍 '+PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'')+ref;
+    if(PAGE_META.service) return '🧭 Viewing: '+PAGE_META.service+ref;
+    return (shownLeadRef?'📋 Connected request: '+shownLeadRef:'🧭 Ask about pricing, scope, demos, integrations or delivery');
   }
   function smartActions(){
     const p=location.pathname.toLowerCase();
-    if(p.includes('/pricing')) return [['price','💰 Price'],['compare','📊 Compare'],['currency','🌍 Currency'],['human','👤 Human']];
-    if(p.includes('/demo')) return [['demo','▶️ Demo'],['realestate','🏙️ Real Estate'],['clinic','🏥 Clinic'],['human','👤 Human']];
-    if(PAGE_META.market) return [['localprice','💰 Local Price'],['language','🌐 Language'],['currency','💱 Currency'],['human','👤 Human']];
-    if(p.includes('/services/')) return [['scope','🧩 Scope'],['price','💰 Price'],['demo','▶️ Demo'],['human','👤 Human']];
-    return [['chatbot','🤖 Chatbot'],['website','🌐 Website/App'],['crm','📊 CRM/ERP'],['audit','✅ Free Audit'],['human','👤 Human']];
+    let a;
+    if(p.includes('/pricing')) a=[['price','💰 Price'],['compare','📊 Compare'],['quote','🧾 Quote'],['human','👤 Human']];
+    else if(p.includes('/demo')) a=[['demo','▶️ Demo'],['consultation','📅 Consultation'],['quote','🧾 Quote'],['human','👤 Human']];
+    else if(PAGE_META.market) a=[['localprice','💰 Local Price'],['language','🌐 Language'],['quote','🧾 Quote'],['human','👤 Human']];
+    else if(p.includes('/services/')) a=[['scope','🧩 Scope'],['price','💰 Price'],['consultation','📅 Consultation'],['human','👤 Human']];
+    else a=[['chatbot','🤖 Chatbot'],['website','🌐 Website/App'],['crm','📊 CRM/ERP'],['quote','🧾 Quote'],['human','👤 Human']];
+    if(shownLeadRef) a.unshift(['request','📋 My Request']);
+    return a.slice(0,5);
   }
   function renderSmartActions(){
     contextStrip.textContent=pageContextLabel();
@@ -207,7 +217,10 @@
       demo:'Show me the most relevant interactive demo for my requirement.',
       realestate:'Show me the Dubai real-estate enquiry automation flow and what information it captures.',
       clinic:'Show me the clinic appointment automation flow and human approval option.',
-      language:'Can this customer journey work in Arabic, English, Urdu and Hinglish? Explain the handoff.'
+      language:'Can this customer journey work in Arabic, English, Urdu and Hinglish? Explain the handoff.',
+      quote:'I want a written quote. Ask me only for the missing details needed to prepare the right scope and price.',
+      consultation:'I want a consultation. Ask for my preferred day/time, timezone and contact method, then keep the request linked to this conversation.',
+      request:shownLeadRef ? ('My Freshtiq Lead Ref is '+shownLeadRef+'. Summarize what you know from this conversation and tell me the best next step without inventing a status.') : 'Help me continue my existing Freshtiq request.'
     }[action] || 'Help me with '+action+'.';
   }
   function setHandoffMethod(){
@@ -234,7 +247,7 @@
     try{
       const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
       if(!r.ok||!d.success)throw new Error(d.error||'Could not save request');
-      shownLeadRef=d.lead_ref||shownLeadRef;closeHandoff();
+      shownLeadRef=rememberLeadRef(d.lead_ref||shownLeadRef);closeHandoff();
       if(method==='WhatsApp'){
         const text=encodeURIComponent('Hello Freshtiq, my Lead Ref is '+(d.lead_ref||'')+'. I requested a human follow-up from the website.');
         addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. To continue on WhatsApp, tap this link yourself: https://wa.me/918381848389?text='+text,'bot');
@@ -332,7 +345,7 @@
         // Show the customer-safe public lead reference once per chat session.
         const publicLeadRef = data.lead_ref || null;
         if (publicLeadRef && publicLeadRef !== shownLeadRef) {
-          shownLeadRef = publicLeadRef;
+          shownLeadRef = rememberLeadRef(publicLeadRef);
           addMessage('✅ Request saved. Your Freshtiq Lead Ref is **' + publicLeadRef + '**. Keep it for follow-up.', 'bot');
           try { if (window.gtag) gtag('event','chat_lead_captured',{lead_ref:String(publicLeadRef)}); } catch(_) {}
           console.log('[Freshtiq Chat] Lead ref ' + publicLeadRef + ' captured');
@@ -358,7 +371,9 @@
       msgInput.focus();
       // Welcome message once, synchronously, so it can never race into the middle of a reply.
       if (chatHistory.length === 0) {
-        const welcome = "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
+        const welcome = shownLeadRef
+          ? ("Hi 👋 I’m Freshtiq AI Business Consultant. Your website request **"+shownLeadRef+"** is connected to this chat for this visit. Ask me about scope, pricing, timelines, demos, integrations or the best next step. You can write in English, Hinglish, Arabic or Urdu.")
+          : "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
         addMessage(welcome, 'bot');
         chatHistory.push({ role: 'assistant', content: welcome });
         persistHistory();
@@ -381,9 +396,27 @@
   quickActions.addEventListener('click', (e) => {
     const btn=e.target.closest('.ft-quick-btn'); if(!btn)return;
     const action=btn.dataset.action;
+    try{if(window.gtag)gtag('event','chat_quick_action',{action:action,page:location.pathname,lead_ref_present:!!shownLeadRef});}catch(_){}
+    if(action==='quote'){try{if(window.gtag)gtag('event','quote_intent',{source:'website_chat',page:location.pathname});}catch(_){}}
+    if(action==='consultation'){try{if(window.gtag)gtag('event','consultation_intent',{source:'website_chat',page:location.pathname});}catch(_){}}
     if(action==='human'){openHandoff();return;}
     sendMessage(actionPrompt(action));
   });
+
+  // Website buttons/forms can open the same AI conversation without creating a second funnel.
+  window.addEventListener('ft:lead-saved', (e) => {
+    const ref=e && e.detail && e.detail.lead_ref; if(ref){shownLeadRef=String(ref);renderSmartActions();}
+  });
+  window.addEventListener('ft:open-chat', (e) => {
+    const prompt=String((e&&e.detail&&e.detail.prompt)||'').trim();
+    try{sessionStorage.removeItem('ft_chat_pending_prompt_v1');}catch(_){}
+    if(!isOpen) toggleBtn.click();
+    if(prompt) setTimeout(()=>sendMessage(prompt),80);
+  });
+  try{
+    const pending=String(sessionStorage.getItem('ft_chat_pending_prompt_v1')||'').trim();
+    if(pending){sessionStorage.removeItem('ft_chat_pending_prompt_v1');setTimeout(()=>{if(!isOpen)toggleBtn.click();sendMessage(pending);},120);}
+  }catch(_){}
 
   console.log('[Freshtiq Chat] Widget loaded — session ' + SID + ' 🤖');
 })();
