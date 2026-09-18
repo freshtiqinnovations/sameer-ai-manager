@@ -546,21 +546,18 @@ document.addEventListener('click', function (e) {
 })();
 
 // === FRESHTIQ WEBSITE AI CHAT LOADER 2026-09-18 ===
-// Load the business assistant on customer-facing commercial/content pages only.
-(function loadFreshtiqBusinessChat(){
+// Keep the chatbot out of the critical first-paint path; load after interaction or a short delay.
+(function scheduleFreshtiqBusinessChat(){
   try {
     const path = String(location.pathname || '/').toLowerCase();
-    const excluded = [
-      '/payment', '/checkout', '/cart', '/customer/',
-      '/privacy', '/terms', '/refund', '/security-policy',
-      '/404', '/bot/'
-    ];
+    const excluded = ['/payment','/checkout','/cart','/customer/','/privacy','/terms','/refund','/security-policy','/404','/bot/'];
     if (excluded.some(x => path.includes(x))) return;
-    if (document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-    const s = document.createElement('script');
-    s.src = '/freshtiq-chat.js?v=20260918full1';
-    s.defer = true;
-    s.dataset.ftChatLoader = '1';
-    document.body.appendChild(s);
+    let loaded=false;
+    function load(){
+      if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918full2'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+    }
+    ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
+    window.addEventListener('load',()=>setTimeout(load,5000),{once:true});
   } catch (_) {}
 })();
