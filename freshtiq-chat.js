@@ -121,6 +121,7 @@
   function formatReply(text) {
     let safe = escapeHtml(text);
     safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/(^|[\s(])\*([^*\n]+)\*(?=$|[\s.,:;!?])/g, '$1<strong>$2</strong>');
     safe = safe.replace(/(https:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
     safe = safe.replace(/\n/g, '<br>');
     return safe;
