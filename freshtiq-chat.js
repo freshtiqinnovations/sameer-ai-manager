@@ -11,47 +11,56 @@
   const API = window.location.hostname.includes('87.76')
     ? '/api/chat'
     : 'https://portal.freshtiqautomation.com/api/chat';
-  const BRAIN_PROMPT = `You are Freshtiq Automation AI — a senior business automation consultant at Freshtiq Innovations OPC Private Limited.
+  const BRAIN_PROMPT = `You are Freshtiq Automation AI, a factual senior business-automation consultant for FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED.
 
-## IDENTITY
-- Name: Freshtiq Automation AI (never say "I am Sameer")
-- Company: Freshtiq Innovations OPC Private Limited
-- Handoff: +91 8381848389 (only for qualified leads)
+IDENTITY & TRUTH
+- Never claim to be Sameer or a human.
+- Never invent customers, reviews, integrations, prices, results, offices, guarantees or project history.
+- Website: https://freshtiqautomation.com/
+- Company email: hello@freshtiqautomation.com
+- Human handoff/WhatsApp: +91 8381848389, only after the visitor asks or becomes a serious lead.
 
-## SERVICES
-- Websites & E-commerce Stores
-- WhatsApp Business Bots (support, sales, order, booking)
-- AI Agents (sales, accountant, manager, HR, receptionist, travel, restaurant)
-- CRM & ERP Systems
-- Mobile Apps (iOS & Android)
-- Travel Automation (flight/hotel/visa booking bots)
-- Restaurant Automation (menu, order, table booking, delivery)
-- Sales Automation (lead tracking, follow-ups, quotations)
-- Customer Support Automation (ticket, FAQ, chatbot)
-- Custom Software & AI Business Factory
+CORE OFFER
+1) CHATBOT: website / WhatsApp / Telegram AI support and sales assistant using approved business knowledge.
+2) INQUIRY: lead capture, qualification, source, requirement, urgency, CRM routing and human handoff.
+3) BOOKING: appointment/service request, preferred date/time, reminders and calendar integration where supported.
+4) COMBINED BUSINESS BOT: Chatbot + Inquiry + Booking in one scoped system.
+Also supported: WhatsApp automation, Telegram business bots, lead follow-up automation, AI agents, workflow automation, CRM/ERP, websites, customer portals, mobile apps and custom AI/business systems.
 
-## BEHAVIOR
-1. FIRST MESSAGE: Ask about their business in a friendly way.
-2. Understand what they need — website, bot, app, CRM, agent, or custom.
-3. Ask what problem they're trying to solve.
-4. Only ask country after understanding the need.
-5. Ask budget naturally after understanding scope.
-6. NEVER send IP addresses, server URLs, portal links, or technology details.
-7. NEVER start with pricing or services list.
-8. Reply warmly in 2-3 lines. Ask ONE question at a time.
+CONVERSATION RULES
+- Be concise, human-like and professional. Usually 2-5 short lines.
+- Ask ONE useful question at a time.
+- Remember facts already supplied in the conversation; never ask the same question twice.
+- First understand business + problem. Then clarify channel/integration. Ask country only when it changes scope, language, currency or compliance.
+- If the visitor only says hello, ask what business they run or what process they want to improve.
+- If they ask for a demo, give https://freshtiqautomation.com/demo/ and ask which flow they want adapted.
+- If they are serious, ask for their first name and preferred contact (WhatsApp/email) with permission to contact them about this request.
+- Never ask for passwords, OTPs, card details, API secrets or other sensitive credentials.
 
-## OBJECTION HANDLING
-- Budget low: "No problem! We can start with a basic version and upgrade later."
-- Need demo: "Of course! I can arrange a demo. What feature would you like to see?"
-- Price: "Pricing depends on scope. Tell me what you need and I'll share options."
-- Payment: "Payment details shared after we finalize scope."
-- Saudi/UAE: "Great! We work across KSA and UAE. Support in Arabic available."
+PRICING & OWNER GATES
+- Published starting points on the website include: business website ₹4,999+, WhatsApp automation / AI chatbot ₹8,000+, CRM/ERP ₹25,000+. Final price and timeline are scope-based and confirmed in a written proposal.
+- Do not invent SAR/AED conversions or discounts. If a Saudi/UAE visitor wants exact local-currency pricing, explain that the written quote will confirm it after scope.
+- Discount, contract terms, payment commitments, guarantees and custom commercial exceptions require human approval.
+- Never promise ranking, revenue, sales growth or ROI. Explain what can be measured instead.
 
-## LANGUAGE RULES
-- Arabic → reply in Arabic
-- Hindi → reply in Hindi
-- Hinglish → reply in SIMPLE ENGLISH
-- English → reply in English`;
+WHATSAPP / CONSENT
+- Production WhatsApp messaging should use official or supported business tools/providers and appropriate customer consent/templates where required.
+- Do not encourage bulk unsolicited messaging or restriction bypasses.
+
+LANGUAGE
+- English -> English.
+- Hinglish/Hindi in Latin script -> natural simple Hinglish unless they ask for Hindi.
+- Hindi Devanagari -> Hindi.
+- Arabic -> professional Arabic.
+- Urdu -> Urdu.
+- Malayalam or other supported Indian language -> reply in that language when reasonably confident; otherwise politely ask for English/Hinglish.
+- Preserve facts, pricing qualifiers and context when switching language.
+
+QUALIFICATION
+A qualified lead normally has BOTH a real business/use case and a clear automation need. Useful fields: business, need, channel, country, urgency, current process, desired outcome and contact preference. Do not force budget questions before enough scope is known.
+
+HANDOFF
+Escalate to a person when the visitor requests a call/human, asks for negotiation/discount/contract/payment terms, or the answer depends on private account/project data. Give a short summary of what is already known so the visitor does not need to repeat everything.`;
 
   // ─── SESSION ID (per visitor) ───
   const SID = 'web_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now();
@@ -94,6 +103,7 @@
 .ft-quick-actions{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 0;background:#0b0f19}
 .ft-quick-btn{padding:6px 12px;font-size:0.75rem;border-radius:50px;border:1px solid rgba(108,99,255,0.2);background:rgba(108,99,255,0.06);color:#818cf8;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .ft-quick-btn:hover{background:rgba(108,99,255,0.15);border-color:#6C63FF}
+.ft-chat-privacy{padding:8px 16px 0;background:#0b0f19;color:#64748b;font-size:.68rem;line-height:1.35}
 @keyframes ftFadeIn{from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)}}
 @media(max-width:500px){
   #ft-chat-widget{right:8px;bottom:80px;width:calc(100vw - 16px);border-radius:20px}
@@ -122,13 +132,14 @@
   <button class="ft-close" id="ft-chat-close">✕</button>
 </div>
 <div class="ft-quick-actions">
-  <button class="ft-quick-btn" data-action="website">🌐 Website</button>
-  <button class="ft-quick-btn" data-action="bot">🤖 WhatsApp Bot</button>
-  <button class="ft-quick-btn" data-action="agent">🧠 AI Agent</button>
-  <button class="ft-quick-btn" data-action="crm">📊 CRM</button>
-  <button class="ft-quick-btn" data-action="demo">📅 Book Demo</button>
+  <button class="ft-quick-btn" data-action="chatbot">🤖 Chatbot</button>
+  <button class="ft-quick-btn" data-action="inquiry">🎯 Inquiry</button>
+  <button class="ft-quick-btn" data-action="booking">📅 Booking</button>
+  <button class="ft-quick-btn" data-action="website">🌐 Website/App</button>
+  <button class="ft-quick-btn" data-action="audit">✅ Free Audit</button>
 </div>
 <div id="ft-chat-messages"></div>
+<div class="ft-chat-privacy">🔒 Do not share passwords, OTPs or payment-card details.</div>
 <div id="ft-chat-input">
   <input type="text" id="ft-msg-input" placeholder="Type your message..." autocomplete="off">
   <button id="ft-send-btn">➤</button>
@@ -152,11 +163,23 @@
     setTimeout(() => { msgContainer.scrollTop = msgContainer.scrollHeight; }, 50);
   }
 
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  }
+
+  function formatReply(text) {
+    let safe = escapeHtml(text);
+    safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/\n/g, '<br>');
+    return safe;
+  }
+
   function addMessage(text, role) {
     const div = document.createElement('div');
     div.className = 'ft-msg ' + role;
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    div.innerHTML = text.replace(/\n/g, '<br>') + '<div class="ft-time">' + time + '</div>';
+    const body = role === 'bot' ? formatReply(text) : escapeHtml(text).replace(/\n/g, '<br>');
+    div.innerHTML = body + '<div class="ft-time">' + escapeHtml(time) + '</div>';
     msgContainer.appendChild(div);
     scrollDown();
   }
@@ -194,6 +217,7 @@
     if (!text || isSending) return;
 
     addMessage(text, 'user');
+    try { if (window.gtag) gtag('event','chat_message_sent',{page:location.pathname}); } catch(_) {}
     chatHistory.push({ role: 'user', content: text });
     msgInput.value = '';
     setBusy(true);
@@ -214,12 +238,13 @@
       hideTyping();
 
       if (data.reply) {
-        const reply = formatReply(data.reply);
-        addMessage(reply, 'bot');
+        addMessage(data.reply, 'bot');
         chatHistory.push({ role: 'assistant', content: data.reply });
 
         // If lead captured, show notification
         if (data.lead_id) {
+          addMessage('✅ Request saved. Your Freshtiq reference is **' + data.lead_id + '**. Keep it for follow-up.', 'bot');
+          try { if (window.gtag) gtag('event','chat_lead_captured',{lead_id:String(data.lead_id)}); } catch(_) {}
           console.log('[Freshtiq Chat] Lead #' + data.lead_id + ' captured');
         }
       } else {
@@ -239,10 +264,11 @@
     toggleBtn.innerHTML = isOpen ? '✕' : '💬';
     toggleBtn.classList.remove('has-unread');
     if (isOpen) {
+      try { if (window.gtag) gtag('event','chat_open',{page:location.pathname}); } catch(_) {}
       msgInput.focus();
       // Welcome message on first open
       if (chatHistory.length === 0) {
-        const welcome = "Hey there! 👋 Welcome to Freshtiq Automation AI. I'm your senior business consultant. Tell me about your business — what are you looking to build or automate?";
+        const welcome = "Hi 👋 I’m Freshtiq Automation AI. I can help with Chatbot, Inquiry/Lead Qualification, Booking, Website/App, CRM or custom automation. What business do you run, and what process is causing the most trouble?";
         setTimeout(() => {
           addMessage(welcome, 'bot');
           chatHistory.push({ role: 'assistant', content: welcome });
@@ -267,11 +293,11 @@
     btn.addEventListener('click', () => {
       const action = btn.dataset.action;
       const prompts = {
-        website: "I need a website for my business. Can you help?",
-        bot: "I want a WhatsApp bot for my business. What do you suggest?",
-        agent: "I need an AI agent for my business. Tell me more.",
-        crm: "I need a CRM system for my business.",
-        demo: "I'd like to book a demo. What do I need to do?"
+        chatbot: "I want an AI chatbot for customer support or sales. Help me scope it.",
+        inquiry: "I want to capture and qualify enquiries automatically. What would the flow look like?",
+        booking: "I want an appointment or booking automation. What information do you need?",
+        website: "I need a website or app that captures leads and connects to automation.",
+        audit: "I want a free workflow audit. Help me identify the best first automation."
       };
       const msg = prompts[action] || "I need help with " + action;
       sendMessage(msg);

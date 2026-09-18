@@ -544,3 +544,23 @@ document.addEventListener('click', function (e) {
     finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
   });
 })();
+
+// === FRESHTIQ WEBSITE AI CHAT LOADER 2026-09-18 ===
+// Load the business assistant on customer-facing commercial/content pages only.
+(function loadFreshtiqBusinessChat(){
+  try {
+    const path = String(location.pathname || '/').toLowerCase();
+    const excluded = [
+      '/payment', '/checkout', '/cart', '/customer/',
+      '/privacy', '/terms', '/refund', '/security-policy',
+      '/404', '/bot/'
+    ];
+    if (excluded.some(x => path.includes(x))) return;
+    if (document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
+    const s = document.createElement('script');
+    s.src = '/freshtiq-chat.js?v=20260918full1';
+    s.defer = true;
+    s.dataset.ftChatLoader = '1';
+    document.body.appendChild(s);
+  } catch (_) {}
+})();
