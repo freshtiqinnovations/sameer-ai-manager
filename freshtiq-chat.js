@@ -152,6 +152,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
   let isOpen = false;
   let isSending = false;
   let chatHistory = [];
+  let shownLeadRef = null;
 
   const msgContainer = document.getElementById('ft-chat-messages');
   const msgInput = document.getElementById('ft-msg-input');
@@ -241,11 +242,13 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
         addMessage(data.reply, 'bot');
         chatHistory.push({ role: 'assistant', content: data.reply });
 
-        // If lead captured, show notification
-        if (data.lead_id) {
-          addMessage('✅ Request saved. Your Freshtiq reference is **' + data.lead_id + '**. Keep it for follow-up.', 'bot');
-          try { if (window.gtag) gtag('event','chat_lead_captured',{lead_id:String(data.lead_id)}); } catch(_) {}
-          console.log('[Freshtiq Chat] Lead #' + data.lead_id + ' captured');
+        // Show the customer-safe public lead reference once per chat session.
+        const publicLeadRef = data.lead_ref || null;
+        if (publicLeadRef && publicLeadRef !== shownLeadRef) {
+          shownLeadRef = publicLeadRef;
+          addMessage('✅ Request saved. Your Freshtiq Lead Ref is **' + publicLeadRef + '**. Keep it for follow-up.', 'bot');
+          try { if (window.gtag) gtag('event','chat_lead_captured',{lead_ref:String(publicLeadRef)}); } catch(_) {}
+          console.log('[Freshtiq Chat] Lead ref ' + publicLeadRef + ' captured');
         }
       } else {
         addMessage('Sorry, I hit a glitch. Could you rephrase that? 🤔', 'bot');
