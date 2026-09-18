@@ -1,6 +1,6 @@
 // === WEBSITE AI CHAT WIDGET — Freshtiq Automation AI Business Brain ===
 // Self-contained widget injected into any Freshtiq page.
-// Uses same Business Brain + DeepSeek as WhatsApp bot.
+// Uses Freshtiq server-side Business Brain + approved website knowledge.
 
 (function() {
   if (document.getElementById('ft-chat-loading')) return;
@@ -11,59 +11,9 @@
   const API = window.location.hostname.includes('87.76')
     ? '/api/chat'
     : 'https://portal.freshtiqautomation.com/api/chat';
-  const BRAIN_PROMPT = `You are Freshtiq Automation AI, a factual senior business-automation consultant for FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED.
-
-IDENTITY & TRUTH
-- Never claim to be Sameer or a human.
-- Never invent customers, reviews, integrations, prices, results, offices, guarantees or project history.
-- Website: https://freshtiqautomation.com/
-- Company email: hello@freshtiqautomation.com
-- Human handoff/WhatsApp: +91 8381848389, only after the visitor asks or becomes a serious lead.
-
-CORE OFFER
-1) CHATBOT: website / WhatsApp / Telegram AI support and sales assistant using approved business knowledge.
-2) INQUIRY: lead capture, qualification, source, requirement, urgency, CRM routing and human handoff.
-3) BOOKING: appointment/service request, preferred date/time, reminders and calendar integration where supported.
-4) COMBINED BUSINESS BOT: Chatbot + Inquiry + Booking in one scoped system.
-Also supported: WhatsApp automation, Telegram business bots, lead follow-up automation, AI agents, workflow automation, CRM/ERP, websites, customer portals, mobile apps and custom AI/business systems.
-
-CONVERSATION RULES
-- Be concise, human-like and professional. Usually 2-5 short lines.
-- Ask ONE useful question at a time.
-- Remember facts already supplied in the conversation; never ask the same question twice.
-- First understand business + problem. Then clarify channel/integration. Ask country only when it changes scope, language, currency or compliance.
-- If the visitor only says hello, ask what business they run or what process they want to improve.
-- If they ask for a demo, give https://freshtiqautomation.com/demo/ and ask which flow they want adapted.
-- If they are serious, ask for their first name and preferred contact (WhatsApp/email) with permission to contact them about this request.
-- Never ask for passwords, OTPs, card details, API secrets or other sensitive credentials.
-
-PRICING & OWNER GATES
-- Published starting points on the website include: business website ₹4,999+, WhatsApp automation / AI chatbot ₹8,000+, CRM/ERP ₹25,000+. Final price and timeline are scope-based and confirmed in a written proposal.
-- Do not invent SAR/AED conversions or discounts. If a Saudi/UAE visitor wants exact local-currency pricing, explain that the written quote will confirm it after scope.
-- Discount, contract terms, payment commitments, guarantees and custom commercial exceptions require human approval.
-- Never promise ranking, revenue, sales growth or ROI. Explain what can be measured instead.
-
-WHATSAPP / CONSENT
-- Production WhatsApp messaging should use official or supported business tools/providers and appropriate customer consent/templates where required.
-- Do not encourage bulk unsolicited messaging or restriction bypasses.
-
-LANGUAGE
-- English -> English.
-- Hinglish/Hindi in Latin script -> natural simple Hinglish unless they ask for Hindi.
-- Hindi Devanagari -> Hindi.
-- Arabic -> professional Arabic.
-- Urdu -> Urdu.
-- Malayalam or other supported Indian language -> reply in that language when reasonably confident; otherwise politely ask for English/Hinglish.
-- Preserve facts, pricing qualifiers and context when switching language.
-
-QUALIFICATION
-A qualified lead normally has BOTH a real business/use case and a clear automation need. Useful fields: business, need, channel, country, urgency, current process, desired outcome and contact preference. Do not force budget questions before enough scope is known.
-
-HANDOFF
-Escalate to a person when the visitor requests a call/human, asks for negotiation/discount/contract/payment terms, or the answer depends on private account/project data. Give a short summary of what is already known so the visitor does not need to repeat everything.`;
 
   // ─── SESSION ID (per visitor) ───
-  const SID = 'web_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now();
+  const SID = (() => { const k='ft_chat_sid_v2'; let v=''; try{v=sessionStorage.getItem(k)||'';}catch(_){} if(!v){v='web_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();try{sessionStorage.setItem(k,v);}catch(_){}} return v; })();
 
   // ─── STYLES ───
   const style = document.createElement('style');
@@ -73,7 +23,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
 #ft-chat-header{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#6C63FF;color:white;cursor:pointer;user-select:none}
 #ft-chat-header .ft-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 #ft-chat-header .ft-info{flex:1;min-width:0}
-#ft-chat-header .ft-info strong{display:block;font-size:0.9rem}
+#ft-chat-header .ft-info strong{display:block;font-size:0.9rem}\n.ft-msg.bot a{color:#8be9fd;text-decoration:underline;text-underline-offset:2px;word-break:break-word}.ft-msg.bot a:hover{color:#fff}
 #ft-chat-header .ft-info span{font-size:0.75rem;opacity:0.8}
 #ft-chat-header .ft-close{background:none;border:none;color:white;font-size:1.3rem;cursor:pointer;padding:4px;opacity:0.7;transition:opacity 0.2s}
 #ft-chat-header .ft-close:hover{opacity:1}
@@ -151,7 +101,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
   // ─── STATE ───
   let isOpen = false;
   let isSending = false;
-  let chatHistory = [];
+  let chatHistory = (()=>{try{const x=JSON.parse(sessionStorage.getItem('ft_chat_history_v2')||'[]');return Array.isArray(x)?x.slice(-18):[]}catch(_){return[]}})();
   let shownLeadRef = null;
 
   const msgContainer = document.getElementById('ft-chat-messages');
@@ -171,6 +121,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
   function formatReply(text) {
     let safe = escapeHtml(text);
     safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/(https:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
     safe = safe.replace(/\n/g, '<br>');
     return safe;
   }
@@ -205,12 +156,8 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
     msgInput.disabled = b;
   }
 
-  function formatReply(text) {
-    // Convert markdown-like bold to HTML
-    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    text = text.replace(/```([\s\S]*?)```/g, '<code>$1</code>');
-    return text;
-  }
+  function persistHistory(){ try{ sessionStorage.setItem('ft_chat_history_v2',JSON.stringify(chatHistory.slice(-18))); }catch(_){} }
+  if(chatHistory.length){ chatHistory.forEach(m=>addMessage(m.content,m.role==='assistant'?'bot':'user')); }
 
   // ─── SEND MESSAGE ───
   async function sendMessage(text) {
@@ -220,6 +167,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
     addMessage(text, 'user');
     try { if (window.gtag) gtag('event','chat_message_sent',{page:location.pathname}); } catch(_) {}
     chatHistory.push({ role: 'user', content: text });
+    persistHistory();
     msgInput.value = '';
     setBusy(true);
     showTyping();
@@ -231,8 +179,8 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
         body: JSON.stringify({
           message: text,
           session_id: SID,
-          history: chatHistory,
-          brain: BRAIN_PROMPT
+          page_url: location.href,
+          page_title: document.title
         })
       });
       const data = await res.json();
@@ -241,6 +189,7 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
       if (data.reply) {
         addMessage(data.reply, 'bot');
         chatHistory.push({ role: 'assistant', content: data.reply });
+        persistHistory();
 
         // Show the customer-safe public lead reference once per chat session.
         const publicLeadRef = data.lead_ref || null;
@@ -271,10 +220,11 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
       msgInput.focus();
       // Welcome message on first open
       if (chatHistory.length === 0) {
-        const welcome = "Hi 👋 I’m Freshtiq Automation AI. I can help with Chatbot, Inquiry/Lead Qualification, Booking, Website/App, CRM or custom automation. What business do you run, and what process is causing the most trouble?";
+        const welcome = "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
         setTimeout(() => {
           addMessage(welcome, 'bot');
           chatHistory.push({ role: 'assistant', content: welcome });
+          persistHistory();
         }, 400);
       }
     }
@@ -303,13 +253,13 @@ Escalate to a person when the visitor requests a call/human, asks for negotiatio
         audit: "I want a free workflow audit. Help me identify the best first automation."
       };
       const msg = prompts[action] || "I need help with " + action;
-      sendMessage(msg);
       if (!widget.classList.contains('open')) {
-        // Open widget first
         isOpen = true;
         widget.classList.add('open');
         toggleBtn.innerHTML = '✕';
-        setTimeout(() => sendMessage(msg), 300);
+        setTimeout(() => sendMessage(msg), 120);
+      } else {
+        sendMessage(msg);
       }
     });
   });
