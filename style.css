@@ -1103,3 +1103,5 @@ html[dir="rtl"] bdi[dir="ltr"]{direction:ltr!important;unicode-bidi:isolate!impo
 .premium-currency-link{display:inline-flex;margin:-12px 0 24px;color:#7dd3fc;font-size:.78rem;font-weight:850;text-decoration:none;border-bottom:1px dashed rgba(125,211,252,.45);padding-bottom:2px}.premium-currency-link:hover{color:#fff;border-bottom-color:#fff}
 
 .home-premium .growth-problem-grid span{color:#52647b;font-weight:600}
+
+@media(max-width:768px){.premium-hero-orb{display:none}.premium-hero-visual:before{display:none}.home-premium #navbar{backdrop-filter:none;-webkit-backdrop-filter:none}.premium-hero{background:linear-gradient(145deg,#020817 0%,#071a38 58%,#07101f 100%)}}
