@@ -124,10 +124,11 @@
     (async () => {
       try {
         const budgetMap = { 'Standard / Starter scope': 15000, 'Professional / Growth scope': 50000, 'Premium / Complex scope': 150000, 'Enterprise / Multi-system scope': 400000 };
+        const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
         await fetch('https://portal.freshtiqautomation.com/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
+          body: JSON.stringify(Object.assign({},journey,{
             name: data.name,
             phone: data.phone,
             email: data.email || '',
@@ -136,7 +137,7 @@
             country: data.country,
             message: 'Industry: ' + data.industry + ' | Problem: ' + data.problem + ' | Team: ' + (data.team||'—') + ' | Tools: ' + (data.tools||'—') + ' | Timeline: ' + (data.timeline||'—'),
             source: 'Build My Automation Form'
-          })
+          }))
         });
       } catch(err) { console.log('Portal lead API unavailable; WhatsApp fallback shown:', err); }
     })();
@@ -158,8 +159,8 @@
     return false;
   }
   </script>
-  <script src="/freshtiq-i18n.js?v=20260918audit2"></script>
-<script src="/script.js?v=20260918audit2"></script>
+  <script src="/freshtiq-i18n.js?v=20260918connected1"></script>
+<script src="/script.js?v=20260918connected1"></script>
 <script src="/site-consent.js?v=20260918audit2"></script>
 </body>
 </html>

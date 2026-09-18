@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+/* === CONNECTED CUSTOMER JOURNEY — shared by forms + chatbot === */
+(function initFreshtiqJourney(){
+  try{
+    const sidKey='ft_chat_sid_v2', attrKey='ft_attribution_v1', landingKey='ft_landing_v1';
+    let sid=sessionStorage.getItem(sidKey)||'';
+    if(!sid){sid='web_'+Math.random().toString(36).slice(2,10)+'_'+Date.now();sessionStorage.setItem(sidKey,sid);}
+    let attr={};try{attr=JSON.parse(sessionStorage.getItem(attrKey)||'{}')||{};}catch(_e){}
+    const qs=new URLSearchParams(location.search);
+    const now={utm_source:qs.get('utm_source')||'',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',utm_term:qs.get('utm_term')||''};
+    if(Object.values(now).some(Boolean)){attr=Object.assign({},attr,now);sessionStorage.setItem(attrKey,JSON.stringify(attr));}
+    let landing=sessionStorage.getItem(landingKey)||'';if(!landing){landing=location.href;sessionStorage.setItem(landingKey,landing);}
+    const base={
+      getSessionId:function(){return sid;},
+      getContext:function(){return Object.assign({},attr,{session_id:sid,page_url:location.href,page_title:document.title,landing_page:landing,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'});}
+    };
+    window.FreshtiqJourneyBase=base;
+    if(!window.FreshtiqJourney)window.FreshtiqJourney=base;
+  }catch(_e){}
+})();
+
 const nav = document.querySelector('nav');
 if (nav) {
 window.addEventListener('scroll', function() {
@@ -539,7 +559,9 @@ document.addEventListener('click', function (e) {
     if(preferred==='WhatsApp'&&!whatsappOptIn){status.className='lead-status err';status.textContent='Please confirm that we may reply to this request on WhatsApp.';return;}
     btn.disabled=true; btn.textContent='Sending…'; status.className='lead-status'; status.textContent='';
     try{
-      var payload={name:name,phone:phone,email:email,country:country,service:need,message:'Homepage free automation audit request · Preferred contact: '+preferred,source:'Homepage Free Audit',whatsapp_opt_in:(preferred==='WhatsApp'&&whatsappOptIn),marketing_opt_in:marketingOptIn,consent_source:'homepage_free_audit_contact_choice_v2',utm_source:qs.get('utm_source')||'organic_direct',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',utm_term:qs.get('utm_term')||''};
+      var journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
+      var payload=Object.assign({},journey,{name:name,phone:phone,email:email,country:country,service:need,preferred_contact:preferred,message:'Homepage free automation audit request · Preferred contact: '+preferred,source:'Homepage Free Audit',whatsapp_opt_in:(preferred==='WhatsApp'&&whatsappOptIn),marketing_opt_in:marketingOptIn,consent_source:'homepage_free_audit_contact_choice_v3'});
+      if(!payload.utm_source)payload.utm_source=qs.get('utm_source')||'organic_direct';if(!payload.utm_medium)payload.utm_medium=qs.get('utm_medium')||'';if(!payload.utm_campaign)payload.utm_campaign=qs.get('utm_campaign')||'';if(!payload.utm_content)payload.utm_content=qs.get('utm_content')||'';if(!payload.utm_term)payload.utm_term=qs.get('utm_term')||'';
       var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');
       status.className='lead-status ok'; status.textContent='✓ Request received. Lead Ref: '+(d.lead_ref||('#'+d.lead_id))+'. We will reply by '+preferred+'.';
@@ -560,9 +582,12 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918audit3'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918connected1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
-    window.addEventListener('load',()=>setTimeout(load,5000),{once:true});
+    window.addEventListener('load',()=>{
+      if ('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2200});
+      else setTimeout(load,1800);
+    },{once:true});
   } catch (_) {}
 })();

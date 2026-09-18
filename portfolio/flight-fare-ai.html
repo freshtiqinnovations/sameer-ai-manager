@@ -241,7 +241,7 @@
     if(!name||name.length<2){alert('Please enter your name');return;} if(!phone&&!email){alert('Please enter a WhatsApp number or email');return;} if(phone&&phone.replace(/[^0-9]/g,'').length<8){alert('Please enter a valid WhatsApp number or use email');return;} if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email');return;} if(!service){alert('Please select a service');return;}
     submitBtn.disabled=true;submitBtn.textContent='Sending...';
     const timeline=(document.getElementById('qTimeline')||{value:''}).value,msg=(document.getElementById('qMessage')||{value:''}).value.trim();
-    const lead={name,phone,email,service,budget:(document.getElementById('qBudget')||{value:''}).value,message:[msg,timeline?('Timeline: '+timeline):''].filter(Boolean).join(' | '),source:'Portfolio - flight_fare_ai',whatsapp_opt_in:!!phone,marketing_opt_in:false,consent_source:'portfolio_quote_request'};
+    const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():(()=>{const k='ft_chat_sid_v2';let sid='';try{sid=sessionStorage.getItem(k)||'';if(!sid){sid='web_'+Math.random().toString(36).slice(2,10)+'_'+Date.now();sessionStorage.setItem(k,sid);}}catch(_){sid='web_'+Date.now();}return{session_id:sid,page_url:location.href,page_title:document.title,landing_page:location.href,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};})();const lead=Object.assign({},journey,{name,phone,email,service,budget:(document.getElementById('qBudget')||{value:''}).value,message:[msg,timeline?('Timeline: '+timeline):''].filter(Boolean).join(' | '),source:'Portfolio - flight_fare_ai',whatsapp_opt_in:false,marketing_opt_in:false,consent_source:'portfolio_quote_request_no_implied_whatsapp'});
     try{const rr=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)});const d=await rr.json().catch(()=>({}));if(!rr.ok||!d.success)throw new Error(d.error||'Request failed');if(formDiv)formDiv.style.display='none';if(successDiv)successDiv.classList.add('open');const st=document.getElementById('quoteSuccessText');if(st)st.textContent='Request saved. Your Freshtiq Lead Ref is '+(d.lead_ref||('#'+d.lead_id))+'. We will follow up using the contact you provided.';if(typeof gtag==='function')gtag('event','generate_lead',{service:service,page:'flight-fare-ai'});}catch(err){alert('Could not save your request right now. Please use WhatsApp or email from the Contact page.');}finally{submitBtn.disabled=false;submitBtn.textContent='→ Get My Free Quote';}
   });
 })();
@@ -252,8 +252,8 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
 // Nav toggle
 document.getElementById('mobileToggle')?.addEventListener('click',function(){document.getElementById('navLinks')?.classList.toggle('open');});
 </script>
-  <script src="/freshtiq-i18n.js?v=20260918audit2"></script>
-<script src="/script.js?v=20260918audit2"></script>
+  <script src="/freshtiq-i18n.js?v=20260918connected1"></script>
+<script src="/script.js?v=20260918connected1"></script>
 <script src="/site-consent.js?v=20260918audit2"></script>
 </body>
 </html>

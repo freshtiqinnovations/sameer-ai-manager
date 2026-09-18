@@ -11,9 +11,52 @@
   const API = window.location.hostname.includes('87.76')
     ? '/api/chat'
     : 'https://portal.freshtiqautomation.com/api/chat';
+  const LEAD_API = API.replace('/api/chat','/api/lead');
 
   // ─── SESSION ID (per visitor) ───
   const SID = (() => { const k='ft_chat_sid_v2'; let v=''; try{v=sessionStorage.getItem(k)||'';}catch(_){} if(!v){v='web_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();try{sessionStorage.setItem(k,v);}catch(_){}} return v; })();
+
+  // ─── CONNECTED JOURNEY CONTEXT ───
+  const PAGE_META = (() => {
+    const qs = new URLSearchParams(location.search);
+    const attrKey = 'ft_attribution_v1';
+    const landingKey = 'ft_landing_v1';
+    let saved = {};
+    try { saved = JSON.parse(sessionStorage.getItem(attrKey) || '{}') || {}; } catch(_) {}
+    const current = {
+      utm_source: qs.get('utm_source') || '', utm_medium: qs.get('utm_medium') || '',
+      utm_campaign: qs.get('utm_campaign') || '', utm_content: qs.get('utm_content') || '',
+      utm_term: qs.get('utm_term') || ''
+    };
+    if (Object.values(current).some(Boolean)) {
+      saved = Object.assign({}, saved, current);
+      try { sessionStorage.setItem(attrKey, JSON.stringify(saved)); } catch(_) {}
+    }
+    let landing = '';
+    try { landing = sessionStorage.getItem(landingKey) || ''; if(!landing){ landing=location.href; sessionStorage.setItem(landingKey,landing); } } catch(_) { landing=location.href; }
+    const path = location.pathname.toLowerCase();
+    const market = path.startsWith('/saudi-arabia') ? 'Saudi Arabia' : path.startsWith('/uae') ? 'UAE' : path.startsWith('/india') ? 'India' : '';
+    let service = '';
+    if (/whatsapp/.test(path)) service='WhatsApp Automation';
+    else if (/ai-chatbot|chatbot/.test(path)) service='AI Chatbot';
+    else if (/crm-erp/.test(path)) service='CRM / ERP';
+    else if (path.includes('/services/website-development')) service='Website';
+    else if (path.includes('/services/web-app-development')) service='';
+    else if (/appointment|booking/.test(path)) service='Booking Automation';
+    else if (/lead-follow-up|lead-generation/.test(path)) service='Lead Generation & Follow-up';
+    else if (/ai-agent/.test(path)) service='AI Agent';
+    else if (path.includes('/pricing')) service='Pricing';
+    else if (path.includes('/demo')) service='Interactive Demo';
+    return Object.assign({}, saved, {
+      session_id: SID, page_url: location.href, page_title: document.title,
+      landing_page: landing, referrer: document.referrer || '',
+      locale: document.documentElement.lang || navigator.language || 'en', market, service
+    });
+  })();
+  window.FreshtiqJourney = {
+    getSessionId: () => SID,
+    getContext: () => Object.assign({}, PAGE_META, { page_url: location.href, page_title: document.title, page_service: PAGE_META.service || '' })
+  };
 
   // ─── STYLES ───
   const style = document.createElement('style');
@@ -53,7 +96,8 @@
 .ft-quick-actions{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 0;background:#0b0f19}
 .ft-quick-btn{padding:6px 12px;font-size:0.75rem;border-radius:50px;border:1px solid rgba(108,99,255,0.2);background:rgba(108,99,255,0.06);color:#818cf8;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .ft-quick-btn:hover{background:rgba(108,99,255,0.15);border-color:#6C63FF}
-.ft-chat-privacy{padding:8px 16px 0;background:#0b0f19;color:#64748b;font-size:.68rem;line-height:1.35}
+.ft-context-strip{padding:7px 16px 0;background:#0b0f19;color:#94a3b8;font-size:.67rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ft-handoff{display:none;margin:10px 14px 0;padding:12px;border:1px solid rgba(108,99,255,.2);border-radius:14px;background:#101827;color:#e2e8f0}.ft-handoff.open{display:block}.ft-handoff-title{font-size:.8rem;font-weight:800;margin-bottom:8px}.ft-handoff-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.ft-handoff input,.ft-handoff select{width:100%;box-sizing:border-box;padding:8px 9px;border-radius:9px;border:1px solid rgba(148,163,184,.22);background:#0b1220;color:#e2e8f0;font-size:.75rem;outline:none}.ft-handoff input:focus,.ft-handoff select:focus{border-color:#6C63FF}.ft-handoff-wide{grid-column:1/-1}.ft-handoff-consent{display:none;grid-column:1/-1;font-size:.67rem;line-height:1.35;color:#94a3b8}.ft-handoff-consent.show{display:flex;gap:6px;align-items:flex-start}.ft-handoff-consent input{width:auto;margin-top:2px}.ft-handoff-actions{display:flex;gap:7px;margin-top:9px}.ft-handoff-actions button{flex:1;padding:8px;border-radius:9px;border:1px solid rgba(108,99,255,.25);font-weight:800;font-size:.72rem;cursor:pointer}.ft-handoff-save{background:#6C63FF;color:#fff}.ft-handoff-cancel{background:transparent;color:#cbd5e1}.ft-handoff-status{margin-top:7px;font-size:.67rem;color:#94a3b8;line-height:1.35}.ft-chat-privacy{padding:8px 16px 0;background:#0b0f19;color:#64748b;font-size:.68rem;line-height:1.35}
 @keyframes ftFadeIn{from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)}}
 @media(max-width:500px){
   #ft-chat-widget{right:8px;bottom:80px;width:calc(100vw - 16px);border-radius:20px}
@@ -81,12 +125,19 @@
   </div>
   <button class="ft-close" id="ft-chat-close">✕</button>
 </div>
-<div class="ft-quick-actions">
-  <button class="ft-quick-btn" data-action="chatbot">🤖 Chatbot</button>
-  <button class="ft-quick-btn" data-action="inquiry">🎯 Inquiry</button>
-  <button class="ft-quick-btn" data-action="booking">📅 Booking</button>
-  <button class="ft-quick-btn" data-action="website">🌐 Website/App</button>
-  <button class="ft-quick-btn" data-action="audit">✅ Free Audit</button>
+<div class="ft-context-strip" id="ft-context-strip"></div>
+<div class="ft-quick-actions" id="ft-quick-actions"></div>
+<div class="ft-handoff" id="ft-handoff">
+  <div class="ft-handoff-title">👤 Talk to Freshtiq team</div>
+  <div class="ft-handoff-grid">
+    <input id="ft-ho-name" class="ft-handoff-wide" type="text" placeholder="Your name" autocomplete="name">
+    <select id="ft-ho-method" aria-label="Preferred contact"><option value="Email">Email</option><option value="WhatsApp">WhatsApp</option></select>
+    <input id="ft-ho-email" type="email" placeholder="you@company.com" autocomplete="email">
+    <input id="ft-ho-phone" class="ft-handoff-wide" type="tel" placeholder="WhatsApp + country code" autocomplete="tel" style="display:none">
+    <label class="ft-handoff-consent" id="ft-ho-consent-row"><input id="ft-ho-consent" type="checkbox"><span>Freshtiq may reply to this request on WhatsApp. No marketing unless I separately opt in.</span></label>
+  </div>
+  <div class="ft-handoff-actions"><button class="ft-handoff-cancel" id="ft-ho-cancel" type="button">Cancel</button><button class="ft-handoff-save" id="ft-ho-save" type="button">Save & hand off</button></div>
+  <div class="ft-handoff-status" id="ft-ho-status"></div>
 </div>
 <div id="ft-chat-messages"></div>
 <div class="ft-chat-privacy">🔒 Do not share passwords, OTPs or payment-card details.</div>
@@ -108,6 +159,93 @@
   const msgInput = document.getElementById('ft-msg-input');
   const sendBtn = document.getElementById('ft-send-btn');
   const closeBtn = document.getElementById('ft-chat-close');
+  const quickActions = document.getElementById('ft-quick-actions');
+  const contextStrip = document.getElementById('ft-context-strip');
+  const handoff = document.getElementById('ft-handoff');
+  const hoName = document.getElementById('ft-ho-name');
+  const hoMethod = document.getElementById('ft-ho-method');
+  const hoEmail = document.getElementById('ft-ho-email');
+  const hoPhone = document.getElementById('ft-ho-phone');
+  const hoConsent = document.getElementById('ft-ho-consent');
+  const hoConsentRow = document.getElementById('ft-ho-consent-row');
+  const hoStatus = document.getElementById('ft-ho-status');
+  const hoSave = document.getElementById('ft-ho-save');
+  const hoCancel = document.getElementById('ft-ho-cancel');
+
+  function marketCurrency(m){ return m==='Saudi Arabia'?'SAR':m==='UAE'?'AED':m==='India'?'INR':''; }
+  function pageContextLabel(){
+    if(PAGE_META.market) return '📍 '+PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'');
+    if(PAGE_META.service) return '🧭 Viewing: '+PAGE_META.service;
+    return '🧭 Ask about pricing, scope, demos, integrations or delivery';
+  }
+  function smartActions(){
+    const p=location.pathname.toLowerCase();
+    if(p.includes('/pricing')) return [['price','💰 Price'],['compare','📊 Compare'],['currency','🌍 Currency'],['human','👤 Human']];
+    if(p.includes('/demo')) return [['demo','▶️ Demo'],['realestate','🏙️ Real Estate'],['clinic','🏥 Clinic'],['human','👤 Human']];
+    if(PAGE_META.market) return [['localprice','💰 Local Price'],['language','🌐 Language'],['currency','💱 Currency'],['human','👤 Human']];
+    if(p.includes('/services/')) return [['scope','🧩 Scope'],['price','💰 Price'],['demo','▶️ Demo'],['human','👤 Human']];
+    return [['chatbot','🤖 Chatbot'],['website','🌐 Website/App'],['crm','📊 CRM/ERP'],['audit','✅ Free Audit'],['human','👤 Human']];
+  }
+  function renderSmartActions(){
+    contextStrip.textContent=pageContextLabel();
+    quickActions.innerHTML='';
+    smartActions().forEach(([action,label])=>{const b=document.createElement('button');b.type='button';b.className='ft-quick-btn';b.dataset.action=action;b.textContent=label;quickActions.appendChild(b);});
+  }
+  function actionPrompt(action){
+    const service = PAGE_META.service && !['Pricing','Interactive Demo'].includes(PAGE_META.service) ? PAGE_META.service : 'my business automation';
+    const market = PAGE_META.market ? ' in '+PAGE_META.market : '';
+    return {
+      chatbot:'I want an AI chatbot for customer support or sales. Help me scope it.',
+      website:'I need a website or app that captures leads and connects to automation.',
+      crm:'I need CRM/ERP or operations automation. Help me scope the workflow.',
+      audit:'I want a free workflow audit. Help me identify the best first automation.',
+      scope:'Help me scope '+service+'. Ask me the minimum useful questions.',
+      price:'What is the published price for '+service+market+'?',
+      localprice:'Show me the relevant published pricing'+market+' for the service I need.',
+      compare:'Compare Standard, Professional and Premium packages and tell me what changes between them.',
+      currency:'Show me how to view prices in my currency and explain regional pricing vs FX conversion.',
+      demo:'Show me the most relevant interactive demo for my requirement.',
+      realestate:'Show me the Dubai real-estate enquiry automation flow and what information it captures.',
+      clinic:'Show me the clinic appointment automation flow and human approval option.',
+      language:'Can this customer journey work in Arabic, English, Urdu and Hinglish? Explain the handoff.'
+    }[action] || 'Help me with '+action+'.';
+  }
+  function setHandoffMethod(){
+    const wa=hoMethod.value==='WhatsApp';hoEmail.style.display=wa?'none':'block';hoPhone.style.display=wa?'block':'none';hoConsentRow.classList.toggle('show',wa);hoStatus.textContent='';
+  }
+  function openHandoff(){handoff.classList.add('open');setHandoffMethod();setTimeout(()=>hoName.focus(),60);}
+  function closeHandoff(){handoff.classList.remove('open');hoStatus.textContent='';}
+
+  async function submitHandoff(){
+    const name=hoName.value.trim(), method=hoMethod.value, email=hoEmail.value.trim(), phone=hoPhone.value.trim();
+    if(name.length<2){hoStatus.textContent='Please enter your name.';return;}
+    if(method==='Email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hoStatus.textContent='Please enter a valid email.';return;}
+    if(method==='WhatsApp'&&phone.replace(/\D/g,'').length<8){hoStatus.textContent='Please enter WhatsApp number with country code.';return;}
+    if(method==='WhatsApp'&&!hoConsent.checked){hoStatus.textContent='Please confirm WhatsApp reply consent for this request.';return;}
+    hoSave.disabled=true;hoStatus.textContent='Saving your request…';
+    const recent=chatHistory.slice(-8).map(x=>(x.role==='user'?'Customer: ':'Freshtiq: ')+String(x.content||'').replace(/\s+/g,' ').slice(0,240)).join(' | ').slice(0,1500);
+    const meta=window.FreshtiqJourney.getContext();
+    const payload=Object.assign({},meta,{
+      name, email:method==='Email'?email:'', phone:method==='WhatsApp'?phone:'',
+      preferred_contact:method, country:PAGE_META.market||'', service:(PAGE_META.service&&!["Pricing","Interactive Demo"].includes(PAGE_META.service))?PAGE_META.service:'Human Handoff / Automation Enquiry',
+      message:'Human handoff requested from website chat.'+(recent?' Recent conversation: '+recent:''), source:'Website Chat Handoff',
+      whatsapp_opt_in:method==='WhatsApp'&&hoConsent.checked, marketing_opt_in:false, consent_source:'website_chat_handoff_v1'
+    });
+    try{
+      const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
+      if(!r.ok||!d.success)throw new Error(d.error||'Could not save request');
+      shownLeadRef=d.lead_ref||shownLeadRef;closeHandoff();
+      if(method==='WhatsApp'){
+        const text=encodeURIComponent('Hello Freshtiq, my Lead Ref is '+(d.lead_ref||'')+'. I requested a human follow-up from the website.');
+        addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. To continue on WhatsApp, tap this link yourself: https://wa.me/918381848389?text='+text,'bot');
+      }else addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. We will reply using the email you provided.','bot');
+      try{if(window.gtag)gtag('event','human_handoff_saved',{method,lead_ref:String(d.lead_ref||'')});}catch(_){}
+    }catch(e){hoStatus.textContent='Could not save right now. Please try again or use the Contact page.';}
+    finally{hoSave.disabled=false;}
+  }
+
+  renderSmartActions();
+  hoMethod.addEventListener('change',setHandoffMethod);hoCancel.addEventListener('click',closeHandoff);hoSave.addEventListener('click',submitHandoff);
 
   // ─── HELPERS ───
   function scrollDown() {
@@ -177,12 +315,11 @@
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: JSON.stringify(Object.assign({}, window.FreshtiqJourney.getContext(), {
           message: text,
-          session_id: SID,
-          page_url: location.href,
-          page_title: document.title
-        })
+          market: PAGE_META.market || '',
+          page_service: PAGE_META.service || ''
+        }))
       });
       const data = await res.json();
       hideTyping();
@@ -205,7 +342,7 @@
       }
     } catch(e) {
       hideTyping();
-      addMessage('Connection issue. Please try again or WhatsApp me at +91 8381848389.', 'bot');
+      addMessage('Connection issue. Please try again, tap **Human**, or use https://freshtiqautomation.com/contact.html .', 'bot');
     }
     setBusy(false);
   }
@@ -240,27 +377,12 @@
     if (e.key === 'Enter') sendMessage(msgInput.value);
   });
 
-  // Quick action buttons
-  document.querySelectorAll('.ft-quick-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const action = btn.dataset.action;
-      const prompts = {
-        chatbot: "I want an AI chatbot for customer support or sales. Help me scope it.",
-        inquiry: "I want to capture and qualify enquiries automatically. What would the flow look like?",
-        booking: "I want an appointment or booking automation. What information do you need?",
-        website: "I need a website or app that captures leads and connects to automation.",
-        audit: "I want a free workflow audit. Help me identify the best first automation."
-      };
-      const msg = prompts[action] || "I need help with " + action;
-      if (!widget.classList.contains('open')) {
-        isOpen = true;
-        widget.classList.add('open');
-        toggleBtn.innerHTML = '✕';
-        setTimeout(() => sendMessage(msg), 120);
-      } else {
-        sendMessage(msg);
-      }
-    });
+  // Smart page-aware action buttons
+  quickActions.addEventListener('click', (e) => {
+    const btn=e.target.closest('.ft-quick-btn'); if(!btn)return;
+    const action=btn.dataset.action;
+    if(action==='human'){openHandoff();return;}
+    sendMessage(actionPrompt(action));
   });
 
   console.log('[Freshtiq Chat] Widget loaded — session ' + SID + ' 🤖');
