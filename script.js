@@ -42,6 +42,39 @@ document.addEventListener('DOMContentLoaded', function() {
   }catch(_e){}
 })();
 
+/* === CROSS-CHANNEL CONTINUITY — website/chat -> WhatsApp === */
+(function initWhatsAppContinuityBridge(){
+  try{
+    const WA_HOSTS=['wa.me','api.whatsapp.com'];
+    function contextLabel(){
+      const c=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{};
+      const bits=[];
+      if(c.page_title) bits.push('Page: '+String(c.page_title).slice(0,90));
+      if(c.utm_source) bits.push('Source: '+String(c.utm_source).slice(0,40));
+      return bits.join(' | ');
+    }
+    function decorate(link){
+      try{
+        const u=new URL(link.href,location.href);
+        if(!WA_HOSTS.includes(u.hostname)) return;
+        const ref=(window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():'';
+        const original=(u.searchParams.get('text')||'').trim();
+        const marker=ref?('Lead Ref '+ref):'';
+        if(marker && original.toUpperCase().includes(marker.toUpperCase())) return;
+        const suffix=[marker,contextLabel()].filter(Boolean).join(' · ');
+        if(!suffix) return;
+        u.searchParams.set('text',(original?original+'\n\n':'')+suffix);
+        link.href=u.toString();
+        link.dataset.ftContinuity='1';
+      }catch(_e){}
+    }
+    function refresh(){document.querySelectorAll('a[href*="wa.me/"],a[href*="api.whatsapp.com/"]').forEach(decorate);}
+    refresh();
+    window.addEventListener('ft:lead-saved',refresh);
+    document.addEventListener('click',function(e){const a=e.target&&e.target.closest?e.target.closest('a'):null;if(a)decorate(a);},true);
+  }catch(_e){}
+})();
+
 const nav = document.querySelector('nav');
 if (nav) {
 window.addEventListener('scroll', function() {
