@@ -1,13 +1,33 @@
 {
-  "version": "2026-09-14-premium-v2",
-  "effective_date": "2026-09-14",
+  "version": "2026-09-24-hourly-v1",
+  "effective_date": "2026-09-24",
   "brand": "Freshtiq Automation",
   "policy": {
     "currency_rule": "Quote India in INR, Saudi Arabia in SAR, UAE in AED.",
     "regional_rule": "India is the leanest entry market; Saudi/UAE use premium regional pricing.",
-    "truth_rule": "Published website starting prices are the floor/source of truth; final scope is fixed in writing.",
+    "truth_rule": "Published website starting prices and hourly rates are the source of truth; fixed projects use a written scope and hourly work uses approved task/hours before work starts.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
-    "quality_rule": "Standard, Professional and Premium differ by scope, integrations, roles, analytics and support priority — not by intentionally lowering code quality."
+    "quality_rule": "Standard, Professional and Premium differ by scope, integrations, roles, analytics and support priority — not by intentionally lowering code quality.",
+    "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and consulting. Time is approved before work starts; third-party fees are separate."
+  },
+  "hourly": {
+    "usd": 20,
+    "minimum_hours": 2,
+    "billing_increment_minutes": 30,
+    "regional_starting_rates": {
+      "India": "₹1,500/hour",
+      "Saudi Arabia": "SAR 75/hour",
+      "UAE": "AED 75/hour",
+      "International": "USD 20/hour"
+    },
+    "best_for": [
+      "Bug fixing and troubleshooting",
+      "API and webhook integrations",
+      "Small website/app upgrades",
+      "Automation workflow changes",
+      "AI/chatbot tuning",
+      "Technical consultation"
+    ]
   },
   "regions": {
     "India": {

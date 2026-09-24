@@ -83,7 +83,7 @@
           <label>Email (optional)<input id="heroLeadEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com"></label>
           <label>Preferred contact<select id="heroLeadContact" name="preferred_contact" required><option value="">Choose one</option><option value="WhatsApp">WhatsApp</option><option value="Email">Email</option></select></label>
           <label>Country<select id="heroLeadCountry" name="country" required><option value="">Choose country</option><option>India</option><option>Saudi Arabia</option><option>UAE</option><option>Other</option></select></label>
-          <label>What should we improve?<select id="heroLeadNeed" name="need" required><option value="">Choose one</option><option>WhatsApp replies &amp; follow-up</option><option>Lead capture / CRM</option><option>AI customer support</option><option>ERP / operations</option><option>Website / lead generation</option><option>Not sure — audit my process</option></select></label>
+          <label>What should we improve?<select id="heroLeadNeed" name="need" required><option value="">Choose one</option><option>WhatsApp replies &amp; follow-up</option><option>Lead capture / CRM</option><option>AI customer support</option><option>ERP / operations</option><option>Website / lead generation</option><option>Hourly engineering / small technical task</option><option>Not sure — audit my process</option></select></label>
           <label class="lead-consent" id="heroLeadWaConsentRow"><span><input id="heroLeadWaConsent" name="whatsapp_opt_in" type="checkbox"> <span id="heroLeadWaConsentText">If I choose WhatsApp, Freshtiq may contact me about this request. I can reply STOP anytime.</span></span></label>
           <label class="lead-consent optional"><span><input id="heroLeadMarketingConsent" name="marketing_opt_in" type="checkbox"> <span id="heroLeadMarketingConsentText">Also send occasional Freshtiq automation tips and offers on WhatsApp (optional).</span></span></label>
           <input id="heroLeadWebsite" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true"><button type="submit" class="lead-submit">Get My Free Plan →</button><div id="heroLeadStatus" class="lead-status" aria-live="polite"></div>
@@ -311,8 +311,14 @@
           <p style="font-size:0.85rem;line-height:1.6;opacity:0.88;">AI sales, support and operations agents for your business.</p>
           <div class="pricing-detail" style="font-size:0.82rem;opacity:0.75;margin-top:6px;">Scope-based written quote</div>
         </div>
+        <div class="glass-card">
+          <h3 style="font-size:1.05rem;">Hourly Engineering</h3>
+          <div class="pricing-price" style="font-size:1.6rem;font-weight:800;margin:8px 0;">$20/hr+</div>
+          <p style="font-size:0.85rem;line-height:1.6;opacity:0.88;">Bug fixes, API integrations, small upgrades, automation changes and technical consulting.</p>
+          <div class="pricing-detail" style="font-size:0.82rem;opacity:0.75;margin-top:6px;"><a href="/hourly-ai-automation.html">₹1,500 · SAR 75 · AED 75 per hour →</a></div>
+        </div>
       </div>
-      <div style="text-align:center;margin-top:24px;font-size:0.9rem;opacity:0.85;">Every project: fixed written proposal · milestone payments · source-code handover.</div>
+      <div style="text-align:center;margin-top:24px;font-size:0.9rem;opacity:0.85;">Choose fixed-scope or hourly work · hourly from $20/hr · fixed projects use written scope and milestones · source-code handover as stated in the proposal.</div>
       <div style="text-align:center;margin-top:18px;"><a href="pricing.html" class="btn-secondary">View Full Pricing &amp; Packages →</a></div>
     </div>
   </section>
@@ -340,7 +346,7 @@
         <div class="section-tag">Questions</div>
         <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
       </div>
-      <div class="faq-item open"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How much does automation cost?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Published India examples: Basic WhatsApp / Telegram Bot ₹8,000 / ₹15,000 / ₹25,000; Custom CRM / ERP ₹25,000 / ₹50,000 / ₹90,000; Managed Support ₹3,000 / ₹5,000 / ₹10,000 per month. India, Saudi and UAE package tables are on the Pricing page. Every project gets a fixed written proposal before work starts.</p></div></div>
+      <div class="faq-item open"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How much does automation cost?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Published options include fixed packages plus hourly engineering from $20/hour (₹1,500/hour India · SAR 75/hour Saudi Arabia · AED 75/hour UAE). Basic WhatsApp / Telegram Bot starts at ₹8,000 and Custom CRM / ERP starts at ₹25,000 in India. Full regional tables and hourly terms are on the Pricing page; work starts only after the scope or approved hours are confirmed.</p></div></div>
       <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">How long does development take?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Simple bots usually ship in 3–7 days, most custom systems in 1–4 weeks depending on scope. You get a clear timeline in the proposal and weekly progress updates.</p></div></div>
       <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Do I own the source code?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. You receive the full source code for the custom work we build for you, with no vendor lock-in. Third-party and open-source components remain under their original licenses, and framework terms are stated in your proposal.</p></div></div>
       <div class="faq-item"><div class="faq-q" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">Can you work with Saudi and UAE companies?<span class="faq-arrow">▼</span></div><div class="faq-a"><p>Yes. We deliver remotely from India for clients across Saudi Arabia and the UAE, with English + Arabic support and local currency examples (SAR/AED) in proposals.</p></div></div>

@@ -719,7 +719,7 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260924marketbridge1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260924hourly1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
     window.addEventListener('load',()=>{

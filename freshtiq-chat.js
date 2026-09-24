@@ -188,7 +188,7 @@
   function smartActions(){
     const p=location.pathname.toLowerCase();
     let a;
-    if(p.includes('/pricing')) a=[['price','💰 Price'],['compare','📊 Compare'],['quote','🧾 Quote'],['human','👤 Human']];
+    if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['hourly','⏱️ Hourly'],['price','💰 Price'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(p.includes('/demo')) a=[['demo','▶️ Demo'],['consultation','📅 Consultation'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(PAGE_META.market) a=[['localprice','💰 Local Price'],['language','🌐 Language'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(p.includes('/services/')) a=[['scope','🧩 Scope'],['price','💰 Price'],['consultation','📅 Consultation'],['human','👤 Human']];
@@ -211,6 +211,7 @@
       audit:'I want a free workflow audit. Help me identify the best first automation.',
       scope:'Help me scope '+service+'. Ask me the minimum useful questions.',
       price:'What is the published price for '+service+market+'?',
+      hourly:'I want to hire Freshtiq by the hour. Explain the hourly rate, minimum hours, what hourly work is best for, and help me describe my task.',
       localprice:'Show me the relevant published pricing'+market+' for the service I need.',
       compare:'Compare Standard, Professional and Premium packages and tell me what changes between them.',
       currency:'Show me how to view prices in my currency and explain regional pricing vs FX conversion.',
