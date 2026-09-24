@@ -19,6 +19,59 @@ document.addEventListener('DOMContentLoaded', function() {
   }catch(_e){}
 })();
 
+/* === MARKETPLACE SAFE ROUTER — attribution + anti-circumvention guard === */
+(function initMarketplaceSafeRouter(){
+  try{
+    const labels={upwork:'Upwork',fiverr:'Fiverr',freelancer:'Freelancer.com',peopleperhour:'PeoplePerHour'};
+    const aliases={pph:'peopleperhour',people_per_hour:'peopleperhour','freelancer.com':'freelancer'};
+    const qs=new URLSearchParams(location.search);
+    const norm=v=>{v=String(v||'').trim().toLowerCase().replace(/[^a-z0-9._-]/g,'');return aliases[v]||v;};
+    let source=norm(qs.get('utm_source')||qs.get('ft_source')||'');
+    const path=location.pathname.toLowerCase();
+    if(!source){
+      for(const k of Object.keys(labels)){if(path.includes('/proof/'+k)){source=k;break;}}
+    }
+    if(!source && document.referrer){
+      try{
+        const h=new URL(document.referrer).hostname.toLowerCase();
+        if(h.includes('upwork.'))source='upwork';
+        else if(h.includes('fiverr.'))source='fiverr';
+        else if(h.includes('freelancer.'))source='freelancer';
+        else if(h.includes('peopleperhour.'))source='peopleperhour';
+      }catch(_e){}
+    }
+    let state={source:source,label:labels[source]||source||'',restricted:!!labels[source]};
+    if(state.restricted){
+      try{sessionStorage.setItem('ft_marketplace_restricted_v1',JSON.stringify(state));}catch(_e){}
+    }else{
+      try{const old=JSON.parse(sessionStorage.getItem('ft_marketplace_restricted_v1')||'null');if(old&&old.restricted)state=old;}catch(_e){}
+    }
+    window.FreshtiqMarketplaceBridge={
+      source:state.source||'',label:state.label||'',restricted:!!state.restricted,
+      message:state.restricted?('You reached Freshtiq from '+state.label+'. Please keep project communication on '+state.label+' until an order/contract is active.'):''
+    };
+    function notice(){
+      let n=document.getElementById('ft-marketplace-safe-notice');
+      if(!n){
+        n=document.createElement('div');n.id='ft-marketplace-safe-notice';n.setAttribute('role','status');
+        n.style.cssText='position:fixed;left:16px;right:16px;bottom:18px;z-index:2147483646;max-width:760px;margin:auto;padding:14px 18px;border-radius:14px;background:#111827;color:#fff;box-shadow:0 14px 40px rgba(0,0,0,.35);font:600 14px/1.45 Inter,Arial,sans-serif;text-align:center';
+        document.body.appendChild(n);
+      }
+      n.textContent=window.FreshtiqMarketplaceBridge.message+' This protects both sides and the marketplace account.';
+      n.style.display='block';clearTimeout(n._t);n._t=setTimeout(()=>{n.style.display='none';},7000);
+    }
+    function blockedHref(a){
+      const h=String(a.getAttribute('href')||'').toLowerCase();
+      return h.startsWith('mailto:')||h.startsWith('tel:')||h.includes('wa.me/')||h.includes('api.whatsapp.com/');
+    }
+    if(state.restricted){
+      document.querySelectorAll('a').forEach(a=>{if(blockedHref(a)){a.dataset.ftMarketplaceBlocked='1';a.title='Continue on '+state.label+' until contract/order is active';}});
+      document.addEventListener('click',e=>{const a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&blockedHref(a)){e.preventDefault();e.stopPropagation();notice();}},true);
+      document.addEventListener('submit',e=>{const f=e.target;if(f&&f.querySelector&&f.querySelector('input[type=email],input[type=tel]')){e.preventDefault();e.stopPropagation();notice();}},true);
+    }
+  }catch(_e){}
+})();
+
 /* === UNIFIED LEAD CONTINUITY — forms + chatbot + WhatsApp === */
 (function initFreshtiqLeadContinuity(){
   try{
@@ -666,7 +719,7 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260918connected2'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20260924marketbridge1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
     window.addEventListener('load',()=>{

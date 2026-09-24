@@ -226,7 +226,7 @@
   function setHandoffMethod(){
     const wa=hoMethod.value==='WhatsApp';hoEmail.style.display=wa?'none':'block';hoPhone.style.display=wa?'block':'none';hoConsentRow.classList.toggle('show',wa);hoStatus.textContent='';
   }
-  function openHandoff(){handoff.classList.add('open');setHandoffMethod();setTimeout(()=>hoName.focus(),60);}
+  function openHandoff(){const mb=window.FreshtiqMarketplaceBridge;if(mb&&mb.restricted){addMessage('🔒 Because you reached Freshtiq via **'+mb.label+'**, please keep project communication on '+mb.label+' until the order/contract is active. After that, external contact can be shared according to the platform rules.','bot');return;}handoff.classList.add('open');setHandoffMethod();setTimeout(()=>hoName.focus(),60);}
   function closeHandoff(){handoff.classList.remove('open');hoStatus.textContent='';}
 
   async function submitHandoff(){
@@ -331,7 +331,9 @@
         body: JSON.stringify(Object.assign({}, window.FreshtiqJourney.getContext(), {
           message: text,
           market: PAGE_META.market || '',
-          page_service: PAGE_META.service || ''
+          page_service: PAGE_META.service || '',
+          marketplace_source: (window.FreshtiqMarketplaceBridge&&window.FreshtiqMarketplaceBridge.source)||'',
+          marketplace_restricted: !!(window.FreshtiqMarketplaceBridge&&window.FreshtiqMarketplaceBridge.restricted)
         }))
       });
       const data = await res.json();
