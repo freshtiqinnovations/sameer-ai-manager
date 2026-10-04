@@ -689,7 +689,9 @@ document.addEventListener('click', function (e) {
     btn.disabled=true; btn.textContent='Sending…'; status.className='lead-status'; status.textContent='';
     try{
       var journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
-      var payload=Object.assign({},journey,{name:name,phone:phone,email:email,country:country,service:need,preferred_contact:preferred,message:'Homepage free automation audit request · Preferred contact: '+preferred,source:'Homepage Free Audit',whatsapp_opt_in:(preferred==='WhatsApp'&&whatsappOptIn),marketing_opt_in:marketingOptIn,consent_source:'homepage_free_audit_contact_choice_v3'});
+      var leadSource=form.getAttribute('data-lead-source')||'Homepage Free Audit';
+      var leadMessage=form.getAttribute('data-lead-message')||'Free automation audit request';
+      var payload=Object.assign({},journey,{name:name,phone:phone,email:email,country:country,service:need,preferred_contact:preferred,message:leadMessage+' · Preferred contact: '+preferred,source:leadSource,whatsapp_opt_in:(preferred==='WhatsApp'&&whatsappOptIn),marketing_opt_in:marketingOptIn,consent_source:'website_free_audit_contact_choice_v4'});
       if(!payload.utm_source)payload.utm_source=qs.get('utm_source')||'organic_direct';if(!payload.utm_medium)payload.utm_medium=qs.get('utm_medium')||'';if(!payload.utm_campaign)payload.utm_campaign=qs.get('utm_campaign')||'';if(!payload.utm_content)payload.utm_content=qs.get('utm_content')||'';if(!payload.utm_term)payload.utm_term=qs.get('utm_term')||'';
       var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');
@@ -702,7 +704,7 @@ document.addEventListener('click', function (e) {
         aiContinue.addEventListener('click',function(){window.FreshtiqLead.openChat('I just submitted my free automation audit with Lead Ref '+leadRef+'. Help me refine the requirement and next step.');});
         status.appendChild(document.createElement('br')); status.appendChild(aiContinue);
       }
-      try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_source:'homepage_audit',country:country,service:need,lead_ref_present:!!leadRef});}catch(_e){}
+      try{if(typeof gtag==='function'){gtag('event','generate_lead',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','qualified_lead_request',{lead_source:leadSource,country:country,service:need,preferred_contact:preferred});}}catch(_e){}
       form.reset();
     }catch(err){status.className='lead-status err';status.innerHTML='Could not save the request. <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20automation%20audit." target="_blank" rel="noopener">Continue on WhatsApp</a>.';}
     finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
