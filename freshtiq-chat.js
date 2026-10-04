@@ -188,7 +188,8 @@
   function smartActions(){
     const p=location.pathname.toLowerCase();
     let a;
-    if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['hourly','⏱️ Hourly'],['price','💰 Price'],['quote','🧾 Quote'],['human','👤 Human']];
+    if(p.includes('/ads/ai-automation-india')) a=[['audit','🧭 Free Audit'],['chatbot','🤖 Chatbot'],['crm','📊 CRM / Follow-up'],['quote','🧾 Quote'],['human','👤 Human']];
+    else if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['hourly','⏱️ Hourly'],['price','💰 Price'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(p.includes('/demo')) a=[['demo','▶️ Demo'],['consultation','📅 Consultation'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(PAGE_META.market) a=[['localprice','💰 Local Price'],['language','🌐 Language'],['quote','🧾 Quote'],['human','👤 Human']];
     else if(p.includes('/services/')) a=[['scope','🧩 Scope'],['price','💰 Price'],['consultation','📅 Consultation'],['human','👤 Human']];
