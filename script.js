@@ -103,7 +103,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const c=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{};
       const bits=[];
       if(c.page_title) bits.push('Page: '+String(c.page_title).slice(0,90));
-      if(c.utm_source) bits.push('Source: '+String(c.utm_source).slice(0,40));
+      if(c.utm_source) {
+        const src=String(c.utm_source).slice(0,40), camp=String(c.utm_campaign||'').slice(0,80), content=String(c.utm_content||'').slice(0,80);
+        bits.push('Source: '+src);
+        bits.push('Freshtiq Attribution: '+src+' | '+camp+' | '+content);
+      }
       return bits.join(' | ');
     }
     function decorate(link){
