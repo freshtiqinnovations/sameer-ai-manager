@@ -350,7 +350,7 @@
         const publicLeadRef = data.lead_ref || null;
         if (publicLeadRef && publicLeadRef !== shownLeadRef) {
           shownLeadRef = rememberLeadRef(publicLeadRef);
-          addMessage('✅ Request saved. Your Freshtiq Lead Ref is **' + publicLeadRef + '**. Keep it for follow-up.', 'bot');
+          addMessage('✅ Request saved. Your Freshtiq Tracking Ref is **' + publicLeadRef + '**. You can check progress anytime on our Track page.', 'bot');
           try { if (window.gtag) gtag('event','chat_lead_captured',{lead_ref:String(publicLeadRef)}); } catch(_) {}
           console.log('[Freshtiq Chat] Lead ref ' + publicLeadRef + ' captured');
         }
@@ -376,8 +376,8 @@
       // Welcome message once, synchronously, so it can never race into the middle of a reply.
       if (chatHistory.length === 0) {
         const welcome = shownLeadRef
-          ? ("Hi 👋 I’m Freshtiq AI Business Consultant. Your website request **"+shownLeadRef+"** is connected to this chat for this visit. Ask me about scope, pricing, timelines, demos, integrations or the best next step. You can write in English, Hinglish, Arabic or Urdu.")
-          : "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
+          ? ("Hi 👋 I’m Freshtiq AI Business Consultant. Your request **"+shownLeadRef+"** is connected to this chat. Ask me about scope, pricing, the India starter bundle, timelines, demos, or type status to check progress. You can write in English, Hinglish, Arabic or Urdu.")
+          : "Hi 👋 I’m Freshtiq AI Business Consultant. Ask me about services, pricing, the India starter bundle, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
         addMessage(welcome, 'bot');
         chatHistory.push({ role: 'assistant', content: welcome });
         persistHistory();

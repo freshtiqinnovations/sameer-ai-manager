@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Track Your Freshtiq Request | Freshtiq Automation</title>
+<meta name="description" content="Check the current stage of your Freshtiq automation request or project using your tracking reference.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://freshtiqautomation.com/track.html">
+<link rel="stylesheet" href="/style.css?v=20260918audit2">
+<style>
+.track-shell{min-height:78vh;padding:130px 18px 70px;background:linear-gradient(180deg,#06152d,#f7f9fc 58%)}.track-card{max-width:760px;margin:auto;background:#fff;border:1px solid #dbe4ef;border-radius:24px;padding:28px;box-shadow:0 20px 60px rgba(15,23,42,.14)}.track-card h1{margin:0 0 10px;color:#0f172a}.track-card p{color:#64748b;line-height:1.65}.track-form{display:flex;gap:10px;margin:22px 0}.track-form input{flex:1;min-width:0;height:52px;border:1px solid #cbd5e1;border-radius:12px;padding:0 14px;font:inherit;text-transform:uppercase}.track-form button{border:0;border-radius:12px;background:#2563eb;color:#fff;padding:0 20px;font-weight:900;cursor:pointer}.track-result{display:none;margin-top:20px;padding:20px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0}.track-stage{font-size:1.5rem;font-weight:950;color:#0f172a}.track-progress{height:12px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:16px 0}.track-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#2563eb,#06b6d4);transition:width .45s}.track-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.track-meta div{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px}.track-error{display:none;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;padding:12px;border-radius:12px}.track-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.track-actions a{padding:10px 13px;border-radius:10px;text-decoration:none;font-weight:850}.track-actions a:first-child{background:#25d366;color:#071426}.track-actions a:last-child{background:#eff6ff;color:#1d4ed8}@media(max-width:600px){.track-form{display:grid}.track-form button{height:50px}.track-meta{grid-template-columns:1fr}.track-card{padding:20px}.track-shell{padding-top:110px}}
+</style>
+</head>
+<body>
+<nav id="navbar"><div class="nav-inner"><a href="/" class="logo"><img src="/images/freshtiq-logo-v2.svg?v=20260912final" alt="Freshtiq Automation" width="179" height="44"></a><div class="nav-links"><a href="/services.html">Solutions</a><a href="/pricing.html">Pricing</a><a href="/track.html">Track</a><a href="/contact.html">Contact</a><a href="/build.html" class="nav-cta">Free Workflow Audit</a></div></div></nav>
+<main class="track-shell"><section class="track-card">
+<div class="section-tag">PRIVATE STATUS CHECK</div>
+<h1>Track your Freshtiq request</h1>
+<p>Enter the reference you received from our website, WhatsApp or Telegram. This page shows only a privacy-safe project stage — no phone number, payment data or private project notes are exposed.</p>
+<form class="track-form" id="trackForm"><input id="trackRef" name="ref" autocomplete="off" maxlength="64" placeholder="Example: FTL-20261005-ABC123" required><button type="submit">Check Status</button></form>
+<div id="trackError" class="track-error" role="alert"></div>
+<div id="trackResult" class="track-result" aria-live="polite">
+<div style="font-size:.76rem;color:#64748b;font-weight:850">TRACKING REFERENCE</div><div id="trackRefOut" style="font-family:monospace;font-weight:900;margin-top:4px"></div>
+<div id="trackStage" class="track-stage"></div>
+<div class="track-progress"><span id="trackBar"></span></div>
+<div class="track-meta"><div><small>Progress</small><strong id="trackPct" style="display:block"></strong></div><div><small>Next step</small><strong id="trackNext" style="display:block"></strong></div><div><small>Expected delivery</small><strong id="trackDelivery" style="display:block"></strong></div><div><small>Last status update</small><strong id="trackUpdated" style="display:block"></strong></div></div>
+<div class="track-actions"><a id="trackWhatsApp" href="https://wa.me/918381848389" target="_blank" rel="noopener">Continue on WhatsApp</a><a href="https://t.me/AutoPilotHubBot?start=status_check" target="_blank" rel="noopener">Check via Telegram</a></div>
+</div>
+<p style="font-size:.74rem;margin-top:18px">If a reference is not found, re-check the exact ID from your confirmation message or contact Freshtiq support. Repeated automated lookups are rate-limited for privacy and abuse protection.</p>
+</section></main>
+<script>
+(function(){
+ const form=document.getElementById('trackForm'), inp=document.getElementById('trackRef'), result=document.getElementById('trackResult'), err=document.getElementById('trackError');
+ const qs=new URLSearchParams(location.search); if(qs.get('ref')) inp.value=qs.get('ref').toUpperCase();
+ const esc=s=>String(s||'').replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+ async function check(ref){
+   ref=String(ref||'').trim().toUpperCase(); err.style.display='none'; result.style.display='none';
+   if(!/^(FTL|FTP)-[A-Z0-9-]{8,48}$/.test(ref)){err.textContent='Please enter a valid Freshtiq tracking reference.';err.style.display='block';return;}
+   try{
+     const r=await fetch('https://portal.freshtiqautomation.com/api/public/status/'+encodeURIComponent(ref),{cache:'no-store'});
+     const d=await r.json().catch(()=>({}));
+     if(!r.ok||!d.success) throw new Error(d.error||'Status not found');
+     document.getElementById('trackRefOut').textContent=d.reference||ref;
+     document.getElementById('trackStage').textContent=d.stage||'In Review';
+     document.getElementById('trackPct').textContent=String(d.progress||0)+'%';
+     document.getElementById('trackBar').style.width=Math.max(0,Math.min(100,Number(d.progress)||0))+'%';
+     document.getElementById('trackNext').textContent=d.next_step||'Freshtiq team review';
+     document.getElementById('trackDelivery').textContent=d.expected_delivery||'Confirmed in written scope';
+     document.getElementById('trackUpdated').textContent=d.updated_at||'Recently';
+     document.getElementById('trackWhatsApp').href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq, please help me with tracking reference '+ref+'.');
+     result.style.display='block';
+   }catch(e){err.textContent=e.message==='Tracking reference not found'?'Tracking reference not found. Please check the exact ID or contact support.':'Status is temporarily unavailable. Please try again shortly.';err.style.display='block';}
+ }
+ form.addEventListener('submit',e=>{e.preventDefault();check(inp.value);});
+ if(inp.value) check(inp.value);
+})();
+</script>
+<script src="/script.js?v=20261005bundle1"></script>
+</body></html>

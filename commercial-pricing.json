@@ -1,6 +1,6 @@
 {
-  "version": "2026-09-24-hourly-v1",
-  "effective_date": "2026-09-24",
+  "version": "2026-10-05-bundle-v1",
+  "effective_date": "2026-10-05",
   "brand": "Freshtiq Automation",
   "policy": {
     "currency_rule": "Quote India in INR, Saudi Arabia in SAR, UAE in AED.",
@@ -1010,5 +1010,63 @@
     "price_objection": "Explain scope/value first; offer smaller scope or an eligible transparent discount. Never invent a discount.",
     "competitor": "Compare scope, source-code ownership, support, integrations and delivery process calmly. Never attack competitors.",
     "trust": "Use verified company registration, website, official email, written proposal, milestone payments and real published proof."
+  },
+  "bundle_offer": {
+    "id": "india_starter_automation_bundle_v1",
+    "active": true,
+    "market": "India",
+    "currency": "INR",
+    "title": "Build More, Pay Less",
+    "subtitle": "Starter Automation Bundle",
+    "tiers": [
+      {
+        "modules": 1,
+        "label": "1 Core Automation",
+        "price": 15000,
+        "bonus": null
+      },
+      {
+        "modules": 2,
+        "label": "2 Starter Modules",
+        "price": 24000,
+        "bonus": null
+      },
+      {
+        "modules": 3,
+        "label": "3 Starter Modules",
+        "price": 30000,
+        "bonus": {
+          "label": "1 eligible Quick Add-on",
+          "price": 1
+        }
+      }
+    ],
+    "eligible_modules": [
+      "WhatsApp core enquiry/lead workflow",
+      "Telegram lead/sales bot",
+      "CRM Lite lead pipeline",
+      "Automated follow-up workflow",
+      "Website lead-capture automation"
+    ],
+    "eligible_quick_addons": [
+      "One Google Sheet or simple CRM sync",
+      "One extra notification flow",
+      "One additional lead form connection",
+      "One simple follow-up rule",
+      "One basic dashboard widget"
+    ],
+    "exclusions": [
+      "Full CRM/ERP build",
+      "Custom mobile app or large custom website",
+      "Complex or multi-system integrations",
+      "Third-party API, WhatsApp BSP/Meta, hosting or ad-spend charges",
+      "Paid software subscriptions, licenses or external vendor fees"
+    ],
+    "terms": [
+      "Bundle prices are starting prices for standardized starter modules in India.",
+      "Final scope and eligibility are confirmed in a written proposal after the free workflow audit.",
+      "The ₹1 benefit applies only to one eligible Quick Add-on with the 3-module bundle, not to a full fourth service.",
+      "No fake countdown or false urgency; availability depends on scope and capacity."
+    ]
   }
 }

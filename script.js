@@ -95,6 +95,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }catch(_e){}
 })();
 
+/* === CENTRAL BUNDLE OFFER — one source of truth across website/bots === */
+(function initFreshtiqBundleOffer(){
+  try{
+    if(sessionStorage.getItem('ft_bundle_offer_closed_v1')==='1') return;
+    fetch('/commercial-pricing.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(cfg=>{
+      const o=cfg&&cfg.bundle_offer;
+      if(!o||!o.active||!Array.isArray(o.tiers)||o.tiers.length<3) return;
+      const money=n=>'₹'+Number(n||0).toLocaleString('en-IN');
+      const t1=o.tiers[0],t2=o.tiers[1],t3=o.tiers[2];
+      const bonus=t3.bonus||{};
+      const bar=document.createElement('aside');
+      bar.id='ft-bundle-offer-bar';
+      bar.setAttribute('aria-label','Freshtiq India Starter Automation Bundle');
+      bar.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:12px;z-index:2147483000;width:min(1040px,calc(100% - 20px));background:linear-gradient(135deg,#071426,#0b2a4a);color:#fff;border:1px solid rgba(56,189,248,.35);box-shadow:0 18px 55px rgba(2,8,23,.38);border-radius:18px;padding:13px 46px 13px 16px;font:600 13px/1.4 Inter,Arial,sans-serif';
+      bar.innerHTML='<button type="button" aria-label="Dismiss offer" style="position:absolute;right:12px;top:10px;border:0;background:transparent;color:#cbd5e1;font-size:22px;cursor:pointer">×</button>'+
+        '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">'+
+        '<div style="font-weight:900;font-size:15px;color:#67e8f9">🇮🇳 '+String(o.title||'Build More, Pay Less')+'</div>'+
+        '<div>'+money(t1.price)+' <span style="opacity:.7">1 module</span> · '+money(t2.price)+' <span style="opacity:.7">2 modules</span> · '+money(t3.price)+' <span style="opacity:.7">3 modules</span> <strong style="color:#fde68a">+ '+String(bonus.label||'eligible Quick Add-on')+' for '+money(bonus.price||1)+'</strong></div>'+
+        '<a href="/pricing.html#automation-bundle" style="color:#fff;text-decoration:none;background:#2563eb;padding:7px 11px;border-radius:9px;font-weight:900">View Offer</a>'+
+        '<a href="/build.html?utm_source=website&utm_medium=offer_bar&utm_campaign=starter_bundle" style="color:#071426;text-decoration:none;background:#67e8f9;padding:7px 11px;border-radius:9px;font-weight:900">Free Audit</a>'+
+        '</div><div style="font-size:10px;color:#b6c5d8;margin-top:5px">India starter-module pricing. ₹1 applies only to one eligible Quick Add-on with the 3-module bundle; third-party/API/hosting/ad costs are separate. Final scope is written before work starts.</div>';
+      const close=bar.querySelector('button');
+      close.addEventListener('click',()=>{try{sessionStorage.setItem('ft_bundle_offer_closed_v1','1')}catch(_e){};bar.remove();});
+      document.body.appendChild(bar);
+    }).catch(()=>{});
+  }catch(_e){}
+})();
+
 /* === CROSS-CHANNEL CONTINUITY — website/chat -> WhatsApp === */
 (function initWhatsAppContinuityBridge(){
   try{
@@ -735,7 +763,7 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20261004ads1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20261005bundle1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
     window.addEventListener('load',()=>{
