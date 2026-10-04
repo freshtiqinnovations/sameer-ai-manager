@@ -383,7 +383,7 @@ document.getElementById('salesResult').innerHTML = `
 <p style="color:#6b7280;font-size:0.82rem;text-align:center;margin:0 0 14px;">Your request is ready. Click below to continue.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
 <a href="https://wa.me/918381848389?text=${msg}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Continue on WhatsApp</a>
-<a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:150px;padding:12px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📱 Start on Telegram</a>
+<a href="https://t.me/AutoPilotHubBot?start=website_funnel" target="_blank" style="flex:1;min-width:150px;padding:12px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📱 Start on Telegram</a>
 <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Please%20call%20me%20back.%20${name}%20${phone}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📞 Request Call Back</a>
 </div>
 </div>
@@ -553,7 +553,7 @@ resultDiv.innerHTML = `
 </div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;">
 <a href="https://wa.me/918381848389?text=${encodeURIComponent(proposalText)}" target="_blank" rel="noopener" style="flex:1;min-width:120px;padding:10px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">💬 Continue on WhatsApp</a>
-<a href="https://t.me/AutoPilotHubBot" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📱 Continue on Telegram</a>
+<a href="https://t.me/AutoPilotHubBot?start=website_funnel" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📱 Continue on Telegram</a>
 <a href="tel:+918381848389" style="flex:1;min-width:120px;padding:10px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📞 Request Callback</a>
 </div>
 </div>
