@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(!sid){sid='web_'+Math.random().toString(36).slice(2,10)+'_'+Date.now();sessionStorage.setItem(sidKey,sid);}
     let attr={};try{attr=JSON.parse(sessionStorage.getItem(attrKey)||'{}')||{};}catch(_e){}
     const qs=new URLSearchParams(location.search);
-    const now={utm_source:qs.get('utm_source')||'',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',utm_term:qs.get('utm_term')||''};
+    const now={utm_source:qs.get('utm_source')||'',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',utm_term:qs.get('utm_term')||'',gclid:qs.get('gclid')||'',gbraid:qs.get('gbraid')||'',wbraid:qs.get('wbraid')||''};
     if(Object.values(now).some(Boolean)){attr=Object.assign({},attr,now);sessionStorage.setItem(attrKey,JSON.stringify(attr));}
     let landing=sessionStorage.getItem(landingKey)||'';if(!landing){landing=location.href;sessionStorage.setItem(landingKey,landing);}
     const base={
@@ -113,10 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const ref=(window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():'';
         const original=(u.searchParams.get('text')||'').trim();
         const marker=ref?('Lead Ref '+ref):'';
-        if(marker && original.toUpperCase().includes(marker.toUpperCase())) return;
-        const suffix=[marker,contextLabel()].filter(Boolean).join(' · ');
-        if(!suffix) return;
-        u.searchParams.set('text',(original?original+'\n\n':'')+suffix);
+        const ctx=contextLabel();
+        const add=[];
+        if(marker && !original.toUpperCase().includes(marker.toUpperCase())) add.push(marker);
+        if(ctx && !original.includes(ctx)) add.push(ctx);
+        if(!add.length) return;
+        u.searchParams.set('text',(original?original+'\n\n':'')+add.join(' · '));
         link.href=u.toString();
         link.dataset.ftContinuity='1';
       }catch(_e){}
