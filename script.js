@@ -638,16 +638,24 @@ document.addEventListener('click', function (e) {
   var href = a.getAttribute('href') || '';
   var leadRef = (window.FreshtiqLead && window.FreshtiqLead.getRef) ? window.FreshtiqLead.getRef() : '';
   try {
-    // Keep the same customer-safe Lead Ref when a website visitor moves to WhatsApp.
-    if (href.indexOf('wa.me/918381848389') >= 0 && leadRef) {
+    // Keep the customer-safe Lead Ref and ad attribution when a visitor moves to WhatsApp.
+    if (href.indexOf('wa.me/918381848389') >= 0) {
       var u = new URL(a.href, window.location.href);
       var text = u.searchParams.get('text') || 'Hello Freshtiq';
-      if (text.indexOf(leadRef) < 0) {
-        text += '\n\nFreshtiq Lead Ref: ' + leadRef;
-        u.searchParams.set('text', text);
-        a.href = u.toString();
-        href = a.getAttribute('href') || href;
+      if (leadRef && text.indexOf(leadRef) < 0) text += '\n\nFreshtiq Lead Ref: ' + leadRef;
+      var q = new URLSearchParams(window.location.search);
+      var src = q.get('utm_source') || '';
+      var camp = q.get('utm_campaign') || '';
+      var content = q.get('utm_content') || '';
+      if (src && text.indexOf('Freshtiq Attribution:') < 0) {
+        var attr = 'Freshtiq Attribution: ' + src;
+        if (camp) attr += ' | ' + camp;
+        if (content) attr += ' | ' + content;
+        text += '\n' + attr;
       }
+      u.searchParams.set('text', text);
+      a.href = u.toString();
+      href = a.getAttribute('href') || href;
     }
   } catch (_e) {}
   if (typeof gtag !== 'function') return;
