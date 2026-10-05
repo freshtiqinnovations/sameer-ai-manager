@@ -38,7 +38,8 @@
     .lead-status{font-size:.84rem;line-height:1.45}.lead-status.ok{color:#0d7a42}.lead-status.err{color:#b42318}
     .hp-field{position:absolute!important;left:-99999px!important}
     .proof-note{font-size:.76rem!important;color:#718096!important;margin-top:10px!important}
-    .pain{padding:30px 0 12px}.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .bundle-card{margin:8px auto 30px;background:linear-gradient(135deg,#06172f,#0b2d58);color:#fff;border:1px solid rgba(103,232,249,.28);border-radius:22px;padding:24px;box-shadow:0 18px 55px rgba(7,23,45,.16)}
+    .bundle-card .bundle-head{display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap}.bundle-card .bundle-kicker{font-size:.72rem;font-weight:900;letter-spacing:.12em;color:#67e8f9}.bundle-card h2{margin:6px 0 5px;color:#fff;font-size:clamp(1.55rem,3vw,2.15rem)}.bundle-card .bundle-sub{color:#cbd5e1;margin:0}.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.bundle-tier{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.15);border-radius:15px;padding:17px}.bundle-tier b{display:block;font-size:1.7rem;margin:4px 0}.bundle-tier small{color:#bae6fd}.bundle-tier.featured{border-color:#22d3ee;background:rgba(34,211,238,.1)}.bundle-bonus{margin-top:9px;font-weight:900;color:#fef08a}.bundle-terms{font-size:.74rem;line-height:1.55;color:#aebfd2;margin:14px 0 0}.bundle-card a{color:#fff;font-weight:900}.pain{padding:30px 0 12px}.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .pain-card{background:#fff;border:1px solid #dbe6f4;border-radius:17px;padding:22px}.pain-card b{display:block;font-size:1.04rem;margin-bottom:8px}.pain-card p{margin:0;color:#617187;line-height:1.6;font-size:.9rem}
     .section2{padding:55px 0}.section2 h2{text-align:center;font-size:clamp(1.8rem,3.5vw,2.7rem);margin:0 0 12px}.section2>div>p{text-align:center;color:#617187;max-width:760px;margin:0 auto 28px;line-height:1.65}
     .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.flow div{background:#fff;border:1px solid #dbe6f4;border-radius:16px;padding:20px}.flow small{display:block;color:#0b62f6;font-weight:900;margin-bottom:8px}.flow b{display:block;margin-bottom:7px}.flow p{font-size:.86rem;color:#64748b;line-height:1.55;margin:0}
@@ -46,7 +47,7 @@
     .bottom-cta{text-align:center;padding:30px 0 65px}.bottom-cta h2{font-size:2rem;margin-bottom:10px}.bottom-cta p{color:#607188;margin-bottom:22px}
     .mobile-cta{display:none}
     @media(max-width:820px){
-      .ad-hero-grid{grid-template-columns:1fr}.pain-grid,.flow{grid-template-columns:1fr}.offer ul{grid-template-columns:1fr}.ad-hero{padding-top:32px}
+      .ad-hero-grid{grid-template-columns:1fr}.pain-grid,.flow,.bundle-grid{grid-template-columns:1fr}.offer ul{grid-template-columns:1fr}.ad-hero{padding-top:32px}
       .ad-nav .cta{display:none}.mobile-cta{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:10px;right:10px;bottom:10px;z-index:9998;gap:8px;background:rgba(255,255,255,.95);padding:8px;border:1px solid #dce7f4;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.16)}
       .mobile-cta a{text-align:center;padding:11px 8px;border-radius:10px;text-decoration:none;font-weight:900;font-size:.88rem}.bottom-cta{padding-bottom:105px}
     }
@@ -117,6 +118,18 @@
         </div>
       </div>
     </section>
+
+    <div class="ad-shell">
+      <section class="bundle-card" aria-label="India Starter Automation Bundle">
+        <div class="bundle-head"><div><div class="bundle-kicker">INDIA STARTER AUTOMATION BUNDLE</div><h2>Build More, Pay Less</h2><p class="bundle-sub">Start with the smallest useful workflow, then connect modules only when they add value.</p></div><a href="#free-audit">Check My Fit →</a></div>
+        <div class="bundle-grid">
+          <div class="bundle-tier"><small>1 Core Automation</small><b>₹15,000</b><span>starting standardized scope</span></div>
+          <div class="bundle-tier"><small>2 Starter Modules</small><b>₹24,000</b><span>starting bundle total</span></div>
+          <div class="bundle-tier featured"><small>3 Starter Modules</small><b>₹30,000</b><span>starting bundle total</span><div class="bundle-bonus">+ 1 eligible Quick Add-on for ₹1</div></div>
+        </div>
+        <p class="bundle-terms">Eligible starter modules include WhatsApp core enquiry/lead flow, Telegram lead/sales bot, CRM Lite lead pipeline, automated follow-up and website lead-capture automation. The ₹1 benefit is one eligible small Quick Add-on — not a full fourth service. Full CRM/ERP, large website/app, complex integrations and third-party/API/BSP/Meta/hosting/licence/ad costs are separate. Final scope and eligibility are confirmed in writing after the free workflow audit.</p>
+      </section>
+    </div>
 
     <section class="pain">
       <div class="ad-shell pain-grid">
