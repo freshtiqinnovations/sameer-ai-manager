@@ -727,7 +727,7 @@ document.addEventListener('click', function (e) {
         aiContinue.addEventListener('click',function(){window.FreshtiqLead.openChat('I just submitted my free automation audit with Lead Ref '+leadRef+'. Help me refine the requirement and next step.');});
         status.appendChild(document.createElement('br')); status.appendChild(aiContinue);
       }
-      try{if(typeof gtag==='function'){gtag('event','generate_lead',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','qualified_lead_request',{lead_source:leadSource,country:country,service:need,preferred_contact:preferred});}}catch(_e){}
+      try{if(typeof gtag==='function'){gtag('event','generate_lead',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','SUBMIT_LEAD_FORM',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','qualified_lead_request',{lead_source:leadSource,country:country,service:need,preferred_contact:preferred});}}catch(_e){}
       form.reset();
     }catch(err){status.className='lead-status err';status.innerHTML='Could not save the request. <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20automation%20audit." target="_blank" rel="noopener">Continue on WhatsApp</a>.';}
     finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
