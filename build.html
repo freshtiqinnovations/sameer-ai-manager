@@ -157,6 +157,7 @@
       const result=await resp.json().catch(()=>({}));
       if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
       const ref=String(result.lead_ref||'');
+      if(window.FreshtiqOpenAIMeasurement) window.FreshtiqOpenAIMeasurement.leadCreated(ref || result.lead_id);
       if(ref && window.FreshtiqLead) window.FreshtiqLead.saveRef(ref);
       try{localStorage.setItem('ftq_submitted_v2',JSON.stringify({t:Date.now(),lead_ref:ref}));}catch(_e){}
       try{if(typeof gtag==='function'){gtag('event','build_form_submit',{industry:data.industry,country:data.country,budget:data.budget});gtag('event','generate_lead',{lead_source:'build_form',country:data.country,service:data.automation||data.industry,lead_ref_present:!!ref});}}catch(_e){}

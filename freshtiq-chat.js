@@ -249,7 +249,9 @@
     try{
       const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
       if(!r.ok||!d.success)throw new Error(d.error||'Could not save request');
-      shownLeadRef=rememberLeadRef(d.lead_ref||shownLeadRef);closeHandoff();
+      shownLeadRef=rememberLeadRef(d.lead_ref||shownLeadRef);
+      if(window.FreshtiqOpenAIMeasurement) window.FreshtiqOpenAIMeasurement.leadCreated(d.lead_ref || d.lead_id);
+      closeHandoff();
       if(method==='WhatsApp'){
         const text=encodeURIComponent('Hello Freshtiq, my Lead Ref is '+(d.lead_ref||'')+'. I requested a human follow-up from the website.');
         addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. To continue on WhatsApp, tap this link yourself: https://wa.me/918381848389?text='+text,'bot');

@@ -588,6 +588,10 @@ source: 'Website Consultant Form',
 utm_source: new URLSearchParams(window.location.search).get('utm_source') || ''
 })
 });
+const saved = await resp.json().catch(() => ({}));
+if (resp.ok && saved.success && window.FreshtiqOpenAIMeasurement) {
+  window.FreshtiqOpenAIMeasurement.leadCreated(saved.lead_ref || saved.lead_id);
+}
 return id;
 } catch(e) {
 console.log('Lead saved locally (API offline):', id);
@@ -719,6 +723,7 @@ document.addEventListener('click', function (e) {
       var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');
       var leadRef=d.lead_ref||'';
+      if(window.FreshtiqOpenAIMeasurement) window.FreshtiqOpenAIMeasurement.leadCreated(leadRef || d.lead_id);
       if(leadRef && window.FreshtiqLead) window.FreshtiqLead.saveRef(leadRef);
       status.className='lead-status ok'; status.textContent='✓ Request received. Lead Ref: '+(leadRef||('#'+d.lead_id))+'. Website, AI chat and WhatsApp will keep this reference during this visit.';
       if(leadRef && window.FreshtiqLead){
