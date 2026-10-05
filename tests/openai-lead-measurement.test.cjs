@@ -11,7 +11,7 @@ function run(enabled, choice, pathname = '/') {
   const w = { location: { pathname }, crypto: { randomUUID: () => 'test-event-' + (++next) } };
   const d = { head: { appendChild: (el) => scripts.push(el) }, createElement: () => ({}) };
   const context = { window: w, document: d, localStorage: { getItem: k => values.get(k), setItem: (k,v) => values.set(k,v) }, Set, Date, Math };
-  vm.runInNewContext(enabled ? source.replace("const PIXEL_ID = '';", "const PIXEL_ID = 'synthetic-test-pixel';") : source, context);
+  vm.runInNewContext(source.replace(/const PIXEL_ID = '[^']*';/, enabled ? "const PIXEL_ID = 'synthetic-test-pixel';" : "const PIXEL_ID = '';"), context);
   return { w, scripts, values, context };
 }
 const off = run(false, 'granted');

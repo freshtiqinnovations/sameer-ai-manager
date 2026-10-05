@@ -1,7 +1,7 @@
 (function (w, d) {
   'use strict';
   if (w.FreshtiqOpenAIMeasurement) return;
-  const PIXEL_ID = '';
+  const PIXEL_ID = '2QUc83F3ByP9PTssFZQtBk';
   const CONSENT_KEY = 'ftq_openai_measurement_consent_v1';
   const enabled = PIXEL_ID.trim().length > 0;
   const allowedPage = !/^\/(?:payment|checkout|cart|customer|privacy|terms|refund|security-policy|404|bot|track)(?:\/|\.|$)/i.test(((w.location || {}).pathname || '/'));
