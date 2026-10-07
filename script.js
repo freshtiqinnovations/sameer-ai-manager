@@ -779,7 +779,7 @@ document.addEventListener('click', function (e) {
         var waBase=document.querySelector('a[href*="wa.me/"]');
         if(waBase){
           var waContinue=document.createElement('a');
-          waContinue.textContent='💬 Continue on WhatsApp';
+          waContinue.textContent='Continue on WhatsApp';
           waContinue.target='_blank'; waContinue.rel='noopener';
           var wu=new URL(waBase.href,window.location.href);
           var wt=wu.searchParams.get('text')||'Hi Freshtiq, I submitted a free workflow audit.';
@@ -791,7 +791,7 @@ document.addEventListener('click', function (e) {
         }
       }catch(_e){}
       if(leadRef && window.FreshtiqLead){
-        var aiContinue=document.createElement('button'); aiContinue.type='button'; aiContinue.textContent='🤖 Continue with AI';
+        var aiContinue=document.createElement('button'); aiContinue.type='button'; aiContinue.textContent='Continue with AI Assistant';
         aiContinue.style.cssText='display:inline-block;margin:9px 0 0;padding:8px 12px;border:0;border-radius:999px;background:#6C63FF;color:#fff;font-weight:800;cursor:pointer';
         aiContinue.addEventListener('click',function(){window.FreshtiqLead.openChat('I just submitted my free automation audit with Lead Ref '+leadRef+'. Help me refine the requirement and next step.');});
         status.appendChild(document.createElement('br')); status.appendChild(aiContinue);
@@ -802,7 +802,7 @@ document.addEventListener('click', function (e) {
       try{if(window.FreshtiqTrack)window.FreshtiqTrack.event('lead_submit_error',String(err&&err.message||err).slice(0,120));}catch(_e){}
       status.className='lead-status err';status.innerHTML='Could not save the request. <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20free%20automation%20audit." target="_blank" rel="noopener">Continue on WhatsApp</a>.';
     }
-    finally{btn.disabled=false;btn.textContent='Get My Free Plan →';}
+    finally{btn.disabled=false;btn.textContent='Request My Free Audit →';}
   });
 })();
 

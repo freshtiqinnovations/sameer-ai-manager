@@ -110,7 +110,7 @@
 
   const toggleBtn = document.createElement('button');
   toggleBtn.id = 'ft-chat-toggle';
-  toggleBtn.innerHTML = '💬';
+  toggleBtn.innerHTML = 'AI';
   toggleBtn.title = 'Chat with Freshtiq Automation AI';
   document.body.appendChild(toggleBtn);
 
@@ -118,17 +118,17 @@
   widget.id = 'ft-chat-widget';
   widget.innerHTML = `
 <div id="ft-chat-header">
-  <div class="ft-avatar">🤖</div>
+  <div class="ft-avatar">FT</div>
   <div class="ft-info">
     <strong>Freshtiq Automation AI</strong>
-    <span>🟢 Online — Business Assistant</span>
+    <span>Online · Business Assistant</span>
   </div>
   <button class="ft-close" id="ft-chat-close">✕</button>
 </div>
 <div class="ft-context-strip" id="ft-context-strip"></div>
 <div class="ft-quick-actions" id="ft-quick-actions"></div>
 <div class="ft-handoff" id="ft-handoff">
-  <div class="ft-handoff-title">👤 Talk to Freshtiq team</div>
+  <div class="ft-handoff-title">Talk to Freshtiq team</div>
   <div class="ft-handoff-grid">
     <input id="ft-ho-name" class="ft-handoff-wide" type="text" placeholder="Your name" autocomplete="name">
     <select id="ft-ho-method" aria-label="Preferred contact"><option value="Email">Email</option><option value="WhatsApp">WhatsApp</option></select>
@@ -140,7 +140,7 @@
   <div class="ft-handoff-status" id="ft-ho-status"></div>
 </div>
 <div id="ft-chat-messages"></div>
-<div class="ft-chat-privacy">🔒 Do not share passwords, OTPs or payment-card details.</div>
+<div class="ft-chat-privacy">Security: do not share passwords, OTPs or payment-card details.</div>
 <div id="ft-chat-input">
   <input type="text" id="ft-msg-input" placeholder="Type your message..." autocomplete="off">
   <button id="ft-send-btn">➤</button>
@@ -181,20 +181,20 @@
   function marketCurrency(m){ return m==='Saudi Arabia'?'SAR':m==='UAE'?'AED':m==='India'?'INR':''; }
   function pageContextLabel(){
     const ref=shownLeadRef ? ' · Request '+shownLeadRef : '';
-    if(PAGE_META.market) return '📍 '+PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'')+ref;
-    if(PAGE_META.service) return '🧭 Viewing: '+PAGE_META.service+ref;
-    return (shownLeadRef?'📋 Connected request: '+shownLeadRef:'🧭 Ask about pricing, scope, demos, integrations or delivery');
+    if(PAGE_META.market) return PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'')+ref;
+    if(PAGE_META.service) return 'Viewing: '+PAGE_META.service+ref;
+    return (shownLeadRef?'Connected request: '+shownLeadRef:'Ask about pricing, scope, integrations or delivery');
   }
   function smartActions(){
     const p=location.pathname.toLowerCase();
     let a;
-    if(p.includes('/ads/ai-automation-india')) a=[['audit','🧭 Free Audit'],['chatbot','🤖 Chatbot'],['crm','📊 CRM / Follow-up'],['quote','🧾 Quote'],['human','👤 Human']];
-    else if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['hourly','⏱️ Hourly'],['price','💰 Price'],['quote','🧾 Quote'],['human','👤 Human']];
-    else if(p.includes('/demo')) a=[['demo','▶️ Demo'],['consultation','📅 Consultation'],['quote','🧾 Quote'],['human','👤 Human']];
-    else if(PAGE_META.market) a=[['localprice','💰 Local Price'],['language','🌐 Language'],['quote','🧾 Quote'],['human','👤 Human']];
-    else if(p.includes('/services/')) a=[['scope','🧩 Scope'],['price','💰 Price'],['consultation','📅 Consultation'],['human','👤 Human']];
-    else a=[['chatbot','🤖 Chatbot'],['website','🌐 Website/App'],['crm','📊 CRM/ERP'],['quote','🧾 Quote'],['human','👤 Human']];
-    if(shownLeadRef) a.unshift(['request','📋 My Request']);
+    if(p.includes('/ads/ai-automation-india')) a=[['audit','Free Audit'],['chatbot','AI Chatbot'],['crm','CRM / Follow-up'],['quote','Written Quote'],['human','Human Support']];
+    else if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['price','Pricing'],['scope','Scope'],['quote','Written Quote'],['human','Human Support']];
+    else if(p.includes('/demo')) a=[['demo','View Demo'],['consultation','Consultation'],['quote','Written Quote'],['human','Human Support']];
+    else if(PAGE_META.market) a=[['localprice','Local Pricing'],['scope','Scope'],['quote','Written Quote'],['human','Human Support']];
+    else if(p.includes('/services/')) a=[['scope','Scope'],['price','Pricing'],['consultation','Consultation'],['human','Human Support']];
+    else a=[['chatbot','AI Chatbot'],['website','Website / App'],['crm','CRM / ERP'],['quote','Written Quote'],['human','Human Support']];
+    if(shownLeadRef) a.unshift(['request','My Request']);
     return a.slice(0,5);
   }
   function renderSmartActions(){
@@ -352,12 +352,12 @@
         const publicLeadRef = data.lead_ref || null;
         if (publicLeadRef && publicLeadRef !== shownLeadRef) {
           shownLeadRef = rememberLeadRef(publicLeadRef);
-          addMessage('✅ Request saved. Your Freshtiq Tracking Ref is **' + publicLeadRef + '**. You can check progress anytime on our Track page.', 'bot');
+          addMessage('Request saved. Your Freshtiq Tracking Ref is **' + publicLeadRef + '**. You can check progress anytime on our Track page.', 'bot');
           try { if (window.gtag) gtag('event','chat_lead_captured',{lead_ref:String(publicLeadRef)}); } catch(_) {}
           console.log('[Freshtiq Chat] Lead ref ' + publicLeadRef + ' captured');
         }
       } else {
-        addMessage('Sorry, I hit a glitch. Could you rephrase that? 🤔', 'bot');
+        addMessage('I could not process that message. Please rephrase it or choose Human Support.', 'bot');
       }
     } catch(e) {
       hideTyping();
@@ -370,7 +370,7 @@
   toggleBtn.addEventListener('click', () => {
     isOpen = !isOpen;
     widget.classList.toggle('open', isOpen);
-    toggleBtn.innerHTML = isOpen ? '✕' : '💬';
+    toggleBtn.innerHTML = isOpen ? '×' : 'AI';
     toggleBtn.classList.remove('has-unread');
     if (isOpen) {
       try { if (window.gtag) gtag('event','chat_open',{page:location.pathname}); } catch(_) {}
@@ -378,8 +378,8 @@
       // Welcome message once, synchronously, so it can never race into the middle of a reply.
       if (chatHistory.length === 0) {
         const welcome = shownLeadRef
-          ? ("Hi 👋 I’m Freshtiq AI Business Assistant. Your request **"+shownLeadRef+"** is connected to this chat. Ask me about scope, pricing, the India starter bundle, timelines, demos, or type status to check progress. You can write in English, Hinglish, Arabic or Urdu.")
-          : "Hi 👋 I’m Freshtiq AI Business Assistant. Ask me about services, pricing, the India starter bundle, timelines, demos, integrations, websites/apps, chatbots or CRM/ERP. You can write in English, Hinglish, Arabic or Urdu. What are you looking to build or improve?";
+          ? ("Welcome back. Your request **"+shownLeadRef+"** is connected to this chat. Ask about scope, pricing, delivery or type status to check progress.")
+          : "Welcome to Freshtiq. Tell me the business process you want to improve — sales, customer support, WhatsApp, CRM/ERP, website/app or another workflow. I’ll help narrow it into a practical next step.";
         addMessage(welcome, 'bot');
         chatHistory.push({ role: 'assistant', content: welcome });
         persistHistory();
@@ -390,7 +390,7 @@
   closeBtn.addEventListener('click', () => {
     isOpen = false;
     widget.classList.remove('open');
-    toggleBtn.innerHTML = '💬';
+    toggleBtn.innerHTML = 'AI';
   });
 
   sendBtn.addEventListener('click', () => sendMessage(msgInput.value));
@@ -424,5 +424,5 @@
     if(pending){sessionStorage.removeItem('ft_chat_pending_prompt_v1');setTimeout(()=>{if(!isOpen)toggleBtn.click();sendMessage(pending);},120);}
   }catch(_){}
 
-  console.log('[Freshtiq Chat] Widget loaded — session ' + SID + ' 🤖');
+  console.log('[Freshtiq Chat] Widget loaded — session ' + SID);
 })();
