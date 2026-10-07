@@ -411,7 +411,7 @@ document.getElementById('salesResult').innerHTML = `
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
 <span style="font-size:1.5rem;">🤖</span>
 <div>
-<h4 style="color:#1a1a2e;margin:0;font-size:1rem;">FRESHTIQ AI CONSULTANT</h4>
+<h4 style="color:#1a1a2e;margin:0;font-size:1rem;">FRESHTIQ AI ASSISTANT</h4>
 <p style="color:#7a7a9a;font-size:0.78rem;margin:2px 0 0;">FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED</p>
 </div>
 </div>
@@ -575,7 +575,7 @@ resultDiv.style.display = 'block';
 resultDiv.innerHTML = `
 <div style="background:white;border-radius:12px;padding:20px;border:1px solid #e2e8f0;text-align:left;">
 <div style="background:linear-gradient(135deg,#1a73e8,#7c3aed);margin:-20px -20px 16px;padding:14px 20px;border-radius:12px 12px 0 0;">
-<span style="color:white;font-weight:700;font-size:0.9rem;">OPENCLAW AI CONSULTANT — RECOMMENDATION</span>
+<span style="color:white;font-weight:700;font-size:0.9rem;">OPENCLAW AI ASSISTANT — RECOMMENDATION</span>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
 <div style="background:#f0f4ff;padding:12px;border-radius:8px;"><span style="font-size:0.7rem;color:#7a7a9a;">RECOMMENDED PACKAGE</span><p style="margin:4px 0 0;font-weight:700;color:#1a1a2e;font-size:0.85rem;">${rec.pkg}</p></div>
@@ -617,7 +617,7 @@ phone: phone,
 service: project,
 budget: budgetNum,
 message: timeline,
-source: 'Website Consultant Form',
+source: 'Website Assistant Form',
 utm_source: new URLSearchParams(window.location.search).get('utm_source') || ''
 })
 });

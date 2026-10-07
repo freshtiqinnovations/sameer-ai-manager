@@ -8,7 +8,7 @@
     "truth_rule": "Published website starting prices and hourly rates are the source of truth; fixed projects use a written scope and hourly work uses approved task/hours before work starts.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
     "quality_rule": "Standard, Professional and Premium differ by scope, integrations, roles, analytics and support priority — not by intentionally lowering code quality.",
-    "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and consulting. Time is approved before work starts; third-party fees are separate."
+    "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
   },
   "hourly": {
     "usd": 20,
