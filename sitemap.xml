@@ -320,4 +320,9 @@
     <loc>https://freshtiqautomation.com/hire/</loc>
     <lastmod>2026-09-25</lastmod>
   </url>
+  <url>
+    <loc>https://freshtiqautomation.com/reviews.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

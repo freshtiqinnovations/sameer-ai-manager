@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verified Customer Reviews | Freshtiq Automation</title>
+<meta name="description" content="Verified Freshtiq Automation customer reviews from completed projects. Customers can submit a review using their delivered project reference.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://freshtiqautomation.com/reviews.html">
+<link rel="stylesheet" href="/style.css?v=20261007p1">
+<link rel="stylesheet" href="/premium-system.css?v=20261007trust1">
+<link rel="stylesheet" href="/premium-midnight.css?v=20261007night1">
+<style>
+.review-shell{max-width:1120px;margin:auto;padding:110px 22px 80px}.review-hero{max-width:760px;margin-bottom:36px}.review-hero h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.05em;color:#f8fbff;margin:12px 0 18px}.review-hero p{color:#aebed2;font-size:1.05rem;line-height:1.75}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.review-card{padding:22px;border:1px solid rgba(125,211,252,.16);background:linear-gradient(180deg,rgba(13,37,81,.54),rgba(4,17,38,.9));border-radius:18px}.review-stars{color:#67e8f9;letter-spacing:2px}.review-card p{color:#d7e3f3;line-height:1.65}.review-meta strong{display:block;color:#fff}.review-meta span{color:#8194ae;font-size:.78rem}.verified{display:inline-flex;margin-top:12px;padding:5px 8px;border-radius:999px;border:1px solid rgba(52,211,153,.24);color:#86efac;font-size:.68rem;font-weight:800}.review-form-wrap{margin-top:56px;padding:28px;border:1px solid rgba(125,211,252,.16);background:rgba(8,24,44,.74);border-radius:22px}.review-form-wrap h2{color:#fff;font-size:2rem;margin:0 0 8px}.review-form-wrap p{color:#9fb0c7}.review-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.review-form label{display:flex;flex-direction:column;gap:6px;color:#cbd8e8!important}.review-form .wide{grid-column:1/-1}.review-form input,.review-form select,.review-form textarea{background:#071321!important;border-color:rgba(148,163,184,.2)!important;color:#fff!important}.review-form textarea{min-height:140px!important}.review-consent{display:flex!important;flex-direction:row!important;align-items:flex-start!important;gap:8px!important;font-size:.8rem!important}.review-consent input{width:auto!important;min-height:auto!important;margin-top:4px}.review-submit{grid-column:1/-1;min-height:52px;border:0;border-radius:12px;background:linear-gradient(135deg,#11d8e8,#4f7cff 58%,#8b5cf6);color:#fff;font-weight:850;cursor:pointer}.review-status{grid-column:1/-1;color:#9fdcff}.review-empty{grid-column:1/-1;padding:26px;border:1px dashed rgba(125,211,252,.2);border-radius:18px;color:#9fb0c7;text-align:center}@media(max-width:760px){.review-grid,.review-form{grid-template-columns:1fr}.review-form .wide,.review-submit,.review-status{grid-column:auto}}
+</style>
+</head>
+<body class="fx-premium-page fx-trust-page">
+<nav id="navbar"><div class="nav-inner"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand2" alt="Freshtiq Automation"></a><button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button><div class="nav-links"><a href="/services.html">Services</a><a href="/portfolio/">Work</a><a href="/reviews.html">Reviews</a><a href="/pricing.html">Pricing</a><a href="/track.html">Track Project</a><a href="/build.html" class="nav-cta">Book Strategy Call</a></div></div></nav>
+<main class="review-shell">
+  <div class="review-hero"><div class="fx-kicker">VERIFIED CUSTOMER REVIEWS</div><h1>Real reviews from completed Freshtiq projects.</h1><p>Only customers with a delivered or completed Freshtiq project reference can submit here. Every public review is linked to a verified project and manually approved before publication.</p></div>
+  <div id="reviewsGrid" class="review-grid"><div class="review-empty">Verified customer reviews will appear here as completed clients choose to publish them.</div></div>
+  <div class="review-form-wrap">
+    <h2>Completed a project with Freshtiq?</h2>
+    <p>Use your FTP tracking reference to submit a review. Your project reference is used only for verification and is never shown publicly.</p>
+    <form id="reviewForm" class="review-form">
+      <label>Project reference<input name="project_ref" required placeholder="FTP-..."></label>
+      <label>Rating<select name="rating" required><option value="">Choose rating</option><option value="5">5 — Excellent</option><option value="4">4 — Very good</option><option value="3">3 — Good</option><option value="2">2 — Fair</option><option value="1">1 — Poor</option></select></label>
+      <label>Your display name<input name="display_name" required maxlength="80" placeholder="Name to show publicly"></label>
+      <label>Company / business (optional)<input name="company_name" maxlength="120" placeholder="Business name"></label>
+      <label>Country<input name="country" required maxlength="80" placeholder="India, Saudi Arabia, UAE..."></label>
+      <label class="wide">Your review<textarea name="review_text" required maxlength="900" placeholder="What did Freshtiq build, and how was the experience?"></textarea></label>
+      <label class="wide review-consent"><input type="checkbox" name="consent_public" required> I confirm this is my genuine experience and I consent to Freshtiq publishing my name, country, rating and review. My project reference will remain private.</label>
+      <button class="review-submit" type="submit">Submit Verified Review →</button>
+      <div id="reviewStatus" class="review-status" aria-live="polite"></div>
+    </form>
+  </div>
+</main>
+<script>
+const API='https://portal.freshtiqautomation.com';
+function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+async function loadReviews(){
+  const grid=document.getElementById('reviewsGrid');
+  try{
+    const r=await fetch(API+'/api/reviews/public?limit=18',{credentials:'include'}); const j=await r.json();
+    if(!j.success||!j.reviews||!j.reviews.length)return;
+    grid.innerHTML=j.reviews.map(x=>`<article class="review-card"><div class="review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><div class="review-meta"><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span></div><span class="verified">VERIFIED COMPLETED PROJECT</span></article>`).join('');
+  }catch(e){}
+}
+const refFromUrl=new URLSearchParams(location.search).get('ref'); if(refFromUrl){const i=document.querySelector('[name=project_ref]'); if(i)i.value=refFromUrl.toUpperCase();}
+document.getElementById('reviewForm').addEventListener('submit',async e=>{
+  e.preventDefault(); const f=new FormData(e.target); const status=document.getElementById('reviewStatus'); status.textContent='Submitting…';
+  const payload=Object.fromEntries(f.entries()); payload.consent_public=!!f.get('consent_public');
+  try{const r=await fetch(API+'/api/reviews/submit',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(payload)});const j=await r.json();if(!r.ok||!j.success)throw new Error(j.error||'Unable to submit');status.textContent=j.message;e.target.reset();}catch(err){status.textContent=err.message;}
+});
+loadReviews();
+</script>
+<script src="/script.js?v=20261007p1"></script>
+</body></html>

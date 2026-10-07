@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 72" width="330" height="72" role="img" aria-label="Freshtiq Automation">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12bff3"/><stop offset="0.48" stop-color="#0b5cff"/><stop offset="1" stop-color="#6d28d9"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#030b1c" flood-opacity=".35"/></filter></defs>
-<g filter="url(#s)"><rect x="2" y="2" width="68" height="68" rx="18" fill="url(#g)"/><path d="M20 18h34v11H31v8h20v10H31v16H20V18z" fill="#fff"/><circle cx="55" cy="55" r="6" fill="#67e8f9"/><path d="M51 55h8M55 51v8" stroke="#083278" stroke-width="2" stroke-linecap="round"/></g>
-<text x="88" y="33" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="25" letter-spacing=".6">FRESHTIQ</text>
-<text x="89" y="55" fill="#a9c8ff" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="13" letter-spacing="4.1">AUTOMATION</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 96" role="img" aria-labelledby="title desc">
+<title id="title">Freshtiq Automation</title><desc id="desc">Freshtiq Automation premium geometric F logo</desc>
+<defs><linearGradient id="g1" x1="12" y1="8" x2="76" y2="82" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1EF7E8"/><stop offset=".48" stop-color="#29A7FF"/><stop offset="1" stop-color="#A855F7"/></linearGradient><linearGradient id="g2" x1="24" y1="20" x2="72" y2="66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#73F7FF"/><stop offset=".54" stop-color="#4C8DFF"/><stop offset="1" stop-color="#C084FC"/></linearGradient></defs>
+<g transform="translate(3 7)"><path d="M10 20 27 3h56L67 20H38L20 38V82H4V30Z" fill="url(#g1)"/><path d="M28 34h44L56 50H28v32H12V50Z" fill="url(#g2)" opacity=".98"/><path d="M28 53h29L42 68H28Z" fill="#A78BFA" opacity=".92"/></g>
+<g transform="translate(105 19)"><text x="0" y="31" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="35" font-weight="800" letter-spacing="5.2" fill="#F8FBFF">FRESHTIQ</text><text x="2" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="700" letter-spacing="8" fill="#9FA9FF">AUTOMATION</text></g>
 </svg>

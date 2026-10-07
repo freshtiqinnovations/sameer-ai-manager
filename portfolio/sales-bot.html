@@ -1,250 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Freshtiq Sales Bot case study — AI-assisted WhatsApp sales workflow with context, CRM logging and human handoff.">
-<meta property="og:title" content="Freshtiq Sales Bot Case Study | Freshtiq Automation Portfolio">
-<meta property="og:description" content="WhatsApp AI sales workflow — automated intake, approved pricing, follow-ups, CRM history and human handoff. Full case study.">
-<meta property="og:url" content="https://freshtiqautomation.com/portfolio/sales-bot.html">
-<meta property="og:image" content="https://freshtiqautomation.com/images/og-preview.png">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freshtiq Sales Bot Case Study | WhatsApp AI Sales Automation</title>
+<meta name="description" content="Freshtiq Sales Bot is an internal AI-assisted WhatsApp sales workflow for enquiry capture, qualification, follow-up, CRM logging, secure payment and human handoff.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="https://freshtiqautomation.com/portfolio/sales-bot.html">
-<title>Freshtiq Sales Bot Case Study — Freshtiq Automation</title>
-  <link rel="icon" href="https://freshtiqautomation.com/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="https://freshtiqautomation.com/favicon-192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://freshtiqautomation.com/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="../style.css?v=20261005openai1">
-<link rel="stylesheet" href="../lead-capture.css">
-
-<style>
-.case-header{background:var(--gradient);padding:100px 0 60px;text-align:center;color:white;}
-.case-header h1{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;margin:0 0 12px;}
-.case-header .meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:0.9rem;opacity:0.8;}
-.case-section{padding:60px 0;border-bottom:1px solid var(--border);}
-.case-section h2{font-size:1.5rem;font-weight:700;margin:0 0 20px;}
-.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-.case-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:20px;}
-.case-card .emoji{font-size:1.5rem;margin-bottom:8px;}
-.case-card h3{font-size:1rem;font-weight:600;margin:0 0 6px;}
-.case-card p{font-size:0.85rem;color:var(--text-dim);margin:0;}
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:center;}
-.result-card{background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:12px;padding:24px;}
-.result-card .num{font-size:2rem;font-weight:800;color:var(--primary);display:block;}
-.result-card .label{font-size:0.85rem;color:var(--text-dim);margin-top:4px;}
-.tech-list{display:flex;flex-wrap:wrap;gap:8px;}
-.tech-tag{background:rgba(99,102,241,0.1);color:var(--primary-light);padding:4px 14px;border-radius:20px;font-size:0.8rem;}
-.cta-final{text-align:center;padding:60px 0;}
-.cta-final h2{margin:0 0 12px;}.cta-final p{color:var(--text-dim);margin:0 0 24px;}
-</style>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Freshtiq Sales Bot Case Study — Freshtiq Automation">
-  <meta name="twitter:description" content="Freshtiq Sales Bot case study — AI-assisted WhatsApp sales workflow with context, CRM logging and human handoff.">
-  <meta name="twitter:image" content="https://freshtiqautomation.com/images/og-preview.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Freshtiq Sales Bot Case Study — Freshtiq Automation","url":"https://freshtiqautomation.com/portfolio/sales-bot.html","description":"Freshtiq Sales Bot case study — AI-assisted WhatsApp sales workflow with context, CRM logging and human handoff.","isPartOf":{"@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/"},"publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark.svg","sameAs":["https://github.com/freshtiqinnovations"]}}</script>
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Freshtiq Automation">
-  <link rel="stylesheet" href="/premium-system.css?v=20261007p1">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Freshtiq Automation"><meta property="og:title" content="Freshtiq Sales Bot | WhatsApp AI Sales Automation"><meta property="og:description" content="AI-assisted WhatsApp sales workflow for enquiries, qualification, follow-up and human handoff."><meta property="og:url" content="https://freshtiqautomation.com/portfolio/sales-bot.html">
+<link rel="stylesheet" href="/style.css?v=20261007p1"><link rel="stylesheet" href="/premium-system.css?v=20261007p1"><link rel="stylesheet" href="/premium-midnight.css?v=20261007night1">
 </head>
 <body class="fx-premium-page">
+<nav id="navbar"><div class="nav-inner"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand2" alt="Freshtiq Automation"></a><button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button><div class="nav-links"><a href="/services.html">Services</a><a href="/industries.html">Industries</a><a href="/portfolio/">Work</a><a href="/reviews.html">Reviews</a><a href="/pricing.html">Pricing</a><a href="/build.html" class="nav-cta">Book Strategy Call</a></div></div></nav>
 
-<div class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo"><img src="../images/freshtiq-logo-footer.svg?v=20261007brand1" alt="Freshtiq Automation">Freshtiq <span>Automation</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/ai-store.html">AI Store</a></li>
-      <li><a href="/portfolio/">Portfolio</a></li>
-      <li><a href="/build.html">Build</a></li>
-      <li><a href="/customer">Portal</a></li>
-      <li><a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20sales%20bot%20for%20WhatsApp" target="_blank" rel="noopener" class="nav-cta">Get This Bot →</a></li>
-    </ul>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</div>
-
-<section class="case-header">
-  <h1>💬 Freshtiq Sales Bot</h1>
-  <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;max-width:600px;margin:0 auto 20px">AI-assisted WhatsApp sales workflow for enquiries, qualification, follow-up and human handoff when needed.</p>
-  <div class="meta">
-    <span>📅 Built: Jun 2026</span>
-    <span>🧪 Status: Internal Freshtiq Build</span>
-    <span>🏭 Industry: AI Automation</span>
-    <span>💬 24/7 automated sales flows</span>
-  </div>
-</section>
-
-<div class="section-inner" style="max-width:900px;margin:0 auto;padding:0 20px">
-
-<section class="case-section">
-  <h2>🎯 The Problem</h2>
-  <p>The sales workflow needed faster enquiry handling, consistent qualification, structured lead records and a reliable handoff path when a customer required human judgement. The goal was to reduce repetitive manual replies without removing human oversight from important decisions.</p>
-</section>
-
-<section class="case-section">
-  <h2>💡 Our Solution</h2>
-  <p>An AI-assisted WhatsApp sales system that can answer approved product questions, capture requirements, share configured pricing, prepare onboarding steps and hand off to a human when negotiation or approval is required.</p>
-  <div class="case-grid">
-    <div class="case-card">
-      <div class="emoji">🤖</div>
-      <h3>AI Sales Agent</h3>
-      <p>AI reasoning layer with structured business context, deterministic pricing rules and safe fallbacks.</p>
+<main>
+<section class="fx-case-hero">
+  <div class="fx-case-shell">
+    <a class="fx-back" href="/portfolio/">← ALL SOLUTIONS</a>
+    <div class="fx-case-title-row">
+      <div class="fx-case-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5h14v10H8l-3 3V5Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+      <h1>Freshtiq <span>Sales Bot</span></h1>
     </div>
-    <div class="case-card">
-      <div class="emoji">📦</div>
-      <h3>Product Catalog</h3>
-      <p>Sends catalog with images, prices, and descriptions on request.</p>
+    <p class="fx-case-lede">AI-assisted WhatsApp sales workflow for enquiries, qualification, follow-up, secure approved payment and human handoff when needed.</p>
+    <div class="fx-meta-grid">
+      <div class="fx-meta-card"><small>Built</small><strong>Jun 2026</strong></div>
+      <div class="fx-meta-card"><small>Status</small><strong>Internal Freshtiq Build</strong></div>
+      <div class="fx-meta-card"><small>Industry</small><strong>AI Automation</strong></div>
+      <div class="fx-meta-card"><small>Operation</small><strong>24/7 assisted sales flow</strong></div>
     </div>
-    <div class="case-card">
-      <div class="emoji">💳</div>
-      <h3>Payment Links</h3>
-      <p>Supports approved payment/onboarding workflows after the commercial scope is confirmed.</p>
-    </div>
-    <div class="case-card">
-      <div class="emoji">👤</div>
-      <h3>Human Handoff</h3>
-      <p>When query is complex, bot transfers to human with full conversation history.</p>
-    </div>
-    <div class="case-card">
-      <div class="emoji">📊</div>
-      <h3>CRM Integration</h3>
-      <p>Every conversation logged to CRM. Lead score, source, status tracked.</p>
-    </div>
-    <div class="case-card">
-      <div class="emoji">🌙</div>
-      <h3>24/7 Operation</h3>
-      <p>Monitored service architecture with health checks and recovery controls designed for continuous operation.</p>
-    </div>
-  </div>
-</section>
+    <div class="fx-case-actions"><a class="fx-primary" href="/build.html">Book Demo →</a><a class="fx-secondary" href="/build.html">Get Proposal →</a></div>
 
-<section class="case-section">
-  <h2>📊 What This Build Demonstrates</h2><p class="evidence-note">This is an internal Freshtiq build. Measured customer business outcomes are not published for this item; the page demonstrates implemented workflow and engineering capability.</p>
-  <div class="result-grid">
-    <div class="result-card"><span class="num">AI</span><span class="label">Context-aware Replies</span></div>
-    <div class="result-card"><span class="num">CRM</span><span class="label">Structured Lead History</span></div>
-    <div class="result-card"><span class="num">24/7</span><span class="label">Automated Intake Availability</span></div>
-    <div class="result-card"><span class="num">Human</span><span class="label">Approval & Handoff Path</span></div>
-  </div>
-</section>
-
-<section class="case-section">
-  <h2>🛠️ Tech Stack</h2>
-  <div class="tech-list">
-    <span class="tech-tag">Python</span>
-    <span class="tech-tag">Twilio / WATI</span>
-    <span class="tech-tag">Ollama</span>
-    <span class="tech-tag">DeepSeek</span>
-    <span class="tech-tag">Razorpay API</span>
-    <span class="tech-tag">CRM Webhooks</span>
-    <span class="tech-tag">systemd</span>
-    <span class="tech-tag">Auto-Heal</span>
-  </div>
-</section>
-
-<section class="cta-final">
-  <h2>Want a WhatsApp Sales Bot?</h2>
-  <p>Get a custom WhatsApp sales bot. WhatsApp AI Sales Bot packages start at ₹15,000; typical delivery is 5–14 days depending on flows and integrations.</p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20WhatsApp%20sales%20bot" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:16px 32px">💬 Get This Bot on WhatsApp</a>
-    <a href="#" class="btn-secondary quote-trigger" style="font-size:1rem;padding:16px 32px">📋 Get a Free Quote</a>
-  </div>
-</section>
-
-</div>
-
-<a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20I%20want%20a%20WhatsApp%20sales%20bot" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-</a>
-
-<div class="quote-overlay" id="quoteOverlay">
-  <div class="quote-modal"><button class="quote-close" id="quoteClose">✕</button>
-    <div id="quoteForm">
-      <h2>🚀 Get a Free Quote</h2>
-      <p class="sub">We'll normally reply on WhatsApp within one business day</p>
-      <label for="qName">Name *</label><input type="text" id="qName" placeholder="Your full name" required>
-      <label for="qPhone">WhatsApp Number *</label><input type="tel" id="qPhone" placeholder="+91 9876543210" required>
-      <label for="qEmail">Email (optional)</label><input type="email" id="qEmail" placeholder="you@company.com" autocomplete="email">
-      <label for="qService">I'm interested in *</label>
-      <select id="qService" required>
-        <option value="">Select a service</option>
-        <option value="Telegram Bot">Telegram Bot</option>
-        <option value="WhatsApp Bot" selected>WhatsApp Bot</option>
-        <option value="AI Agent">AI Agent</option>
-        <option value="ERP-CRM">ERP / CRM Bot</option>
-        <option value="Website">Website Development</option>
-        <option value="Mobile App">Mobile App</option>
-        <option value="SEO">SEO Services</option>
-        <option value="Automation">AI Automation</option>
-      </select>
-      <label for="qBudget">Budget Range</label>
-      <select id="qBudget">
-        <option value="">Select</option>
-        <option value="under-10k">Under ₹10,000</option>
-        <option value="10k-25k">₹10,000 – ₹25,000</option>
-        <option value="25k-50k">₹25,000 – ₹50,000</option>
-        <option value="50k-plus">₹50,000+</option>
-        <option value="not-sure">Not sure yet</option>
-      </select>
-      <label for="qTimeline">Timeline</label>
-      <select id="qTimeline">
-        <option value="">Select</option>
-        <option value="this-week">This week</option>
-        <option value="2-weeks">Within 2 weeks</option>
-        <option value="month">Within a month</option>
-        <option value="exploring">Just exploring</option>
-      </select>
-      <label for="qMessage">Message</label>
-      <textarea id="qMessage" placeholder="I'm looking for a WhatsApp sales bot for my business..."></textarea>
-      <button class="quote-submit" id="quoteSubmit">→ Get My Free Quote</button>
-    </div>
-    <div class="quote-success" id="quoteSuccess">
-      <div class="icon">✅</div>
-      <h3>Thanks! We've Got Your Request</h3>
-      <p id="quoteSuccessText">Request saved. Keep your Freshtiq Lead Ref for follow-up.</p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand1" alt="Freshtiq Automation" width="210" height="52"></a>
-        <p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — AI automation, WhatsApp workflows, custom CRM/ERP, websites, apps and business integrations.</p>
-        <p style="font-size:.74rem;color:#8fa2bb">CIN U47912UP2025OPC236875 · GSTIN 09AAGCF7185A1ZL</p>
+    <div class="fx-demo-flow">
+      <div class="fx-demo-side">
+        <div class="fx-demo-node"><strong>New enquiry</strong><span>Website or WhatsApp customer conversation</span></div>
+        <div class="fx-demo-node"><strong>AI qualification</strong><span>Need, urgency, budget and next step</span></div>
+        <div class="fx-demo-node"><strong>Smart follow-up</strong><span>Structured reminders without losing context</span></div>
       </div>
-      <div class="footer-col"><div class="footer-heading">Services</div><a href="/services/ai-agents.html">AI Agents</a><a href="/services/whatsapp-automation.html">WhatsApp Automation</a><a href="/services/crm-erp-development.html">CRM / ERP</a><a href="/services/workflow-automation.html">Workflow Automation</a></div>
-      <div class="footer-col"><div class="footer-heading">Explore</div><a href="/industries.html">Industries</a><a href="/portfolio/">Work</a><a href="/insights/">Insights</a><a href="/pricing.html">Pricing</a></div>
-      <div class="footer-col"><div class="footer-heading">Client tools</div><a href="/track.html">Track Project</a><a href="/pay/">Secure Payment</a><a href="https://portal.freshtiqautomation.com/" rel="noopener">Customer Portal</a><a href="https://t.me/AutoPilotHubBot?start=website_footer" target="_blank" rel="noopener">AI Assistant</a></div>
-      <div class="footer-col"><div class="footer-heading">Company</div><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/delivery.html">Delivery &amp; Handover</a><a href="/security.html">Security</a></div>
+      <div class="fx-demo-phone">
+        <div class="fx-demo-phone-head"><strong>Freshtiq Sales Bot</strong><span>Online</span></div>
+        <div class="fx-demo-bubble in">Hi, I need a WhatsApp automation system for my business.</div>
+        <div class="fx-demo-bubble out">I can help. What should the bot handle first — enquiries, lead qualification, follow-up, booking or support?</div>
+        <div class="fx-demo-tags"><span>WhatsApp Automation</span><span>CRM / ERP</span><span>Custom Workflow</span></div>
+      </div>
+      <div class="fx-demo-side">
+        <div class="fx-demo-node"><strong>Qualified lead</strong><span>Lead and conversation context written to CRM</span></div>
+        <div class="fx-demo-node"><strong>Human handoff</strong><span>Negotiation and sensitive approvals stay controlled</span></div>
+        <div class="fx-demo-node"><strong>Conversion workflow</strong><span>Approved proposal → PayU → tracked delivery</span></div>
+      </div>
     </div>
-    <div class="footer-bottom"><p>© 2025–2026 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p><div><a href="/privacy.html">Privacy</a><a href="/terms-and-conditions.html">Terms</a><a href="/refund-policy.html">Refund</a></div></div>
   </div>
-</footer>
+</section>
 
-<script>
-(function(){const o=document.getElementById('quoteOverlay'),f=document.getElementById('quoteForm'),s=document.getElementById('quoteSuccess'),c=document.getElementById('quoteClose'),b=document.getElementById('quoteSubmit');
-document.querySelectorAll('.quote-trigger').forEach(function(e){if(e)e.addEventListener('click',function(e){e.preventDefault();o.classList.add('open');document.body.style.overflow='hidden';});});
-if(c)c.addEventListener('click',function(){o.classList.remove('open');document.body.style.overflow='';});
-if(o)o.addEventListener('click',function(e){if(e.target===o){o.classList.remove('open');document.body.style.overflow='';}});
-if(b)b.addEventListener('click',async function(){
-const n=document.getElementById('qName').value.trim(),ph=document.getElementById('qPhone').value.trim(),em=(document.getElementById('qEmail')||{value:''}).value.trim(),sv=document.getElementById('qService').value;
-if(!n||n.length<2){alert('Please enter your name');return;}if(!ph&&!em){alert('Please enter a WhatsApp number or email');return;}if(ph&&ph.replace(/[^0-9]/g,'').length<8){alert('Please enter a valid WhatsApp number or use email');return;}if(em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){alert('Please enter a valid email');return;}if(!sv){alert('Please select a service');return;}
-b.disabled=true;b.textContent='Sending...';
-const budget=(document.getElementById('qBudget')||{value:''}).value,timeline=(document.getElementById('qTimeline')||{value:''}).value,msg=(document.getElementById('qMessage')||{value:''}).value.trim();
-const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():(()=>{const k='ft_chat_sid_v2';let sid='';try{sid=sessionStorage.getItem(k)||'';if(!sid){sid='web_'+Math.random().toString(36).slice(2,10)+'_'+Date.now();sessionStorage.setItem(k,sid);}}catch(_){sid='web_'+Date.now();}return{session_id:sid,page_url:location.href,page_title:document.title,landing_page:location.href,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};})();const ld=Object.assign({},journey,{name:n,phone:ph,email:em,service:sv,budget:budget,message:[msg,timeline?('Timeline: '+timeline):''].filter(Boolean).join(' | '),source:'Portfolio - sales_bot',whatsapp_opt_in:false,marketing_opt_in:false,consent_source:'portfolio_quote_request_no_implied_whatsapp'});
-try{const rr=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(ld)});const d=await rr.json().catch(()=>({}));if(!rr.ok||!d.success)throw new Error(d.error||'Request failed');if(window.FreshtiqOpenAIMeasurement)window.FreshtiqOpenAIMeasurement.leadCreated(d.lead_ref||d.lead_id);if(f)f.style.display='none';if(s)s.classList.add('open');const st=document.getElementById('quoteSuccessText');if(st)st.textContent='Request saved. Your Freshtiq Lead Ref is '+(d.lead_ref||('#'+d.lead_id))+'. We will follow up using the contact you provided.';if(typeof gtag==='function')gtag('event','generate_lead',{service:sv,page:'sales_bot'});}
-catch(err){alert('Could not save your request right now. Please use WhatsApp or email from the Contact page.');}
-finally{b.disabled=false;b.textContent='→ Get My Free Quote';}
-});})();
-document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;if((a.getAttribute('href')||'').includes('wa.me')){if(typeof gtag==='function')gtag('event','whatsapp_click',{page:'sales-bot'});}});
-document.getElementById('mobileToggle')?.addEventListener('click',function(){document.getElementById('navLinks')?.classList.toggle('open');});
-</script>
-<script src="/script.js?v=20261005openai1"></script>
-<script src="/site-consent.js?v=20261005openai1"></script>
-</body>
-</html>
+<section class="fx-section"><div class="fx-wrap">
+  <div class="fx-section-head"><div class="fx-eyebrow">THE BUSINESS PROBLEM</div><h2>Fast replies are not enough if the lead still gets lost.</h2><p>The sales workflow needed consistent enquiry handling, structured qualification, reliable follow-up, CRM history and a clear handoff path when commercial judgement or approval was required.</p></div>
+  <div class="fx-value-grid">
+    <div class="fx-value"><strong>Response consistency</strong><p>Approved information can be delivered quickly without forcing staff to repeat the same answers all day.</p></div>
+    <div class="fx-value"><strong>Lead structure</strong><p>Customer need, source, contact history and next action are kept attached to the lead record.</p></div>
+    <div class="fx-value"><strong>Human control</strong><p>Negotiation, exceptions, payment decisions and other sensitive actions can stay approval-gated.</p></div>
+    <div class="fx-value"><strong>Tracked conversion</strong><p>After approval, the customer can continue into secure PayU payment and project tracking using the same operating stack.</p></div>
+  </div>
+</div></section>
+
+<section class="fx-section soft"><div class="fx-wrap">
+  <div class="fx-section-head"><div class="fx-eyebrow">WHAT THIS BUILD CONNECTS</div><h2>Conversation, CRM, payment and delivery in one journey.</h2></div>
+  <div class="fx-channel-grid">
+    <div class="fx-channel-card"><span class="fx-channel-badge">WA</span><strong>WhatsApp Customer Flow</strong><small>Enquiries · qualification · follow-up · handoff</small></div>
+    <div class="fx-channel-card"><span class="fx-channel-badge">CRM</span><strong>Lead Record</strong><small>Source · status · conversation context · next action</small></div>
+    <div class="fx-channel-card"><span class="fx-channel-badge">₹</span><strong>Secure Payment</strong><small>Approved milestone checkout through PayU</small></div>
+    <div class="fx-channel-card"><span class="fx-channel-badge">ID</span><strong>Project Tracking</strong><small>FTP reference for delivery visibility across supported channels</small></div>
+  </div>
+</div></section>
+
+<section class="fx-section dark"><div class="fx-wrap">
+  <div class="fx-section-head"><div class="fx-eyebrow">EVIDENCE LABEL</div><h2>Internal build — not a fabricated customer result.</h2><p>This page demonstrates Freshtiq engineering capability and workflow design. We do not publish invented conversion percentages or fake testimonials for this internal build. Verified customer reviews are collected separately from completed projects.</p></div>
+  <div class="fx-case-actions"><a class="fx-primary" href="/reviews.html">View Verified Reviews →</a><a class="fx-secondary" href="/track.html">Open Project Tracking</a></div>
+</div></section>
+
+<section class="fx-final"><div class="fx-final-box"><h2>Want this sales flow adapted to your business?</h2><p>Bring the current customer journey, pricing rules and handoff points. We will map the smallest useful production scope before development starts.</p><div class="fx-final-actions"><a class="fx-primary" href="/build.html">Book Strategy Call →</a><a class="fx-secondary" href="https://t.me/AutoPilotHubBot?start=sales_bot_case" target="_blank" rel="noopener">Talk to Telegram Bot</a><a class="fx-secondary" href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20want%20a%20Sales%20Bot%20for%20my%20business." target="_blank" rel="noopener">WhatsApp Freshtiq</a></div></div></section>
+</main>
+
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand2" alt="Freshtiq Automation"></a><p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — AI automation, WhatsApp workflows, custom CRM/ERP, websites, apps and business integrations.</p></div><div class="footer-col"><div class="footer-heading">Services</div><a href="/services.html">All Services</a><a href="/services/whatsapp-automation.html">WhatsApp Automation</a><a href="/services/ai-agents.html">AI Agents</a></div><div class="footer-col"><div class="footer-heading">Trust</div><a href="/portfolio/">Work</a><a href="/reviews.html">Verified Reviews</a><a href="/track.html">Track Project</a></div><div class="footer-col"><div class="footer-heading">Contact</div><a href="/build.html">Book Strategy Call</a><a href="https://t.me/AutoPilotHubBot" target="_blank" rel="noopener">Telegram Bot</a><a href="https://wa.me/918381848389" target="_blank" rel="noopener">WhatsApp</a></div></div></div></footer>
+<script src="/script.js?v=20261007p1"></script><script src="/site-consent.js?v=20261005openai1"></script>
+</body></html>
