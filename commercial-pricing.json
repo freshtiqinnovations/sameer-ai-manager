@@ -1013,7 +1013,7 @@
   },
   "bundle_offer": {
     "id": "india_starter_automation_bundle_v1",
-    "active": true,
+    "active": false,
     "market": "India",
     "currency": "INR",
     "title": "Build More, Pay Less",
@@ -1067,6 +1067,7 @@
       "Final scope and eligibility are confirmed in a written proposal after the free workflow audit.",
       "The ₹1 benefit applies only to one eligible Quick Add-on with the 3-module bundle, not to a full fourth service.",
       "No fake countdown or false urgency; availability depends on scope and capacity."
-    ]
+    ],
+    "disabled_reason": "Premium three-tier positioning: Basic / Premium / Elite"
   }
 }
