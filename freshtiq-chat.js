@@ -214,7 +214,7 @@
       price:'What is the published price for '+service+market+'?',
       hourly:'I want to hire Freshtiq by the hour. Explain the hourly rate, minimum hours, what hourly work is best for, and help me describe my task.',
       localprice:'Show me the relevant published pricing'+market+' for the service I need.',
-      compare:'Compare Standard, Professional and Premium packages and tell me what changes between them.',
+      compare:'Compare Basic, Premium and Elite packages and tell me what changes between them.',
       currency:'Show me how to view prices in my currency and explain regional pricing vs FX conversion.',
       demo:'Show me the most relevant interactive demo for my requirement.',
       realestate:'Show me the Dubai real-estate enquiry automation flow and what information it captures.',

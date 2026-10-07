@@ -37,7 +37,7 @@
 <body class="fx-premium-page">
   <nav id="navbar">
   <div class="nav-inner">
-    <a href="/" class="logo" aria-label="Freshtiq Automation home"><img src="/images/freshtiq-logo-footer.svg?v=20260912p2" alt="Freshtiq Automation" width="179" height="44"></a>
+    <a href="/" class="logo" aria-label="Freshtiq Automation home"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand1" alt="Freshtiq Automation" width="179" height="44"></a>
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="/services.html">Services</a>
@@ -80,7 +80,7 @@
           </div>
           <div class="bf">
             <div><label for="fAuto">What should be automated?</label><select id="fAuto"><option value="">Select…</option><option>WhatsApp replies / sales bot</option><option>AI agent for customers</option><option>CRM / lead tracking</option><option>ERP / inventory / orders</option><option>Bookings / appointments</option><option>Follow-ups / reminders</option><option>Website / store</option><option>Bug fix / API / small technical task</option><option>Not sure — recommend me</option></select></div>
-            <div><label for="fBudget">Budget / package preference</label><select id="fBudget"><option value="">Select…</option><option>Hourly — from $20/hr</option><option>Standard / Starter scope</option><option>Professional / Growth scope</option><option>Premium / Complex scope</option><option>Enterprise / Multi-system scope</option><option>Unsure</option></select></div>
+            <div><label for="fBudget">Budget / package preference</label><select id="fBudget"><option value="">Select…</option><option>Hourly — from $20/hr</option><option>Basic</option><option>Premium</option><option>Elite</option><option>Unsure</option></select></div>
           </div>
           <div class="bf">
             <div><label for="fTimeline">Timeline</label><select id="fTimeline"><option value="">Select…</option><option>ASAP (this month)</option><option>Within 1-2 months</option><option>Just exploring</option></select></div>
@@ -114,7 +114,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20260912p2" alt="Freshtiq Automation" width="210" height="52"></a>
+        <a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261007brand1" alt="Freshtiq Automation" width="210" height="52"></a>
         <p>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED — AI automation, WhatsApp workflows, custom CRM/ERP, websites, apps and business integrations.</p>
         <p style="font-size:.74rem;color:#8fa2bb">CIN U47912UP2025OPC236875 · GSTIN 09AAGCF7185A1ZL</p>
       </div>
@@ -171,7 +171,7 @@
 
     btn.disabled=true; btn.textContent='Saving your request…'; status.style.color=''; status.textContent='';
     try {
-      const budgetMap = { 'Standard / Starter scope': 15000, 'Professional / Growth scope': 50000, 'Premium / Complex scope': 150000, 'Enterprise / Multi-system scope': 400000 };
+      const budgetMap = { 'Basic': 15000, 'Premium': 50000, 'Elite': 150000 };
       const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
       const resp=await fetch('https://portal.freshtiqautomation.com/api/lead', {
         method:'POST', headers:{'Content-Type':'application/json'},

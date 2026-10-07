@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-05-bundle-v1",
+  "version": "2026-10-07-basic-premium-elite-v1",
   "effective_date": "2026-10-05",
   "brand": "Freshtiq Automation",
   "policy": {
@@ -7,7 +7,7 @@
     "regional_rule": "India is the leanest entry market; Saudi/UAE use premium regional pricing.",
     "truth_rule": "Published website starting prices and hourly rates are the source of truth; fixed projects use a written scope and hourly work uses approved task/hours before work starts.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
-    "quality_rule": "Standard, Professional and Premium differ by scope, integrations, roles, analytics and support priority — not by intentionally lowering code quality.",
+    "quality_rule": "Basic, Premium and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
     "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
   },
   "hourly": {
@@ -68,16 +68,16 @@
   },
   "tiers": {
     "standard": {
-      "label": "Standard",
-      "position": "Smallest useful production-ready scope"
+      "label": "Basic",
+      "position": "Focused production-ready scope for one clear business outcome"
     },
     "professional": {
-      "label": "Professional",
-      "position": "Best-value recommended scope for growing businesses"
+      "label": "Premium",
+      "position": "Best-value connected scope for growing businesses"
     },
     "premium": {
-      "label": "Premium",
-      "position": "Advanced custom scope for multi-team, multi-branch or deeper integrations"
+      "label": "Elite",
+      "position": "Advanced custom scope for deeper integrations, teams or branches"
     }
   },
   "products": {
