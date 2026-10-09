@@ -32,13 +32,13 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/style.css?v=20261009strategy1">
-  <link rel="stylesheet" href="/premium-system.css?v=20261007p1">
-<link rel="stylesheet" href="/premium-midnight.css?v=20261009strategy1">
+  <link rel="stylesheet" href="/style.css?v=20261009sitefinal1">
+  <link rel="stylesheet" href="/premium-system.css?v=20261009sitefinal1">
+<link rel="stylesheet" href="/premium-midnight.css?v=20261009sitefinal1">
 <link rel="stylesheet" href="/ftq-home-navigation.css?v=20261009hub1">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Freshtiq Automation","legalName":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark-512.png","email":"hello@freshtiqautomation.com","telephone":"+91-8381848389","address":{"@type":"PostalAddress","streetAddress":"Mohammadpur, Nizamabad","addressLocality":"Azamgarh","addressRegion":"Uttar Pradesh","postalCode":"276205","addressCountry":"IN"},"areaServed":["IN","SA","AE"],"sameAs":["https://github.com/freshtiqinnovations"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@freshtiqautomation.com","telephone":"+91-8381848389","availableLanguage":["English"]}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/","publisher":{"@type":"Organization","name":"Freshtiq Automation","legalName":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/"}}</script>
-  <link rel="stylesheet" href="/freshtiq-cyan-theme.css?v=20261009cyan2">
+  <link rel="stylesheet" href="/freshtiq-cyan-theme.css?v=20261009sitefinal1">
 </head>
 <body class="fx-home">
 <nav id="navbar">
@@ -88,7 +88,7 @@
 
 <aside class="ftq-workspace-entry" aria-label="Choose your Freshtiq workspace">
   <div class="ftq-workspace-intro"><strong>Welcome to Freshtiq</strong><span>What would you like to do?</span></div>
-  <a href="/build.html"><strong>I need automation</strong><span>Request a free workflow assessment ↗</span></a>
+  <a href="/#free-audit"><strong>I need automation</strong><span>Request a free workflow assessment ↗</span></a>
   <a href="https://portal.freshtiqautomation.com/customer"><strong>I'm an existing customer</strong><span>Register / Sign in · Projects, tickets &amp; invoices ↗</span></a>
   <a href="/partners.html#apply"><strong>I want to sell Freshtiq services</strong><span>Partner signup · Referral &amp; reseller commissions ↗</span></a>
 </aside>
@@ -104,6 +104,7 @@
     .ft-b2b-announcement strong{color:#fff}
   </style>
   <section class="fx-hero">
+    <aside class="ftq-made-india" aria-label="Made in India"><img src="/images/india-flag.svg" alt="Flag of India" width="34" height="23" decoding="async"><span>Made in India</span></aside>
     <div class="fx-hero-shell">
       <div class="fx-hero-copy">
         <div class="fx-kicker">AI AUTOMATION AGENCY · INDIA · GCC · GLOBAL</div>
@@ -387,7 +388,11 @@
           <label class="lead-consent"><span><input id="heroLeadWaConsent" name="whatsapp_opt_in" type="checkbox"> <span id="heroLeadWaConsentText">If I choose WhatsApp, Freshtiq may contact me about this request. I can reply STOP anytime.</span></span></label>
           <label class="lead-consent optional"><span><input id="heroLeadMarketingConsent" name="marketing_opt_in" type="checkbox"> <span id="heroLeadMarketingConsentText">Also send occasional Freshtiq automation tips and offers on WhatsApp (optional).</span></span></label>
           <input id="heroLeadWebsite" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">
-          <button type="submit" class="lead-submit">Request My Strategy Call →</button>
+          <button type="submit" class="lead-submit">Request My Free Audit →</button>
+          <div class="ftq-audit-contact-options" aria-label="Other ways to request your free audit">
+            <a class="ftq-audit-whatsapp" href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20want%20a%20free%20workflow%20audit.%20Please%20help%20me%20discuss%20my%20business%20automation%20requirement." target="_blank" rel="noopener noreferrer">Continue on WhatsApp ↗</a>
+            <button type="button" class="ftq-audit-ai" id="ftq-audit-ai">Ask AI Assistant</button>
+          </div>
           <div id="heroLeadStatus" class="lead-status" aria-live="polite"></div>
         </form>
       </div>
@@ -416,7 +421,7 @@
       <p>Describe the process that wastes time, loses enquiries or creates repeated manual work. We will recommend the smallest sensible starting point.</p>
       <div class="fx-final-actions">
         <a class="fx-primary" href="/build.html">Book a Strategy Call →</a>
-        <a class="fx-secondary" href="https://t.me/AutoPilotHubBot?start=website_final" target="_blank" rel="noopener">Open AI Assistant</a>
+        <a class="fx-secondary ftq-open-chat" href="#free-audit">Open AI Assistant</a>
         <a class="fx-secondary" href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20want%20to%20discuss%20an%20automation%20project." target="_blank" rel="noopener">WhatsApp Freshtiq</a>
       </div>
     </div>
@@ -433,21 +438,21 @@
       </div>
       <div class="footer-col"><div class="footer-heading">Services</div><a href="/freshtiq-ads/">Freshtiq Ads · Campaign Planner</a><a href="/services/ai-agents.html">AI Agents</a><a href="/services/whatsapp-automation.html">WhatsApp Automation</a><a href="/services/crm-erp-development.html">CRM / ERP</a><a href="/services/workflow-automation.html">Workflow Automation</a></div>
       <div class="footer-col"><div class="footer-heading">Explore</div><a href="/industries.html">Industries</a><a href="/portfolio/">Work</a><a href="/reviews.html">Reviews</a><a href="/insights/">Insights</a><a href="/pricing.html">Pricing</a></div>
-      <div class="footer-col"><div class="footer-heading">Client tools</div><a href="/track.html">Track Project</a><a href="/pay/">Secure Payment</a><a href="https://portal.freshtiqautomation.com/" rel="noopener">Customer Portal</a><a href="https://t.me/AutoPilotHubBot?start=website_footer" target="_blank" rel="noopener">AI Assistant</a></div>
+      <div class="footer-col"><div class="footer-heading">Client tools</div><a href="/track.html">Track Project</a><a href="/pay/">Secure Payment</a><a href="https://portal.freshtiqautomation.com/" rel="noopener">Customer Portal</a><a class="ftq-open-chat" href="#free-audit">AI Assistant</a><a href="https://t.me/AutoPilotHubBot?start=website_footer" target="_blank" rel="noopener">Telegram Business Bot</a></div>
       <div class="footer-col"><div class="footer-heading">Company</div><a href="/about.html">About</a><a href="/partners.html">Partner Program</a><a href="/contact.html">Contact</a><a href="/delivery.html">Delivery &amp; Handover</a><a href="/security.html">Security</a></div>
     </div>
     <div class="footer-bottom"><p>© 2025–2026 FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED. All rights reserved.</p><div><a href="/privacy.html">Privacy</a><a href="/terms-and-conditions.html">Terms</a><a href="/refund-policy.html">Refund</a></div></div>
   </div>
 </footer>
 
-<div class="sticky-mobile-cta"><a href="/build.html">Strategy Call</a><a href="https://t.me/AutoPilotHubBot?start=website_mobile" target="_blank" rel="noopener">AI Assistant</a><a href="https://wa.me/918381848389" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="sticky-mobile-cta" aria-label="Free help and customer contact"><a href="/#free-audit">Free Audit</a><a class="ftq-open-chat" href="#free-audit">AI Assistant</a><a href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20need%20help%20with%20automation." target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
 
 <script>function toggleFaq(el){const item=el.parentElement;const open=item.classList.toggle('open');el.setAttribute('aria-expanded',open?'true':'false');}</script>
-<script src="/script.js?v=20261009partner2"></script>
+<script src="/script.js?v=20261009sitefinal1"></script>
 <script>
 (function(){const box=document.getElementById('homeReviews');if(!box)return;const esc=v=>String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));fetch('https://portal.freshtiqautomation.com/api/reviews/public?limit=6',{credentials:'include'}).then(r=>r.json()).then(j=>{if(!j.success||!j.reviews||!j.reviews.length)return;box.innerHTML=j.reviews.map(x=>`<article class="fx-review-card"><div class="fx-review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span><small>VERIFIED COMPLETED PROJECT</small></article>`).join('')}).catch(()=>{});})();
 </script>
 <script src="/site-consent.js?v=20261005openai1"></script>
-<aside class="ftq-made-india" aria-label="Made in India"><span class="ftq-flag" aria-hidden="true">🇮🇳</span> Made in India</aside>
+
 </body>
 </html>

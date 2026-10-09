@@ -1,1 +1,34 @@
 body{background:linear-gradient(140deg,#f4f8fc,#e1f1f4);color:#123146}header{background:#fff}.highlight{background:#0b304d;color:#fff;border-radius:18px;padding:22px;margin:22px 0}.highlight a{display:inline-block;background:#4be1b8;color:#082841;border-radius:10px;padding:12px 15px;margin:13px 0;font-weight:850;text-decoration:none}.steps li{margin:8px 0}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.fact{background:#fff;padding:18px;border:1px solid #ccdfeb;border-radius:13px}.form fieldset{border:0;padding:0;margin:0}.form #ad-preview{background:#eff7fd;padding:12px;border-radius:9px;line-height:1.7;font-size:14px;color:#193a51}.small{font-size:13px!important;color:#465e72!important}.small a{color:#0873a6}input[type=url]{direction:ltr;text-align:left}#adsLeadStatus{margin-top:13px}#adsLeadStatus.err{background:#ffe7e7;color:#852127;padding:10px;border-radius:9px}#adsLeadStatus.ok{background:#dff7e8;color:#155c32;padding:10px;border-radius:9px}.ad-intro{padding:20px 0 40px}.ad-intro h1{font-size:clamp(30px,4vw,48px)}.ad-intro .two{gap:28px;align-items:start}.ad-intro h1 em{color:#008a7b}.ad-intro .eyebrow{color:#14748c}.ad-intro .intro{font-size:18px;color:#3c536b}.btnstart{display:inline-block;padding:12px 19px;border-radius:12px;background:#047b71;color:#fff;font-weight:850;text-decoration:none}.sect{padding:22px 0 45px}.sect h2{margin:0 0 17px;font-size:25px}.flag{display:inline-block;background:#ddf6eb;color:#036455;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:850}.tagline{color:#4d6579}.footer .wrap{flex-wrap:wrap}.nav{gap:10px}.langs{max-width:750px}#ad-budget{font-variant-numeric:tabular-nums}@media(max-width:780px){.facts{grid-template-columns:1fr}.ad-intro{padding-top:10px}}
+
+/* Regression fixes: portfolio CTAs + 10 multilingual Freshtiq Ads entry points. */
+html body a.nav-cta,
+html body a.nav-cta:hover,
+html body a.nav-cta:visited,
+html body #adsLeadForm button[type="submit"],
+html body #adsLeadForm button[type="submit"]:hover,
+html body #adsLeadForm button[type="submit"]:focus-visible{
+  background:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%)!important;
+  background-image:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%)!important;
+  background-color:#08dbe5!important;
+  color:#06313a!important;
+  border-color:#2de6de!important;
+  box-shadow:0 8px 24px rgba(10,220,220,.17)!important;
+}
+html body a.nav-cta *{color:#06313a!important}
+
+/* FRESHTIQ ADS SAFE CONTACT STYLES */
+.ftq-ads-whatsapp-row{margin:13px 0 17px}
+html body .ftq-ads-whatsapp{
+ display:inline-flex;padding:11px 15px;border:1px solid #18a96d;border-radius:10px;
+ background:#0f774a;color:#fff;text-decoration:none;font:850 13px/1.45 system-ui,sans-serif;
+ min-height:42px;align-items:center;justify-content:center;
+}
+.ftq-made-india{
+ position:fixed;left:14px;bottom:22px;z-index:780;pointer-events:none;
+ display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+ padding:9px 13px;border:1px solid rgba(12,231,219,.65);border-radius:999px;
+ background:#031824;color:#f6ffff;font:850 12px/1.35 system-ui,sans-serif;
+ box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.ftq-made-india img{display:block;width:34px;height:23px;object-fit:cover;border-radius:2px;border:1px solid #e4e8ee}
+@media(max-width:768px){.ftq-made-india{bottom:12px;left:10px;font-size:11px;padding:7px 10px}}

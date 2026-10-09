@@ -140,6 +140,10 @@
   <div class="ft-handoff-status" id="ft-ho-status"></div>
 </div>
 <div id="ft-chat-messages"></div>
+<div class="ftq-chat-channel-actions" id="ftq-chat-channel-actions">
+  <a id="ftq-chat-continue-whatsapp" href="https://wa.me/918381848389" target="_blank" rel="noopener noreferrer">Continue on WhatsApp ↗</a>
+  <small id="ftq-chat-channel-note">Your message opens in WhatsApp; you choose whether to send it.</small>
+</div>
 <div class="ft-chat-privacy">Security: do not share passwords, OTPs or payment-card details.</div>
 <div id="ft-chat-input">
   <input type="text" id="ft-msg-input" placeholder="Type your message..." autocomplete="off">
@@ -148,6 +152,23 @@
 `;
 
   document.body.appendChild(widget);
+
+  // A unified cyan theme, consistent with public CTAs and not old purple.
+  style.textContent += `
+#ft-chat-header,#ft-chat-toggle,#ft-chat-input button,#ft-ho-save,
+#ft-chat-widget .ft-msg.user {background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;color:#06313a!important}
+#ft-chat-header strong,#ft-chat-header span,#ft-chat-header .ft-close{color:#06313a!important}
+#ft-chat-widget{border:1px solid rgba(12,231,219,.46)!important}
+#ft-chat-messages::-webkit-scrollbar-thumb{background:#0ce7db!important}
+#ft-chat-widget .ft-msg.bot{border-color:rgba(12,231,219,.22)!important;background:rgba(12,231,219,.075)!important}
+#ft-chat-widget .ft-quick-btn{border-color:rgba(12,231,219,.35)!important;background:rgba(12,231,219,.07)!important;color:#8ff8ee!important}
+#ft-chat-widget .ft-quick-btn:hover{background:rgba(12,231,219,.17)!important}
+#ft-chat-input input:focus,#ft-ho-email:focus,#ft-ho-phone:focus{border-color:#0ce7db!important}
+.ftq-chat-channel-actions{display:flex;gap:5px;align-items:center;justify-content:center;flex-direction:column;padding:9px 16px 6px;background:#0b0f19}
+#ftq-chat-continue-whatsapp{display:block;padding:8px 13px;border:1px solid rgba(37,211,102,.6)!important;border-radius:8px;text-align:center;color:#fff!important;background:#11784a!important;font-size:.8rem;font-weight:800;text-decoration:none!important}
+#ftq-chat-channel-note{color:#b7c7cb;font-size:.64rem;text-align:center}
+@media(max-width:760px){body.ftq-has-mobile-cta #ft-chat-toggle{bottom:85px!important}body.ftq-has-mobile-cta #ft-chat-widget{bottom:145px!important}}
+  `;
 
   // ─── STATE ───
   let isOpen = false;
@@ -159,6 +180,23 @@
     shownLeadRef=ref;
     try{if(window.FreshtiqLead&&window.FreshtiqLead.saveRef)window.FreshtiqLead.saveRef(ref);else sessionStorage.setItem('ft_lead_ref_v1',ref);}catch(_){}
     return ref;
+  }
+
+  // Privacy-preserving WhatsApp handoff: never copies raw conversation.
+  const waContinue=document.getElementById('ftq-chat-continue-whatsapp');
+  if(waContinue){
+    waContinue.addEventListener('click',function(e){
+      const mp=window.FreshtiqMarketplaceBridge;
+      if(mp&&mp.restricted){
+        e.preventDefault();addMessage('Please keep communication on '+(mp.label||'the marketplace')+' until the order or contract is active.','bot');return;
+      }
+      const ref=String(shownLeadRef||(window.FreshtiqLead&&window.FreshtiqLead.getRef&&window.FreshtiqLead.getRef())||'').slice(0,65);
+      const market=String(PAGE_META.market||'').slice(0,50);
+      const service=String(PAGE_META.service||'business automation').slice(0,90);
+      const text='Hi Freshtiq, I want to continue my website AI Assistant conversation about '+service+'.'+(market?' Country: '+market+'.':'')+(ref?'\\nFreshtiq Lead Ref: '+ref:'')+'\nPlease help with my requirements and next step.';
+      waContinue.href='https://wa.me/918381848389?text='+encodeURIComponent(text);
+      try{if(window.FreshtiqTrack)window.FreshtiqTrack.event('chat_whatsapp_handoff',ref?'existing_lead':'new_chat')}catch(_e){}
+    });
   }
 
   const msgContainer = document.getElementById('ft-chat-messages');

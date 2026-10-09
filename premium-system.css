@@ -483,3 +483,145 @@ body.fx-premium-page .contact-card,body.fx-premium-page .contact-item{border-rad
 .ft-handoff input,.ft-handoff select{min-height:38px!important;border-radius:9px!important;border:1px solid rgba(148,163,184,.20)!important;background:#081523!important;color:#e2e8f0!important;font-size:.73rem!important;padding:8px 9px!important}
 .ft-handoff-save{background:#0ea5e9!important;color:#03111f!important}.ft-handoff-cancel{background:transparent!important;color:#b7c5d6!important}
 @media(max-width:500px){#ft-chat-widget{right:8px!important;bottom:78px!important;width:calc(100vw - 16px)!important;border-radius:18px!important}#ft-chat-toggle{bottom:12px!important;right:12px!important;width:50px!important;height:50px!important;border-radius:14px!important}}
+
+
+/* ONE CLEAN DESIGN LANGUAGE | CTA, trust badge, forms and mobile bar. */
+.ftq-made-india{
+  gap:9px!important;white-space:nowrap!important;
+  padding:10px 14px!important;
+  border-color:rgba(12,231,219,.65)!important;
+  background:rgba(3,24,36,.97)!important;
+  color:#f6ffff!important;
+  font:850 13px/1.3 system-ui,-apple-system,Segoe UI,sans-serif!important;
+  max-width:max-content;
+}
+.ftq-made-india img{
+  display:block;flex:none;width:34px;height:23px;object-fit:cover;
+  border-radius:2px;border:1px solid rgba(255,255,255,.50);
+  box-shadow:0 1px 6px rgba(0,0,0,.2);
+}
+html body.fx-home .fx-hero>.ftq-made-india{
+  position:absolute!important;top:21px!important;right:clamp(14px,3vw,38px)!important;
+  bottom:auto!important;left:auto!important;z-index:12!important;
+  padding:11px 17px!important;font-size:14px!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.25)!important;
+}
+html body .ftq-workspace-entry a[href="/#free-audit"]{
+  background:var(--ftq-cyan-gradient)!important;
+  color:var(--ftq-cyan-ink)!important;
+  border-color:#13dbdd!important;
+  box-shadow:0 6px 18px rgba(9,225,230,.18)!important;
+}
+html body .ftq-workspace-entry a[href="/#free-audit"] strong,
+html body .ftq-workspace-entry a[href="/#free-audit"] span{
+  color:#06313a!important;text-shadow:none!important;
+}
+.ftq-audit-contact-options{
+  display:flex;flex-wrap:wrap;align-items:center;gap:9px;
+  grid-column:1/-1;margin-top:10px;
+}
+html body #heroLeadForm a.ftq-audit-whatsapp{
+  display:inline-flex;align-items:center;justify-content:center;min-height:41px;
+  border:1px solid #1ebd83!important;border-radius:10px!important;
+  background:#0f774a!important;color:#fff!important;
+  padding:9px 13px!important;font-size:12px!important;
+  font-weight:850!important;text-decoration:none!important;
+  box-shadow:none!important;
+}
+html body #heroLeadForm button.ftq-audit-ai{
+  min-height:41px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid #0cbec5!important;border-radius:10px!important;
+  padding:9px 13px!important;
+  background:var(--ftq-cyan-gradient)!important;color:var(--ftq-cyan-ink)!important;
+  font-size:12px!important;font-weight:850!important;cursor:pointer;
+}
+html body #heroLeadForm a.ftq-audit-whatsapp:focus-visible,
+html body #heroLeadForm button.ftq-audit-ai:focus-visible{
+  outline:3px solid #0ce7db!important;outline-offset:3px!important;
+}
+@media(min-width:769px) {
+  html body .sticky-mobile-cta{display:none!important}
+}
+@media(max-width:768px) {
+  html body .sticky-mobile-cta{
+    display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;align-items:stretch!important;
+    padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;
+    border-top:1px solid rgba(12,231,219,.38)!important;
+    background:rgba(3,21,34,.97)!important;box-shadow:0 -7px 22px rgba(0,0,0,.22)!important;
+  }
+  html body .sticky-mobile-cta a,
+  html body .sticky-mobile-cta a:nth-child(3){
+    display:flex!important;min-width:0!important;min-height:42px!important;
+    align-items:center!important;justify-content:center!important;
+    padding:6px 5px!important;border-radius:9px!important;
+    font:850 11px/1.3 system-ui,-apple-system,Segoe UI,sans-serif!important;
+    text-align:center!important;
+  }
+  html body .sticky-mobile-cta a:first-child{
+    background:var(--ftq-cyan-gradient)!important;color:#06313a!important;
+    border:1px solid #0ce7db!important;
+  }
+  html body .sticky-mobile-cta a:nth-child(2){
+    background:#0e3545!important;color:#c3fff8!important;
+    border:1px solid rgba(12,231,219,.55)!important;
+  }
+  html body .sticky-mobile-cta a:nth-child(3){
+    background:#0e7947!important;color:#fff!important;
+    border:1px solid #2dcc88!important;
+  }
+  html body.fx-home .fx-hero>.ftq-made-india{
+    top:10px!important;right:12px!important;
+    padding:7px 10px!important;font-size:11px!important;
+  }
+  html body.fx-home .fx-hero>.ftq-made-india img{width:29px;height:19px}
+  .ftq-audit-contact-options{flex-direction:column;align-items:stretch}
+  html body #heroLeadForm a.ftq-audit-whatsapp,html body #heroLeadForm button.ftq-audit-ai{width:100%}
+}
+@media(prefers-reduced-motion:reduce){html body .ftq-audit-contact-options a{transition:none!important}}
+
+
+/* Regression fixes: portfolio CTAs + 10 multilingual Freshtiq Ads entry points. */
+html body a.nav-cta,
+html body a.nav-cta:hover,
+html body a.nav-cta:visited,
+html body #adsLeadForm button[type="submit"],
+html body #adsLeadForm button[type="submit"]:hover,
+html body #adsLeadForm button[type="submit"]:focus-visible{
+  background:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%)!important;
+  background-image:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%)!important;
+  background-color:#08dbe5!important;
+  color:#06313a!important;
+  border-color:#2de6de!important;
+  box-shadow:0 8px 24px rgba(10,220,220,.17)!important;
+}
+html body a.nav-cta *{color:#06313a!important}
+
+
+/* Last-stage brand token lock: older midnight overrides cannot resurrect violet. */
+:root{
+ --ftq-strategy-gradient:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%);
+ --gradient:var(--ftq-strategy-gradient);
+ --primary:#079caa; /* fallback for generic white-text buttons; readable unlike bright cyan */
+ --primary-light:#0ce7db;
+}
+html body nav .nav-links a.nav-cta,
+html body nav .nav-links a.nav-cta:hover,
+html body nav .nav-links a.nav-cta:visited{
+ background:var(--ftq-strategy-gradient)!important;
+ background-image:var(--ftq-strategy-gradient)!important;
+ background-color:#08dbe5!important;
+ color:#06313a!important;
+ border-color:#13e0dc!important;
+ text-shadow:none!important;
+}
+html body nav .nav-links a.nav-cta *{color:#06313a!important}
+
+/* High-contrast text on portfolio links inside .nav containers (not <nav>). */
+html body.fx-premium-page .nav a.nav-cta,
+html body.fx-premium-page .nav a.nav-cta:hover,
+html body.fx-premium-page .nav a.nav-cta:visited{
+ color:#06313a!important;
+ background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;
+ background-image:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;
+}

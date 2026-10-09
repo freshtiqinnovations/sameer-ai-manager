@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 48" role="img" aria-label="Indian national flag">
+<rect x="0" y="0" width="72" height="16" fill="#FF9933"/>
+<rect x="0" y="16" width="72" height="16" fill="#fff"/>
+<rect x="0" y="32" width="72" height="16" fill="#138808"/>
+<g fill="none" stroke="#000080" stroke-width=".8"><circle cx="36" cy="24" r="9.1"/><path d="M39.50 24.00 L45.00 24.00"/><path d="M39.38 24.91 L44.69 26.33"/><path d="M39.03 25.75 L43.79 28.50"/><path d="M38.47 26.47 L42.36 30.36"/><path d="M37.75 27.03 L40.50 31.79"/><path d="M36.91 27.38 L38.33 32.69"/><path d="M36.00 27.50 L36.00 33.00"/><path d="M35.09 27.38 L33.67 32.69"/><path d="M34.25 27.03 L31.50 31.79"/><path d="M33.53 26.47 L29.64 30.36"/><path d="M32.97 25.75 L28.21 28.50"/><path d="M32.62 24.91 L27.31 26.33"/><path d="M32.50 24.00 L27.00 24.00"/><path d="M32.62 23.09 L27.31 21.67"/><path d="M32.97 22.25 L28.21 19.50"/><path d="M33.53 21.53 L29.64 17.64"/><path d="M34.25 20.97 L31.50 16.21"/><path d="M35.09 20.62 L33.67 15.31"/><path d="M36.00 20.50 L36.00 15.00"/><path d="M36.91 20.62 L38.33 15.31"/><path d="M37.75 20.97 L40.50 16.21"/><path d="M38.47 21.53 L42.36 17.64"/><path d="M39.03 22.25 L43.79 19.50"/><path d="M39.38 23.09 L44.69 21.67"/></g>
+<circle cx="36" cy="24" r="1.35" fill="#000080"/>
+<rect x=".35" y=".35" width="71.3" height="47.3" rx="1.5" fill="none" stroke="#ffffff" stroke-opacity=".45" stroke-width=".7"/>
+</svg>

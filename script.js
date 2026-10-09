@@ -827,7 +827,7 @@ document.addEventListener('click', function (e) {
     let loaded=false;
     function load(){
       if(loaded || document.getElementById('ft-chat-widget') || document.querySelector('script[src*="freshtiq-chat.js"]')) return;
-      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20261005openai1'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
+      loaded=true; const s=document.createElement('script'); s.src='/freshtiq-chat.js?v=20261009audit7'; s.async=true; s.dataset.ftChatLoader='1'; document.body.appendChild(s);
     }
     ['pointerdown','keydown','touchstart'].forEach(ev=>window.addEventListener(ev,load,{once:true,passive:true}));
     window.addEventListener('load',()=>{
@@ -835,4 +835,54 @@ document.addEventListener('click', function (e) {
       else setTimeout(load,1800);
     },{once:true});
   } catch (_) {}
+})();
+
+/* === FRESHTIQ CUSTOMER CHANNEL ACCESS 20261009 ===
+   Free Audit, AI Assistant, CRM and WhatsApp share the same public Lead Reference.
+   WhatsApp opens only on visitor tap, never automatically sends a message.
+*/
+(function(){
+  function ready(){
+    // Every marketing page uses the same three customer-first actions.
+    const mobileBar=document.querySelector('.sticky-mobile-cta');
+    if(mobileBar){
+      document.body.classList.add('ftq-has-mobile-cta');
+      const buttons=[...mobileBar.querySelectorAll('a')];
+      if(buttons[0]){buttons[0].href='/#free-audit';buttons[0].textContent='Free Audit';}
+      if(buttons[1]){buttons[1].href='/#free-audit';buttons[1].textContent='AI Assistant';buttons[1].classList.add('ftq-open-chat');}
+      if(buttons[2]){
+        buttons[2].href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq, I want a free automation assessment.');
+        buttons[2].textContent='WhatsApp';buttons[2].target='_blank';buttons[2].rel='noopener noreferrer';
+      }
+    }
+    document.querySelectorAll('a[href*="t.me/AutoPilotHubBot"]').forEach(function(a){
+      if(/^(Open )?AI Assistant$/.test(a.textContent.trim())){
+        a.href='/#free-audit';a.classList.add('ftq-open-chat');a.removeAttribute('target');
+      }
+    });
+    if(!document.querySelector('.ftq-made-india') &&
+       !['/cart','/checkout','/payment','/pay','/owner','/privacy','/terms','/refund','/customer'].some(prefix=>location.pathname.toLowerCase().startsWith(prefix))){
+      const badge=document.createElement('aside');badge.className='ftq-made-india';
+      badge.setAttribute('aria-label','Made in India');
+      const flag=document.createElement('img');flag.src='/images/india-flag.svg';flag.alt='Flag of India';flag.width=34;flag.height=23;
+      const label=document.createElement('span');label.textContent='Made in India';
+      badge.append(flag,label);document.body.appendChild(badge);
+    }
+    document.addEventListener('click',function(ev){
+      const trigger=ev.target&&ev.target.closest?ev.target.closest('.ftq-open-chat,#ftq-audit-ai'):null;
+      if(!trigger)return;
+      ev.preventDefault();
+      const ref=(window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():'';
+      const prompt='I need help with a Freshtiq free automation audit'+(ref?' for Lead Ref '+ref:'')+'. Ask about my business requirement and offer a consent-based WhatsApp handoff.';
+      if(window.FreshtiqLead&&window.FreshtiqLead.openChat)window.FreshtiqLead.openChat(prompt);
+      else{
+        try{sessionStorage.setItem('ft_chat_pending_prompt_v1',prompt)}catch(e){}
+        window.dispatchEvent(new CustomEvent('ft:open-chat',{detail:{prompt}}));
+      }
+      const toggle=document.getElementById('ft-chat-toggle');
+      if(toggle)toggle.focus();
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});
+  else ready();
 })();

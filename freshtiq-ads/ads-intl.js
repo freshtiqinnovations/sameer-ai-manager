@@ -23,3 +23,32 @@ const ref=data.lead_ref||String(data.lead_id||'');st.className='ok';st.textConte
 try{if(typeof window.gtag==='function'){window.gtag('event','generate_lead',{lead_source:payload.source,country,service:payload.service,lead_ref_present:!!ref})}}catch(_e){}
 }catch(_e){st.className='err';st.textContent=S.fail;}finally{button.disabled=false;button.textContent=S.submit}});
 })();
+/* FRESHTIQ ADS SAFE CONTACT 20261009
+   Separate paid ad-planning workflow remains intact. Manual WhatsApp support
+   and visible Indian-company trust badge require no registration or payment.
+*/
+(function(){
+ function ready(){
+  const form=document.getElementById('adsLeadForm');
+  if(form&&!document.querySelector('.ftq-ads-whatsapp')){
+   const row=document.createElement('div');row.className='ftq-ads-whatsapp-row';
+   const wa=document.createElement('a');wa.className='ftq-ads-whatsapp';
+   const code=document.documentElement.lang||'en';
+   const labels={en:'Discuss your business advertising on WhatsApp',hi:'WhatsApp पर विज्ञापन योजना की बात करें',ur:'WhatsApp پر اشتہاری منصوبے کے بارے میں بات کریں',
+     ar:'ناقش خطتك الإعلانية عبر واتساب',es:'Hablar de publicidad por WhatsApp',fr:'Discuter de votre publicité sur WhatsApp',
+     pt:'Fale sobre publicidade pelo WhatsApp',de:'Werbung über WhatsApp besprechen',id:'Bahas iklan melalui WhatsApp',ml:'WhatsApp വഴി പരസ്യ പദ്ധതി ചർച്ച ചെയ്യാം'};
+   wa.textContent=(labels[code]||labels.en)+' ↗';
+   wa.href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq Ads, I need help planning advertisements for my business. Preferred language: '+code);
+   wa.target='_blank';wa.rel='noopener noreferrer';
+   row.appendChild(wa);form.insertAdjacentElement('afterend',row);
+  }
+  if(!document.querySelector('.ftq-made-india')){
+   const badge=document.createElement('aside');badge.className='ftq-made-india';
+   badge.setAttribute('aria-label','Made in India');
+   const flag=document.createElement('img');flag.src='/images/india-flag.svg';flag.alt='Flag of India';flag.width=34;flag.height=23;
+   const span=document.createElement('span');span.textContent='Made in India';
+   badge.append(flag,span);document.body.appendChild(badge);
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
+})();

@@ -4,7 +4,15 @@ let country=phone.startsWith('+966')?'Saudi Arabia':phone.startsWith('+971')?'Un
 try{let sid=sessionStorage.getItem('ft_chat_sid_v2');if(!sid){sid='site_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);sessionStorage.setItem('ft_chat_sid_v2',sid);}
 const payload={name,phone,email:'',country,service:'Business automation and WhatsApp / AI / CRM assessment',preferred_contact:'WhatsApp',message:'International business automation enquiry | Locale: '+code+' | Industry: '+industry+' | Please reply in '+code+' | Requested free workflow assessment',source:'Freshtiq International '+code+' Free Assessment',locale:code,session_id:sid,page_url:location.href,landing_page:location.href,referrer:document.referrer||'',utm_source:qs.get('utm_source')||'organic_direct',utm_medium:qs.get('utm_medium')||'',utm_campaign:qs.get('utm_campaign')||'',utm_content:qs.get('utm_content')||'',whatsapp_opt_in:true,marketing_opt_in:false};
 const res=await fetch(C,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const out=await res.json().catch(()=>({}));if(!res.ok||!out.success)throw Error('CRM rejected');
-const ref=out.lead_ref||String(out.lead_id||'');status.className='ok';status.textContent=words.sent;const b=document.createElement('b');b.textContent=ref;b.className='ltr';status.appendChild(b);status.appendChild(document.createTextNode(' · '+words.ref));form.reset();
+const ref=out.lead_ref||String(out.lead_id||'');status.className='ok';status.textContent=words.sent;const b=document.createElement('b');b.textContent=ref;b.className='ltr';status.appendChild(b);status.appendChild(document.createTextNode(' · '+words.ref));
+const wa=document.createElement('a');
+wa.className='ftq-locale-whatsapp ftq-locale-after-submit';
+wa.target='_blank';wa.rel='noopener noreferrer';
+wa.href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq, my free automation audit reference is '+ref+'. Please help me continue in '+code+'.');
+wa.textContent=(document.querySelector('.ftq-locale-whatsapp')?.textContent||'Continue on WhatsApp')+' ↗';
+status.appendChild(document.createElement('br'));status.appendChild(wa);
+try{if(ref)sessionStorage.setItem('ft_lead_ref_v1',ref)}catch(_e){}
+form.reset();
 try{if(typeof window.gtag==='function'){window.gtag('event','generate_lead',{lead_source:payload.source,country,service:payload.service,lead_ref_present:!!ref});window.gtag('event','SUBMIT_LEAD_FORM',{lead_source:payload.source,country,service:payload.service,lead_ref_present:!!ref});}}catch(_e){}
 }catch(_e){status.className='err';status.textContent=words.failed;}finally{btn.disabled=false;btn.textContent=words.submit;}});
 })();
