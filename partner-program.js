@@ -55,8 +55,17 @@
     ]);
     byId('partnerWelcome').textContent='Welcome, '+(me.partner.name||'Partner')+' · '+me.partner.reseller_id;
     byId('partnerTotal').textContent=String(me.stats.totalReferrals||0);
-    byId('partnerPending').textContent=money(me.stats.eligibleAwaitingOwnerPayout);
-    byId('partnerPaid').textContent=money(me.stats.paidCommission);
+    const showByCurrency=key=>{
+      const rows=me.stats.byCurrency||[];
+      if(!rows.length)return money(0);
+      return rows.map(r=>{
+        const amount=Number(r[key]||0),currency=r.currency||'INR';
+        try{return new Intl.NumberFormat('en-IN',{style:'currency',currency,maximumFractionDigits:0}).format(amount);}
+        catch(_){return currency+' '+amount.toFixed(2);}
+      }).join(' · ');
+    };
+    byId('partnerPending').textContent=showByCurrency('eligible');
+    byId('partnerPaid').textContent=showByCurrency('paid');
     const link='https://freshtiqautomation.com/?partner='+encodeURIComponent(auth.id);
     byId('partnerShare').href=link;
     byId('partnerShare').textContent='Your referral link';

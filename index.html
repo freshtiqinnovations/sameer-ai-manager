@@ -435,7 +435,7 @@
 <div class="sticky-mobile-cta"><a href="/build.html">Strategy Call</a><a href="https://t.me/AutoPilotHubBot?start=website_mobile" target="_blank" rel="noopener">AI Assistant</a><a href="https://wa.me/918381848389" target="_blank" rel="noopener">WhatsApp</a></div>
 
 <script>function toggleFaq(el){const item=el.parentElement;const open=item.classList.toggle('open');el.setAttribute('aria-expanded',open?'true':'false');}</script>
-<script src="/script.js?v=20261007p1"></script>
+<script src="/script.js?v=20261009partner2"></script>
 <script>
 (function(){const box=document.getElementById('homeReviews');if(!box)return;const esc=v=>String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));fetch('https://portal.freshtiqautomation.com/api/reviews/public?limit=6',{credentials:'include'}).then(r=>r.json()).then(j=>{if(!j.success||!j.reviews||!j.reviews.length)return;box.innerHTML=j.reviews.map(x=>`<article class="fx-review-card"><div class="fx-review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span><small>VERIFIED COMPLETED PROJECT</small></article>`).join('')}).catch(()=>{});})();
 </script>

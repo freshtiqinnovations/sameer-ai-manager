@@ -705,6 +705,7 @@ document.addEventListener('click', function (e) {
         if (content) attr += ' | ' + content;
         text += '\n' + attr;
       }
+      try{var partnerRef=sessionStorage.getItem('ftq_partner_ref')||'';if(/^FTQ-RS-[0-9]{4,12}$/.test(partnerRef)&&text.indexOf('Freshtiq Partner Ref:')<0)text+='\nFreshtiq Partner Ref: '+partnerRef;}catch(_p){}
       u.searchParams.set('text', text);
       a.href = u.toString();
       href = a.getAttribute('href') || href;
