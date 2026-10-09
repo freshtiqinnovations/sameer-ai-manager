@@ -734,6 +734,15 @@ document.addEventListener('click', function (e) {
   } catch (err) {}
 });
 
+/* Partner referral attribution: session-scoped, not a financial entitlement. */
+(function(){
+  try{
+    var q=new URLSearchParams(window.location.search);
+    var candidate=String(q.get('partner')||'').trim().toUpperCase();
+    if(/^FTQ-RS-[0-9]{4,12}$/.test(candidate))sessionStorage.setItem('ftq_partner_ref',candidate);
+  }catch(_){}
+})();
+
 /* === Homepage high-intent lead capture 2026-09-12 === */
 (function(){
   var form=document.getElementById('heroLeadForm'); if(!form) return;
@@ -767,6 +776,7 @@ document.addEventListener('click', function (e) {
       var leadSource=form.getAttribute('data-lead-source')||'Homepage Free Audit';
       var leadMessage=form.getAttribute('data-lead-message')||'Free automation audit request';
       var payload=Object.assign({},journey,{name:name,phone:phone,email:email,country:country,service:need,preferred_contact:preferred,message:leadMessage+' · Preferred contact: '+preferred,source:leadSource,whatsapp_opt_in:(preferred==='WhatsApp'&&whatsappOptIn),marketing_opt_in:marketingOptIn,consent_source:'website_free_audit_contact_choice_v4'});
+      try{var partnerCode=sessionStorage.getItem('ftq_partner_ref')||'';if(/^FTQ-RS-[0-9]{4,12}$/.test(partnerCode))payload.partner_ref=partnerCode;}catch(_){}
       if(!payload.utm_source)payload.utm_source=qs.get('utm_source')||'organic_direct';if(!payload.utm_medium)payload.utm_medium=qs.get('utm_medium')||'';if(!payload.utm_campaign)payload.utm_campaign=qs.get('utm_campaign')||'';if(!payload.utm_content)payload.utm_content=qs.get('utm_content')||'';if(!payload.utm_term)payload.utm_term=qs.get('utm_term')||'';
       var r=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
       var d=await r.json().catch(function(){return {};}); if(!r.ok||!d.success) throw new Error(d.error||'Request failed');

@@ -39,3 +39,11 @@
   .ftq-lang-switch summary{min-width:66px;padding:7px}
   .ftq-nav-locale{margin-right:2px}
 }
+
+/* Partner opportunity: strong placement without hiding customer service navigation. */
+#navbar .nav-links a.ftq-partner-nav{border:1px solid rgba(70,230,205,.5)!important;background:rgba(23,145,121,.16)!important;color:#c6fff4!important;font-weight:850!important}
+#navbar .nav-links a.ftq-partner-nav:hover{background:rgba(31,172,136,.29)!important}
+.ftq-partner-discovery{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 20px;padding:10px 17px;background:#0d3842;color:#e8fffb;font:600 13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;border-bottom:1px solid #286e71}
+.ftq-partner-discovery strong{color:#73ffda}
+.ftq-partner-discovery a{color:#fff!important;font-weight:900;text-underline-offset:3px}
+@media(max-width:768px){#navbar .nav-links a.ftq-partner-nav{display:block;width:100%;padding:12px 14px!important}}

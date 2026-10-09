@@ -1,0 +1,79 @@
+/* Freshtiq Partner Program — responsive, standalone, brand-consistent. */
+:root{color-scheme:dark;--night:#071422;--ink:#eef9ff;--muted:#b1c7d6;--teal:#4be6d2;--blue:#35aafa;--line:rgba(153,202,230,.22);--panel:#0e2336;--panel2:#102c41}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0%,#123e58 0%,transparent 38%),var(--night);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--teal)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ffd67b;outline-offset:3px}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+.navbar{background:rgba(5,17,29,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(20px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:74px}
+.brand img{width:166px;height:auto;display:block;max-height:52px}
+.nav-items{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:14px}
+.nav-items a{text-decoration:none;color:#d5e7f1;font-weight:650}
+.nav-items a:hover{color:var(--teal)}
+.nav-items a.nav-join{border:1px solid var(--teal);border-radius:100px;padding:8px 14px;color:var(--teal)}
+.hero{padding:76px 0 50px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:390px;height:390px;border-radius:100%;background:rgba(28,171,173,.12);filter:blur(60px);right:-150px;top:-80px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.75fr);gap:42px;align-items:center}
+.eyebrow{color:var(--teal);font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+h1,h2,h3,h4,p{margin-top:0}
+h1{font-size:clamp(2.5rem,5.5vw,4.2rem);line-height:1.08;letter-spacing:-.04em;margin:17px 0 22px}
+h1 em{font-style:normal;color:var(--teal)}
+.lead{font-size:1.13rem;color:#c6dae9;max-width:630px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.cta{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;font-weight:800;padding:13px 20px;text-decoration:none;min-height:47px;cursor:pointer;font:inherit}
+.cta.primary{background:linear-gradient(135deg,#20dbc0,#39acf9);color:#061521;font-weight:850}
+.cta.secondary{background:#163149;border:1px solid var(--line);color:#f0fbff}
+.cta:hover{filter:brightness(1.12)}
+.small{font-size:.85rem;color:var(--muted)}
+.glass{background:linear-gradient(155deg,rgba(20,57,76,.94),rgba(9,26,43,.97));border:1px solid var(--line);box-shadow:0 20px 65px rgba(0,0,0,.26);border-radius:22px;padding:28px}
+.hero-panel strong{font-size:3.9rem;line-height:1;color:var(--teal);display:block;letter-spacing:-.06em}
+.hero-panel h2{font-size:1.15rem;margin:14px 0 7px}
+.hero-panel .small{margin:0}
+.kpis{display:flex;gap:10px;margin:22px 0 0}
+.kpis span{font-size:.85rem;background:#17344b;border:1px solid var(--line);padding:8px 11px;border-radius:9px}
+.section{padding:56px 0}
+.section-head{max-width:730px;margin-bottom:26px}
+.section h2{font-size:clamp(1.65rem,3vw,2.4rem);letter-spacing:-.025em;line-height:1.2}
+.section-head p{color:var(--muted)}
+.columns3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tier{background:rgba(12,37,55,.89);border:1px solid var(--line);padding:25px;border-radius:20px}
+.tier.featured{border-color:rgba(75,230,210,.72);background:linear-gradient(180deg,#123c4d,#102637)}
+.tier h3{font-size:1.05rem;margin:0}
+.tier .percent{font-size:2.8rem;font-weight:900;color:var(--teal);line-height:1.22;margin:10px 0}
+.tier p{color:#c8dce8;margin:0}
+.tag{font-size:11px;text-transform:uppercase;font-weight:900;letter-spacing:.1em;color:#a6f3e8}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.step{border-left:2px solid #42c7c6;padding:0 13px}
+.step span{color:var(--teal);font-size:12px;font-weight:900}
+.step strong{display:block;margin:7px 0}
+.step p{color:var(--muted);font-size:14px;margin:0}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.form-card h2{margin-bottom:8px}
+.form-card>p{color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.form-row{margin-bottom:16px}
+label{display:block;color:#d7ebf7;font-size:13px;font-weight:700}
+label>input:not([type=checkbox]),label>select,label>textarea{display:block;background:#0b1d30;border:1px solid #45647c;color:#f2fbff;border-radius:11px;padding:12px 13px;width:100%;font:inherit;font-size:15px;margin-top:7px}
+label>input::placeholder,label>textarea::placeholder{color:#86a5ba}
+label>select{min-height:47px}
+.checkline{display:flex;gap:10px;align-items:flex-start;line-height:1.5;font-weight:450;color:#cbdfe9;margin:13px 0}
+.checkline input{width:18px;height:18px;flex:0 0 18px;accent-color:#2ed7c5;margin:3px 0 0}
+.full{width:100%;margin-top:12px}
+.notice{margin:15px 0 0;border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-height:44px;color:#d2e9f3;background:#0d2538;font-size:14px}
+.notice.error{border-color:#e07a85;color:#ffe2e3}
+.notice.success{border-color:#44d7b2;color:#bbfff0}
+.note-list{list-style:none;padding:0;margin:0}
+.note-list li{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);color:#c8dce9}
+.note-list li:before{content:"✓";color:var(--teal);font-weight:900}
+.demo-calc{margin-top:20px;background:#092135;border:1px solid var(--line);padding:19px;border-radius:16px}
+.demo-calc output{font-size:2rem;font-weight:900;color:var(--teal);display:block}
+#partnerDashboard{margin-top:18px}
+.res-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);gap:8px}
+.res-row span{color:var(--muted);font-size:.9rem}
+#partnerReferrals .res-row{align-items:flex-start}
+footer{border-top:1px solid var(--line);margin-top:50px;padding:28px 0;color:var(--muted)}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+footer a{font-size:13px}
+.honeypot{position:absolute!important;left:-9999px!important;height:1px!important;width:1px!important;opacity:0!important;pointer-events:none}
+@media(max-width:850px){.hero-grid,.panel-grid{grid-template-columns:1fr}.columns3{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.hero{padding-top:46px}.nav-items{gap:9px}}
+@media(max-width:540px){.wrap{padding:0 16px}.nav-inner{flex-wrap:wrap;padding:11px 0}.nav-items{width:100%;font-size:12px;justify-content:space-between}.brand img{width:146px}.hero-panel strong{font-size:3rem}.glass{padding:20px}.form-grid{grid-template-columns:1fr;gap:0}.steps{grid-template-columns:1fr}.section{padding:38px 0}.hero-actions .cta{width:100%}}
