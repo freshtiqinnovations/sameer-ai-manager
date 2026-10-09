@@ -67,7 +67,21 @@
     if(adsEnabled()) d.classList.add('ftq-consent-measurement');
     const copy=adsEnabled()?'Essential site functions always work. Optional analytics measures visits. Separate OpenAI ad measurement connects successful enquiries to our ads.':'Essential site functions always work. Optional analytics helps us understand visits and improve the website.';
     const buttons=adsEnabled()?'<button type="button" data-choice="denied">Essential only</button><button type="button" data-choice="granted">Analytics only</button><button type="button" class="primary" data-choice="measurement">Allow analytics + ad measurement</button>':'<button type="button" data-choice="denied">Essential only</button><button type="button" class="primary" data-choice="granted">Allow analytics</button>';
+    const locale=(document.documentElement.lang||'en').toLowerCase().slice(0,2);
+    const ui={
+      ar:{title:'خيارات الخصوصية',copy:'تعمل الوظائف الأساسية دائماً. التحليلات اختيارية وتساعدنا في تحسين الموقع. قد تُستخدم بيانات قياس الإعلانات بعد موافقتك.',essential:'الضروري فقط',analytics:'السماح بالتحليلات',analyticsOnly:'التحليلات فقط',measurement:'السماح بالتحليلات وقياس الإعلانات',privacy:'تفاصيل الخصوصية (بالإنجليزية)'},
+      hi:{title:'गोपनीयता विकल्प',copy:'ज़रूरी वेबसाइट सुविधाएँ हमेशा चलती हैं। वैकल्पिक विश्लेषण से वेबसाइट बेहतर बनाने में मदद मिलती है। विज्ञापन मापने की अनुमति अलग से ली जाती है।',essential:'केवल ज़रूरी',analytics:'विश्लेषण की अनुमति दें',analyticsOnly:'सिर्फ़ विश्लेषण',measurement:'विश्लेषण और विज्ञापन मापन की अनुमति',privacy:'गोपनीयता विवरण (अंग्रेज़ी में)'},
+      ur:{title:'رازداری کا انتخاب',copy:'ویب سائٹ کی ضروری سہولتیں ہمیشہ کام کرتی ہیں۔ اختیاری تجزیہ ویب سائٹ کو بہتر بناتا ہے۔ اشتہاری پیمائش آپ کی اجازت سے ہوتی ہے۔',essential:'صرف ضروری',analytics:'تجزیے کی اجازت دیں',analyticsOnly:'صرف تجزیہ',measurement:'تجزیے اور اشتہاری پیمائش کی اجازت',privacy:'رازداری کی تفصیل (انگریزی میں)'}
+    }[locale];
+    if(ui){
+      const localizedButtons=adsEnabled()
+        ? '<button type="button" data-choice="denied">'+ui.essential+'</button><button type="button" data-choice="granted">'+ui.analyticsOnly+'</button><button type="button" class="primary" data-choice="measurement">'+ui.measurement+'</button>'
+        : '<button type="button" data-choice="denied">'+ui.essential+'</button><button type="button" class="primary" data-choice="granted">'+ui.analytics+'</button>';
+      d.setAttribute('aria-label',ui.title);
+      d.innerHTML='<div class="ftq-consent-copy"><strong>'+ui.title+'</strong><span>'+ui.copy+'</span><a href="/privacy.html#analytics">'+ui.privacy+'</a></div><div class="ftq-consent-actions">'+localizedButtons+'</div>';
+    }else{
     d.innerHTML='<div class="ftq-consent-copy"><strong>Privacy choice</strong><span>'+copy+'</span><a href="/privacy.html#analytics">Privacy details</a></div><div class="ftq-consent-actions">'+buttons+'</div>';
+    }
     d.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b)setChoice(b.dataset.choice)});
     document.body.appendChild(d);
   }
