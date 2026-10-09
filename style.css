@@ -1159,3 +1159,138 @@ footer:before,.home-premium footer:before {
 @media (prefers-reduced-motion:reduce) {
   .fx-primary,.btn-primary,.lead-submit {transition:none!important}
 }
+
+/* Freshtiq 2026-10-09 — SAME aqua/turquoise as Book Strategy Call.
+   Premium navy surfaces remain dark; only actionable blue accents are cyan.
+   Scoped high-specificity declarations override old 2025 button-lock rules. */
+:root{
+ --ftq-cyan-light:#0be8df;
+ --ftq-cyan-dark:#06d2ee;
+ --ftq-cyan-gradient:linear-gradient(105deg,#0ce7db 0%,#09e1e6 55%,#07d0f4 100%);
+ --ftq-cyan-ink:#06313a;
+ --ftq-cyan-glow:0 12px 28px rgba(6,213,225,.20);
+ --ftq-strategy-gradient:var(--ftq-cyan-gradient);
+ --gradient:var(--ftq-cyan-gradient);
+ --primary:#06d8de;
+ --primary-light:#13e4e7;
+}
+html body #navbar .nav-links a.nav-cta,
+html body #navbar .nav-links a.nav-cta:hover,
+html body .fx-primary,
+html body .fx-primary:hover,
+html body .btn-primary,
+html body .btn-premium,
+html body .premium-primary,
+html body .lead-submit,
+html body .premium-audit-card .lead-submit,
+html body .fx-hero-actions a.fx-primary,
+html body .fx-final-actions a.fx-primary,
+html body .sticky-mobile-cta a:first-child,
+html body .cta-primary,
+html body .primary-cta,
+html body .ind-cta,
+html body .filter-btn.active,
+html body .price-control-group button.active,
+html body .price-service-card a,
+html body .track-form button,
+html body .ft-handoff-save,
+html body a.store-quote-btn,
+html body a.store-demo-btn,
+html body a.partner-wa-btn,
+html body button[type=submit]:not(.secondary):not(.danger),
+html body .ftq-workspace-entry a:hover{
+ background:var(--ftq-cyan-gradient)!important;
+ background-image:var(--ftq-cyan-gradient)!important;
+ background-color:#08dbe5!important;
+ color:var(--ftq-cyan-ink)!important;
+ border-color:rgba(10,231,220,.72)!important;
+ box-shadow:var(--ftq-cyan-glow)!important;
+}
+html body #navbar .nav-links a.nav-cta *,
+html body .fx-primary *,
+html body .btn-primary *,
+html body .premium-primary *,
+html body .lead-submit *,
+html body .sticky-mobile-cta a:first-child *{
+ color:var(--ftq-cyan-ink)!important;
+}
+/* Old global a[href*="wa.me"] rule made this informational card electric blue. */
+html body.fx-home .fx-channel-grid > a.fx-channel-card[href*="wa.me"],
+html body.fx-home .fx-channel-grid > a.fx-channel-card[href*="wa.me"]:hover,
+html body .fx-channel-grid > a.fx-channel-card[href*="wa.me"]{
+ background:var(--ftq-cyan-gradient)!important;
+ background-image:var(--ftq-cyan-gradient)!important;
+ background-color:#08dbe5!important;
+ color:var(--ftq-cyan-ink)!important;
+ border:1px solid #54eae8!important;
+ border-radius:18px!important;
+ box-shadow:0 14px 30px rgba(0,210,225,.16)!important;
+}
+html body .fx-channel-grid > a.fx-channel-card[href*="wa.me"] strong,
+html body .fx-channel-grid > a.fx-channel-card[href*="wa.me"] small,
+html body .fx-channel-grid > a.fx-channel-card[href*="wa.me"] span{
+ color:#05343d!important;
+ opacity:1!important;
+}
+html body .fx-channel-grid > a.fx-channel-card[href*="wa.me"] .fx-channel-badge{
+ background:rgba(1,59,67,.12)!important;color:#03424b!important;
+}
+html body .fx-channel-badge,
+html body .fx-system-card em{
+ background:rgba(6,220,225,.12)!important;
+ color:#77f4ef!important;
+}
+html body .fx-channel-grid > a.fx-channel-card:not([href*="wa.me"]),
+html body .fx-channel-grid > a.fx-channel-card:not([href*="wa.me"]):hover{
+ background:linear-gradient(180deg,rgba(6,44,61,.55),rgba(3,17,39,.94))!important;
+ background-image:linear-gradient(180deg,rgba(6,44,61,.55),rgba(3,17,39,.94))!important;
+ color:#efffff!important;
+ border:1px solid rgba(65,219,224,.26)!important;
+ border-radius:18px!important;
+ box-shadow:none!important;
+}
+html body .fx-hero h1 span,
+html body .hero h1 .gradient-text,
+html body .section-header h2 .gradient-text,
+html body .gradient-text,
+html body .fx-gradient-text{
+ background:linear-gradient(110deg,#51fff1,#09dbef)!important;
+ background-clip:text!important;
+ -webkit-background-clip:text!important;
+ color:transparent!important;
+ -webkit-text-fill-color:transparent!important;
+}
+html body .fx-eyebrow,html body .fx-kicker,
+html body .fx-cap-link,html body .fx-work-step .step-num,
+html body .pricing-price,html body .fx-review-stars{
+ color:#47e9ed!important;
+}
+html body .fx-kicker:before,
+html body .track-progress span,
+html body .premium-hero .premium-eyebrow span,
+html body .growth-lead-card:before{
+ background:var(--ftq-cyan-gradient)!important;
+}
+html body .fx-primary:hover,
+html body .nav-cta:hover{
+ filter:brightness(1.05);
+ transform:translateY(-1px)!important;
+}
+html body .fx-channel-card:focus-visible,
+html body a:focus-visible,
+html body button:focus-visible{
+ outline-color:#52efdf!important;
+}
+.ftq-made-india{
+ position:fixed;
+ bottom:22px;left:16px;z-index:780;
+ display:inline-flex;align-items:center;gap:7px;
+ background:rgba(3,24,36,.95);color:#e7ffff;
+ border:1px solid rgba(49,239,213,.58);border-radius:100px;
+ padding:8px 12px;font:800 12px/1.2 system-ui,-apple-system,sans-serif;
+ box-shadow:0 5px 22px rgba(0,0,0,.25);
+ pointer-events:none;
+}
+.ftq-made-india .ftq-flag{font-size:18px;line-height:1}
+@media(max-width:768px){.ftq-made-india{bottom:82px;left:12px;font-size:11px;padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){html body .fx-primary,html body .fx-channel-card{transition:none!important}}
