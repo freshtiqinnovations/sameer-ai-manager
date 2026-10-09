@@ -1,0 +1,439 @@
+/* FRESHTIQ PREMIUM SYSTEM / ACCESSIBLE THEMES — 2026-10-09.
+   Palette: deep-navy #071321, pure near-white #f6fbff, brand aqua #0ce7db.
+   Inspired by clear, restrained SaaS design. Preserves distinct green WhatsApp CTAs.
+   No color-on-color overlays, no gradient text in CTA buttons. */
+html[data-ftq-theme="dark"] { color-scheme:dark; --ftq-surface:#071321;--ftq-paper:#0d2335;--ftq-ink:#f6fbff;--ftq-copy:#d4e5ef;--ftq-dim:#bed0dc;--ftq-edge:#34566d }
+html[data-ftq-theme="light"] { color-scheme:light;--ftq-surface:#f6f9fc;--ftq-paper:#fff;--ftq-ink:#102638;--ftq-copy:#34495c;--ftq-dim:#44596b;--ftq-edge:#cbdde5 }
+/* Header mode control remains legible in either mode. */
+html body .ftq-theme-control {
+ appearance:none!important;isolation:isolate;
+ display:inline-flex!important;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;
+ min-width:110px;min-height:38px;max-height:44px;
+ background:#0c3040!important;color:#f5ffff!important;
+ border:1px solid #55afbb!important;border-radius:12px!important;
+ padding:8px 11px!important;margin-inline-start:8px!important;
+ font:750 12px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif!important;
+ letter-spacing:.01em!important;white-space:nowrap!important;cursor:pointer!important;
+ box-shadow:none!important;opacity:1!important;text-shadow:none!important;
+}
+html body .ftq-theme-control .ftq-theme-icon {font-size:17px!important;color:#9bf8ee!important}
+html body .ftq-theme-control .ftq-theme-label{color:inherit!important;font-weight:750!important}
+html body .ftq-theme-control:hover{background:#104556!important;border-color:#0ce7db!important}
+html body .ftq-theme-control:focus-visible{outline:3px solid #0ce7db!important;outline-offset:3px!important}
+html body .ftq-mode-floating{position:fixed!important;top:90px!important;right:12px!important;z-index:920!important}
+html body #navbar .nav-inner>.ftq-mode-in-nav{margin-left:auto!important}
+html body.fx-home #navbar .nav-inner>.ftq-mode-in-nav{position:relative!important}
+/* Crisp headings and readable body text in the existing dark UI */
+html[data-ftq-theme="dark"] body.fx-home,
+html[data-ftq-theme="dark"] body.fx-premium-page {color:#edf7ff!important;background:#071321!important}
+html[data-ftq-theme="dark"] body.fx-home .fx-section-head h2,
+html[data-ftq-theme="dark"] body.fx-home .fx-channel-copy h2,
+html[data-ftq-theme="dark"] body.fx-home .fx-final-box h2,
+html[data-ftq-theme="dark"] body.fx-premium-page h1,
+html[data-ftq-theme="dark"] body.fx-premium-page h2,
+html[data-ftq-theme="dark"] body.fx-premium-page h3 {color:#fff!important;font-weight:850!important;text-shadow:none!important}
+html[data-ftq-theme="dark"] body.fx-home .fx-section-head p,
+html[data-ftq-theme="dark"] body.fx-home .fx-channel-copy>p,
+html[data-ftq-theme="dark"] body.fx-home .fx-final-box>p,
+html[data-ftq-theme="dark"] body.fx-premium-page .section p,
+html[data-ftq-theme="dark"] body.fx-premium-page .section li {color:#d5e4f2!important;opacity:1!important}
+html[data-ftq-theme="dark"] body.fx-home .fx-hero-copy>p,
+html[data-ftq-theme="dark"] body.fx-home .fx-hero-note,
+html[data-ftq-theme="dark"] body.fx-home .fx-flow-copy span {color:#d0e2ef!important;opacity:1!important}
+html[data-ftq-theme="dark"] body.fx-home .fx-final-actions a.fx-secondary[href*="wa.me"],
+html[data-ftq-theme="dark"] body.fx-home .fx-final-actions a.fx-secondary[href*="wa.me"] span,
+html[data-ftq-theme="dark"] body.fx-premium-page a.fx-primary,
+html[data-ftq-theme="dark"] body.fx-premium-page a.btn-primary {
+ color:#06313a!important;font-weight:850!important;-webkit-text-fill-color:#06313a!important;
+}
+html[data-ftq-theme="dark"] body.fx-home .fx-final-actions a.fx-secondary:not([href*="wa.me"]){
+ color:#fff!important;font-weight:750!important;
+ background:#143249!important;border:1px solid #44687f!important;
+}
+html[data-ftq-theme="dark"] body.fx-home footer .footer-col a,
+html[data-ftq-theme="dark"] body.fx-home footer .footer-col span,
+html[data-ftq-theme="dark"] body.fx-home footer p{color:#e1edfa!important;opacity:1!important}
+html[data-ftq-theme="dark"] body.fx-home footer .footer-heading{color:#fff!important;font-weight:850!important}
+/* Any bright aqua backgrounds always need dark, strongly weighted foreground. */
+html body.fx-home .fx-final-actions a[href*="wa.me"],
+html body.fx-home .fx-final-actions a[href*="wa.me"] *,
+html body.fx-home a.fx-primary,html body.fx-home a.fx-primary *,
+html body.fx-home .lead-submit, html body.fx-home #navbar a.nav-cta,
+html body.fx-premium-page a.nav-cta,
+html body.fx-premium-page .nav a.nav-cta {
+ color:#06313a!important;-webkit-text-fill-color:#06313a!important;
+ text-shadow:none!important;font-weight:850!important;
+}
+html body.fx-home .fx-final-actions a[href*="wa.me"]{
+ background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;
+ border:1px solid #46f3e0!important;
+ box-shadow:0 7px 22px rgba(7,199,207,.15)!important;
+}
+/* On intentional dark cards (not the aqua WhatsApp card), keep white text white. */
+html body.fx-home .fx-channel-grid a.fx-channel-card:not([href*="wa.me"]) strong{
+ color:#f6fcff!important;-webkit-text-fill-color:#f6fcff!important;font-weight:830!important;
+}
+html body.fx-home .fx-channel-grid a.fx-channel-card:not([href*="wa.me"]) small{
+ color:#d1e1ee!important;opacity:1!important;
+}
+html body.fx-home .fx-channel-grid a.fx-channel-card[href*="wa.me"] strong,
+html body.fx-home .fx-channel-grid a.fx-channel-card[href*="wa.me"] small{
+ color:#06313a!important;-webkit-text-fill-color:#06313a!important;font-weight:850!important;
+}
+/* Light mode: full-page readable surfaces, not a white text on white card overlay.
+   Navigation/footer stay midnight for brand identity; the main experience changes. */
+html[data-ftq-theme="light"] body.fx-home,
+html[data-ftq-theme="light"] body.fx-premium-page{
+ color:#172c40!important;background:#f6f9fc!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-home-main,
+html[data-ftq-theme="light"] body.fx-home .fx-section,
+html[data-ftq-theme="light"] body.fx-home .fx-section.soft,
+html[data-ftq-theme="light"] body.fx-home .fx-final,
+html[data-ftq-theme="light"] body.fx-home .fx-channel-trust,
+html[data-ftq-theme="light"] body.fx-home .fx-trust,
+html[data-ftq-theme="light"] body.fx-home .fx-review-section {
+ background:#f6f9fc!important;color:#172c40!important;border-color:#d4e1e8!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-section.soft{background:#eef4f7!important}
+html[data-ftq-theme="light"] body.fx-home .fx-hero{
+ background:radial-gradient(circle at 84% 18%,rgba(9,225,230,.14),transparent 29%),
+            linear-gradient(135deg,#f6fcff,#eaf5f9 68%,#f3f8fb)!important;
+ color:#102639!important;
+ border-color:#cde1e6!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero:before{opacity:.13!important}
+html[data-ftq-theme="light"] body.fx-home .fx-hero:after{opacity:.06!important}
+html[data-ftq-theme="light"] body.fx-home .fx-hero h1,
+html[data-ftq-theme="light"] body.fx-home .fx-section-head h2,
+html[data-ftq-theme="light"] body.fx-home .fx-channel-copy h2,
+html[data-ftq-theme="light"] body.fx-home .fx-audit-copy h2,
+html[data-ftq-theme="light"] body.fx-home .fx-section .fx-section-head h2{
+ color:#102638!important;text-shadow:none!important;font-weight:850!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero-copy>p,
+html[data-ftq-theme="light"] body.fx-home .fx-section-head p,
+html[data-ftq-theme="light"] body.fx-home .fx-channel-copy>p,
+html[data-ftq-theme="light"] body.fx-home .fx-audit-copy p{
+ color:#344e61!important;font-weight:550!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero-note{color:#3a596b!important}
+html[data-ftq-theme="light"] body.fx-home .fx-hero .fx-secondary {
+ background:#fff!important;color:#133249!important;border:1px solid #9ab6c7!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero .fx-secondary *,
+html[data-ftq-theme="light"] body.fx-home .fx-hero .fx-secondary{color:#153247!important;-webkit-text-fill-color:#153247!important}
+html[data-ftq-theme="light"] body.fx-home .fx-console,
+html[data-ftq-theme="light"] body.fx-home .fx-channel-grid a.fx-channel-card:not([href*="wa.me"]),
+html[data-ftq-theme="light"] body.fx-home .fx-flow-row,
+html[data-ftq-theme="light"] body.fx-home .fx-final-box{
+ background:#102739!important;color:#f6fbff!important;
+ border:1px solid #33586b!important;
+ box-shadow:0 12px 32px rgba(16,42,58,.13)!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-final-box h2{color:#fff!important}
+html[data-ftq-theme="light"] body.fx-home .fx-final-box p{color:#d4e5ee!important}
+html[data-ftq-theme="light"] body.fx-home .fx-work-step,
+html[data-ftq-theme="light"] body.fx-home .fx-cap-card,
+html[data-ftq-theme="light"] body.fx-home .fx-audit,
+html[data-ftq-theme="light"] body.fx-home .fx-faq .faq-item,
+html[data-ftq-theme="light"] body.fx-home .fx-industry,
+html[data-ftq-theme="light"] body.fx-home .fx-review-card,
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot,
+html[data-ftq-theme="light"] body.fx-home .fx-trust-item{
+ background:#fff!important;color:#183146!important;
+ border-color:#cfdee6!important;box-shadow:0 10px 26px rgba(20,49,63,.06)!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-work-step h3,
+html[data-ftq-theme="light"] body.fx-home .fx-cap-card h3,
+html[data-ftq-theme="light"] body.fx-home .fx-work-step p,
+html[data-ftq-theme="light"] body.fx-home .fx-cap-card p,
+html[data-ftq-theme="light"] body.fx-home .fx-industry strong,
+html[data-ftq-theme="light"] body.fx-home .fx-faq .faq-q,
+html[data-ftq-theme="light"] body.fx-home .fx-audit-list span{
+ color:#203a4e!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-work-step p,
+html[data-ftq-theme="light"] body.fx-home .fx-cap-card p{color:#466176!important}
+html[data-ftq-theme="light"] body.fx-home .fx-audit label{
+ color:#20384b!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-audit input:not([type=checkbox]),
+html[data-ftq-theme="light"] body.fx-home .fx-audit select{
+ background:#fff!important;color:#193449!important;border:1px solid #acc3d1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-audit .lead-consent,
+html[data-ftq-theme="light"] body.fx-home .fx-audit .lead-consent span{color:#354c61!important}
+html[data-ftq-theme="light"] body.fx-home .fx-section .fx-eyebrow{color:#006d75!important}
+html[data-ftq-theme="light"] body.fx-home .fx-trust-item strong{color:#17364b!important}
+html[data-ftq-theme="light"] body.fx-home .fx-trust-item span{color:#435a6a!important}
+/* Other premium marketing pages: light backgrounds and contrasting article cards. */
+html[data-ftq-theme="light"] body.fx-premium-page .page-header,
+html[data-ftq-theme="light"] body.fx-premium-page .case-header,
+html[data-ftq-theme="light"] body.fx-premium-page .product-hero,
+html[data-ftq-theme="light"] body.fx-premium-page .hero-section,
+html[data-ftq-theme="light"] body.fx-premium-page .hero,
+html[data-ftq-theme="light"] body.fx-premium-page .pricing-hero,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-hero{
+ background:linear-gradient(130deg,#e9f5fa,#f8fbfe)!important;color:#162d42!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .page-header h1,
+html[data-ftq-theme="light"] body.fx-premium-page .page-header h2,
+html[data-ftq-theme="light"] body.fx-premium-page .case-header h1,
+html[data-ftq-theme="light"] body.fx-premium-page .product-hero h1,
+html[data-ftq-theme="light"] body.fx-premium-page .hero-section h1,
+html[data-ftq-theme="light"] body.fx-premium-page .hero h1,
+html[data-ftq-theme="light"] body.fx-premium-page .pricing-hero h1,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-hero h1{
+ color:#102b3f!important;font-weight:850!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .page-header p,
+html[data-ftq-theme="light"] body.fx-premium-page .case-header p,
+html[data-ftq-theme="light"] body.fx-premium-page .product-hero p,
+html[data-ftq-theme="light"] body.fx-premium-page .hero p{
+ color:#3e576a!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-body{
+ background:#f6f9fc!important;border-color:#d7e5eb!important;color:#193247!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section h2,
+html[data-ftq-theme="light"] body.fx-premium-page .section h3{
+ color:#163249!important;font-weight:820!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section p,
+html[data-ftq-theme="light"] body.fx-premium-page .section li{
+ color:#344f63!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .glass-card,
+html[data-ftq-theme="light"] body.fx-premium-page .case-card,
+html[data-ftq-theme="light"] body.fx-premium-page .result-card,
+html[data-ftq-theme="light"] body.fx-premium-page .faq-item,
+html[data-ftq-theme="light"] body.fx-premium-page .price-service-card,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-index-card,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-aside-card {
+ background:#fff!important;border:1px solid #d1e1e8!important;color:#193247!important;
+ box-shadow:0 9px 24px rgba(15,43,62,.06)!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .price-service-name,
+html[data-ftq-theme="light"] body.fx-premium-page .price-service-amount,
+html[data-ftq-theme="light"] body.fx-premium-page .glass-card h2,
+html[data-ftq-theme="light"] body.fx-premium-page .glass-card h3,
+html[data-ftq-theme="light"] body.fx-premium-page .case-card h3,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-index-card h2,
+html[data-ftq-theme="light"] body.fx-premium-page .faq-q{
+ color:#102c40!important;font-weight:820!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .faq-a p,
+html[data-ftq-theme="light"] body.fx-premium-page .insight-index-card p{
+ color:#435b6d!important;
+}
+/* Preserve dark nav and footer in both themes, with bold readable white words. */
+html body #navbar,
+html body.fx-home footer,
+html body.fx-premium-page footer{
+ background:#071726!important;color:#eaf7fc!important;
+}
+html body #navbar .nav-links a:not(.nav-cta){color:#edf7ff!important;font-weight:730!important}
+html body.fx-home footer h2,
+html body.fx-home footer h3,
+html body.fx-home footer .footer-heading,
+html body.fx-premium-page footer h2,
+html body.fx-premium-page footer h3{color:#fff!important;font-weight:850!important}
+html body.fx-home footer a,
+html body.fx-premium-page footer a{color:#d9eaf4!important;font-weight:730!important}
+html body.fx-home footer a:hover,
+html body.fx-premium-page footer a:hover{color:#85f2e8!important}
+/* Buttons remain readable even after old !important color rules. */
+html body a.fx-primary,
+html body a.fx-primary *,
+html body button.lead-submit,
+html body #navbar .nav-links a.nav-cta,
+html body .fx-final-actions a[href*="wa.me"],
+html body .fx-final-actions a[href*="wa.me"] *,
+html body.fx-home .ftq-workspace-entry a[href="/#free-audit"] *,
+html body.fx-home .fx-channel-card[href*="wa.me"] strong,
+html body.fx-home .fx-channel-card[href*="wa.me"] small {
+ color:#06313a!important;-webkit-text-fill-color:#06313a!important;text-shadow:none!important;font-weight:850!important;
+}
+html body .fx-final-actions a.fx-secondary[href*="wa.me"]{
+ background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;border-color:#41e9da!important;
+}
+/* Adaptible layout without overlapping the navigation controls */
+@media(max-width:1050px){
+ html body #navbar .nav-inner>.ftq-mode-in-nav{margin-inline-start:auto!important}
+}
+@media(max-width:720px){
+ html body #navbar .nav-inner>.ftq-mode-in-nav{
+   margin-inline-start:4px!important;min-width:44px!important;width:44px!important;
+   padding:8px!important;
+ }
+ html body #navbar .nav-inner>.ftq-mode-in-nav .ftq-theme-label{display:none!important}
+ html body .ftq-theme-control{font-size:11px!important}
+ html body .ftq-mode-floating{right:9px!important;top:79px!important}
+}
+@media(prefers-reduced-motion:reduce){html body .ftq-theme-control{transition:none!important}}
+
+/* Locale and Freshtiq Ads: same dark/light tokens; language direction is preserved. */
+html[data-ftq-theme="dark"] body:has(#localized-lead),
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) {
+ background:#071321!important;color:#e9f5fd!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) header,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) header {
+ background:#0d2435!important;border-color:#36576a!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .brand,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .brand,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .langs a,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .langs a {
+ color:#edfaff!important;border-color:#456d7f!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .form,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .form,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .card,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .card,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .faq details,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .faq details {
+ background:#10283a!important;color:#f1faff!important;border-color:#466b7c!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .form p,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .form p,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .card p,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .card p {
+ color:#d3e3ed!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .field,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .field{
+ color:#f2fcff!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .field input,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .field select,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .field input,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .field select {
+ background:#071d2d!important;color:#f1faff!important;border-color:#588494!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .main,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .main,
+html[data-ftq-theme="dark"] body:has(#localized-lead) .light,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .light{
+ background:#071321!important;color:#eaf7ff!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .hero{
+ background:linear-gradient(145deg,#061522,#0d3243 68%,#073a42)!important
+}
+html[data-ftq-theme="dark"] body:has(#localized-lead) .notice,
+html[data-ftq-theme="dark"] body:has(#adsLeadForm) .notice {
+ color:#cee1ea!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead),
+html[data-ftq-theme="light"] body:has(#adsLeadForm){
+ background:#f7fafc!important;color:#18374b!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) header,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) header{
+ background:#fff!important;border-color:#d0e1e9!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero{
+ background:linear-gradient(135deg,#f3fafc,#dff4f1)!important;color:#18374b!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero h1,
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero p,
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero .eyebrow{
+ color:#19394e!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero h1 em{
+ color:#087e83!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero .pills span{
+ background:#fff!important;color:#1c4154!important;border-color:#a6cad2!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .form,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) .form,
+html[data-ftq-theme="light"] body:has(#localized-lead) .card,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) .card,
+html[data-ftq-theme="light"] body:has(#localized-lead) .faq details{
+ background:#fff!important;color:#18374b!important;border-color:#ccdee6!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .main,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) .main{
+ background:#f8fbfc!important;color:#18374b!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .main.light,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) .main.light{
+ background:#edf5f7!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .notice,
+html[data-ftq-theme="light"] body:has(#adsLeadForm) .notice{
+ color:#466072!important
+}
+html[data-ftq-theme="light"] body:has(#localized-lead) .hero .anchor{
+ background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;
+ color:#06313a!important;font-weight:850!important
+}
+html body:has(#localized-lead) button[type=submit],
+html body:has(#adsLeadForm) button[type=submit]{
+ background:linear-gradient(105deg,#0ce7db,#09e1e6 55%,#07d0f4)!important;
+ color:#06313a!important;font-weight:850!important
+}
+/* Partner program: accessible bright card design when visitor chooses light. */
+html[data-ftq-theme=light] body:has(#partnerApplication),
+html[data-ftq-theme=light] body:has(#partnerNotifications){
+ background:#f6fafc!important;color:#143248!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) .navbar,
+html[data-ftq-theme=light] body:has(#partnerNotifications) .navbar{
+ background:#fff!important;border-color:#cee0e8!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) h1,
+html[data-ftq-theme=light] body:has(#partnerApplication) h2,
+html[data-ftq-theme=light] body:has(#partnerNotifications) h1,
+html[data-ftq-theme=light] body:has(#partnerNotifications) h2 {
+ color:#15364a!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) .lead,
+html[data-ftq-theme=light] body:has(#partnerNotifications) .lead{
+ color:#3c566b!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) .glass,
+html[data-ftq-theme=light] body:has(#partnerNotifications) .glass,
+html[data-ftq-theme=light] body:has(#partnerApplication) .card,
+html[data-ftq-theme=light] body:has(#partnerNotifications) .card {
+ background:#fff!important;color:#17394c!important;border:1px solid #d4e4eb!important;
+ box-shadow:0 12px 26px rgba(20,56,74,.06)!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) .glass p,
+html[data-ftq-theme=light] body:has(#partnerNotifications) .glass p{
+ color:#41596b!important
+}
+html[data-ftq-theme=light] body:has(#partnerApplication) input,
+html[data-ftq-theme=light] body:has(#partnerApplication) select,
+html[data-ftq-theme=light] body:has(#partnerNotifications) input{
+ background:#fff!important;color:#19384e!important;border-color:#b8d1dd!important
+}
+
+/* Late regression: all bright aqua partner CTAs must use dark, readable ink. */
+html body a.nav-join, html body a.nav-join:visited,html body a.nav-join:hover,
+html body a.cta.primary,html body a.cta.primary:visited,html body a.cta.primary:hover,
+html body button.cta.primary{
+ color:#06313a!important;-webkit-text-fill-color:#06313a!important;
+ font-weight:850!important;text-shadow:none!important;
+}
+
+/* Specificity > legacy partner navbar white-on-cyan rule. */
+html body .navbar a.nav-join,html body .navbar a.nav-join:visited,html body .navbar a.nav-join:hover{
+ color:#06313a!important;-webkit-text-fill-color:#06313a!important;font-weight:850!important;text-shadow:none!important
+}
+/* Compact legacy AI demo also responds to the visitor's display preference. */
+html[data-ftq-theme=dark] body.fx-demo-page{background:#071321!important;color:#effbff!important}
+html[data-ftq-theme=dark] body.fx-demo-page .page-header{
+ background:#10293a!important;color:#f5fbff!important
+}
+html[data-ftq-theme=dark] body.fx-demo-page .page-header h1{color:#fff!important;font-weight:850!important}
+html[data-ftq-theme=light] body.fx-demo-page{background:#f6fafc!important;color:#193749!important}
+html[data-ftq-theme=light] body.fx-demo-page .page-header{
+ background:#e9f5f9!important;color:#193749!important
+}
+html[data-ftq-theme=light] body.fx-demo-page .page-header h1{
+ color:#173b4c!important;-webkit-text-fill-color:#173b4c!important;font-weight:850!important
+}
