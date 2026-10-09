@@ -39,6 +39,8 @@ header{border-bottom:1px solid rgba(158,192,225,.19);background:rgba(4,15,32,.78
   <nav class="nav-actions" aria-label="Main navigation"><a href="/services.html">Services</a><a href="/pricing.html">Our Solutions</a><a class="nav-cta" href="#free-plan">Free Ads Plan →</a></nav>
  </div>
 </header>
+<div class="ads-lang-strip" aria-label="Select a language"><span>Plan advertising in your language:</span><a href="/freshtiq-ads/en/" hreflang="en">English</a><a href="/freshtiq-ads/ar/" hreflang="ar">العربية</a><a href="/freshtiq-ads/hi/" hreflang="hi">हिन्दी</a><a href="/freshtiq-ads/ur/" hreflang="ur">اردو</a><a href="/freshtiq-ads/es/" hreflang="es">Español</a><a href="/freshtiq-ads/fr/" hreflang="fr">Français</a><a href="/freshtiq-ads/pt/" hreflang="pt">Português</a><a href="/freshtiq-ads/de/" hreflang="de">Deutsch</a><a href="/freshtiq-ads/id/" hreflang="id">Bahasa Indonesia</a><a href="/freshtiq-ads/ml/" hreflang="ml">മലയാളം</a></div>
+<style>.ads-lang-strip{display:flex;align-items:center;justify-content:center;gap:9px 15px;flex-wrap:wrap;padding:13px 20px;background:#0e3650;color:#e4f8fd;font:650 13px/1.6 system-ui,Tahoma,sans-serif}.ads-lang-strip a{color:#72f6d5;font-weight:850;text-decoration:underline;text-underline-offset:3px}.ads-lang-strip a:focus-visible{outline:3px solid orange;outline-offset:2px}</style>
 <main>
 <section class="hero">
  <div class="wrap hero-grid">
@@ -90,11 +92,11 @@ header{border-bottom:1px solid rgba(158,192,225,.19);background:rgba(4,15,32,.78
   <div class="section-head"><div class="kicker">Customer-funded ad partners</div><h2>Pick the right platform, not just the cheapest click.</h2><p>Launch on the provider's own website after reviewing approved ad formats, target countries, funding requirements and creative policies.</p></div>
   <div class="partners">
    <article class="partner">
-    <div class="partner-tag">OPTION 01 · INITIAL REFERRAL CANDIDATE</div><h3>HilltopAds</h3>
+    <div class="partner-tag">OPTION 01 · FRESHTIQ REFERRAL PARTNER</div><h3>HilltopAds</h3>
     <p>Self-service ad platform for qualifying advertisers. Suitable for testing certain online products, apps and offers—not automatically the best option for every local business.</p>
     <ul><li>Customer funds their own advertising account.</li><li>Most payment methods require a <strong>$100 minimum deposit</strong>; wire transfer typically €500.</li><li>Creative and offer approval is controlled by HilltopAds.</li></ul>
-    <a class="btn outline" href="https://hilltopads.com/advertisers/ad-network-for-advertisers" target="_blank" rel="noopener noreferrer" data-provider="hilltopads">Visit HilltopAds official site ↗</a>
-    <div class="note">Official direct link only. Freshtiq's unique referral tracking link is <strong>not connected yet</strong>, so purchases using this link are not currently attributable to Freshtiq.</div>
+    <a class="btn outline" href="https://hilltopads.com/?ref=407683" target="_blank" rel="sponsored noopener noreferrer" data-provider="hilltopads" data-referral="true">Open HilltopAds via Freshtiq referral ↗</a>
+    <div class="note">This is Freshtiq's account-issued HilltopAds referral URL. If you register through it and become an active advertiser or publisher, Freshtiq may earn a referral commission from HilltopAds' profit—not a fixed percentage of your entire ad spend. Customers pay HilltopAds directly. Sign-up and traffic results are not guaranteed.</div>
    </article>
    <article class="partner">
     <div class="partner-tag">OPTION 02 · ELIGIBILITY-DEPENDENT</div><h3>TikTok for Business</h3>
@@ -147,8 +149,8 @@ header{border-bottom:1px solid rgba(158,192,225,.19);background:rgba(4,15,32,.78
 <section class="wrap">
  <div class="disclosure">
   <h3>Beta status, partner commissions and advertising safety</h3>
-  <p><strong>Current capability:</strong> free campaign planning, independent official partner links and Freshtiq CRM enquiry capture. <strong>Not currently available:</strong> one-click ad publishing inside Freshtiq, linked affiliate earnings, customer ad wallets or automated third-party payments.</p>
-  <p>Freshtiq may receive commission on future qualifying referrals using approved tracked partner links. At this time, the links shown above are direct informational links, <strong>not tracked affiliate links</strong>. We disclose this before any partner connection. No earnings accrue from simply submitting this form.</p>
+  <p><strong>Current capability:</strong> free campaign planning, independent official partner links and Freshtiq CRM enquiry capture. <strong>Not currently available:</strong> one-click ad publishing inside Freshtiq, verified affiliate payouts, customer ad wallets or automated third-party payments.</p>
+  <p>HilltopAds link above includes Freshtiq's account-issued referral ID. Standard advertiser and publisher referrals are generally 5% of HilltopAds' profit on active referrals; a separate higher-rate blogger tier has eligibility requirements. TikTok link is informational only and not affiliate-tracked. No earnings arise from simply sending an enquiry; provider verification and activity determine eligibility.</p>
   <p>Advertising must comply with provider policies and applicable laws. Restricted or prohibited goods, false claims and illegal offers cannot be promoted. Results, low-cost traffic, customer orders and profit are never guaranteed.</p>
   <p>Provider help: <a href="https://hilltopads.com/advertisers-help/en/articles/9116134-referral-program-for-advertisers" rel="noopener noreferrer" target="_blank">HilltopAds referral terms</a> · <a href="https://hilltopads.com/advertisers-help/en/articles/9117744-what-payment-methods-are-available" rel="noopener noreferrer" target="_blank">HilltopAds deposits</a> · <a href="https://ads.tiktok.com/affiliate/?language=en-GB" rel="noopener noreferrer" target="_blank">TikTok affiliate information</a>.</p>
  </div>
@@ -186,7 +188,7 @@ header{border-bottom:1px solid rgba(158,192,225,.19);background:rgba(4,15,32,.78
    'Planned ad spend: '+(n===null?'unspecified':'USD '+n+' per day'),
    'Customer product URL: '+(match?cleanLink.slice(0,200):'not provided'),
    'Funding: customer pays ad platform directly',
-   'Program: Freshtiq Ads Beta (referral link pending verification)'
+   'Program: Freshtiq Ads Beta (HilltopAds owner-issued referral; customer pays platform)'
   ].join(' | ');
   messages.dataset.leadMessage='Freshtiq Ads plan enquiry | '+details;
   var wa=document.getElementById('adsWaContact');
