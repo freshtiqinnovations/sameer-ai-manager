@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://freshtiqautomation.com/partners.html">
   <meta property="og:image" content="https://freshtiqautomation.com/images/og-preview.png">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/partner-program.css?v=20261009p1">
+  <link rel="stylesheet" href="/partner-program.css?v=20261009p3">
   <meta name="theme-color" content="#071422">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Freshtiq Partner Program","url":"https://freshtiqautomation.com/partners.html","publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/"}}</script>
 </head>
@@ -111,6 +111,16 @@
           <button id="appSubmit" class="cta primary full" type="submit">Send partner application →</button>
           <div id="appResult" class="notice" role="status" aria-live="polite">Applications are reviewed. Your details are not shared publicly.</div>
         </form>
+        <div class="glass" id="applicationTracker" style="margin-top:24px;padding:18px">
+          <h3>Already applied? Check your status</h3>
+          <p class="small">Use the application ID and private tracking code provided on submission. This code is separate from the approved partner access key.</p>
+          <form id="applicationStatusForm">
+            <label>Application ID<input id="statusPartnerId" placeholder="FTQ-RS-1008" required autocomplete="off"></label>
+            <label style="margin-top:12px">Private application tracking code<input id="statusApplicationKey" type="password" required autocomplete="off" placeholder="ftqa_..."></label>
+            <button type="submit" class="cta secondary full">Check application status</button>
+            <div id="applicationStatusResult" class="notice" aria-live="polite" role="status">Owner approval is manual. Status checking never approves accounts.</div>
+          </form>
+        </div>
       </div>
       <div>
         <div class="glass">
@@ -180,6 +190,6 @@
     <span><a href="/privacy.html">Privacy</a> · <a href="/terms-and-conditions.html">Website terms</a> · <a href="/contact.html">Contact</a></span>
   </div>
 </footer>
-<script src="/partner-program.js?v=20261009p2" defer></script>
+<script src="/partner-program.js?v=20261009p3" defer></script>
 </body>
 </html>

@@ -40,6 +40,20 @@
   .ftq-nav-locale{margin-right:2px}
 }
 
+
+/* Customer / partner routing — always visible, separate workspaces. */
+.ftq-workspace-entry{display:grid;grid-template-columns:minmax(135px,.85fr) repeat(3,minmax(0,1fr));gap:8px;background:#081d2b;padding:12px clamp(12px,3vw,38px);border-bottom:1px solid #345768;color:#e8f8ff;align-items:stretch;font:600 12px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+.ftq-workspace-intro{display:flex;flex-direction:column;justify-content:center;gap:5px}
+.ftq-workspace-intro strong{color:#80ffe6;font-size:14px}
+.ftq-workspace-intro span{color:#b4cedc}
+.ftq-workspace-entry a{display:flex;flex-direction:column;gap:4px;border:1px solid #31516b;border-radius:11px;padding:10px 13px;background:#112e43;text-decoration:none!important;transition:background .2s}
+.ftq-workspace-entry a strong{font-size:13px;color:#fff}
+.ftq-workspace-entry a span{font-size:11px;color:#a8e9dc}
+.ftq-workspace-entry a:hover{background:#1b465d;border-color:#55dfc2}
+.ftq-workspace-entry a:focus-visible{outline:3px solid #ffc877;outline-offset:2px}
+@media(max-width:925px){.ftq-workspace-entry{grid-template-columns:repeat(3,minmax(0,1fr))}.ftq-workspace-intro{grid-column:1/-1;flex-direction:row;gap:12px}}
+@media(max-width:590px){.ftq-workspace-entry{grid-template-columns:1fr}.ftq-workspace-intro{grid-column:1}}
+
 /* Partner opportunity: strong placement without hiding customer service navigation. */
 #navbar .nav-links a.ftq-partner-nav{border:1px solid rgba(70,230,205,.5)!important;background:rgba(23,145,121,.16)!important;color:#c6fff4!important;font-weight:850!important}
 #navbar .nav-links a.ftq-partner-nav:hover{background:rgba(31,172,136,.29)!important}

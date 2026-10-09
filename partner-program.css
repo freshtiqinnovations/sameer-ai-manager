@@ -77,3 +77,5 @@ footer a{font-size:13px}
 .honeypot{position:absolute!important;left:-9999px!important;height:1px!important;width:1px!important;opacity:0!important;pointer-events:none}
 @media(max-width:850px){.hero-grid,.panel-grid{grid-template-columns:1fr}.columns3{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.hero{padding-top:46px}.nav-items{gap:9px}}
 @media(max-width:540px){.wrap{padding:0 16px}.nav-inner{flex-wrap:wrap;padding:11px 0}.nav-items{width:100%;font-size:12px;justify-content:space-between}.brand img{width:146px}.hero-panel strong{font-size:3rem}.glass{padding:20px}.form-grid{grid-template-columns:1fr;gap:0}.steps{grid-template-columns:1fr}.section{padding:38px 0}.hero-actions .cta{width:100%}}
+
+.notice{overflow-wrap:anywhere;word-break:break-word}

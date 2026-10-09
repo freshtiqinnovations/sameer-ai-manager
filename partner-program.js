@@ -37,7 +37,9 @@
         business_type:kind,referral_source:'freshtiq_partner_page',accept_terms:true,
         website:value('appWebsite')
       }});
-      setNotice('appResult','Application saved! Your partner reference: '+data.reseller_id+'. Status: PENDING OWNER REVIEW. Freshtiq will contact you using the provided details. No joining fee.','success');
+      setNotice('appResult','Application saved! ID: '+data.reseller_id+' · Status: PENDING OWNER REVIEW. PRIVATE TRACKING CODE (save securely; shown only once): '+data.application_key+'. No joining fee. This is not an approved partner login key.','success');
+      byId('statusPartnerId').value=data.reseller_id;
+      byId('statusApplicationKey').value=data.application_key;
       byId('partnerApplication').reset();
     }catch(err){setNotice('appResult',err.message||'Submission failed. Try again or contact us on WhatsApp.','error');}
     finally{btn.disabled=false;btn.textContent='Send partner application →';}
@@ -79,6 +81,14 @@
     }
     byId('partnerDashboard').hidden=false;
   }
+  byId('applicationStatusForm')?.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const reseller_id=value('statusPartnerId').toUpperCase(),application_key=value('statusApplicationKey');
+    try{
+      const data=await request('/api/reseller/application-status',{method:'POST',body:{reseller_id,application_key}});
+      setNotice('applicationStatusResult','Application '+data.application.reseller_id+': '+data.application.status.toUpperCase()+'. '+data.next_step,'success');
+    }catch(err){setNotice('applicationStatusResult',err.message||'Cannot check status.','error');}
+  });
   byId('partnerAccess')?.addEventListener('submit',async e=>{
     e.preventDefault();
     const id=value('partnerId').toUpperCase(),key=value('partnerKey');
