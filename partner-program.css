@@ -79,3 +79,11 @@ footer a{font-size:13px}
 @media(max-width:540px){.wrap{padding:0 16px}.nav-inner{flex-wrap:wrap;padding:11px 0}.nav-items{width:100%;font-size:12px;justify-content:space-between}.brand img{width:146px}.hero-panel strong{font-size:3rem}.glass{padding:20px}.form-grid{grid-template-columns:1fr;gap:0}.steps{grid-template-columns:1fr}.section{padding:38px 0}.hero-actions .cta{width:100%}}
 
 .notice{overflow-wrap:anywhere;word-break:break-word}
+
+
+/* Partner buttons use the same Book Strategy Call theme across the website. */
+:root{--ftq-strategy-gradient:linear-gradient(107deg,#1266c8 0%,#3479e6 42%,#704bd4 78%,#8749d1 100%)}
+.cta.primary,.navbar .nav-join{background:var(--ftq-strategy-gradient)!important;color:#fff!important;border:0!important}
+.tier.featured{border-color:rgba(156,127,239,.7)}
+.percent,.hero-panel strong{color:#ad9cff}
+.notice.success{border-color:#8b71df}

@@ -253,3 +253,46 @@ body.fx-premium-page .demo-wrap .card h2,body.fx-premium-page .demo-wrap .card h
 body.fx-premium-page .demo-wrap .chat{background:#031227!important}.demo-wrap .msg.customer{background:#071a38!important;border-color:rgba(82,149,235,.18)!important;color:#dce8f7!important}.demo-wrap .msg.bot,.demo-wrap .msg.system{background:linear-gradient(135deg,#0c2b53,#163a75)!important;color:#eaf4ff!important}
 body.fx-premium-page .demo-wrap .step{border-color:rgba(82,149,235,.16)!important;background:#06172f!important}.demo-wrap .num{background:linear-gradient(135deg,#0fcfe3,#3d78ff 65%,#8b5cf6)!important}.demo-wrap .result{background:#07253a!important;border-color:rgba(52,211,153,.22)!important;color:#c9f7e6!important}
 body.fx-premium-page .demo-wrap button,body.fx-premium-page .demo-wrap .cta a{background:linear-gradient(100deg,#0fcfe3,#3d78ff 65%,#8b5cf6)!important;color:#fff!important;border:0!important}.demo-wrap button.alt,.demo-wrap .cta a.ghost{background:#06172f!important;border:1px solid rgba(82,149,235,.22)!important;color:#b9d9ff!important}.demo-wrap .cta a.alt{background:linear-gradient(135deg,#16a34a,#22c55e)!important;color:#fff!important}
+
+
+/* Freshtiq unified Book Strategy Call spectrum · 2026-10-09
+   Overrides BLUE action styling only. Success, error, WhatsApp and brand artwork stay intact. */
+:root, [data-theme="dark"] {
+  --ftq-strategy-gradient: linear-gradient(107deg,#1266c8 0%,#3479e6 42%,#704bd4 78%,#8749d1 100%);
+  --ftq-strategy-accent:#7752dd;
+  --ftq-strategy-shadow:0 9px 25px rgba(72,80,210,.26);
+}
+:root {--gradient:var(--ftq-strategy-gradient);--primary:#4263d7;--primary-light:#5b65db}
+.nav-links .nav-cta,.home-premium #navbar .nav-cta,
+.btn-primary,.btn-premium,.fx-primary,.lead-submit,.premium-audit-card .lead-submit,
+.sticky-mobile-cta a:first-child,.ind-cta,.filter-btn.active,
+.nav-links a.nav-cta:visited {
+  background:var(--ftq-strategy-gradient)!important;
+  color:#fff!important;
+  box-shadow:var(--ftq-strategy-shadow)!important;
+  border-color:transparent!important;
+}
+.nav-links a.ftq-partner-nav,.ftq-partner-discovery a,.ftq-workspace-entry a:hover {
+  border-color:rgba(159,133,254,.52)!important;
+}
+.page-header,.cta-block,.pricing-card .pill {
+  background:var(--ftq-strategy-gradient)!important;
+  color:#fff!important;
+}
+.hero h1 .gradient-text,.section-header h2 .gradient-text,.pricing-price,
+.counter-item .num {
+  background:var(--ftq-strategy-gradient)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+}
+footer:before,.home-premium footer:before {
+  background:linear-gradient(90deg,transparent,#3479e6,#8749d1,transparent)!important;
+}
+.btn-secondary:focus-visible,.btn-primary:focus-visible,.nav-links a:focus-visible {
+  outline:3px solid #b799ff!important;
+  outline-offset:3px!important;
+}
+@media (prefers-reduced-motion:reduce) {
+  .fx-primary,.btn-primary,.lead-submit {transition:none!important}
+}
