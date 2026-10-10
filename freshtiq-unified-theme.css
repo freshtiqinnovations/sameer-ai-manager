@@ -264,3 +264,30 @@ html body.ftq-compact-device-view main :is(.section,.hero,.page-header) {
 html body.ftq-compact-device-view main :is(.card,.step-card,.glass-card,.tier,.pricing-card,.form-card){
  min-width:0!important;max-width:100%!important;
 }
+
+/* Screenshot regression repairs: demo width, fixed header, evidence text/crop. */
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy strong{color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important}
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy span{color:#e3edf6!important;-webkit-text-fill-color:#e3edf6!important;opacity:1!important}
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy small{color:#a7f3d0!important;-webkit-text-fill-color:#a7f3d0!important;opacity:1!important}
+html body.fx-home .fx-live-shot .shot-img{aspect-ratio:auto!important;height:auto!important;padding:12px!important}
+html body.fx-home .fx-live-shot .shot-img img{width:100%!important;height:auto!important;object-fit:contain!important;transform:none!important}
+html body.fx-home .fx-live-shot .shot-copy{padding:20px!important;min-width:0!important}
+html body.fx-home .fx-proof-card :is(.fx-proof-meta,small){font-size:14px!important;line-height:1.5!important}
+html body .demo-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+html body .demo-card{min-width:0!important;max-width:100%!important;height:auto!important;overflow:visible!important}
+html body .demo-card :is(h2,p,a),html body .shot-copy :is(strong,span,small){overflow-wrap:anywhere!important;white-space:normal!important;max-width:100%!important}
+html body .demo-card h2{font-size:clamp(22px,2.3vw,30px)!important;line-height:1.25!important}
+html body main>.page-header:first-child{padding-top:120px!important}
+html body :is(h1,h2,h3,h4){scroll-margin-top:110px}
+@media(max-width:1100px) and (min-width:851px){html body .demo-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:850px){html body .demo-grid{grid-template-columns:minmax(0,1fr)!important}html body .demo-card{padding:22px!important}html body .demo-card h2{font-size:25px!important}html body .demo-card p{font-size:16px!important;line-height:1.65!important}html body main>.page-header:first-child{padding-top:116px!important}}
+html body.ftq-compact-device-view .demo-grid{grid-template-columns:minmax(0,1fr)!important;gap:var(--ftq-phone-gap)!important}
+html body.ftq-compact-device-view .demo-card{padding:var(--ftq-phone-pad)!important}
+html body.ftq-compact-device-view .demo-card h2{font-size:var(--ftq-phone-card-heading)!important}
+html body.ftq-compact-device-view .demo-chat{padding:var(--ftq-phone-pad)!important;min-height:0!important}
+html body.ftq-compact-device-view .demo-chat .bubble{font-size:var(--ftq-phone-text)!important;line-height:1.5!important;padding:var(--ftq-phone-gap)!important}
+html body.ftq-compact-device-view .demo-actions button{font-size:var(--ftq-phone-small)!important;padding:var(--ftq-phone-gap)!important;min-height:var(--ftq-phone-navheight)!important}
+html body.ftq-compact-device-view main>.page-header:first-child{padding-top:calc(var(--ftq-phone-navheight) + var(--ftq-phone-pad))!important}
+html body.ftq-compact-device-view .flow-pills span{font-size:var(--ftq-phone-small)!important;padding:var(--ftq-phone-gap)!important}
+
+html[data-ftq-theme="light"] body main>.page-header .section-label{color:#09665e!important;-webkit-text-fill-color:#09665e!important;opacity:1!important}
