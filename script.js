@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function send(event,label,value){
       try{
+        if(/HeadlessChrome|Lighthouse/i.test(navigator.userAgent||'')) return;
+        const utm=new URLSearchParams(location.search).get('utm_source')||'';
+        if(/^(qa_test|testonly|internal_qa_test)$/i.test(utm)) return;
         const c=ctx();
         const body=JSON.stringify({event:event,source:c.source,campaign:c.campaign,medium:c.medium,content:c.content,term:c.term,value:Number(value||0),currency:'INR',label:String(label||'').slice(0,180)});
         if(navigator.sendBeacon){
@@ -748,6 +751,27 @@ document.addEventListener('click', function (e) {
 (function(){
   var form=document.getElementById('heroLeadForm'); if(!form) return;
   var status=document.getElementById('heroLeadStatus');
+  // Homepage: show only the contact details needed for the chosen reply channel.
+  const preferredSelect=document.getElementById('heroLeadContact');
+  const phoneField=document.getElementById('heroLeadPhone');
+  const emailField=document.getElementById('heroLeadEmail');
+  const countryField=document.getElementById('heroLeadCountry');
+  const consentBox=document.getElementById('heroLeadWaConsent');
+  const marketForm=preferredSelect && getComputedStyle(preferredSelect).display!=='none'
+    && countryField && countryField.hasAttribute('name') && !countryField.required;
+  if(marketForm) {
+    const phoneLabel=phoneField.closest('label'), emailLabel=emailField.closest('label');
+    const consentLabel=consentBox.closest('label');
+    const updateContact=()=>{
+      const whatsapp=preferredSelect.value!=='Email';
+      phoneLabel.hidden=!whatsapp;emailLabel.hidden=whatsapp;
+      phoneField.required=whatsapp;emailField.required=!whatsapp;
+      if(consentLabel) consentLabel.hidden=!whatsapp;
+      if(!whatsapp)consentBox.checked=false;
+    };
+    preferredSelect.addEventListener('change',updateContact);
+    updateContact();
+  }
   var qs=new URLSearchParams(window.location.search);
   var formStarted=false;
   form.addEventListener('focusin',function(){
@@ -765,9 +789,10 @@ document.addEventListener('click', function (e) {
     var country=document.getElementById('heroLeadCountry').value;
     var need=document.getElementById('heroLeadNeed').value;
     var whatsappOptIn=!!document.getElementById('heroLeadWaConsent').checked;
+    if(!country && phone){if(/^\+91\b/.test(phone)||/^\+91\d/.test(phone))country='India';else if(/^\+966/.test(phone))country='Saudi Arabia';else if(/^\+971/.test(phone))country='UAE';}
     var marketingOptIn=!!document.getElementById('heroLeadMarketingConsent').checked;
-    if(!name||!country||!need||!preferred){status.className='lead-status err';status.textContent='Please complete the required fields.';return;}
-    if(preferred==='WhatsApp'&&!phone){status.className='lead-status err';status.textContent='Please enter your WhatsApp number.';return;}
+    if(!name||!need||!preferred){status.className='lead-status err';status.textContent='Please enter your name, contact method and business need.';return;}
+    if(preferred==='WhatsApp'&&!phone){status.className='lead-status err';status.textContent='Please enter your WhatsApp number.';try{window.FreshtiqTrack?.event('lead_form_blocked','missing_whatsapp');}catch(_e){}return;}
     if(preferred==='Email'&&!email){status.className='lead-status err';status.textContent='Please enter your email address.';return;}
     if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status.className='lead-status err';status.textContent='Please enter a valid email address.';return;}
     if(preferred==='WhatsApp'&&!whatsappOptIn){status.className='lead-status err';status.textContent='Please confirm that we may reply to this request on WhatsApp.';return;}

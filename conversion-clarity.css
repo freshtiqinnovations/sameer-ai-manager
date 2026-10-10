@@ -58,3 +58,7 @@ html body.fx-home .ftq-region-intent a:focus-visible{background:#daf3ea;outline:
   html body.fx-home .ftq-region-intent .ftq-region-label{width:100%;font-size:13px}
   html body.fx-home .ftq-region-intent a{font-size:12px;padding:9px 11px}
 }
+
+/* Progressive audit form: hide only the unused contact channel, never consent without choice. */
+body.fx-home #heroLeadForm label[hidden]{display:none!important}
+body.fx-home #heroLeadForm label:not([hidden]){min-width:0}
