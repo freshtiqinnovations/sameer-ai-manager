@@ -46,7 +46,9 @@
 <script>document.documentElement.setAttribute("data-ftq-theme","light");document.documentElement.style.colorScheme="light";</script>
 <link href="/freshtiq-unified-theme.css?v=20261010clipfix2" rel="stylesheet"/>
 <link href="/freshtiq-polish-responsive.css?v=20261010polish3" rel="stylesheet"/>
-<link href="/conversion-clarity.css?v=20261010a" rel="stylesheet"/></head>
+<link href="/conversion-clarity.css?v=20261010a" rel="stylesheet"/><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin/>
+<link rel="preconnect" href="https://portal.freshtiqautomation.com" crossorigin/>
+</head>
 <body class="fx-home">
 <nav id="navbar">
 <div class="nav-inner">
@@ -434,10 +436,10 @@
 </footer>
 <div aria-label="Free help and customer contact" class="sticky-mobile-cta"><a href="/#free-audit">Free Audit</a><a class="ftq-open-chat" href="#free-audit">AI Assistant</a><a href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20need%20help%20with%20automation." rel="noopener noreferrer" target="_blank">WhatsApp</a></div>
 <script>function toggleFaq(el){const item=el.parentElement;const open=item.classList.toggle('open');el.setAttribute('aria-expanded',open?'true':'false');}</script>
-<script src="/script.js?v=20261010contrast2"></script>
+<script defer src="/script.js?v=20261010contrast2"></script>
 <script>
 (function(){const box=document.getElementById('homeReviews');if(!box)return;const esc=v=>String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));fetch('https://portal.freshtiqautomation.com/api/reviews/public?limit=6',{credentials:'include'}).then(r=>r.json()).then(j=>{if(!j.success||!j.reviews||!j.reviews.length)return;box.innerHTML=j.reviews.map(x=>`<article class="fx-review-card"><div class="fx-review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span><small>VERIFIED COMPLETED PROJECT</small></article>`).join('')}).catch(()=>{});})();
 </script>
-<script src="/site-consent.js?v=20261010choice2"></script>
+<script defer src="/site-consent.js?v=20261010choice2"></script>
 </body>
 </html>
