@@ -1,0 +1,31 @@
+/* Conversion clarity: preserve every destination and feature. */
+.fx-home .ftq-outcome-list{padding-left:22px;margin:20px 0 16px;color:#163b3b;font-size:16px;line-height:1.7;max-width:620px}
+.fx-home .ftq-outcome-list li{margin-bottom:6px}
+.fx-home .ftq-audit-expectation{font-size:14px!important;line-height:1.6!important;color:#305353!important;margin:12px 0!important}
+.fx-home .ftq-price-link{display:inline-block;color:#09665e!important;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-bottom:8px}
+.ftq-more-nav{position:relative}.ftq-more-nav summary{cursor:pointer;padding:12px;font-size:14px;font-weight:700;list-style:none}.ftq-more-nav summary::after{content:' ⌄'}
+.ftq-more-menu{position:absolute;right:0;top:100%;min-width:215px;background:#fff;color:#153e3e;border:1px solid #cadeda;border-radius:14px;box-shadow:0 12px 32px #082f2b22;padding:9px;z-index:2000}
+#navbar .ftq-more-menu a{display:block!important;color:#153e3e!important;background:#fff!important;border:0!important;padding:12px!important;font-size:14px!important;white-space:nowrap}
+#navbar .ftq-more-menu a:hover{background:#e7f5f1!important}.ftq-more-nav summary:focus-visible{outline:3px solid #0b7566;outline-offset:2px}
+@media(max-width:1100px){.ftq-more-nav{width:100%}.ftq-more-menu{position:static;box-shadow:none;min-width:0}.ftq-more-nav summary{padding:14px}}
+@media(max-width:600px){.fx-home .ftq-outcome-list{font-size:15px;line-height:1.65;margin-top:16px}.fx-home .ftq-audit-expectation{font-size:13px!important}.fx-home .fx-hero h1{font-size:clamp(30px,8.7vw,43px)!important;line-height:1.14!important}}
+
+html body.fx-home .fx-hero h1 span{color:#087568!important;background:none!important;-webkit-text-fill-color:#087568!important}
+html body.fx-home .fx-hero .fx-kicker{color:#09665e!important}
+html body.fx-home .fx-hero .fx-primary{background:#086a5d!important;color:#fff!important;border:1px solid #086a5d!important}
+html body.fx-home .fx-hero .fx-secondary{background:#fff!important;color:#16483e!important;border:1px solid #16483e!important}
+html body.fx-home .fx-hero .fx-hero-actions{margin-top:18px!important}
+html body.fx-home #ftq-consent{padding:12px!important;gap:9px!important;border-radius:14px!important}
+html body.fx-home #ftq-consent .ftq-consent-actions button{background:#163747!important;color:#fff!important;min-height:44px!important;padding:9px 10px!important;font-size:12px!important}
+html body.fx-home #ftq-consent .ftq-consent-actions button.primary{background:#086a5d!important}
+html body.fx-home #navbar .hamburger span{background:#174c42!important}
+html body.fx-home #navbar .ftq-more-nav summary{color:#eef9f6!important}
+@media(min-width:1200px){html body.fx-home #navbar .hamburger{display:none!important}html body.fx-home #navbar .nav-links{display:flex!important;position:static!important;flex-direction:row!important;width:auto!important;padding:0!important;gap:5px!important}html body.fx-home #navbar .logo img{max-width:179px!important}html body.fx-home #navbar .nav-links>a{font-size:13px!important;padding:10px!important}}
+@media(max-width:700px){html body.fx-home #ftq-consent .ftq-consent-copy span{font-size:12px!important;line-height:1.4!important}html body.fx-home #ftq-consent .ftq-consent-actions{display:grid!important;grid-template-columns:1fr 1fr!important;max-width:none!important;gap:6px!important}html body.fx-home #ftq-consent .ftq-consent-actions button.primary{grid-column:1/-1}}
+html body.ftq-compact-device-view.fx-home .ftq-outcome-list{font-size:31px!important}
+html body.ftq-compact-device-view.fx-home .ftq-audit-expectation,html body.ftq-compact-device-view.fx-home .ftq-price-link{font-size:29px!important}
+html body.ftq-compact-device-view.fx-home .ftq-more-nav summary,html body.ftq-compact-device-view.fx-home #navbar .ftq-more-menu a{font-size:32px!important}
+
+html body.fx-home .fx-hero .fx-hero-actions a.fx-primary{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;background:#086a5d!important}
+html body.fx-home .fx-hero .fx-hero-actions a.fx-secondary{color:#16483e!important;-webkit-text-fill-color:#16483e!important}
+html body.fx-home #free-audit{scroll-margin-top:100px}

@@ -65,7 +65,7 @@
     d.setAttribute('role','dialog');
     d.setAttribute('aria-label','Privacy preference');
     if(adsEnabled()) d.classList.add('ftq-consent-measurement');
-    const copy=adsEnabled()?'Essential site functions always work. Optional analytics measures visits. Separate OpenAI ad measurement connects successful enquiries to our ads.':'Essential site functions always work. Optional analytics helps us understand visits and improve the website.';
+    const copy=adsEnabled()?'Essential features always work. Choose optional visit analytics and OpenAI ad measurement.':'Essential features always work. Visit analytics is optional.';
     const buttons=adsEnabled()?'<button type="button" data-choice="denied">Essential only</button><button type="button" data-choice="granted">Analytics only</button><button type="button" class="primary" data-choice="measurement">Allow analytics + ad measurement</button>':'<button type="button" data-choice="denied">Essential only</button><button type="button" class="primary" data-choice="granted">Allow analytics</button>';
     const locale=(document.documentElement.lang||'en').toLowerCase().slice(0,2);
     const ui={
