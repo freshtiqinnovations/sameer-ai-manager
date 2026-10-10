@@ -1,0 +1,225 @@
+/* Single Freshtiq visual identity — production finishing layer.
+   Protect the existing CRM, lead form, chat and tracking integrations. */
+html[data-ftq-theme="light"] body.fx-home{background:#f1f7fa!important;color:#173449!important}
+html body.fx-home :is(.fx-cap,.fx-system-card,.fx-value,.fx-work-step,.fx-proof-card) :is(p,small,span:not(.fx-cap-icon):not(.fx-cap-link):not(.fx-eyebrow):not(.num)){
+ color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;
+}
+html body.fx-home :is(.fx-cap,.fx-system-card,.fx-value,.fx-work-step,.fx-proof-card) :is(h3,h4,strong){
+ color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;
+}
+html body.fx-home :is(.fx-cap,.fx-system-card,.fx-value,.fx-work-step,.fx-proof-card) p{
+ font-size:max(15px,.95rem)!important;line-height:1.6!important;
+}
+html body.fx-home .fx-review-empty :is(p,span,small){color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important}
+html body.fx-home .fx-cap-link{color:#8bfff2!important;-webkit-text-fill-color:#8bfff2!important}
+html body.fx-home .ftq-mobile-label{display:none}
+html body.fx-home .hero-lead-form :is(input,select,textarea){
+ font-size:16px!important;min-height:48px!important;
+}
+html body.fx-home :is(button,a,input,textarea,select):focus-visible{outline:3px solid #ffcd68!important;outline-offset:3px!important}
+html body.fx-home #navbar{z-index:4000!important}
+html body.fx-home #ft-chat-widget{z-index:4500!important}
+html body.fx-home .sticky-mobile-cta{z-index:3900!important}
+html body.fx-home :is(.fx-cap-grid,.fx-system-grid,.fx-proof-grid,.fx-value-grid)>*{min-width:0!important}
+@media(max-width:1080px){html body.fx-home .fx-system-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:768px){
+ html body.fx-home #navbar{min-height:64px!important}
+ html body.fx-home #navbar .nav-inner{
+  width:100%!important;padding:0 16px!important;min-height:64px!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+ }
+ html body.fx-home #navbar .logo{max-width:57%!important;flex:0 1 auto!important}
+ html body.fx-home #navbar .logo img{width:auto!important;max-width:156px!important;max-height:38px!important}
+ html body.fx-home #navbar .hamburger{
+  width:48px!important;height:48px!important;min-width:48px!important;
+  min-height:48px!important;margin-left:auto!important;border-radius:12px!important;
+ }
+ html body.fx-home #navbar .nav-links .ftq-nav-locale{margin:0!important;width:100%!important}
+ html body.fx-home #navbar .nav-links .ftq-lang-switch summary{
+  min-height:48px!important;width:100%!important;justify-content:space-between!important;
+ }
+ html body.fx-home #navbar .nav-links .ftq-lang-menu{
+  position:static!important;width:100%!important;max-height:260px!important;
+ }
+ html body.fx-home :is(.ftq-ad-discovery,.ftq-partner-discovery){
+  font-size:13px!important;padding:9px 15px!important;gap:5px!important;line-height:1.4!important;
+ }
+ html body.fx-home :is(.ftq-ad-discovery,.ftq-partner-discovery) :is(span,a){
+  font-size:13px!important;line-height:1.4!important;
+ }
+ html body.fx-home .ftq-workspace-entry{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  padding:12px 15px!important;gap:8px!important;
+ }
+ html body.fx-home .ftq-workspace-intro{display:none!important}
+ html body.fx-home .ftq-workspace-entry>a,
+ html body.fx-home .ftq-workspace-entry>a:first-of-type{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  grid-column:auto!important;min-width:0!important;min-height:52px!important;
+  padding:8px 5px!important;text-align:center!important;border-radius:11px!important;
+ }
+ html body.fx-home .ftq-workspace-entry>a :is(strong,span){display:none!important}
+ html body.fx-home .ftq-workspace-entry>a .ftq-mobile-label{
+  display:block!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  font:750 14px/1.2 system-ui,sans-serif!important;
+ }
+ html body.fx-home .ft-b2b-announcement{padding:10px 16px!important;font-size:13px!important}
+ html body.fx-home :is(.fx-cap-grid,.fx-system-grid,.fx-proof-grid,.fx-value-grid,.fx-work-grid,
+ .fx-live-evidence,.fx-industry-grid,.fx-review-grid,.fx-channel-grid){
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:20px!important;
+ }
+ html body.fx-home :is(.fx-cap,.fx-system-card,.fx-value,.fx-work-step,.fx-proof-card){padding:22px!important}
+ html body.fx-home .fx-hero-shell{grid-template-columns:minmax(0,1fr)!important}
+ html body.fx-home .fx-hero-copy h1{font-size:clamp(30px,7vw,40px)!important;line-height:1.15!important}
+ html body.fx-home .fx-hero-copy p{font-size:16px!important;line-height:1.6!important}
+ html body.fx-home .fx-hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+ html body.fx-home .fx-hero-actions>a{
+  min-height:48px!important;width:100%!important;padding:12px 18px!important;
+  font-size:16px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ }
+ html body.fx-home .hero-lead-form{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+ html body.fx-home .hero-lead-form :is(input,select,textarea){width:100%!important;min-height:48px!important}
+ html body.fx-home .hero-lead-form :is(input[type=checkbox],input[type=radio]){
+  min-height:18px!important;width:18px!important;height:18px!important;min-width:18px!important;
+ }
+ html body.fx-home .sticky-mobile-cta{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;max-height:70px!important;
+  padding:8px!important;gap:8px!important;
+ }
+ html body.fx-home .sticky-mobile-cta a{
+  min-height:48px!important;font-size:12px!important;
+  padding:7px 3px!important;white-space:normal!important;
+ }
+ html body.fx-home{padding-bottom:75px!important}
+}
+html body.fx-home.ftq-compact-device-view #navbar{min-height:130px!important}
+html body.fx-home.ftq-compact-device-view #navbar .nav-inner{
+ width:100%!important;min-height:130px!important;height:130px!important;
+ padding:0 40px!important;gap:18px!important;justify-content:space-between!important;
+}
+html body.fx-home.ftq-compact-device-view #navbar .logo{max-width:57%!important;flex:0 1 auto!important}
+html body.fx-home.ftq-compact-device-view #navbar .logo img{width:auto!important;max-width:355px!important;max-height:85px!important}
+html body.fx-home.ftq-compact-device-view #navbar .hamburger{
+ width:105px!important;height:105px!important;min-width:105px!important;min-height:105px!important;
+ border-radius:23px!important;flex-shrink:0!important;
+}
+html body.fx-home.ftq-compact-device-view #navbar .nav-links{
+ top:130px!important;left:20px!important;right:20px!important;
+ padding:25px!important;max-height:calc(100vh - 130px)!important;
+}
+html body.fx-home.ftq-compact-device-view #navbar .nav-links a{
+ font-size:34px!important;padding:18px!important;min-height:88px!important;
+}
+html body.fx-home.ftq-compact-device-view #navbar .nav-links .ftq-nav-locale{margin:0!important;width:100%!important}
+html body.fx-home.ftq-compact-device-view #navbar .nav-links .ftq-lang-switch summary{
+ min-height:90px!important;font-size:34px!important;width:100%!important;
+}
+html body.fx-home.ftq-compact-device-view #navbar .nav-links .ftq-lang-menu{
+ position:static!important;width:100%!important;max-height:500px!important;
+}
+html body.fx-home.ftq-compact-device-view :is(.ftq-ad-discovery,.ftq-partner-discovery){
+ padding:17px 35px!important;font-size:29px!important;gap:8px!important;
+}
+html body.fx-home.ftq-compact-device-view :is(.ftq-ad-discovery,.ftq-partner-discovery) :is(span,a){
+ font-size:29px!important;line-height:1.4!important;
+}
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ padding:18px 35px!important;gap:18px!important;
+}
+html body.fx-home.ftq-compact-device-view .ftq-workspace-intro{display:none!important}
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a,
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a:first-of-type{
+ display:flex!important;grid-column:auto!important;min-width:0!important;
+ min-height:115px!important;padding:12px 8px!important;text-align:center!important;
+ align-items:center!important;justify-content:center!important;
+}
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a :is(strong,span){display:none!important}
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a .ftq-mobile-label{
+ display:block!important;font:750 33px/1.2 system-ui,sans-serif!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html body.fx-home.ftq-compact-device-view .ft-b2b-announcement{font-size:29px!important;padding:17px 35px!important}
+html body.fx-home.ftq-compact-device-view .ft-b2b-announcement :is(span,a){font-size:29px!important}
+html body.fx-home.ftq-compact-device-view :is(.fx-wrap,.fx-hero-shell,.fx-hero-inner,
+ .fx-trust-inner,.fx-section-head,.fx-audit-inner){
+ width:calc(100% - 70px)!important;max-width:none!important;
+ margin-inline:auto!important;grid-template-columns:minmax(0,1fr)!important;
+}
+html body.fx-home.ftq-compact-device-view .fx-wrap{display:block!important}
+html body.fx-home.ftq-compact-device-view :is(.fx-cap-grid,.fx-system-grid,.fx-proof-grid,
+ .fx-value-grid,.fx-work-grid,.fx-live-evidence,.fx-industry-grid,.fx-review-grid,.fx-channel-grid){
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:35px!important;
+}
+html body.fx-home.ftq-compact-device-view .fx-hero-shell{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+html body.fx-home.ftq-compact-device-view .fx-hero-copy h1{font-size:63px!important;max-width:100%!important}
+html body.fx-home.ftq-compact-device-view .fx-hero-copy p{font-size:38px!important;line-height:1.5!important}
+html body.fx-home.ftq-compact-device-view .fx-hero-actions{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:20px!important;
+}
+html body.fx-home.ftq-compact-device-view .fx-hero-actions>a{
+ width:100%!important;min-height:107px!important;display:flex!important;
+ align-items:center!important;justify-content:center!important;
+ font-size:36px!important;padding:20px!important;
+}
+html body.fx-home.ftq-compact-device-view .sticky-mobile-cta{
+ position:fixed!important;bottom:0!important;left:0!important;right:0!important;
+ width:100%!important;height:auto!important;max-height:158px!important;
+ padding:14px!important;gap:14px!important;
+}
+html body.fx-home.ftq-compact-device-view .sticky-mobile-cta a{
+ min-height:108px!important;padding:8px!important;font-size:29px!important;
+}
+html body.fx-home.ftq-compact-device-view{padding-bottom:185px!important}
+html body.fx-home.ftq-compact-device-view .ftq-made-india{
+ position:static!important;margin:12px auto!important;
+ width:max-content!important;max-width:85%!important;font-size:28px!important;
+}
+@media(prefers-reduced-motion:reduce){
+ body.fx-home .ftq-workspace-entry a{transition:none!important;animation:none!important}
+}
+/* Privacy choices remain explicit; compact them above (never over) CTA strip. */
+@media(max-width:768px){
+ html body.fx-home #ftq-consent.ftq-consent-measurement{
+  left:12px!important;right:12px!important;
+  bottom:calc(76px + env(safe-area-inset-bottom))!important;
+  width:auto!important;max-width:calc(100% - 24px)!important;
+  padding:12px!important;gap:8px!important;max-height:36vh!important;
+  overflow:auto!important;
+ }
+ html body.fx-home #ftq-consent .ftq-consent-copy span{
+  font-size:12px!important;line-height:1.4!important;
+ }
+ html body.fx-home #ftq-consent .ftq-consent-actions{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:5px!important;
+ }
+ html body.fx-home #ftq-consent .ftq-consent-actions button{
+  font-size:11px!important;line-height:1.25!important;
+  min-height:46px!important;padding:7px 4px!important;
+  white-space:normal!important;
+ }
+}
+html body.fx-home.ftq-compact-device-view #ftq-consent.ftq-consent-measurement{
+ bottom:175px!important;left:24px!important;right:24px!important;
+ width:auto!important;max-width:calc(100% - 48px)!important;
+ max-height:40vh!important;padding:24px!important;
+}
+html body.fx-home.ftq-compact-device-view #ftq-consent .ftq-consent-copy :is(strong,span,a){
+ font-size:28px!important;line-height:1.4!important;
+}
+html body.fx-home.ftq-compact-device-view #ftq-consent .ftq-consent-actions{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:10px!important;
+}
+html body.fx-home.ftq-compact-device-view #ftq-consent .ftq-consent-actions button{
+ min-height:95px!important;font-size:26px!important;line-height:1.25!important;
+ padding:12px!important;
+}
+/* The legacy off-canvas menu capped itself at 360 desktop CSS pixels,
+ * which looked like a 140px-wide menu in desktop-rendered phone webviews. */
+html body.fx-home.ftq-compact-device-view #navbar .nav-links,
+html body.fx-home.ftq-compact-device-view #navbar .nav-links.open{
+ width:calc(100% - 40px)!important;max-width:none!important;
+ min-width:0!important;box-sizing:border-box!important;
+}

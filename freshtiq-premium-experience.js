@@ -33,6 +33,13 @@
      for(const [key,value] of Object.entries(vars))
        document.documentElement.style.setProperty(key,value);
   }
+  // On phones, offer language within the menu rather than squeezing the header.
+  const n=document.querySelector('#navbar .nav-links');
+  const locale=document.querySelector('#navbar .ftq-nav-locale');
+  if(n&&locale&&(window.matchMedia?.('(max-width:768px)').matches ||
+      document.body.classList.contains('ftq-compact-device-view'))){
+    n.append(locale);document.body.classList.add('ftq-language-in-menu');
+  }
   // Fixed country badges on small screens obscured readable website content:
   // move them into ordinary page flow instead of covering controls or text.
   if(!document.body.classList.contains('fx-home')){
