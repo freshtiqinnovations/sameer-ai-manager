@@ -592,3 +592,87 @@ html body .ftq-inline-country-badge:focus-visible{outline:3px solid #e7b649!impo
    max-height:calc(100dvh - 174px - env(safe-area-inset-bottom))!important;
  }
 }
+
+/* FRESHTIQ COLOR-SURFACE CONTRACT (2026-10-10).
+   A card's foreground and its OWN surface must use a matched palette.
+   Never inherit light-section ink into dark panels or white ink into white panels.
+   Applies to all fx-premium-page marketing content; nav/footer remain midnight. */
+html[data-ftq-theme="dark"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.policy-box,.cta-block) {
+ background:#0d263b!important;color:#edf7ff!important;
+ border-color:#34566d!important;
+ box-shadow:0 8px 28px rgba(0,0,0,.13)!important;
+}
+html[data-ftq-theme="dark"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.policy-box,.cta-block
+) :is(h2,h3,h4,strong:not(.accent),p,li,small,span:not(.step-num)) {
+ color:#e1eef7!important;-webkit-text-fill-color:#e1eef7!important;
+ opacity:1!important;
+}
+html[data-ftq-theme="dark"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.cta-block) :is(h2,h3,h4) {
+ color:#f6fbff!important;-webkit-text-fill-color:#f6fbff!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.policy-box,.cta-block) {
+ background:#fff!important;background-image:none!important;color:#1a344a!important;
+ border:1px solid #c5dbe4!important;
+ box-shadow:0 8px 24px rgba(12,40,57,.06)!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.policy-box,.cta-block
+) :is(h2,h3,h4,strong:not(.accent),p,li,small,span:not(.step-num)) {
+ color:#29485b!important;-webkit-text-fill-color:#29485b!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .section :is(
+ .step-card,.card,.cp-card,.pricing-card,.industry-card,.product-card,.outcome-card,
+ .organic-guide-card,.region-link-card,.glass-card,.case-card,.result-card,.cta-block) :is(h2,h3,h4) {
+ color:#122e43!important;-webkit-text-fill-color:#122e43!important;
+}
+html[data-ftq-theme="dark"] body.fx-premium-page .section .cta-block a.btn-primary,
+html[data-ftq-theme="light"] body.fx-premium-page .section .cta-block a.btn-primary {
+ background:linear-gradient(110deg,#12ddce,#11cfd7)!important;
+ color:#062d36!important;-webkit-text-fill-color:#062d36!important;
+ border:1px solid #05afb0!important;
+}
+/* Accessible launcher strip uses app-safe screen area, never floats over a card. */
+html body.fx-premium-page .ftq-premium-mobile-actions {display:none}
+@media(max-width:768px){
+ html body.fx-premium-page.ftq-has-mobile-cta{
+  padding-bottom:calc(80px + env(safe-area-inset-bottom))!important;
+ }
+ html body.fx-premium-page .ftq-premium-mobile-actions{
+  position:fixed;bottom:0;left:0;right:0;z-index:2147483639;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  background:#091e2b!important;border-top:1px solid #376776;
+  box-shadow:0 -8px 30px rgba(0,0,0,.25);
+ }
+ html body.fx-premium-page .ftq-premium-mobile-actions a{
+  min-height:44px;display:flex;align-items:center;justify-content:center;
+  font:800 13px/1.25 system-ui,-apple-system,'Segoe UI',sans-serif!important;
+  border-radius:11px;text-decoration:none!important;
+ }
+ html body.fx-premium-page .ftq-premium-mobile-actions .ftq-open-chat{
+  color:#092e39!important;-webkit-text-fill-color:#092e39!important;background:#19d5d7!important;
+ }
+ html body.fx-premium-page .ftq-premium-mobile-actions a[href*="wa.me"]{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;background:#10834f!important;
+ }
+ html body.fx-premium-page.ftq-has-mobile-cta #ft-chat-toggle{display:none!important}
+ html body.fx-premium-page.ftq-has-mobile-cta #ft-chat-widget{
+  bottom:calc(78px + env(safe-area-inset-bottom))!important;
+  max-height:calc(100dvh - 164px - env(safe-area-inset-bottom))!important;
+ }
+ html body.fx-premium-page #navbar .hamburger{
+  background:#163546!important;border:1px solid #427a87!important;border-radius:10px!important;
+ }
+ html body.fx-premium-page #navbar .hamburger span{
+  background:#e9f9ff!important;
+ }
+}

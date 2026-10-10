@@ -862,11 +862,20 @@ document.addEventListener('click', function (e) {
     });
     if(!document.querySelector('.ftq-made-india') &&
        !['/cart','/checkout','/payment','/pay','/owner','/privacy','/terms','/refund','/customer'].some(prefix=>location.pathname.toLowerCase().startsWith(prefix))){
-      const badge=document.createElement('aside');badge.className='ftq-made-india';
+      const badge=document.createElement('aside');badge.className='ftq-made-india ftq-inline-country-badge';
       badge.setAttribute('aria-label','Made in India');
       const flag=document.createElement('img');flag.src='/images/india-flag.svg';flag.alt='Flag of India';flag.width=34;flag.height=23;
       const label=document.createElement('span');label.textContent='Made in India';
-      badge.append(flag,label);document.body.appendChild(badge);
+      badge.append(flag,label);
+      // Keep the trust badge in document flow. Fixed badges obstruct copy
+      // and clickable controls in mobile light/dark mode.
+      const place=document.querySelector('main .page-header .container') ||
+        document.querySelector('main .hero .container') ||
+        document.querySelector('main .hero-grid') ||
+        document.querySelector('main .section .container') ||
+        document.querySelector('main');
+      if(place)place.insertBefore(badge,place.firstChild);
+      else document.body.appendChild(badge);
     }
     document.addEventListener('click',function(ev){
       const trigger=ev.target&&ev.target.closest?ev.target.closest('.ftq-open-chat,#ftq-audit-ai'):null;

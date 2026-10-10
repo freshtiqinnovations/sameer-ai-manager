@@ -42,6 +42,21 @@
     if(target){badge.classList.add('ftq-inline-country-badge');target.insertBefore(badge,target.firstChild)}
    }
   }
+  // Give every premium marketing page an accessible contact entry without
+  // overlapping text; keep the existing customer/bot chat event handlers.
+  if(document.body.classList.contains('fx-premium-page') &&
+     !document.querySelector('.ftq-premium-mobile-actions')){
+    const strip=document.createElement('nav');
+    strip.className='ftq-premium-mobile-actions';
+    strip.setAttribute('aria-label','Freshtiq customer help');
+    const chat=document.createElement('a');
+    chat.href='/#free-audit';chat.className='ftq-open-chat';chat.textContent='AI Assistant';
+    const wa=document.createElement('a');
+    wa.href='https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20need%20a%20free%20workflow%20audit';
+    wa.target='_blank';wa.rel='noopener noreferrer';wa.textContent='WhatsApp';
+    strip.append(chat,wa);document.body.appendChild(strip);
+    document.body.classList.add('ftq-has-mobile-cta');
+  }
   // Preserve keyboard/screen-reader menu state when the legacy nav class toggles.
   const hamburger=document.querySelector('#navbar .hamburger');
   if(hamburger){

@@ -39,9 +39,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Freshtiq Automation","legalName":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark-512.png","email":"hello@freshtiqautomation.com","telephone":"+91-8381848389","address":{"@type":"PostalAddress","streetAddress":"Mohammadpur, Nizamabad","addressLocality":"Azamgarh","addressRegion":"Uttar Pradesh","postalCode":"276205","addressCountry":"IN"},"areaServed":["IN","SA","AE"],"sameAs":["https://github.com/freshtiqinnovations"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@freshtiqautomation.com","telephone":"+91-8381848389","availableLanguage":["English"]}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/","publisher":{"@type":"Organization","name":"Freshtiq Automation","legalName":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/"}}</script>
   <link rel="stylesheet" href="/freshtiq-cyan-theme.css?v=20261009sitefinal1">
-<link rel="stylesheet" href="/freshtiq-premium-experience.css?v=20261010polish1">
+<link rel="stylesheet" href="/freshtiq-premium-experience.css?v=20261010contrast2">
 <link rel="stylesheet" href="/freshtiq-first-impression.css?v=20261010mobile2">
-<script defer src="/freshtiq-premium-experience.js?v=20261010polish1"></script>
+<script defer src="/freshtiq-premium-experience.js?v=20261010contrast2"></script>
 </head>
 <body class="fx-home">
 <nav id="navbar">
@@ -451,7 +451,7 @@
 <div class="sticky-mobile-cta" aria-label="Free help and customer contact"><a href="/#free-audit">Free Audit</a><a class="ftq-open-chat" href="#free-audit">AI Assistant</a><a href="https://wa.me/918381848389?text=Hi%20Freshtiq%2C%20I%20need%20help%20with%20automation." target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
 
 <script>function toggleFaq(el){const item=el.parentElement;const open=item.classList.toggle('open');el.setAttribute('aria-expanded',open?'true':'false');}</script>
-<script src="/script.js?v=20261009sitefinal1"></script>
+<script src="/script.js?v=20261010contrast2"></script>
 <script>
 (function(){const box=document.getElementById('homeReviews');if(!box)return;const esc=v=>String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));fetch('https://portal.freshtiqautomation.com/api/reviews/public?limit=6',{credentials:'include'}).then(r=>r.json()).then(j=>{if(!j.success||!j.reviews||!j.reviews.length)return;box.innerHTML=j.reviews.map(x=>`<article class="fx-review-card"><div class="fx-review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span><small>VERIFIED COMPLETED PROJECT</small></article>`).join('')}).catch(()=>{});})();
 </script>
