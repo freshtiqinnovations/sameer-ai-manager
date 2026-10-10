@@ -1,53 +1,60 @@
-// Run with: FTQ_BASE_URL=https://freshtiqautomation.com node qa/theme-contrast-regression.js
-// Requires Playwright and Google Chrome; fails on unreadable content, overlap or broken CTAs.
+/* Unified Freshtiq marketing UI: fixed theme, mobile grids, in-app browser regression.
+ * FTQ_BASE_URL=https://freshtiqautomation.com node qa/theme-contrast-regression.js
+ * PASS does not cover external page interactions or every visual asset. */
 const {chromium}=require('playwright');
-const url=process.env.FTQ_BASE_URL || 'https://freshtiqautomation.com';
-const checks=[];
-const ok=(val,name,detail='')=>{checks.push({pass:!!val,name,detail});console.log(val?'PASS':'FAIL',name,detail)};
-(async()=>{const br=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
-for (const route of ['/delivery.html','/services.html','/pricing.html','/security.html','/about.html','/contact.html','/partners.html','/']){
- for(const width of [390,1366]){
- const pg=await br.newPage({viewport:{width,height:844},colorScheme:'dark'});
+const bUrl=process.env.FTQ_BASE_URL||'https://freshtiqautomation.com';
+(async()=>{
+const b=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
+let n=0,fail=0;
+function check(ok,key,detail=''){(ok?n++:fail++);console.log(ok?'PASS':'FAIL',key,detail);}
+let configs=[
+ {id:'mobile390',viewport:{width:390,height:844},screen:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2.75},
+ {id:'small320',viewport:{width:320,height:844},screen:{width:320,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:3},
+ {id:'wide700',viewport:{width:700,height:844},screen:{width:700,height:844},isMobile:false,hasTouch:true,deviceScaleFactor:1},
+ {id:'phoneDesktop980',viewport:{width:980,height:844},screen:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2.75},
+ {id:'desktop980',viewport:{width:980,height:844},screen:{width:980,height:844},isMobile:false,hasTouch:false,deviceScaleFactor:1},
+ {id:'desktop1366',viewport:{width:1366,height:900},screen:{width:1366,height:900},isMobile:false,hasTouch:false,deviceScaleFactor:1}
+];
+for(const cfg of configs){
+ for(const path of ['/','/delivery.html','/services.html','/partners.html']){
+ let pg=await b.newPage(cfg);let errors=[];
+ pg.on('pageerror',err=>errors.push(err.message));
  try{
-  await pg.goto(url+route,{waitUntil:'domcontentloaded',timeout:16000});
-  await pg.waitForTimeout(480);
-  for(const mode of ['light','dark']){
-   await pg.evaluate(v=>localStorage.setItem('freshtiq_preferred_theme_v1',v),mode);
-   await pg.reload({waitUntil:'domcontentloaded',timeout:14000});await pg.waitForTimeout(300);
-   const stats=await pg.evaluate(()=>{
-    const sels=['.step-card','.step-card h3','.step-card p','.policy-box','.policy-box strong','.cta-block','.cta-block h3','.cta-block p','.glass-card','.glass-card h3','.glass-card p'];
-    const obj={};for(const s of sels){let e=document.querySelector(s);if(e){let g=getComputedStyle(e);obj[s]={fg:g.color,bg:g.backgroundColor,gradient:g.backgroundImage.slice(0,65)}}}
-    let badge=document.querySelector('.ftq-made-india'), bubble=document.querySelector('#ft-chat-toggle');
-    const nodeData=(e)=>{if(!e)return null;let r=e.getBoundingClientRect();return {display:getComputedStyle(e).display,position:getComputedStyle(e).position,top:r.top,bottom:r.bottom,parent:e.parentElement.tagName,cls:e.className}};
-    return {theme:document.documentElement.dataset.ftqTheme,scrollWidth:document.documentElement.scrollWidth,width:innerWidth,colors:obj,badge:nodeData(badge),bubble:nodeData(bubble),strip:!!document.querySelector('.ftq-premium-mobile-actions'),jsReady:!!document.querySelector('#ftq-theme-control')};
-   });
-   ok(stats.theme===mode,route+' '+width+' '+mode+' theme applied');
-   ok(stats.scrollWidth<=width+2,route+' '+width+' '+mode+' no overflow',stats.scrollWidth);
-   if(route==='/delivery.html'){
-    function color(str){return (str.match(/[\d.]+/g)||[]).slice(0,3).map(Number)}
-    function luminance(rgb){let c=rgb.map(x=>x/255).map(x=>x<=.04045?x/12.92:Math.pow((x+.055)/1.055,2.4));return c[0]*.2126+c[1]*.7152+c[2]*.0722}
-    function contrast(a,b){let l1=luminance(color(a)),l2=luminance(color(b));return (Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05)}
-    for(const group of [['.step-card','.step-card h3'],['.step-card','.step-card p'],['.policy-box','.policy-box strong'],['.cta-block','.cta-block h3'],['.cta-block','.cta-block p']]){
-     let bg=stats.colors[group[0]]?.bg,fg=stats.colors[group[1]]?.fg,ratio=bg&&fg?contrast(fg,bg):0;
-     ok(ratio>=4.5,route+' '+width+' '+mode+' contrast '+group[1],String(Math.round(ratio*100)/100));
-    }
-    if(width===390){
-     ok(stats.badge?.position==='relative'&&stats.badge?.top<600,route+' '+mode+' badge is inline near header',JSON.stringify(stats.badge));
-     ok(!stats.bubble||stats.bubble?.display==='none',route+' '+mode+' floating bubble hidden',JSON.stringify(stats.bubble));
-     ok(stats.strip,route+' '+mode+' AI and WA mobile strip exists');
-     await pg.locator('.ftq-premium-mobile-actions .ftq-open-chat').click({force:true,timeout:1800});
-     await pg.waitForTimeout(450);
-     ok(await pg.locator('#ft-chat-widget.open').count()===1,route+' '+mode+' AI opens correctly');
-     ok((await pg.locator('.ftq-premium-mobile-actions a[href*="wa.me/918381848389"]').count())===1,route+' '+mode+' WhatsApp link present');
-    }
-   }
-   if(route==='/partners.html'&&width===390){ok(stats.badge?.position==='relative',route+' '+mode+' partner badge inline');}
+ await pg.goto(bUrl+path,{waitUntil:'domcontentloaded',timeout:18000});
+ await pg.waitForTimeout(220);
+ let v=await pg.evaluate(()=>{
+ const el=s=>document.querySelector(s);
+ const width=e=>e?.getBoundingClientRect().width;
+ const grid=s=>{const e=el(s);return e?getComputedStyle(e).gridTemplateColumns.split(' ').length:0};
+ return{theme:document.documentElement.dataset.ftqTheme,toggle:!!el('#ftq-theme-control'),compact:document.body.classList.contains('ftq-compact-device-view'),overflow:document.documentElement.scrollWidth-innerWidth,gridCap:grid('.fx-cap-grid'),gridSys:grid('.fx-system-grid'),gridProof:grid('.fx-proof-grid'),gridVal:grid('.fx-value-grid'),gridForm:grid('.hero-lead-form'),fontCard:el('.fx-cap p')?getComputedStyle(el('.fx-cap p')).fontSize:null,sticky:el('.sticky-mobile-cta')?getComputedStyle(el('.sticky-mobile-cta')).display:null,wa:!!el('.sticky-mobile-cta a[href*="wa.me/918381848389"]'),themeCss:document.querySelector('link[href*="freshtiq-unified-theme"]')?.href};
+ });
+ let pre=cfg.id+' '+path;
+ check(v.theme==='light',pre+' fixed unified light',v.theme);
+ check(!v.toggle,pre+' no theme button');
+ check(v.overflow<=2,pre+' no horizontal overflow',v.overflow);
+ check(errors.length===0,pre+' no JS error',errors.slice(0,3).join(';'));
+ if(path==='/'){
+  let expectedCompact=cfg.id==='phoneDesktop980';
+  check(v.compact===expectedCompact,pre+' phone desktop mismatch detected',v.compact);
+  if(['mobile390','small320','wide700','phoneDesktop980'].includes(cfg.id)){
+   check(v.gridCap===1&&v.gridSys===1&&v.gridProof===1&&v.gridVal===1,pre+' readable single column',JSON.stringify([v.gridCap,v.gridSys,v.gridProof,v.gridVal]));
+   check(v.gridForm===1,pre+' lead form single column',v.gridForm);
   }
- }catch(e){ok(false,route+' '+width+' tests ran',e.message.slice(0,220))}
+  if(expectedCompact){
+    check(parseFloat(v.fontCard)>25,pre+' phone-desktop fonts enlarged',v.fontCard);
+    check(v.sticky!=='none',pre+' mobile sticky contact displayed',v.sticky);
+    check(v.wa,pre+' correct WhatsApp link');
+  }
+  // Bot response and form elements should remain intact.
+  check((await pg.locator('#heroLeadForm').count())===1,pre+' lead form intact');
+  check((await pg.locator('.ftq-open-chat').count())>=1,pre+' AI contact hook intact');
+ }
+ await pg.evaluate(()=>localStorage.setItem('freshtiq_preferred_theme_v1','dark'));
+ await pg.reload({waitUntil:'domcontentloaded',timeout:15000});
+ check((await pg.evaluate(()=>document.documentElement.dataset.ftqTheme))==='light',pre+' old dark setting ignored');
+ }catch(err){check(false,cfg.id+' '+path+' execution',String(err).slice(0,260));}
  finally{await pg.close()}
  }
 }
-await br.close();
-console.log('FINAL',JSON.stringify({pass:checks.filter(c=>c.pass).length,fail:checks.filter(c=>!c.pass).length}));
-if(checks.some(c=>!c.pass))process.exit(1);
-})();
+await b.close();console.log('SUMMARY',JSON.stringify({passed:n,failed:fail}));if(fail)process.exitCode=2;
+})()

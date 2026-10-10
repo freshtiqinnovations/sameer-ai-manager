@@ -1,7 +1,7 @@
 /* Freshtiq color-contrast gate. Run on production or localhost:
      FTQ_BASE_URL=https://freshtiqautomation.com node qa/accessibility-contrast-audit.js
    Requires Node 18+, Playwright, Google Chrome. Reports definite axe-core
-   contrast violations in both themes. Incomplete/gradient cases require
+   contrast violations in the one fixed premium theme. Incomplete/gradient cases require
    visual review; a zero count is not a guarantee for every pixel. */
 const { chromium } = require('playwright');
 (async () => {
@@ -14,12 +14,15 @@ const { chromium } = require('playwright');
   const routes=['/','/delivery.html','/services.html','/partners.html'];
   let failures=0, incomplete=0;
   try{
-    for(const route of routes)for(const mode of ['light','dark']){
+    for(const route of routes)for(const mode of ['light']){
       const page=await browser.newPage({viewport:{width:390,height:844}});
       try{
         await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});
-        await page.evaluate(value=>localStorage.setItem('freshtiq_preferred_theme_v1',value),mode);
+        await page.evaluate(value=>localStorage.setItem('freshtiq_preferred_theme_v1','dark'));
         await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+        if(await page.evaluate(()=>document.documentElement.dataset.ftqTheme)!=='light') {
+          throw Error('Expected the single fixed theme, got non-light');
+        }
         await page.addScriptTag({content:axe});
         const report=await page.evaluate(async()=>axe.run(document,{runOnly:{type:'rule',values:['color-contrast']}}));
         const nodes=report.violations.flatMap(v=>v.nodes);

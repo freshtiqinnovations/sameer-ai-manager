@@ -1,0 +1,266 @@
+/* FRESHTIQ SINGLE PREMIUM DESIGN | 2026-10-10
+ * ONE visual identity, no night/day choice, no OS-color changes.
+ * Mobile readability + physical-phone/desktop-viewport fallback.
+ * No business, CRM, marketing, checkout, consent or tracking code altered.
+ */
+:root,html{
+ color-scheme:light!important;
+}
+html body #ftq-theme-control,
+html body .ftq-theme-control,
+html body .ftq-mode-in-nav,
+html body .ftq-mode-floating{display:none!important}
+html body.fx-home{
+ background:#f1f6f9!important;color:#183347!important;
+}
+html body.fx-home #navbar,
+html body.fx-premium-page #navbar{
+ background:#162b3d!important;box-shadow:0 8px 26px rgba(10,40,55,.15)!important;
+}
+html body.fx-home :is(.fx-cap,.fx-value,.fx-work-step,.fx-system-card,.fx-live-shot,.fx-proof-card){
+ border:1px solid #41627a!important;
+ background:#20384c!important;
+ background-image:linear-gradient(155deg,#465b72 0%,#20384c 56%,#132b3d 100%)!important;
+ color:#f4faff!important;
+ box-shadow:0 8px 23px rgba(11,35,49,.10)!important;
+}
+html body.fx-home :is(.fx-cap,.fx-value,.fx-work-step,.fx-system-card,.fx-live-shot,.fx-proof-card)
+:is(h2,h3,h4,strong){
+ color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;
+}
+html body.fx-home :is(.fx-cap,.fx-value,.fx-work-step,.fx-system-card,.fx-proof-card)
+:is(p,small,span:not(.fx-cap-icon):not(.fx-eyebrow):not(.num):not(.fx-cap-link):not(.fx-channel-badge)),
+html body.fx-home .fx-live-shot .shot-copy span{
+ color:#e3edf6!important;-webkit-text-fill-color:#e3edf6!important;opacity:1!important;
+}
+html body.fx-home :is(.fx-cap,.fx-value,.fx-system-card,.fx-work-step,.fx-proof-card) p,
+html body.fx-home .fx-live-shot .shot-copy span{
+ font-size:max(15px,.96rem)!important;line-height:1.65!important;
+}
+html body.fx-home .fx-system-card :is(p,small,span){
+ font-size:max(14px,.90rem)!important;line-height:1.55!important;
+}
+html body.fx-home .fx-cap h3{
+ font-size:clamp(18px,1.14rem,23px)!important;line-height:1.35!important;
+}
+html body.fx-home .fx-cap-link,
+html body.fx-home .fx-live-shot .shot-copy small,
+html body.fx-home .fx-review-actions a{
+ color:#78f5e8!important;-webkit-text-fill-color:#78f5e8!important;
+ text-decoration:none!important;font-weight:750!important;
+}
+html body.fx-home .fx-review-empty{
+ background:#233b50!important;border:1px solid #496d84!important;
+}
+html body.fx-home .fx-review-empty :is(span,p,small){
+ color:#e0ecf4!important;-webkit-text-fill-color:#e0ecf4!important;
+ opacity:1!important;font-size:15px!important;
+}
+html body.fx-home .fx-review-empty strong{
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html body.fx-home .fx-channel-copy .fx-eyebrow,
+html body.fx-home .fx-section-head .fx-eyebrow{color:#08636b!important}
+html body.fx-home :is(.fx-cap,.fx-system-card,.fx-value) a:focus-visible,
+html body.fx-home .fx-cap:focus-visible,
+html body.fx-home .fx-proof-card:focus-visible{
+ outline:3px solid #06a6b4!important;outline-offset:3px!important;
+}
+html body.fx-home .fx-audit :is(input,textarea,select){
+ background:#fff!important;color:#18384b!important;
+ -webkit-text-fill-color:#18384b!important;border:1px solid #a7c6d3!important;
+ min-height:44px;
+}
+html body.fx-home .fx-audit :is(input,textarea)::placeholder{
+ color:#4b6473!important;-webkit-text-fill-color:#4b6473!important;opacity:1!important;
+}
+html body.fx-home .fx-audit .hero-lead-form label,
+html body.fx-home .fx-audit .lead-consent{
+ color:#273f4f!important;-webkit-text-fill-color:#273f4f!important;
+}
+html body.fx-home .fx-audit :is(.lead-submit,button[type=submit]){
+ min-height:48px!important;color:#09343e!important;-webkit-text-fill-color:#09343e!important;
+ background:#0ed6ce!important;
+}
+html body.fx-home .fx-audit .fx-audit-copy :is(h2,p,li,span){
+ color:#1a394d!important;-webkit-text-fill-color:#1a394d!important;
+}
+html body.fx-home .fx-audit .fx-audit-copy .fx-eyebrow{
+ color:#066269!important;-webkit-text-fill-color:#066269!important;
+}
+/* predictable grids: never cram four columns onto tablet or phone */
+@media(max-width:1100px){
+ html body.fx-home .fx-system-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:850px){
+ html body.fx-home :is(.fx-cap-grid,.fx-value-grid,.fx-proof-grid,
+  .fx-system-grid,.fx-live-evidence,.fx-industry-grid,.fx-work-grid,
+  .fx-review-grid,.fx-channel-grid){
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ html body.fx-home .hero-lead-form{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ html body.fx-home :is(.fx-cap,.fx-value,.fx-work-step,.fx-system-card){
+  min-width:0!important;
+ }
+ html body.fx-home .fx-wrap{width:calc(100% - 32px)!important;max-width:none!important}
+ html body.fx-home .fx-audit .hero-lead-form :is(input,select,textarea){
+  width:100%!important;max-width:100%!important;
+ }
+ html body.fx-home .fx-audit .lead-consent{
+  font-size:14px!important;line-height:1.55!important;
+ }
+ html body.fx-home .fx-audit .lead-consent input{
+  width:17px!important;height:17px!important;min-height:0!important;
+ }
+ html body.fx-home .fx-review-actions a{
+  font-size:15px!important;min-height:36px!important;
+ }
+}
+/* The WhatsApp in-app browser can report 980px for a 390px phone.
+   JS adds this class only when physical screen width is small AND
+   large CSS viewport AND coarse touch input are all detected. */
+html body.ftq-compact-device-view {
+ min-width:0!important;
+}
+html body.ftq-compact-device-view #navbar{
+ min-height:var(--ftq-phone-navheight)!important;
+}
+html body.ftq-compact-device-view #navbar .nav-inner{
+ width:calc(100% - 32px)!important;max-width:none!important;
+ min-height:var(--ftq-phone-navheight)!important;
+ display:flex!important;justify-content:space-between!important;
+ align-items:center!important;
+}
+html body.ftq-compact-device-view #navbar .logo{
+ width:auto!important;max-width:40%!important;
+}
+html body.ftq-compact-device-view #navbar .logo img{
+ width:auto!important;max-width:100%!important;
+ max-height:calc(var(--ftq-phone-navheight) * .65)!important;
+}
+html body.ftq-compact-device-view #navbar .hamburger{
+ width:var(--ftq-phone-navheight)!important;height:var(--ftq-phone-navheight)!important;
+ display:flex!important;flex-direction:column!important;justify-content:center!important;
+ align-items:center!important;
+}
+html body.ftq-compact-device-view #navbar .hamburger span{
+ width:50%!important;height:3px!important;
+}
+html body.ftq-compact-device-view #navbar .nav-links{
+ display:none!important;position:fixed!important;z-index:999!important;
+ top:var(--ftq-phone-navheight)!important;right:15px!important;left:15px!important;
+ width:auto!important;max-height:calc(100vh - 160px)!important;
+ flex-direction:column!important;overflow-y:auto!important;
+ background:#132c40!important;padding:var(--ftq-phone-gap)!important;
+ border:2px solid #477388!important;
+}
+html body.ftq-compact-device-view #navbar .nav-links.open{
+ display:flex!important;
+}
+html body.ftq-compact-device-view #navbar .nav-links a{
+ font-size:var(--ftq-phone-small)!important;
+ padding:var(--ftq-phone-gap)!important;color:#fff!important;
+ -webkit-text-fill-color:#fff!important;display:block!important;
+}
+html body.ftq-compact-device-view #navbar .nav-links a.nav-cta{
+ background:#12dcd3!important;color:#073944!important;
+ -webkit-text-fill-color:#073944!important;
+}
+html body.ftq-compact-device-view :is(.fx-wrap,.fx-hero-inner,.fx-trust-inner){
+ width:calc(100% - var(--ftq-phone-pad) * 2)!important;
+ max-width:none!important;margin-left:auto!important;margin-right:auto!important;
+}
+html body.ftq-compact-device-view :is(.fx-cap-grid,.fx-value-grid,.fx-proof-grid,
+ .fx-system-grid,.fx-live-evidence,.fx-industry-grid,.fx-work-grid,
+ .fx-review-grid,.fx-channel-grid,.fx-trust-inner,.fx-hero-inner,.fx-audit-inner){
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+ gap:var(--ftq-phone-gap)!important;
+}
+html body.ftq-compact-device-view .hero-lead-form{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+ gap:var(--ftq-phone-gap)!important;
+}
+html body.ftq-compact-device-view :is(.fx-cap,.fx-value,.fx-system-card,
+ .fx-work-step,.fx-proof-card,.fx-live-shot,.fx-channel-card,
+ .fx-review-empty,.fx-industry,.fx-audit){
+ min-width:0!important;max-width:100%!important;
+ padding:var(--ftq-phone-pad)!important;
+}
+html body.ftq-compact-device-view :is(.fx-section,.fx-channel-trust,.fx-trust,.fx-audit){
+ padding-top:calc(var(--ftq-phone-pad) * 2)!important;
+ padding-bottom:calc(var(--ftq-phone-pad) * 2)!important;
+}
+html body.ftq-compact-device-view main :is(p,li,label,small,.fx-review-empty span,
+ .fx-cap-link,.shot-copy span,.fx-value span,.fx-system-card span,.fx-industry span){
+ font-size:var(--ftq-phone-text)!important;line-height:1.5!important;
+}
+html body.ftq-compact-device-view main :is(h1,h2){
+ font-size:var(--ftq-phone-heading)!important;line-height:1.23!important;
+}
+html body.ftq-compact-device-view main :is(h3,h4,.fx-cap h3,
+ .fx-system-card strong,.fx-value strong,.fx-live-shot strong){
+ font-size:var(--ftq-phone-card-heading)!important;line-height:1.3!important;
+}
+html body.ftq-compact-device-view main :is(button,.fx-primary,.fx-secondary,
+ .lead-submit,.fx-cap-link,.fx-review-actions a){
+ font-size:var(--ftq-phone-text)!important;
+ min-height:var(--ftq-phone-navheight)!important;
+}
+html body.ftq-compact-device-view main :is(input,textarea,select){
+ font-size:var(--ftq-phone-text)!important;
+ min-height:var(--ftq-phone-navheight)!important;
+ max-width:100%!important;
+}
+html body.ftq-compact-device-view .lead-consent input{
+ width:var(--ftq-phone-text)!important;height:var(--ftq-phone-text)!important;
+ min-height:0!important;
+}
+html body.ftq-compact-device-view :is(.fx-section-head,.fx-section-head.center){
+ text-align:left!important;max-width:100%!important;
+}
+html body.ftq-compact-device-view .fx-system-card :is(p,span,small),
+html body.ftq-compact-device-view .fx-cap p{
+ font-size:var(--ftq-phone-small)!important;
+}
+html body.ftq-compact-device-view .fx-live-shot .shot-img{aspect-ratio:16/9!important}
+html body.ftq-compact-device-view .sticky-mobile-cta{
+ display:grid!important;grid-template-columns:repeat(3,1fr)!important;
+ position:fixed!important;left:0!important;right:0!important;bottom:0!important;
+ width:100%!important;z-index:3000!important;
+ padding:var(--ftq-phone-gap)!important;
+ background:#0c2739!important;gap:var(--ftq-phone-gap)!important;
+}
+html body.ftq-compact-device-view .sticky-mobile-cta a{
+ font-size:var(--ftq-phone-small)!important;
+ min-height:var(--ftq-phone-navheight)!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+}
+html body.ftq-compact-device-view #ft-chat-toggle{display:none!important}
+html body.ftq-compact-device-view #ft-chat-widget{
+ bottom:var(--ftq-phone-ctaheight)!important;
+ max-height:calc(100vh - var(--ftq-phone-ctaheight) - var(--ftq-phone-navheight))!important;
+}
+html body.ftq-compact-device-view{padding-bottom:var(--ftq-phone-ctaheight)!important}
+
+/* Outrank legacy light-mode white-card overrides for the navy workflow/evidence
+ * cards. This avoids white-text-on-white-card regressions. */
+html[data-ftq-theme="light"] body.fx-home :is(.fx-work-step,.fx-live-shot){
+ background-color:#20384c!important;
+ background-image:linear-gradient(155deg,#465b72 0%,#20384c 56%,#132b3d 100%)!important;
+ border-color:#496a80!important;
+ color:#f7fbff!important;
+}
+/* Keep article/service pages readable if opened by the same in-app phone. */
+html body.ftq-compact-device-view main :is(
+ .hero-grid,.step-grid,.pricing-grid,.feature-grid,.form-grid,.services-grid,
+ .two-col,.columns,.cards-grid,.grid){
+ grid-template-columns:minmax(0,1fr)!important;
+}
+html body.ftq-compact-device-view main :is(.section,.hero,.page-header) {
+ max-width:100%!important;
+}
+html body.ftq-compact-device-view main :is(.card,.step-card,.glass-card,.tier,.pricing-card,.form-card){
+ min-width:0!important;max-width:100%!important;
+}
