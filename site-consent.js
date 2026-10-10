@@ -44,6 +44,7 @@
     try{localStorage.setItem(KEY,choice)}catch(_){}
     applyChoice(choice);
     if(adsEnabled()) window.FreshtiqOpenAIMeasurement.setConsent(v==='measurement');
+    else { try { localStorage.setItem(ADS_KEY,v==='measurement'?'granted':'denied'); } catch(_){} }
     removeBanner();
   }
   function removeBanner(){document.getElementById('ftq-consent')?.remove()}

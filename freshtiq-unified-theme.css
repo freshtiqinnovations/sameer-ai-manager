@@ -291,3 +291,7 @@ html body.ftq-compact-device-view main>.page-header:first-child{padding-top:calc
 html body.ftq-compact-device-view .flow-pills span{font-size:var(--ftq-phone-small)!important;padding:var(--ftq-phone-gap)!important}
 
 html[data-ftq-theme="light"] body main>.page-header .section-label{color:#09665e!important;-webkit-text-fill-color:#09665e!important;opacity:1!important}
+
+/* Long integration names must wrap inside narrow cards. */
+html body .glass-card :is(ul,li,p,a){min-width:0!important;max-width:100%!important;overflow-wrap:anywhere!important;white-space:normal!important}
+html body.ftq-compact-device-view .glass-card .feature-list{grid-template-columns:minmax(0,1fr)!important}

@@ -44,7 +44,7 @@
 <link href="/freshtiq-first-impression.css?v=20261010mobile2" rel="stylesheet"/>
 <script defer="" src="/freshtiq-premium-experience.js?v=20261010polish3"></script>
 <script>document.documentElement.setAttribute("data-ftq-theme","light");document.documentElement.style.colorScheme="light";</script>
-<link href="/freshtiq-unified-theme.css?v=20261010clipfix1" rel="stylesheet"/>
+<link href="/freshtiq-unified-theme.css?v=20261010clipfix2" rel="stylesheet"/>
 <link href="/freshtiq-polish-responsive.css?v=20261010polish3" rel="stylesheet"/>\n<link href="/conversion-clarity.css?v=20261010a" rel="stylesheet"/></head>
 <body class="fx-home">
 <nav id="navbar">
@@ -430,6 +430,6 @@
 <script>
 (function(){const box=document.getElementById('homeReviews');if(!box)return;const esc=v=>String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));fetch('https://portal.freshtiqautomation.com/api/reviews/public?limit=6',{credentials:'include'}).then(r=>r.json()).then(j=>{if(!j.success||!j.reviews||!j.reviews.length)return;box.innerHTML=j.reviews.map(x=>`<article class="fx-review-card"><div class="fx-review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span><small>VERIFIED COMPLETED PROJECT</small></article>`).join('')}).catch(()=>{});})();
 </script>
-<script src="/site-consent.js?v=20261005openai1"></script>
+<script src="/site-consent.js?v=20261010choice2"></script>
 </body>
 </html>
