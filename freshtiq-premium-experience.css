@@ -676,3 +676,48 @@ html body.fx-premium-page .ftq-premium-mobile-actions {display:none}
   background:#e9f9ff!important;
  }
 }
+
+/* WCAG 2.2 AA visual-contrast repairs (2026-10-10). Measured on actual
+   mobile Chrome using axe-core; matched cards and text across light mode. */
+html[data-ftq-theme="light"] body.fx-home .fx-channel-copy .fx-eyebrow {
+ color:#086b76!important;-webkit-text-fill-color:#086b76!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy strong {
+ color:#142f43!important;-webkit-text-fill-color:#142f43!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy span {
+ color:#345267!important;-webkit-text-fill-color:#345267!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-live-shot .shot-copy small {
+ color:#08664f!important;-webkit-text-fill-color:#08664f!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-industry span{
+ color:#42596b!important;-webkit-text-fill-color:#42596b!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-faq .faq-a p{
+ color:#40576a!important;-webkit-text-fill-color:#40576a!important;opacity:1!important;
+}
+/* Partner lead form, pricing calculator and legal text are light surfaces. */
+html[data-ftq-theme="light"] body:has(#partnerApplication) .section .eyebrow{
+ color:#05666c!important;-webkit-text-fill-color:#05666c!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .section a:not(.cta):not(.nav-join),
+html[data-ftq-theme="light"] body:has(#partnerApplication) #exampleCommission{
+ color:#085c67!important;-webkit-text-fill-color:#085c67!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) footer,
+html[data-ftq-theme="light"] body:has(#partnerApplication) footer span{
+ color:#344e60!important;-webkit-text-fill-color:#344e60!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) footer a{
+ color:#075d67!important;-webkit-text-fill-color:#075d67!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) #ftq-theme-control {
+ color:#f2ffff!important;-webkit-text-fill-color:#f2ffff!important;
+ background:#183d4c!important;border-color:#287988!important;
+}
+/* Keep brand pill and controls visibly focused for keyboard users. */
+html body.fx-home .fx-live-shot:focus-visible,
+html body.fx-home .fx-industry:focus-visible {
+ outline:3px solid #078f97!important;outline-offset:3px!important;
+}
