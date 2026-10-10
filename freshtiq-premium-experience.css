@@ -437,3 +437,158 @@ html[data-ftq-theme=light] body.fx-demo-page .page-header{
 html[data-ftq-theme=light] body.fx-demo-page .page-header h1{
  color:#173b4c!important;-webkit-text-fill-color:#173b4c!important;font-weight:850!important
 }
+
+
+/* FRESHTIQ UX POLISH 2026-10-10 — accessible consistent themes, mobile unobstructed.
+   Safe CSS-only visual improvements; no checkout/lead/CRM changes. */
+html[data-ftq-theme="light"] body:has(#partnerApplication),
+html[data-ftq-theme="light"] body:has(#partnerNotifications){
+  --ftq-partner-ink:#142f43;--ftq-partner-muted:#40596b;
+  background:#f6f9fc!important;color:#142f43!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .navbar,
+html[data-ftq-theme="light"] body:has(#partnerNotifications) .navbar{
+  background:rgba(255,255,255,.98)!important;border-color:#cbdde5!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .nav-items a:not(.nav-join),
+html[data-ftq-theme="light"] body:has(#partnerNotifications) .nav-items a:not(.nav-join){
+  color:#17394b!important;-webkit-text-fill-color:#17394b!important;font-weight:750!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .nav-items a:not(.nav-join):hover,
+html[data-ftq-theme="light"] body:has(#partnerNotifications) .nav-items a:not(.nav-join):hover{
+  color:#006e73!important;-webkit-text-fill-color:#006e73!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .hero,
+html[data-ftq-theme="light"] body:has(#partnerNotifications) .hero{
+  background:linear-gradient(145deg,#edf8fa,#f8fbfe 65%)!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .hero h1,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .section h2,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .section h3,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .step strong,
+html[data-ftq-theme="light"] body:has(#partnerNotifications) .hero h1{
+  color:#142f43!important;-webkit-text-fill-color:#142f43!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .hero h1 em,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .eyebrow,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .tag,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .step span,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .tier .percent,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .hero-panel strong{
+  color:#077c80!important;-webkit-text-fill-color:#077c80!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) #commission{
+  background:#edf4f7!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .tier,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .tier.featured,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .glass,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .demo-calc,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .kpis span{
+  background:#ffffff!important;color:#18394e!important;border-color:#c7dbe3!important;
+  box-shadow:0 8px 28px rgba(15,47,69,.07)!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .lead,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .small,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .section-head p,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .tier p,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .step p,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .form-card>p,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .note-list li,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .checkline,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .res-row span{
+  color:#40596b!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) label,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .checkline{
+  color:#244458!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .notice{
+  background:#f0f7fa!important;color:#244458!important;border-color:#bbd3df!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .notice.error{
+  color:#8b2432!important;background:#fff3f3!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .notice.success{
+  color:#08654a!important;background:#e9fff4!important;
+}
+html[data-ftq-theme="light"] body:has(#partnerApplication) .cta.secondary{
+  background:#e8f2f7!important;color:#163b50!important;border-color:#b5d1dc!important;
+}
+html body .ftq-inline-country-badge,
+html body.fx-home .ftq-inline-country-badge{
+  position:relative!important;display:inline-flex!important;
+  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  margin:0 0 16px!important;z-index:1!important;max-width:100%!important;
+  font-size:12px!important;padding:7px 10px!important;box-shadow:0 4px 15px rgba(0,0,0,.13)!important;
+}
+html body .ftq-inline-country-badge img{width:29px!important;height:19px!important}
+html[data-ftq-theme="light"] body.fx-premium-page .ftq-inline-country-badge,
+html[data-ftq-theme="light"] body:has(#partnerApplication) .ftq-inline-country-badge{
+ background:#e5f4f3!important;color:#164750!important;border-color:#91c8c9!important;
+}
+html[data-ftq-theme="dark"] body.fx-premium-page .ftq-inline-country-badge,
+html[data-ftq-theme="dark"] body:has(#partnerApplication) .ftq-inline-country-badge{
+ background:#082b3a!important;color:#eafffc!important;border-color:#339d9a!important;
+}
+html body .ftq-theme-control{transition:background-color .15s ease,border-color .15s ease!important}
+html body .ftq-theme-control:focus-visible,
+html body .ftq-inline-country-badge:focus-visible{outline:3px solid #e7b649!important;outline-offset:2px!important}
+@media(max-width:768px){
+  /* The 3-item sticky bar already exposes AI Assistant; no duplicate floating launcher. */
+  html body.fx-home.ftq-has-mobile-cta #ft-chat-toggle{display:none!important}
+  html body.fx-home.ftq-has-mobile-cta #ft-chat-widget{
+    bottom:calc(76px + env(safe-area-inset-bottom))!important;
+    max-height:calc(100dvh - 100px - env(safe-area-inset-bottom))!important;
+  }
+  html body.fx-home .sticky-mobile-cta a{min-height:44px!important}
+  html body.fx-home .fx-hero>.ftq-made-india{max-width:calc(100vw - 25px)!important}
+  html body:has(#partnerApplication) .nav-inner{gap:10px!important}
+  html body:has(#partnerApplication) .nav-items{gap:8px 12px!important}
+  html body:has(#partnerApplication) .nav-items a{min-height:32px;display:inline-flex;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){
+ html body .ftq-theme-control{transition:none!important}
+}
+
+/* Desktop and tablet navigation is a compact, functional menu when many links do not fit. */
+@media (min-width:769px) and (max-width:1440px){
+ html body #navbar .nav-inner{justify-content:space-between!important;}
+ html body #navbar .hamburger{
+   display:flex!important;flex:none!important;
+   width:44px!important;height:44px!important;align-items:center!important;justify-content:center!important;
+   flex-direction:column!important;cursor:pointer!important;
+ }
+ html body #navbar .nav-links{
+   display:none!important;position:fixed!important;left:auto!important;
+   top:calc(76px + 2px)!important;right:clamp(12px,2.5vw,40px)!important;
+   width:min(360px,calc(100vw - 24px))!important;max-width:360px!important;
+   max-height:calc(100dvh - 92px)!important;overflow-y:auto!important;
+   padding:12px!important;margin:0!important;border:1px solid #406377!important;border-radius:14px!important;
+   background:#091e2d!important;box-shadow:0 22px 55px rgba(0,0,0,.35)!important;
+   flex-direction:column!important;align-items:stretch!important;gap:3px!important;
+   transform:none!important;opacity:1!important;z-index:1400!important;
+ }
+ html body #navbar .nav-links.open{display:flex!important;}
+ html body #navbar .nav-links a{display:block!important;width:100%!important;max-width:none!important;
+   padding:11px 13px!important;text-align:left!important;font-size:13px!important;
+   color:#eaf8ff!important;background:transparent!important;border-radius:9px!important;
+ }
+ html body #navbar .nav-links a.nav-cta{
+   background:#0ce7db!important;color:#06313a!important;-webkit-text-fill-color:#06313a!important;
+ }
+ html body #navbar .nav-inner>.ftq-mode-in-nav{margin-left:auto!important;}
+}
+@media(min-width:1441px){
+ html body.fx-home #navbar .nav-inner>a.logo{flex:0 1 175px!important;min-width:160px!important;}
+ html body.fx-home #navbar .nav-inner>a.logo img{max-width:172px!important;width:172px!important;}
+ html body #navbar .nav-links a{font-size:11px!important;padding:8px 5px!important;}
+ html body #navbar .nav-inner>.ftq-mode-in-nav{min-width:44px!important;width:44px!important;padding:8px!important;}
+ html body #navbar .nav-inner>.ftq-mode-in-nav .ftq-theme-label{display:none!important;}
+}
+/* Chat stays below header; otherwise its tall mobile panel can swallow nav taps. */
+@media(max-width:768px){
+ html body.fx-home.ftq-has-mobile-cta #ft-chat-widget{
+   max-height:calc(100dvh - 174px - env(safe-area-inset-bottom))!important;
+ }
+}

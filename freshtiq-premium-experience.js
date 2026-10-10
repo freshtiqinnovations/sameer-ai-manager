@@ -3,7 +3,10 @@
 (()=>{'use strict';
  const KEY='freshtiq_preferred_theme_v1';
  const html=document.documentElement;
- function getSaved(){try{const v=localStorage.getItem(KEY);return v==='light'||v==='dark'?v:'dark'}catch(e){return 'dark'}}
+ function getSaved(){
+  try{const v=localStorage.getItem(KEY);if(v==='light'||v==='dark')return v}catch(e){}
+  return window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+ }
  function setTheme(v,save=false){
    const mode=v==='light'?'light':'dark';
    html.setAttribute('data-ftq-theme',mode);
@@ -29,8 +32,31 @@
     if(anchor){anchor.appendChild(btn);btn.classList.add('ftq-mode-in-nav')}
     else{document.body.appendChild(btn);btn.classList.add('ftq-mode-floating')}
   }
+  // Fixed country badges on small screens obscured readable website content:
+  // move them into ordinary page flow instead of covering controls or text.
+  if(!document.body.classList.contains('fx-home')){
+   const badge=document.querySelector('.ftq-made-india');
+   if(badge&&!badge.classList.contains('ftq-inline-country-badge')){
+    const heroCopy=document.querySelector('.hero-grid > div:first-child');
+    const target=heroCopy||document.querySelector('main')||document.querySelector('article');
+    if(target){badge.classList.add('ftq-inline-country-badge');target.insertBefore(badge,target.firstChild)}
+   }
+  }
+  // Preserve keyboard/screen-reader menu state when the legacy nav class toggles.
+  const hamburger=document.querySelector('#navbar .hamburger');
+  if(hamburger){
+   const syncMenu=()=>hamburger.setAttribute('aria-expanded',String(
+    hamburger.classList.contains('active')||
+    Boolean(document.querySelector('#navbar .nav-links.open'))));
+   hamburger.addEventListener('click',()=>requestAnimationFrame(syncMenu));
+   syncMenu();
+  }
   setTheme(getSaved());
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
  window.addEventListener('storage',e=>{if(e.key===KEY)setTheme(getSaved())});
+ if(window.matchMedia){const mq=window.matchMedia('(prefers-color-scheme: light)');
+  const changed=()=>{try{if(['light','dark'].includes(localStorage.getItem(KEY)))return}catch(e){}setTheme(getSaved())};
+  if(mq.addEventListener)mq.addEventListener('change',changed);
+ }
 })();
