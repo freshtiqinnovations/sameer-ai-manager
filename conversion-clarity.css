@@ -84,3 +84,52 @@ html body.fx-home .ftq-region-intent a:focus-visible{background:#daf3ea;outline:
 /* Progressive audit form: hide only the unused contact channel, never consent without choice. */
 body.fx-home #heroLeadForm label[hidden]{display:none!important}
 body.fx-home #heroLeadForm label:not([hidden]){min-width:0}
+
+/* 2026-10-11 PREMIUM COLOR CONSISTENCY (owner request).
+   Problem (measured): dark navy service cards sat on a mix of white cards, pale-blue
+   (#f6f9fc) and light-grey (#eef4f7) section surfaces; plus two text-contrast defects
+   (.fx-work-step h3 dark-on-dark, hero review link cyan-on-cyan).
+   Fix: ONE premium soft blue-grey surface for every light section + one uniform navy
+   service-card family + readable text. Homepage-scoped. CSS-only: no layout, content,
+   SEO, forms, CRM, portal, payment or tracking change. Header, primary buttons, country
+   links and the sticky CTA are intentionally NOT modified. */
+
+/* 1. One consistent premium soft blue-grey surface (page base + every light section). */
+html body.fx-home{background:#eef4f7!important}
+html[data-ftq-theme="light"] body.fx-home,
+html[data-ftq-theme="light"] body.fx-home .fx-home-main,
+html[data-ftq-theme="light"] body.fx-home .fx-section,
+html[data-ftq-theme="light"] body.fx-home .fx-section.soft,
+html[data-ftq-theme="light"] body.fx-home .fx-section.dark,
+html[data-ftq-theme="light"] body.fx-home .fx-review-section,
+html[data-ftq-theme="light"] body.fx-home .fx-final,
+html[data-ftq-theme="light"] body.fx-home .fx-channel-trust,
+html[data-ftq-theme="light"] body.fx-home .fx-trust{
+ background:#eef4f7!important;color:#172c40!important;border-color:#d4e1e8!important;
+}
+/* service section: explicit soft blue-grey so the navy cards always sit on one tone */
+html body.fx-home section#services.fx-section{background:#eef4f7!important}
+
+/* 2. Uniform navy service-card family: same navy shade, border, shadow and text contrast. */
+html body.fx-home .fx-cap{
+ background-color:#20384c!important;
+ background-image:linear-gradient(155deg,#465b72 0%,#20384c 56%,#132b3d 100%)!important;
+ border:1px solid #41627a!important;
+ box-shadow:0 10px 26px rgba(11,35,49,.10)!important;
+ color:#f4faff!important;
+}
+html body.fx-home .fx-cap h3{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body.fx-home .fx-cap p{color:#dce8f3!important;-webkit-text-fill-color:#dce8f3!important}
+html body.fx-home .fx-cap .fx-cap-link{color:#8bfff2!important;-webkit-text-fill-color:#8bfff2!important}
+
+/* 3. Low-contrast text repairs (measured defects only).
+   a) workflow step headings rendered dark #203a4e on the navy card (#20384c) -> 1.03:1
+   b) workflow step number #2563eb on navy -> 2.35:1
+   c) review link text #78f5e8 on the cyan .fx-primary button -> 1.31:1 (button itself untouched) */
+/* [data-ftq-theme="light"] is required to outrank the legacy light-mode rule
+   (html[data-ftq-theme="light"] body.fx-home .fx-work-step h3) that painted a dark
+   heading on the navy card; equal specificity + later load order now wins. */
+html[data-ftq-theme="light"] body.fx-home .fx-work-step h3{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html[data-ftq-theme="light"] body.fx-home .fx-work-step p{color:#dce8f3!important;-webkit-text-fill-color:#dce8f3!important}
+html[data-ftq-theme="light"] body.fx-home .fx-work-step .num{color:#8bfff2!important;-webkit-text-fill-color:#8bfff2!important}
+html body.fx-home .fx-review-actions a{color:#04111f!important;-webkit-text-fill-color:#04111f!important}
