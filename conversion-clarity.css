@@ -44,6 +44,15 @@ html body.fx-home .fx-hero .fx-hero-actions a.fx-secondary{color:#16483e!importa
 html body.fx-home #free-audit{scroll-margin-top:100px}
 
 /* 2026-10-10: market-specific paths without keyword stuffing or layout shifts. */
+/* Country/market buttons are an in-flow card, NOT a pinned bar: neutralise the generic `nav{position:fixed}` rule (2026-10-11 mobile fix). */
+html body nav.ftq-region-intent{position:static!important;height:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;z-index:auto!important}
+
+/* 2026-10-11 mobile layout fixes (owner): hero content clears the fixed header on phones;
+   sticky bottom CTA reserve includes the device safe-area so it can never cover content. */
+@media(max-width:768px){
+  html body.fx-home .fx-hero{padding-top:84px!important}
+  html body.fx-home.ftq-has-mobile-cta{padding-bottom:calc(78px + env(safe-area-inset-bottom))!important}
+}
 html body.fx-home .ftq-region-intent{
   display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
   width:min(1160px,calc(100% - 36px));margin:20px auto 4px;padding:14px 18px;
