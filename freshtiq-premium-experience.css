@@ -721,3 +721,10 @@ html body.fx-home .fx-live-shot:focus-visible,
 html body.fx-home .fx-industry:focus-visible {
  outline:3px solid #078f97!important;outline-offset:3px!important;
 }
+
+/* --- Nav drawer behaviour: dim backdrop, hide sticky CTA, lock scroll while open (2026-10-11 UI repair) --- */
+body.ftq-nav-open .sticky-mobile-cta{display:none!important}
+.ftq-nav-backdrop{position:fixed;inset:0;background:rgba(4,12,22,.6);z-index:990;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.ftq-nav-backdrop.show{opacity:1;pointer-events:auto}
+@media(max-width:1440px){body.ftq-nav-open{overflow:hidden!important}}
+@media(prefers-reduced-motion:reduce){.ftq-nav-backdrop{transition:none}}
