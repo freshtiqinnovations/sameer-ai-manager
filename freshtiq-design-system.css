@@ -1,0 +1,166 @@
+/* Freshtiq Design System — 2026-10-12 (owner-approved UI/UX correction)
+   Tokens: navy #071C2C · surface #102F3C · teal #12D9C4 · off-white #F4F7F9
+   Component-level fixes for measured defects: contrast, theme conflict,
+   empty-looking sections, header fit. Loaded last on public pages. */
+
+:root{
+  --ftq-navy:#071C2C; --ftq-navy2:#102F3C; --ftq-teal:#12D9C4;
+  --ftq-off:#F4F7F9; --ftq-ink:#0B1F2A; --ftq-ink2:#33424D; --ftq-mut:#54646F; --ftq-line:#DCE6EC;
+}
+
+/* ==========================================================================
+   1) PREMIUM INNER-PAGE HEADER — one consistent deep-navy hero with white
+   heading + teal label. (Root cause of "invisible heading": midnight navy
+   header + light-theme dark ink.)
+   ========================================================================== */
+html body.fx-premium-page .page-header,
+html body.fx-premium-page .case-header,
+html body.fx-premium-page .hero-section{
+  background:linear-gradient(160deg,#071C2C 0%,#0A2432 58%,#102F3C 100%)!important;
+  color:#fff!important;border-color:#173B4C!important;
+}
+html body.fx-premium-page .page-header h1,
+html body.fx-premium-page .page-header h2,
+html body.fx-premium-page .case-header h1,
+html body.fx-premium-page .hero-section h1{color:#fff!important;font-weight:850!important}
+html body.fx-premium-page .page-header p,
+html body.fx-premium-page .case-header p,
+html body.fx-premium-page .hero-section p{color:#C7D8E2!important;opacity:1!important}
+html body.fx-premium-page .page-header .section-label,
+html body.fx-premium-page .page-header .section-tag,
+html body.fx-premium-page .case-header .section-label{
+  background:rgba(18,217,196,.1)!important;color:var(--ftq-teal)!important;
+  -webkit-text-fill-color:var(--ftq-teal)!important;
+  border:1px solid rgba(18,217,196,.45)!important;opacity:1!important;
+}
+
+/* ==========================================================================
+   2) PREMIUM SECTIONS — keep the brand navy surface, force readable light
+   text (was: navy surface + dark light-theme ink).
+   ========================================================================== */
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section{
+  background:#071C2C!important;color:#E9F3F9!important;border-color:rgba(18,217,196,.14)!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section.soft{background:#0B2634!important}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section.dark{background:linear-gradient(150deg,#071C2C,#102F3C)!important;color:#EAF4FA!important}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section .fx-wrap{color:#DCE8F2!important}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section .fx-section-head h2{color:#fff!important}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section .fx-section-head p{color:#AFC0D2!important}
+/* accent (teal) cards carry dark ink */
+html body.fx-premium-page .fx-cap{background:#12D9C4!important;border:1px solid rgba(4,38,43,.18)!important}
+html body.fx-premium-page .fx-cap p{color:#06313A!important}
+html body.fx-premium-page .fx-cap strong,html body.fx-premium-page .fx-cap h3{color:#04262B!important}
+html body.fx-premium-page .fx-cap .fx-cap-link{color:#04262B!important}
+
+/* ==========================================================================
+   3) SECTION CHIPS on light sections (pricing explorer / section headers)
+   ========================================================================== */
+html body .price-explorer-head .section-tag,
+html body .section-header .section-tag,
+html body .section .section-tag{
+  background:var(--ftq-navy)!important;color:var(--ftq-teal)!important;
+  -webkit-text-fill-color:var(--ftq-teal)!important;
+  border:1px solid rgba(18,217,196,.45)!important;opacity:1!important;
+}
+
+/* ==========================================================================
+   4) COOKIE CONSENT + PRICING CONTROLS (white-on-cyan failures)
+   ========================================================================== */
+html body #ftq-consent .ftq-consent-actions button.primary{background:var(--ftq-teal)!important;color:#04262B!important}
+html body #priceRegionTabs button.active,
+html body #priceTierTabs button.active,
+html body .price-control-group button.active{
+  background:var(--ftq-navy)!important;color:var(--ftq-teal)!important;
+}
+
+/* ==========================================================================
+   7) DESKTOP HEADER 1200-1440px — links were rendering as an overflowing
+   dark panel (two competing nav rules). Restore a clean single row.
+   ========================================================================== */
+@media(min-width:1200px){
+  html body #navbar .nav-links{
+    display:flex!important;position:static!important;flex-direction:row!important;
+    width:auto!important;max-width:none!important;background:transparent!important;
+    box-shadow:none!important;border:0!important;padding:0!important;gap:3px!important;
+    max-height:none!important;overflow:visible!important;transform:none!important;opacity:1!important;z-index:auto!important;
+  }
+  html body #navbar .nav-links a{font-size:11px!important;padding:8px 6px!important;width:auto!important;text-align:center!important;background:transparent!important}
+  html body #navbar .nav-links .nav-cta{padding:8px 12px!important;min-width:0!important;margin-left:6px!important;font-size:11px!important}
+  html body #navbar .hamburger{display:none!important}
+  html body #navbar .logo img{max-width:172px!important;height:auto!important}
+  html body #navbar .ftq-lang-switch summary{min-width:70px!important;padding:8px 9px!important}
+  html body #navbar .ftq-site-search{max-width:172px!important}
+  html body #navbar #ftqSsInput{min-width:0!important;width:100%!important;font-size:13px!important;padding:8px 10px!important}
+}
+
+/* ==========================================================================
+   8) HOME CONSENT CTA (dark ink on dark green) + mobile workspace label
+   ========================================================================== */
+html body.fx-home #ftq-consent .ftq-consent-actions button.primary,
+html body.fx-premium-page #ftq-consent .ftq-consent-actions button.primary{
+  background:var(--ftq-teal)!important;color:#04262B!important;-webkit-text-fill-color:#04262B!important;
+}
+html body.fx-home .ftq-workspace-entry>a .ftq-mobile-label,
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a .ftq-mobile-label{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html body.fx-home .ftq-workspace-entry>a:first-of-type .ftq-mobile-label,
+html body.fx-home.ftq-compact-device-view .ftq-workspace-entry>a:first-of-type .ftq-mobile-label{
+  color:#04262B!important;-webkit-text-fill-color:#04262B!important;
+}
+
+html body .store-card-price .main{color:#FFFFFF!important}
+
+/* ==========================================================================
+   6) PARTNER HERO CAPTION + MOBILE WORKSPACE LABEL
+   ========================================================================== */
+html body .hero-panel strong span{color:#0E8F83!important}
+
+/* ==========================================================================
+   7) HEADER FIT ON SMALL SCREENS — search input + hamburger were pushed
+   off-canvas at <=390px. Keep one row, shrink gracefully.
+   ========================================================================== */
+@media(max-width:820px){
+  html body #navbar .nav-inner{gap:6px!important;flex-wrap:nowrap!important;min-width:0!important;padding-left:10px!important;padding-right:10px!important}
+  html body #navbar .logo{flex:0 1 auto!important;min-width:0!important}
+  html body #navbar .logo img{max-width:132px!important;height:auto!important;max-height:42px!important}
+  html body #navbar .ftq-nav-locale{flex:0 0 auto!important;margin-left:auto!important;margin-right:4px!important}
+  html body #navbar .ftq-site-search{flex:1 1 auto!important;min-width:0!important;max-width:230px!important}
+  html body #navbar .ftq-ss-wrap{width:100%!important;min-width:0!important}
+  html body #navbar #ftqSsInput{min-width:0!important;width:100%!important;font-size:14px!important;padding:8px 10px!important}
+  html body #navbar .hamburger{flex:0 0 auto!important;width:42px!important;height:42px!important}
+}
+@media(max-width:430px){
+  html body #navbar .logo img{max-width:104px!important}
+  html body #navbar .ftq-lang-switch summary{min-width:56px!important;padding:7px 8px!important}
+  html body #navbar #ftqSsInput{font-size:13px!important;padding:8px 9px!important}
+  html body #navbar .ftq-site-search{max-width:190px!important}
+}
+@media(max-width:360px){
+  html body #navbar .logo img{max-width:88px!important}
+  html body #navbar .ftq-site-search{max-width:150px!important}
+}
+
+/* ==========================================================================
+   9) NAVIGATION CONTROLS — breadcrumb / Back + drawer Close (x)
+   ========================================================================== */
+html body .ftq-breadcrumb{
+  max-width:1180px;margin:0 auto;padding:18px 22px 0;display:flex;align-items:center;gap:9px;
+  font-size:.85rem;color:var(--ftq-mut);flex-wrap:wrap;
+}
+html body .ftq-breadcrumb a{color:#0E8F83!important;font-weight:700;text-decoration:none}
+html body .ftq-breadcrumb a:hover{text-decoration:underline}
+html body .ftq-breadcrumb .ftq-crumb-back{
+  margin-right:8px;background:#fff!important;border:1px solid var(--ftq-line)!important;border-radius:10px;
+  padding:8px 13px;min-height:40px;display:inline-flex;align-items:center;color:var(--ftq-ink)!important;font-weight:800;
+}
+html body .ftq-breadcrumb .ftq-crumb-back:hover{border-color:var(--ftq-teal)!important;color:#0E8F83!important;text-decoration:none!important}
+html body .ftq-breadcrumb .ftq-crumb-sep{color:var(--ftq-mut)}
+html body #navbar .nav-links .ftq-nav-close{
+  display:none;align-items:center;justify-content:center;align-self:flex-end;margin:0 0 6px;
+  width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.06);color:#fff;font-size:26px;line-height:1;cursor:pointer;flex:0 0 auto;
+}
+html body #navbar .nav-links .ftq-nav-close:hover{background:rgba(255,255,255,.14)}
+@media(max-width:1440px){html body #navbar .nav-links .ftq-nav-close{display:flex}}
+@media(min-width:1200px){html body #navbar .nav-links .ftq-nav-close{display:none!important}}

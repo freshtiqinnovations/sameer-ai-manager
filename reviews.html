@@ -9,61 +9,204 @@
 <link rel="stylesheet" href="/style.css?v=20261009sitefinal1">
 <link rel="stylesheet" href="/premium-system.css?v=20261009sitefinal1">
 <link rel="stylesheet" href="/premium-midnight.css?v=20261009sitefinal1">
-<style>
-.review-shell{max-width:1120px;margin:auto;padding:110px 22px 80px}.review-hero{max-width:760px;margin-bottom:36px}.review-hero h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.05em;color:#f8fbff;margin:12px 0 18px}.review-hero p{color:#aebed2;font-size:1.05rem;line-height:1.75}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.review-card{padding:22px;border:1px solid rgba(125,211,252,.16);background:linear-gradient(180deg,rgba(13,37,81,.54),rgba(4,17,38,.9));border-radius:18px}.review-stars{color:#67e8f9;letter-spacing:2px}.review-card p{color:#d7e3f3;line-height:1.65}.review-meta strong{display:block;color:#fff}.review-meta span{color:#8194ae;font-size:.78rem}.verified{display:inline-flex;margin-top:12px;padding:5px 8px;border-radius:999px;border:1px solid rgba(52,211,153,.24);color:#86efac;font-size:.68rem;font-weight:800}.review-form-wrap{margin-top:56px;padding:28px;border:1px solid rgba(125,211,252,.16);background:rgba(8,24,44,.74);border-radius:22px}.review-form-wrap h2{color:#fff;font-size:2rem;margin:0 0 8px}.review-form-wrap p{color:#9fb0c7}.review-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.review-form label{display:flex;flex-direction:column;gap:6px;color:#cbd8e8!important}.review-form .wide{grid-column:1/-1}.review-form input,.review-form select,.review-form textarea{background:#071321!important;border-color:rgba(148,163,184,.2)!important;color:#fff!important}.review-form textarea{min-height:140px!important}.review-consent{display:flex!important;flex-direction:row!important;align-items:flex-start!important;gap:8px!important;font-size:.8rem!important}.review-consent input{width:auto!important;min-height:auto!important;margin-top:4px}.review-submit{grid-column:1/-1;min-height:52px;border:0;border-radius:12px;background:linear-gradient(135deg,#11d8e8,#4f7cff 58%,#8b5cf6);color:#fff;font-weight:850;cursor:pointer}.review-status{grid-column:1/-1;color:#9fdcff}.review-empty{grid-column:1/-1;padding:26px;border:1px dashed rgba(125,211,252,.2);border-radius:18px;color:#9fb0c7;text-align:center}@media(max-width:760px){.review-grid,.review-form{grid-template-columns:1fr}.review-form .wide,.review-submit,.review-status{grid-column:auto}}
-</style>
 <link rel="stylesheet" href="/freshtiq-premium-experience.css?v=20261011uifix1">
 <script defer src="/freshtiq-premium-experience.js?v=20261010single1"></script>
 <script>document.documentElement.setAttribute("data-ftq-theme","light");document.documentElement.style.colorScheme="light";</script>
 <link rel="stylesheet" href="/freshtiq-unified-theme.css?v=20261010clipfix2">
+<link rel="stylesheet" href="/reviews-premium.css?v=20261012rv1">
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin/>
 <link rel="preconnect" href="https://portal.freshtiqautomation.com" crossorigin/>
+<link rel="stylesheet" href="/freshtiq-design-system.css?v=20261012ds1">
 </head>
-<body class="fx-premium-page fx-trust-page">
-<nav id="navbar"><div class="nav-inner"><a href="/" class="logo"><img src="/images/freshtiq-logo-footer.svg?v=20261008brand3" alt="Freshtiq Automation"></a><button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button><div class="nav-links"><a href="/services.html">Services</a><a href="/portfolio/">Work</a><a href="/reviews.html">Reviews</a><a href="/pricing.html">Pricing</a><a href="/track.html">Track Project</a><a href="/build.html" class="nav-cta">Book Strategy Call</a></div></div></nav>
-<main class="review-shell">
-  <div class="review-hero"><div class="fx-kicker">VERIFIED CUSTOMER REVIEWS</div><h1>Real reviews from completed Freshtiq projects.</h1><p>Only customers with a delivered or completed Freshtiq project reference can submit here. Every public review is linked to a verified project and manually approved before publication.</p></div>
-  <div id="reviewsGrid" class="review-grid"><div class="review-empty">Verified customer reviews will appear here as completed clients choose to publish them.</div></div>
-  <div class="fx-system-grid" style="margin-top:28px">
-    <div class="fx-system-card"><em>01</em><b>Project completed</b><p>The review form accepts only a valid Freshtiq FTP reference whose project is delivered or completed.</p></div>
-    <div class="fx-system-card"><em>02</em><b>Customer writes the review</b><p>The customer chooses the rating and their own words. Freshtiq does not generate the testimonial for them.</p></div>
-    <div class="fx-system-card"><em>03</em><b>Consent + verification</b><p>The project reference stays private. Public display requires customer consent and a verified completed project.</p></div>
-    <div class="fx-system-card"><em>04</em><b>Published with verified badge</b><p>Approved feedback appears with customer name, country, rating and the verified completed-project label.</p></div>
-  </div>
-  <div class="review-form-wrap">
-    <h2>Completed a project with Freshtiq?</h2>
-    <p>Use your FTP tracking reference to submit a review. Your project reference is used only for verification and is never shown publicly.</p>
-    <form id="reviewForm" class="review-form">
-      <label>Project reference<input name="project_ref" required placeholder="FTP-..."></label>
-      <label>Rating<select name="rating" required><option value="">Choose rating</option><option value="5">5 — Excellent</option><option value="4">4 — Very good</option><option value="3">3 — Good</option><option value="2">2 — Fair</option><option value="1">1 — Poor</option></select></label>
-      <label>Your display name<input name="display_name" required maxlength="80" placeholder="Name to show publicly"></label>
-      <label>Company / business (optional)<input name="company_name" maxlength="120" placeholder="Business name"></label>
-      <label>Country<input name="country" required maxlength="80" placeholder="India, Saudi Arabia, UAE..."></label>
-      <label class="wide">Your review<textarea name="review_text" required maxlength="900" placeholder="What did Freshtiq build, and how was the experience?"></textarea></label>
-      <label class="wide review-consent"><input type="checkbox" name="consent_public" required> I confirm this is my genuine experience and I consent to Freshtiq publishing my name, country, rating and review. My project reference will remain private.</label>
-      <button class="review-submit" type="submit">Submit Verified Review →</button>
-      <div id="reviewStatus" class="review-status" aria-live="polite"></div>
-    </form>
-  </div>
+<body class="fx-premium-page fx-trust-page rv-page">
+<nav id="navbar">
+<div class="nav-inner">
+<a aria-label="Freshtiq Automation home" class="logo" href="/"><img alt="Freshtiq Automation" height="44" src="/images/freshtiq-logo-footer.svg?v=20261008brand3" width="179"/></a>
+<div class="ftq-nav-locale"><details class="ftq-lang-switch">
+<summary aria-label="Choose website language"><span aria-hidden="true">🌐</span> <span>EN</span><span aria-hidden="true" class="ftq-chevron">⌄</span></summary>
+<div aria-label="Choose your language" class="ftq-lang-menu">
+<div class="ftq-lang-title">Choose language</div>
+<a href="/en/" lang="en">English <span>EN</span></a>
+<a href="/ar/" lang="ar">العربية <span>AR</span></a>
+<a href="/hi/" lang="hi">हिन्दी <span>HI</span></a>
+<a href="/ur/" lang="ur">اردو <span>UR</span></a>
+<a href="/es/" lang="es">Español <span>ES</span></a>
+<a href="/fr/" lang="fr">Français <span>FR</span></a>
+<a href="/pt/" lang="pt">Português <span>PT</span></a>
+<a href="/de/" lang="de">Deutsch <span>DE</span></a>
+<a href="/id/" lang="id">Bahasa Indonesia <span>ID</span></a>
+<a href="/ml/" lang="ml">മലയാളം <span>ML</span></a>
+<div class="ftq-lang-foot">More languages are being evaluated.</div>
+</div>
+</details></div>
+<div class="ftq-site-search" id="ftqSiteSearch" role="search"></div>
+<button aria-expanded="false" aria-label="Toggle menu" class="hamburger"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<a href="/services.html">Services</a>
+<a href="/pricing.html">Pricing</a>
+<a class="rv-nav-current" href="/reviews.html" aria-current="page">Reviews</a>
+<a class="ftq-earn-nav" href="/earn-freshtiq.html">Earn with Freshtiq</a>
+<a class="ftq-login-nav" href="https://portal.freshtiqautomation.com/customer">Customer Login</a>
+<a class="ftq-login-nav" href="https://portal.freshtiqautomation.com/se">Sales Executive Login</a>
+<details class="ftq-more-nav"><summary>More</summary><div class="ftq-more-menu"><a href="/industries.html">Industries</a><a href="/portfolio/">Work</a><a href="/insights/">Insights</a><a href="/track.html">Track Project</a></div></details><a class="nav-cta" href="/#free-audit">Free Workflow Audit</a>
+</div>
+</div>
+</nav>
+
+<main class="rv-main">
+  <section class="rv-hero" aria-labelledby="rvHeroTitle">
+    <div class="rv-hero-inner">
+      <div class="rv-hero-grid">
+        <div class="rv-hero-copy">
+          <div class="rv-kicker">Verified customer reviews</div>
+          <h1 id="rvHeroTitle">Real reviews from <span class="rv-accent">completed</span> Freshtiq projects.</h1>
+          <p class="rv-sub">Only customers with a delivered or completed Freshtiq project reference can submit here. Every public review is linked to a verified project and manually approved before publication.</p>
+          <div class="rv-cta-row">
+            <a class="rv-btn rv-btn-primary" href="#rvReviewForm">Submit your review →</a>
+            <a class="rv-btn rv-btn-ghost" href="#rvApproved">Read verified reviews</a>
+          </div>
+          <div class="rv-hero-trust">
+            <span><b>✓</b> FTP project verified</span>
+            <span><b>✓</b> Customer consent required</span>
+            <span><b>✓</b> Owner-moderated before publishing</span>
+          </div>
+        </div>
+
+        <div class="rv-form-wrap" id="rvReviewForm">
+          <h2>Completed a project with Freshtiq?</h2>
+          <p class="rv-form-lead">Use your FTP tracking reference to submit a review. Your project reference is used only for verification and is never shown publicly.</p>
+          <form id="reviewForm" class="rv-form" novalidate>
+            <div class="rv-field">
+              <label for="rvRef">Project reference <span class="rv-req" aria-hidden="true">*</span></label>
+              <input id="rvRef" name="project_ref" required placeholder="FTP-…" autocomplete="off" aria-required="true">
+            </div>
+            <div class="rv-field">
+              <label for="rvRating">Rating <span class="rv-req" aria-hidden="true">*</span></label>
+              <select id="rvRating" name="rating" required aria-required="true">
+                <option value="">Choose rating</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Very good</option>
+                <option value="3">3 — Good</option>
+                <option value="2">2 — Fair</option>
+                <option value="1">1 — Poor</option>
+              </select>
+            </div>
+            <div class="rv-field">
+              <label for="rvName">Your display name <span class="rv-req" aria-hidden="true">*</span></label>
+              <input id="rvName" name="display_name" required maxlength="80" placeholder="Name to show publicly" aria-required="true">
+            </div>
+            <div class="rv-field">
+              <label for="rvCompany">Company / business (optional)</label>
+              <input id="rvCompany" name="company_name" maxlength="120" placeholder="Business name">
+            </div>
+            <div class="rv-field wide">
+              <label for="rvCountry">Country <span class="rv-req" aria-hidden="true">*</span></label>
+              <input id="rvCountry" name="country" required maxlength="80" placeholder="India, Saudi Arabia, UAE…" aria-required="true">
+            </div>
+            <div class="rv-field wide">
+              <label for="rvText">Your review <span class="rv-req" aria-hidden="true">*</span></label>
+              <textarea id="rvText" name="review_text" required maxlength="900" placeholder="What did Freshtiq build, and how was the experience?" aria-required="true"></textarea>
+            </div>
+            <label class="rv-consent" for="rvConsent"><input id="rvConsent" type="checkbox" name="consent_public" required> I confirm this is my genuine experience and I consent to Freshtiq publishing my name, country, rating and review. My project reference will remain private.</label>
+            <div class="rv-actions">
+              <button class="rv-submit" type="submit">Submit verified review</button>
+              <p class="rv-form-note">Manual moderation — approved reviews are published after owner verification.</p>
+            </div>
+            <div id="reviewStatus" class="rv-status info" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rv-sec" aria-labelledby="rvApprovedTitle">
+    <div class="rv-sec-head">
+      <div class="rv-eyebrow">Approved reviews</div>
+      <h2 id="rvApprovedTitle">Published verified reviews</h2>
+      <p>Every card below is a genuine, consented, owner-approved review tied to a completed Freshtiq project.</p>
+    </div>
+    <div id="rvApproved" class="rv-grid">
+      <div class="rv-empty">
+        <strong>No public reviews have been published yet.</strong>
+        <p>We only publish real, consented reviews from completed projects. When a verified client chooses to publish, their review appears here. No reviews are invented, edited or paid for.</p>
+        <p>Completed a project with us? <a href="#rvReviewForm">Submit your review</a> using your FTP reference.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rv-sec" aria-labelledby="rvStepsTitle">
+    <div class="rv-sec-head">
+      <div class="rv-eyebrow">How verification works</div>
+      <h2 id="rvStepsTitle">Four steps from project to published review</h2>
+    </div>
+    <div class="rv-steps">
+      <div class="rv-step"><span class="rv-num">01</span><b>Project completed</b><p>The form accepts only a valid Freshtiq FTP reference whose project is delivered or completed.</p></div>
+      <div class="rv-step"><span class="rv-num">02</span><b>Customer writes it</b><p>The customer chooses the rating and their own words. Freshtiq never writes the testimonial for them.</p></div>
+      <div class="rv-step"><span class="rv-num">03</span><b>Consent + verification</b><p>The project reference stays private. Public display requires customer consent and a verified completed project.</p></div>
+      <div class="rv-step"><span class="rv-num">04</span><b>Owner moderation</b><p>Approved feedback appears with customer name, country, rating and the verified completed-project label.</p></div>
+    </div>
+    <a class="rv-back" href="/">← Back to home</a>
+  </section>
 </main>
+
 <script>
-const API='https://portal.freshtiqautomation.com';
-function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-async function loadReviews(){
-  const grid=document.getElementById('reviewsGrid');
-  try{
-    const r=await fetch(API+'/api/reviews/public?limit=18',{credentials:'include'}); const j=await r.json();
-    if(!j.success||!j.reviews||!j.reviews.length)return;
-    grid.innerHTML=j.reviews.map(x=>`<article class="review-card"><div class="review-stars">${'★'.repeat(Number(x.rating||0))}${'☆'.repeat(5-Number(x.rating||0))}</div><p>“${esc(x.review_text)}”</p><div class="review-meta"><strong>${esc(x.display_name)}</strong><span>${esc(x.company_name?x.company_name+' · ':'')}${esc(x.country)}</span></div><span class="verified">VERIFIED COMPLETED PROJECT</span></article>`).join('');
-  }catch(e){}
-}
-const refFromUrl=new URLSearchParams(location.search).get('ref'); if(refFromUrl){const i=document.querySelector('[name=project_ref]'); if(i)i.value=refFromUrl.toUpperCase();}
-document.getElementById('reviewForm').addEventListener('submit',async e=>{
-  e.preventDefault(); const f=new FormData(e.target); const status=document.getElementById('reviewStatus'); status.textContent='Submitting…';
-  const payload=Object.fromEntries(f.entries()); payload.consent_public=!!f.get('consent_public');
-  try{const r=await fetch(API+'/api/reviews/submit',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(payload)});const j=await r.json();if(!r.ok||!j.success)throw new Error(j.error||'Unable to submit');status.textContent=j.message;e.target.reset();}catch(err){status.textContent=err.message;}
-});
-loadReviews();
+(function(){
+  var API='https://portal.freshtiqautomation.com';
+  function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+  function setStatus(el,type,msg){el.className='rv-status '+(type?('on '+type):'');el.textContent=msg||'';}
+
+  async function loadReviews(){
+    var grid=document.getElementById('rvApproved');
+    try{
+      var r=await fetch(API+'/api/reviews/public?limit=18',{credentials:'include'});
+      var j=await r.json();
+      if(!j.success||!j.reviews||!j.reviews.length)return; /* keep honest empty state */
+      grid.innerHTML=j.reviews.map(function(x){
+        var rate=Math.max(0,Math.min(5,Number(x.rating||0)));
+        return '<article class="rv-card"><div class="rv-stars" aria-label="'+rate+' out of 5">'+'★'.repeat(rate)+'☆'.repeat(5-rate)+'</div>'+
+          '<p>“'+esc(x.review_text)+'”</p>'+
+          '<div class="rv-meta"><strong>'+esc(x.display_name)+'</strong><span>'+esc(x.company_name?x.company_name+' · ':'')+esc(x.country)+'</span></div>'+
+          '<span class="rv-verified">✓ VERIFIED COMPLETED PROJECT</span></article>';
+      }).join('');
+    }catch(e){ /* network/API unavailable: keep honest empty state */ }
+  }
+
+  var refFromUrl=new URLSearchParams(location.search).get('ref');
+  if(refFromUrl){var i=document.getElementById('rvRef'); if(i)i.value=refFromUrl.toUpperCase();}
+
+  var form=document.getElementById('reviewForm');
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var status=document.getElementById('reviewStatus');
+    var btn=form.querySelector('.rv-submit');
+    var f=new FormData(form);
+    // client-side validation with readable messages
+    var missing=[];
+    if(!String(f.get('project_ref')||'').trim())missing.push('project reference');
+    if(!String(f.get('rating')||'').trim())missing.push('rating');
+    if(!String(f.get('display_name')||'').trim())missing.push('display name');
+    if(!String(f.get('country')||'').trim())missing.push('country');
+    if(!String(f.get('review_text')||'').trim())missing.push('review text');
+    if(!f.get('consent_public'))missing.push('consent confirmation');
+    if(missing.length){setStatus(status,'err','Please complete: '+missing.join(', ')+'.');form.reportValidity();return;}
+    var payload=Object.fromEntries(f.entries());
+    payload.consent_public=!!f.get('consent_public');
+    btn.disabled=true;setStatus(status,'info','Submitting your review…');
+    try{
+      var r=await fetch(API+'/api/reviews/submit',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(payload)});
+      var j=await r.json().catch(function(){return {};});
+      if(!r.ok||!j.success)throw new Error((j&&j.error)||'Unable to submit review. Please try again.');
+      setStatus(status,'ok',j.message||'Thank you — your review was received and is pending owner moderation.');
+      form.reset();
+    }catch(err){
+      setStatus(status,'err',err.message||'Unable to submit review. Please try again.');
+    }finally{btn.disabled=false;}
+  });
+
+  loadReviews();
+})();
 </script>
+<script defer src="/site-search.js?v=20261012a"></script>
 <script defer src="/script.js?v=20261011uifix1"></script>
+<script defer src="/freshtiq-nav-controls.js?v=20261012nc1"></script>
 </body></html>
