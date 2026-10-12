@@ -1,9 +1,6 @@
 // Freshtiq AI Store — Render Engine
 const PRODUCT_PAGES = {
-  "Basic Support Bot": "products/telegram-crm-bot.html",
   "Sales Bot": "products/whatsapp-ai-sales-bot.html",
-  "CRM Bot": "products/telegram-crm-bot.html",
-  "ERP Bot": "products/factory-erp.html",
   "Factory ERP": "products/factory-erp.html",
   "AI Assistant": "products/ai-customer-support.html",
   "AI Agent": "products/ai-customer-support.html",

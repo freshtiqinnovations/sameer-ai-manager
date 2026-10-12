@@ -8,7 +8,6 @@
     "website": "https://freshtiqautomation.com",
     "support_email": "hello@freshtiqautomation.com",
     "whatsapp": "+91 83818 48389",
-    "telegram": "@AutoPilotHubBot",
     "CIN": "U47912UP2025OPC236875",
     "GSTIN": "09AAGCF7185A1ZL",
     "regions": ["India", "Saudi Arabia", "UAE", "International"],
@@ -34,7 +33,7 @@
   "approved_faqs": [
     {"id":"audit","status":"approved","question":"Is the free workflow audit free?","keywords":["free","audit","workflow","consultation"],"answer":"The workflow audit is free. Share your business need and preferred contact; no password, OTP or payment details are needed to request it."},
     {"id":"addon","status":"approved","question":"What is included in the eligible Quick Add-on?","keywords":["quick","add","addon","included","fourth","service","rupee"],"answer":"With the eligible 3-module India starter bundle, choose one small add-on such as a simple Google Sheet/CRM sync, one notification flow, one lead-form connection, one follow-up rule or a basic dashboard widget. Eligibility is confirmed in the written scope. Full services and third-party charges are separate."},
-    {"id":"tracking","status":"approved","question":"How can I track the same project on website WhatsApp and Telegram?","keywords":["track","tracking","project","status","website","telegram","whatsapp"],"answer":"Use the exact tracking reference from your confirmation on the website Track page, Telegram /track, or a WhatsApp status message. All three read the same central CRM stage. Sensitive project details require verification or human support."},
+    {"id":"tracking","status":"approved","question":"How can I track the same project on the website and WhatsApp?","keywords":["track","tracking","project","status","website","whatsapp"],"answer":"Use the exact tracking reference from your confirmation on the website Track page or a WhatsApp status message. Both read the same central CRM stage. Sensitive project details require verification or human support."},
     {"id":"ownership","status":"approved","question":"Will I receive the source code for custom work?","keywords":["source","code","ownership","handover"],"answer":"Source-code handover for custom work is defined in the written proposal. Third-party and open-source components keep their original licences."},
     {"id":"payment","status":"approved","question":"How are project scope and payment milestones confirmed?","keywords":["scope","payment","milestone","proposal","confirm"],"answer":"The Freshtiq team confirms scope, delivery and payment milestones in a written proposal. The chatbot cannot independently confirm receipt of money or change commercial terms."}
   ]

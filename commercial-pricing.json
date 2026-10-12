@@ -119,11 +119,10 @@
       }
     },
     "basic_bot": {
-      "name": "Basic WhatsApp / Telegram Bot",
+      "name": "Basic WhatsApp Bot",
       "family": "bot",
       "aliases": [
         "basic bot",
-        "telegram bot",
         "faq bot",
         "simple chatbot"
       ],
@@ -432,40 +431,6 @@
           "Advanced reporting",
           "ERP/inventory integrations",
           "Custom workflows"
-        ]
-      }
-    },
-    "telegram_crm_bot": {
-      "name": "Telegram CRM Bot",
-      "family": "crm",
-      "aliases": [
-        "telegram crm",
-        "crm bot",
-        "telegram business bot"
-      ],
-      "inr": {
-        "standard": 25000,
-        "professional": 45000,
-        "premium": 75000
-      },
-      "timeline": "1–4 weeks",
-      "features": {
-        "standard": [
-          "Lead/customer management",
-          "Tasks and reminders",
-          "Basic roles"
-        ],
-        "professional": [
-          "Invoices/tickets",
-          "Reports",
-          "Payment links",
-          "Advanced roles"
-        ],
-        "premium": [
-          "Multi-team CRM",
-          "Integrations",
-          "Automation rules",
-          "Advanced analytics"
         ]
       }
     },
@@ -1043,7 +1008,6 @@
     ],
     "eligible_modules": [
       "WhatsApp core enquiry/lead workflow",
-      "Telegram lead/sales bot",
       "CRM Lite lead pipeline",
       "Automated follow-up workflow",
       "Website lead-capture automation"

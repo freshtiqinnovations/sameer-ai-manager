@@ -1,6 +1,6 @@
 ======= SECURITY.TXT =======
 Contact: mailto:hello@freshtiqautomation.com
-Contact: https://t.me/FreshtiqTeam
+Contact: mailto:hello@freshtiqautomation.com
 Encryption: https://keybase.io/freshtiq
 Preferred-Languages: en, hi
 Policy: https://freshtiqautomation.com/security-policy

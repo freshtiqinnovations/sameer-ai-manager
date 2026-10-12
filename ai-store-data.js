@@ -1,51 +1,5 @@
 // Freshtiq AI Store — Product Data
 const storeProducts = [
-  // ─── Telegram Bots ───
-  {
-    category: "Telegram Bots",
-    icon: "✈️",
-    title: "Basic Support Bot",
-    description: "24/7 auto-reply, FAQ response, ticket forwarding to your team. Perfect for customer support.",
-    price: "From ₹8,000",
-    tiers: { standard: "₹8,000", professional: "₹15,000", premium: "₹25,000" },
-    monthly: "",
-    delivery: "3–7 days",
-    tags: ["bot", "popular"]
-  },
-  {
-    category: "Telegram Bots",
-    icon: "✈️",
-    title: "Sales Bot",
-    description: "Automated sales assistant with product catalog, cart management, order tracking & payment links.",
-    price: "From ₹15,000",
-    tiers: { standard: "₹15,000", professional: "₹30,000", premium: "₹50,000" },
-    monthly: "",
-    delivery: "5–14 days",
-    tags: ["bot", "popular"]
-  },
-  {
-    category: "Telegram Bots",
-    icon: "✈️",
-    title: "CRM Bot",
-    description: "Full CRM in Telegram — manage leads, customers, invoices, support tickets & staff roles.",
-    price: "From ₹25,000",
-    tiers: { standard: "₹25,000", professional: "₹45,000", premium: "₹75,000" },
-    monthly: "",
-    delivery: "1–4 weeks",
-    tags: ["bot"]
-  },
-  {
-    category: "Telegram Bots",
-    icon: "✈️",
-    title: "ERP Bot",
-    description: "Enterprise resource planning via Telegram — inventory, orders, HR, reports & analytics.",
-    price: "From ₹35,000",
-    tiers: { standard: "₹35,000", professional: "₹75,000", premium: "₹1,50,000" },
-    monthly: "",
-    delivery: "2–6 weeks",
-    tags: ["bot", "premium"]
-  },
-
   // ─── WhatsApp Bots ───
   {
     category: "WhatsApp Bots",

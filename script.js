@@ -423,7 +423,7 @@ return;
 const packages = {
 'website': { name: 'Starter Website Package', price: '₹4,999', desc: 'Professional responsive website with contact form, WhatsApp integration, and hosting.' },
 'app': { name: 'Mobile App Package', price: '₹9,999', desc: 'Cross-platform mobile app with backend API, notifications, and dashboard.' },
-'bot': { name: 'AI Bot Package', price: '₹1,999', desc: 'Custom Telegram/WhatsApp bot with AI responses, commands, and admin panel.' },
+'bot': { name: 'AI Bot Package', price: '₹1,999', desc: 'Custom WhatsApp bot with AI responses, commands, and admin panel.' },
 'erp': { name: 'Enterprise ERP Package', price: '₹19,999', desc: 'Full ERP system with inventory, sales, HR, accounting, and WhatsApp reports.' },
 'crm': { name: 'Business CRM Package', price: '₹9,999', desc: 'CRM with lead tracking, sales pipeline, customer portal, and WhatsApp integration.' },
 'travel': { name: 'Travel Portal Package', price: '₹14,999', desc: 'Travel booking portal with flights, hotels, visa info, and payment gateway.' },
@@ -462,7 +462,6 @@ document.getElementById('salesResult').innerHTML = `
 <p style="color:#6b7280;font-size:0.82rem;text-align:center;margin:0 0 14px;">Your request is ready. Click below to continue.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
 <a href="https://wa.me/918381848389?text=${msg}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">💬 Continue on WhatsApp</a>
-<a href="https://t.me/AutoPilotHubBot?start=website_funnel" target="_blank" style="flex:1;min-width:150px;padding:12px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📱 Start on Telegram</a>
 <a href="https://wa.me/918381848389?text=Hi%20Freshtiq!%20Please%20call%20me%20back.%20${name}%20${phone}" target="_blank" rel="noopener" style="flex:1;min-width:150px;padding:12px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.85rem;">📞 Request Call Back</a>
 </div>
 </div>
@@ -553,7 +552,7 @@ html += '</div>';
 const phase = steps[statusIndex];
 html += '<div style="margin-top:16px;padding:14px 18px;background:#f0f4ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">';
 html += '<div><p style="margin:0;font-size:0.82rem;color:#4a4a6a;"><strong style="color:#1a73e8;">' + id + '</strong> — Currently in <strong style="color:#7c3aed;">' + phase + '</strong> phase</p>';
-html += '<p style="margin:4px 0 0;font-size:0.75rem;color:#7a7a9a;">Status updates every 24h &bull; Track on Telegram for live notifications.</p></div>';
+html += '<p style="margin:4px 0 0;font-size:0.75rem;color:#7a7a9a;">Status updates every 24h &bull; Track from the project status page.</p></div>';
 html += '<span style="background:#1a73e8;color:white;padding:4px 12px;border-radius:20px;font-size:0.7rem;font-weight:600;">🔴 In Progress</span></div>';
 document.getElementById('dashResult').innerHTML = html;
 }
@@ -565,13 +564,13 @@ const idea = document.getElementById('salesIdea').value.trim();
 const recs = {
 'website': {
 'less10': { pkg: 'Starter Web Package', cost: '₹4,999 - ₹9,999', days: '3-5 Days', tech: 'HTML, CSS, JS, WhatsApp Integration, Hosting', team: '1 Developer + 1 Designer' },
-'10to25': { pkg: 'Business Web Package', cost: '₹10,000 - ₹24,999', days: '5-7 Days', tech: 'HTML/CSS/JS, WhatsApp API, Telegram Bot, Admin Panel', team: '2 Developers + 1 Designer' },
-'25to50': { pkg: 'Premium Web Package', cost: '₹25,000 - ₹49,999', days: '7-14 Days', tech: 'React/Angular, Python Backend, PostgreSQL, WhatsApp/Telegram, Dashboard', team: '2 Developers + 1 QA' },
+'10to25': { pkg: 'Business Web Package', cost: '₹10,000 - ₹24,999', days: '5-7 Days', tech: 'HTML/CSS/JS, WhatsApp API, Admin Panel', team: '2 Developers + 1 Designer' },
+'25to50': { pkg: 'Premium Web Package', cost: '₹25,000 - ₹49,999', days: '7-14 Days', tech: 'React/Angular, Python Backend, PostgreSQL, WhatsApp, Dashboard', team: '2 Developers + 1 QA' },
 'more50': { pkg: 'Enterprise Web Package', cost: '₹50,000+', days: '14-30 Days', tech: 'Full Stack, AI Integration, Multi-language, Real-time Dashboard', team: '3 Developers + 1 QA + 1 PM' }
 },
 'bot': {
-'less10': { pkg: 'Basic Bot', cost: '₹1,999 - ₹4,999', days: '1-2 Days', tech: 'Python, Telegram API, Basic Commands', team: '1 Developer' },
-'10to25': { pkg: 'AI Bot Package', cost: '₹5,000 - ₹14,999', days: '3-5 Days', tech: 'Python, OpenAI/GPT, Telegram/WhatsApp, Admin Panel', team: '1 Developer + 1 AI Engineer' },
+'less10': { pkg: 'Basic Bot', cost: '₹1,999 - ₹4,999', days: '1-2 Days', tech: 'Python, WhatsApp API, Basic Commands', team: '1 Developer' },
+'10to25': { pkg: 'AI Bot Package', cost: '₹5,000 - ₹14,999', days: '3-5 Days', tech: 'Python, OpenAI/GPT, WhatsApp, Admin Panel', team: '1 Developer + 1 AI Engineer' },
 '25to50': { pkg: 'Advanced Bot Suite', cost: '₹15,000 - ₹29,999', days: '5-10 Days', tech: 'Python, Multi-Platform, AI, Payment Integration, Analytics', team: '2 Developers + 1 AI Engineer' },
 'more50': { pkg: 'Enterprise Bot Factory', cost: '₹30,000+', days: '10-20 Days', tech: 'Custom Protocol, Multi-bot Architecture, ML Pipeline', team: '2 Developers + 1 ML Engineer' }
 },
@@ -582,7 +581,7 @@ const recs = {
 'more50': { pkg: 'Enterprise AI ERP PRO', cost: '₹1,00,000+', days: '30-60 Days', tech: 'Python, PostgreSQL, AI Predictions, Multi-Branch, Real-time', team: '4 Developers + 1 PM + 1 QA' }
 },
 'crm': {
-'less10': { pkg: 'CRM Starter', cost: '₹4,999 - ₹9,999', days: '3-7 Days', tech: 'Python, SQLite, Lead Tracking, Telegram Alerts', team: '1 Developer' },
+'less10': { pkg: 'CRM Starter', cost: '₹4,999 - ₹9,999', days: '3-7 Days', tech: 'Python, SQLite, Lead Tracking, WhatsApp Alerts', team: '1 Developer' },
 '10to25': { pkg: 'CRM Business', cost: '₹10,000 - ₹29,999', days: '7-14 Days', tech: 'Python, PostgreSQL, Pipeline, Analytics, WhatsApp', team: '2 Developers + 1 Tester' },
 '25to50': { pkg: 'CRM Enterprise', cost: '₹30,000 - ₹59,999', days: '14-21 Days', tech: 'Python, PostgreSQL, Automation, Reports, Multi-user', team: '2 Developers + 1 QA' },
 'more50': { pkg: 'CRM Suite PRO', cost: '₹60,000+', days: '21-45 Days', tech: 'Full Stack, AI Lead Scoring, Auto-campaigns, API', team: '3 Developers + 1 AI Engineer' }
@@ -632,7 +631,6 @@ resultDiv.innerHTML = `
 </div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;">
 <a href="https://wa.me/918381848389?text=${encodeURIComponent(proposalText)}" target="_blank" rel="noopener" style="flex:1;min-width:120px;padding:10px;background:#25D366;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">💬 Continue on WhatsApp</a>
-<a href="https://t.me/AutoPilotHubBot?start=website_funnel" target="_blank" style="flex:1;min-width:120px;padding:10px;background:#0088cc;color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📱 Continue on Telegram</a>
 <a href="tel:+918381848389" style="flex:1;min-width:120px;padding:10px;background:var(--gradient);color:white;border-radius:8px;text-align:center;text-decoration:none;font-weight:600;font-size:0.78rem;">📞 Request Callback</a>
 </div>
 </div>
@@ -914,11 +912,6 @@ document.addEventListener('click', function (e) {
         buttons[2].textContent='WhatsApp';buttons[2].target='_blank';buttons[2].rel='noopener noreferrer';
       }
     }
-    document.querySelectorAll('a[href*="t.me/AutoPilotHubBot"]').forEach(function(a){
-      if(/^(Open )?AI Assistant$/.test(a.textContent.trim())){
-        a.href='/#free-audit';a.classList.add('ftq-open-chat');a.removeAttribute('target');
-      }
-    });
     if(!document.querySelector('.ftq-made-india') &&
        !['/cart','/checkout','/payment','/pay','/owner','/privacy','/terms','/refund','/customer'].some(prefix=>location.pathname.toLowerCase().startsWith(prefix))){
       const badge=document.createElement('aside');badge.className='ftq-made-india ftq-inline-country-badge';
