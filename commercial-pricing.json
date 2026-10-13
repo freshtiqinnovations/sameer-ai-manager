@@ -1,24 +1,25 @@
 {
-  "version": "2026-10-07-basic-premium-elite-v1",
-  "effective_date": "2026-10-05",
+  "version": "2026-10-13-four-market-fixed-v2",
+  "effective_date": "2026-10-13",
   "brand": "Freshtiq Automation",
   "policy": {
-    "currency_rule": "Quote India in INR, Saudi Arabia in SAR, UAE in AED.",
-    "regional_rule": "India is the leanest entry market; Saudi/UAE use premium regional pricing.",
-    "truth_rule": "Published website starting prices and hourly rates are the source of truth; fixed projects use a written scope and hourly work uses approved task/hours before work starts.",
+    "currency_rule": "Use the explicitly confirmed customer business market: USA in USD, UAE in AED, Saudi Arabia in SAR, and India in INR. Do not infer residence from phone number alone.",
+    "regional_rule": "Four independent published local price lists. No live exchange-rate conversion or hidden currency markup. Written proposal confirms business market, scope, tax and fees.",
+    "truth_rule": "Published /commercial-pricing.json is the only rate-card source for the public pricing page, owner portal API and WhatsApp chatbot; fixed packages are starting scopes, not binding invoices.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
     "quality_rule": "Basic, Premium and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
     "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
   },
   "hourly": {
-    "usd": 20,
+    "usd": 49,
     "minimum_hours": 2,
     "billing_increment_minutes": 30,
     "regional_starting_rates": {
+      "USA": "USD 49/hour",
+      "UAE": "AED 129/hour",
+      "Saudi Arabia": "SAR 99/hour",
       "India": "₹1,500/hour",
-      "Saudi Arabia": "SAR 75/hour",
-      "UAE": "AED 75/hour",
-      "International": "USD 20/hour"
+      "International": "USD 49/hour"
     },
     "best_for": [
       "Bug fixing and troubleshooting",
@@ -64,6 +65,13 @@
         "app": 2000,
         "automation": 500
       }
+    },
+    "USA": {
+      "currency": "USD",
+      "prefix": "$",
+      "round_to": 1,
+      "factor_from_inr": 0.038,
+      "floors": {}
     }
   },
   "tiers": {
@@ -116,6 +124,28 @@
           "Automation/CRM integrations",
           "Advanced analytics and launch support"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 449,
+          "professional": 899,
+          "premium": 1699
+        },
+        "UAE": {
+          "standard": 1499,
+          "professional": 2999,
+          "premium": 5699
+        },
+        "Saudi Arabia": {
+          "standard": 1099,
+          "professional": 2199,
+          "premium": 3999
+        },
+        "India": {
+          "standard": 4999,
+          "professional": 12000,
+          "premium": 25000
+        }
       }
     },
     "basic_bot": {
@@ -150,6 +180,28 @@
           "Analytics",
           "Multiple integrations"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 499,
+          "professional": 899,
+          "premium": 1499
+        },
+        "UAE": {
+          "standard": 1499,
+          "professional": 2799,
+          "premium": 4599
+        },
+        "Saudi Arabia": {
+          "standard": 1099,
+          "professional": 1999,
+          "premium": 3299
+        },
+        "India": {
+          "standard": 8000,
+          "professional": 15000,
+          "premium": 25000
+        }
       }
     },
     "whatsapp_automation": {
@@ -185,6 +237,28 @@
           "Advanced integrations",
           "Analytics and team roles"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 899,
+          "professional": 1699,
+          "premium": 2799
+        },
+        "UAE": {
+          "standard": 2699,
+          "professional": 4899,
+          "premium": 8499
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3499,
+          "premium": 5999
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 28000,
+          "premium": 45000
+        }
       }
     },
     "whatsapp_ai_sales_bot": {
@@ -220,6 +294,28 @@
           "Analytics",
           "Multi-team routing and custom integrations"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1839,
+          "premium": 3059
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 5199,
+          "premium": 8699
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3899,
+          "premium": 6499
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        }
       }
     },
     "restaurant_automation": {
@@ -257,6 +353,28 @@
           "Reorder campaigns",
           "Advanced analytics and operations dashboard"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 739,
+          "professional": 1529,
+          "premium": 2749
+        },
+        "UAE": {
+          "standard": 2099,
+          "professional": 4399,
+          "premium": 7799
+        },
+        "Saudi Arabia": {
+          "standard": 1599,
+          "professional": 3299,
+          "premium": 5799
+        },
+        "India": {
+          "standard": 12000,
+          "professional": 25000,
+          "premium": 45000
+        }
       }
     },
     "customer_support_ai": {
@@ -292,6 +410,28 @@
           "Team workflows",
           "Custom integrations and analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 739,
+          "professional": 1529,
+          "premium": 2449
+        },
+        "UAE": {
+          "standard": 2099,
+          "professional": 4399,
+          "premium": 6899
+        },
+        "Saudi Arabia": {
+          "standard": 1599,
+          "professional": 3299,
+          "premium": 5199
+        },
+        "India": {
+          "standard": 12000,
+          "professional": 25000,
+          "premium": 40000
+        }
       }
     },
     "clinic_automation": {
@@ -327,6 +467,28 @@
           "Recall campaigns",
           "Custom analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1719,
+          "premium": 2749
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 4899,
+          "premium": 7799
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3599,
+          "premium": 5799
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 28000,
+          "premium": 45000
+        }
       }
     },
     "travel_automation": {
@@ -363,6 +525,28 @@
           "Advanced notifications",
           "Custom customer portal and analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1839,
+          "premium": 3059
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 5199,
+          "premium": 8699
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3899,
+          "premium": 6499
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        }
       }
     },
     "crm_erp": {
@@ -398,6 +582,28 @@
           "Advanced reports",
           "Custom workflows and migration"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1499,
+          "professional": 2999,
+          "premium": 5499
+        },
+        "UAE": {
+          "standard": 4499,
+          "professional": 8999,
+          "premium": 15999
+        },
+        "Saudi Arabia": {
+          "standard": 3199,
+          "professional": 6499,
+          "premium": 11999
+        },
+        "India": {
+          "standard": 25000,
+          "professional": 50000,
+          "premium": 90000
+        }
       }
     },
     "field_sales_crm": {
@@ -432,6 +638,28 @@
           "ERP/inventory integrations",
           "Custom workflows"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1529,
+          "professional": 2749,
+          "premium": 4579
+        },
+        "UAE": {
+          "standard": 4399,
+          "professional": 7799,
+          "premium": 12999
+        },
+        "Saudi Arabia": {
+          "standard": 3299,
+          "professional": 5799,
+          "premium": 9699
+        },
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 75000
+        }
       }
     },
     "factory_erp": {
@@ -466,6 +694,28 @@
           "Deep integrations",
           "Custom shop-floor workflows"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 2139,
+          "professional": 4579,
+          "premium": 9159
+        },
+        "UAE": {
+          "standard": 6099,
+          "professional": 12999,
+          "premium": 25899
+        },
+        "Saudi Arabia": {
+          "standard": 4499,
+          "professional": 9699,
+          "premium": 19299
+        },
+        "India": {
+          "standard": 35000,
+          "professional": 75000,
+          "premium": 150000
+        }
       }
     },
     "laundry_system": {
@@ -500,6 +750,28 @@
           "Route/integration options",
           "Analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 619,
+          "professional": 1229,
+          "premium": 2139
+        },
+        "UAE": {
+          "standard": 1799,
+          "professional": 3499,
+          "premium": 6099
+        },
+        "Saudi Arabia": {
+          "standard": 1299,
+          "professional": 2599,
+          "premium": 4499
+        },
+        "India": {
+          "standard": 10000,
+          "professional": 20000,
+          "premium": 35000
+        }
       }
     },
     "dashboard_reporting": {
@@ -534,6 +806,28 @@
           "Advanced analytics",
           "Executive and team dashboards"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1099,
+          "professional": 2139,
+          "premium": 3669
+        },
+        "UAE": {
+          "standard": 3099,
+          "professional": 6099,
+          "premium": 10399
+        },
+        "Saudi Arabia": {
+          "standard": 2399,
+          "professional": 4499,
+          "premium": 7699
+        },
+        "India": {
+          "standard": 18000,
+          "professional": 35000,
+          "premium": 60000
+        }
       }
     },
     "ai_agent": {
@@ -569,6 +863,28 @@
           "Governance",
           "Custom analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1499,
+          "professional": 2699,
+          "premium": 4999
+        },
+        "UAE": {
+          "standard": 4499,
+          "professional": 7999,
+          "premium": 14999
+        },
+        "Saudi Arabia": {
+          "standard": 3199,
+          "professional": 5799,
+          "premium": 10999
+        },
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 85000
+        }
       }
     },
     "mobile_app": {
@@ -603,6 +919,28 @@
           "Advanced integrations",
           "Analytics and launch support"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1839,
+          "professional": 3969,
+          "premium": 7329
+        },
+        "UAE": {
+          "standard": 5199,
+          "professional": 11199,
+          "premium": 20699
+        },
+        "Saudi Arabia": {
+          "standard": 3899,
+          "professional": 8399,
+          "premium": 15399
+        },
+        "India": {
+          "standard": 30000,
+          "professional": 65000,
+          "premium": 120000
+        }
       }
     },
     "custom_integration": {
@@ -638,6 +976,28 @@
           "Multi-system integrations",
           "Monitoring and analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 309,
+          "professional": 739,
+          "premium": 1529
+        },
+        "UAE": {
+          "standard": 899,
+          "professional": 2099,
+          "premium": 4399
+        },
+        "Saudi Arabia": {
+          "standard": 699,
+          "professional": 1599,
+          "premium": 3299
+        },
+        "India": {
+          "standard": 4999,
+          "professional": 12000,
+          "premium": 25000
+        }
       }
     },
     "hotel_automation": {
@@ -674,6 +1034,28 @@
           "Guest service workflows",
           "Advanced reports and analytics"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1839,
+          "premium": 3059
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 5199,
+          "premium": 8699
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3899,
+          "premium": 6499
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        }
       }
     },
     "ecommerce_website": {
@@ -708,6 +1090,28 @@
           "CRM/ERP integration",
           "Automation and scaling support"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1839,
+          "premium": 3669
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 5199,
+          "premium": 10399
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3899,
+          "premium": 7699
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 60000
+        }
       }
     },
     "hr_system": {
@@ -742,6 +1146,28 @@
           "Advanced integrations",
           "Analytics and custom workflows"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 1529,
+          "professional": 2749,
+          "premium": 4579
+        },
+        "UAE": {
+          "standard": 4399,
+          "professional": 7799,
+          "premium": 12999
+        },
+        "Saudi Arabia": {
+          "standard": 3299,
+          "professional": 5799,
+          "premium": 9699
+        },
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 75000
+        }
       }
     },
     "seo_service": {
@@ -776,7 +1202,29 @@
           "Priority optimization"
         ]
       },
-      "billing_unit": "/month"
+      "billing_unit": "/month",
+      "regional_prices": {
+        "USA": {
+          "standard": 309,
+          "professional": 619,
+          "premium": 1099
+        },
+        "UAE": {
+          "standard": 899,
+          "professional": 1799,
+          "premium": 3099
+        },
+        "Saudi Arabia": {
+          "standard": 699,
+          "professional": 1299,
+          "premium": 2399
+        },
+        "India": {
+          "standard": 5000,
+          "professional": 10000,
+          "premium": 18000
+        }
+      }
     },
     "google_business_profile": {
       "name": "Google Business Profile Setup & Growth",
@@ -809,6 +1257,28 @@
           "Reporting workflow",
           "Ongoing optimization handoff"
         ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 189,
+          "professional": 369,
+          "premium": 619
+        },
+        "UAE": {
+          "standard": 599,
+          "professional": 1099,
+          "premium": 1799
+        },
+        "Saudi Arabia": {
+          "standard": 399,
+          "professional": 799,
+          "premium": 1299
+        },
+        "India": {
+          "standard": 3000,
+          "professional": 6000,
+          "premium": 10000
+        }
       }
     },
     "content_marketing": {
@@ -843,7 +1313,29 @@
           "Priority strategy and reporting"
         ]
       },
-      "billing_unit": "/month"
+      "billing_unit": "/month",
+      "regional_prices": {
+        "USA": {
+          "standard": 619,
+          "professional": 1229,
+          "premium": 2139
+        },
+        "UAE": {
+          "standard": 1799,
+          "professional": 3499,
+          "premium": 6099
+        },
+        "Saudi Arabia": {
+          "standard": 1299,
+          "professional": 2599,
+          "premium": 4499
+        },
+        "India": {
+          "standard": 10000,
+          "professional": 20000,
+          "premium": 35000
+        }
+      }
     },
     "lead_generation": {
       "name": "Lead Generation Management",
@@ -878,7 +1370,29 @@
           "CRM/follow-up integration"
         ]
       },
-      "billing_unit": "/month"
+      "billing_unit": "/month",
+      "regional_prices": {
+        "USA": {
+          "standard": 919,
+          "professional": 1839,
+          "premium": 3059
+        },
+        "UAE": {
+          "standard": 2599,
+          "professional": 5199,
+          "premium": 8699
+        },
+        "Saudi Arabia": {
+          "standard": 1999,
+          "professional": 3899,
+          "premium": 6499
+        },
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        }
+      }
     },
     "cloud_hosting": {
       "name": "Cloud Hosting & VPS Management",
@@ -913,7 +1427,29 @@
           "Priority incident response"
         ]
       },
-      "billing_unit": "/month"
+      "billing_unit": "/month",
+      "regional_prices": {
+        "USA": {
+          "standard": 69,
+          "professional": 129,
+          "premium": 249
+        },
+        "UAE": {
+          "standard": 199,
+          "professional": 399,
+          "premium": 699
+        },
+        "Saudi Arabia": {
+          "standard": 199,
+          "professional": 299,
+          "premium": 599
+        },
+        "India": {
+          "standard": 999,
+          "professional": 1999,
+          "premium": 3999
+        }
+      }
     },
     "managed_support": {
       "name": "Managed Support & Maintenance",
@@ -947,7 +1483,29 @@
           "Higher change allowance and reporting"
         ]
       },
-      "billing_unit": "/month"
+      "billing_unit": "/month",
+      "regional_prices": {
+        "USA": {
+          "standard": 189,
+          "professional": 309,
+          "premium": 619
+        },
+        "UAE": {
+          "standard": 599,
+          "professional": 899,
+          "premium": 1799
+        },
+        "Saudi Arabia": {
+          "standard": 399,
+          "professional": 699,
+          "premium": 1299
+        },
+        "India": {
+          "standard": 3000,
+          "professional": 5000,
+          "premium": 10000
+        }
+      }
     }
   },
   "discounts": {
@@ -1033,5 +1591,67 @@
       "No fake countdown or false urgency; availability depends on scope and capacity."
     ],
     "disabled_reason": "Premium three-tier positioning: Basic / Premium / Elite"
+  },
+  "regional_bundles": {
+    "launch": {
+      "name": "Website + WhatsApp Starter",
+      "description": "Business Website Basic + WhatsApp Automation Basic, with a scoped enquiry-handling handoff.",
+      "components": [
+        {
+          "product": "website",
+          "tier": "standard"
+        },
+        {
+          "product": "whatsapp_automation",
+          "tier": "standard"
+        }
+      ],
+      "market_prices": {
+        "USA": 1279,
+        "UAE": 3999,
+        "Saudi Arabia": 2999,
+        "India": 18999
+      },
+      "standalone_totals": {
+        "USA": 1348,
+        "UAE": 4198,
+        "Saudi Arabia": 3098,
+        "India": 19999
+      },
+      "billing_unit": "one-time",
+      "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
+    },
+    "growth": {
+      "name": "Growth Operations Trio",
+      "description": "Professional WhatsApp Automation + Professional Custom AI Agent + Professional CRM/ERP, jointly scoped.",
+      "components": [
+        {
+          "product": "whatsapp_automation",
+          "tier": "professional"
+        },
+        {
+          "product": "ai_agent",
+          "tier": "professional"
+        },
+        {
+          "product": "crm_erp",
+          "tier": "professional"
+        }
+      ],
+      "market_prices": {
+        "USA": 6799,
+        "UAE": 20199,
+        "Saudi Arabia": 14599,
+        "India": 113499
+      },
+      "standalone_totals": {
+        "USA": 7397,
+        "UAE": 21897,
+        "Saudi Arabia": 15797,
+        "India": 123000
+      },
+      "billing_unit": "one-time",
+      "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
+    }
   }
 }
