@@ -37,7 +37,7 @@
         business_type:kind,referral_source:'freshtiq_partner_page',accept_terms:true,
         website:value('appWebsite')
       }});
-      setNotice('appResult','Application saved! ID: '+data.reseller_id+' · Status: PENDING OWNER REVIEW. PRIVATE TRACKING CODE (save securely; shown only once): '+data.application_key+'. No joining fee. This is not an approved partner login key.','success');
+      setNotice('appResult','🎉 Congratulations! Registration COMPLETE. Your reference: '+data.reseller_id+'. Private 30-day training access key (save this securely): '+data.application_key+'. Open https://portal.freshtiqautomation.com/join?role=partner to start training. Verified commissions and withdrawals require signed terms and collected payment. To speak with the bot, tap WhatsApp and send JOIN PARTNER.','success');
       byId('statusPartnerId').value=data.reseller_id;
       byId('statusApplicationKey').value=data.application_key;
       byId('partnerApplication').reset();
