@@ -104,6 +104,20 @@
         if(!wd.childNodes.length){const p=document.createElement('p');p.textContent='No eligible payout yet. A booked project is not a payable commission.';wd.append(p)}
       }catch(_){const p=document.createElement('p');p.textContent='Withdrawal information temporarily unavailable. Your existing referrals remain intact.';wd.append(p)}
     }
+    const prog=byId('partnerProjects');
+    if(prog){
+      prog.replaceChildren();
+      try{
+        const result=await request('/api/reseller/my-projects',{key:auth.key});
+        for(const p of result.projects||[]){
+          const row=document.createElement('div');row.className='res-row';
+          const title=document.createElement('strong');title.textContent=p.public_ref||('Project #'+p.id);
+          const meta=document.createElement('span');meta.textContent=(p.status||'In progress')+' · '+Math.min(100,Math.max(0,Number(p.progress)||0))+'% · booked '+p.currency+' '+Number(p.total_value||0).toLocaleString('en-IN')+' · CRM-collected '+Number(p.crm_recorded_collection||0).toLocaleString('en-IN')+' (bank verification required)';
+          row.append(title,meta);prog.appendChild(row);
+        }
+        if(!prog.childNodes.length){const el=document.createElement('p');el.textContent='No verified projects linked to your own referrals yet.';prog.append(el)}
+      }catch(_){prog.textContent='Project progress temporarily unavailable.'}
+    }
     byId('partnerDashboard').hidden=false;
   }
   byId('applicationStatusForm')?.addEventListener('submit',async e=>{
