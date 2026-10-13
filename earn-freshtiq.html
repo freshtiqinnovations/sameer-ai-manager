@@ -65,7 +65,7 @@ details.ef-faq p{margin:9px 0 0;color:var(--ef-mut)}
 <div class="ef-eyebrow">Earn Freshtiq · Sales Executive Opportunity</div>
 <h1 class="ef-h1">Earn with Freshtiq — Sales Executive Opportunity.</h1>
 <p class="ef-lede">Help businesses grow with AI automation, websites, WhatsApp bots and CRM systems — and earn on genuine, collected deals. Apply in about 2–3 minutes. Every application is reviewed personally by the Freshtiq owner.</p>
-<p style="margin-top:18px"><a class="ef-cta" href="#apply">APPLY NOW →</a></p>
+<p style="margin-top:18px"><a class="ef-cta" href="https://portal.freshtiqautomation.com/join?role=sales">REGISTER FREE · START TRAINING NOW →</a> <a class="ef-cta" href="#apply">Detailed application ↓</a></p>
 <p class="ef-note" style="margin-top:16px"><b>Please note:</b> Earn Freshtiq is a <b>commission-first</b> sales-executive programme — <b>not</b> a guaranteed salaried job. There is no fixed monthly salary, no guaranteed income and no automatic employment. Any fixed-salary or employment arrangement would require a separate individual written agreement. Freshtiq never charges an application fee and never asks for Aadhaar, PAN, bank details, passwords or OTPs to apply.</p>
 <p class="ef-note" style="margin-top:10px">This is the <b>Sales Executive</b> earning programme. It is separate from the independent <b>Sales Partner / Reseller</b> commission programme. Please use this page only if you want to join as a Freshtiq Sales Executive.</p>
 </section>
@@ -168,7 +168,7 @@ details.ef-faq p{margin:9px 0 0;color:var(--ef-mut)}
 <div class="ef-field"><label for="efAvail">Availability *</label><select id="efAvail" name="availability" required><option value="">Choose</option><option>Full-time</option><option>Part-time</option><option>Evenings / weekends</option><option>Flexible</option></select></div>
 <div class="ef-field"><label for="efCv">CV or LinkedIn profile (optional)</label><input id="efCv" name="cv_url" maxlength="300" placeholder="Link to your CV or LinkedIn"></div>
 <label class="ef-check"><input id="efTerms" name="terms_accepted" type="checkbox" required><span>I have read and accept the programme terms above, and I understand this is a <b>commission-first</b> opportunity with <b>no guaranteed salary or employment</b>. *</span></label>
-<label class="ef-check"><input id="efConsent" name="whatsapp_consent" type="checkbox" required><span>I consent to receive application updates and — if approved — onboarding and training messages from Freshtiq on WhatsApp. *</span></label>
+<label class="ef-check"><input id="efConsent" name="whatsapp_consent" type="checkbox"><span>Optional: I consent to receive WhatsApp updates where permitted. Without consent I can still register and use the free training dashboard.</span></label>
 <p class="ef-field"><button class="ef-btn" id="efSubmit" type="submit">Submit application →</button></p>
 <div class="ef-msg" id="efMsg" role="status" aria-live="polite"></div>
 <div class="ef-msg" id="efOk" role="status" aria-live="polite"></div>
@@ -231,16 +231,27 @@ details.ef-faq p{margin:9px 0 0;color:var(--ef-mut)}
     if(find.length<10) return fail('Please describe how you expect to find customers.');
     if(!avail) return fail('Please choose your availability.');
     if(!q('efTerms').checked) return fail('Please accept the programme terms.');
-    if(!q('efConsent').checked) return fail('Please give WhatsApp consent to proceed.');
     var btn=q('efSubmit'); btn.disabled=true; show(msg,'ok','Submitting your application…');
-    var body={name:name,phone:phone,email:email,city:city,country:country,preferred_market:market,sales_experience:q('efExp').value.trim(),communication_languages:lang,lead_generation_skills:find,availability:avail,cv_url:q('efCv').value.trim(),terms_accepted:true,whatsapp_consent:true};
+    var body={name:name,phone:phone,email:email,city:city,country:country,preferred_market:market,sales_experience:q('efExp').value.trim(),communication_languages:lang,lead_generation_skills:find,availability:avail,cv_url:q('efCv').value.trim(),terms_accepted:true,whatsapp_consent:q('efConsent').checked};
     fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
       .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
       .then(function(res){
         btn.disabled=false;
         if(res.j&&res.j.ok){
           msg.style.display='none';
-          show(ok,'ok','✅ Application received! Your reference is <span class="ef-ref">'+res.j.application_id+'</span><br>Status: <b>PENDING REVIEW</b> — the Freshtiq owner will review your application personally. Save your reference to check status later.'+(res.j.existing?'<br><span class="hint">(You had already applied — we kept your original reference.)</span>':''));
+          ok.className='ef-msg ok'; ok.replaceChildren();
+          var success=document.createElement('strong');success.textContent='🎉 Congratulations! Your free registration is complete.';
+          var summary=document.createElement('p');summary.textContent='Reference: '+res.j.application_id+'. Start learning today. Your sales role and individual commission terms still require independent owner verification.';
+          ok.append(success,summary);
+          if(res.j.application_key){
+            var hint=document.createElement('p');hint.textContent='PRIVATE TRAINING ACCESS KEY (save securely; shown once):';
+            var code=document.createElement('code');code.textContent=res.j.application_key;
+            var link=document.createElement('a');link.href='https://portal.freshtiqautomation.com/join?role=sales';link.target='_blank';link.rel='noopener noreferrer';link.textContent=' Open my training dashboard →';
+            var copy=document.createElement('button');copy.type='button';copy.textContent='Copy private key';copy.addEventListener('click',function(){navigator.clipboard.writeText(res.j.application_key).then(function(){copy.textContent='Copied ✓'}).catch(function(){copy.textContent='Select the key above to copy'})});
+            ok.append(hint,code,document.createElement('br'),copy,link);
+          }else{
+            var note=document.createElement('p');note.textContent='This reference already exists. Contact the owner for secure access recovery.';ok.append(note);
+          }
           form.reset();
         } else if(res.j&&/existing/i.test(res.j.error||'')){ show(msg,'err','This application already exists. Use the status check below.'); }
         else { show(msg,'err','⚠ '+(res.j&&res.j.error?('Could not submit: '+res.j.error):'Could not submit right now. Please try again.')); }
