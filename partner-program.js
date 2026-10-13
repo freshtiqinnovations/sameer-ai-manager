@@ -79,6 +79,31 @@
         (row.public_ref||('Referral '+row.id))+' · '+(row.service||'Enquiry'),
         (row.status||'awaiting review')+' · '+(row.country||'')));
     }
+    const wd=byId('partnerWithdrawals');
+    if(wd){
+      wd.replaceChildren();
+      try{
+        const records=await request('/api/reseller/my-withdrawals',{key:auth.key});
+        for(const r of records.requests||[]){
+          const entry=document.createElement('p');
+          entry.textContent='Request #'+r.id+' · '+r.currency+' '+(Number(r.amount_minor)/100).toFixed(2)+' · '+r.status;
+          wd.appendChild(entry);
+        }
+        for(const p of records.eligible||[]){
+          const holder=document.createElement('div');holder.className='res-row';
+          const label=document.createElement('span');label.textContent='Verified '+p.currency+' '+Number(p.commission_amount).toLocaleString('en-IN')+' · payout #'+p.id;
+          const btn=document.createElement('button');btn.type='button';btn.className='cta secondary';btn.textContent='Request withdrawal →';
+          btn.addEventListener('click',async()=>{
+            if(!confirm('Request withdrawal of this already-verified eligible commission? No automatic bank transfer happens.'))return;
+            btn.disabled=true;
+            try{await request('/api/reseller/my-withdrawals/request',{method:'POST',key:auth.key,body:{payout_id:p.id}});await refresh()}
+            catch(err){setNotice('accessResult',err.message||'Withdrawal request unavailable.','error');btn.disabled=false}
+          });
+          holder.append(label,btn);wd.appendChild(holder);
+        }
+        if(!wd.childNodes.length){const p=document.createElement('p');p.textContent='No eligible payout yet. A booked project is not a payable commission.';wd.append(p)}
+      }catch(_){const p=document.createElement('p');p.textContent='Withdrawal information temporarily unavailable. Your existing referrals remain intact.';wd.append(p)}
+    }
     byId('partnerDashboard').hidden=false;
   }
   byId('applicationStatusForm')?.addEventListener('submit',async e=>{
