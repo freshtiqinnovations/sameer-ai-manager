@@ -7,7 +7,7 @@
     "regional_rule": "Four independent published local price lists. No live exchange-rate conversion or hidden currency markup. Written proposal confirms business market, scope, tax and fees.",
     "truth_rule": "Published /commercial-pricing.json is the only rate-card source for the public pricing page, owner portal API and WhatsApp chatbot; fixed packages are starting scopes, not binding invoices.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
-    "quality_rule": "Basic, Premium and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
+    "quality_rule": "Basic, Professional and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
     "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
   },
   "hourly": {
@@ -80,7 +80,7 @@
       "position": "Focused production-ready scope for one clear business outcome"
     },
     "professional": {
-      "label": "Premium",
+      "label": "Professional",
       "position": "Best-value connected scope for growing businesses"
     },
     "premium": {
