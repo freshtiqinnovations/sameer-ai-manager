@@ -17,11 +17,28 @@ const { chromium } = require('playwright');
     for(const route of routes)for(const mode of ['light']){
       const page=await browser.newPage({viewport:{width:390,height:844}});
       try{
+        // Local staging differs from production Origin. Proxy the same
+        // public read-only pricing response in this isolated browser test,
+        // adding a local-only CORS header; no prices are invented or edited.
+        if(route==='/pricing.html' && /^http:\/\/127\.0\.0\.1(?::\d+)?$/.test(base)){
+          await page.route('https://portal.freshtiqautomation.com/api/public/commercial-pricing',async route=>{
+            const response=await route.fetch({timeout:13000});
+            await route.fulfill({response,headers:{...response.headers(),'access-control-allow-origin':'*'}});
+          });
+        }
         await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});
         await page.evaluate(value=>localStorage.setItem('freshtiq_preferred_theme_v1','dark'));
         await page.reload({waitUntil:'domcontentloaded',timeout:30000});
         if(!['/talent/','/apps/'].includes(route)&&await page.evaluate(()=>document.documentElement.dataset.ftqTheme)!=='light') {
           throw Error('Expected the single fixed theme, got non-light');
+        }
+        // Dynamic regional pricing arrives asynchronously from the
+        // authorized portal API. Wait for actual rendered cards; otherwise
+        // DOMContentLoaded alone misses 16 real-world contrast failures.
+        if(route==='/pricing.html'){
+          await page.locator('.price-service-card').first().waitFor({timeout:11000});
+          const cards=await page.locator('.price-service-card').count();
+          if(cards<6)throw Error('PRICING_CARDS_NOT_RENDERED_FOR_A11Y_QA: '+cards);
         }
         await page.addScriptTag({content:axe});
         const report=await page.evaluate(async()=>axe.run(document,{runOnly:{type:'rule',values:['color-contrast']}}));

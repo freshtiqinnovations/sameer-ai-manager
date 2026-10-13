@@ -372,3 +372,14 @@ html body.rv-page a[href$="#rvReviewForm"]{
     padding-bottom:46px!important;
   }
 }
+
+/* P0 live-only contrast regression on async pricing cards:
+   API adds eight price-service cards after DOMContentLoaded; site is in
+   light mode and the cards are white, but legacy midnight CSS made their
+   timeline/tier labels pale #7fb7e8 (2.13:1). Colour only—NO price JS,
+   currency, taxes, API calls, tiers or payment terms changed. */
+html[data-ftq-theme="light"] body.fx-premium-page .price-service-card .price-service-time,
+html[data-ftq-theme="light"] body.fx-premium-page .price-service-card .price-service-tier{
+  color:#34536D!important;
+  -webkit-text-fill-color:#34536D!important;
+}
