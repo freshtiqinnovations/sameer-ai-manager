@@ -289,3 +289,23 @@ html[data-ftq-theme="light"] body.fx-premium-page .fx-section.dark{
 html[data-ftq-theme="light"] body.fx-premium-page .fx-section :is(.fx-section-head h2,.fx-section-head h3,.fx-section-head p){
   color:#EAF8F5!important;
 }
+
+/* Dark theme completion: older theme sheets must not leave a light page canvas. */
+html[data-ftq-theme="dark"] body.fx-home,
+html[data-ftq-theme="dark"] body.fx-premium-page{
+  background-color:#052C32!important;
+  color:#EAF8F5!important;
+}
+html[data-ftq-theme="dark"] body.fx-home :is(.fx-section,.fx-trust,.fx-channel-trust,.fx-final){
+  background-color:#0A343A!important;
+  color:#EAF8F5!important;
+}
+html[data-ftq-theme="dark"] body.fx-home .fx-cap{
+  background:#F5FAF8!important;
+  background-image:none!important;
+  color:#11373D!important;
+  border-color:#D4E4DF!important;
+}
+html[data-ftq-theme="dark"] body.fx-home .fx-cap :is(h3,p,strong,.fx-cap-link){
+  color:#11373D!important;
+}
