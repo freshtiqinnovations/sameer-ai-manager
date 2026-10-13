@@ -233,7 +233,8 @@
     else if(p.includes('/services/')) a=[['scope','Scope'],['price','Pricing'],['consultation','Consultation'],['human','Human Support']];
     else a=[['chatbot','AI Chatbot'],['website','Website / App'],['crm','CRM / ERP'],['quote','Written Quote'],['human','Human Support']];
     if(shownLeadRef) a.unshift(['request','My Request']);
-    return a.slice(0,5);
+    a.push(['help','Help / Training']);
+    return a.slice(0,7);
   }
   function renderSmartActions(){
     contextStrip.textContent=pageContextLabel();
@@ -244,6 +245,7 @@
     const service = PAGE_META.service && !['Pricing','Interactive Demo'].includes(PAGE_META.service) ? PAGE_META.service : 'my business automation';
     const market = PAGE_META.market ? ' in '+PAGE_META.market : '';
     return {
+      help:'/help',
       chatbot:'I want an AI chatbot for customer support or sales. Help me scope it.',
       website:'I need a website or app that captures leads and connects to automation.',
       crm:'I need CRM/ERP or operations automation. Help me scope the workflow.',
