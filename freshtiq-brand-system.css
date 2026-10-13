@@ -1,0 +1,291 @@
+/* FRESHTIQ – restrained global brand surface (2026-10-13).
+   One intentional palette: deep-teal / cool off-white / saturated teal CTA.
+   Loaded last. Keeps layout, site features, pricing logic and access controls intact. */
+:root{
+  --ftq-brand-deep:#07393F;
+  --ftq-brand-deepest:#052F35;
+  --ftq-brand-ink:#11373D;
+  --ftq-brand-muted:#4C686D;
+  --ftq-brand-accent:#31D3BD;
+  --ftq-brand-accent-dark:#08796E;
+  --ftq-brand-paper:#F5FAF8;
+  --ftq-brand-soft:#EAF4F1;
+  --ftq-brand-white:#FFFFFF;
+  --ftq-brand-line:#D4E4DF;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public){
+  --ftq-navy:var(--ftq-brand-deepest);
+  --ftq-navy2:var(--ftq-brand-deep);
+  --ftq-teal:var(--ftq-brand-accent);
+  --ftq-off:var(--ftq-brand-paper);
+  --ftq-ink:var(--ftq-brand-ink);
+  --ftq-mut:var(--ftq-brand-muted);
+  --ftq-line:var(--ftq-brand-line);
+  --bg:var(--ftq-brand-paper);
+  --accent:var(--ftq-brand-accent-dark);
+  --primary:var(--ftq-brand-deep);
+  --brand-primary:var(--ftq-brand-deep);
+  --brand-accent:var(--ftq-brand-accent);
+  accent-color:var(--ftq-brand-accent-dark);
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public){
+  background:var(--ftq-brand-paper);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+html body:is(.fx-home,.fx-premium-page) #navbar,
+html body:is(.fx-home,.fx-premium-page) .nav-shell,
+html body:is(.fx-home,.fx-premium-page) .site-header{
+  background-color:var(--ftq-brand-deepest)!important;
+  border-color:rgba(88,204,186,.23)!important;
+}
+html body:is(.fx-home,.fx-premium-page) #navbar .nav-links a:not(.nav-cta):hover{
+  color:#73E9D9!important;
+}
+html body.fx-premium-page :is(.page-header,.case-header,.hero-section),
+html body.fx-home :is(.fx-hero,.home-hero,.hero-dark){
+  background:linear-gradient(137deg,#052F35 0%,#073D43 68%,#0A4B4B 100%)!important;
+  border-color:rgba(68,211,191,.25)!important;
+}
+html body.fx-premium-page :is(.page-header,.case-header,.hero-section) :is(h1,h2),
+html body.fx-home :is(.fx-hero,.home-hero,.hero-dark) :is(h1,h2){
+  color:#F7FFFD!important;
+}
+html body.fx-premium-page :is(.page-header,.case-header,.hero-section) p,
+html body.fx-home :is(.fx-hero,.home-hero,.hero-dark) p{
+  color:#D4EBE8!important;
+}
+html body.fx-premium-page .fx-section{
+  background:var(--ftq-brand-deepest)!important;
+  color:#E9F5F2!important;
+  border-color:rgba(81,193,177,.2)!important;
+}
+html body.fx-premium-page .fx-section.soft{
+  background:#0C4246!important;
+}
+html body.fx-premium-page .fx-section.dark{
+  background:linear-gradient(140deg,#052F35,#0D4A4C)!important;
+}
+html body.fx-premium-page .fx-section :is(.fx-section-head h2,.fx-section-head h3){
+  color:#F9FFFE!important;
+}
+html body.fx-premium-page .fx-section .fx-section-head p{
+  color:#C6E5DF!important;
+}
+/* Replace eight neon tiles with calm white cards on deep-teal sections. */
+html body.fx-premium-page .fx-cap{
+  background:#F6FBF9!important;
+  border:1px solid #D2E7E0!important;
+  box-shadow:0 6px 22px rgba(0,28,33,.1)!important;
+  color:var(--ftq-brand-ink)!important;
+}
+html body.fx-premium-page .fx-cap :is(h3,strong,.fx-cap-link,p){
+  color:var(--ftq-brand-ink)!important;
+  -webkit-text-fill-color:var(--ftq-brand-ink)!important;
+}
+html body.fx-premium-page .fx-cap .fx-cap-icon{
+  background:#E0F4EF!important;
+  border-color:#B4DCD2!important;
+  color:#0D6B62!important;
+}
+html body.fx-premium-page .fx-cap:hover{
+  border-color:#32A796!important;
+  box-shadow:0 14px 30px rgba(0,28,33,.16)!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.nav-cta,.btn-primary,.button-primary,.fx-btn-primary,.cta-primary,.fx-cta-primary,.primary-cta),
+html body.ftq-brand-public :is(.action,.voice-btn:not(.voice-alt)){
+  background:var(--ftq-brand-accent)!important;
+  background-image:none!important;
+  color:#063635!important;
+  -webkit-text-fill-color:#063635!important;
+  border-color:#1EAE9D!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.nav-cta,.btn-primary,.button-primary,.fx-btn-primary,.cta-primary,.fx-cta-primary,.primary-cta):hover,
+html body.ftq-brand-public :is(.action,.voice-btn:not(.voice-alt)):hover{
+  background:#57E3D0!important;
+  color:#062F31!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.section-tag,.section-label,.eyebrow){
+  border-color:rgba(58,195,173,.42);
+}
+html body:is(.fx-home,.fx-premium-page) :is(footer,.site-footer){
+  background-color:var(--ftq-brand-deepest)!important;
+  border-color:rgba(81,193,177,.22)!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.footer-col a,.footer-bottom a):hover{
+  color:#73E9D9!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(input,select,textarea):focus-visible,
+html body.ftq-brand-public :is(input,select,textarea):focus-visible{
+  outline:3px solid #149D8E;
+  outline-offset:2px;
+}
+/* Existing pricing and AI Voice Calling pages have dedicated layouts. Match colors only. */
+html body.ftq-brand-public header,
+html body.ftq-brand-public footer{
+  background-color:var(--ftq-brand-deepest)!important;
+  border-color:rgba(88,204,186,.26)!important;
+}
+html body.ftq-brand-public :is(.hero,.voice-hero){
+  background:linear-gradient(135deg,#052F35,#073D43 70%,#0B4A49)!important;
+  color:#fff!important;
+}
+html body.ftq-brand-public :is(.hero,.voice-hero) h1,
+html body.ftq-brand-public :is(.hero,.voice-hero) h2{
+  color:#fff!important;
+}
+html body.ftq-brand-public :is(.hero,.voice-hero) p{color:#D5EEEA!important}
+html body.ftq-brand-public :is(.product,.voice-card,.trust>div){
+  background:#fff!important;
+  border-color:var(--ftq-brand-line)!important;
+  box-shadow:0 10px 24px rgba(8,65,62,.055)!important;
+}
+html body.ftq-brand-public :is(.bundle,.price-note,.voice-note){
+  background:#EAF6F1!important;
+  background-image:none!important;
+  border-color:#B6DCD2!important;
+  color:var(--ftq-brand-ink)!important;
+}
+html body.ftq-brand-public :is(.tabs button[aria-selected="true"],.tier-tabs button[aria-pressed="true"]){
+  background:var(--ftq-brand-deep)!important;
+  color:#F7FFFE!important;
+  border-color:var(--ftq-brand-deep)!important;
+}
+html body.ftq-brand-public :is(.amount,.bundle .big,td[aria-current="true"]){
+  color:#075E58!important;
+}
+html body.ftq-brand-public :is(.voice-table th,.tablebox th){
+  background:var(--ftq-brand-deep)!important;
+  color:#F5FFFC!important;
+}
+html body.ftq-brand-public .voice-table td,
+html body.ftq-brand-public .tablebox td{
+  border-color:var(--ftq-brand-line);
+}
+html body.ftq-brand-public .voice-alt{
+  background:#fff!important;
+  color:var(--ftq-brand-deepest)!important;
+}
+@media (prefers-reduced-motion:reduce){
+  html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) *{scroll-behavior:auto}
+}
+/* Keep the user's light/dark switch functional; share the same hue family. */
+html[data-ftq-theme="dark"] body:is(.fx-home,.fx-premium-page,.ftq-brand-public){
+  --bg:#052C32;
+  --ftq-off:#0B353A;
+  --ftq-ink:#ECF9F5;
+  --ftq-mut:#BBD9D2;
+  background:#052C32;
+  color:#ECF9F5;
+}
+html[data-ftq-theme="dark"] body.fx-premium-page :is(.fx-cap,.product,.voice-card){
+  background:#F6FBF9!important;
+  color:#11373D!important;
+}
+html[data-ftq-theme="dark"] body.ftq-brand-public :is(.product,.voice-card,.trust>div){
+  background:#0C3940!important;
+  border-color:#2B6866!important;
+  color:#EDF9F7!important;
+}
+html[data-ftq-theme="dark"] body.ftq-brand-public :is(.product h3,.voice-card h3,.product p,.voice-card p){
+  color:#EDF9F7!important;
+}
+
+/* Strong, final accessibility overrides for the real light-mode home layout. */
+html[data-ftq-theme="light"] body.fx-home,
+html[data-ftq-theme="light"] body.fx-premium-page{
+  background:#F5FAF8!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero{
+  background:linear-gradient(145deg,#F1FAF7 0%,#FFFFFF 78%)!important;
+  color:#11373D!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero h1,
+html[data-ftq-theme="light"] body.fx-home .fx-hero h1 span{
+  color:#07393F!important;
+  -webkit-text-fill-color:#07393F!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero :is(.fx-kicker,.fx-hero-note){
+  color:#17645B!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero-copy>p{
+  color:#365D60!important;
+}
+html[data-ftq-theme="dark"] body.fx-home .fx-hero{
+  background:linear-gradient(145deg,#052F35,#0B4447)!important;
+}
+html[data-ftq-theme="dark"] body.fx-home .fx-hero h1,
+html[data-ftq-theme="dark"] body.fx-home .fx-hero h1 span{
+  color:#FAFFFE!important;
+  -webkit-text-fill-color:#FAFFFE!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .page-header{
+  background:linear-gradient(160deg,#052F35,#104749)!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .page-header :is(h1,h2){
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-ftq-theme] body:is(.fx-home,.fx-premium-page) #navbar .nav-links a.nav-cta,
+html[data-ftq-theme] body.fx-premium-page a.btn-primary,
+html[data-ftq-theme] body.fx-premium-page button.btn-primary{
+  background:#31D3BD!important;
+  background-image:none!important;
+  color:#063635!important;
+  -webkit-text-fill-color:#063635!important;
+  border-color:#1DAD9E!important;
+}
+html[data-ftq-theme] body:is(.fx-home,.fx-premium-page) #navbar .nav-links a.nav-cta:hover,
+html[data-ftq-theme] body.fx-premium-page a.btn-primary:hover{
+  background:#66E5D1!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-hero .fx-primary{
+  background:#08796E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  border-color:#08796E!important;
+}
+
+/* Remove legacy blue gradients from prominent homepage tiles and entry bands. */
+html[data-ftq-theme="light"] body.fx-home .fx-cap{
+  background:#FFFFFF!important;
+  background-image:none!important;
+  color:#11373D!important;
+  border:1px solid #D4E4DF!important;
+  box-shadow:0 9px 28px rgba(10,57,53,.08)!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-cap :is(h3,strong,p,.fx-cap-link){
+  color:#11373D!important;
+  -webkit-text-fill-color:#11373D!important;
+}
+html[data-ftq-theme="light"] body.fx-home .fx-cap .fx-cap-icon{
+  background:#E4F5F0!important;
+  color:#0B756C!important;
+}
+html[data-ftq-theme="light"] body.fx-home :is(.fx-section,.fx-trust,.fx-channel-trust,.fx-final){
+  background-color:#F5FAF8!important;
+}
+html[data-ftq-theme] body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser){
+  background:#07393F!important;
+  background-image:none!important;
+  border-color:#286D68!important;
+  color:#F1FCF8!important;
+}
+html[data-ftq-theme] body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser) :is(h2,h3,p,strong){
+  color:#F1FCF8!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section{
+  background:#052F35!important;
+  background-image:none!important;
+  border-color:#235C5D!important;
+  color:#EAF8F5!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section.soft{
+  background:#0A4145!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section.dark{
+  background:linear-gradient(140deg,#052F35,#104E4C)!important;
+}
+html[data-ftq-theme="light"] body.fx-premium-page .fx-section :is(.fx-section-head h2,.fx-section-head h3,.fx-section-head p){
+  color:#EAF8F5!important;
+}
