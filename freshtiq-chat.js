@@ -28,6 +28,13 @@
       utm_campaign: qs.get('utm_campaign') || '', utm_content: qs.get('utm_content') || '',
       utm_term: qs.get('utm_term') || ''
     };
+    // Capture the FIRST valid approved-partner referral tag for this visitor's
+    // journey. It remains only a public lead attribution hint, not partner auth.
+    const fromPartner=String(qs.get('partner')||'').trim().toUpperCase();
+    if(/^FTQ-RS-[0-9]{4,12}$/.test(fromPartner)&&!saved.partner_ref){
+      saved.partner_ref=fromPartner;
+      try{sessionStorage.setItem(attrKey,JSON.stringify(saved))}catch(_){}
+    }
     if (Object.values(current).some(Boolean)) {
       saved = Object.assign({}, saved, current);
       try { sessionStorage.setItem(attrKey, JSON.stringify(saved)); } catch(_) {}
@@ -226,14 +233,17 @@
   function smartActions(){
     const p=location.pathname.toLowerCase();
     let a;
-    if(p.includes('/ads/ai-automation-india')) a=[['audit','Free Audit'],['chatbot','AI Chatbot'],['crm','CRM / Follow-up'],['quote','Written Quote'],['human','Human Support']];
+    if(p.includes('/partners')) a=[['joinpartner','Register Free'],['guidepartner','Partner Training'],['help','Help'],['human','Human Support']];
+    else if(p.includes('/earn-freshtiq')) a=[['joinsales','Register Free'],['guidesales','Sales Training'],['help','Help'],['human','Human Support']];
+    else if(p.includes('/ads/ai-automation-india')) a=[['audit','Free Audit'],['chatbot','AI Chatbot'],['crm','CRM / Follow-up'],['quote','Written Quote'],['human','Human Support']];
     else if(p.includes('/pricing')||p.includes('/hourly-ai-automation')) a=[['price','Pricing'],['scope','Scope'],['quote','Written Quote'],['human','Human Support']];
     else if(p.includes('/demo')) a=[['demo','View Demo'],['consultation','Consultation'],['quote','Written Quote'],['human','Human Support']];
     else if(PAGE_META.market) a=[['localprice','Local Pricing'],['scope','Scope'],['quote','Written Quote'],['human','Human Support']];
     else if(p.includes('/services/')) a=[['scope','Scope'],['price','Pricing'],['consultation','Consultation'],['human','Human Support']];
     else a=[['chatbot','AI Chatbot'],['website','Website / App'],['crm','CRM / ERP'],['quote','Written Quote'],['human','Human Support']];
     if(shownLeadRef) a.unshift(['request','My Request']);
-    a.push(['help','Help / Training']);
+    if(!p.includes('/partners')&&!p.includes('/earn-freshtiq'))a.push(['join','Register Free']);
+    if(!a.some(x=>x[0]==='help'))a.push(['help','Help / Training']);
     return a.slice(0,7);
   }
   function renderSmartActions(){
@@ -246,6 +256,13 @@
     const market = PAGE_META.market ? ' in '+PAGE_META.market : '';
     return {
       help:'/help',
+      join:'/register',
+      joinpartner:'JOIN PARTNER',
+      joinsales:'JOIN SALES',
+      joincustomer:'JOIN CUSTOMER',
+      guidepartner:'/guide partner',
+      guidesales:'/guide sales',
+
       chatbot:'I want an AI chatbot for customer support or sales. Help me scope it.',
       website:'I need a website or app that captures leads and connects to automation.',
       crm:'I need CRM/ERP or operations automation. Help me scope the workflow.',
