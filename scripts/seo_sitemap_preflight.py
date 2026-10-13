@@ -8,7 +8,7 @@ from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1]
 SITE="https://freshtiqautomation.com"
 XML=ROOT/"sitemap.xml"
-NEW_PUBLIC_PAGES=("/earn-freshtiq.html",)
+NEW_PUBLIC_PAGES=("/earn-freshtiq.html","/talent/")
 
 class Metadata(HTMLParser):
  def __init__(self):super().__init__();self.robots="";self.canon=[]
