@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-13-four-market-fixed-v2",
+  "version": "2026-10-13-four-market-fixed-v3-ai-voice",
   "effective_date": "2026-10-13",
   "brand": "Freshtiq Automation",
   "policy": {
@@ -1506,6 +1506,79 @@
           "premium": 10000
         }
       }
+    },
+    "ai_voice_calling": {
+      "name": "AI Voice Calling & Receptionist",
+      "family": "ai",
+      "aliases": [
+        "ai voice calling",
+        "ai calling",
+        "voice calling",
+        "ai phone calling",
+        "ai phone agent",
+        "ai voice agent",
+        "voice ai",
+        "ai receptionist",
+        "automated phone calls",
+        "inbound ai calls",
+        "outbound ai calls",
+        "appointment reminder calling",
+        "customer calling assistant",
+        "voice bot"
+      ],
+      "inr": {
+        "standard": 24999,
+        "professional": 49999,
+        "premium": 99999
+      },
+      "timeline": "7–21 days after telephony approval and scope sign-off",
+      "features": {
+        "standard": [
+          "One approved inbound or opted-in outbound call workflow",
+          "FAQ / booking / lead capture",
+          "Human transfer and test call acceptance"
+        ],
+        "professional": [
+          "Hindi/English or approved multilingual voice flows",
+          "CRM and calendar integrations",
+          "Call outcomes, consent-aware follow-ups and analytics"
+        ],
+        "premium": [
+          "Multi-team workflows and advanced routing",
+          "Custom CRM actions, QA and controls",
+          "Role permissions, monitoring and human escalation"
+        ]
+      },
+      "regional_prices": {
+        "USA": {
+          "standard": 899,
+          "professional": 1799,
+          "premium": 3499
+        },
+        "UAE": {
+          "standard": 2999,
+          "professional": 5999,
+          "premium": 11999
+        },
+        "Saudi Arabia": {
+          "standard": 2499,
+          "professional": 4999,
+          "premium": 9999
+        },
+        "India": {
+          "standard": 24999,
+          "professional": 49999,
+          "premium": 99999
+        }
+      },
+      "commercial_notes": {
+        "pricing": "Published amounts are ONE-TIME setup starting prices for a scoped build, not monthly fees or call minutes.",
+        "usage": "Actual voice AI minutes, carrier minutes, local telephone number rental, integration subscriptions, taxes and applicable compliance fees are extra, subject to a transparent client-approved provider quote.",
+        "deployment": "Carrier provisioning, caller ID approval, jurisdiction-specific requirements, call consent and provider test are prerequisites. No provider is connected by publishing this service.",
+        "consent": "Only inbound or explicitly opted-in outbound use cases; no unsolicited robocalls, silent recording, spoofing or bulk dialing.",
+        "billing": "Provider costs prepaid or customer-owned accounts; no unlimited calling promise."
+      },
+      "commercial_status": "setup_offer_only_calling_integration_requires_client_provider"
     }
   },
   "discounts": {

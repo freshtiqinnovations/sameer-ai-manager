@@ -90,8 +90,8 @@ for(const b of tierButtons)b.addEventListener('click',()=>{level=Number(b.datase
 fetch('/commercial-pricing.json?v=20261013fourmarkets1',{cache:'no-store',signal:AbortSignal.timeout(8000)})
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
-  if(policy.version!=='2026-10-13-four-market-fixed-v2' ||
-    !policy.products||Object.keys(policy.products).length!==25 ||
+  if(policy.version!=='2026-10-13-four-market-fixed-v3-ai-voice' ||
+    !policy.products||Object.keys(policy.products).length!==26 ||
     !policy.regions||!MAP.USA||!policy.regional_bundles)throw Error('rate-card not verified');
   for(const x of Object.values(policy.products)){
    for(const v of Object.values(MAP)){
