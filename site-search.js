@@ -47,7 +47,7 @@
     var host = document.getElementById('ftqSiteSearch');
     if (!host) return;
     host.innerHTML = '<div class="ftq-ss-wrap" style="position:relative"><label class="ftq-ss-label" for="ftqSsInput" style="position:absolute;left:-9999px">Search Freshtiq</label>' +
-      '<input id="ftqSsInput" type="search" autocomplete="off" placeholder="Search services, pricing, FAQ…" aria-label="Search Freshtiq" style="min-height:40px;border-radius:10px;border:1px solid rgba(120,150,170,.5);background:rgba(255,255,255,.06);color:inherit;padding:8px 12px;min-width:210px"/>' +
+      '<input id="ftqSsInput" type="search" autocomplete="off" placeholder="Search" aria-label="Search Freshtiq services, pricing and FAQs" style="min-height:40px;border-radius:10px;border:1px solid rgba(120,150,170,.5);background:rgba(255,255,255,.06);color:inherit;padding:8px 12px;min-width:210px"/>' +
       '<div id="ftqSsResults" role="listbox" style="position:absolute;top:46px;left:0;right:0;background:#0d2639;border:1px solid #355568;border-radius:12px;z-index:60;max-height:60vh;overflow:auto;display:none"></div></div>';
     var input = document.getElementById('ftqSsInput'), box = document.getElementById('ftqSsResults');
     function render() {

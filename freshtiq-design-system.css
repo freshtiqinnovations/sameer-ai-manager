@@ -74,18 +74,18 @@ html body .price-control-group button.active{
 }
 
 /* ==========================================================================
-   7) DESKTOP HEADER 1200-1440px — links were rendering as an overflowing
+   7) WIDE DESKTOP HEADER >1440px — links were rendering as an overflowing
    dark panel (two competing nav rules). Restore a clean single row.
    ========================================================================== */
-@media(min-width:1200px){
+@media(min-width:1441px){
   html body #navbar .nav-links{
     display:flex!important;position:static!important;flex-direction:row!important;
     width:auto!important;max-width:none!important;background:transparent!important;
     box-shadow:none!important;border:0!important;padding:0!important;gap:3px!important;
     max-height:none!important;overflow:visible!important;transform:none!important;opacity:1!important;z-index:auto!important;
   }
-  html body #navbar .nav-links a{font-size:11px!important;padding:8px 6px!important;width:auto!important;text-align:center!important;background:transparent!important}
-  html body #navbar .nav-links .nav-cta{padding:8px 12px!important;min-width:0!important;margin-left:6px!important;font-size:11px!important}
+  html body #navbar .nav-links a{font-size:12px!important;line-height:1.45!important;padding:8px 6px!important;width:auto!important;text-align:center!important;background:transparent!important}
+  html body #navbar .nav-links .nav-cta{padding:8px 12px!important;min-width:0!important;margin-left:6px!important;font-size:12px!important}
   html body #navbar .hamburger{display:none!important}
   html body #navbar .logo img{max-width:172px!important;height:auto!important}
   html body #navbar .ftq-lang-switch summary{min-width:70px!important;padding:8px 9px!important}
@@ -163,4 +163,212 @@ html body #navbar .nav-links .ftq-nav-close{
 }
 html body #navbar .nav-links .ftq-nav-close:hover{background:rgba(255,255,255,.14)}
 @media(max-width:1440px){html body #navbar .nav-links .ftq-nav-close{display:flex}}
-@media(min-width:1200px){html body #navbar .nav-links .ftq-nav-close{display:none!important}}
+@media(min-width:1441px){html body #navbar .nav-links .ftq-nav-close{display:none!important}}
+
+
+/* 2026-10-13: scoped typography/accessibility polish. Preserve all site features. */
+:root{
+  --ftq-type-body:16px;
+  --ftq-type-small:13px;
+  --ftq-leading-body:1.58;
+  --ftq-focus-ring:#ffdd8b;
+  --ftq-ui-radius:12px;
+}
+html body.fx-home,
+html body.fx-premium-page{
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+html body.fx-home main p,
+html body.fx-premium-page main p,
+html body.fx-home main li,
+html body.fx-premium-page main li{line-height:var(--ftq-leading-body)}
+html body #navbar a:focus-visible,
+html body #navbar button:focus-visible,
+html body main a:focus-visible,
+html body main button:focus-visible,
+html body main input:focus-visible,
+html body main textarea:focus-visible,
+html body main select:focus-visible{
+  outline:3px solid var(--ftq-focus-ring)!important;
+  outline-offset:3px!important;
+}
+/* 769–1440px: existing compact drawer, NOT compressed 11px single row. */
+@media(min-width:769px) and (max-width:1440px){
+  html body #navbar .nav-links a{
+    font-size:14px!important;line-height:1.45!important;
+    min-height:42px!important;padding:11px 13px!important;
+    text-align:left!important;
+  }
+  html body #navbar .nav-links .nav-cta{
+    font-size:14px!important;min-height:44px!important;
+  }
+  html body #navbar .nav-links .ftq-nav-close{display:flex!important}
+}
+@media(max-width:768px){
+  html body #navbar .nav-links>a{
+    min-height:44px!important;
+    display:flex!important;align-items:center!important;
+    line-height:1.4!important;font-size:16px!important;
+  }
+  html body .ftq-workspace-entry a strong{font-size:14px!important}
+  html body .ftq-workspace-entry a span{font-size:13px!important}
+  html body #navbar .ftq-lang-menu a span{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  html body #navbar .nav-links a,
+  html body main a,
+  html body main button{transition-duration:0.01ms!important}
+}
+
+/* P0: inherited global nav {top:0} pinned mobile WhatsApp/help strip
+   over the header, intercepting hamburger taps. Position it at screen bottom
+   with an explicit top reset. Never hide support from normal browsing. */
+@media(max-width:768px){
+  html body.fx-premium-page .ftq-premium-mobile-actions{
+    position:fixed!important;
+    top:auto!important;
+    bottom:0!important;
+    left:0!important;right:0!important;
+    height:auto!important;
+    min-height:0!important;max-height:none!important;
+    margin:0!important;
+  }
+  html body.fx-premium-page.ftq-nav-open .ftq-premium-mobile-actions{
+    display:none!important;
+  }
+}
+
+/* P0: global legacy nav selector positioned every <nav> fixed at top,
+   including breadcrumb. Breadcrumb belongs to document flow below header;
+   otherwise it blocks menu taps even after fixing the WhatsApp action strip. */
+html body main nav.ftq-breadcrumb{
+  position:relative!important;
+  top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;
+  z-index:1!important;
+  width:auto!important;
+  pointer-events:auto!important;
+}
+
+/* P0: legacy desktop CSS @min-width:1200 forced 13 links in a single
+   offscreen row on 1200–1440px displays. Use the EXISTING functional drawer
+   without dropping services, customer/sales/talent/partner or search. */
+@media(min-width:769px) and (max-width:1440px){
+  html body #navbar .hamburger,
+  html body.fx-home #navbar .hamburger{
+    display:flex!important;flex:0 0 44px!important;
+    width:44px!important;height:44px!important;
+    align-items:center!important;justify-content:center!important;
+    flex-direction:column!important;
+  }
+  html body #navbar .nav-links,
+  html body.fx-home #navbar .nav-links{
+    display:none!important;
+    position:fixed!important;
+    top:78px!important;
+    left:auto!important;right:clamp(12px,2.5vw,40px)!important;
+    width:min(360px,calc(100vw - 24px))!important;
+    max-width:360px!important;
+    max-height:calc(100dvh - 92px)!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    padding:12px!important;margin:0!important;
+    background:#091e2d!important;
+    border:1px solid #406377!important;
+    border-radius:14px!important;
+    box-shadow:0 22px 55px rgba(0,0,0,.35)!important;
+    flex-direction:column!important;
+    align-items:stretch!important;gap:3px!important;
+    transform:none!important;opacity:1!important;
+    z-index:1400!important;
+  }
+  html body #navbar .nav-links.open,
+  html body.fx-home #navbar .nav-links.open{display:flex!important}
+  html body #navbar .nav-links a{
+    display:flex!important;align-items:center!important;
+    width:100%!important;max-width:none!important;
+    padding:11px 13px!important;text-align:left!important;
+    font-size:14px!important;min-height:44px!important;
+    background:transparent!important;color:#eaf8ff!important;
+  }
+  html body #navbar .nav-links .nav-cta{
+    background:#12D9C4!important;color:#04262B!important;
+    -webkit-text-fill-color:#04262B!important;
+  }
+  html body #navbar .nav-links .ftq-nav-close{
+    display:flex!important;
+  }
+}
+
+/* WCAG AA text contrast: measured axe-core failures on 2026-10-13.
+   Slightly deepen teal ONLY where it appears over light breadcrumb/partner
+   surfaces. Other dark-surface teal tokens remain unchanged. */
+html body main .ftq-breadcrumb a{
+  color:#096D64!important;
+  -webkit-text-fill-color:#096D64!important;
+}
+html body section[aria-label="Technical project talent"] a{
+  color:#08665D!important;
+  -webkit-text-fill-color:#08665D!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px;
+}
+
+/* Extended 11-page axe contrast audit: Sales recruitment and Reviews.
+   Darken only failing labels/links on pale cards. Keep accent background,
+   dark surfaces, existing approved brand teal and functional text intact. */
+html body.ef .ef-back,
+html body.ef .ef-eyebrow{
+  color:#096C61!important;
+  -webkit-text-fill-color:#096C61!important;
+}
+html body.ef .ef-field .hint{
+  color:#4B5E69!important;
+  -webkit-text-fill-color:#4B5E69!important;
+}
+html body.ef .ef-foot a{
+  color:#1557AA!important;
+  -webkit-text-fill-color:#1557AA!important;
+}
+html body.rv-page .rv-sec-head .rv-eyebrow,
+html body.rv-page a[href$="#rvReviewForm"]{
+  color:#096C61!important;
+  -webkit-text-fill-color:#096C61!important;
+}
+
+/* P0 visual brand consistency: inner-page <a class=logo> intrinsic basis
+   collapsed to zero on phones after legacy CSS redefined SVG content/width.
+   Preserve the exact original Freshtiq logo and the separate menu button. */
+@media(max-width:768px){
+  html body.fx-premium-page #navbar .nav-inner>a.logo{
+    display:flex!important;
+    align-items:center!important;justify-content:flex-start!important;
+    flex:0 0 135px!important;
+    width:135px!important;min-width:110px!important;
+    height:42px!important;
+    overflow:visible!important;
+  }
+  html body.fx-premium-page #navbar .nav-inner>a.logo img{
+    width:135px!important;height:auto!important;
+    max-width:100%!important;max-height:42px!important;
+    display:block!important;opacity:1!important;
+  }
+}
+@media(max-width:380px){
+  html body.fx-premium-page #navbar .nav-inner>a.logo{
+    flex-basis:115px!important;width:115px!important;
+  }
+  html body.fx-premium-page #navbar .nav-inner>a.logo img{
+    width:115px!important;
+  }
+}
+
+/* Mobile conversion/readability: oversized 124px empty hero top padding
+   pushed the actual service headline below the fold. Retain the visual
+   breathing room without obscuring the promise or making pages feel blank. */
+@media(max-width:768px){
+  html body.fx-premium-page .page-header{
+    padding-top:64px!important;
+    padding-bottom:46px!important;
+  }
+}
