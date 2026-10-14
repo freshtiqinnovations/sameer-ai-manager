@@ -1,0 +1,462 @@
+/* Freshtiq Global Dark SaaS Design System — 2026-10-14
+   Single public marketing design layer, loaded AFTER all legacy CSS.
+   Scope: public site, never the authenticated portal or third-party widgets.
+   Palette: canvas #0A0F1D, cards #111827, accent #00F2FE.
+   Intent: accessibility, visual unity, and zero functional/content changes. */
+:root{
+  --ftq-ui-canvas:#0A0F1D;
+  --ftq-ui-card:#111827;
+  --ftq-ui-card-hover:#172236;
+  --ftq-ui-accent:#00F2FE;
+  --ftq-ui-text:#F8FAFC;
+  --ftq-ui-muted:#C3CDD9;
+  --ftq-ui-line:#273244;
+  --bg-primary:#0A0F1D;
+  --bg-card:#111827;
+  --accent-cyan:#00F2FE;
+  --text-main:#FFFFFF;
+  --text-sub:#C3CDD9;
+  --border-color:#273244;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public){
+  --bg:#0A0F1D;
+  --ftq-off:#0A0F1D;
+  --ftq-ink:#F8FAFC;
+  --ftq-ink2:#E4EBF3;
+  --ftq-mut:#C3CDD9;
+  --ftq-teal:#00F2FE;
+  --ftq-line:#273244;
+  --ftq-navy:#0A0F1D;
+  --ftq-navy2:#111827;
+  --primary:#00F2FE;
+  --accent:#00D9E5;
+  --brand-primary:#0A0F1D;
+  --brand-accent:#00F2FE;
+  background:#0A0F1D!important;
+  background-image:none!important;
+  color:#F8FAFC!important;
+  color-scheme:dark;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+/* Never create alternating white, blue, and teal section bands. */
+html body.fx-home :is(main,.fx-home-main,.fx-hero,.fx-section,.fx-section.soft,.fx-section.dark,.fx-trust,.fx-channel-trust,.fx-final,.fx-review-section,.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser,.ftq-region-intent),
+html body.fx-premium-page :is(main,.fx-section,.fx-section.soft,.fx-section.dark,.page-header,.case-header,.hero-section,.insight-hero,.insight-layout,.insight-body),
+html body.ftq-brand-public :is(main,.voice-wrap){
+  background-color:#0A0F1D!important;
+  background-image:none!important;
+  border-color:#273244!important;
+}
+/* Keep hero depth restrained: one dark-neutral tonal shift, not colored stripes. */
+html body.fx-home .fx-hero,
+html body.fx-premium-page :is(.page-header,.case-header,.hero-section,.insight-hero),
+html body.ftq-brand-public :is(.hero,.voice-hero){
+  background:linear-gradient(145deg,#0A0F1D 18%,#111827 100%)!important;
+  border-color:#273244!important;
+  color:#F8FAFC!important;
+}
+/* Restore a consistent H1/H2/H3 hierarchy with safe viewport scaling. */
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) h1,
+html body.fx-home .fx-hero h1{
+  font-size:clamp(2.15rem,4.1vw,3rem)!important;
+  font-weight:750!important;
+  line-height:1.16!important;
+  letter-spacing:-.035em!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) h2{
+  font-size:clamp(1.55rem,2.7vw,2.25rem)!important;
+  font-weight:690!important;
+  line-height:1.27!important;
+  letter-spacing:-.026em!important;
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) h3,
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) .fx-cap h3{
+  font-size:clamp(1.08rem,1.5vw,1.25rem)!important;
+  font-weight:680!important;
+  line-height:1.34!important;
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(.fx-kicker,.fx-eyebrow,.insight-eyebrow,.section-label,.section-tag,.eyebrow){
+  color:#83E9F2!important;
+  -webkit-text-fill-color:#83E9F2!important;
+  background-color:transparent!important;
+  border-color:#334354!important;
+}
+/* No washed-out gray-on-white descriptions. Paragraph text remains readable. */
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(.fx-section,.fx-section-head,.fx-hero-copy,.fx-channel-copy,.page-header,.insight-hero,.insight-body,.voice-wrap,.fx-final) p,
+html body.fx-home :is(.fx-hero-copy>p,.fx-cap p,.fx-channel-card small,.fx-channel-copy>p,.fx-section-head>p,.fx-work-step p,.fx-system-card p,.fx-industry p,.fx-proof-card p,.fx-value p),
+html body.fx-premium-page :is(.fx-cap p,.insight-index-card p,.insight-index-card small,.insight-aside-card p,.page-header p,.fx-section-head p),
+html body.ftq-brand-public :is(.product p,.voice-card p,.voice-note p){
+  color:#C3CDD9!important;
+  -webkit-text-fill-color:#C3CDD9!important;
+  opacity:1!important;
+}
+html body.fx-home .fx-cap p{
+  font-size:1rem!important;
+  line-height:1.58!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(.muted,.subtle,.meta,.secondary-text){
+  color:#C3CDD9!important;
+}
+/* Neutral, consistent cards and feature tiles across all public pages. */
+html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card,.fx-review-empty,.fx-console,.fx-final-box,.fx-live-shot),
+html body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card,.fx-feature-card,.service-card,.case-card),
+html body.ftq-brand-public :is(.product,.voice-card,.trust>div,.bundle,.price-note,.voice-note){
+  background:#111827!important;
+  background-image:none!important;
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:initial;
+  border:1px solid #273244!important;
+  border-radius:12px!important;
+  box-shadow:0 9px 28px rgba(0,0,0,.18)!important;
+}
+html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card){
+  padding:24px!important;
+}
+html body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.service-card){
+  padding:24px!important;
+}
+html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value) :is(h3,h4,strong,b,.fx-cap-link),
+html body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.service-card) :is(h2,h3,h4,strong,b,.fx-cap-link),
+html body.ftq-brand-public :is(.product,.voice-card,.trust>div,.bundle,.price-note,.voice-note) :is(h2,h3,strong,b){
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;
+}
+html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value) :is(p,small,span:not(.fx-cap-link):not(.fx-channel-badge)),
+html body.fx-premium-page :is(.insight-index-card,.insight-aside-card,.service-card,.fx-cap) :is(p,small),
+html body.ftq-brand-public :is(.product,.voice-card,.trust>div,.bundle,.price-note,.voice-note) :is(p,small,li){
+  color:#C3CDD9!important;
+  -webkit-text-fill-color:#C3CDD9!important;
+  opacity:1!important;
+}
+html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-proof-card):hover,
+html body.fx-premium-page :is(.fx-cap,.insight-index-card,.service-card):hover{
+  border-color:#36818D!important;
+  background:#172236!important;
+  box-shadow:0 14px 32px rgba(0,0,0,.23)!important;
+}
+/* Consistent badge/brand icon treatment, never green-on-blue neon blocks. */
+html body.fx-home :is(.fx-cap-icon,.fx-channel-badge,.fx-flow-icon,.fx-proof-tag,.fx-system-card .badge,.fx-value .badge),
+html body.fx-premium-page :is(.fx-cap-icon,.section-tag,.insight-eyebrow),
+html body.ftq-brand-public :is(.tag,.badge){
+  background:rgba(0,242,254,.10)!important;
+  background-image:none!important;
+  border:1px solid rgba(0,242,254,.20)!important;
+  color:#83E9F2!important;
+  -webkit-text-fill-color:#83E9F2!important;
+}
+html body.fx-home .fx-cap-icon svg{stroke:#83E9F2!important;color:#83E9F2!important;}
+html body.fx-home .fx-channel-card:nth-child(2),
+html body.fx-home .fx-system-card:nth-child(2){
+  background:#111827!important;
+}
+/* Flow diagrams are product content; same neutral cards and readable labels. */
+html body.fx-home :is(.fx-flow-row,.fx-console-top,.fx-console-foot){
+  background:#111827!important;
+  background-image:none!important;
+  border-color:#273244!important;
+}
+html body.fx-home .fx-flow-copy :is(strong,span),
+html body.fx-home .fx-console :is(.fx-console-brand,.fx-status),
+html body.fx-home .fx-trust-item :is(strong,span),
+html body.fx-home .fx-review-card :is(strong,span){
+  color:#F8FAFC!important;
+}
+html body.fx-home .fx-flow-copy span,
+html body.fx-home .fx-trust-item span{color:#C3CDD9!important;}
+html body.fx-home .fx-trust-item{
+  border:1px solid #273244!important;
+  border-radius:12px!important;
+  background:#111827!important;
+  padding:18px!important;
+}
+/* Navigation, partner panel, geography bands, app teaser, footer. */
+html body:is(.fx-home,.fx-premium-page) :is(#navbar,.nav-shell,.site-header,footer,.site-footer),
+html body.ftq-brand-public :is(header,footer){
+  background:#0A0F1D!important;
+  background-image:none!important;
+  border-color:#273244!important;
+}
+html body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser){
+  background:#111827!important;
+  color:#F8FAFC!important;
+  border-color:#273244!important;
+}
+html body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser) :is(h2,h3,p,strong){
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;
+}
+html body:is(.fx-home,.fx-premium-page) #navbar .nav-links a:not(.nav-cta){
+  color:#E5EDF4!important;
+}
+html body:is(.fx-home,.fx-premium-page) #navbar .nav-links a:not(.nav-cta):hover{
+  color:#83E9F2!important;
+}
+/* One solid cyan call-to-action system. */
+html body:is(.fx-home,.fx-premium-page) :is(.nav-cta,.btn-primary,.button-primary,.fx-primary,.fx-btn-primary,.cta-primary,.fx-cta-primary,.primary-cta,.lead-submit),
+html body.ftq-brand-public :is(.action,.voice-btn:not(.voice-alt)){
+  background:#00F2FE!important;
+  background-image:none!important;
+  border:1px solid #00D9E5!important;
+  color:#071421!important;
+  -webkit-text-fill-color:#071421!important;
+  font-weight:750!important;
+  border-radius:10px!important;
+  box-shadow:none!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.nav-cta,.btn-primary,.button-primary,.fx-primary,.fx-btn-primary,.cta-primary,.fx-cta-primary,.primary-cta,.lead-submit):hover,
+html body.ftq-brand-public :is(.action,.voice-btn:not(.voice-alt)):hover{
+  background:#8AF8FC!important;
+  border-color:#8AF8FC!important;
+  color:#071421!important;
+}
+html body.fx-home :is(.fx-secondary,.ftq-price-link,.fx-cap-link),
+html body.fx-premium-page :is(.btn-secondary,.fx-cap-link,.insight-index-card a),
+html body.ftq-brand-public :is(.voice-alt,.tabs a){
+  color:#83E9F2!important;
+  -webkit-text-fill-color:#83E9F2!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.fx-section a:not(.fx-cap):not(.btn-primary):not(.nav-cta),.fx-final a:not(.fx-primary),.ftq-talent-entry a,.ftq-international-entry a,.ftq-native-app-teaser a){
+  color:#83E9F2!important;
+  -webkit-text-fill-color:#83E9F2!important;
+}
+/* Styled forms + independent pricing pages. Functional HTML and JS unchanged. */
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(input:not([type=checkbox]):not([type=radio]),select,textarea),
+html body.ftq-brand-public :is(.tabs button,.tier-tabs button){
+  background:#111827!important;
+  color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;
+  border:1px solid #38475B!important;
+  border-radius:10px!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(input,select,textarea)::placeholder{
+  color:#A8B7C9!important;
+  opacity:1!important;
+}
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(input,select,textarea):focus-visible{
+  outline:2px solid #00F2FE!important;
+  outline-offset:2px;
+}
+html body.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note) :is(h2,h3,p,strong,b,li){opacity:1!important;}
+html body.ftq-brand-public :is(.amount,.bundle .big){color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;}
+html body.ftq-brand-public :is(.voice-wrap h2,.voice-table th,.tablebox th){color:#F8FAFC!important;}
+html body.ftq-brand-public :is(.voice-table th,.tablebox th){
+  background:#182338!important;
+  border-color:#38475B!important;
+}
+html body.ftq-brand-public :is(.voice-table td,.tablebox td){
+  color:#E2EAF2!important;
+  background:#111827!important;
+  border-color:#38475B!important;
+}
+html body.ftq-brand-public :is(.tabs button[aria-selected=true],.tier-tabs button[aria-pressed=true]){
+  background:#00F2FE!important;
+  color:#071421!important;
+  -webkit-text-fill-color:#071421!important;
+  border-color:#00F2FE!important;
+}
+/* Reduce color-token disagreement from older theme sheets and inline colors. */
+html body.fx-home :is(.fx-section-head h2,.fx-section-head h3,.fx-channel-copy h2,.fx-final h2,.fx-hero h1,.fx-hero h1 span),
+html body.fx-premium-page :is(.page-header h1,.insight-hero h1,.fx-section-head h2){
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:is(.fx-home,.fx-premium-page) :is(.fx-section-head>p,.fx-channel-copy>p,.insight-hero p){color:#C3CDD9!important;-webkit-text-fill-color:#C3CDD9!important;}
+/* Keep links and functional chat widgets interactive. No pointer/position changes. */
+html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) :is(a,button):focus-visible{outline:2px solid #00F2FE!important;outline-offset:3px;}
+@media(max-width:720px){
+  html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) h1{font-size:clamp(2rem,8.5vw,2.55rem)!important;}
+  html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) h2{font-size:clamp(1.45rem,6vw,1.85rem)!important;}
+  html body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value),
+  html body.fx-premium-page :is(.fx-cap,.insight-index-card,.service-card){padding:20px!important;}
+}
+@media(prefers-reduced-motion:reduce){html body:is(.fx-home,.fx-premium-page,.ftq-brand-public) *{scroll-behavior:auto;transition-duration:.01ms!important;animation-duration:.01ms!important;}}
+
+/* Cascade lock: legacy sheets contain high-specificity theme="light/dark"
+   !important rules. Scope to existing marketing body classes AND theme attr
+   so the requested final dark palette wins without affecting portal UI. */
+html[data-ftq-theme] body:is(.fx-home,.fx-premium-page,.ftq-brand-public){
+  background:#0A0F1D!important;background-color:#0A0F1D!important;
+  color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-section,.fx-section.soft,.fx-section.dark,.fx-trust,.fx-channel-trust,.fx-final,.fx-review-section,.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser),
+html[data-ftq-theme] body.fx-premium-page :is(.fx-section,.fx-section.soft,.fx-section.dark,.insight-body,.insight-layout){
+  background:#0A0F1D!important;
+  background-image:none!important;
+  color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card,.fx-console,.fx-final-box,.fx-live-shot,.fx-trust-item),
+html[data-ftq-theme] body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card,.service-card,.case-card){
+  background:#111827!important;background-image:none!important;
+  border-color:#273244!important;color:#F8FAFC!important;
+  box-shadow:0 9px 28px rgba(0,0,0,.18)!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card) :is(h3,h4,strong,b),
+html[data-ftq-theme] body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.fx-system-card,.service-card) :is(h3,h4,strong,b){
+  color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-cap,.fx-channel-card,.fx-system-card,.fx-work-step,.fx-industry,.fx-proof-card,.fx-value,.fx-review-card) :is(p,small),
+html[data-ftq-theme] body.fx-premium-page :is(.fx-cap,.insight-index-card,.insight-aside-card,.fx-system-card,.service-card) :is(p,small){
+  color:#C3CDD9!important;-webkit-text-fill-color:#C3CDD9!important;
+  opacity:1!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-channel-card,.fx-system-card):nth-child(2){background:#111827!important}
+html[data-ftq-theme] body.fx-home :is(.fx-section,.fx-trust,.fx-channel-trust,.fx-final) :is(.fx-section-head h2,.fx-channel-copy h2,.fx-section-head p){
+  color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-hero,.fx-section,.fx-trust,.fx-channel-trust,.fx-final) :is(h1,h2,h3){
+  color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-ftq-theme] body.fx-home :is(.fx-cap,.fx-channel-card) :is(.fx-cap-link,.fx-channel-badge){
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body:is(.fx-home,.fx-premium-page) #navbar .nav-links a.nav-cta,
+html[data-ftq-theme] body.fx-home :is(.fx-primary,.lead-submit),
+html[data-ftq-theme] body.fx-premium-page :is(.btn-primary,.fx-primary){
+  background:#00F2FE!important;background-image:none!important;
+  color:#071421!important;-webkit-text-fill-color:#071421!important;
+  border-color:#00D9E5!important;
+}
+html[data-ftq-theme] body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser){
+  background:#111827!important;color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home :is(.ftq-talent-entry,.ftq-international-entry,.ftq-native-app-teaser) :is(h2,h3,p,strong){
+  color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important;
+}
+/* Standalone pricing/voice layouts don't always include a theme attribute. */
+html body.ftq-brand-public.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note,.trust>div),
+html[data-ftq-theme] body.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note,.trust>div){
+  background:#111827!important;background-image:none!important;
+  color:#F8FAFC!important;border-color:#273244!important;
+}
+html body.ftq-brand-public.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note) :is(h2,h3,p,small,strong,li),
+html[data-ftq-theme] body.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note) :is(h2,h3,p,small,strong,li){
+  color:#C3CDD9!important;-webkit-text-fill-color:#C3CDD9!important;
+}
+html body.ftq-brand-public.ftq-brand-public :is(.product,.voice-card,.bundle,.price-note,.voice-note) :is(h2,h3,strong){
+  color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important;
+}
+
+/* Highest-specificity fixes for real homepage contrast blockers measured in Chromium. */
+html body.fx-home section#services.fx-section,
+html[data-ftq-theme] body.fx-home section#services.fx-section{
+  background:#0A0F1D!important;background-image:none!important;
+  color:#F8FAFC!important;border-color:#273244!important;
+}
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card,
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card[href*="wa.me"],
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card:not([href*="wa.me"]),
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card:hover{
+  background:#111827!important;background-color:#111827!important;
+  background-image:none!important;
+  color:#F8FAFC!important;
+  border:1px solid #273244!important;
+  border-radius:12px!important;box-shadow:0 9px 28px rgba(0,0,0,.18)!important;
+}
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card :is(strong,small,span:not(.fx-channel-badge)){
+  color:#E5EDF4!important;-webkit-text-fill-color:#E5EDF4!important;opacity:1!important;
+}
+html[data-ftq-theme] body.fx-home .fx-channel-grid>a.fx-channel-card .fx-channel-badge{
+  background:rgba(0,242,254,.10)!important;
+  border:1px solid rgba(0,242,254,.2)!important;
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home #services .fx-cap p,
+html body.fx-home section#services.fx-section .fx-cap p{
+  color:#C3CDD9!important;-webkit-text-fill-color:#C3CDD9!important;opacity:1!important;
+}
+html[data-ftq-theme] body.fx-home #services .fx-cap h3{
+  color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important;
+}
+
+/* Last-mile visible contrast: hero outcomes, audit labels and mobile CTAs. */
+html[data-ftq-theme] body.fx-home .fx-hero .fx-hero-actions>a.fx-primary,
+html[data-ftq-theme] body.fx-home .fx-final .fx-final-actions>a.fx-primary,
+html[data-ftq-theme] body.fx-home .fx-audit button.lead-submit{
+  background:#00F2FE!important;background-image:none!important;
+  border:1px solid #00D9E5!important;color:#071421!important;
+  -webkit-text-fill-color:#071421!important;
+  box-shadow:none!important;
+}
+html[data-ftq-theme] body.fx-home .fx-hero .fx-hero-actions>a.fx-secondary,
+html[data-ftq-theme] body.fx-home .fx-final .fx-final-actions>a.fx-secondary{
+  background:#111827!important;background-image:none!important;
+  border:1px solid #34475D!important;
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home .fx-hero .fx-hero-actions>a.fx-secondary:hover{
+  border-color:#00D9E5!important;
+}
+html[data-ftq-theme] body.fx-home .fx-hero :is(.ftq-outcome-list li,.ftq-audit-expectation,.fx-hero-note span),
+html[data-ftq-theme] body.fx-home :is(.ftq-audit-copy p,.fx-audit-copy p,.fx-audit-list span){
+  color:#C3CDD9!important;-webkit-text-fill-color:#C3CDD9!important;opacity:1!important;
+}
+html[data-ftq-theme] body.fx-home .fx-audit{
+  background:#111827!important;background-image:none!important;
+  border:1px solid #273244!important;border-radius:14px!important;
+}
+html[data-ftq-theme] body.fx-home .fx-audit :is(.fx-audit-copy h2,.fx-audit-copy .fx-eyebrow){
+  color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important;
+}
+html[data-ftq-theme] body.fx-home .fx-audit .fx-eyebrow{
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home .hero-lead-form :is(label,.lead-consent,.lead-consent span,.lead-status),
+html[data-ftq-theme] body.fx-home .fx-audit .fx-audit-list :is(span,strong){
+  color:#D8E2EC!important;-webkit-text-fill-color:#D8E2EC!important;opacity:1!important;
+}
+html[data-ftq-theme] body.fx-home .hero-lead-form :is(input:not([type=checkbox]),select,textarea){
+  background:#0A0F1D!important;color:#F8FAFC!important;
+  -webkit-text-fill-color:#F8FAFC!important;border-color:#435269!important;
+}
+html[data-ftq-theme] body.fx-home .ftq-audit-contact-options :is(.ftq-audit-whatsapp,.ftq-audit-ai){
+  background:#141F31!important;background-image:none!important;
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+  border:1px solid #34475D!important;border-radius:10px!important;
+}
+html[data-ftq-theme] body.fx-home .ftq-region-intent>a{
+  background:#111827!important;background-image:none!important;
+  color:#83E9F2!important;-webkit-text-fill-color:#83E9F2!important;
+  border:1px solid #273244!important;
+}
+html[data-ftq-theme] body.fx-home .ftq-region-intent .ftq-region-label{
+  color:#C3CDD9!important;
+}
+html[data-ftq-theme] body.fx-home #navbar button.hamburger,
+html[data-ftq-theme] body.fx-premium-page #navbar button.hamburger{
+  background:#111827!important;border:1px solid #34475D!important;
+  box-shadow:none!important;color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home #navbar button.hamburger span,
+html[data-ftq-theme] body.fx-premium-page #navbar button.hamburger span{
+  background:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home .sticky-mobile-cta{
+  background:#0A0F1D!important;border-color:#273244!important;
+}
+html[data-ftq-theme] body.fx-home .sticky-mobile-cta :is(a,button){
+  background:#111827!important;background-image:none!important;
+  border:1px solid #34475D!important;color:#83E9F2!important;
+  -webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home .sticky-mobile-cta :is(a,button):first-child{
+  background:#00F2FE!important;border-color:#00D9E5!important;
+  color:#071421!important;-webkit-text-fill-color:#071421!important;
+}
+/* Important action buttons previously hardcoded green by #heroLeadForm ID rules. */
+html[data-ftq-theme] body.fx-home #heroLeadForm a.ftq-audit-whatsapp,
+html[data-ftq-theme] body.fx-home #heroLeadForm button.ftq-audit-ai{
+ background:#111827!important;background-image:none!important;
+ border:1px solid #34475D!important;color:#83E9F2!important;
+ -webkit-text-fill-color:#83E9F2!important;
+}
+html[data-ftq-theme] body.fx-home .sticky-mobile-cta a[href*="wa.me"]{
+ background:#111827!important;background-image:none!important;
+ border:1px solid #34475D!important;color:#83E9F2!important;
+ -webkit-text-fill-color:#83E9F2!important;
+}

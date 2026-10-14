@@ -4,10 +4,10 @@
  const html=document.documentElement;
  function setTheme(){
    // One stable premium identity for every visitor and every device.
-   html.setAttribute('data-ftq-theme','light');
-   html.style.colorScheme='light';
+   html.setAttribute('data-ftq-theme','dark');
+   html.style.colorScheme='dark';
    const meta=document.querySelector('meta[name="theme-color"]');
-   if(meta)meta.setAttribute('content','#edf4f8');
+   if(meta)meta.setAttribute('content','#0A0F1D');
  }
  setTheme();
  function init(){
