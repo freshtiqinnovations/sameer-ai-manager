@@ -22,3 +22,14 @@
 .header .brand-wordmark>span{font-weight:850;color:#098578;font-size:10px;letter-spacing:.31em;margin-top:6px}
 @media(max-width:700px){.header{height:auto;min-height:78px;flex-wrap:wrap;row-gap:8px;align-items:center}.header nav{flex:1 0 100%;max-width:none!important;justify-content:space-between;gap:6px 10px;font-size:11px}}
 @media(max-width:360px){.header nav{justify-content:flex-start}.header .brand-wordmark strong{font-size:20px}}
+
+/* Privacy-first optional GA4 consent, matching the other Freshtiq pages. */
+#ftq-consent{position:fixed;left:14px;right:14px;bottom:14px;max-width:840px;margin:auto;z-index:1000;border:1px solid #b3d8d1;box-shadow:0 15px 45px #10373a38;border-radius:16px;padding:15px;background:#11383c;color:white;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#ftq-consent .ftq-consent-copy{flex:1;min-width:220px;display:flex;flex-direction:column;gap:5px}
+#ftq-consent .ftq-consent-copy strong{font-size:14px;color:white}
+#ftq-consent .ftq-consent-copy span,#ftq-consent .ftq-consent-copy a{color:#e1f5f1;font-size:12px;line-height:1.45}
+#ftq-consent .ftq-consent-copy a{text-decoration:underline}
+#ftq-consent .ftq-consent-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+#ftq-consent .ftq-consent-actions button{border:1px solid #71c8bb;color:#ebfffa;background:#1b5a5d;border-radius:10px;padding:11px 12px;min-height:43px;font-size:12px;font-weight:800;cursor:pointer}
+#ftq-consent .ftq-consent-actions button.primary{color:#082c30;background:#83f0d5}
+@media(max-width:640px){#ftq-consent{padding:12px;max-height:40vh;overflow:auto;gap:10px}#ftq-consent .ftq-consent-actions{width:100%}#ftq-consent .ftq-consent-actions button{flex:1}}
