@@ -12,3 +12,13 @@
 .trust-disclaimer{font-size:11px;color:#678181;line-height:1.65;margin:18px 0 0}
 @media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.trust-proof{padding:20px}.trust-grid{grid-template-columns:1fr}.trust-grid a{padding:15px}}
+
+/* Consistent premium brand lettering beside the original unchanged Freshtiq logo illustration. */
+.header a.logo{display:inline-flex;align-items:center;gap:7px;flex:none;min-width:0}
+.header .brand-mark{display:block;flex:0 0 53px;width:53px;height:52px;overflow:hidden}
+.header .brand-mark img{max-width:none!important;display:block;width:250px!important;height:52px!important;object-fit:fill}
+.header .brand-wordmark{display:flex;flex-direction:column;line-height:1.03;color:#11333e;min-width:0}
+.header .brand-wordmark strong{font-weight:900;font-size:clamp(19px,2.2vw,25px);letter-spacing:-.055em;white-space:nowrap}
+.header .brand-wordmark>span{font-weight:850;color:#098578;font-size:10px;letter-spacing:.31em;margin-top:6px}
+@media(max-width:700px){.header{height:auto;min-height:78px;flex-wrap:wrap;row-gap:8px;align-items:center}.header nav{flex:1 0 100%;max-width:none!important;justify-content:space-between;gap:6px 10px;font-size:11px}}
+@media(max-width:360px){.header nav{justify-content:flex-start}.header .brand-wordmark strong{font-size:20px}}
