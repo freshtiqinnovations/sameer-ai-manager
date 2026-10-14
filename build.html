@@ -74,7 +74,7 @@
         <form id="buildForm" onsubmit="return submitBuild(event)">
           <div class="bf">
             <div><label for="fIndustry">Industry *</label><select id="fIndustry" required><option value="">Select…</option><option>Manufacturing / Factory</option><option>Sales Team / Distributor</option><option>Restaurant / Cafe</option><option>Travel / Tourism</option><option>Clinic / Doctor</option><option>Laundry / Service Business</option><option>Real Estate</option><option>E-commerce / Retail</option><option>Other</option></select></div>
-            <div><label for="fCountry">Country *</label><select id="fCountry" required><option value="">Select…</option><option>India</option><option>Saudi Arabia</option><option>UAE</option><option>Other</option></select></div>
+            <div><label for="fCountry">Country *</label><select id="fCountry" required><option value="">Select…</option><option>India</option><option>Saudi Arabia</option><option>UAE</option><option>USA</option><option>Other</option></select></div>
           </div>
           <div class="bf">
             <div><label for="fProblem">Biggest business problem *</label><textarea id="fProblem" required placeholder="e.g. We miss customer inquiries after hours and follow-ups are manual"></textarea></div>
@@ -243,7 +243,7 @@
       document.getElementById('fAuto').value=serviceToAutomation[serviceKey];
     }
     const marketFromUrl=(q.get('market')||q.get('country')||'').toLowerCase();
-    const mapMarket={india:'India',saudi:'Saudi Arabia','saudi arabia':'Saudi Arabia',ksa:'Saudi Arabia',uae:'UAE'};
+    const mapMarket={india:'India',saudi:'Saudi Arabia','saudi arabia':'Saudi Arabia',ksa:'Saudi Arabia',uae:'UAE',usa:'USA','united states':'USA',us:'USA'};
     if(mapMarket[marketFromUrl])document.getElementById('fCountry').value=mapMarket[marketFromUrl];
     const tierFromUrl=(q.get('tier')||q.get('package')||'').toLowerCase();
     const tierMap={standard:'Basic',basic:'Basic',professional:'Professional',premium:'Elite',elite:'Elite'};
