@@ -7,10 +7,11 @@
 <meta name="referrer" content="no-referrer">
 <link rel="canonical" href="https://portal.freshtiqautomation.com/join">
 <title>Join Freshtiq · Sales Executive & Partner Registration</title>
-<meta http-equiv="refresh" content="0;url=https://portal.freshtiqautomation.com/join">
+<meta http-equiv="refresh" content="0;url=https://portal.freshtiqautomation.com/join?role=sales">
 <script>
 (function () {
-  var target = 'https://portal.freshtiqautomation.com/join' + window.location.search + window.location.hash;
+  var p = new URLSearchParams(window.location.search); if (!p.has('role')) p.set('role','sales');
+  var target = 'https://portal.freshtiqautomation.com/join?' + p.toString() + window.location.hash;
   window.location.replace(target);
 })();
 </script>
