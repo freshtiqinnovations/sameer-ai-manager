@@ -130,7 +130,7 @@ const INDUSTRIES = [
     staffDashboard: "Purchase orders, Sales orders, Delivery schedule, Stock transfer",
     roi: "Zero GST errors, real-time P&L visibility",
     price: "₹20,000 – ₹50,000",
-    solution: "GST-compliant billing system with inventory tracking and automated P&L reports"
+    solution: "Customisable billing workflows with GST report exports, subject to classification and accountant review"
   },
   {
     id: "realestate",

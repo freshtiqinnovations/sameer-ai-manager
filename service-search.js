@@ -26,7 +26,7 @@
       desc:'HR bot for leave/attendance, automated payroll, employee portal, WhatsApp helpdesk.',
       price:'₹15K – ₹70K+', q:'hr human resources payroll attendance leave employee staff' },
     { id:'accountant', icon:'💰', name:'Accountant / Finance', cat:'Industry',
-      desc:'Invoice automation, payment reminders, expense tracking, GST-compliant reports.',
+      desc:'Invoice automation, payment reminders, expense tracking, GST report exports (subject to tax classification review).',
       price:'₹10K – ₹70K+', q:'accountant finance invoice gst billing payment expense' },
     { id:'sales', icon:'📊', name:'Sales Executive Tracking', cat:'Industry',
       desc:'CRM bot with GPS check-in, lead tracking dashboard, daily performance reports.',
