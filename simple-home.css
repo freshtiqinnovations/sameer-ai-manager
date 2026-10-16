@@ -33,3 +33,5 @@
 #ftq-consent .ftq-consent-actions button{border:1px solid #71c8bb;color:#ebfffa;background:#1b5a5d;border-radius:10px;padding:11px 12px;min-height:43px;font-size:12px;font-weight:800;cursor:pointer}
 #ftq-consent .ftq-consent-actions button.primary{color:#082c30;background:#83f0d5}
 @media(max-width:640px){#ftq-consent{padding:12px;max-height:40vh;overflow:auto;gap:10px}#ftq-consent .ftq-consent-actions{width:100%}#ftq-consent .ftq-consent-actions button{flex:1}}
+
+.seo-service-guide{line-height:1.72}.seo-service-guide h2{line-height:1.25}.seo-service-guide h3{margin-top:22px}.seo-service-guide ul{padding-left:24px}.seo-service-guide li{margin:10px 0}.seo-service-guide a{color:#075f55;text-decoration:underline;text-underline-offset:3px}.seo-service-guide a:focus-visible{outline:3px solid #e3ab1e;outline-offset:2px}
