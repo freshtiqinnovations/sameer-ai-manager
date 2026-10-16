@@ -1,10 +1,14 @@
 (()=>{'use strict';
 /* No FX conversion: these are independent fixed market rate cards in the
    canonical published commercial-pricing.json read by the portal and bot. */
-const MAP={USA:{region:'USA',label:'United States',currency:'USD'},
- UAE:{region:'UAE',label:'United Arab Emirates',currency:'AED'},
- SAUDI:{region:'Saudi Arabia',label:'Saudi Arabia',currency:'SAR'},
- INDIA:{region:'India',label:'India',currency:'INR'}};
+const MAP={
+ INDIA:{region:'India',label:'India',currency:'INR'},
+ USA:{region:'USA',label:'United States',currency:'USD'},
+ UK:{region:'United Kingdom',label:'United Kingdom',currency:'GBP'},
+ EURO:{region:'Eurozone',label:'Eurozone',currency:'EUR'},
+ AU:{region:'Australia',label:'Australia',currency:'AUD'},
+ DK:{region:'Denmark',label:'Denmark',currency:'DKK'}
+};
 const TIERS=['standard','professional','premium'];
 const grids=[...document.querySelectorAll('[data-market]')];
 const tierButtons=[...document.querySelectorAll('[data-tier]')];
@@ -14,7 +18,7 @@ const tbody=document.getElementById('all-services');
 let country='INDIA',level=1,catalog=null;
 try{
  const q=new URLSearchParams(location.search).get('market')||'';
- const lookup={US:'USA',USA:'USA',AE:'UAE',UAE:'UAE',SA:'SAUDI',SAUDI:'SAUDI',IN:'INDIA',INDIA:'INDIA'};
+ const lookup={US:'USA',USA:'USA',IN:'INDIA',INDIA:'INDIA',UK:'UK',GB:'UK',GBP:'UK',EU:'EURO',EUR:'EURO',EURO:'EURO',AU:'AU',AUD:'AU',DK:'DK',DKK:'DK'};
  if(lookup[q.toUpperCase()]) country=lookup[q.toUpperCase()];
  else {
   const saved=localStorage.getItem('freshtiq_chosen_pricing_market');
@@ -70,7 +74,7 @@ function render(){
   const active=b.dataset.market===country;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;
  }
  for(const b of tierButtons)b.setAttribute('aria-pressed',String(Number(b.dataset.tier)===level));
- status.textContent='Published fixed prices for '+MAP[country].label+' • one-time and monthly fees are labelled. No currency converter is used.';
+ status.textContent='Indicative starting prices in '+MAP[country].currency+' for '+MAP[country].label+'. New non-USD foreign rates use a 16 Oct 2026 USD reference. Only accepted written invoices are payable.';
 }
 for(const b of grids){
  b.addEventListener('click',()=>{
@@ -87,10 +91,10 @@ for(const b of grids){
  });
 }
 for(const b of tierButtons)b.addEventListener('click',()=>{level=Number(b.dataset.tier)||0;render()});
-fetch('/commercial-pricing.json?v=20261013fourmarkets1',{cache:'no-store',signal:AbortSignal.timeout(8000)})
+fetch('/commercial-pricing.json?v=20261016sixaccount1',{cache:'no-store',signal:AbortSignal.timeout(8000)})
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
-  if(policy.version!=='2026-10-13-four-market-fixed-v3-ai-voice' ||
+  if(policy.version!=='2026-10-16-six-account-currency-estimates-v1' ||
     !policy.products||Object.keys(policy.products).length!==26 ||
     !policy.regions||!MAP.USA||!policy.regional_bundles)throw Error('rate-card not verified');
   for(const x of Object.values(policy.products)){

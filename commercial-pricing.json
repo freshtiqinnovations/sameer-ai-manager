@@ -1,11 +1,11 @@
 {
-  "version": "2026-10-13-four-market-fixed-v3-ai-voice",
-  "effective_date": "2026-10-13",
+  "version": "2026-10-16-six-account-currency-estimates-v1",
+  "effective_date": "2026-10-16",
   "brand": "Freshtiq Automation",
   "policy": {
-    "currency_rule": "Use the explicitly confirmed customer business market: USA in USD, UAE in AED, Saudi Arabia in SAR, and India in INR. Do not infer residence from phone number alone.",
-    "regional_rule": "Four independent published local price lists. No live exchange-rate conversion or hidden currency markup. Written proposal confirms business market, scope, tax and fees.",
-    "truth_rule": "Published /commercial-pricing.json is the only rate-card source for the public pricing page, owner portal API and WhatsApp chatbot; fixed packages are starting scopes, not binding invoices.",
+    "currency_rule": "Published business-country estimate markets: India INR, USA USD, United Kingdom GBP, Eurozone EUR, Australia AUD and Denmark DKK. Use declared business market, never infer it solely from phone number.",
+    "regional_rule": "India and USA existing published starting prices are preserved. GBP/EUR/AUD/DKK are indicative USD-benchmark conversions using a dated 2026-10-16 rate snapshot, rounded up to the displayed unit. Prices are starting estimates only; taxes, fees and actual payable invoice price require owner review. No live automatic FX charge.",
+    "truth_rule": "The six-market published price matrix is the single public pricing source for the main website, portal and bot. Never claim indicative starting estimates are fixed, payable invoices. Historical Saudi/UAE orders are preserved but new Saudi/UAE pricing is not offered.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
     "quality_rule": "Basic, Professional and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
     "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
@@ -16,10 +16,12 @@
     "billing_increment_minutes": 30,
     "regional_starting_rates": {
       "USA": "USD 49/hour",
-      "UAE": "AED 129/hour",
-      "Saudi Arabia": "SAR 99/hour",
       "India": "₹1,500/hour",
-      "International": "USD 49/hour"
+      "International": "USD 49/hour",
+      "United Kingdom": "GBP 40/hour — indicative",
+      "Eurozone": "EUR 45/hour — indicative",
+      "Australia": "AUD 75/hour — indicative",
+      "Denmark": "DKK 330/hour — indicative"
     },
     "best_for": [
       "Bug fixing and troubleshooting",
@@ -38,39 +40,47 @@
       "round_to": 1,
       "floors": {}
     },
-    "Saudi Arabia": {
-      "currency": "SAR",
-      "prefix": "SAR ",
-      "factor_from_inr": 0.1,
-      "round_to": 50,
-      "floors": {
-        "website": 600,
-        "bot": 900,
-        "crm": 3000,
-        "ai": 1500,
-        "app": 3000,
-        "automation": 900
-      }
-    },
-    "UAE": {
-      "currency": "AED",
-      "prefix": "AED ",
-      "factor_from_inr": 0.07,
-      "round_to": 50,
-      "floors": {
-        "website": 350,
-        "bot": 550,
-        "crm": 1750,
-        "ai": 1000,
-        "app": 2000,
-        "automation": 500
-      }
-    },
     "USA": {
       "currency": "USD",
       "prefix": "$",
       "round_to": 1,
       "factor_from_inr": 0.038,
+      "floors": {}
+    },
+    "United Kingdom": {
+      "currency": "GBP",
+      "prefix": "£",
+      "reference_per_usd": 0.751939,
+      "round_to": 5,
+      "rate_date": "2026-10-16",
+      "starting_estimate_only": true,
+      "floors": {}
+    },
+    "Eurozone": {
+      "currency": "EUR",
+      "prefix": "€",
+      "reference_per_usd": 0.890064,
+      "round_to": 5,
+      "rate_date": "2026-10-16",
+      "starting_estimate_only": true,
+      "floors": {}
+    },
+    "Australia": {
+      "currency": "AUD",
+      "prefix": "A$",
+      "reference_per_usd": 1.4406,
+      "round_to": 5,
+      "rate_date": "2026-10-16",
+      "starting_estimate_only": true,
+      "floors": {}
+    },
+    "Denmark": {
+      "currency": "DKK",
+      "prefix": "kr ",
+      "reference_per_usd": 6.65362,
+      "round_to": 10,
+      "rate_date": "2026-10-16",
+      "starting_estimate_only": true,
       "floors": {}
     }
   },
@@ -126,25 +136,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 4999,
+          "professional": 12000,
+          "premium": 25000
+        },
         "USA": {
           "standard": 449,
           "professional": 899,
           "premium": 1699
         },
-        "UAE": {
-          "standard": 1499,
-          "professional": 2999,
-          "premium": 5699
+        "United Kingdom": {
+          "standard": 340,
+          "professional": 680,
+          "premium": 1280
         },
-        "Saudi Arabia": {
-          "standard": 1099,
-          "professional": 2199,
-          "premium": 3999
+        "Eurozone": {
+          "standard": 400,
+          "professional": 805,
+          "premium": 1515
         },
-        "India": {
-          "standard": 4999,
-          "professional": 12000,
-          "premium": 25000
+        "Australia": {
+          "standard": 650,
+          "professional": 1300,
+          "premium": 2450
+        },
+        "Denmark": {
+          "standard": 2990,
+          "professional": 5990,
+          "premium": 11310
         }
       }
     },
@@ -182,25 +202,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 8000,
+          "professional": 15000,
+          "premium": 25000
+        },
         "USA": {
           "standard": 499,
           "professional": 899,
           "premium": 1499
         },
-        "UAE": {
-          "standard": 1499,
-          "professional": 2799,
-          "premium": 4599
+        "United Kingdom": {
+          "standard": 380,
+          "professional": 680,
+          "premium": 1130
         },
-        "Saudi Arabia": {
-          "standard": 1099,
-          "professional": 1999,
-          "premium": 3299
+        "Eurozone": {
+          "standard": 445,
+          "professional": 805,
+          "premium": 1335
         },
-        "India": {
-          "standard": 8000,
-          "professional": 15000,
-          "premium": 25000
+        "Australia": {
+          "standard": 720,
+          "professional": 1300,
+          "premium": 2160
+        },
+        "Denmark": {
+          "standard": 3330,
+          "professional": 5990,
+          "premium": 9980
         }
       }
     },
@@ -239,25 +269,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 28000,
+          "premium": 45000
+        },
         "USA": {
           "standard": 899,
           "professional": 1699,
           "premium": 2799
         },
-        "UAE": {
-          "standard": 2699,
-          "professional": 4899,
-          "premium": 8499
+        "United Kingdom": {
+          "standard": 680,
+          "professional": 1280,
+          "premium": 2105
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3499,
-          "premium": 5999
+        "Eurozone": {
+          "standard": 805,
+          "professional": 1515,
+          "premium": 2495
         },
-        "India": {
-          "standard": 15000,
-          "professional": 28000,
-          "premium": 45000
+        "Australia": {
+          "standard": 1300,
+          "professional": 2450,
+          "premium": 4035
+        },
+        "Denmark": {
+          "standard": 5990,
+          "professional": 11310,
+          "premium": 18630
         }
       }
     },
@@ -296,25 +336,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        },
         "USA": {
           "standard": 919,
           "professional": 1839,
           "premium": 3059
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 5199,
-          "premium": 8699
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1385,
+          "premium": 2305
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3899,
-          "premium": 6499
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1640,
+          "premium": 2725
         },
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2650,
+          "premium": 4410
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 12240,
+          "premium": 20360
         }
       }
     },
@@ -355,25 +405,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 12000,
+          "professional": 25000,
+          "premium": 45000
+        },
         "USA": {
           "standard": 739,
           "professional": 1529,
           "premium": 2749
         },
-        "UAE": {
-          "standard": 2099,
-          "professional": 4399,
-          "premium": 7799
+        "United Kingdom": {
+          "standard": 560,
+          "professional": 1150,
+          "premium": 2070
         },
-        "Saudi Arabia": {
-          "standard": 1599,
-          "professional": 3299,
-          "premium": 5799
+        "Eurozone": {
+          "standard": 660,
+          "professional": 1365,
+          "premium": 2450
         },
-        "India": {
-          "standard": 12000,
-          "professional": 25000,
-          "premium": 45000
+        "Australia": {
+          "standard": 1065,
+          "professional": 2205,
+          "premium": 3965
+        },
+        "Denmark": {
+          "standard": 4920,
+          "professional": 10180,
+          "premium": 18300
         }
       }
     },
@@ -412,25 +472,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 12000,
+          "professional": 25000,
+          "premium": 40000
+        },
         "USA": {
           "standard": 739,
           "professional": 1529,
           "premium": 2449
         },
-        "UAE": {
-          "standard": 2099,
-          "professional": 4399,
-          "premium": 6899
+        "United Kingdom": {
+          "standard": 560,
+          "professional": 1150,
+          "premium": 1845
         },
-        "Saudi Arabia": {
-          "standard": 1599,
-          "professional": 3299,
-          "premium": 5199
+        "Eurozone": {
+          "standard": 660,
+          "professional": 1365,
+          "premium": 2180
         },
-        "India": {
-          "standard": 12000,
-          "professional": 25000,
-          "premium": 40000
+        "Australia": {
+          "standard": 1065,
+          "professional": 2205,
+          "premium": 3530
+        },
+        "Denmark": {
+          "standard": 4920,
+          "professional": 10180,
+          "premium": 16300
         }
       }
     },
@@ -469,25 +539,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 28000,
+          "premium": 45000
+        },
         "USA": {
           "standard": 919,
           "professional": 1719,
           "premium": 2749
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 4899,
-          "premium": 7799
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1295,
+          "premium": 2070
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3599,
-          "premium": 5799
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1535,
+          "premium": 2450
         },
-        "India": {
-          "standard": 15000,
-          "professional": 28000,
-          "premium": 45000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2480,
+          "premium": 3965
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 11440,
+          "premium": 18300
         }
       }
     },
@@ -527,25 +607,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        },
         "USA": {
           "standard": 919,
           "professional": 1839,
           "premium": 3059
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 5199,
-          "premium": 8699
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1385,
+          "premium": 2305
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3899,
-          "premium": 6499
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1640,
+          "premium": 2725
         },
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2650,
+          "premium": 4410
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 12240,
+          "premium": 20360
         }
       }
     },
@@ -584,25 +674,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 25000,
+          "professional": 50000,
+          "premium": 90000
+        },
         "USA": {
           "standard": 1499,
           "professional": 2999,
           "premium": 5499
         },
-        "UAE": {
-          "standard": 4499,
-          "professional": 8999,
-          "premium": 15999
+        "United Kingdom": {
+          "standard": 1130,
+          "professional": 2260,
+          "premium": 4135
         },
-        "Saudi Arabia": {
-          "standard": 3199,
-          "professional": 6499,
-          "premium": 11999
+        "Eurozone": {
+          "standard": 1335,
+          "professional": 2670,
+          "premium": 4895
         },
-        "India": {
-          "standard": 25000,
-          "professional": 50000,
-          "premium": 90000
+        "Australia": {
+          "standard": 2160,
+          "professional": 4325,
+          "premium": 7925
+        },
+        "Denmark": {
+          "standard": 9980,
+          "professional": 19960,
+          "premium": 36590
         }
       }
     },
@@ -640,25 +740,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 75000
+        },
         "USA": {
           "standard": 1529,
           "professional": 2749,
           "premium": 4579
         },
-        "UAE": {
-          "standard": 4399,
-          "professional": 7799,
-          "premium": 12999
+        "United Kingdom": {
+          "standard": 1150,
+          "professional": 2070,
+          "premium": 3445
         },
-        "Saudi Arabia": {
-          "standard": 3299,
-          "professional": 5799,
-          "premium": 9699
+        "Eurozone": {
+          "standard": 1365,
+          "professional": 2450,
+          "premium": 4080
         },
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 75000
+        "Australia": {
+          "standard": 2205,
+          "professional": 3965,
+          "premium": 6600
+        },
+        "Denmark": {
+          "standard": 10180,
+          "professional": 18300,
+          "premium": 30470
         }
       }
     },
@@ -696,25 +806,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 35000,
+          "professional": 75000,
+          "premium": 150000
+        },
         "USA": {
           "standard": 2139,
           "professional": 4579,
           "premium": 9159
         },
-        "UAE": {
-          "standard": 6099,
-          "professional": 12999,
-          "premium": 25899
+        "United Kingdom": {
+          "standard": 1610,
+          "professional": 3445,
+          "premium": 6890
         },
-        "Saudi Arabia": {
-          "standard": 4499,
-          "professional": 9699,
-          "premium": 19299
+        "Eurozone": {
+          "standard": 1905,
+          "professional": 4080,
+          "premium": 8155
         },
-        "India": {
-          "standard": 35000,
-          "professional": 75000,
-          "premium": 150000
+        "Australia": {
+          "standard": 3085,
+          "professional": 6600,
+          "premium": 13195
+        },
+        "Denmark": {
+          "standard": 14240,
+          "professional": 30470,
+          "premium": 60950
         }
       }
     },
@@ -752,25 +872,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 10000,
+          "professional": 20000,
+          "premium": 35000
+        },
         "USA": {
           "standard": 619,
           "professional": 1229,
           "premium": 2139
         },
-        "UAE": {
-          "standard": 1799,
-          "professional": 3499,
-          "premium": 6099
+        "United Kingdom": {
+          "standard": 470,
+          "professional": 925,
+          "premium": 1610
         },
-        "Saudi Arabia": {
-          "standard": 1299,
-          "professional": 2599,
-          "premium": 4499
+        "Eurozone": {
+          "standard": 555,
+          "professional": 1095,
+          "premium": 1905
         },
-        "India": {
-          "standard": 10000,
-          "professional": 20000,
-          "premium": 35000
+        "Australia": {
+          "standard": 895,
+          "professional": 1775,
+          "premium": 3085
+        },
+        "Denmark": {
+          "standard": 4120,
+          "professional": 8180,
+          "premium": 14240
         }
       }
     },
@@ -808,25 +938,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 18000,
+          "professional": 35000,
+          "premium": 60000
+        },
         "USA": {
           "standard": 1099,
           "professional": 2139,
           "premium": 3669
         },
-        "UAE": {
-          "standard": 3099,
-          "professional": 6099,
-          "premium": 10399
+        "United Kingdom": {
+          "standard": 830,
+          "professional": 1610,
+          "premium": 2760
         },
-        "Saudi Arabia": {
-          "standard": 2399,
-          "professional": 4499,
-          "premium": 7699
+        "Eurozone": {
+          "standard": 980,
+          "professional": 1905,
+          "premium": 3270
         },
-        "India": {
-          "standard": 18000,
-          "professional": 35000,
-          "premium": 60000
+        "Australia": {
+          "standard": 1585,
+          "professional": 3085,
+          "premium": 5290
+        },
+        "Denmark": {
+          "standard": 7320,
+          "professional": 14240,
+          "premium": 24420
         }
       }
     },
@@ -865,25 +1005,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 85000
+        },
         "USA": {
           "standard": 1499,
           "professional": 2699,
           "premium": 4999
         },
-        "UAE": {
-          "standard": 4499,
-          "professional": 7999,
-          "premium": 14999
+        "United Kingdom": {
+          "standard": 1130,
+          "professional": 2030,
+          "premium": 3760
         },
-        "Saudi Arabia": {
-          "standard": 3199,
-          "professional": 5799,
-          "premium": 10999
+        "Eurozone": {
+          "standard": 1335,
+          "professional": 2405,
+          "premium": 4450
         },
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 85000
+        "Australia": {
+          "standard": 2160,
+          "professional": 3890,
+          "premium": 7205
+        },
+        "Denmark": {
+          "standard": 9980,
+          "professional": 17960,
+          "premium": 33270
         }
       }
     },
@@ -921,25 +1071,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 30000,
+          "professional": 65000,
+          "premium": 120000
+        },
         "USA": {
           "standard": 1839,
           "professional": 3969,
           "premium": 7329
         },
-        "UAE": {
-          "standard": 5199,
-          "professional": 11199,
-          "premium": 20699
+        "United Kingdom": {
+          "standard": 1385,
+          "professional": 2985,
+          "premium": 5515
         },
-        "Saudi Arabia": {
-          "standard": 3899,
-          "professional": 8399,
-          "premium": 15399
+        "Eurozone": {
+          "standard": 1640,
+          "professional": 3535,
+          "premium": 6525
         },
-        "India": {
-          "standard": 30000,
-          "professional": 65000,
-          "premium": 120000
+        "Australia": {
+          "standard": 2650,
+          "professional": 5720,
+          "premium": 10560
+        },
+        "Denmark": {
+          "standard": 12240,
+          "professional": 26410,
+          "premium": 48770
         }
       }
     },
@@ -978,25 +1138,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 4999,
+          "professional": 12000,
+          "premium": 25000
+        },
         "USA": {
           "standard": 309,
           "professional": 739,
           "premium": 1529
         },
-        "UAE": {
-          "standard": 899,
-          "professional": 2099,
-          "premium": 4399
+        "United Kingdom": {
+          "standard": 235,
+          "professional": 560,
+          "premium": 1150
         },
-        "Saudi Arabia": {
-          "standard": 699,
-          "professional": 1599,
-          "premium": 3299
+        "Eurozone": {
+          "standard": 280,
+          "professional": 660,
+          "premium": 1365
         },
-        "India": {
-          "standard": 4999,
-          "professional": 12000,
-          "premium": 25000
+        "Australia": {
+          "standard": 450,
+          "professional": 1065,
+          "premium": 2205
+        },
+        "Denmark": {
+          "standard": 2060,
+          "professional": 4920,
+          "premium": 10180
         }
       }
     },
@@ -1036,25 +1206,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        },
         "USA": {
           "standard": 919,
           "professional": 1839,
           "premium": 3059
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 5199,
-          "premium": 8699
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1385,
+          "premium": 2305
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3899,
-          "premium": 6499
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1640,
+          "premium": 2725
         },
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2650,
+          "premium": 4410
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 12240,
+          "premium": 20360
         }
       }
     },
@@ -1092,25 +1272,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 60000
+        },
         "USA": {
           "standard": 919,
           "professional": 1839,
           "premium": 3669
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 5199,
-          "premium": 10399
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1385,
+          "premium": 2760
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3899,
-          "premium": 7699
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1640,
+          "premium": 3270
         },
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 60000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2650,
+          "premium": 5290
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 12240,
+          "premium": 24420
         }
       }
     },
@@ -1148,25 +1338,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 75000
+        },
         "USA": {
           "standard": 1529,
           "professional": 2749,
           "premium": 4579
         },
-        "UAE": {
-          "standard": 4399,
-          "professional": 7799,
-          "premium": 12999
+        "United Kingdom": {
+          "standard": 1150,
+          "professional": 2070,
+          "premium": 3445
         },
-        "Saudi Arabia": {
-          "standard": 3299,
-          "professional": 5799,
-          "premium": 9699
+        "Eurozone": {
+          "standard": 1365,
+          "professional": 2450,
+          "premium": 4080
         },
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 75000
+        "Australia": {
+          "standard": 2205,
+          "professional": 3965,
+          "premium": 6600
+        },
+        "Denmark": {
+          "standard": 10180,
+          "professional": 18300,
+          "premium": 30470
         }
       }
     },
@@ -1204,25 +1404,35 @@
       },
       "billing_unit": "/month",
       "regional_prices": {
+        "India": {
+          "standard": 5000,
+          "professional": 10000,
+          "premium": 18000
+        },
         "USA": {
           "standard": 309,
           "professional": 619,
           "premium": 1099
         },
-        "UAE": {
-          "standard": 899,
-          "professional": 1799,
-          "premium": 3099
+        "United Kingdom": {
+          "standard": 235,
+          "professional": 470,
+          "premium": 830
         },
-        "Saudi Arabia": {
-          "standard": 699,
-          "professional": 1299,
-          "premium": 2399
+        "Eurozone": {
+          "standard": 280,
+          "professional": 555,
+          "premium": 980
         },
-        "India": {
-          "standard": 5000,
-          "professional": 10000,
-          "premium": 18000
+        "Australia": {
+          "standard": 450,
+          "professional": 895,
+          "premium": 1585
+        },
+        "Denmark": {
+          "standard": 2060,
+          "professional": 4120,
+          "premium": 7320
         }
       }
     },
@@ -1259,25 +1469,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 3000,
+          "professional": 6000,
+          "premium": 10000
+        },
         "USA": {
           "standard": 189,
           "professional": 369,
           "premium": 619
         },
-        "UAE": {
-          "standard": 599,
-          "professional": 1099,
-          "premium": 1799
+        "United Kingdom": {
+          "standard": 145,
+          "professional": 280,
+          "premium": 470
         },
-        "Saudi Arabia": {
-          "standard": 399,
-          "professional": 799,
-          "premium": 1299
+        "Eurozone": {
+          "standard": 170,
+          "professional": 330,
+          "premium": 555
         },
-        "India": {
-          "standard": 3000,
-          "professional": 6000,
-          "premium": 10000
+        "Australia": {
+          "standard": 275,
+          "professional": 535,
+          "premium": 895
+        },
+        "Denmark": {
+          "standard": 1260,
+          "professional": 2460,
+          "premium": 4120
         }
       }
     },
@@ -1315,25 +1535,35 @@
       },
       "billing_unit": "/month",
       "regional_prices": {
+        "India": {
+          "standard": 10000,
+          "professional": 20000,
+          "premium": 35000
+        },
         "USA": {
           "standard": 619,
           "professional": 1229,
           "premium": 2139
         },
-        "UAE": {
-          "standard": 1799,
-          "professional": 3499,
-          "premium": 6099
+        "United Kingdom": {
+          "standard": 470,
+          "professional": 925,
+          "premium": 1610
         },
-        "Saudi Arabia": {
-          "standard": 1299,
-          "professional": 2599,
-          "premium": 4499
+        "Eurozone": {
+          "standard": 555,
+          "professional": 1095,
+          "premium": 1905
         },
-        "India": {
-          "standard": 10000,
-          "professional": 20000,
-          "premium": 35000
+        "Australia": {
+          "standard": 895,
+          "professional": 1775,
+          "premium": 3085
+        },
+        "Denmark": {
+          "standard": 4120,
+          "professional": 8180,
+          "premium": 14240
         }
       }
     },
@@ -1372,25 +1602,35 @@
       },
       "billing_unit": "/month",
       "regional_prices": {
+        "India": {
+          "standard": 15000,
+          "professional": 30000,
+          "premium": 50000
+        },
         "USA": {
           "standard": 919,
           "professional": 1839,
           "premium": 3059
         },
-        "UAE": {
-          "standard": 2599,
-          "professional": 5199,
-          "premium": 8699
+        "United Kingdom": {
+          "standard": 695,
+          "professional": 1385,
+          "premium": 2305
         },
-        "Saudi Arabia": {
-          "standard": 1999,
-          "professional": 3899,
-          "premium": 6499
+        "Eurozone": {
+          "standard": 820,
+          "professional": 1640,
+          "premium": 2725
         },
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
+        "Australia": {
+          "standard": 1325,
+          "professional": 2650,
+          "premium": 4410
+        },
+        "Denmark": {
+          "standard": 6120,
+          "professional": 12240,
+          "premium": 20360
         }
       }
     },
@@ -1429,25 +1669,35 @@
       },
       "billing_unit": "/month",
       "regional_prices": {
+        "India": {
+          "standard": 999,
+          "professional": 1999,
+          "premium": 3999
+        },
         "USA": {
           "standard": 69,
           "professional": 129,
           "premium": 249
         },
-        "UAE": {
-          "standard": 199,
-          "professional": 399,
-          "premium": 699
+        "United Kingdom": {
+          "standard": 55,
+          "professional": 100,
+          "premium": 190
         },
-        "Saudi Arabia": {
-          "standard": 199,
-          "professional": 299,
-          "premium": 599
+        "Eurozone": {
+          "standard": 65,
+          "professional": 115,
+          "premium": 225
         },
-        "India": {
-          "standard": 999,
-          "professional": 1999,
-          "premium": 3999
+        "Australia": {
+          "standard": 100,
+          "professional": 190,
+          "premium": 360
+        },
+        "Denmark": {
+          "standard": 460,
+          "professional": 860,
+          "premium": 1660
         }
       }
     },
@@ -1485,25 +1735,35 @@
       },
       "billing_unit": "/month",
       "regional_prices": {
+        "India": {
+          "standard": 3000,
+          "professional": 5000,
+          "premium": 10000
+        },
         "USA": {
           "standard": 189,
           "professional": 309,
           "premium": 619
         },
-        "UAE": {
-          "standard": 599,
-          "professional": 899,
-          "premium": 1799
+        "United Kingdom": {
+          "standard": 145,
+          "professional": 235,
+          "premium": 470
         },
-        "Saudi Arabia": {
-          "standard": 399,
-          "professional": 699,
-          "premium": 1299
+        "Eurozone": {
+          "standard": 170,
+          "professional": 280,
+          "premium": 555
         },
-        "India": {
-          "standard": 3000,
-          "professional": 5000,
-          "premium": 10000
+        "Australia": {
+          "standard": 275,
+          "professional": 450,
+          "premium": 895
+        },
+        "Denmark": {
+          "standard": 1260,
+          "professional": 2060,
+          "premium": 4120
         }
       }
     },
@@ -1550,25 +1810,35 @@
         ]
       },
       "regional_prices": {
+        "India": {
+          "standard": 24999,
+          "professional": 49999,
+          "premium": 99999
+        },
         "USA": {
           "standard": 899,
           "professional": 1799,
           "premium": 3499
         },
-        "UAE": {
-          "standard": 2999,
-          "professional": 5999,
-          "premium": 11999
+        "United Kingdom": {
+          "standard": 680,
+          "professional": 1355,
+          "premium": 2635
         },
-        "Saudi Arabia": {
-          "standard": 2499,
-          "professional": 4999,
-          "premium": 9999
+        "Eurozone": {
+          "standard": 805,
+          "professional": 1605,
+          "premium": 3115
         },
-        "India": {
-          "standard": 24999,
-          "professional": 49999,
-          "premium": 99999
+        "Australia": {
+          "standard": 1300,
+          "professional": 2595,
+          "premium": 5045
+        },
+        "Denmark": {
+          "standard": 5990,
+          "professional": 11970,
+          "premium": 23290
         }
       },
       "commercial_notes": {
@@ -1681,15 +1951,19 @@
       ],
       "market_prices": {
         "USA": 1279,
-        "UAE": 3999,
-        "Saudi Arabia": 2999,
-        "India": 18999
+        "India": 18999,
+        "United Kingdom": 965,
+        "Eurozone": 1140,
+        "Australia": 1845,
+        "Denmark": 8510
       },
       "standalone_totals": {
         "USA": 1348,
-        "UAE": 4198,
-        "Saudi Arabia": 3098,
-        "India": 19999
+        "India": 19999,
+        "United Kingdom": 1015,
+        "Eurozone": 1200,
+        "Australia": 1945,
+        "Denmark": 8970
       },
       "billing_unit": "one-time",
       "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
@@ -1713,18 +1987,43 @@
       ],
       "market_prices": {
         "USA": 6799,
-        "UAE": 20199,
-        "Saudi Arabia": 14599,
-        "India": 113499
+        "India": 113499,
+        "United Kingdom": 5115,
+        "Eurozone": 6055,
+        "Australia": 9795,
+        "Denmark": 45240
       },
       "standalone_totals": {
         "USA": 7397,
-        "UAE": 21897,
-        "Saudi Arabia": 15797,
-        "India": 123000
+        "India": 123000,
+        "United Kingdom": 5565,
+        "Eurozone": 6585,
+        "Australia": 10660,
+        "Denmark": 49220
       },
       "billing_unit": "one-time",
       "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
     }
-  }
+  },
+  "fx_reference": {
+    "date": "2026-10-16",
+    "base": "USD",
+    "rates_to_currency": {
+      "GBP": 0.751939,
+      "EUR": 0.890064,
+      "AUD": 1.4406,
+      "DKK": 6.65362
+    },
+    "purpose": "Indicative local starting prices derived from existing USD service rate card. Not provider FX, settlement rate, locked quote, or merchant payment conversion.",
+    "rounding": "Round upwards to 5 GBP/EUR/AUD or 10 DKK",
+    "source": "Currency exchange rate lookup 2026-10-16 03:50-04:06 UTC"
+  },
+  "public_market_order": [
+    "India",
+    "USA",
+    "United Kingdom",
+    "Eurozone",
+    "Australia",
+    "Denmark"
+  ]
 }
