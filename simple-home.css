@@ -35,3 +35,5 @@
 @media(max-width:640px){#ftq-consent{padding:12px;max-height:40vh;overflow:auto;gap:10px}#ftq-consent .ftq-consent-actions{width:100%}#ftq-consent .ftq-consent-actions button{flex:1}}
 
 .seo-service-guide{line-height:1.72}.seo-service-guide h2{line-height:1.25}.seo-service-guide h3{margin-top:22px}.seo-service-guide ul{padding-left:24px}.seo-service-guide li{margin:10px 0}.seo-service-guide a{color:#075f55;text-decoration:underline;text-underline-offset:3px}.seo-service-guide a:focus-visible{outline:3px solid #e3ab1e;outline-offset:2px}
+
+.contactphone{font-size:14px;line-height:1.65;margin:12px 0;color:#274e52}.contactphone a{color:#086557;text-decoration:underline;text-underline-offset:3px}.contactphone a:focus-visible{outline:3px solid #e3ab1e;outline-offset:3px}
