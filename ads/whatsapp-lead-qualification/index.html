@@ -41,7 +41,7 @@ footer{background:#071e32;color:#bbcddd;padding:32px 0;font-size:13px}footer .wr
 <section class="hero">
 <div class="wrap hero-grid">
 <div>
-<div class="eyebrow">For B2B business owners · India · Saudi Arabia · UAE</div>
+<div class="eyebrow">For Indian B2B business owners</div>
 <h1>Your WhatsApp enquiries are coming in. <span>Who's following up?</span></h1>
 <p class="sub">When messages get buried, buyers wait and staff lose context. Build a WhatsApp Business API workflow that captures requirements, qualifies leads and hands the right conversations to your sales team.</p>
 <div class="tagset"><span>WhatsApp Business API</span><span>Lead qualification</span><span>CRM handoff</span><span>Human approval</span></div>
@@ -54,12 +54,12 @@ footer{background:#071e32;color:#bbcddd;padding:32px 0;font-size:13px}footer .wr
 <p>Tell us where you lose enquiries. We will review the use case and explain a practical implementation scope—no obligation.</p>
 <form id="heroLeadForm" data-lead-source="B2B WhatsApp Lead Qualification Ads - India GCC" data-lead-message="B2B WhatsApp API lead qualification assessment enquiry">
 <label class="field">Your name<input id="heroLeadName" name="name" placeholder="Your name" autocomplete="name" required maxlength="90"></label>
-<label class="field">WhatsApp number<input id="heroLeadPhone" name="phone" type="tel" placeholder="+91 / +966 / +971…" autocomplete="tel" required maxlength="22"></label>
+<label class="field">WhatsApp number<input id="heroLeadPhone" name="phone" type="tel" placeholder="+91 98XXXXXXXX" autocomplete="tel" required maxlength="22"></label>
 <label class="field">Your business type<select id="businessType" name="business_type" required><option value="">Select business type</option><option value="Clinic or healthcare business">Clinic or healthcare business</option><option value="Real estate">Real estate</option><option value="Online store">Online store</option><option value="Manufacturer or distributor">Manufacturer or distributor</option><option value="Other B2B service">Other B2B service</option></select></label>
 <input id="heroLeadEmail" name="email" type="email" style="display:none">
 <select id="heroLeadNeed" name="need" style="display:none"><option value="WhatsApp Business API lead qualification and CRM automation" selected>WhatsApp Business API lead qualification and CRM automation</option></select>
 <select id="heroLeadContact" name="preferred_contact" style="display:none"><option value="WhatsApp" selected>WhatsApp</option></select>
-<select id="heroLeadCountry" name="country" style="display:none"><option value="India" selected>India</option><option value="Saudi Arabia">Saudi Arabia</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Other country">Other country</option></select>
+<select id="heroLeadCountry" name="country" style="display:none"><option value="India" selected>India</option></select>
 <label class="lead-consent" id="heroLeadWaConsentRow"><input id="heroLeadWaConsent" name="whatsapp_opt_in" type="checkbox" required> I agree to receive a WhatsApp reply about this enquiry. I can reply STOP to opt out.</label>
 <input id="heroLeadMarketingConsent" name="marketing_opt_in" type="checkbox" style="display:none">
 <input id="heroLeadWebsite" class="hp-field" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -103,10 +103,10 @@ footer{background:#071e32;color:#bbcddd;padding:32px 0;font-size:13px}footer .wr
 <script>
 (function(){
  const industry=document.getElementById('businessType'),form=document.getElementById('heroLeadForm'),country=document.getElementById('heroLeadCountry');
- // Only the three visible fields are needed; derive country from phone prefix when obvious.
+ // This India-only landing campaign uses India as its advertised market.
+ // Phone prefix is contact routing, not proof of a customer's business market.
  function sync(){
-   const phone=(document.getElementById('heroLeadPhone').value||'').replace(/\s+/g,'');
-   country.value=phone.startsWith('+966')?'Saudi Arabia':phone.startsWith('+971')?'United Arab Emirates':phone.startsWith('+91')?'India':'Other country';
+   country.value='India';
    form.dataset.leadMessage='B2B WhatsApp lead qualification audit | Business type: '+(industry.value||'not selected')+' | Market: '+country.value;
  }
  industry.addEventListener('change',sync);
