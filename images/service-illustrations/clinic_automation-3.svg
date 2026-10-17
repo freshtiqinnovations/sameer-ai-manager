@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+<title id="title">Clinic Appointment Automation — project journey illustration</title><desc id="desc">Original Freshtiq concept illustration showing a potential workflow, not a finished client project.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061D28"/><stop offset=".55" stop-color="#0A303E"/><stop offset="1" stop-color="#113B46"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1E6271"/><stop offset="1" stop-color="#103D50"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#F3BF74" stop-opacity=".30"/><stop offset="1" stop-color="#F3BF74" stop-opacity="0"/></radialGradient>
+</defs>
+<style>.eyebrow{font:800 17px system-ui,sans-serif;letter-spacing:2px}.title{font:800 44px system-ui,sans-serif;letter-spacing:-2px}.hsmall{font:750 22px system-ui,sans-serif}.label{font:800 25px system-ui,sans-serif}.feature{font:750 20px system-ui,sans-serif}.tiny{font:700 15px system-ui,sans-serif;letter-spacing:1px}</style>
+<rect width="1200" height="750" fill="url(#bg)"/><circle cx="1025" cy="100" r="340" fill="url(#glow)"/><circle cx="130" cy="700" r="200" fill="url(#glow)" opacity=".6"/>
+<text x="71" y="79" class="eyebrow" fill="#F3BF74">FRESHTIQ AUTOMATION / CONCEPT PREVIEW</text>
+<text x="70" y="151" class="title" fill="#FFFFFF">Clinic Appointment Automation</text>
+<text x="75" y="185" class="eyebrow" fill="#B5DDDB">PROJECT JOURNEY</text>
+<rect x="70" y="204" rx="26" width="1060" height="452" fill="#FFFFFF" opacity=".06" stroke="#FFFFFF" stroke-opacity=".15"/>
+<path d="M175 382H1024" stroke="#F3BF74" stroke-width="4" stroke-dasharray="16 13" opacity=".85"/>
+<circle cx="200" cy="382" r="46" fill="#103C4B" stroke="#F3BF74" stroke-width="3"/>
+<text x="200" y="393" text-anchor="middle" font-size="30" font-weight="800" fill="#FFFFFF">1</text>
+<rect x="92" y="470" rx="14" width="216" height="74" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".17"/>
+<text x="200" y="514" class="tiny" text-anchor="middle" fill="#FFFFFF">REQUIREMENTS</text><circle cx="460" cy="382" r="46" fill="#103C4B" stroke="#F3BF74" stroke-width="3"/>
+<text x="460" y="393" text-anchor="middle" font-size="30" font-weight="800" fill="#FFFFFF">2</text>
+<rect x="352" y="470" rx="14" width="216" height="74" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".17"/>
+<text x="460" y="514" class="tiny" text-anchor="middle" fill="#FFFFFF">WRITTEN SCOPE</text><circle cx="720" cy="382" r="46" fill="#103C4B" stroke="#F3BF74" stroke-width="3"/>
+<text x="720" y="393" text-anchor="middle" font-size="30" font-weight="800" fill="#FFFFFF">3</text>
+<rect x="612" y="470" rx="14" width="216" height="74" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".17"/>
+<text x="720" y="514" class="tiny" text-anchor="middle" fill="#FFFFFF">REVIEW</text><circle cx="980" cy="382" r="46" fill="#103C4B" stroke="#F3BF74" stroke-width="3"/>
+<text x="980" y="393" text-anchor="middle" font-size="30" font-weight="800" fill="#FFFFFF">4</text>
+<rect x="872" y="470" rx="14" width="216" height="74" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".17"/>
+<text x="980" y="514" class="tiny" text-anchor="middle" fill="#FFFFFF">DELIVERY PLAN</text>
+<text x="600" y="614" text-anchor="middle" class="tiny" fill="#C8DFDC">Actual deliverables and timelines require a written agreement</text>
+<path d="M70 700H1130" stroke="#FFFFFF" stroke-opacity=".22"/>
+<text x="72" y="730" font-size="16" font-family="system-ui,sans-serif" fill="#B4D5D3">Illustrative service visual · Actual scope agreed in writing</text>
+<text x="1128" y="730" text-anchor="end" font-size="16" font-weight="800" font-family="system-ui,sans-serif" fill="#F3BF74">3 / 3</text></svg>

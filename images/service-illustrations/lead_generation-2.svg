@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+<title id="title">Lead Generation Management — what is included illustration</title><desc id="desc">Original Freshtiq concept illustration showing a potential workflow, not a finished client project.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061D28"/><stop offset=".55" stop-color="#0A303E"/><stop offset="1" stop-color="#113B46"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1E6271"/><stop offset="1" stop-color="#103D50"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#E8B86A" stop-opacity=".30"/><stop offset="1" stop-color="#E8B86A" stop-opacity="0"/></radialGradient>
+</defs>
+<style>.eyebrow{font:800 17px system-ui,sans-serif;letter-spacing:2px}.title{font:800 44px system-ui,sans-serif;letter-spacing:-2px}.hsmall{font:750 22px system-ui,sans-serif}.label{font:800 25px system-ui,sans-serif}.feature{font:750 20px system-ui,sans-serif}.tiny{font:700 15px system-ui,sans-serif;letter-spacing:1px}</style>
+<rect width="1200" height="750" fill="url(#bg)"/><circle cx="1025" cy="100" r="340" fill="url(#glow)"/><circle cx="130" cy="700" r="200" fill="url(#glow)" opacity=".6"/>
+<text x="71" y="79" class="eyebrow" fill="#E8B86A">FRESHTIQ AUTOMATION / CONCEPT PREVIEW</text>
+<text x="70" y="151" class="title" fill="#FFFFFF">Lead Generation Management</text>
+<text x="75" y="185" class="eyebrow" fill="#B5DDDB">WHAT IS INCLUDED</text>
+<rect x="70" y="204" rx="26" width="1060" height="452" fill="#FFFFFF" opacity=".06" stroke="#FFFFFF" stroke-opacity=".15"/>
+   <rect x="120" y="264" width="305" height="292" rx="24" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".20"/>
+<circle cx="168" cy="327" r="26" fill="#E8B86A" opacity=".25"/>
+<text x="159" y="338" font-size="25" font-weight="800" fill="#E8B86A">1</text>
+<text x="151" y="408" class="feature" fill="#FFFFFF">Campaign setup/management</text>
+<path d="M151 450h220" stroke="#E8B86A" stroke-width="4" stroke-linecap="round" opacity=".67"/>
+<text x="151" y="489" class="tiny" fill="#BDDFD9">PLAN WITH YOUR TEAM</text><rect x="460" y="264" width="305" height="292" rx="24" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".20"/>
+<circle cx="508" cy="327" r="26" fill="#E8B86A" opacity=".25"/>
+<text x="499" y="338" font-size="25" font-weight="800" fill="#E8B86A">2</text>
+<text x="491" y="408" class="feature" fill="#FFFFFF">Landing/lead tracking guidan…</text>
+<path d="M491 450h220" stroke="#E8B86A" stroke-width="4" stroke-linecap="round" opacity=".67"/>
+<text x="491" y="489" class="tiny" fill="#BDDFD9">BUILD WITH YOUR TEAM</text><rect x="800" y="264" width="305" height="292" rx="24" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".20"/>
+<circle cx="848" cy="327" r="26" fill="#E8B86A" opacity=".25"/>
+<text x="839" y="338" font-size="25" font-weight="800" fill="#E8B86A">3</text>
+<text x="831" y="408" class="feature" fill="#FFFFFF">Monthly reporting</text>
+<path d="M831 450h220" stroke="#E8B86A" stroke-width="4" stroke-linecap="round" opacity=".67"/>
+<text x="831" y="489" class="tiny" fill="#BDDFD9">REVIEW WITH YOUR TEAM</text>
+<path d="M70 700H1130" stroke="#FFFFFF" stroke-opacity=".22"/>
+<text x="72" y="730" font-size="16" font-family="system-ui,sans-serif" fill="#B4D5D3">Illustrative service visual · Actual scope agreed in writing</text>
+<text x="1128" y="730" text-anchor="end" font-size="16" font-weight="800" font-family="system-ui,sans-serif" fill="#E8B86A">2 / 3</text></svg>
