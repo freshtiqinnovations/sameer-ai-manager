@@ -1849,6 +1849,78 @@
         "billing": "Provider costs prepaid or customer-owned accounts; no unlimited calling promise."
       },
       "commercial_status": "setup_offer_only_calling_integration_requires_client_provider"
+    },
+    "real_estate_ai": {
+      "name": "Real Estate WhatsApp AI & CRM",
+      "family": "bot",
+      "aliases": [
+        "real estate whatsapp ai",
+        "property enquiry chatbot",
+        "property listing automation",
+        "real estate ai",
+        "realtor whatsapp bot",
+        "property site visit booking",
+        "real estate crm"
+      ],
+      "inr": {
+        "standard": 18000,
+        "professional": 35000,
+        "premium": 52000
+      },
+      "timeline": "4-25 working days by package; provider approvals additional",
+      "features": {
+        "standard": [
+          "Property buyer/renter enquiry qualification",
+          "Lead capture and owner/team handoff",
+          "Approved sample property information",
+          "Viewing-time REQUEST capture (not confirmed booking)"
+        ],
+        "professional": [
+          "All Basic capabilities",
+          "Private add/edit property dashboard",
+          "Approved property-photo sharing by scoped integration",
+          "CRM pipeline and consent-based follow-ups"
+        ],
+        "premium": [
+          "All Professional capabilities",
+          "Advanced location/budget/property filters",
+          "Staff roles and useful analytics",
+          "Google/Outlook calendar availability integration subject to approved access and implementation"
+        ]
+      },
+      "regional_prices": {
+        "India": {
+          "standard": 18000,
+          "professional": 35000,
+          "premium": 52000
+        },
+        "USA": {
+          "standard": 1099,
+          "professional": 2099,
+          "premium": 3299
+        },
+        "United Kingdom": {
+          "standard": 825,
+          "professional": 1575,
+          "premium": 2480
+        },
+        "Eurozone": {
+          "standard": 980,
+          "professional": 1880,
+          "premium": 2950
+        },
+        "Australia": {
+          "standard": 1590,
+          "professional": 3060,
+          "premium": 4750
+        },
+        "Denmark": {
+          "standard": 7320,
+          "professional": 13980,
+          "premium": 21950
+        }
+      },
+      "business_notes": "One-time starting setup scope. Official WhatsApp Business Platform account, consent, technical feasibility, approved integrations and client-owned accounts required. Meta/BSP message charges, hosting, AI, storage, taxes and licences extra unless included in written quote. No unconditional live bookings or payments."
     }
   },
   "discounts": {

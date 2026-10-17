@@ -95,7 +95,7 @@ fetch('/commercial-pricing.json?v=20261016sixaccount1',{cache:'no-store',signal:
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
   if(policy.version!=='2026-10-16-six-account-currency-estimates-v1' ||
-    !policy.products||Object.keys(policy.products).length!==26 ||
+    !policy.products||Object.keys(policy.products).length!==27 ||
     !policy.regions||!MAP.USA||!policy.regional_bundles)throw Error('rate-card not verified');
   for(const x of Object.values(policy.products)){
    for(const v of Object.values(MAP)){

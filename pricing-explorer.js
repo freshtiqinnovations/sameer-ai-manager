@@ -1,7 +1,7 @@
 (function(){'use strict';
  const grid=document.getElementById('priceCardGrid'); if(!grid)return;
  const regionTabs=document.getElementById('priceRegionTabs'),tierTabs=document.getElementById('priceTierTabs');
- const featured=[['website','WEB'],['basic_bot','BOT'],['whatsapp_automation','WA'],['crm_erp','CRM'],['ai_agent','AI'],['mobile_app','APP'],['custom_integration','API'],['ecommerce_website','COM']];
+ const featured=[['website','WEB'],['basic_bot','BOT'],['whatsapp_automation','WA'],['real_estate_ai','RE'],['crm_erp','CRM'],['ai_agent','AI'],['mobile_app','APP'],['custom_integration','API'],['ecommerce_website','COM']];
  let cfg=null,region='India',tier='professional'; const tierLabel={standard:'Basic',professional:'Premium',premium:'Elite'};
  function ceilTo(n,s){return Math.ceil((n/s)-1e-10)*s}
  function amount(prod){const base=Number(prod.inr[tier]||0),r=cfg.regions[region];if(region==='India')return base;let v=ceilTo(base*Number(r.factor_from_inr||1),Number(r.round_to||1));const floor=Number((r.floors||{})[prod.family]||0);return Math.max(v,floor)}

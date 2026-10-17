@@ -1,0 +1,64 @@
+/* Freshtiq real estate AI product, isolated scoped styling */
+.ftq-real-estate{--re-deep:#081b2d;--re-ink:#123149;--re-sea:#047c71;--re-pale:#eaf7f3;--re-muted:#597487}
+.ftq-real-estate main{color:#123149;background:#fff}
+.ftq-real-estate .re-wrap{max-width:1180px;margin:auto;padding:0 24px}
+.ftq-real-estate .re-hero{background:linear-gradient(120deg,#071827,#0d3846 65%,#105549);padding:84px 0 74px;color:#f7ffff}
+.ftq-real-estate .re-hero-grid{display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:44px}
+.ftq-real-estate .re-hero h1{font-size:clamp(36px,4.3vw,62px);line-height:1.07;color:#fff;letter-spacing:-.035em;margin:16px 0 22px}
+.ftq-real-estate .re-hero h1 em{font-style:normal;color:#63efd0}
+.ftq-real-estate .re-hero p{color:#d0e3e9;font-size:17px;line-height:1.65;max-width:660px}
+.ftq-real-estate .re-eyebrow,.ftq-real-estate .re-label{font-size:12px;font-weight:800;letter-spacing:.15em;color:#17a987}
+.ftq-real-estate .re-eyebrow{color:#6cf3d1}
+.ftq-real-estate .re-hero-image{position:relative;border:1px solid #456671;border-radius:23px;overflow:hidden;box-shadow:0 26px 65px #00111e77}
+.ftq-real-estate .re-hero-image img,.ftq-real-estate .re-scenes img{width:100%;height:auto;display:block;object-fit:cover}
+.ftq-real-estate .re-hero-image span{position:absolute;bottom:0;left:0;right:0;color:#dcfafa;background:#071725dd;font-size:10px;letter-spacing:.04em;padding:12px 18px;text-align:center}
+.ftq-real-estate .re-actions,.ftq-real-estate .re-contact{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.ftq-real-estate .re-btn{min-height:48px;padding:13px 20px;border-radius:13px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:750;line-height:1.3;transition:transform .2s;border:1px solid transparent;text-align:center}
+.ftq-real-estate .re-btn:hover{transform:translateY(-2px)}
+.ftq-real-estate .re-btn-strong{background:#19ccb1;color:#062332!important}
+.ftq-real-estate .re-btn-outline{background:#ffffff0d;color:white!important;border:1px solid #89beb7}
+.ftq-real-estate .re-btn-light{color:#0a594e!important;border-color:#6dc4ab;background:#e5f6f0}
+.ftq-real-estate .re-trust{font-size:12px;color:#b4d9da;margin-top:18px}
+.ftq-real-estate .re-trust span{color:#45e3bd;margin:0 5px}
+.ftq-real-estate h2{font-size:clamp(26px,3vw,38px);line-height:1.2;color:#102c40;margin:10px 0 15px;letter-spacing:-.02em}
+.ftq-real-estate .re-gallery,.ftq-real-estate .re-delivery,.ftq-real-estate .re-faq{padding-top:76px;padding-bottom:76px}
+.ftq-real-estate .re-scenes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.ftq-real-estate .re-scenes article{border:1px solid #d8e8ea;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px #103e4c0a}
+.ftq-real-estate .re-scenes article h3{font-size:18px;font-weight:800;color:#153c50;padding:15px 16px 0;margin:0}
+.ftq-real-estate .re-scenes article p{font-size:14px;line-height:1.65;color:#52717b;padding:0 16px 19px;margin:7px 0 0}
+.ftq-real-estate .re-pricing{background:#f1f8f8;padding:76px 0}
+.ftq-real-estate .re-intro{max-width:720px;color:#536b78;font-size:16px;line-height:1.7}
+.ftq-real-estate .re-market{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:24px 0 29px}
+.ftq-real-estate .re-market label{font-weight:800;font-size:14px}
+.ftq-real-estate .re-market select{color:#123a4a!important;background:#fff!important;border:1px solid #94b7ba!important;border-radius:10px;padding:13px;max-width:100%;min-height:48px;font-size:14px}
+.ftq-real-estate #re-market-note{font-size:12px;color:#4b6975;flex-basis:100%}
+.ftq-real-estate .re-plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ftq-real-estate .re-plan{display:flex;flex-direction:column;gap:13px;border:1px solid #d0e5e4;border-radius:19px;padding:23px 20px;background:#fff;min-width:0;box-shadow:0 12px 32px #0e35380c}
+.ftq-real-estate .re-plan[data-plan=professional]{border:2px solid #23ab93;box-shadow:0 15px 38px #07958420}
+.ftq-real-estate .re-plan-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px}
+.ftq-real-estate .re-kicker{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#007b70}
+.ftq-real-estate .re-plan-pill{font-size:9px;font-weight:750;color:#0a675e;background:#e8f9f3;padding:6px 8px;border-radius:60px}
+.ftq-real-estate .re-plan h3{font-size:19px;color:#102f43;margin:0}
+.ftq-real-estate .re-money{font-size:clamp(23px,2.4vw,33px);font-weight:850;color:#027667;letter-spacing:-.04em}
+.ftq-real-estate .re-pricenote,.ftq-real-estate .re-small{color:#5b7380;font-size:12px;line-height:1.5;margin:0}
+.ftq-real-estate .re-plan p:not(.re-pricenote):not(.re-small){font-size:14px;line-height:1.6;color:#4c6370;margin:0}
+.ftq-real-estate .re-plan ul{padding:0;margin:4px 0 16px;list-style:none;flex-grow:1}
+.ftq-real-estate .re-plan li{padding:7px 0 7px 27px;position:relative;border-bottom:1px solid #eff4f4;color:#254956;font-size:14px;line-height:1.5}
+.ftq-real-estate .re-plan li:before{content:'✓';position:absolute;left:0;top:7px;color:#028f74;font-weight:bold}
+.ftq-real-estate .re-price-foot{font-size:13px;color:#57717c;margin-top:20px;line-height:1.8}
+.ftq-real-estate .re-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.ftq-real-estate .re-steps>div{border:1px solid #d6e6e3;border-radius:16px;padding:19px}
+.ftq-real-estate .re-steps b{display:inline-flex;width:37px;height:37px;border-radius:12px;align-items:center;justify-content:center;background:#dff8ef;color:#087963}
+.ftq-real-estate .re-steps h3{color:#14354a;font-size:18px;margin:17px 0 9px}
+.ftq-real-estate .re-steps p{color:#58717c;line-height:1.6;font-size:14px}
+.ftq-real-estate .re-time{margin-top:23px;background:#e8f7f2;border-left:4px solid #16a68c;padding:16px 18px;color:#173e4b;border-radius:10px;line-height:1.6}
+.ftq-real-estate .re-cta{background:linear-gradient(115deg,#0a2d3c,#174f53);padding:48px 0;color:#eaffff}
+.ftq-real-estate .re-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.ftq-real-estate .re-cta h2{color:white}
+.ftq-real-estate .re-cta p{color:#d2e6e8;max-width:620px;font-size:15px;line-height:1.7}
+.ftq-real-estate .re-faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.ftq-real-estate .re-faq details{background:#f5fbf9;border:1px solid #d9e9e5;border-radius:13px;padding:16px 20px;color:#264957}
+.ftq-real-estate .re-faq summary{cursor:pointer;font-size:15px;font-weight:750;color:#0c394b;line-height:1.5}
+.ftq-real-estate .re-faq details p{font-size:14px;line-height:1.7;color:#456472}
+@media(max-width:960px){.ftq-real-estate .re-hero-grid{grid-template-columns:1fr}.ftq-real-estate .re-hero-image{max-width:660px}.ftq-real-estate .re-plan-grid{grid-template-columns:1fr 1fr}.ftq-real-estate .re-plan[data-plan=premium]{grid-column:span 2}}
+@media(max-width:700px){.ftq-real-estate .re-wrap{padding:0 17px}.ftq-real-estate .re-hero{padding:55px 0 52px}.ftq-real-estate .re-gallery,.ftq-real-estate .re-delivery,.ftq-real-estate .re-faq,.ftq-real-estate .re-pricing{padding-top:45px;padding-bottom:45px}.ftq-real-estate .re-hero p{font-size:15px}.ftq-real-estate .re-scenes,.ftq-real-estate .re-plan-grid,.ftq-real-estate .re-steps,.ftq-real-estate .re-faq-grid{grid-template-columns:1fr}.ftq-real-estate .re-plan[data-plan=premium]{grid-column:auto}.ftq-real-estate .re-cta-inner{display:block}.ftq-real-estate .re-actions .re-btn{width:100%}.ftq-real-estate .re-money{font-size:31px}.ftq-real-estate h2{font-size:26px}}
