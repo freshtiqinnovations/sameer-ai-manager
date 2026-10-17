@@ -62,3 +62,37 @@
 .ftq-real-estate .re-faq details p{font-size:14px;line-height:1.7;color:#456472}
 @media(max-width:960px){.ftq-real-estate .re-hero-grid{grid-template-columns:1fr}.ftq-real-estate .re-hero-image{max-width:660px}.ftq-real-estate .re-plan-grid{grid-template-columns:1fr 1fr}.ftq-real-estate .re-plan[data-plan=premium]{grid-column:span 2}}
 @media(max-width:700px){.ftq-real-estate .re-wrap{padding:0 17px}.ftq-real-estate .re-hero{padding:55px 0 52px}.ftq-real-estate .re-gallery,.ftq-real-estate .re-delivery,.ftq-real-estate .re-faq,.ftq-real-estate .re-pricing{padding-top:45px;padding-bottom:45px}.ftq-real-estate .re-hero p{font-size:15px}.ftq-real-estate .re-scenes,.ftq-real-estate .re-plan-grid,.ftq-real-estate .re-steps,.ftq-real-estate .re-faq-grid{grid-template-columns:1fr}.ftq-real-estate .re-plan[data-plan=premium]{grid-column:auto}.ftq-real-estate .re-cta-inner{display:block}.ftq-real-estate .re-actions .re-btn{width:100%}.ftq-real-estate .re-money{font-size:31px}.ftq-real-estate h2{font-size:26px}}
+
+/* Isolated mobile navigation fix: menu hidden until user taps hamburger.
+ * Existing global pages and mobile customer-help strip remain unchanged. */
+@media (max-width:768px) {
+  html body.ftq-real-estate #navbar .nav-inner {
+    display:flex!important;align-items:center!important;justify-content:space-between!important;
+    min-height:70px!important;gap:12px!important;
+  }
+  html body.ftq-real-estate #navbar .hamburger {
+    display:flex!important;flex-direction:column!important;align-items:center!important;
+    justify-content:center!important;flex:0 0 45px!important;width:45px!important;height:45px!important;
+    border:1px solid #477a87!important;border-radius:11px!important;background:#163546!important;
+    cursor:pointer!important;
+  }
+  html body.ftq-real-estate #navbar .hamburger span {
+    display:block!important;background:#eafcff!important;width:22px!important;height:2px!important;
+  }
+  html body.ftq-real-estate #navbar .nav-links {
+    display:none!important;position:fixed!important;top:72px!important;left:12px!important;right:12px!important;
+    width:auto!important;max-width:none!important;max-height:calc(100dvh - 100px)!important;
+    overflow-y:auto!important;z-index:1900!important;border:1px solid #4b7887!important;
+    border-radius:15px!important;background:#091e2d!important;box-shadow:0 22px 45px #0008!important;
+    flex-direction:column!important;gap:3px!important;padding:12px!important;
+  }
+  html body.ftq-real-estate #navbar .nav-links.open {display:flex!important}
+  html body.ftq-real-estate #navbar .nav-links a{
+    color:#f4ffff!important;-webkit-text-fill-color:#f4ffff!important;background:transparent!important;
+    width:100%!important;text-align:left!important;padding:11px 13px!important;white-space:normal!important;
+    font-size:14px!important;border-radius:8px!important;
+  }
+  html body.ftq-real-estate #navbar .nav-links a.nav-cta{
+    color:#073943!important;-webkit-text-fill-color:#073943!important;background:#1dd6c5!important;
+  }
+}
