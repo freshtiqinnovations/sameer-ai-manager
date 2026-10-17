@@ -48,7 +48,7 @@ function draw(){
   ?'https://freshtiqautomation.com/demo/real-estate-workflow.html'
   :selected==='whatsapp_automation'?'https://freshtiqautomation.com/demo/whatsapp-sales-workflow.html'
   :'https://portal.freshtiqautomation.com/service-demo?'+new URLSearchParams({service:selected,market:market==='other'?'India':market,tier:'standard'}).toString();
- $('demoLink').href=demoBase;
+ if($('demoLink'))$('demoLink').href=demoBase;
  $('whatsappLink').href='https://wa.me/918381848389?text='+encodeURIComponent('Hello Freshtiq, I am interested in '+product.name+'. My business market: '+(market==='other'?'Other country':market)+'. Please help me choose a package.');
  $('chargeNote').textContent=(market==='other'
    ?'Saudi Arabia, UAE and other markets: country-specific scope, compliance, tax and payment arrangements must be quoted and approved separately.'
