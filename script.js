@@ -864,7 +864,7 @@ document.addEventListener('click', function (e) {
         aiContinue.addEventListener('click',function(){window.FreshtiqLead.openChat('I just submitted my free automation audit with Lead Ref '+leadRef+'. Help me refine the requirement and next step.');});
         status.appendChild(document.createElement('br')); status.appendChild(aiContinue);
       }
-      try{if(typeof gtag==='function'){gtag('event','generate_lead',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','SUBMIT_LEAD_FORM',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','qualified_lead_request',{lead_source:leadSource,country:country,service:need,preferred_contact:preferred});}}catch(_e){}
+      try{if(typeof gtag==='function'){gtag('event','generate_lead',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','manual_event_SUBMIT_LEAD_FORM',{lead_source:leadSource,country:country,service:need,lead_ref_present:!!leadRef});gtag('event','qualified_lead_request',{lead_source:leadSource,country:country,service:need,preferred_contact:preferred});}}catch(_e){}
       form.reset();
     }catch(err){
       try{if(window.FreshtiqTrack)window.FreshtiqTrack.event('lead_submit_error',String(err&&err.message||err).slice(0,120));}catch(_e){}
