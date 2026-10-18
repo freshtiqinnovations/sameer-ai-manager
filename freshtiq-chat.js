@@ -14,7 +14,7 @@
   const LEAD_API = API.replace('/api/chat','/api/lead');
 
   // ─── SESSION ID (per visitor) ───
-  const SID = (() => { const k='ft_chat_sid_v2'; let v=''; try{v=sessionStorage.getItem(k)||'';}catch(_){} if(!v){v='web_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();try{sessionStorage.setItem(k,v);}catch(_){}} return v; })();
+  let SID = (() => { const k='ft_chat_sid_v2'; let v=''; try{v=sessionStorage.getItem(k)||'';}catch(_){} if(!v){v='web_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();try{sessionStorage.setItem(k,v);}catch(_){}} return v; })();
 
   // ─── CONNECTED JOURNEY CONTEXT ───
   const PAGE_META = (() => {
@@ -304,8 +304,9 @@
       whatsapp_opt_in:method==='WhatsApp'&&hoConsent.checked, marketing_opt_in:false, consent_source:'website_chat_handoff_v1'
     });
     try{
-      const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
+      const r=await fetch(LEAD_API,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
       if(!r.ok||!d.success)throw new Error(d.error||'Could not save request');
+      // Server-owned HttpOnly session cookie is authoritative; never store it in sessionStorage.
       shownLeadRef=rememberLeadRef(d.lead_ref||shownLeadRef);
       if(window.FreshtiqOpenAIMeasurement) window.FreshtiqOpenAIMeasurement.leadCreated(d.lead_ref || d.lead_id);
       closeHandoff();
@@ -388,6 +389,7 @@
     try {
       const res = await fetch(API, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.assign({}, window.FreshtiqJourney.getContext(), {
           message: text,
@@ -398,6 +400,7 @@
         }))
       });
       const data = await res.json();
+      // Server-owned HttpOnly session cookie is authoritative; never store it in sessionStorage.
       hideTyping();
 
       if (data.reply) {
