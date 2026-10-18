@@ -74,7 +74,7 @@ function render(){
   const active=b.dataset.market===country;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;
  }
  for(const b of tierButtons)b.setAttribute('aria-pressed',String(Number(b.dataset.tier)===level));
- status.textContent='Indicative starting prices in '+MAP[country].currency+' for '+MAP[country].label+'. New non-USD foreign rates use a 16 Oct 2026 USD reference. Only accepted written invoices are payable.';
+ status.textContent=country==='INDIA'?'India: starting estimates only; standard IT service GST 18%. Exact approved package final prices and included GST breakup: portal.freshtiqautomation.com/store. No charge before agreed terms.':'International estimates in '+MAP[country].currency+'. Export GST/LUT eligibility, destination VAT/local tax, fees and INR/card or local-bank invoice are confirmed before payment. No automatic 0% GST claim.';
 }
 for(const b of grids){
  b.addEventListener('click',()=>{
