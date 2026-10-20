@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 152" role="img" aria-labelledby="title desc">
+<title id="title">FRESHTIQ AUTOMATION</title><desc id="desc">Gold and emerald circuit inspired Freshtiq F symbol with wordmark</desc>
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7de9d"/><stop offset=".42" stop-color="#d5a24e"/><stop offset="1" stop-color="#986525"/></linearGradient><linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#86f4db"/><stop offset=".5" stop-color="#09a88d"/><stop offset="1" stop-color="#006d77"/></linearGradient><linearGradient id="night" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#172e40"/><stop offset="1" stop-color="#071b2d"/></linearGradient></defs>
+<g transform="translate(12 12)"><rect width="128" height="128" rx="29" fill="url(#night)"/><path d="M18 65V37Q18 16 43 16H115Q111 32 91 37H56Q44 37 43 48V64Z" fill="url(#gold)"/><path d="M21 105Q43 67 68 62H107Q102 79 79 80H62Q51 80 43 98L25 115H19Z" fill="url(#mint)"/><path d="M62 58H110" stroke="#d5a24e" stroke-width="4" stroke-linecap="round"/><circle cx="111" cy="58" r="6" fill="#efca77" stroke="#fff0c0" stroke-width="2"/><path d="M73 90H104" stroke="#16b99b" stroke-width="4" stroke-linecap="round"/><circle cx="105" cy="90" r="6" fill="#31e5ba" stroke="#102e34" stroke-width="3"/></g>
+<text x="164" y="82" fill="#091b2c" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="800" letter-spacing="1">FRESHTIQ</text>
+<path d="M164 105H207 M566 105H608" stroke="#d0a053" stroke-width="3" stroke-linecap="round"/>
+<text x="216" y="114" fill="#078e7a" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" letter-spacing="7">AUTOMATION</text>
+</svg>
