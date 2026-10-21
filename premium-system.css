@@ -51,7 +51,7 @@ img{max-width:100%}
 }
 #navbar.scrolled{background:rgba(5,14,27,.97)!important;box-shadow:0 12px 40px rgba(2,8,23,.16)!important}
 #navbar .nav-inner{max-width:1220px!important}
-#navbar .logo img{content:url('/images/freshtiq-logo-footer.svg?v=20260912p2');height:45px!important;width:auto!important;transform:none!important}
+#navbar .logo img{content:normal;height:45px!important;width:auto!important;transform:none!important}
 #navbar .nav-links{gap:4px!important}
 #navbar .nav-links a{
   color:#d9e6f7!important;

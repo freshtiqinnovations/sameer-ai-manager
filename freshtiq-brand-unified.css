@@ -1,0 +1,388 @@
+/* FRESHTIQ AUTOMATION — cross-page premium brand alignment.
+   Cosmetic only: intentionally does not alter payments, forms, pricing calculations,
+   consent logic, chatbot execution, login behavior or application scripts. */
+body.ftq-unified-brand{
+  --ftq-deep:#081d30;
+  --ftq-deep2:#133d47;
+  --ftq-gold:#c79a53;
+  --ftq-gold-hi:#f5db9e;
+  --ftq-sea:#087f75;
+  --ftq-soft:#fffaf2;
+  --ftq-copy:#172a3e;
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  background:#fffdf9;
+  color:var(--ftq-copy);
+  -webkit-font-smoothing:antialiased;
+}
+body.ftq-unified-brand #navbar{
+  background:#fffdf9!important;
+  border-bottom:1px solid #e8e1d5!important;
+  box-shadow:0 7px 23px #102d3e0f!important;
+  color:var(--ftq-copy)!important;
+}
+body.ftq-unified-brand #navbar .nav-inner{
+  max-width:1240px;
+  min-height:78px;
+  padding-top:9px;
+  padding-bottom:9px;
+}
+body.ftq-unified-brand #navbar .logo,
+body.ftq-unified-brand #navbar .logo:hover{background:transparent!important;border:0!important;box-shadow:none!important}
+body.ftq-unified-brand #navbar .logo img{
+  display:block;
+  width:clamp(155px,16vw,214px)!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:61px!important;
+  object-fit:contain;
+  filter:none!important;
+}
+body.ftq-unified-brand #navbar .nav-links{align-items:center;gap:clamp(8px,1.45vw,22px)}
+body.ftq-unified-brand #navbar .nav-links>a{
+  color:#172b3d!important;
+  font-weight:750!important;
+  border-radius:14px;
+  font-size:13px!important;
+  letter-spacing:0;
+  text-decoration:none;
+  transition:color .2s;
+}
+body.ftq-unified-brand #navbar .nav-links>a:hover{color:#a87932!important}
+body.ftq-unified-brand #navbar .nav-links>a.nav-cta,
+body.ftq-unified-brand #navbar .nav-links>a.btn-primary{
+  color:#fff!important;
+  background:#0a263b!important;
+  border:1px solid #0a263b!important;
+  border-radius:30px!important;
+  box-shadow:0 8px 22px #087f7525!important;
+  padding:12px 19px!important;
+  line-height:1.25!important;
+}
+body.ftq-unified-brand #navbar .nav-links>a.nav-cta:hover{
+ background:#13524e!important;color:#fff!important
+}
+body.ftq-unified-brand #navbar .hamburger{
+  border:1px solid #ded6c9!important;
+  border-radius:12px!important;
+  background:#fffdf9!important;
+  box-shadow:none!important;
+  color:#162d3e!important;
+}
+body.ftq-unified-brand #navbar .hamburger span{background:#183344!important}
+body.ftq-unified-brand main .page-header,
+body.ftq-unified-brand main .fx-hero,
+body.ftq-unified-brand main .fx-page-hero,
+body.ftq-unified-brand main section.hero:not(.svc-hero):not(.shop-hero){
+  background:radial-gradient(circle at 82% 18%,#35647355,transparent 42%),linear-gradient(118deg,#081c32,#0f3b44)!important;
+  color:#fafbf8!important;
+  position:relative;
+  border-color:#193f4e!important;
+}
+body.ftq-unified-brand main .page-header:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.16;background:radial-gradient(ellipse at 70% 20%,#d8ad64,transparent 45%);
+}
+body.ftq-unified-brand main .page-header .container,
+body.ftq-unified-brand main .page-header .fx-wrap{position:relative;z-index:1}
+body.ftq-unified-brand main .page-header h1,
+body.ftq-unified-brand main .fx-hero h1,
+body.ftq-unified-brand main .fx-page-hero h1,
+body.ftq-unified-brand main section.hero h1{
+ color:#fffdf9!important;
+ font-family:Georgia,"Times New Roman",serif!important;
+ font-weight:700!important;
+ letter-spacing:-.035em;
+ line-height:1.13!important;
+}
+body.ftq-unified-brand main .page-header p,
+body.ftq-unified-brand main .fx-page-hero p{color:#d8e9e7!important}
+body.ftq-unified-brand main .page-header .section-label,
+body.ftq-unified-brand main .page-header .section-tag,
+body.ftq-unified-brand main .page-header .eyebrow{
+  color:#f5cf89!important;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+body.ftq-unified-brand .gradient-text{
+  background:linear-gradient(110deg,#b88b41,#168b7d);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+body.ftq-unified-brand main .section h2,
+body.ftq-unified-brand main .fx-section h2,
+body.ftq-unified-brand main .fx-wrap h2,
+body.ftq-unified-brand main .section-header h2{
+  letter-spacing:-.025em;
+}
+body.ftq-unified-brand main .glass-card,
+body.ftq-unified-brand main .fx-cap,
+body.ftq-unified-brand main .feature-card,
+body.ftq-unified-brand main .pricing-card,
+body.ftq-unified-brand main .fx-glass,
+body.ftq-unified-brand main article.card{
+  background:#fffdfb;
+  border:1px solid #e8e1d7;
+  border-radius:19px;
+  box-shadow:0 8px 25px #1025360c;
+}
+body.ftq-unified-brand main .glass-card:hover,
+body.ftq-unified-brand main .fx-cap:hover{
+ border-color:#d7b57e;
+}
+body.ftq-unified-brand main a.btn-primary,
+body.ftq-unified-brand main .fx-primary,
+body.ftq-unified-brand main a.btn-white,
+body.ftq-unified-brand main .btn-primary,
+body.ftq-unified-brand main a.primary{
+  color:#fff!important;
+  background:#092739!important;
+  border:1px solid #092739!important;
+  border-radius:30px!important;
+  box-shadow:0 9px 21px #06695b33;
+  text-shadow:none!important;
+}
+body.ftq-unified-brand main a.btn-primary:hover,
+body.ftq-unified-brand main .fx-primary:hover{background:#14514e!important}
+body.ftq-unified-brand main a:not(.btn):not(.button):not(.fx-primary):not(.nav-cta){
+  text-underline-offset:3px;
+}
+body.ftq-unified-brand main .ftq-made-india,
+body.ftq-unified-brand main .ftq-inline-country-badge{
+  border:1px solid #d9e9de!important;
+  border-radius:25px!important;
+  color:#236960!important;
+  background:#f0faf4!important;
+}
+body.ftq-unified-brand footer:not(.svc-footer){
+  background:#081c31!important;
+  color:#c3d1d8!important;
+  border-top:1px solid #21404b!important;
+}
+body.ftq-unified-brand footer:not(.svc-footer) .container{max-width:1240px}
+body.ftq-unified-brand footer:not(.svc-footer) .footer-grid{gap:24px}
+body.ftq-unified-brand footer:not(.svc-footer) .logo img{
+  display:block;
+  width:min(215px,100%)!important;
+  height:auto!important;
+  max-height:66px;
+  filter:none!important;
+  background:#fffdf9;
+  padding:9px 12px;
+  border-radius:15px;
+}
+body.ftq-unified-brand footer:not(.svc-footer) .footer-heading,
+body.ftq-unified-brand footer:not(.svc-footer) h3{color:#efc984!important}
+body.ftq-unified-brand footer:not(.svc-footer) a{color:#d8e5e9!important}
+body.ftq-unified-brand footer:not(.svc-footer) a:hover{color:#efc984!important}
+body.ftq-unified-brand footer:not(.svc-footer) p,
+body.ftq-unified-brand footer:not(.svc-footer) .footer-bottom{color:#bccbd4!important}
+body.ftq-unified-brand .sticky-mobile-cta{background:#0a1d31!important;border-top:1px solid #345060!important;box-shadow:0 -9px 27px #0b223b33!important}
+body.ftq-unified-brand .sticky-mobile-cta a:first-child{background:#dfb46b!important;color:#14273b!important;border-radius:11px!important}
+body.ftq-unified-brand .sticky-mobile-cta a:nth-child(2){background:#fff9e9!important;color:#173c44!important;border-radius:11px!important}
+body.ftq-unified-brand .sticky-mobile-cta a:nth-child(3){background:#0d826f!important;color:#fff!important;border-radius:11px!important}
+body.ftq-unified-brand .whatsapp-float{background:#087f75!important}
+body.ftq-unified-brand .ftq-service-hero-actions a{
+ border-radius:30px!important;
+}
+body.ftq-unified-brand main .cta-block,
+body.ftq-unified-brand main .fx-final-box{
+  background:linear-gradient(115deg,#0a2034,#124a47)!important;
+  border:1px solid #45615d!important;
+  border-radius:23px!important;
+}
+body.ftq-unified-brand main .cta-block h2,
+body.ftq-unified-brand main .cta-block h3,
+body.ftq-unified-brand main .fx-final-box h2{color:#fff!important}
+body.ftq-unified-brand :focus-visible{outline:3px solid #d5a357!important;outline-offset:3px!important}
+@media(max-width:900px){
+ body.ftq-unified-brand #navbar .nav-inner{min-height:66px}
+ body.ftq-unified-brand #navbar .logo img{width:170px!important;max-height:54px!important}
+ body.ftq-unified-brand #navbar .nav-links{
+   background:#fffdf9!important;
+   border:1px solid #e6dfd4!important;
+   box-shadow:0 14px 30px #142c3b22!important;
+ }
+ body.ftq-unified-brand #navbar .nav-links>a{color:#112c3d!important}
+ body.ftq-unified-brand #navbar .nav-links>a.nav-cta{color:#fff!important}
+}
+@media(max-width:520px){
+ body.ftq-unified-brand main .page-header h1{font-size:clamp(1.9rem,7.5vw,2.75rem)!important}
+ body.ftq-unified-brand main .page-header{padding-top:42px!important;padding-bottom:38px!important}
+ body.ftq-unified-brand .sticky-mobile-cta a{font-size:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.ftq-unified-brand #navbar .nav-links>a{transition:none}
+}
+
+/* HIGH-SPECIFICITY BRAND ALIGNMENT:
+   older pricing CSS uses html[data-ftq-theme] selectors with !important;
+   these brand-only rules deliberately win without changing application logic. */
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page{
+ background:#fffdf9!important;
+ background-image:none!important;
+ color:#172d40!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar{
+ background:#fffdf9!important;
+ background-image:none!important;
+ border-color:#e8dfd1!important;
+ box-shadow:0 7px 25px #10233612!important;
+ color:#142b40!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links a:not(.nav-cta){
+ color:#172e42!important;-webkit-text-fill-color:#172e42!important
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links a:not(.nav-cta):hover{
+ color:#a47b40!important;-webkit-text-fill-color:#a47b40!important
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links a.nav-cta{
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ background:#0a2b3e!important;border-color:#0a2b3e!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar button.hamburger{
+ background:#fffdf9!important;border:1px solid #d9cebd!important;
+ color:#102c3e!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar button.hamburger span{
+ background:#183244!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page main .page-header{
+ background:radial-gradient(circle at 83% 15%,#2b646c51,transparent 43%),linear-gradient(120deg,#091d32,#123e46)!important;
+ background-image:radial-gradient(circle at 83% 15%,#2b646c51,transparent 43%),linear-gradient(120deg,#091d32,#123e46)!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page .sticky-mobile-cta{
+ background:#0b2034!important;border-color:#3a5364!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page .sticky-mobile-cta :is(a,button):first-child{
+ background:#dcb16b!important;border-color:#dcb16b!important;
+ color:#0a2c40!important;-webkit-text-fill-color:#0a2c40!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page .sticky-mobile-cta :is(a,button):nth-child(2){
+ background:#f5f4ea!important;border-color:#f5f4ea!important;
+ color:#16484b!important;-webkit-text-fill-color:#16484b!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page .sticky-mobile-cta :is(a,button):nth-child(3){
+ background:#087f74!important;border-color:#087f74!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page footer .logo img{
+ filter:none!important;
+ background:#fffdf9!important;
+ border-radius:14px!important;
+ padding:8px 11px!important;
+ height:auto!important;
+ width:215px!important;
+ max-width:100%!important;
+}
+@media(min-width:1000px){
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .hamburger{
+  display:none!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links{
+  display:flex!important;position:static!important;
+  width:auto!important;height:auto!important;max-height:none!important;
+  transform:none!important;visibility:visible!important;opacity:1!important;
+  background:transparent!important;box-shadow:none!important;border:0!important;
+ }
+}
+@media(max-width:999px){
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links{
+  background:#fffdf9!important;
+  border:1px solid #e4dbc9!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links a{
+  color:#183247!important;-webkit-text-fill-color:#183247!important
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links a.nav-cta{
+  color:#fff!important;-webkit-text-fill-color:#fff!important
+ }
+}
+
+/* Final visual acceptance: force horizontal desktop navbar,
+   and avoid old image blend filters washing out the dark wordmark. */
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .logo,
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .logo img{
+ mix-blend-mode:normal!important;
+ opacity:1!important;
+ isolation:isolate!important;
+ background-blend-mode:normal!important;
+}
+@media(min-width:1000px){
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-inner{
+  display:flex!important;align-items:center!important;
+  flex-wrap:nowrap!important;justify-content:space-between!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(6px,1vw,16px)!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:visible!important;
+  top:auto!important;left:auto!important;right:auto!important;
+  min-width:0!important;
+  width:auto!important;max-width:none!important;
+  height:auto!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links>a{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  white-space:nowrap!important;
+  padding:11px 8px!important;
+  width:auto!important;min-width:0!important;
+  height:auto!important;
+  line-height:1.4!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links>a.nav-cta{
+  padding:12px 18px!important;
+ }
+}
+
+/* Old premium-system.css forcibly replaced logo IMG via CSS content:url(...).
+   Reset image content so the approved new SVG is actually rendered. */
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .logo img{
+ content:normal!important;
+}
+body.ftq-unified-brand footer .logo img{
+ content:normal!important;
+}
+
+/* P0 functional fix: general legacy NAV rules pinned the mobile help strip at
+   viewport TOP and covered the hamburger. Keep the support strip at the BOTTOM. */
+@media(max-width:768px){
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page nav.ftq-premium-mobile-actions{
+  position:fixed!important;
+  top:auto!important;
+  bottom:0!important;
+  left:0!important;right:0!important;
+  height:auto!important;
+  min-height:0!important;max-height:none!important;
+  margin:0!important;
+  z-index:850!important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  background:#0a2033!important;
+  border-top:1px solid #355664!important;
+  box-shadow:0 -7px 24px #101e2c44!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page nav.ftq-premium-mobile-actions .ftq-open-chat{
+  background:#e8c37d!important;
+  color:#122d3b!important;
+  -webkit-text-fill-color:#122d3b!important;
+  border-radius:12px!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page nav.ftq-premium-mobile-actions a[href*="wa.me"]{
+  background:#0b8776!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border-radius:12px!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-nav-open nav.ftq-premium-mobile-actions{
+  display:none!important;
+ }
+}
