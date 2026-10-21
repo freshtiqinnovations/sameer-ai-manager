@@ -1,0 +1,17 @@
+/* Freshtiq organic international buying guide. Only .seo-* selectors used. */
+.seo-scope-checklist{max-width:1100px;margin:18px auto 70px;padding:0 18px;scroll-margin-top:22px}
+.seo-checklist-inner{background:linear-gradient(145deg,#0a2135,#174949);border:1px solid #437275;border-radius:27px;padding:clamp(22px,4vw,44px);color:#f5faf7;box-shadow:0 15px 35px #0a34432e}
+.seo-overline{font-size:11px;color:#e7c37d;font-weight:850;letter-spacing:.14em;margin:0 0 12px}
+.seo-checklist-inner h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.03em;color:#fff!important;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;margin:0 0 16px}
+.seo-checklist-inner>p{color:#dbeae5;line-height:1.7;font-size:14px}
+.seo-checklist-inner ul{padding-inline-start:22px;margin:24px 0;display:grid;grid-template-columns:1fr 1fr;gap:15px 33px}
+.seo-checklist-inner li{font-size:14px;color:#eff7f4;line-height:1.65;padding-inline-start:5px}
+.seo-checklist-inner li strong{color:#ffe0a2}
+.seo-checklist-inner .seo-checklist-footnote{font-size:12px;color:#c3d8d3}
+.seo-checklist-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:21px}
+.seo-checklist-actions a{font-size:13px;font-weight:800;padding:13px 18px;border-radius:30px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:46px}
+.seo-checklist-primary{background:#eac477;color:#092636!important}
+.seo-checklist-secondary{border:1px solid #86aba4;color:#f2f9f6!important}
+.seo-checklist-actions a:focus-visible{outline:3px solid #f4c87d;outline-offset:3px}
+@media(max-width:760px){.seo-checklist-inner ul{grid-template-columns:1fr}.seo-checklist-actions a{width:100%}.seo-scope-checklist{margin-bottom:40px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
