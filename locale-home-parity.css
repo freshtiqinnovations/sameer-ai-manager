@@ -1,0 +1,105 @@
+/* FRESHTIQ: 21 October homepage/language parity. Navigation only for Ads;
+   restyled language landings keep all translated forms and CRM wiring. */
+.ftq-one-language{position:relative;display:inline-flex;align-items:center;flex:none;direction:ltr;font-family:Inter,system-ui,Arial,sans-serif}
+.ftq-one-language>summary{display:inline-flex;align-items:center;gap:6px;min-height:42px;list-style:none;cursor:pointer;user-select:none;padding:9px 13px;border:1px solid #d9c8ac;border-radius:30px;background:#fffaf2;color:#152d3b!important;-webkit-text-fill-color:#152d3b!important;font-weight:750;font-size:13px;white-space:nowrap}
+.ftq-one-language>summary::-webkit-details-marker{display:none}
+.ftq-one-language>summary:focus-visible{outline:3px solid #bb8e43;outline-offset:3px}
+.ftq-one-language[open]>summary{background:#f2e6cf;border-color:#c6a36c}
+.ftq-one-language .ftq-language-options{position:absolute;right:0;top:calc(100% + 7px);width:min(260px,82vw);max-height:70vh;overflow-y:auto;display:grid;grid-template-columns:1fr;gap:2px;background:#fffefa;border:1px solid #d8d7cc;box-shadow:0 20px 44px rgba(10,32,46,.21);border-radius:15px;padding:8px;z-index:999;direction:ltr;text-align:left}
+.ftq-one-language .ftq-language-options a{display:block!important;padding:9px 12px!important;border-radius:9px!important;color:#153845!important;-webkit-text-fill-color:#153845!important;background:transparent!important;text-decoration:none!important;font:700 13px/1.4 Inter,system-ui,Arial,sans-serif!important;white-space:normal!important;min-width:0}
+.ftq-one-language .ftq-language-options a:hover,.ftq-one-language .ftq-language-options a:focus-visible{background:#edf4ef!important}
+.ftq-one-language .ftq-language-options a[aria-current=page]{background:#0b4250!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html[dir=rtl] .ftq-one-language .ftq-language-options{right:auto;left:0}
+body.ftq-premium-ads header .ftq-one-language{margin-inline:5px}
+
+/* Canonical homepage: single-language control + compact fully functional mobile navigation. */
+.header.header>nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.header.header .ftq-root-links{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+.header.header .ftq-root-links>a{white-space:nowrap}
+.header.header .ftq-root-mobile-menu{display:none}
+.ftq-root-mobile-menu{position:relative}
+.ftq-root-mobile-menu>summary{list-style:none;cursor:pointer;color:#122d3c;background:#f9f4ec;border:1px solid #d9c8ac;border-radius:28px;min-height:42px;padding:10px 12px;font-weight:750}
+.ftq-root-mobile-menu>summary::-webkit-details-marker{display:none}
+.ftq-root-mobile-menu .ftq-root-mobile-links{position:absolute;right:0;top:calc(100% + 7px);display:grid;gap:2px;min-width:190px;background:#fffefa;border:1px solid #d9dfd9;padding:9px;box-shadow:0 20px 44px #091d302c;z-index:999;border-radius:12px}
+.ftq-root-mobile-menu .ftq-root-mobile-links>a{display:block!important;padding:10px 12px;border-radius:7px;color:#153845}
+.ftq-root-mobile-menu .ftq-root-mobile-links>a:hover{background:#edf4ef}
+@media(max-width:1100px){
+ .header.header{flex-direction:row;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px}
+ .header.header>nav{display:flex;justify-content:flex-end;gap:7px}
+ .header.header .ftq-root-links{display:none!important}
+ .header.header .ftq-root-mobile-menu{display:block}
+}
+@media(max-width:420px){
+ .header.header .logo img{width:122px;height:auto}
+ .header.header>nav{gap:5px}
+ .ftq-root-mobile-menu>summary,.header.header .ftq-one-language>summary{font-size:12px;padding:8px 10px;min-height:40px}
+}
+
+/* Language page: same cream, dark-navy and gold premium visual language as the real homepage. */
+html body.ftq-premium-locale{background:#fffaf3!important;color:#122b3d!important}
+html body.ftq-premium-locale header{background:#fffdf9!important;border-color:#ece5d7!important}
+html body.ftq-premium-locale header .nav{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 20px!important;flex-wrap:wrap}
+html body.ftq-premium-locale header nav .brand{background:#fffdf8!important;box-shadow:none!important;border:0!important;padding:0!important}
+html body.ftq-premium-locale header nav .brand img{width:190px!important;max-width:100%!important;height:auto!important;display:block!important}
+html body.ftq-premium-locale .ftq-locale-controls{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:10px}
+html body.ftq-premium-locale .ftq-locale-controls>a{color:#183347!important;-webkit-text-fill-color:#183347!important;text-decoration:none!important;font:750 13px/1.5 Inter,system-ui,Arial,sans-serif!important;white-space:nowrap;padding:8px!important;background:transparent!important;border:0!important}
+html body.ftq-premium-locale .ftq-locale-controls>a:hover{color:#087569!important;-webkit-text-fill-color:#087569!important}
+html body.ftq-premium-locale .ftq-one-language>summary{color:#152d3b!important;-webkit-text-fill-color:#152d3b!important;background:#fffaf2!important;border:1px solid #d9c8ac!important}
+html[data-ftq-theme="light"] body.ftq-premium-locale.ftq-pricing-parity-extra main section.hero{
+ background:#fffaf3!important;background-image:linear-gradient(130deg,#fffaf3,#f7f2e8)!important;color:#101c2f!important;padding:70px 0 60px!important
+}
+html body.ftq-premium-locale main .hero .two{max-width:1160px;grid-template-columns:1.04fr .96fr;gap:40px;align-items:center}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) main .hero .eyebrow{
+ display:inline-block;background:#fff2de!important;border:1px solid #e9d6b8!important;border-radius:20px;color:#856336!important;-webkit-text-fill-color:#856336!important;padding:8px 12px;font-size:12px;letter-spacing:.08em;line-height:1.35
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) main .hero h1{
+ font:700 clamp(2.2rem,4.9vw,4.25rem)/1.08 Georgia,"Times New Roman",serif!important;letter-spacing:-.045em!important;color:#111d31!important;-webkit-text-fill-color:#111d31!important;overflow-wrap:break-word;max-width:720px
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) main .hero h1 em{
+ color:#bb8b43!important;-webkit-text-fill-color:#bb8b43!important
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) main .hero .two>div:first-child>p:not(.eyebrow){
+ color:#4d6472!important;-webkit-text-fill-color:#4d6472!important;line-height:1.65;opacity:1!important
+}
+html body.ftq-premium-locale main .pills span{
+ background:#fff!important;color:#275158!important;-webkit-text-fill-color:#275158!important;border:1px solid #dbded7!important;font-size:12px!important
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) main section.hero a.anchor[href="#assessment"]{
+ background:#082c3e!important;background-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-radius:24px!important;padding:13px 18px!important;min-height:44px;box-shadow:none!important
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale #assessment{
+ background:#fffdfa!important;border:1px solid #e5ded2!important;border-radius:22px!important;box-shadow:0 20px 42px #1c383414!important;padding:29px!important
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale #assessment :is(h2,label,.check span){color:#142e3b!important;-webkit-text-fill-color:#142e3b!important}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) #assessment :is(p,p.notice){color:#435a64!important;-webkit-text-fill-color:#435a64!important;opacity:1!important}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) #assessment .notice a{color:#065f69!important;-webkit-text-fill-color:#065f69!important}
+html[data-ftq-theme="light"] body.ftq-premium-locale #assessment button[type=submit]{
+ background:#0b4756!important;background-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-radius:12px!important;min-height:49px
+}
+html body.ftq-premium-locale section.main{background:#fffaf3!important}
+html body.ftq-premium-locale section.main.light{background:#f2f5f2!important}
+html body.ftq-premium-locale section.main .card{background:#fffdf9!important;border-color:#e5e0d9!important;box-shadow:0 6px 18px #24343c0e!important;border-radius:16px!important}
+html body.ftq-premium-locale section.main .card :is(h3,p){color:#183645!important;-webkit-text-fill-color:#183645!important}
+html body.ftq-premium-locale section.main .card p{color:#4f6570!important;-webkit-text-fill-color:#4f6570!important}
+html body.ftq-premium-locale .ftq-footer-accounts{display:flex;flex-wrap:wrap;gap:16px}
+html body.ftq-premium-locale .ftq-footer-accounts a{color:#dfc18a!important;-webkit-text-fill-color:#dfc18a!important;text-decoration:underline!important}
+@media(max-width:920px){
+ html body.ftq-premium-locale main .hero .two{grid-template-columns:minmax(0,1fr)!important;gap:25px!important}
+ html body.ftq-premium-locale main .cards{grid-template-columns:minmax(0,1fr)!important}
+ html[data-ftq-theme="light"] body.ftq-premium-locale.ftq-pricing-parity-extra main section.hero{padding:34px 0 40px!important}
+ html body.ftq-premium-locale header .nav{padding:12px 15px!important}
+}
+@media(max-width:540px){
+ html body.ftq-premium-locale header .nav{flex-direction:row;justify-content:space-between}
+ html body.ftq-premium-locale header nav .brand img{width:136px!important}
+ html body.ftq-premium-locale .ftq-locale-controls{gap:4px}
+ html body.ftq-premium-locale .ftq-locale-controls>a.ftq-nav-services{display:none!important}
+ html body.ftq-premium-locale .ftq-locale-controls>a.ftq-nav-home{font-size:12px!important;padding:5px!important}
+ html body.ftq-premium-locale .ftq-one-language>summary{padding:8px 9px;font-size:12px;min-height:40px}
+ html body.ftq-premium-locale main .hero h1{font-size:clamp(2.05rem,8.2vw,3rem)!important}
+ html[data-ftq-theme="light"] body.ftq-premium-locale #assessment{padding:21px!important}
+}
+
+/* Native details disclosure should reveal choices only when the single button is opened. */
+.ftq-one-language:not([open])>.ftq-language-options{display:none!important}
+.ftq-root-mobile-menu:not([open])>.ftq-root-mobile-links{display:none!important}
