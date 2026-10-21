@@ -1,0 +1,53 @@
+/* FRESHTIQ — localized premium identity.
+   Scope: presentation ONLY. Language directions and form/CRM/ads behaviors untouched. */
+html body.ftq-premium-locale,html body.ftq-premium-ads{--ftq-strategy-gradient:linear-gradient(110deg,#09293b,#145149);background:#fffaf3;color:#142c40;font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif}
+html[dir=rtl] body.ftq-premium-locale,html[dir=rtl] body.ftq-premium-ads{font-family:Tahoma,"Segoe UI",Arial,sans-serif}
+body.ftq-premium-locale header,body.ftq-premium-ads header{background:#fffdf9!important;color:#152b3d!important;border-bottom:1px solid #e7ded0;box-shadow:0 5px 20px #111a2a12}
+body.ftq-premium-locale header .nav,body.ftq-premium-ads header .nav{display:flex;align-items:center;gap:10px 25px;max-width:1240px}
+body.ftq-premium-locale header .brand,body.ftq-premium-ads header .brand{display:inline-flex;align-items:center;gap:9px;background:none!important;border:0!important;color:#12263c!important;box-shadow:none!important;flex-shrink:0;padding:6px 0!important;line-height:1.2}
+body.ftq-premium-locale header .brand img,body.ftq-premium-ads header .brand img{width:clamp(142px,16vw,202px);height:auto;max-height:54px;object-fit:contain;display:block;filter:none!important}
+body.ftq-premium-ads header .brand .ftq-ads-tag{font:800 12px/1.25 Inter,"Segoe UI",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#a77535;padding:6px 9px;background:#f9f1e4;border:1px solid #ecd7b7;border-radius:20px}
+body.ftq-premium-locale header .langs,body.ftq-premium-ads header .langs{min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+body.ftq-premium-locale header .langs a,body.ftq-premium-ads header .langs a{background:#fffdf9;color:#1b4a52!important;border:1px solid #e9dfd0;border-radius:18px;padding:7px 10px;font-size:12px;text-decoration:none!important}
+body.ftq-premium-locale header .langs a[aria-current],body.ftq-premium-ads header .langs a[aria-current]{background:#0c3140;color:#fff!important;border-color:#0c3140}
+body.ftq-premium-locale main .hero,body.ftq-premium-ads main .hero{background:radial-gradient(circle at 85% 9%,#d6a96626,transparent 35%),linear-gradient(130deg,#061b2e,#17464b)!important;color:#fff!important}
+body.ftq-premium-locale main .hero h1,body.ftq-premium-ads main .hero h1{font-family:Georgia,"Times New Roman",Tahoma,serif;letter-spacing:-.035em;line-height:1.17;color:#fffdf8!important}
+body.ftq-premium-locale main .hero h1 em,body.ftq-premium-ads main .hero h1 em{color:#e7bd76!important;font-style:normal}
+body.ftq-premium-locale main .hero p,body.ftq-premium-ads main .hero p{color:#d0e4e1!important}
+body.ftq-premium-locale main .hero .eyebrow,body.ftq-premium-ads main .hero .eyebrow{color:#efd8ae!important}
+body.ftq-premium-locale a.cta,body.ftq-premium-locale a.btn-primary,body.ftq-premium-locale button[type=submit],body.ftq-premium-locale .btn-primary,
+body.ftq-premium-ads a.cta,body.ftq-premium-ads a.btn-primary,body.ftq-premium-ads button[type=submit],body.ftq-premium-ads .btn-primary{background:linear-gradient(120deg,#082e41,#136d62)!important;background-image:linear-gradient(120deg,#082e41,#136d62)!important;color:#fff!important;border:1px solid #186b61!important;border-radius:25px!important;box-shadow:0 7px 22px #083b3530!important}
+body.ftq-premium-locale main .pills span{border-color:#729f92!important;color:#e1efe7!important;background:#0b3246!important}
+body.ftq-premium-locale main :is(.card,.glass-card,.feature,.feature-card),body.ftq-premium-ads main :is(.card,.glass-card,.feature,.feature-card){border:1px solid #eae1d6!important;border-radius:17px!important;box-shadow:0 7px 20px #10283713;background:#fffdf9;color:#143047}
+body.ftq-premium-locale .footer,body.ftq-premium-ads .footer{background:#091d31!important;color:#cdd9dc!important}
+body.ftq-premium-locale .footer a,body.ftq-premium-ads .footer a{color:#ebc78c!important}
+body.ftq-premium-locale :is(a,button,input,select):focus-visible,body.ftq-premium-ads :is(a,button,input,select):focus-visible{outline:3px solid #e6c27f!important;outline-offset:3px}
+@media(max-width:760px){body.ftq-premium-locale header .nav,body.ftq-premium-ads header .nav{padding:12px 14px!important;gap:8px}body.ftq-premium-locale header .brand img,body.ftq-premium-ads header .brand img{width:155px}body.ftq-premium-ads header .brand .ftq-ads-tag{font-size:10px;padding:4px 7px}body.ftq-premium-locale header .langs a,body.ftq-premium-ads header .langs a{font-size:11px;padding:5px 8px}}
+
+/* QA correction: legibility against legacy dark multilingual navigation */
+html body.ftq-premium-locale header nav .brand,html body.ftq-premium-ads header nav .brand{background:#fffdf8!important;border:1px solid #d8b984!important;box-shadow:0 6px 17px #07162942!important;padding:8px 12px!important;border-radius:13px!important;min-width:0}
+html body.ftq-premium-locale header nav .brand img,html body.ftq-premium-ads header nav .brand img{width:205px!important;max-width:100%!important;max-height:55px!important;object-fit:contain!important}
+html body.ftq-premium-ads header nav .brand .ftq-ads-tag{color:#805b27!important;background:#f5e9d4!important;border:1px solid #d9b579!important;font-weight:850!important;font-size:12px!important;letter-spacing:.04em!important}
+html body.ftq-premium-ads .highlight{background:#0d3542!important;border:1px solid #416c6e!important;border-radius:17px!important}
+html body.ftq-premium-ads .highlight :is(p,h2,h3,small,strong,li){color:#e4f0ec!important;opacity:1!important}
+html body.ftq-premium-ads .highlight a{color:#ffe0a3!important}
+html body.ftq-premium-locale .hero a.anchor{background:#e5c17b!important;border:1px solid #d2af69!important;color:#0b2937!important;border-radius:25px!important;display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;text-decoration:none!important;font-weight:850!important}
+@media(max-width:760px){html body.ftq-premium-locale header nav .brand img,html body.ftq-premium-ads header nav .brand img{width:195px!important}html body.ftq-premium-ads header nav .brand .ftq-ads-tag{font-size:11px!important}}
+
+/* Legacy ads theme also sets -webkit-text-fill-color; reset for accessible disclosure contrast. */
+html body.ftq-premium-ads main .highlight :is(h2,h3,p,small,strong,li){
+ color:#e8f4f1!important;-webkit-text-fill-color:#e8f4f1!important;
+ opacity:1!important;text-shadow:none!important;filter:none!important;
+}
+html body.ftq-premium-ads main .highlight a{
+ color:#ffdfa0!important;-webkit-text-fill-color:#ffdfa0!important;
+}
+
+/* Ultra-specific rescue: older pricing-parity stylesheet aggressively colors all headings. */
+html body.ftq-premium-ads.ftq-premium-ads main section.ad-intro .wrap.two div.highlight,
+html body.ftq-premium-ads.ftq-premium-ads main section.ad-intro .wrap.two div.highlight :is(h2,h3,p,strong,small,li){
+ color:#e8f3f1!important;-webkit-text-fill-color:#e8f3f1!important;
+}
+html body.ftq-premium-ads.ftq-premium-ads main section.ad-intro .wrap.two div.highlight a{
+ color:#fbdba0!important;-webkit-text-fill-color:#fbdba0!important;
+}
