@@ -1,0 +1,28 @@
+/* Freshtiq original image gallery + motion illustration. No changes to checkout or chatbot. */
+.solutions-gallery{padding:23px 0 63px;border-top:1px solid #ece4d7}
+.solutions-gallery .eyebrow{color:#a97936}
+.solutions-gallery h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,3.2vw,2.55rem);color:#102038;line-height:1.16;margin:10px 0 12px;letter-spacing:-.035em}
+.solutions-gallery>.gallery-intro{color:#617084;font-size:14px;line-height:1.6;max-width:720px;margin:0 0 24px}
+.solution-picture-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.solution-picture{min-width:0;display:flex;flex-direction:column;background:#fff;border:1px solid #e9e3db;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px #10243b0a;transition:border-color .2s,transform .2s}
+.solution-picture:hover{transform:translateY(-3px);border-color:#d9b878}
+.solution-picture img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#081b30}
+.solution-picture .media-text{display:flex;flex-direction:column;gap:8px;padding:20px}
+.solution-picture h3{margin:0;font-size:18px;line-height:1.25;color:#142339}
+.solution-picture p{margin:0;font-size:13px;line-height:1.6;color:#637487}
+.solution-picture .media-action{font-size:13px;font-weight:800;color:#007e72;margin-top:auto;padding-top:8px}
+.workflow-motion{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center;background:linear-gradient(120deg,#08233a,#18474a);border:1px solid #22565a;color:white;border-radius:25px;padding:22px;margin:30px 0 2px;box-shadow:0 13px 28px #0b35402a}
+.workflow-motion .media-stack{border-radius:15px;overflow:hidden;position:relative;box-shadow:0 8px 26px #0004}
+.workflow-motion img{display:block;width:100%;height:auto;object-fit:cover;aspect-ratio:560/235}
+.workflow-motion img.motion-still{display:none}
+.workflow-motion figcaption{padding:10px 12px;min-width:0}
+.workflow-motion figcaption .eyebrow{color:#eac37b}
+.workflow-motion figcaption h3{font-family:Georgia,serif;font-size:clamp(1.7rem,2.4vw,2.3rem);line-height:1.14;margin:9px 0 14px;color:white}
+.workflow-motion figcaption p{font-size:14px;line-height:1.65;color:#d0e0dc;margin:0 0 23px}
+.workflow-motion .media-cta{display:inline-flex;padding:12px 18px;color:#0b2736;background:#e5c077;border-radius:27px;font-size:13px;font-weight:800;text-decoration:none}
+.workflow-motion .media-cta:hover{background:#ffe1a0}
+@media(max-width:850px){.solution-picture-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-motion{grid-template-columns:1fr}}
+@media(max-width:610px){.solution-picture-grid{grid-template-columns:1fr}.solutions-gallery{padding:36px 0 44px}.solution-picture img{max-height:280px}.workflow-motion{padding:14px;gap:8px;border-radius:20px;margin-top:22px}.workflow-motion figcaption{padding:12px 9px 15px}.workflow-motion figcaption p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.solution-picture{transition:none}.workflow-motion img.motion-gif{display:none}.workflow-motion img.motion-still{display:block}}
+
+.motion-toggle{position:absolute;bottom:10px;right:12px;z-index:4;border:1px solid #a4dacf7d;background:#082439ea;color:#fff;border-radius:20px;padding:8px 12px;cursor:pointer;font-size:11px;font-weight:700}.motion-toggle:hover{background:#165767}.motion-toggle:focus-visible{outline:3px solid #ffca6e;outline-offset:2px}.media-stack.is-paused img.motion-gif{display:none}.media-stack.is-paused img.motion-still{display:block}@media(prefers-reduced-motion:reduce){.motion-toggle{display:none}}
