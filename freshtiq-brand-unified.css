@@ -386,3 +386,45 @@ body.ftq-unified-brand footer .logo img{
   display:none!important;
  }
 }
+
+/* Mobile menu visual repair. Legacy CSS moved .nav-links upward by -120%
+   even after JS added .open; force the OPEN state to sit below the navbar. */
+@media(max-width:999px){
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links.open{
+  display:flex!important;
+  position:fixed!important;
+  top:78px!important;
+  left:0!important;right:0!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:calc(100dvh - 96px)!important;
+  overflow-y:auto!important;
+  transform:translate3d(0,0,0)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  z-index:1190!important;
+  padding:14px 17px 19px!important;
+  background:#fffdf9!important;
+  border:1px solid #e9ddca!important;
+  border-top:0!important;
+  border-radius:0 0 19px 19px!important;
+  box-shadow:0 14px 27px #0d283a29!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  gap:4px!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links.open a{
+  width:100%!important;
+  min-height:43px!important;
+  padding:12px 15px!important;
+  text-align:left!important;
+ }
+ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page #navbar .nav-links.open a.nav-cta{
+  background:#0a2b3e!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border-radius:12px!important;
+ }
+}
