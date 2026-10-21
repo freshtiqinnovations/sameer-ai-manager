@@ -81,3 +81,82 @@ html body.ftq-premium-ads main .tag-row .tag{
  background:#164052!important;border:1px solid #538a8b!important;
  font-weight:750!important
 }
+
+/* Brand parity final polish: localized English and language landing accessibility.
+   Presentation-only; checkout, forms, auth and chat logic unchanged. */
+html body.ftq-premium-locale main .hero .form {
+ background:#fffdfa!important;color:#102e39!important;border-color:#cfdddc!important;
+}
+html body.ftq-premium-locale main .hero .form h2,
+html body.ftq-premium-locale main .hero .form label,
+html body.ftq-premium-locale main .hero .form .field {
+ color:#102e39!important;-webkit-text-fill-color:#102e39!important;opacity:1!important;
+}
+html body.ftq-premium-locale main .hero .form :is(p,.notice,.check span) {
+ color:#34515e!important;-webkit-text-fill-color:#34515e!important;opacity:1!important;
+}
+html body.ftq-premium-locale main .hero .form .notice a{
+ color:#095967!important;-webkit-text-fill-color:#095967!important;
+}
+html body.ftq-premium-locale main .hero .form input:not([type=checkbox]),
+html body.ftq-premium-locale main .hero .form select{
+ background:#fff!important;color:#102e39!important;-webkit-text-fill-color:#102e39!important;
+ border:1px solid #98aeb8!important;max-width:100%;font-size:16px!important;min-height:48px;
+}
+html body.ftq-premium-locale main .hero .form button[type=submit]{
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ background:linear-gradient(120deg,#075b5b,#094a60)!important;
+}
+html body.ftq-premium-locale main section.main .section-title,
+html body.ftq-premium-locale main section.main .card h3{
+ color:#102e39!important;-webkit-text-fill-color:#102e39!important;
+}
+html body.ftq-premium-locale main section.main .card p{
+ color:#35535f!important;-webkit-text-fill-color:#35535f!important;
+}
+html body.ftq-premium-locale main section.main a.anchor {
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ background:#08656a!important;border-color:#08656a!important;
+ padding:12px 20px!important;border-radius:12px!important;min-height:44px;
+ font-weight:800!important;text-decoration:none!important;
+}
+@media(max-width:1024px){
+ html body.ftq-premium-locale main .two {grid-template-columns:minmax(0,1fr)!important}
+ html body.ftq-premium-locale main .cards {grid-template-columns:minmax(0,1fr)!important}
+ html body.ftq-premium-locale main .form {min-width:0!important;max-width:100%!important}
+}
+
+/* 21 Oct visual QA: override older important text rules with the existing form ID. */
+html[data-ftq-theme] body.ftq-premium-locale #assessment,
+html[data-ftq-theme] body.ftq-premium-locale #assessment .field{
+ color:#102e39!important;-webkit-text-fill-color:#102e39!important;
+}
+html[data-ftq-theme] body.ftq-premium-locale #assessment :is(h2,h3,label,.check span){
+ color:#102e39!important;-webkit-text-fill-color:#102e39!important;opacity:1!important;
+}
+html[data-ftq-theme] body.ftq-premium-locale #assessment p,
+html[data-ftq-theme] body.ftq-premium-locale #assessment .notice{
+ color:#34515e!important;-webkit-text-fill-color:#34515e!important;opacity:1!important;
+}
+html[data-ftq-theme] body.ftq-premium-locale #assessment .notice a{
+ color:#085f66!important;-webkit-text-fill-color:#085f66!important;
+}
+html[data-ftq-theme] body.ftq-premium-locale #assessment button[type=submit]{
+ background:#08636a!important;background-image:linear-gradient(115deg,#0b5060,#08646a)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ border:1px solid #08636a!important;
+}
+html[data-ftq-theme] body.ftq-premium-locale.ftq-premium-locale main section.hero .two a.anchor[href="#assessment"]{
+ background:#0b5965!important;background-image:linear-gradient(110deg,#095b64,#0b485c)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+
+/* Final color lock uses two distinct IDs: form containment + page form context.
+   Required because older :has(#localized-lead) rules use ID specificity. */
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) #assessment p,
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) #assessment p.notice {
+ color:#34515e!important;-webkit-text-fill-color:#34515e!important;opacity:1!important;
+}
+html[data-ftq-theme="light"] body.ftq-premium-locale:has(#localized-lead) #assessment .notice a {
+ color:#075d66!important;-webkit-text-fill-color:#075d66!important;
+}
