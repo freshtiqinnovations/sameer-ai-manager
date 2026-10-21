@@ -1,0 +1,48 @@
+/* Premium identity for indexable special-purpose and interactive demo pages.
+   Presentation only; example state, chat simulation, forms and navigation are untouched. */
+body.ftq-special-demo{background:#fffaf3!important;color:#172b40!important}
+body.ftq-special-demo main.demo-wrap{max-width:1180px;padding:22px clamp(14px,3vw,30px) 65px}
+body.ftq-special-demo main.demo-wrap>.brand{
+ display:flex!important;align-items:center;justify-content:space-between!important;gap:12px;
+ padding:11px 16px!important;margin:0 0 24px!important;border-radius:17px;
+ background:#fffdf8!important;border:1px solid #e7dccb!important;
+ box-shadow:0 7px 21px #0b273515!important;
+}
+body.ftq-special-demo main.demo-wrap>.brand .ftq-demo-logo{display:flex;align-items:center;min-width:0}
+body.ftq-special-demo main.demo-wrap>.brand .ftq-demo-logo img{display:block;width:clamp(160px,22vw,220px);max-width:100%;height:auto;object-fit:contain}
+body.ftq-special-demo main.demo-wrap>.brand .pill{border:1px solid #cfb079!important;color:#805d30!important;background:#f9efdd!important;border-radius:20px!important;padding:9px 12px!important}
+body.ftq-special-demo main.demo-wrap .hero{background:radial-gradient(circle at 85% 0%,#b9936335,transparent 37%),linear-gradient(125deg,#081d31,#134447)!important;color:#fdfbf5!important;border-radius:25px!important;border:1px solid #40626a!important}
+body.ftq-special-demo main.demo-wrap .hero h1{font-family:Georgia,"Times New Roman",serif!important;color:#fffdf8!important;line-height:1.18!important;letter-spacing:-.02em}
+body.ftq-special-demo main.demo-wrap .hero p{color:#d8e6e3!important;opacity:1!important}
+body.ftq-special-demo main.demo-wrap .card{border:1px solid #e9e0d1!important;border-radius:18px!important;box-shadow:0 8px 23px #11384b0e}
+body.ftq-special-demo main.demo-wrap .demo-flag{border-radius:14px!important;border:1px solid #e4d19f!important}
+body.ftq-special-demo main.demo-wrap a:focus-visible,body.ftq-special-demo main.demo-wrap button:focus-visible{outline:3px solid #d5a55b!important;outline-offset:3px!important}
+body.ftq-acquire{background:#fffaf2!important;color:#192a3b!important}
+body.ftq-acquire .ftq-acquire-brand{display:flex;align-items:center;background:#fffdf9;padding:14px 20px;border:1px solid #eee3d6;border-radius:17px;box-shadow:0 8px 19px #132b3614;margin:0 0 26px}
+body.ftq-acquire .ftq-acquire-brand img{display:block;width:220px;max-width:100%;height:auto;object-fit:contain}
+body.ftq-acquire h1{font-family:Georgia,"Times New Roman",serif!important;letter-spacing:-.04em;color:#152b3c!important}
+body.ftq-acquire .card{border:1px solid #e4d8c6!important;color:#1d3242!important;background:#fffdf8!important;box-shadow:0 9px 22px #14334312!important}
+body.ftq-acquire .card h2{color:#11283c!important}
+body.ftq-acquire a.cta{background:#0c3345!important;border-radius:24px!important;color:#fff!important;box-shadow:none!important}
+body.ftq-acquire .price{color:#9c742f!important}
+@media(max-width:640px){body.ftq-special-demo main.demo-wrap>.brand{flex-wrap:wrap;padding:12px 14px!important}body.ftq-special-demo main.demo-wrap>.brand .ftq-demo-logo img{width:185px}body.ftq-special-demo main.demo-wrap .hero{padding:24px 15px!important}body.ftq-acquire .ftq-acquire-brand{padding:9px 12px}body.ftq-acquire .ftq-acquire-brand img{width:185px}}
+
+/* Demo regression QA: force genuine one-column mobile hero; older global CSS injects 2 columns. */
+html body.ftq-special-demo main.demo-wrap > section.hero{
+ display:block!important;grid-template-columns:1fr!important;min-height:unset!important;
+ max-width:100%!important;padding:clamp(22px,3.5vw,39px)!important;
+ margin:0 0 24px!important;overflow:visible!important;
+}
+html body.ftq-special-demo main.demo-wrap > section.hero h1{
+ display:block!important;font-size:clamp(1.85rem,4.5vw,2.8rem)!important;
+ line-height:1.19!important;max-width:100%!important;
+ margin:0 0 14px!important;color:#fffdf8!important;-webkit-text-fill-color:#fffdf8!important;
+ background:none!important;text-shadow:none!important;
+}
+html body.ftq-special-demo main.demo-wrap > section.hero p{
+ display:block!important;max-width:790px!important;margin:0!important;
+ color:#d8e6e3!important;-webkit-text-fill-color:#d8e6e3!important;
+ font-size:clamp(14px,2vw,17px)!important;line-height:1.6!important;
+}
+
+html body.ftq-special-demo main.demo-wrap > section.hero h1{animation:none!important;opacity:1!important;transition:none!important}
