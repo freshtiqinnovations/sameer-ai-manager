@@ -232,3 +232,60 @@ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh 
     width:100%!important;
   }
 }
+
+
+/* CONTACT-LAYOUT-20261023 — remove excessive vertical gaps, balance 5 cards. */
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main > .fx-section{
+  padding-top:54px!important;
+  padding-bottom:54px!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid{
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:18px!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap{
+  grid-column:span 2;
+  min-width:0;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap:nth-last-child(-n+2){
+  grid-column:span 3;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main > .fx-final{
+  padding-top:55px!important;
+  padding-bottom:66px!important;
+}
+@media(max-width:900px){
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap{
+    grid-column:auto!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap:nth-last-child(-n+2){
+    grid-column:auto!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap:last-child{
+    grid-column:1/-1!important;
+  }
+}
+@media(max-width:620px){
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main > .fx-section{
+    padding-top:30px!important;
+    padding-bottom:30px!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main > .fx-final{
+    padding-top:33px!important;
+    padding-bottom:45px!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap{
+    grid-column:1/-1!important;
+  }
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh main .fx-cap-grid > .fx-cap:last-child{
+    grid-column:1/-1!important;
+  }
+}
