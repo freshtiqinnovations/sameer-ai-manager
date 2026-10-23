@@ -289,3 +289,106 @@ html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh 
     grid-column:1/-1!important;
   }
 }
+
+
+/* CONTACT-READABILITY-20261023: readable free audit CTA and clear five card icons.
+   Scoped to contact page only; keeps existing WhatsApp/mail/payment paths unchanged. */
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .glass-card p a.ftq-contact-audit-link,
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .glass-card p a.ftq-contact-audit-link:visited{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  max-width:100%!important;
+  width:auto!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  vertical-align:middle!important;
+  min-height:42px!important;
+  padding:10px 15px!important;
+  border:1px solid #075b55!important;
+  border-radius:10px!important;
+  background:#075b55!important;
+  background-image:none!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  line-height:1.35!important;
+  text-align:center!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .glass-card p a.ftq-contact-audit-link:hover{
+  background:#064842!important;
+  border-color:#064842!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .glass-card p a.ftq-contact-audit-link:focus-visible{
+  outline:3px solid #d48b2d!important;
+  outline-offset:3px!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap .fx-cap-icon{
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 54px!important;
+  width:54px!important;
+  height:54px!important;
+  border-radius:14px!important;
+  background:#e0f2ed!important;
+  background-image:none!important;
+  border:1.5px solid #91c5b7!important;
+  color:#075b55!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap .fx-cap-icon svg{
+  display:block!important;
+  width:29px!important;
+  height:29px!important;
+  opacity:1!important;
+  fill:none!important;
+  stroke:#075b55!important;
+  stroke-width:2.4!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+  color:#075b55!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap .fx-cap-icon svg :is(path,rect,circle,line,polyline,polygon){
+  stroke:#075b55!important;
+  stroke-width:2.4!important;
+  opacity:1!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap h3{
+  color:#172d3a!important;
+  -webkit-text-fill-color:#172d3a!important;
+  font-size:19px!important;
+  font-weight:800!important;
+  line-height:1.35!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap p{
+  color:#3e5962!important;
+  -webkit-text-fill-color:#3e5962!important;
+  font-size:15px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+}
+html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+ main .fx-cap .fx-cap-link{
+  color:#075b55!important;
+  -webkit-text-fill-color:#075b55!important;
+  font-size:14px!important;
+  font-weight:800!important;
+}
+@media(max-width:620px){
+  html[data-ftq-theme] body.ftq-unified-brand.fx-premium-page.ftq-contact-refresh
+  main .glass-card p a.ftq-contact-audit-link{
+    margin-top:5px!important;
+    margin-bottom:5px!important;
+  }
+}
