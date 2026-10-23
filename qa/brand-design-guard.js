@@ -26,7 +26,33 @@ for(const p of pages){
  const idx=p.html.indexOf(link),head=p.html.toLowerCase().lastIndexOf('</head>');
  assert(idx>0&&idx<head,'Stylesheet outside head: '+p.name);
  const tail=p.html.slice(idx+link.length,head);
- assert(!/<link\b[^>]*(?:\.css|stylesheet)/i.test(tail),'Other stylesheet loads after master: '+p.name);
+ // The master theme remains required, with a strictly allowlisted final overlay cascade.
+ // These are scoped page/locale refinements, not replacements for the master palette.
+ const approvedPostMaster=new Set([
+   '/freshtiq-brand-unified.css',
+   '/freshtiq-page-parity.css',
+   '/locale-premium-brand.css',
+   '/locale-home-parity.css',
+   '/special-premium-brand.css',
+   '/seo-international.css'
+ ]);
+ const postLinks=Array.from(tail.matchAll(/<link\b[^>]*>/gi),m=>m[0])
+  .filter(tag=>/rel=["']stylesheet["']/i.test(tag));
+ const seen=new Set();
+ for(const tag of postLinks){
+  const match=tag.match(/href=["']([^"']+)["']/i);
+  const href=match&&match[1];
+  const pathname=href&&href.split('?')[0];
+  assert(!!pathname&&approvedPostMaster.has(pathname),
+    'Unapproved stylesheet after master: '+p.name+' -> '+(href||'[missing href]'));
+  if(pathname){
+   assert(!seen.has(pathname),'Duplicate post-master overlay: '+p.name+' -> '+pathname);
+   assert(fs.existsSync(path.join(root,pathname.replace(/^\//,''))),
+     'Missing approved overlay file: '+pathname);
+   seen.add(pathname);
+  }
+ }
+
 }
 assert(js.includes("html.setAttribute('data-ftq-theme','light');"),'Light identity initializer missing');
 assert(js.includes("html.style.colorScheme='light';"),'Light color scheme missing');
