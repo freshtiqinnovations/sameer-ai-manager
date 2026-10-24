@@ -12,6 +12,7 @@
     ? '/api/chat'
     : 'https://portal.freshtiqautomation.com/api/chat';
   const LEAD_API = API.replace('/api/chat','/api/lead');
+  const CHAT_SESSION_API = API.replace('/api/chat','/api/chat/session');
 
   // ─── SESSION ID (per visitor) ───
   let SID = (() => { const k='ft_chat_sid_v2'; let v=''; try{v=sessionStorage.getItem(k)||'';}catch(_){} if(!v){v='web_'+Math.random().toString(36).substring(2,10)+'_'+Date.now();try{sessionStorage.setItem(k,v);}catch(_){}} return v; })();
@@ -104,7 +105,7 @@
 .ft-quick-btn{padding:6px 12px;font-size:0.75rem;border-radius:50px;border:1px solid rgba(108,99,255,0.2);background:rgba(108,99,255,0.06);color:#818cf8;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .ft-quick-btn:hover{background:rgba(108,99,255,0.15);border-color:#6C63FF}
 .ft-context-strip{padding:7px 16px 0;background:#0b0f19;color:#94a3b8;font-size:.67rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ft-handoff{display:none;margin:10px 14px 0;padding:12px;border:1px solid rgba(108,99,255,.2);border-radius:14px;background:#101827;color:#e2e8f0}.ft-handoff.open{display:block}.ft-handoff-title{font-size:.8rem;font-weight:800;margin-bottom:8px}.ft-handoff-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.ft-handoff input,.ft-handoff select{width:100%;box-sizing:border-box;padding:8px 9px;border-radius:9px;border:1px solid rgba(148,163,184,.22);background:#0b1220;color:#e2e8f0;font-size:.75rem;outline:none}.ft-handoff input:focus,.ft-handoff select:focus{border-color:#6C63FF}.ft-handoff-wide{grid-column:1/-1}.ft-handoff-consent{display:none;grid-column:1/-1;font-size:.67rem;line-height:1.35;color:#94a3b8}.ft-handoff-consent.show{display:flex;gap:6px;align-items:flex-start}.ft-handoff-consent input{width:auto;margin-top:2px}.ft-handoff-actions{display:flex;gap:7px;margin-top:9px}.ft-handoff-actions button{flex:1;padding:8px;border-radius:9px;border:1px solid rgba(108,99,255,.25);font-weight:800;font-size:.72rem;cursor:pointer}.ft-handoff-save{background:#6C63FF;color:#fff}.ft-handoff-cancel{background:transparent;color:#cbd5e1}.ft-handoff-status{margin-top:7px;font-size:.67rem;color:#94a3b8;line-height:1.35}.ft-chat-privacy{padding:8px 16px 0;background:#0b0f19;color:#64748b;font-size:.68rem;line-height:1.35}
+.ft-handoff{display:none;margin:10px 14px 0;padding:12px;border:1px solid rgba(108,99,255,.2);border-radius:14px;background:#101827;color:#e2e8f0}.ft-handoff.open{display:block}.ft-handoff-title{font-size:.8rem;font-weight:800;margin-bottom:8px}.ft-handoff-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.ft-handoff input,.ft-handoff select,.ft-handoff textarea{width:100%;box-sizing:border-box;padding:8px 9px;border-radius:9px;border:1px solid rgba(148,163,184,.22);background:#0b1220;color:#e2e8f0;font-size:.75rem;outline:none}.ft-handoff input:focus,.ft-handoff select:focus{border-color:#6C63FF}.ft-handoff-wide{grid-column:1/-1}.ft-handoff-consent{display:none;grid-column:1/-1;font-size:.67rem;line-height:1.35;color:#94a3b8}.ft-handoff-consent.show{display:flex;gap:6px;align-items:flex-start}.ft-handoff-consent input{width:auto;margin-top:2px}.ft-handoff-actions{display:flex;gap:7px;margin-top:9px}.ft-handoff-actions button{flex:1;padding:8px;border-radius:9px;border:1px solid rgba(108,99,255,.25);font-weight:800;font-size:.72rem;cursor:pointer}.ft-handoff-save{background:#6C63FF;color:#fff}.ft-handoff-cancel{background:transparent;color:#cbd5e1}.ft-handoff-status{margin-top:7px;font-size:.67rem;color:#94a3b8;line-height:1.35}.ft-chat-privacy{padding:8px 16px 0;background:#0b0f19;color:#64748b;font-size:.68rem;line-height:1.35}
 @keyframes ftFadeIn{from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)}}
 @media(max-width:500px){
   #ft-chat-widget{right:8px;bottom:80px;width:calc(100vw - 16px);border-radius:20px}
@@ -138,10 +139,11 @@
   <div class="ft-handoff-title">Talk to Freshtiq team</div>
   <div class="ft-handoff-grid">
     <input id="ft-ho-name" class="ft-handoff-wide" type="text" placeholder="Your name" autocomplete="name">
+    <textarea id="ft-ho-requirement" class="ft-handoff-wide" rows="2" maxlength="600" aria-label="Business requirement" placeholder="What would you like us to build or automate?"></textarea>
     <select id="ft-ho-method" aria-label="Preferred contact"><option value="Email">Email</option><option value="WhatsApp">WhatsApp</option></select>
     <input id="ft-ho-email" type="email" placeholder="you@company.com" autocomplete="email">
     <input id="ft-ho-phone" class="ft-handoff-wide" type="tel" placeholder="WhatsApp + country code" autocomplete="tel" style="display:none">
-    <label class="ft-handoff-consent" id="ft-ho-consent-row"><input id="ft-ho-consent" type="checkbox"><span>Freshtiq may reply to this request on WhatsApp. No marketing unless I separately opt in.</span></label>
+    <label class="ft-handoff-consent show" id="ft-ho-consent-row"><input id="ft-ho-consent" type="checkbox"><span id="ft-ho-consent-text">I agree that Freshtiq Automation may respond once about this enquiry by email. No marketing broadcasts.</span></label>
   </div>
   <div class="ft-handoff-actions"><button class="ft-handoff-cancel" id="ft-ho-cancel" type="button">Cancel</button><button class="ft-handoff-save" id="ft-ho-save" type="button">Save & hand off</button></div>
   <div class="ft-handoff-status" id="ft-ho-status"></div>
@@ -218,6 +220,8 @@
   const hoEmail = document.getElementById('ft-ho-email');
   const hoPhone = document.getElementById('ft-ho-phone');
   const hoConsent = document.getElementById('ft-ho-consent');
+  const hoRequirement = document.getElementById('ft-ho-requirement');
+  const hoConsentText = document.getElementById('ft-ho-consent-text');
   const hoConsentRow = document.getElementById('ft-ho-consent-row');
   const hoStatus = document.getElementById('ft-ho-status');
   const hoSave = document.getElementById('ft-ho-save');
@@ -283,27 +287,43 @@
     }[action] || 'Help me with '+action+'.';
   }
   function setHandoffMethod(){
-    const wa=hoMethod.value==='WhatsApp';hoEmail.style.display=wa?'none':'block';hoPhone.style.display=wa?'block':'none';hoConsentRow.classList.toggle('show',wa);hoStatus.textContent='';
+    const wa=hoMethod.value==='WhatsApp';
+    hoEmail.style.display=wa?'none':'block';
+    hoPhone.style.display=wa?'block':'none';
+    hoConsentRow.classList.add('show');
+    hoConsent.checked=false;
+    hoConsentText.textContent=wa
+      ? 'I agree that Freshtiq Automation may contact me one-to-one on WhatsApp about this specific enquiry. No marketing broadcasts.'
+      : 'I agree that Freshtiq Automation may contact me one-to-one by email about this specific enquiry. No marketing broadcasts.';
+    hoStatus.textContent='';
   }
   function openHandoff(){const mb=window.FreshtiqMarketplaceBridge;if(mb&&mb.restricted){addMessage('🔒 Because you reached Freshtiq via **'+mb.label+'**, please keep project communication on '+mb.label+' until the order/contract is active. After that, external contact can be shared according to the platform rules.','bot');return;}handoff.classList.add('open');setHandoffMethod();setTimeout(()=>hoName.focus(),60);}
   function closeHandoff(){handoff.classList.remove('open');hoStatus.textContent='';}
 
   async function submitHandoff(){
     const name=hoName.value.trim(), method=hoMethod.value, email=hoEmail.value.trim(), phone=hoPhone.value.trim();
+    const requirement=hoRequirement.value.trim();
     if(name.length<2){hoStatus.textContent='Please enter your name.';return;}
+    if(requirement.length<8){hoStatus.textContent='Please describe the work you need (at least 8 characters).';return;}
     if(method==='Email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hoStatus.textContent='Please enter a valid email.';return;}
     if(method==='WhatsApp'&&phone.replace(/\D/g,'').length<8){hoStatus.textContent='Please enter WhatsApp number with country code.';return;}
-    if(method==='WhatsApp'&&!hoConsent.checked){hoStatus.textContent='Please confirm WhatsApp reply consent for this request.';return;}
+    if(!hoConsent.checked){hoStatus.textContent='Please confirm that Freshtiq may respond once about this enquiry.';return;}
     hoSave.disabled=true;hoStatus.textContent='Saving your request…';
-    const recent=chatHistory.slice(-8).map(x=>(x.role==='user'?'Customer: ':'Freshtiq: ')+String(x.content||'').replace(/\s+/g,' ').slice(0,240)).join(' | ').slice(0,1500);
+    // Share only the customer's typed requirement, NOT a raw chat transcript.
     const meta=window.FreshtiqJourney.getContext();
     const payload=Object.assign({},meta,{
-      name, email:method==='Email'?email:'', phone:method==='WhatsApp'?phone:'',
-      preferred_contact:method, country:PAGE_META.market||'', service:(PAGE_META.service&&!["Pricing","Interactive Demo"].includes(PAGE_META.service))?PAGE_META.service:'Human Handoff / Automation Enquiry',
-      message:'Human handoff requested from website chat.'+(recent?' Recent conversation: '+recent:''), source:'Website Chat Handoff',
-      whatsapp_opt_in:method==='WhatsApp'&&hoConsent.checked, marketing_opt_in:false, consent_source:'website_chat_handoff_v1'
+      name,email:method==='Email'?email:'',phone:method==='WhatsApp'?phone:'',
+      preferred_contact:method,country:PAGE_META.market||'',
+      service:(PAGE_META.service&&!["Pricing","Interactive Demo"].includes(PAGE_META.service))?PAGE_META.service:'Automation Enquiry',
+      message:requirement,source:'Website AI Chat Handoff',
+      contact_permission:true,whatsapp_opt_in:method==='WhatsApp',
+      marketing_opt_in:false,
+      marketplace_restricted:!!window.FreshtiqMarketplaceBridge?.restricted
     });
     try{
+      // Establish the same server-owned HttpOnly session before submitting.
+      const session=await fetch(CHAT_SESSION_API,{method:'POST',credentials:'include'});
+      if(!session.ok)throw new Error('Could not establish secure chat session');
       const r=await fetch(LEAD_API,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));
       if(!r.ok||!d.success)throw new Error(d.error||'Could not save request');
       // Server-owned HttpOnly session cookie is authoritative; never store it in sessionStorage.
@@ -315,7 +335,7 @@
         addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. To continue on WhatsApp, tap this link yourself: https://wa.me/918381848389?text='+text,'bot');
       }else addMessage('✅ Handoff saved. Lead Ref: **'+(d.lead_ref||('#'+d.lead_id))+'**. We will reply using the email you provided.','bot');
       try{if(window.gtag)gtag('event','human_handoff_saved',{method,lead_ref:String(d.lead_ref||'')});}catch(_){}
-    }catch(e){hoStatus.textContent='Could not save right now. Please try again or use the Contact page.';}
+    }catch(e){hoStatus.textContent='Could not save right now. Please retry. No contact request has been confirmed.';}
     finally{hoSave.disabled=false;}
   }
 
