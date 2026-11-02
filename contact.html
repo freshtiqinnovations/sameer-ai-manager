@@ -60,6 +60,55 @@
     </div>
   </section>
 
+  <section class="fx-section" id="contact-form" aria-labelledby="contact-form-heading">
+    <div class="fx-wrap">
+      <div class="glass-card" style="padding:28px;max-width:900px;margin:0 auto 10px">
+        <span class="section-label">FREE WORKFLOW AUDIT</span>
+        <h2 id="contact-form-heading" style="margin:8px 0 6px">Tell us what is slowing your business down.</h2>
+        <p style="margin:0 0 18px;opacity:.82;line-height:1.6">Share the problem in plain language. We reply on WhatsApp with a practical next step. No payment now, no marketing broadcasts.</p>
+        <form id="contactLeadForm" onsubmit="event.preventDefault(); submitContactLead(event); return false;" novalidate>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+            <div>
+              <label for="cfName" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">Your name *</label>
+              <input id="cfName" name="name" type="text" autocomplete="name" required placeholder="Full name" style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit">
+            </div>
+            <div>
+              <label for="cfPhone" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">WhatsApp number *</label>
+              <input id="cfPhone" name="phone" type="tel" autocomplete="tel" required placeholder="+91 98765 43210" style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit">
+            </div>
+            <div>
+              <label for="cfBusiness" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">Business type</label>
+              <select id="cfBusiness" name="business" style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit">
+                <option value="">Select…</option>
+                <option>Clinic / Healthcare</option>
+                <option>Real Estate</option>
+                <option>Restaurant / Cafe</option>
+                <option>E-commerce / Retail</option>
+                <option>Manufacturing / Factory</option>
+                <option>Professional Services</option>
+                <option>Travel / Tourism</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div style="grid-column:1/-1">
+              <label for="cfProblem" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">What do you want to improve? *</label>
+              <textarea id="cfProblem" name="problem" rows="3" required placeholder="e.g. We miss customer enquiries after hours and follow-ups are manual." style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit;resize:vertical"></textarea>
+            </div>
+          </div>
+          <label style="display:flex;gap:9px;align-items:flex-start;font-size:.78rem;line-height:1.45;margin:14px 0 14px;opacity:.9"><input id="cfConsent" type="checkbox" required style="width:auto;margin-top:3px"> <span>Freshtiq may reply on WhatsApp about this enquiry. No marketing broadcasts.</span></label>
+          <button type="submit" id="cfSubmit" class="ftq-primary" style="border:0;cursor:pointer">Request Free Audit →</button>
+          <div id="contactLeadStatus" role="status" aria-live="polite" style="font-size:.82rem;margin-top:10px;min-height:1.2em"></div>
+        </form>
+        <div id="contactLeadSuccess" style="display:none;padding:8px 0">
+          <h3 style="margin:0 0 8px">✅ Request received</h3>
+          <p style="margin:0 0 8px;opacity:.85">We will reply on WhatsApp within 1 business day with the next practical step.</p>
+          <p id="contactLeadRef" style="font-weight:800;margin:0 0 12px"></p>
+          <a id="contactWaSuccess" class="ftq-primary" href="https://wa.me/918381848389" target="_blank" rel="noopener noreferrer">Continue on WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="fx-section" aria-labelledby="whatsapp-contact-heading"><div class="fx-wrap">
     <div class="glass-card" style="padding:22px;margin:0 auto 10px;max-width:1000px">
       <h2 id="whatsapp-contact-heading">Freshtiq Automation WhatsApp Business contact</h2>
@@ -119,4 +168,49 @@
 <script defer src="/site-consent.js?v=20261010choice2"></script>
 <script defer src="/freshtiq-nav-controls.js?v=20261012nc1"></script>
 <script defer src="/freshtiq-chat.js?v=20261018memory1"></script>
+<script>
+async function submitContactLead(ev){
+  ev.preventDefault();
+  const name=document.getElementById('cfName').value.trim();
+  const phone=document.getElementById('cfPhone').value.trim();
+  const business=document.getElementById('cfBusiness').value.trim();
+  const problem=document.getElementById('cfProblem').value.trim();
+  const consent=document.getElementById('cfConsent').checked;
+  const status=document.getElementById('contactLeadStatus');
+  const btn=document.getElementById('cfSubmit');
+  status.style.color='#dc2626';
+  if(name.length<2){status.textContent='Please enter your name.';return false;}
+  if(phone.replace(/\D/g,'').length<8){status.textContent='Please enter your WhatsApp number with country code.';return false;}
+  if(problem.length<5){status.textContent='Please describe what you want to improve.';return false;}
+  if(!consent){status.textContent='Please confirm WhatsApp reply permission.';return false;}
+  status.style.color='';status.textContent='Saving your request…';btn.disabled=true;
+  try{
+    const ctx=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{};
+    const resp=await fetch('https://portal.freshtiqautomation.com/api/lead',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(Object.assign({},ctx,{
+        name:name,phone:phone,email:'',
+        service:'Contact page: '+(business||'General enquiry'),
+        budget:0,country:'India',
+        message:'Business type: '+(business||'Not specified')+' | Problem: '+problem,
+        source:'Contact Page Form',preferred_contact:'WhatsApp',
+        whatsapp_opt_in:true,marketing_opt_in:false,contact_permission:true,
+        consent_source:'contact_page_form_whatsapp_reply_v1'
+      }))
+    });
+    const result=await resp.json().catch(function(){return {};});
+    if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
+    const ref=String(result.lead_ref||'');
+    document.getElementById('contactLeadForm').style.display='none';
+    document.getElementById('contactLeadSuccess').style.display='block';
+    document.getElementById('contactLeadRef').textContent=ref?'Lead Ref: '+ref:'Request saved.';
+    document.getElementById('contactWaSuccess').href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq, I submitted a contact form request.'+(ref?' Lead Ref: '+ref:''));
+  }catch(err){
+    status.style.color='#dc2626';
+    status.textContent='We could not save the request right now. Please try again or use WhatsApp.';
+    btn.disabled=false;
+  }
+  return false;
+}
+</script>
 </body></html>
