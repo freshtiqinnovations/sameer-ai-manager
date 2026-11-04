@@ -200,9 +200,11 @@ async function submitContactLead(ev){
     });
     const result=await resp.json().catch(function(){return {};});
     if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
-    if(typeof window.gtag === 'function'){
-      window.gtag('event', 'generate_lead', {method:'contact_form'});
-    }
+    try{
+      if(typeof window.gtag === 'function' && window.localStorage.getItem('ftq_analytics_consent_v1') === 'granted'){
+        window.gtag('event','generate_lead',{method:'contact_form'});
+      }
+    }catch(_trackingError){}
     const ref=String(result.lead_ref||'');
     document.getElementById('contactLeadForm').style.display='none';
     document.getElementById('contactLeadSuccess').style.display='block';
