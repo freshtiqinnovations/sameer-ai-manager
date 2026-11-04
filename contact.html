@@ -90,6 +90,21 @@
                 <option>Other</option>
               </select>
             </div>
+            <div>
+              <label for="cfCountry" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">Business country (optional)</label>
+              <select id="cfCountry" name="country" style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit">
+                <option value="">Select country or leave blank</option>
+                <option>India</option>
+                <option>Saudi Arabia</option>
+                <option>UAE</option>
+                <option>USA</option>
+                <option>United Kingdom</option>
+                <option>Eurozone</option>
+                <option>Australia</option>
+                <option>Denmark</option>
+                <option>Other</option>
+              </select>
+            </div>
             <div style="grid-column:1/-1">
               <label for="cfProblem" style="display:block;font-size:.8rem;font-weight:700;margin-bottom:5px">What do you want to improve? *</label>
               <textarea id="cfProblem" name="problem" rows="3" required placeholder="e.g. We miss customer enquiries after hours and follow-ups are manual." style="width:100%;padding:11px 12px;border:1px solid rgba(120,140,170,.35);border-radius:9px;background:rgba(255,255,255,.75);color:#10233f;font:inherit;resize:vertical"></textarea>
@@ -174,6 +189,9 @@ async function submitContactLead(ev){
   const name=document.getElementById('cfName').value.trim();
   const phone=document.getElementById('cfPhone').value.trim();
   const business=document.getElementById('cfBusiness').value.trim();
+  const selectedCountry=document.getElementById('cfCountry').value;
+  const phoneNumberDigits=phone.replace(/[^0-9+]/g,'');
+  const country=selectedCountry || (phoneNumberDigits.startsWith('+966')?'Saudi Arabia':phoneNumberDigits.startsWith('+971')?'UAE':phoneNumberDigits.startsWith('+91')?'India':'Not specified');
   const problem=document.getElementById('cfProblem').value.trim();
   const consent=document.getElementById('cfConsent').checked;
   const status=document.getElementById('contactLeadStatus');
@@ -191,7 +209,7 @@ async function submitContactLead(ev){
       body:JSON.stringify(Object.assign({},ctx,{
         name:name,phone:phone,email:'',
         service:'Contact page: '+(business||'General enquiry'),
-        budget:0,country:'India',
+        budget:0,country:country,
         message:'Business type: '+(business||'Not specified')+' | Problem: '+problem,
         source:'Contact Page Form',preferred_contact:'WhatsApp',
         whatsapp_opt_in:true,marketing_opt_in:false,contact_permission:true,
@@ -202,7 +220,7 @@ async function submitContactLead(ev){
     if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
     try{
       if(typeof window.gtag === 'function' && window.localStorage.getItem('ftq_analytics_consent_v1') === 'granted'){
-        window.gtag('event','generate_lead',{method:'contact_form'});
+        window.gtag('event','generate_lead',{method:'contact_form',lead_source:'contact_form',country:country});
       }
     }catch(_trackingError){}
     const ref=String(result.lead_ref||'');
