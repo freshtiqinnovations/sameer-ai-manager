@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Freshtiq Automation Contact | WhatsApp +91 83818 48389</title>
-  <meta name="description" content="Freshtiq Automation WhatsApp Business: +91 83818 48389. Message us about AI agents, CRM, websites and WhatsApp automation, or request a written quote.">
+  <title>Free AI Automation Workflow Audit | Contact Freshtiq</title>
+  <meta name="description" content="Request a free workflow audit for WhatsApp automation, AI agents, websites or CRM. Tell Freshtiq your business problem and get human-reviewed next steps.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://freshtiqautomation.com/contact.html">
   <meta property="og:type" content="website">
@@ -200,6 +200,11 @@ async function submitContactLead(ev){
     });
     const result=await resp.json().catch(function(){return {};});
     if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
+    try{
+      if(typeof window.gtag === 'function' && window.localStorage.getItem('ftq_analytics_consent_v1') === 'granted'){
+        window.gtag('event','generate_lead',{method:'contact_form'});
+      }
+    }catch(_trackingError){}
     const ref=String(result.lead_ref||'');
     document.getElementById('contactLeadForm').style.display='none';
     document.getElementById('contactLeadSuccess').style.display='block';
