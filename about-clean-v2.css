@@ -111,3 +111,12 @@ body.ftq-about-v2 .ftq-nav-backdrop.show{display:block;position:fixed;inset:77px
  body.ftq-about-v2 footer .footer-bottom a{display:inline-block;margin:0 13px 8px 0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Keep the original consent choices usable without the retired CSS. */
+body.ftq-about-v2 #ftq-consent{position:fixed;left:15px;right:15px;bottom:15px;z-index:20000;max-width:760px;margin:0 auto;padding:18px 19px;border:1px solid #cbdde1;border-radius:16px;background:#fff;color:#173140;box-shadow:0 12px 44px #08233345;font:400 14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+body.ftq-about-v2 #ftq-consent .ftq-consent-copy{display:flex;flex-direction:column;gap:7px}
+body.ftq-about-v2 #ftq-consent .ftq-consent-copy strong{font-size:16px;color:#163449}
+body.ftq-about-v2 #ftq-consent .ftq-consent-copy span{color:#425f6d}
+body.ftq-about-v2 #ftq-consent .ftq-consent-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+body.ftq-about-v2 #ftq-consent button{flex:1 1 120px;min-height:42px;padding:9px 12px;border:1px solid #a7c8c6;border-radius:10px;background:#eef7f5;color:#144d4c;font:750 13px system-ui,sans-serif;cursor:pointer}
+body.ftq-about-v2 #ftq-consent button.primary{background:#116e69;color:#fff;border-color:#116e69}
