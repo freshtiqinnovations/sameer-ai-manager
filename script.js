@@ -905,8 +905,8 @@ document.addEventListener('click', function (e) {
     if(mobileBar){
       document.body.classList.add('ftq-has-mobile-cta');
       const buttons=[...mobileBar.querySelectorAll('a')];
-      if(buttons[0]){buttons[0].href='/#free-audit';buttons[0].textContent='Free Audit';}
-      if(buttons[1]){buttons[1].href='/#free-audit';buttons[1].textContent='AI Assistant';buttons[1].classList.add('ftq-open-chat');}
+      if(buttons[0]){buttons[0].href='/build.html';buttons[0].textContent='Free Audit';}
+      if(buttons[1]){buttons[1].href='/build.html';buttons[1].textContent='AI Assistant';buttons[1].classList.add('ftq-open-chat');}
       if(buttons[2]){
         buttons[2].href='https://wa.me/918381848389?text='+encodeURIComponent('Hi Freshtiq, I want a free automation assessment.');
         buttons[2].textContent='WhatsApp';buttons[2].target='_blank';buttons[2].rel='noopener noreferrer';
