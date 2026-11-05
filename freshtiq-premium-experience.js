@@ -53,6 +53,8 @@
   // Give every premium marketing page an accessible contact entry without
   // overlapping text; keep the existing customer/bot chat event handlers.
   if(document.body.classList.contains('fx-premium-page') &&
+     !document.body.classList.contains('ftq-about-refresh') &&
+     !document.querySelector('.sticky-mobile-cta') &&
      !document.querySelector('.ftq-premium-mobile-actions')){
     const strip=document.createElement('nav');
     strip.className='ftq-premium-mobile-actions';
