@@ -27,9 +27,9 @@
   <meta property="og:image" content="https://freshtiqautomation.com/images/og-preview-premium.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Build My Automation — Get Your Free Audit | Freshtiq Automation">
-  <meta name="twitter:description" content="Tell us about your business and we&#x27;ll recommend what to automate first — free audit with a fixed written proposal. Freshtiq Automation, India + GCC.">
+  <meta name="twitter:description" content="Tell us about your business and we&#x27;ll recommend what to automate first — free audit with a fixed written proposal. FreshTiq Automation, India.">
   <meta name="twitter:image" content="https://freshtiqautomation.com/images/og-preview-premium.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Build My Automation — Get Your Free Audit | Freshtiq Automation","url":"https://freshtiqautomation.com/build.html","description":"Tell us about your business and we'll recommend what to automate first — free audit with a fixed written proposal. Freshtiq Automation, India + GCC.","isPartOf":{"@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/"},"publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark.svg","sameAs":["https://github.com/freshtiqinnovations"]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Build My Automation — Get Your Free Audit | Freshtiq Automation","url":"https://freshtiqautomation.com/build.html","description":"Tell us about your business and we'll recommend what to automate first — free audit with a fixed written proposal. FreshTiq Automation, India.","isPartOf":{"@type":"WebSite","name":"Freshtiq Automation","url":"https://freshtiqautomation.com/"},"publisher":{"@type":"Organization","name":"FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED","url":"https://freshtiqautomation.com/","logo":"https://freshtiqautomation.com/images/freshtiq-brandmark.svg","sameAs":["https://github.com/freshtiqinnovations"]}}</script>
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta property="og:site_name" content="Freshtiq Automation">
   <link rel="stylesheet" href="/premium-system.css?v=20261009sitefinal1">
@@ -72,7 +72,7 @@
         <form id="buildForm" onsubmit="return submitBuild(event)">
           <div class="bf">
             <div><label for="fIndustry">Industry *</label><select id="fIndustry" required><option value="">Select…</option><option>Manufacturing / Factory</option><option>Sales Team / Distributor</option><option>Restaurant / Cafe</option><option>Travel / Tourism</option><option>Clinic / Doctor</option><option>Laundry / Service Business</option><option>Real Estate</option><option>E-commerce / Retail</option><option>Other</option></select></div>
-            <div><label for="fCountry">Country *</label><select id="fCountry" required><option value="">Select…</option><option>India</option><option>Saudi Arabia</option><option>UAE</option><option>USA</option><option>Other</option></select></div>
+            <div><label for="fCountry">Project country · India *</label><select id="fCountry" required><option selected>India</option></select></div>
           </div>
           <div class="bf">
             <div><label for="fProblem">Biggest business problem *</label><textarea id="fProblem" required placeholder="e.g. We miss customer inquiries after hours and follow-ups are manual"></textarea></div>
@@ -87,7 +87,7 @@
           </div>
           <div class="bf">
             <div><label for="fAuto">What should be automated?</label><select id="fAuto"><option value="">Select one of our eight services…</option><option>Website Development</option><option>WhatsApp AI Sales Bot</option><option>AI Customer Support Bot</option><option>Custom AI Agent</option><option>Business Dashboard &amp; Reporting</option><option>Restaurant Automation</option><option>Simple CRM &amp; Lead Tracking</option><option>Custom Automation &amp; Integration</option><option>Not sure — recommend from our eight services</option></select></div>
-            <div><label for="fBudget">Budget / package preference</label><select id="fBudget"><option value="">Select…</option><option>Hourly — from $49/hr</option><option>Basic</option><option>Professional</option><option>Elite</option><option>Unsure</option></select></div>
+            <div><label for="fBudget">Budget / package preference</label><select id="fBudget"><option value="">Select…</option><option>Basic</option><option>Professional</option><option>Elite</option><option>Unsure</option></select></div>
           </div>
           <div class="bf">
             <div><label for="fTimeline">Timeline</label><select id="fTimeline"><option value="">Select…</option><option>ASAP (this month)</option><option>Within 1-2 months</option><option>Just exploring</option></select></div>
@@ -237,7 +237,7 @@
       document.getElementById('fAuto').value=serviceToAutomation[serviceKey];
     }
     const marketFromUrl=(q.get('market')||q.get('country')||'').toLowerCase();
-    const mapMarket={india:'India',saudi:'Saudi Arabia','saudi arabia':'Saudi Arabia',ksa:'Saudi Arabia',uae:'UAE',usa:'USA','united states':'USA',us:'USA'};
+    const mapMarket={india:'India',saudi:'India','saudi arabia':'India',ksa:'India',uae:'India',usa:'India','united states':'India',us:'India'};
     if(mapMarket[marketFromUrl])document.getElementById('fCountry').value=mapMarket[marketFromUrl];
     const tierFromUrl=(q.get('tier')||q.get('package')||'').toLowerCase();
     const tierMap={standard:'Basic',basic:'Basic',professional:'Professional',premium:'Elite',elite:'Elite'};
