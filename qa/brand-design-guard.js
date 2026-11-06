@@ -19,7 +19,7 @@ const css=read('freshtiq-pricing-master-theme.css');
 const js=read('freshtiq-premium-experience.js');
 const link='/freshtiq-pricing-master-theme.css?v=20261014pricinglock1',fail=[];
 function assert(ok,msg){if(!ok)fail.push(msg)}
-assert(pages.length>=118,'Expected >=118 branded public pages, got '+pages.length);
+// 2026-11-06: Twelve legacy branded detail pages were deliberately retired to\n// noindex redirects. All 106 retained branded pages must keep the master theme.\nassert(pages.length>=106,'Expected >=106 current branded public pages, got '+pages.length);
 assert(!pages.some(x=>x.html.includes('freshtiq-global-dark-20261014.css')),'Old global-dark CSS is still linked');
 for(const p of pages){
  assert(p.html.split(link).length===2,'Missing/duplicate stylesheet: '+p.name);
@@ -69,6 +69,6 @@ for(const [token,hex] of Object.entries({
 }
 assert(read('index.html').includes('document.documentElement.setAttribute("data-ftq-theme","light")'),'Home theme changed');
 assert(read('pricing.html').includes('id="amount-website"'),'Price display missing');
-assert(read('commercial-pricing.json').includes('"ai_voice_calling"'),'Catalog service missing');
+// The full canonical price matrix is retained for historical orders; only eight\n// services may be actively marketed through the public catalogue.\nconst active=['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration'];\nfor(const key of active)assert(read('commercial-pricing.json').includes('"'+key+'"'),'Active service missing from historical pricing: '+key);\nassert((read('services.html').match(/<a class="svc-card"/g)||[]).length===8,'Public services page must show exactly eight services');\nassert((read('index.html').match(/<a class="card" data-match=/g)||[]).length===8,'Homepage must show exactly eight service cards');\nassert((read('pricing.html').match(/<article class="product" data-featured=/g)||[]).length===8,'Pricing page must show exactly eight active products');
 console.log(JSON.stringify({guard:'FRESHTIQ_PRICING_MASTER',pass:fail.length===0,pages:pages.length,failures:fail},null,2));
 if(fail.length)process.exit(1);
