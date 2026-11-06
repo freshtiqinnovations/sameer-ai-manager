@@ -86,7 +86,7 @@
             <div><label for="fHours">Estimated hourly need</label><select id="fHours"><option value="">Not sure / fixed project</option><option>2–5 hours</option><option>5–10 hours</option><option>10–20 hours</option><option>20+ hours / ongoing</option></select></div>
           </div>
           <div class="bf">
-            <div><label for="fAuto">What should be automated?</label><select id="fAuto"><option value="">Select…</option><option>WhatsApp replies / sales bot</option><option>AI agent for customers</option><option>CRM / lead tracking</option><option>ERP / inventory / orders</option><option>Bookings / appointments</option><option>Follow-ups / reminders</option><option>Website / store</option><option>AI Voice Calling &amp; Receptionist</option><option>Bug fix / API / small technical task</option><option>Not sure — recommend me</option></select></div>
+            <div><label for="fAuto">What should be automated?</label><select id="fAuto"><option value="">Select one of our eight services…</option><option>Website Development</option><option>WhatsApp AI Sales Bot</option><option>AI Customer Support Bot</option><option>Custom AI Agent</option><option>Business Dashboard &amp; Reporting</option><option>Restaurant Automation</option><option>Simple CRM &amp; Lead Tracking</option><option>Custom Automation &amp; Integration</option><option>Not sure — recommend from our eight services</option></select></div>
             <div><label for="fBudget">Budget / package preference</label><select id="fBudget"><option value="">Select…</option><option>Hourly — from $49/hr</option><option>Basic</option><option>Professional</option><option>Elite</option><option>Unsure</option></select></div>
           </div>
           <div class="bf">
@@ -223,18 +223,14 @@
     // Deep-link CTAs must preserve the selected service and market.
     // Previously ?service= was ignored on every service page.
     const serviceToAutomation={
-      website:'Website / store',ecommerce_website:'Website / store',
-      whatsapp_automation:'WhatsApp replies / sales bot',
-      whatsapp_ai_sales_bot:'WhatsApp replies / sales bot',
-      basic_bot:'WhatsApp replies / sales bot',
-      ai_agent:'AI agent for customers',
-      customer_support_ai:'AI agent for customers',
-      crm_erp:'CRM / lead tracking',
-      field_sales_crm:'CRM / lead tracking',
-      factory_erp:'ERP / inventory / orders',
-      custom_integration:'Bug fix / API / small technical task',
-      ai_voice_calling:'AI Voice Calling & Receptionist',
-      clinic_automation:'Bookings / appointments'
+      website:'Website Development',
+      whatsapp_ai_sales_bot:'WhatsApp AI Sales Bot',
+      customer_support_ai:'AI Customer Support Bot',
+      ai_agent:'Custom AI Agent',
+      dashboard_reporting:'Business Dashboard & Reporting',
+      restaurant_automation:'Restaurant Automation',
+      crm_erp:'Simple CRM & Lead Tracking',
+      custom_integration:'Custom Automation & Integration',
     };
     const serviceKey=(q.get('service')||'').toLowerCase().trim();
     if(serviceToAutomation[serviceKey]){
