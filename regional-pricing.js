@@ -2,14 +2,7 @@
 const ALLOWED_SERVICES=new Set(["website","whatsapp_ai_sales_bot","customer_support_ai","ai_agent","dashboard_reporting","restaurant_automation","crm_erp","custom_integration"]);
 /* No FX conversion: these are independent fixed market rate cards in the
    canonical published commercial-pricing.json read by the portal and bot. */
-const MAP={
- INDIA:{region:'India',label:'India',currency:'INR'},
- USA:{region:'USA',label:'United States',currency:'USD'},
- UK:{region:'United Kingdom',label:'United Kingdom',currency:'GBP'},
- EURO:{region:'Eurozone',label:'Eurozone',currency:'EUR'},
- AU:{region:'Australia',label:'Australia',currency:'AUD'},
- DK:{region:'Denmark',label:'Denmark',currency:'DKK'}
-};
+const MAP={INDIA:{region:'India',label:'India',currency:'INR'}};
 const TIERS=['standard','professional','premium'];
 const grids=[...document.querySelectorAll('[data-market]')];
 const tierButtons=[...document.querySelectorAll('[data-tier]')];
@@ -17,17 +10,9 @@ const status=document.getElementById('catalog-status');
 const marketName=document.getElementById('market-label');
 const tbody=document.getElementById('all-services');
 let country='INDIA',level=1,catalog=null;
-try{
- const q=new URLSearchParams(location.search).get('market')||'';
- const lookup={US:'USA',USA:'USA',IN:'INDIA',INDIA:'INDIA',UK:'UK',GB:'UK',GBP:'UK',EU:'EURO',EUR:'EURO',EURO:'EURO',AU:'AU',AUD:'AU',DK:'DK',DKK:'DK'};
- if(lookup[q.toUpperCase()]) country=lookup[q.toUpperCase()];
- else {
-  const saved=localStorage.getItem('freshtiq_chosen_pricing_market');
-  if(Object.prototype.hasOwnProperty.call(MAP,saved))country=saved;
- }
-}catch(_){}
-const fmt=(n,region)=>new Intl.NumberFormat(region==='India'?'en-IN':'en-US',{
- style:'currency',currency:Object.values(MAP).find(m=>m.region===region)?.currency||'INR',
+try{localStorage.setItem('freshtiq_chosen_pricing_market','INDIA')}catch(_){}
+const fmt=(n,region)=>new Intl.NumberFormat('en-IN',{
+ style:'currency',currency:'INR',
  maximumFractionDigits:0}).format(n);
 function amount(product,region,tier){return Number((product.regional_prices||{})[region]?.[tier]||0)}
 function showUnavailable(){
@@ -99,7 +84,7 @@ fetch('/commercial-pricing.json?v=20261016sixaccount1',{cache:'no-store',signal:
  .then(policy=>{
   if(policy.version!=='2026-10-16-six-account-currency-estimates-v1' ||
     !policy.products||Object.keys(policy.products).length!==27 ||
-    !policy.regions||!MAP.USA||!policy.regional_bundles)throw Error('rate-card not verified');
+    !policy.regions||!policy.regional_bundles)throw Error('rate-card not verified');
   for(const x of Object.values(policy.products)){
    for(const v of Object.values(MAP)){
     for(const tier of TIERS)if(!(amount(x,v.region,tier)>0))throw Error('Incomplete pricing');
