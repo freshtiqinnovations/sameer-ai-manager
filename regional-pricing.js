@@ -1,4 +1,5 @@
 (()=>{'use strict';
+const ALLOWED_SERVICES=new Set(["website","whatsapp_ai_sales_bot","customer_support_ai","ai_agent","dashboard_reporting","restaurant_automation","crm_erp","custom_integration"]);
 /* No FX conversion: these are independent fixed market rate cards in the
    canonical published commercial-pricing.json read by the portal and bot. */
 const MAP={
@@ -39,6 +40,7 @@ function render(){
  const reg=MAP[country].region, tier=TIERS[level];
  marketName.textContent=MAP[country].label+' · '+MAP[country].currency;
  for(const [key,prod]of Object.entries(catalog.products)){
+  if(!ALLOWED_SERVICES.has(key))continue;
   const el=document.getElementById('amount-'+key);
   if(el){
    const n=amount(prod,reg,tier);
@@ -58,6 +60,7 @@ function render(){
  }
  tbody.replaceChildren();
  for(const [key,prod]of Object.entries(catalog.products)){
+  if(!ALLOWED_SERVICES.has(key))continue;
   const tr=document.createElement('tr');
   const title=document.createElement('td');
   title.textContent=String(prod.name||key)+' · '+(/month/i.test(prod.billing_unit||'')?'monthly':'one-time setup');
