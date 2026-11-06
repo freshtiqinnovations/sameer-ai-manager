@@ -63,7 +63,7 @@ function render(){
   if(!ALLOWED_SERVICES.has(key))continue;
   const tr=document.createElement('tr');
   const title=document.createElement('td');
-  title.textContent=String(prod.name||key)+' · '+(/month/i.test(prod.billing_unit||'')?'monthly':'one-time setup');
+  title.textContent=(key==='crm_erp'?'Simple CRM & Lead Tracking':String(prod.name||key))+' · '+(/month/i.test(prod.billing_unit||'')?'monthly':'one-time setup');
   tr.appendChild(title);
   for(let i=0;i<TIERS.length;i++){
    const td=document.createElement('td'),value=amount(prod,reg,TIERS[i]);
