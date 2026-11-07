@@ -160,7 +160,7 @@
 <div class="ft-footer-bottom"><span>© 2026 FreshTiq Automation. Starting prices are not an instruction to pay.</span><span>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED · India</span></div>
 </div></footer>
 <div class="sticky-mobile-cta"><a href="/build.html">Free Audit</a><a class="ftq-open-chat" href="/#free-audit">AI Assistant</a><a href="https://wa.me/918381848389" rel="noopener" target="_blank">WhatsApp</a></div>
-<script defer="" src="/script.js?v=20261011uifix1"></script>
+<script defer="" src="/script.js?v=20261107event2"></script>
 <script defer="" src="/site-consent.js?v=20261010choice2"></script>
 <script defer="" src="/freshtiq-nav-controls.js?v=20261012nc1"></script>
 <script defer="" src="/freshtiq-chat.js?v=20261107locale3-v3"></script>
@@ -206,7 +206,7 @@ async function submitContactLead(ev){
     if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
     const ref=String(result.lead_ref||'');
     try {window.FreshtiqLeadConversion?.confirmed({
-      lead_ref:ref,method:'english_contact_form',country:country,
+      lead_ref:ref,method:'english_contact_form',country:country,updated:result.updated,
       service:new URLSearchParams(location.search).get('service')==='whatsapp_ai_sales_bot'?'whatsapp_ai_sales_bot':'general'
     });}catch(_trackingError){}
     document.getElementById('contactLeadForm').style.display='none';
@@ -221,4 +221,4 @@ async function submitContactLead(ev){
   return false;
 }
 </script>
-<script defer="" src="/simple-home.js?v=20261014adsreadiness2"></script><script defer="" src="/premium-home-2026.js?v=nov07-lang2"></script><script defer="" src="/ftq-lead-conversion.js?v=20261107a"></script></body></html>
+<script defer="" src="/simple-home.js?v=20261014adsreadiness2"></script><script defer="" src="/premium-home-2026.js?v=nov07-lang2"></script><script defer="" src="/ftq-lead-conversion.js?v=20261107b"></script></body></html>

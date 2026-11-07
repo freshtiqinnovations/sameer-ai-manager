@@ -197,7 +197,10 @@
       if(window.FreshtiqOpenAIMeasurement) window.FreshtiqOpenAIMeasurement.leadCreated(ref || result.lead_id);
       if(ref && window.FreshtiqLead) window.FreshtiqLead.saveRef(ref);
       try{localStorage.setItem('ftq_submitted_v2',JSON.stringify({t:Date.now(),lead_ref:ref}));}catch(_e){}
-      try{if(typeof gtag==='function'){gtag('event','build_form_submit',{industry:data.industry,country:data.country,budget:data.budget});gtag('event','generate_lead',{lead_source:'build_form',country:data.country,service:data.automation||data.industry,lead_ref_present:!!ref});}}catch(_e){}
+      try{window.FreshtiqLeadConversion?.confirmed({
+        lead_ref:ref,updated:result.updated,method:'build_form',
+        country:data.country,service:'general'
+      });}catch(_e){}
 
       const msg='Hi Freshtiq! I submitted my automation request.'+(ref?'\nLead Ref: '+ref:'')+
         '\nIndustry: '+data.industry+'\nCountry: '+data.country+'\nProblem: '+data.problem+
@@ -249,7 +252,8 @@
     }
   }catch(_e){}
   </script>
-<script src="/script.js?v=20261011uifix1"></script>
+<script src="/script.js?v=20261107event2"></script>
+<script defer src="/ftq-lead-conversion.js?v=20261107b"></script>
 <script src="/site-consent.js?v=20261010choice2"></script>
 <script defer src="/freshtiq-nav-controls.js?v=20261012nc1"></script>
 </body>

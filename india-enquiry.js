@@ -39,7 +39,7 @@
    const ref=String(data.lead_ref||'');
    // Only server-confirmed, consent-eligible enquiries become GA4 conversions.
    try {window.FreshtiqLeadConversion?.confirmed({
-     lead_ref:ref,method:code==='hi'?'hi_contact_form':'hinglish_contact_form',
+     lead_ref:ref,method:code==='hi'?'hi_contact_form':'hinglish_contact_form',updated:data.updated,
      country:'India',service:new URLSearchParams(location.search).get('service')==='whatsapp_ai_sales_bot'?'whatsapp_ai_sales_bot':'general'
    });}catch(_trackingError){}
    show(labels.success+(ref||''),'success');
