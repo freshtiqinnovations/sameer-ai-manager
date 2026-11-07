@@ -28,6 +28,8 @@
     document.head.appendChild(s);
     window.gtag('js',new Date());
     window.gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+    // Google Ads shares this Google tag and the existing consent preferences.
+    window.gtag('config','AW-18382945098');
   }
   function applyChoice(v){
     const granted=v==='granted';
