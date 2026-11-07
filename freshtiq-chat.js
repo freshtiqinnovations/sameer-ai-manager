@@ -280,7 +280,7 @@
       demo:'Show me the most relevant interactive demo for my requirement.',
       realestate:'Show me the Dubai real-estate enquiry automation flow and what information it captures.',
       clinic:'Show me the clinic appointment automation flow and human approval option.',
-      language:'Can this customer journey work in Arabic, English, Urdu and Hinglish? Explain the handoff.',
+      language:'Can this business workflow work in English, Hindi or Hinglish for India? Explain the human handoff.',
       quote:'I want a written quote. Ask me only for the missing details needed to prepare the right scope and price.',
       consultation:'I want a consultation. Ask for my preferred day/time, timezone and contact method, then keep the request linked to this conversation.',
       request:shownLeadRef ? ('My Freshtiq Lead Ref is '+shownLeadRef+'. Summarize what you know from this conversation and tell me the best next step without inventing a status.') : 'Help me continue my existing Freshtiq request.'

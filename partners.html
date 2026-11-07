@@ -45,7 +45,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Freshtiq Partner Network · India · GCC · Worldwide</div>
+        <div class="eyebrow">Freshtiq Partner Network · India only</div>
         <h1>Bring the client.<br><em>Earn on the solution.</em></h1>
         <p class="lead">Help businesses adopt useful AI automation while Freshtiq handles the technical build. Join as a referral partner, active sales partner or strategic reseller. No coding experience required.</p>
         <div class="hero-actions">
@@ -110,9 +110,9 @@
         <form id="partnerApplication" novalidate>
           <div class="form-grid">
             <div class="form-row"><label>Full name *<input id="appName" name="name" autocomplete="name" required maxlength="100" placeholder="Your name"></label></div>
-            <div class="form-row"><label>WhatsApp/mobile number *<input id="appPhone" name="phone" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+91 / +966 / +971"></label></div>
+            <div class="form-row"><label>WhatsApp/mobile number *<input id="appPhone" name="phone" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+91 mobile number"></label></div>
             <div class="form-row"><label>Email (optional)<input id="appEmail" name="email" type="email" autocomplete="email" maxlength="150" placeholder="you@company.com"></label></div>
-            <div class="form-row"><label>Country *<select id="appCountry" name="country" required><option value="">Choose country</option><option>India</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Oman</option><option>Qatar</option><option>Kuwait</option><option>Bahrain</option><option>Other</option></select></label></div>
+            <div class="form-row"><label>Country *<select id="appCountry" name="country" required><option value="India" selected>India</option></select></label></div>
             <div class="form-row"><label>City (optional)<input id="appCity" name="city" maxlength="80" placeholder="Your city"></label></div>
             <div class="form-row"><label>Partner type *<select id="appKind" name="partner_kind" required><option value="referral">Referral Partner — 20%</option><option value="sales">Sales Partner — 25%</option><option value="reseller">Strategic Reseller — negotiated, up to 35%</option></select></label></div>
           </div>
@@ -141,7 +141,7 @@
             <li>Access to demos, service descriptions and official price references</li>
             <li>Your referral ID and protected referral-tracking access after approval</li>
             <li>Owner-reviewed quotes, contracts, payments and commissions</li>
-            <li>India and GCC market support; multilingual enquiries welcome</li>
+            <li>India-only new-business support; English, Hindi and Hinglish enquiries welcome</li>
           </ul>
           <p class="small" style="margin:20px 0 8px">Need to discuss an existing agency or channel partnership?</p>
           <a class="cta secondary" target="_blank" rel="noopener" href="https://wa.me/918381848389?text=Hello%20Freshtiq%2C%20I%20want%20to%20discuss%20your%20Partner%20Program.">Discuss partnership on WhatsApp →</a>
@@ -191,8 +191,8 @@
         <form id="partnerLeadForm">
           <div class="form-row"><label>Customer/business contact name<input required id="clientName" maxlength="110"></label></div>
           <div class="form-row"><label>Customer phone (with country code)<input required id="clientPhone" autocomplete="off" inputmode="tel" maxlength="40" placeholder="+91 9876543210"></label></div>
-          <div class="form-row"><label>Interested service<select required id="clientService"><option value="">Choose one</option><option>WhatsApp AI Sales Bot</option><option>Website AI Chatbot</option><option>Website Development</option><option>CRM / ERP</option><option>Custom Business Automation</option><option>AI Agent</option></select></label></div>
-          <div class="form-row"><label>Country<select required id="clientCountry"><option>India</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Other</option></select></label></div>
+          <div class="form-row"><label>Interested service<select required id="clientService"><option value="">Choose one of 8 services</option><option>Website Development</option><option>WhatsApp AI Sales Bot</option><option>AI Customer Support Bot</option><option>Custom AI Agent</option><option>Business Dashboard &amp; Reporting</option><option>Restaurant Automation</option><option>Simple CRM &amp; Lead Tracking</option><option>Custom Automation &amp; Integration</option></select></label></div>
+          <div class="form-row"><label>Country<select required id="clientCountry"><option value="India" selected>India</option></select></label></div>
           <div class="form-row"><label>Short requirement (optional)<textarea id="clientMessage" maxlength="900" rows="3"></textarea></label></div>
           <label class="checkline"><input type="checkbox" id="clientPermission" required><span>I confirm the customer has expressly permitted me to share this contact with Freshtiq for this enquiry.</span></label>
           <button class="cta primary full" id="submitPartnerLead" type="submit">Submit customer referral →</button>
