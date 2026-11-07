@@ -1,0 +1,20 @@
+/* Read-only premium brand finishing on existing services/pricing documents.
+   Catalogue and package pricing functions remain owned by their original scripts. */
+.ft-legacy-upgraded{background:#f6f8f7;color:#173d48}
+.ft-legacy-upgraded .svc-main{max-width:1180px;padding:0 20px 58px;margin:0 auto}
+.ft-legacy-upgraded .svc-hero{background:radial-gradient(circle at 80% 12%,#187e7066,transparent 42%),linear-gradient(122deg,#081c2e,#0d4750);color:#fff;border-radius:24px;padding:44px 35px;box-shadow:0 15px 32px #062b2a18}
+.ft-legacy-upgraded .svc-hero h1{color:#fff;font-size:clamp(33px,4vw,49px);line-height:1.15;letter-spacing:-.045em}
+.ft-legacy-upgraded .svc-hero p{color:#d1e7e5;line-height:1.7}
+.ft-legacy-upgraded .svc-hero .btn,.ft-legacy-upgraded .svc-hero a.btn{border-radius:11px}
+.ft-legacy-upgraded .svc-highlights,.ft-legacy-upgraded .svc-featured,.ft-legacy-upgraded .svc-catalogue,.ft-legacy-upgraded .svc-steps{border-radius:18px}
+.ft-legacy-upgraded .svc-main h2{letter-spacing:-.025em}
+.ft-pricing-upgraded main{max-width:1180px;margin:0 auto;padding:28px 20px 64px}
+.ft-pricing-upgraded main>.hero{border:1px solid #216e6f44;background:radial-gradient(circle at 85% 18%,#238a735a,transparent 38%),linear-gradient(125deg,#071d2e,#104d51);padding:46px 35px;border-radius:24px;color:#fff;box-shadow:0 13px 32px #07232d23}
+.ft-pricing-upgraded main>.hero h1{font-size:clamp(32px,4.2vw,52px);line-height:1.15;color:#fff;letter-spacing:-.045em}
+.ft-pricing-upgraded main>.hero p{color:#d1e6e4;line-height:1.7}
+.ft-pricing-upgraded main>.block{border-radius:19px;background:#fff;border:1px solid #dcebe5;box-shadow:0 8px 28px #081e2811;margin:22px 0;padding:24px}
+.ft-pricing-upgraded main>.block h2{color:#153b47;letter-spacing:-.025em;font-size:clamp(23px,2.8vw,31px)}
+.ft-pricing-upgraded .ft-footer,.ft-legacy-upgraded .ft-footer{color:#c8d9db}
+@media(max-width:700px){.ft-legacy-upgraded .svc-main,.ft-pricing-upgraded main{padding:16px 15px 45px}.ft-legacy-upgraded .svc-hero,.ft-pricing-upgraded main>.hero{padding:27px 22px;border-radius:16px}.ft-pricing-upgraded main>.block{padding:17px;border-radius:15px}}
+/* Keep category chips scrollable inside their mobile container, not the whole page. */
+.ft-legacy-upgraded .svc-filters{max-width:calc(100vw - 32px);min-width:0;overflow-x:auto}
