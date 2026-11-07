@@ -26,10 +26,10 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","url":"https://freshtiqautomation.com/contact.html","name":"Contact Freshtiq Automation","mainEntity":{"@id":"https://freshtiqautomation.com/#org"}}</script>
 <link crossorigin="" href="https://www.googletagmanager.com" rel="preconnect"/>
 <link crossorigin="" href="https://portal.freshtiqautomation.com" rel="preconnect"/>
-<link href="/freshtiq-design-system.css?v=20261013premium2" rel="stylesheet">
-<link href="/freshtiq-brand-system.css?v=20261013unified1" rel="stylesheet">
-<link href="/freshtiq-pricing-master-theme.css?v=20261014pricinglock1" rel="stylesheet"/>
-<link href="/freshtiq-brand-unified.css?v=20261021all1" rel="stylesheet"/>
+<link href="/freshtiq-design-system.css?v=20261013premium2" rel="stylesheet"/>
+<link href="/freshtiq-brand-system.css?v=20261013unified1" rel="stylesheet"/>
+<link href="/freshtiq-pricing-master-theme.css?v=20261014pricinglock1" rel="stylesheet">
+<link href="/freshtiq-brand-unified.css?v=20261021all1" rel="stylesheet">
 <link href="/freshtiq-page-parity.css?v=20261023contactreadable4" rel="stylesheet"/>
 </link></link><link href="/premium-home-2026.css?v=nov07-lang2" rel="stylesheet"/><link href="/premium-inner-2026.css?v=nov07-1" rel="stylesheet"/><link href="https://freshtiqautomation.com/contact.html" hreflang="en" rel="alternate"/><link href="https://freshtiqautomation.com/hi/contact.html" hreflang="hi" rel="alternate"/><link href="https://freshtiqautomation.com/hinglish/contact.html" hreflang="hi-Latn" rel="alternate"/><link href="https://freshtiqautomation.com/contact.html" hreflang="x-default" rel="alternate"/></head>
 <body class="fx-premium-page ftq-unified-brand ftq-contact-refresh ft-inner-page ft-contact-upgraded">
@@ -194,17 +194,21 @@ async function submitContactLead(ev){
         message:'Business type: '+(business||'Not specified')+' | Problem: '+problem,
         source:'Contact Page Form',preferred_contact:'WhatsApp',
         whatsapp_opt_in:true,marketing_opt_in:false,contact_permission:true,
-        consent_source:'contact_page_form_whatsapp_reply_v1'
+        consent_source:'contact_page_form_whatsapp_reply_v1',
+        utm_source:(new URLSearchParams(location.search).get('utm_source')||'').slice(0,120),
+        utm_medium:(new URLSearchParams(location.search).get('utm_medium')||'').slice(0,120),
+        utm_campaign:(new URLSearchParams(location.search).get('utm_campaign')||'').slice(0,120),
+        utm_content:(new URLSearchParams(location.search).get('utm_content')||'').slice(0,120),
+        utm_term:(new URLSearchParams(location.search).get('utm_term')||'').slice(0,120)
       }))
     });
     const result=await resp.json().catch(function(){return {};});
     if(!resp.ok||!result.success) throw new Error(result.error||'Request failed');
-    try{
-      if(typeof window.gtag === 'function' && window.localStorage.getItem('ftq_analytics_consent_v1') === 'granted'){
-        window.gtag('event','generate_lead',{method:'contact_form',lead_source:'contact_form',country:country});
-      }
-    }catch(_trackingError){}
     const ref=String(result.lead_ref||'');
+    try {window.FreshtiqLeadConversion?.confirmed({
+      lead_ref:ref,method:'english_contact_form',country:country,
+      service:new URLSearchParams(location.search).get('service')==='whatsapp_ai_sales_bot'?'whatsapp_ai_sales_bot':'general'
+    });}catch(_trackingError){}
     document.getElementById('contactLeadForm').style.display='none';
     document.getElementById('contactLeadSuccess').style.display='block';
     document.getElementById('contactLeadRef').textContent=ref?'Lead Ref: '+ref:'Request saved.';
@@ -217,4 +221,4 @@ async function submitContactLead(ev){
   return false;
 }
 </script>
-<script defer="" src="/simple-home.js?v=20261014adsreadiness2"></script><script defer="" src="/premium-home-2026.js?v=nov07-lang2"></script></body></html>
+<script defer="" src="/simple-home.js?v=20261014adsreadiness2"></script><script defer="" src="/premium-home-2026.js?v=nov07-lang2"></script><script defer="" src="/ftq-lead-conversion.js?v=20261107a"></script></body></html>

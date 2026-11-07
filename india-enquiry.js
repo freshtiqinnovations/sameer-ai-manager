@@ -27,12 +27,21 @@
    preferred_contact:'WhatsApp',source:'FreshTiq India '+code+' customer enquiry',
    whatsapp_opt_in:true,contact_permission:true,marketing_opt_in:false,
    locale:code,session_id:sid,page_url:location.href,landing_page:location.href,
-   utm_source:q.get('utm_source')||'',utm_medium:q.get('utm_medium')||'',utm_campaign:q.get('utm_campaign')||''};
+   utm_source:(q.get('utm_source')||'').slice(0,120),
+   utm_medium:(q.get('utm_medium')||'').slice(0,120),
+   utm_campaign:(q.get('utm_campaign')||'').slice(0,120),
+   utm_content:(q.get('utm_content')||'').slice(0,120),
+   utm_term:(q.get('utm_term')||'').slice(0,120)};
   try{
    const res=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
    const data=await res.json().catch(()=>({}));
    if(!res.ok||!data.success)throw Error('Lead not accepted');
    const ref=String(data.lead_ref||'');
+   // Only server-confirmed, consent-eligible enquiries become GA4 conversions.
+   try {window.FreshtiqLeadConversion?.confirmed({
+     lead_ref:ref,method:code==='hi'?'hi_contact_form':'hinglish_contact_form',
+     country:'India',service:new URLSearchParams(location.search).get('service')==='whatsapp_ai_sales_bot'?'whatsapp_ai_sales_bot':'general'
+   });}catch(_trackingError){}
    show(labels.success+(ref||''),'success');
    if(ref){try{sessionStorage.setItem('ft_lead_ref_v1',ref)}catch(_){}}
    form.reset();
