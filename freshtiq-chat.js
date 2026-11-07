@@ -43,7 +43,7 @@
     let landing = '';
     try { landing = sessionStorage.getItem(landingKey) || ''; if(!landing){ landing=location.href; sessionStorage.setItem(landingKey,landing); } } catch(_) { landing=location.href; }
     const path = location.pathname.toLowerCase();
-    const market = path.startsWith('/saudi-arabia') ? 'Saudi Arabia' : path.startsWith('/uae') ? 'UAE' : path.startsWith('/india') ? 'India' : '';
+    const market = 'India'; // New public projects: India market only, independent of visitor phone/location.
     let service = '';
     if (/whatsapp/.test(path)) service='WhatsApp Automation';
     else if (/ai-chatbot|chatbot/.test(path)) service='AI Chatbot';
@@ -66,6 +66,16 @@
     getContext: () => Object.assign({}, PAGE_META, { page_url: location.href, page_title: document.title, page_service: PAGE_META.service || '' })
   };
 
+  // The selected website language governs UI, greetings and price replies.
+  // Stable product names / consent requirements / links are never machine-translated.
+  const UI_LANG = /^hi-latn/i.test(PAGE_META.locale) ? 'hinglish' : /^hi(?:$|[-_])/i.test(PAGE_META.locale) ? 'hi' : 'en';
+  const PUBLIC_LABELS={
+    en:{online:'Online · Business Assistant',talk:'Talk to Freshtiq team',name:'Your name',need:'What would you like us to build or automate?',phone:'WhatsApp + country code',cancel:'Cancel',save:'Save & hand off',whatsapp:'Continue on WhatsApp ↗',channel:'Your message opens in WhatsApp; you choose whether to send it.',security:'Security: do not share passwords, OTPs or payment-card details.',input:'Type your message...',context:'Ask about India INR prices, scope or delivery',welcome:'Welcome to FreshTiq. We offer 8 services for India-based businesses. Ask about prices, scope, WhatsApp AI, websites, CRM or automation.',request:'Welcome back. Your request reference is ',requestTail:'. Ask about its scope, pricing or progress.',agreeEmail:'I agree that FreshTiq may respond to this enquiry by email. No marketing broadcasts.',agreeWa:'I agree that FreshTiq may respond to this enquiry on WhatsApp. No marketing broadcasts.',tryAgain:'Connection issue. Please try again or contact FreshTiq.',unknown:'Please rephrase your message or choose Human Support.',labels:{chatbot:'AI Customer Support',website:'Website Development',crm:'Simple CRM',quote:'Written Quote',human:'Human Support',join:'Register',help:'Help',help2:'Help / Training',scope:'Scope',price:'Pricing',localprice:'India INR Pricing',consultation:'Consultation',demo:'View Demo',audit:'Free Audit'}},
+    hi:{online:'ऑनलाइन · व्यवसाय सहायक',talk:'फ्रेशटिक टीम से बात करें',name:'आपका नाम',need:'आप कौन-सा कार्य बनवाना या स्वचालित करना चाहते हैं?',phone:'व्हाट्सऐप +91 मोबाइल नंबर',cancel:'रद्द करें',save:'बातचीत टीम को भेजें',whatsapp:'व्हाट्सऐप पर बात जारी रखें ↗',channel:'संदेश व्हाट्सऐप में खुलेगा; भेजने का निर्णय आपका होगा।',security:'सुरक्षा: पासवर्ड, ओटीपी या कार्ड का विवरण साझा न करें।',input:'अपना सवाल यहाँ लिखें...',context:'भारत की रुपये में कीमतें, कार्य और समय के बारे में पूछें',welcome:'फ्रेशटिक में आपका स्वागत है। हम भारत के व्यवसायों के लिए 8 सेवाएँ देते हैं। आप कीमत, वेबसाइट, ग्राहक सहायता या काम के स्वचालन के बारे में पूछ सकते हैं।',request:'आपका स्वागत है। आपका अनुरोध क्रमांक ',requestTail:' जुड़ा हुआ है। कार्य, कीमत या प्रगति पूछें।',agreeEmail:'मैं सहमत हूँ कि फ्रेशटिक मेरी इस पूछताछ का उत्तर ईमेल से दे सकता है। प्रचार संदेश नहीं भेजे जाएँगे।',agreeWa:'मैं सहमत हूँ कि फ्रेशटिक मेरी इस पूछताछ का उत्तर व्हाट्सऐप पर दे सकता है। प्रचार संदेश नहीं भेजे जाएँगे।',tryAgain:'संपर्क में समस्या है। दोबारा कोशिश करें या टीम से संपर्क करें।',unknown:'सवाल दूसरे शब्दों में लिखें या टीम की सहायता चुनें।',labels:{chatbot:'एआई ग्राहक सहायता',website:'वेबसाइट निर्माण',crm:'सरल ग्राहक प्रबंधन',quote:'लिखित मूल्य प्रस्ताव',human:'टीम से बात',join:'पंजीकरण',help:'सहायता',help2:'सहायता / प्रशिक्षण',scope:'कार्य की जानकारी',price:'कीमत',localprice:'भारत की कीमतें',consultation:'परामर्श',demo:'उदाहरण देखें',audit:'निःशुल्क समीक्षा'}},
+    hinglish:{online:'Online · Business Assistant',talk:'FreshTiq Team Se Baat Karein',name:'Aapka naam',need:'Kya banwana ya automate karna chahenge?',phone:'WhatsApp +91 number',cancel:'Cancel Karein',save:'Team Ko Bhejein',whatsapp:'WhatsApp Par Continue Karein ↗',channel:'Message WhatsApp par khulega; bhejna ya nahi aap decide karenge.',security:'Security: password, OTP ya card details share na karein.',input:'Apna message likhein...',context:'India INR price, scope ya delivery poochhein',welcome:'FreshTiq mein welcome! Hum India-based businesses ke liye 8 services offer karte hain. Price, website, WhatsApp AI, CRM ya automation ke baare mein poochhein.',request:'Welcome back. Aapka request reference ',requestTail:' connected hai. Scope, price ya progress poochhein.',agreeEmail:'Main agree karta/karti hoon ki FreshTiq is enquiry ka jawab email par de sakta hai. Marketing nahi.',agreeWa:'Main agree karta/karti hoon ki FreshTiq is enquiry ka jawab WhatsApp par de sakta hai. Marketing nahi.',tryAgain:'Connection issue hai. Dobara try karein ya team se baat karein.',unknown:'Sawal dobara likhein ya Human Support choose karein.',labels:{chatbot:'AI Support',website:'Website Banwayein',crm:'Simple CRM',quote:'Written Quote',human:'Team Se Baat',join:'Register Karein',help:'Madad',help2:'Madad / Training',scope:'Kaam Ka Scope',price:'Price',localprice:'India INR Prices',consultation:'Consultation',demo:'Demo Dekhein',audit:'Free Audit'}}
+  };
+  const UI=PUBLIC_LABELS[UI_LANG];
+  const HISTORY_KEY='ft_chat_history_v3_'+UI_LANG;
   // ─── STYLES ───
   const style = document.createElement('style');
   style.textContent = `
@@ -161,6 +171,18 @@
 `;
 
   document.body.appendChild(widget);
+  // Translate all public widget chrome; keep private/contractual fields and typed data intact.
+  const translateWidget=()=>{
+    const change=(selector,text)=>{const el=widget.querySelector(selector);if(el)el.textContent=text;};
+    const hint=(selector,text)=>{const el=widget.querySelector(selector);if(el)el.placeholder=text;};
+    change('.ft-info span',UI.online);change('.ft-handoff-title',UI.talk);
+    change('#ft-ho-cancel',UI.cancel);change('#ft-ho-save',UI.save);
+    change('#ftq-chat-continue-whatsapp',UI.whatsapp);change('#ftq-chat-channel-note',UI.channel);
+    change('.ft-chat-privacy',UI.security);
+    hint('#ft-ho-name',UI.name);hint('#ft-ho-requirement',UI.need);
+    hint('#ft-ho-phone',UI.phone);hint('#ft-msg-input',UI.input);
+  };
+  translateWidget();
 
   // A unified cyan theme, consistent with public CTAs and not old purple.
   style.textContent += `
@@ -182,7 +204,7 @@
   // ─── STATE ───
   let isOpen = false;
   let isSending = false;
-  let chatHistory = (()=>{try{const x=JSON.parse(sessionStorage.getItem('ft_chat_history_v2')||'[]');return Array.isArray(x)?x.slice(-18):[]}catch(_){return[]}})();
+  let chatHistory = (()=>{try{const x=JSON.parse(sessionStorage.getItem(HISTORY_KEY)||'[]');return Array.isArray(x)?x.slice(-18):[]}catch(_){return[]}})();
   let shownLeadRef = (()=>{try{return (window.FreshtiqLead&&window.FreshtiqLead.getRef)?window.FreshtiqLead.getRef():(sessionStorage.getItem('ft_lead_ref_v1')||'');}catch(_){return '';}})();
   function rememberLeadRef(ref){
     ref=String(ref||'').trim(); if(!ref)return '';
@@ -232,7 +254,7 @@
     const ref=shownLeadRef ? ' · Request '+shownLeadRef : '';
     if(PAGE_META.market) return PAGE_META.market+(PAGE_META.service?' · '+PAGE_META.service:'')+(marketCurrency(PAGE_META.market)?' · '+marketCurrency(PAGE_META.market):'')+ref;
     if(PAGE_META.service) return 'Viewing: '+PAGE_META.service+ref;
-    return (shownLeadRef?'Connected request: '+shownLeadRef:'Ask about pricing, scope, integrations or delivery');
+    return (shownLeadRef?'Request '+shownLeadRef:UI.context);
   }
   function smartActions(){
     const p=location.pathname.toLowerCase();
@@ -253,9 +275,14 @@
   function renderSmartActions(){
     contextStrip.textContent=pageContextLabel();
     quickActions.innerHTML='';
-    smartActions().forEach(([action,label])=>{const b=document.createElement('button');b.type='button';b.className='ft-quick-btn';b.dataset.action=action;b.textContent=label;quickActions.appendChild(b);});
+    smartActions().forEach(([action,label])=>{const b=document.createElement('button');b.type='button';b.className='ft-quick-btn';b.dataset.action=action;b.textContent=UI.labels[action]||label;quickActions.appendChild(b);});
   }
   function actionPrompt(action){
+    if(UI_LANG!=='en'){
+      const hindi={chatbot:'मुझे एआई ग्राहक सहायता के बारे में बताइए।',website:'वेबसाइट निर्माण की कीमत और सुविधाएँ बताइए।',crm:'सरल ग्राहक प्रबंधन की जानकारी दीजिए।',quote:'भारत में स्वीकृत सेवाओं की कीमत और लिखित मूल्य प्रस्ताव बताइए।',price:'वेबसाइट और अन्य सेवाओं की भारत में कीमत बताइए।',localprice:'सभी आठ सेवाओं की भारत में कीमत बताइए।',scope:'आप कौन-से कार्य स्वचालित कर सकते हैं?',consultation:'निःशुल्क परामर्श चाहिए।',human:'मुझे टीम से बात करनी है।',audit:'मेरे व्यवसाय के काम की निःशुल्क समीक्षा चाहिए।'};
+      const roman={chatbot:'AI Customer Support ke baare mein batao.',website:'Website banwane ka price aur features batao.',crm:'Simple CRM aur lead tracking samjhao.',quote:'India ki 8 services aur written quotation batao.',price:'Price aur company ke baare me batao.',localprice:'India ki sabhi 8 services ka price batao.',scope:'Kaam ka scope samjhao.',consultation:'Free consultation chahiye.',human:'Team se baat karni hai.',audit:'Business automation ka free audit chahiye.'};
+      const q=(UI_LANG==='hi'?hindi:roman)[action];if(q)return q;
+    }
     const service = PAGE_META.service && !['Pricing','Interactive Demo'].includes(PAGE_META.service) ? PAGE_META.service : 'my business automation';
     const market = PAGE_META.market ? ' in '+PAGE_META.market : '';
     return {
@@ -292,9 +319,7 @@
     hoPhone.style.display=wa?'block':'none';
     hoConsentRow.classList.add('show');
     hoConsent.checked=false;
-    hoConsentText.textContent=wa
-      ? 'I agree that Freshtiq Automation may contact me one-to-one on WhatsApp about this specific enquiry. No marketing broadcasts.'
-      : 'I agree that Freshtiq Automation may contact me one-to-one by email about this specific enquiry. No marketing broadcasts.';
+    hoConsentText.textContent=wa?UI.agreeWa:UI.agreeEmail;
     hoStatus.textContent='';
   }
   function openHandoff(){const mb=window.FreshtiqMarketplaceBridge;if(mb&&mb.restricted){addMessage('🔒 Because you reached Freshtiq via **'+mb.label+'**, please keep project communication on '+mb.label+' until the order/contract is active. After that, external contact can be shared according to the platform rules.','bot');return;}handoff.classList.add('open');setHandoffMethod();setTimeout(()=>hoName.focus(),60);}
@@ -390,7 +415,7 @@
     msgInput.disabled = b;
   }
 
-  function persistHistory(){ try{ sessionStorage.setItem('ft_chat_history_v2',JSON.stringify(chatHistory.slice(-18))); }catch(_){} }
+  function persistHistory(){ try{ sessionStorage.setItem(HISTORY_KEY,JSON.stringify(chatHistory.slice(-18))); }catch(_){} }
   if(chatHistory.length){ chatHistory.forEach(m=>addMessage(m.content,m.role==='assistant'?'bot':'user')); }
 
   // ─── SEND MESSAGE ───
@@ -437,11 +462,11 @@
           console.log('[Freshtiq Chat] Lead ref ' + publicLeadRef + ' captured');
         }
       } else {
-        addMessage('I could not process that message. Please rephrase it or choose Human Support.', 'bot');
+        addMessage(UI.unknown, 'bot');
       }
     } catch(e) {
       hideTyping();
-      addMessage('Connection issue. Please try again, tap **Human**, or use https://freshtiqautomation.com/contact.html .', 'bot');
+      addMessage(UI.tryAgain+' https://freshtiqautomation.com/contact.html', 'bot');
     }
     setBusy(false);
   }
@@ -458,8 +483,8 @@
       // Welcome message once, synchronously, so it can never race into the middle of a reply.
       if (chatHistory.length === 0) {
         const welcome = shownLeadRef
-          ? ("Welcome back. Your request **"+shownLeadRef+"** is connected to this chat. Ask about scope, pricing, delivery or type status to check progress.")
-          : "Welcome to Freshtiq. Tell me the business process you want to improve — sales, customer support, WhatsApp, CRM/ERP, website/app or another workflow. I’ll help narrow it into a practical next step.";
+          ? UI.request+'**'+shownLeadRef+'**'+UI.requestTail
+          : UI.welcome;
         addMessage(welcome, 'bot');
         chatHistory.push({ role: 'assistant', content: welcome });
         persistHistory();
