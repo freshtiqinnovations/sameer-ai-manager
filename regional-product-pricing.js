@@ -5,6 +5,7 @@ const nodes=[...document.querySelectorAll('.ftq-regional-product-price[data-prod
 if(!nodes.length)return;
 const catalogUrl='https://portal.freshtiqautomation.com/api/public/commercial-pricing';
 const storeUrl='https://portal.freshtiqautomation.com/store';
+const allowedOffers=new Set(['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration']);
 function addLink(el,key){
  const link=document.createElement('a');
  const url=new URL(storeUrl);
@@ -25,14 +26,13 @@ function fmt(amount,currency,locale){
 function show(el,key,catalog){
  const product=catalog.products[key];
  const india=Number(product?.regional_prices?.India?.standard);
- const usa=Number(product?.regional_prices?.USA?.standard);
- if(!product || product.internal_only || !Number.isFinite(india) || india<=0 || !Number.isFinite(usa) || usa<=0){
+ if(!allowedOffers.has(key) || !product || product.internal_only || !Number.isFinite(india) || india<=0){
   unavailable(el,key);return;
  }
  const date=String(catalog.effective_date||'');
- const line='Basic starting estimate ('+date+'): India '+fmt(india,'INR','en-IN')+' · USA '+fmt(usa,'USD','en-US')+'.';
+ const line='India Basic starting estimate ('+date+'): '+fmt(india,'INR','en-IN')+'.';
  const small=document.createElement('small');
- small.textContent='Other countries including UAE and Saudi Arabia: request a written quote. Taxes, third-party charges and final scope are confirmed before payment.';
+ small.textContent='New projects are available only for India-based businesses in INR. Taxes, third-party charges and final approved scope are confirmed before payment.';
  small.style.cssText='display:block;margin-top:5px;line-height:1.5;opacity:.85';
  el.replaceChildren(document.createTextNode(line),small);
  addLink(el,key);
@@ -42,17 +42,18 @@ const timer=setTimeout(()=>controller.abort(),8500);
 fetch(catalogUrl,{mode:'cors',credentials:'omit',cache:'no-store',signal:controller.signal})
  .then(response=>{if(!response.ok)throw new Error('Pricing API HTTP '+response.status);return response.json()})
  .then(data=>{
-   if(!data||!data.products||typeof data.products!=='object'||!data.regions||!data.effective_date||Object.keys(data.products).length<27)throw new Error('Incomplete published price catalog');
+   if(!data||!data.products||typeof data.products!=='object'||!data.regions||!data.effective_date||Object.keys(data.products).length<8)throw new Error('Incomplete published price catalog');
    for(const el of nodes){
      const key=String(el.getAttribute('data-product')||'');
      if(!/^[a-z][a-z0-9_]{1,65}$/.test(key)){el.textContent='Please request a written quote.';continue;}
+     if(!allowedOffers.has(key)){el.textContent='This service is not available for new projects. View our eight current services.';continue;}
      show(el,key,data);
    }
  })
  .catch(()=>{
    for(const el of nodes){
      const key=String(el.getAttribute('data-product')||'');
-     if(/^[a-z][a-z0-9_]{1,65}$/.test(key))unavailable(el,key);
+     if(allowedOffers.has(key))unavailable(el,key);
      else el.textContent='Please request a written quote.';
    }
  }).finally(()=>clearTimeout(timer));
