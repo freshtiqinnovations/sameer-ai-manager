@@ -47,3 +47,12 @@
 .global-discovery .language-prompt{font-weight:700;margin:17px 0 8px}
 .global-discovery a:focus-visible{outline:3px solid #e3ab1e;outline-offset:2px}
 @media(max-width:640px){.global-discovery{padding:17px 13px}.global-discovery .market-links,.global-discovery .language-links{gap:8px}.global-discovery a{overflow-wrap:anywhere}}
+
+/* 320px phones: keep hero CTAs and promise strip inside the available viewport. */
+@media (max-width:360px){
+  .hero{grid-template-columns:minmax(0,1fr)!important}
+  .herotext{min-width:0!important}
+  .heroact .btn{white-space:normal!important;min-width:0!important;max-width:100%;overflow-wrap:anywhere;text-align:center}
+  .promise-strip{grid-template-columns:minmax(0,1fr)!important}
+  .promise-strip>*{min-width:0!important}
+}
