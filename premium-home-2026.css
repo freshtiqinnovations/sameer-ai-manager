@@ -123,3 +123,45 @@
 .ft-nav a{padding:13px 11px!important}
 .ft-nav .ft-topcta{text-align:center}
 }
+
+/* Compact, native keyboard-accessible English/Hindi/Hinglish dropdown. */
+.ft-language-dropdown{position:relative;flex:none;z-index:95}
+.ft-language-dropdown summary{list-style:none;display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:9px 12px;border:1px solid #d5e5df;border-radius:12px;background:#f8fcfa;color:#143f49;font-size:12px;font-weight:840;white-space:nowrap;cursor:pointer;user-select:none}
+.ft-language-dropdown summary::-webkit-details-marker{display:none}
+.ft-language-dropdown summary:hover,.ft-language-dropdown[open] summary{border-color:#48ae9e;background:#eaf8f3}
+.ft-language-globe{font-size:17px;line-height:1}
+.ft-language-chevron{font-size:17px;line-height:1;transition:transform .15s ease}
+.ft-language-dropdown[open] .ft-language-chevron{transform:rotate(180deg)}
+.ft-language-short{display:none}
+.ft-language-options{position:absolute;z-index:150;right:0;top:calc(100% + 8px);width:195px;max-width:calc(100vw - 25px);padding:7px;display:grid;gap:2px;background:#fff;border:1px solid #c9e1d8;border-radius:14px;box-shadow:0 16px 34px #061d2933}
+.ft-language-options a{display:flex;align-items:center;justify-content:space-between;gap:8px;border-radius:9px;padding:12px 13px;color:#17414c;font-size:13px;font-weight:790}
+.ft-language-options a:hover{background:#eef9f5}
+.ft-language-options a[aria-current="page"]{background:#e4f6ee;color:#0b7265}
+.ft-selected-check{font-size:16px;color:#088c7c}
+@media(max-width:1150px){
+ .ft-language-dropdown{order:1;margin-left:auto}
+ .ft-menu{order:2;margin-left:0}
+ .ft-nav{order:3}
+}
+@media(max-width:610px){
+ .ft-language-dropdown{flex:0 0 auto;margin-left:auto}
+ .ft-language-dropdown summary{padding:7px 9px;min-height:40px;gap:5px}
+ .ft-language-full{display:none}
+ .ft-language-short{display:inline;font-size:11px}
+ .ft-menu{order:2;flex:none;margin-left:0}
+ .ft-nav{order:3}
+}
+@media(max-width:350px){
+ .ft-brand img{width:32px;height:32px}
+ .ft-brand span{font-size:16px}
+ .ft-brand small{font-size:7px}
+ .ft-language-dropdown summary{padding:6px 7px}
+ .ft-language-globe{font-size:15px}
+}
+
+/* Prevent older contact/service styles from overlaying the collapsed mobile menu. */
+@media(max-width:1150px){
+ .ft-header .ft-nav[data-open="false"]{display:none!important}
+ .ft-header .ft-nav[data-open="true"]{display:flex!important;position:relative!important;z-index:20}
+ .ft-header .ft-language-dropdown{z-index:99}
+}

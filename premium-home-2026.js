@@ -4,6 +4,15 @@
 (()=>{
  const root=document.documentElement;
  const lang=root.lang==='hi'?'hi':root.lang==='hi-Latn'?'hinglish':'en';
+ const langDrop=document.getElementById('ftLangSelect');
+ if(langDrop){
+  document.addEventListener('pointerdown',event=>{
+   if(langDrop.open&&!langDrop.contains(event.target))langDrop.open=false;
+  });
+  document.addEventListener('keydown',event=>{
+   if(event.key==='Escape'&&langDrop.open){langDrop.open=false;langDrop.querySelector('summary')?.focus();}
+  });
+ }
  const menu=document.getElementById('ftMenu');
  const nav=document.getElementById('ftNav');
  if(menu&&nav){
