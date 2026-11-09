@@ -178,3 +178,24 @@
 .ft-hero h1{letter-spacing:-.045em}
 @media(max-width:750px){.ft-catalog-clarity{padding:12px;font-size:12px}.ft-servicegrid{gap:13px!important}.ft-service.card{min-width:0}}
 @media(prefers-reduced-motion:reduce){.ft-service.card{transition:none!important}.ft-service.card:hover{transform:none}}
+
+/* Restored company verification section, native navy-blue premium theme. */
+.ft-trust-verification{background:radial-gradient(ellipse at 96% 0%,#2b65b644,transparent 45%),linear-gradient(115deg,#0c1a36,#183873);color:#fff;padding:62px 0;scroll-margin-top:86px}
+.ft-trust-heading{display:flex;justify-content:space-between;align-items:end;gap:27px;margin-bottom:24px}
+.ft-trust-heading>div{max-width:780px}
+.ft-trust-heading .ft-eyebrow{color:#aceaf6!important;letter-spacing:.12em}
+.ft-trust-heading h2{font-size:clamp(28px,4vw,45px);letter-spacing:-.04em;line-height:1.18;margin:12px 0;color:#fff}
+.ft-trust-heading p:not(.ft-eyebrow){font-size:14px;line-height:1.8;color:#d8e9fc}
+.ft-trust-action{display:inline-flex;background:#fff;color:#17458d!important;font-weight:850;font-size:13px;text-decoration:none!important;border-radius:12px;min-height:46px;padding:12px 17px;align-items:center;white-space:nowrap}
+.ft-verify-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.ft-verify-card{min-width:0;display:flex;flex-direction:column;gap:11px;background:#ffffff14;border:1px solid #aed1f455;color:#fff!important;border-radius:17px;padding:20px;box-shadow:0 12px 36px #051b3b35;text-decoration:none!important;transition:background .18s ease,transform .18s ease}
+.ft-verify-card:hover{background:#ffffff26;transform:translateY(-2px)}
+.ft-verify-card span{font-size:12px;color:#a9e8f7;font-weight:800}
+.ft-verify-card strong{font-size:clamp(16px,2vw,21px);font-weight:870;letter-spacing:-.02em;line-height:1.35;overflow-wrap:anywhere}
+.ft-verify-card small{font-size:12px;font-weight:700;color:#d7e7fd}
+.ft-trust-note{font-size:12px;line-height:1.7;color:#d5e5f6;max-width:1060px;margin:16px 0 0}
+.ft-trust-note+.ft-trust-note{margin-top:5px}
+.ft-trust-action:focus-visible,.ft-verify-card:focus-visible{outline:3px solid #fbe49a;outline-offset:3px}
+@media(max-width:940px){.ft-trust-heading{flex-direction:column;align-items:flex-start}.ft-verify-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.ft-trust-verification{padding:39px 0 45px}.ft-verify-grid{grid-template-columns:1fr;gap:10px}.ft-verify-card{padding:17px;gap:8px}.ft-trust-action{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.ft-verify-card{transition:none!important}.ft-verify-card:hover{transform:none!important}}
