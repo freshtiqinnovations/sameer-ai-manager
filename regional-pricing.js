@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const ALLOWED_SERVICES=new Set(["website","whatsapp_ai_sales_bot","customer_support_ai","ai_agent","dashboard_reporting","restaurant_automation","crm_erp","custom_integration"]);
+const ALLOWED_SERVICES=new Set(["website", "basic_bot", "whatsapp_automation", "whatsapp_ai_sales_bot", "restaurant_automation", "customer_support_ai", "clinic_automation", "travel_automation", "crm_erp", "field_sales_crm", "factory_erp", "laundry_system", "dashboard_reporting", "ai_agent", "mobile_app", "custom_integration", "hotel_automation", "ecommerce_website", "hr_system", "seo_service", "google_business_profile", "content_marketing", "lead_generation", "cloud_hosting", "managed_support", "ai_voice_calling", "real_estate_ai"]);
 /* No FX conversion: these are independent fixed market rate cards in the
    canonical published commercial-pricing.json read by the portal and bot. */
 const MAP={INDIA:{region:'India',label:'India',currency:'INR'}};
@@ -48,7 +48,7 @@ function render(){
   if(!ALLOWED_SERVICES.has(key))continue;
   const tr=document.createElement('tr');
   const title=document.createElement('td');
-  title.textContent=(key==='crm_erp'?'Simple CRM & Lead Tracking':String(prod.name||key))+' · '+(/month/i.test(prod.billing_unit||'')?'monthly':'one-time setup');
+  title.textContent=(String(prod.name||key))+' · '+(/month/i.test(prod.billing_unit||'')?'monthly':'one-time setup');
   tr.appendChild(title);
   for(let i=0;i<TIERS.length;i++){
    const td=document.createElement('td'),value=amount(prod,reg,TIERS[i]);
@@ -79,7 +79,7 @@ for(const b of grids){
  });
 }
 for(const b of tierButtons)b.addEventListener('click',()=>{level=Number(b.dataset.tier)||0;render()});
-fetch('/commercial-pricing.json?v=20261016sixaccount1',{cache:'no-store',signal:AbortSignal.timeout(8000)})
+fetch('https://portal.freshtiqautomation.com/api/public/commercial-pricing',{cache:'no-store',mode:'cors',credentials:'omit',signal:AbortSignal.timeout(8000)})
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
   if(policy.version!=='2026-10-16-six-account-currency-estimates-v1' ||

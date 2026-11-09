@@ -59,7 +59,7 @@
   fetch('https://portal.freshtiqautomation.com/api/public/commercial-pricing',{cache:'no-store',mode:'cors',credentials:'omit',signal:controller.signal})
    .then(r=>{if(!r.ok)throw Error('unavailable');return r.json()})
    .then(data=>{
-    if(Object.keys(data?.products||{}).length!==8||!data?.regions?.India)return;
+    if(Object.keys(data?.products||{}).length!==27||!data?.regions?.India)return;
     const approved=new Set(priceEls.map(x=>x.dataset.livePrice));
     if(approved.size!==8)return;
     for(const el of priceEls){
