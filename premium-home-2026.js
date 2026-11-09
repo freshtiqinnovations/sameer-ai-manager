@@ -61,7 +61,7 @@
    .then(data=>{
     if(Object.keys(data?.products||{}).length!==27||!data?.regions?.India)return;
     const approved=new Set(priceEls.map(x=>x.dataset.livePrice));
-    if(approved.size!==8)return;
+    if(approved.size!==27)return;
     for(const el of priceEls){
      const amount=Number(data.products[el.dataset.livePrice]?.regional_prices?.India?.standard);
      if(Number.isSafeInteger(amount)&&amount>0&&amount<1e9){
