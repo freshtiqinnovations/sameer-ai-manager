@@ -199,3 +199,29 @@
 @media(max-width:940px){.ft-trust-heading{flex-direction:column;align-items:flex-start}.ft-verify-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.ft-trust-verification{padding:39px 0 45px}.ft-verify-grid{grid-template-columns:1fr;gap:10px}.ft-verify-card{padding:17px;gap:8px}.ft-trust-action{white-space:normal}}
 @media(prefers-reduced-motion:reduce){.ft-verify-card{transition:none!important}.ft-verify-card:hover{transform:none!important}}
+
+/* FreshTiq compact searchable category catalogue · 2026-11-09. */
+.ft-catalog-controls{display:grid;grid-template-columns:1fr;gap:9px;margin:22px 0 15px}
+.ft-catalog-controls label{font-size:13px;font-weight:850;color:#213e5b}
+.ft-catalog-controls input{display:block;width:100%;min-height:51px;border:1px solid #becfe4;border-radius:13px;padding:12px 16px;background:#fff;box-shadow:0 4px 20px #09264c0a;font-size:15px;color:#17364d}
+.ft-catalog-controls input:focus{outline:3px solid #a9cffa;outline-offset:1px;border-color:#2a70bf}
+.ft-catalog-count{margin:1px 0 0;color:#527087;font-size:12px}
+.ft-category-accordion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;align-items:start}
+.ft-category-group{border:1px solid #ccdaed;background:#fff;border-radius:17px;min-width:0;box-shadow:0 12px 35px #10335a0b;overflow:hidden}
+.ft-category-group[open]{grid-column:1/-1}
+.ft-category-group>summary{display:flex;gap:14px;align-items:center;cursor:pointer;padding:18px 20px;min-height:89px;list-style:none}
+.ft-category-group>summary::-webkit-details-marker{display:none}
+.ft-category-group>summary:focus-visible{outline:3px solid #1c74bd;outline-offset:-3px}
+.ft-category-group>summary:hover{background:#f5f9ff}
+.ft-category-icon{display:grid;place-items:center;flex:none;width:49px;height:49px;font-size:25px;border-radius:13px;background:linear-gradient(145deg,#e5f0fc,#d8f7f3)}
+.ft-category-heading{display:flex;flex-direction:column;gap:2px;font-size:15px;font-weight:860;color:#1a3b5c;line-height:1.35;min-width:0}
+.ft-category-heading small{font-size:12px;font-weight:600;color:#657f96}
+.ft-category-chevron{font-size:23px;color:#246bad;font-weight:850;margin-left:auto;transition:transform .16s}
+.ft-category-group[open] .ft-category-chevron{transform:rotate(180deg)}
+.ft-category-services{padding:16px 20px 22px;border-top:1px solid #dae7f2}
+.ft-category-services .ft-service{min-width:0}
+.ft-category-services .ft-service[hidden]{display:none!important}
+.ft-category-group[hidden],.ft-catalog-empty[hidden]{display:none!important}
+.ft-catalog-empty{padding:22px;border:1px dashed #abc2dc;color:#42637a;border-radius:12px}
+@media(max-width:700px){.ft-category-accordion{grid-template-columns:1fr;gap:10px}.ft-category-group[open]{grid-column:auto}.ft-category-group>summary{min-height:75px;padding:14px}.ft-category-icon{width:42px;height:42px;font-size:23px}.ft-category-services{padding:12px}.ft-catalog-controls{margin-top:15px}}
+@media(prefers-reduced-motion:reduce){.ft-category-chevron{transition:none}}
