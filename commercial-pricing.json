@@ -5,7 +5,7 @@
   "policy": {
     "currency_rule": "Published business-country estimate markets: India INR, USA USD, United Kingdom GBP, Eurozone EUR, Australia AUD and Denmark DKK. Use declared business market, never infer it solely from phone number.",
     "regional_rule": "India and USA existing published starting prices are preserved. GBP/EUR/AUD/DKK are indicative USD-benchmark conversions using a dated 2026-10-16 rate snapshot, rounded up to the displayed unit. Prices are starting estimates only; taxes, fees and actual payable invoice price require owner review. No live automatic FX charge.",
-    "truth_rule": "The six-market published price matrix is the single public pricing source for the main website, portal and bot. Never claim indicative starting estimates are fixed, payable invoices. Historical Saudi/UAE orders are preserved but new Saudi/UAE pricing is not offered.",
+    "truth_rule": "Eight approved public India services. Historical contracts remain supported separately. Final scope, feasibility and delivery require written owner review.",
     "discount_rule": "No fake discount or fake urgency. Automatic discounts are capped; larger exceptions require owner approval.",
     "quality_rule": "Basic, Professional and Elite differ by scope, integrations, roles, analytics and support priority — never by intentionally lowering engineering quality.",
     "hourly_rule": "Hourly engineering is available for small scoped work, troubleshooting, integrations, improvements and implementation support. Time is approved before work starts; third-party fees are separate."
@@ -38,49 +38,6 @@
       "prefix": "₹",
       "factor_from_inr": 1,
       "round_to": 1,
-      "floors": {}
-    },
-    "USA": {
-      "currency": "USD",
-      "prefix": "$",
-      "round_to": 1,
-      "factor_from_inr": 0.038,
-      "floors": {}
-    },
-    "United Kingdom": {
-      "currency": "GBP",
-      "prefix": "£",
-      "reference_per_usd": 0.751939,
-      "round_to": 5,
-      "rate_date": "2026-10-16",
-      "starting_estimate_only": true,
-      "floors": {}
-    },
-    "Eurozone": {
-      "currency": "EUR",
-      "prefix": "€",
-      "reference_per_usd": 0.890064,
-      "round_to": 5,
-      "rate_date": "2026-10-16",
-      "starting_estimate_only": true,
-      "floors": {}
-    },
-    "Australia": {
-      "currency": "AUD",
-      "prefix": "A$",
-      "reference_per_usd": 1.4406,
-      "round_to": 5,
-      "rate_date": "2026-10-16",
-      "starting_estimate_only": true,
-      "floors": {}
-    },
-    "Denmark": {
-      "currency": "DKK",
-      "prefix": "kr ",
-      "reference_per_usd": 6.65362,
-      "round_to": 10,
-      "rate_date": "2026-10-16",
-      "starting_estimate_only": true,
       "floors": {}
     }
   },
@@ -168,139 +125,6 @@
         }
       }
     },
-    "basic_bot": {
-      "name": "Basic WhatsApp Bot",
-      "family": "bot",
-      "aliases": [
-        "basic bot",
-        "faq bot",
-        "simple chatbot"
-      ],
-      "inr": {
-        "standard": 8000,
-        "professional": 15000,
-        "premium": 25000
-      },
-      "timeline": "3–7 days",
-      "features": {
-        "standard": [
-          "FAQ/auto replies",
-          "Lead capture",
-          "Basic handoff"
-        ],
-        "professional": [
-          "Sales/support flows",
-          "Follow-ups",
-          "CRM/sheet integration",
-          "Admin controls"
-        ],
-        "premium": [
-          "AI knowledge layer",
-          "Advanced workflows",
-          "Analytics",
-          "Multiple integrations"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 8000,
-          "professional": 15000,
-          "premium": 25000
-        },
-        "USA": {
-          "standard": 499,
-          "professional": 899,
-          "premium": 1499
-        },
-        "United Kingdom": {
-          "standard": 380,
-          "professional": 680,
-          "premium": 1130
-        },
-        "Eurozone": {
-          "standard": 445,
-          "professional": 805,
-          "premium": 1335
-        },
-        "Australia": {
-          "standard": 720,
-          "professional": 1300,
-          "premium": 2160
-        },
-        "Denmark": {
-          "standard": 3330,
-          "professional": 5990,
-          "premium": 9980
-        }
-      }
-    },
-    "whatsapp_automation": {
-      "name": "WhatsApp Automation",
-      "family": "bot",
-      "aliases": [
-        "whatsapp automation",
-        "whatsapp business api",
-        "booking bot",
-        "order bot"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 28000,
-        "premium": 45000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "Core WhatsApp workflow",
-          "Lead/order/booking capture",
-          "Human handoff"
-        ],
-        "professional": [
-          "CRM integration",
-          "Automated follow-ups",
-          "Admin dashboard",
-          "Status notifications"
-        ],
-        "premium": [
-          "Multi-flow automation",
-          "AI-assisted replies",
-          "Advanced integrations",
-          "Analytics and team roles"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 28000,
-          "premium": 45000
-        },
-        "USA": {
-          "standard": 899,
-          "professional": 1699,
-          "premium": 2799
-        },
-        "United Kingdom": {
-          "standard": 680,
-          "professional": 1280,
-          "premium": 2105
-        },
-        "Eurozone": {
-          "standard": 805,
-          "professional": 1515,
-          "premium": 2495
-        },
-        "Australia": {
-          "standard": 1300,
-          "professional": 2450,
-          "premium": 4035
-        },
-        "Denmark": {
-          "standard": 5990,
-          "professional": 11310,
-          "premium": 18630
-        }
-      }
-    },
     "whatsapp_ai_sales_bot": {
       "name": "WhatsApp AI Sales Bot",
       "family": "bot",
@@ -365,6 +189,206 @@
           "standard": 6120,
           "professional": 12240,
           "premium": 20360
+        }
+      }
+    },
+    "customer_support_ai": {
+      "name": "AI Customer Support Bot",
+      "family": "ai",
+      "aliases": [
+        "customer support ai",
+        "support bot",
+        "ai support",
+        "helpdesk bot"
+      ],
+      "inr": {
+        "standard": 12000,
+        "professional": 25000,
+        "premium": 40000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Knowledge-base answers",
+          "Ticket/human handoff",
+          "FAQ automation"
+        ],
+        "professional": [
+          "Order/status lookup",
+          "Support analytics",
+          "Multi-channel support",
+          "CRM/helpdesk integration"
+        ],
+        "premium": [
+          "Advanced AI routing",
+          "Multiple knowledge sources",
+          "Team workflows",
+          "Custom integrations and analytics"
+        ]
+      },
+      "regional_prices": {
+        "India": {
+          "standard": 12000,
+          "professional": 25000,
+          "premium": 40000
+        },
+        "USA": {
+          "standard": 739,
+          "professional": 1529,
+          "premium": 2449
+        },
+        "United Kingdom": {
+          "standard": 560,
+          "professional": 1150,
+          "premium": 1845
+        },
+        "Eurozone": {
+          "standard": 660,
+          "professional": 1365,
+          "premium": 2180
+        },
+        "Australia": {
+          "standard": 1065,
+          "professional": 2205,
+          "premium": 3530
+        },
+        "Denmark": {
+          "standard": 4920,
+          "professional": 10180,
+          "premium": 16300
+        }
+      }
+    },
+    "ai_agent": {
+      "name": "Custom AI Agent",
+      "family": "ai",
+      "aliases": [
+        "ai agent",
+        "sales agent",
+        "support agent",
+        "operations agent",
+        "voice agent"
+      ],
+      "inr": {
+        "standard": 25000,
+        "professional": 45000,
+        "premium": 85000
+      },
+      "timeline": "5–14 days",
+      "features": {
+        "standard": [
+          "Business knowledge agent",
+          "One primary channel",
+          "Human handoff"
+        ],
+        "professional": [
+          "Workflow actions",
+          "CRM/calendar integrations",
+          "Memory and analytics"
+        ],
+        "premium": [
+          "Multi-agent or multi-channel orchestration",
+          "Advanced tools/integrations",
+          "Governance",
+          "Custom analytics"
+        ]
+      },
+      "regional_prices": {
+        "India": {
+          "standard": 25000,
+          "professional": 45000,
+          "premium": 85000
+        },
+        "USA": {
+          "standard": 1499,
+          "professional": 2699,
+          "premium": 4999
+        },
+        "United Kingdom": {
+          "standard": 1130,
+          "professional": 2030,
+          "premium": 3760
+        },
+        "Eurozone": {
+          "standard": 1335,
+          "professional": 2405,
+          "premium": 4450
+        },
+        "Australia": {
+          "standard": 2160,
+          "professional": 3890,
+          "premium": 7205
+        },
+        "Denmark": {
+          "standard": 9980,
+          "professional": 17960,
+          "premium": 33270
+        }
+      }
+    },
+    "dashboard_reporting": {
+      "name": "Business Dashboard & Reporting",
+      "family": "automation",
+      "aliases": [
+        "dashboard",
+        "reporting",
+        "analytics dashboard",
+        "business reports"
+      ],
+      "inr": {
+        "standard": 18000,
+        "professional": 35000,
+        "premium": 60000
+      },
+      "timeline": "1–3 weeks",
+      "features": {
+        "standard": [
+          "Core KPI dashboard",
+          "Manual/CSV data sources",
+          "Exportable reports"
+        ],
+        "professional": [
+          "Live system integrations",
+          "Role-based views",
+          "Scheduled digests"
+        ],
+        "premium": [
+          "Multi-source BI",
+          "Custom alerts",
+          "Advanced analytics",
+          "Executive and team dashboards"
+        ]
+      },
+      "regional_prices": {
+        "India": {
+          "standard": 18000,
+          "professional": 35000,
+          "premium": 60000
+        },
+        "USA": {
+          "standard": 1099,
+          "professional": 2139,
+          "premium": 3669
+        },
+        "United Kingdom": {
+          "standard": 830,
+          "professional": 1610,
+          "premium": 2760
+        },
+        "Eurozone": {
+          "standard": 980,
+          "professional": 1905,
+          "premium": 3270
+        },
+        "Australia": {
+          "standard": 1585,
+          "professional": 3085,
+          "premium": 5290
+        },
+        "Denmark": {
+          "standard": 7320,
+          "professional": 14240,
+          "premium": 24420
         }
       }
     },
@@ -437,208 +461,6 @@
         }
       }
     },
-    "customer_support_ai": {
-      "name": "AI Customer Support Bot",
-      "family": "ai",
-      "aliases": [
-        "customer support ai",
-        "support bot",
-        "ai support",
-        "helpdesk bot"
-      ],
-      "inr": {
-        "standard": 12000,
-        "professional": 25000,
-        "premium": 40000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "Knowledge-base answers",
-          "Ticket/human handoff",
-          "FAQ automation"
-        ],
-        "professional": [
-          "Order/status lookup",
-          "Support analytics",
-          "Multi-channel support",
-          "CRM/helpdesk integration"
-        ],
-        "premium": [
-          "Advanced AI routing",
-          "Multiple knowledge sources",
-          "Team workflows",
-          "Custom integrations and analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 12000,
-          "professional": 25000,
-          "premium": 40000
-        },
-        "USA": {
-          "standard": 739,
-          "professional": 1529,
-          "premium": 2449
-        },
-        "United Kingdom": {
-          "standard": 560,
-          "professional": 1150,
-          "premium": 1845
-        },
-        "Eurozone": {
-          "standard": 660,
-          "professional": 1365,
-          "premium": 2180
-        },
-        "Australia": {
-          "standard": 1065,
-          "professional": 2205,
-          "premium": 3530
-        },
-        "Denmark": {
-          "standard": 4920,
-          "professional": 10180,
-          "premium": 16300
-        }
-      }
-    },
-    "clinic_automation": {
-      "name": "Clinic Appointment Automation",
-      "family": "automation",
-      "aliases": [
-        "clinic",
-        "doctor",
-        "appointment bot",
-        "patient booking"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 28000,
-        "premium": 45000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "WhatsApp appointment booking",
-          "Reminders",
-          "Basic patient intake"
-        ],
-        "professional": [
-          "Queue/room workflow",
-          "Patient records",
-          "Reports",
-          "Staff dashboard"
-        ],
-        "premium": [
-          "Multi-doctor/branch roles",
-          "Advanced integrations",
-          "Recall campaigns",
-          "Custom analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 28000,
-          "premium": 45000
-        },
-        "USA": {
-          "standard": 919,
-          "professional": 1719,
-          "premium": 2749
-        },
-        "United Kingdom": {
-          "standard": 695,
-          "professional": 1295,
-          "premium": 2070
-        },
-        "Eurozone": {
-          "standard": 820,
-          "professional": 1535,
-          "premium": 2450
-        },
-        "Australia": {
-          "standard": 1325,
-          "professional": 2480,
-          "premium": 3965
-        },
-        "Denmark": {
-          "standard": 6120,
-          "professional": 11440,
-          "premium": 18300
-        }
-      }
-    },
-    "travel_automation": {
-      "name": "Travel Automation Bot",
-      "family": "automation",
-      "aliases": [
-        "travel",
-        "tourism",
-        "fare bot",
-        "visa bot",
-        "booking travel"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 30000,
-        "premium": 50000
-      },
-      "timeline": "7–21 days",
-      "features": {
-        "standard": [
-          "Travel enquiry capture",
-          "Package/fare workflow",
-          "Status notifications"
-        ],
-        "professional": [
-          "Booking workflow",
-          "Lead CRM",
-          "Multi-language replies",
-          "API integrations where available"
-        ],
-        "premium": [
-          "Multi-source/API orchestration",
-          "Agent dashboard",
-          "Advanced notifications",
-          "Custom customer portal and analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
-        },
-        "USA": {
-          "standard": 919,
-          "professional": 1839,
-          "premium": 3059
-        },
-        "United Kingdom": {
-          "standard": 695,
-          "professional": 1385,
-          "premium": 2305
-        },
-        "Eurozone": {
-          "standard": 820,
-          "professional": 1640,
-          "premium": 2725
-        },
-        "Australia": {
-          "standard": 1325,
-          "professional": 2650,
-          "premium": 4410
-        },
-        "Denmark": {
-          "standard": 6120,
-          "professional": 12240,
-          "premium": 20360
-        }
-      }
-    },
     "crm_erp": {
       "name": "Custom CRM / ERP",
       "family": "crm",
@@ -703,403 +525,6 @@
           "standard": 9980,
           "professional": 19960,
           "premium": 36590
-        }
-      }
-    },
-    "field_sales_crm": {
-      "name": "Field Sales CRM",
-      "family": "crm",
-      "aliases": [
-        "field sales",
-        "sales crm",
-        "visit tracking",
-        "sales team crm"
-      ],
-      "inr": {
-        "standard": 25000,
-        "professional": 45000,
-        "premium": 75000
-      },
-      "timeline": "1–4 weeks",
-      "features": {
-        "standard": [
-          "Lead capture",
-          "Visit logs",
-          "Follow-up tasks"
-        ],
-        "professional": [
-          "Targets/pipeline dashboards",
-          "Geo/photo proof options",
-          "Automated follow-ups"
-        ],
-        "premium": [
-          "Multi-team hierarchy",
-          "Advanced reporting",
-          "ERP/inventory integrations",
-          "Custom workflows"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 75000
-        },
-        "USA": {
-          "standard": 1529,
-          "professional": 2749,
-          "premium": 4579
-        },
-        "United Kingdom": {
-          "standard": 1150,
-          "professional": 2070,
-          "premium": 3445
-        },
-        "Eurozone": {
-          "standard": 1365,
-          "professional": 2450,
-          "premium": 4080
-        },
-        "Australia": {
-          "standard": 2205,
-          "professional": 3965,
-          "premium": 6600
-        },
-        "Denmark": {
-          "standard": 10180,
-          "professional": 18300,
-          "premium": 30470
-        }
-      }
-    },
-    "factory_erp": {
-      "name": "Factory ERP System",
-      "family": "crm",
-      "aliases": [
-        "factory erp",
-        "manufacturing erp",
-        "production system",
-        "factory automation"
-      ],
-      "inr": {
-        "standard": 35000,
-        "professional": 75000,
-        "premium": 150000
-      },
-      "timeline": "2–6 weeks",
-      "features": {
-        "standard": [
-          "Orders/production queue",
-          "Inventory",
-          "Basic staff workflow"
-        ],
-        "professional": [
-          "Purchase/sales/HR modules",
-          "Management dashboard",
-          "Alerts and reports"
-        ],
-        "premium": [
-          "Multi-branch ERP",
-          "Advanced costing/reporting",
-          "Deep integrations",
-          "Custom shop-floor workflows"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 35000,
-          "professional": 75000,
-          "premium": 150000
-        },
-        "USA": {
-          "standard": 2139,
-          "professional": 4579,
-          "premium": 9159
-        },
-        "United Kingdom": {
-          "standard": 1610,
-          "professional": 3445,
-          "premium": 6890
-        },
-        "Eurozone": {
-          "standard": 1905,
-          "professional": 4080,
-          "premium": 8155
-        },
-        "Australia": {
-          "standard": 3085,
-          "professional": 6600,
-          "premium": 13195
-        },
-        "Denmark": {
-          "standard": 14240,
-          "professional": 30470,
-          "premium": 60950
-        }
-      }
-    },
-    "laundry_system": {
-      "name": "Laundry Management System",
-      "family": "automation",
-      "aliases": [
-        "laundry",
-        "pickup delivery",
-        "laundry management"
-      ],
-      "inr": {
-        "standard": 10000,
-        "professional": 20000,
-        "premium": 35000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "Order intake",
-          "Pickup/delivery status",
-          "Customer notifications"
-        ],
-        "professional": [
-          "Worker assignment",
-          "Billing",
-          "Owner reports",
-          "Multi-status workflow"
-        ],
-        "premium": [
-          "Multi-branch operations",
-          "Advanced CRM",
-          "Route/integration options",
-          "Analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 10000,
-          "professional": 20000,
-          "premium": 35000
-        },
-        "USA": {
-          "standard": 619,
-          "professional": 1229,
-          "premium": 2139
-        },
-        "United Kingdom": {
-          "standard": 470,
-          "professional": 925,
-          "premium": 1610
-        },
-        "Eurozone": {
-          "standard": 555,
-          "professional": 1095,
-          "premium": 1905
-        },
-        "Australia": {
-          "standard": 895,
-          "professional": 1775,
-          "premium": 3085
-        },
-        "Denmark": {
-          "standard": 4120,
-          "professional": 8180,
-          "premium": 14240
-        }
-      }
-    },
-    "dashboard_reporting": {
-      "name": "Business Dashboard & Reporting",
-      "family": "automation",
-      "aliases": [
-        "dashboard",
-        "reporting",
-        "analytics dashboard",
-        "business reports"
-      ],
-      "inr": {
-        "standard": 18000,
-        "professional": 35000,
-        "premium": 60000
-      },
-      "timeline": "1–3 weeks",
-      "features": {
-        "standard": [
-          "Core KPI dashboard",
-          "Manual/CSV data sources",
-          "Exportable reports"
-        ],
-        "professional": [
-          "Live system integrations",
-          "Role-based views",
-          "Scheduled digests"
-        ],
-        "premium": [
-          "Multi-source BI",
-          "Custom alerts",
-          "Advanced analytics",
-          "Executive and team dashboards"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 18000,
-          "professional": 35000,
-          "premium": 60000
-        },
-        "USA": {
-          "standard": 1099,
-          "professional": 2139,
-          "premium": 3669
-        },
-        "United Kingdom": {
-          "standard": 830,
-          "professional": 1610,
-          "premium": 2760
-        },
-        "Eurozone": {
-          "standard": 980,
-          "professional": 1905,
-          "premium": 3270
-        },
-        "Australia": {
-          "standard": 1585,
-          "professional": 3085,
-          "premium": 5290
-        },
-        "Denmark": {
-          "standard": 7320,
-          "professional": 14240,
-          "premium": 24420
-        }
-      }
-    },
-    "ai_agent": {
-      "name": "Custom AI Agent",
-      "family": "ai",
-      "aliases": [
-        "ai agent",
-        "sales agent",
-        "support agent",
-        "operations agent",
-        "voice agent"
-      ],
-      "inr": {
-        "standard": 25000,
-        "professional": 45000,
-        "premium": 85000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "Business knowledge agent",
-          "One primary channel",
-          "Human handoff"
-        ],
-        "professional": [
-          "Workflow actions",
-          "CRM/calendar integrations",
-          "Memory and analytics"
-        ],
-        "premium": [
-          "Multi-agent or multi-channel orchestration",
-          "Advanced tools/integrations",
-          "Governance",
-          "Custom analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 85000
-        },
-        "USA": {
-          "standard": 1499,
-          "professional": 2699,
-          "premium": 4999
-        },
-        "United Kingdom": {
-          "standard": 1130,
-          "professional": 2030,
-          "premium": 3760
-        },
-        "Eurozone": {
-          "standard": 1335,
-          "professional": 2405,
-          "premium": 4450
-        },
-        "Australia": {
-          "standard": 2160,
-          "professional": 3890,
-          "premium": 7205
-        },
-        "Denmark": {
-          "standard": 9980,
-          "professional": 17960,
-          "premium": 33270
-        }
-      }
-    },
-    "mobile_app": {
-      "name": "Mobile App Development",
-      "family": "app",
-      "aliases": [
-        "mobile app",
-        "android app",
-        "ios app",
-        "app development"
-      ],
-      "inr": {
-        "standard": 30000,
-        "professional": 65000,
-        "premium": 120000
-      },
-      "timeline": "3–8 weeks",
-      "features": {
-        "standard": [
-          "Core mobile workflow",
-          "Authentication",
-          "Basic admin/backend"
-        ],
-        "professional": [
-          "Payments/notifications",
-          "Advanced dashboard",
-          "API integrations"
-        ],
-        "premium": [
-          "Android + iOS scope",
-          "Complex roles/workflows",
-          "Advanced integrations",
-          "Analytics and launch support"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 30000,
-          "professional": 65000,
-          "premium": 120000
-        },
-        "USA": {
-          "standard": 1839,
-          "professional": 3969,
-          "premium": 7329
-        },
-        "United Kingdom": {
-          "standard": 1385,
-          "professional": 2985,
-          "premium": 5515
-        },
-        "Eurozone": {
-          "standard": 1640,
-          "professional": 3535,
-          "premium": 6525
-        },
-        "Australia": {
-          "standard": 2650,
-          "professional": 5720,
-          "premium": 10560
-        },
-        "Denmark": {
-          "standard": 12240,
-          "professional": 26410,
-          "premium": 48770
         }
       }
     },
@@ -1169,763 +594,6 @@
           "premium": 10180
         }
       }
-    },
-    "hotel_automation": {
-      "name": "Hotel / Hospitality Automation",
-      "family": "automation",
-      "aliases": [
-        "hotel",
-        "resort",
-        "guest house",
-        "room booking",
-        "hospitality"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 30000,
-        "premium": 50000
-      },
-      "timeline": "5–14 days",
-      "features": {
-        "standard": [
-          "Room/package enquiry",
-          "WhatsApp lead capture",
-          "Booking request flow"
-        ],
-        "professional": [
-          "Booking management",
-          "Guest CRM",
-          "Automated confirmations/reminders",
-          "Staff dashboard"
-        ],
-        "premium": [
-          "Multi-property/branch roles",
-          "Payment/integration options",
-          "Guest service workflows",
-          "Advanced reports and analytics"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
-        },
-        "USA": {
-          "standard": 919,
-          "professional": 1839,
-          "premium": 3059
-        },
-        "United Kingdom": {
-          "standard": 695,
-          "professional": 1385,
-          "premium": 2305
-        },
-        "Eurozone": {
-          "standard": 820,
-          "professional": 1640,
-          "premium": 2725
-        },
-        "Australia": {
-          "standard": 1325,
-          "professional": 2650,
-          "premium": 4410
-        },
-        "Denmark": {
-          "standard": 6120,
-          "professional": 12240,
-          "premium": 20360
-        }
-      }
-    },
-    "ecommerce_website": {
-      "name": "E-commerce Website / Store",
-      "family": "website",
-      "aliases": [
-        "e-commerce website",
-        "ecommerce website",
-        "online store",
-        "shopping website",
-        "e-commerce store"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 30000,
-        "premium": 60000
-      },
-      "timeline": "7–21 days",
-      "features": {
-        "standard": [
-          "Product catalog",
-          "Cart and checkout",
-          "Payment gateway setup"
-        ],
-        "professional": [
-          "Order/admin dashboard",
-          "Coupons and notifications",
-          "Analytics and integrations"
-        ],
-        "premium": [
-          "Advanced storefront",
-          "CRM/ERP integration",
-          "Automation and scaling support"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 60000
-        },
-        "USA": {
-          "standard": 919,
-          "professional": 1839,
-          "premium": 3669
-        },
-        "United Kingdom": {
-          "standard": 695,
-          "professional": 1385,
-          "premium": 2760
-        },
-        "Eurozone": {
-          "standard": 820,
-          "professional": 1640,
-          "premium": 3270
-        },
-        "Australia": {
-          "standard": 1325,
-          "professional": 2650,
-          "premium": 5290
-        },
-        "Denmark": {
-          "standard": 6120,
-          "professional": 12240,
-          "premium": 24420
-        }
-      }
-    },
-    "hr_system": {
-      "name": "HR & Employee Management System",
-      "family": "crm",
-      "aliases": [
-        "hr system",
-        "employee management",
-        "attendance system",
-        "leave management",
-        "payroll system"
-      ],
-      "inr": {
-        "standard": 25000,
-        "professional": 45000,
-        "premium": 75000
-      },
-      "timeline": "1–4 weeks",
-      "features": {
-        "standard": [
-          "Employee records",
-          "Attendance/leave workflow",
-          "Basic reports"
-        ],
-        "professional": [
-          "Payroll/reporting workflows",
-          "Role-based dashboard",
-          "Notifications"
-        ],
-        "premium": [
-          "Multi-branch roles",
-          "Advanced integrations",
-          "Analytics and custom workflows"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 25000,
-          "professional": 45000,
-          "premium": 75000
-        },
-        "USA": {
-          "standard": 1529,
-          "professional": 2749,
-          "premium": 4579
-        },
-        "United Kingdom": {
-          "standard": 1150,
-          "professional": 2070,
-          "premium": 3445
-        },
-        "Eurozone": {
-          "standard": 1365,
-          "professional": 2450,
-          "premium": 4080
-        },
-        "Australia": {
-          "standard": 2205,
-          "professional": 3965,
-          "premium": 6600
-        },
-        "Denmark": {
-          "standard": 10180,
-          "professional": 18300,
-          "premium": 30470
-        }
-      }
-    },
-    "seo_service": {
-      "name": "SEO & Search Growth",
-      "family": "marketing",
-      "aliases": [
-        "seo",
-        "search engine optimization",
-        "technical seo",
-        "on-page seo"
-      ],
-      "inr": {
-        "standard": 5000,
-        "professional": 10000,
-        "premium": 18000
-      },
-      "timeline": "Monthly service",
-      "features": {
-        "standard": [
-          "Technical/on-page audit",
-          "Core metadata fixes",
-          "Indexing checks"
-        ],
-        "professional": [
-          "Keyword/content plan",
-          "Technical SEO work",
-          "Monthly reporting"
-        ],
-        "premium": [
-          "Broader content/search program",
-          "Conversion tracking",
-          "Priority optimization"
-        ]
-      },
-      "billing_unit": "/month",
-      "regional_prices": {
-        "India": {
-          "standard": 5000,
-          "professional": 10000,
-          "premium": 18000
-        },
-        "USA": {
-          "standard": 309,
-          "professional": 619,
-          "premium": 1099
-        },
-        "United Kingdom": {
-          "standard": 235,
-          "professional": 470,
-          "premium": 830
-        },
-        "Eurozone": {
-          "standard": 280,
-          "professional": 555,
-          "premium": 980
-        },
-        "Australia": {
-          "standard": 450,
-          "professional": 895,
-          "premium": 1585
-        },
-        "Denmark": {
-          "standard": 2060,
-          "professional": 4120,
-          "premium": 7320
-        }
-      }
-    },
-    "google_business_profile": {
-      "name": "Google Business Profile Setup & Growth",
-      "family": "marketing",
-      "aliases": [
-        "google business profile",
-        "gbp",
-        "google maps listing",
-        "google listing"
-      ],
-      "inr": {
-        "standard": 3000,
-        "professional": 6000,
-        "premium": 10000
-      },
-      "timeline": "3–10 days",
-      "features": {
-        "standard": [
-          "Profile setup/cleanup",
-          "Business details optimization",
-          "Verification guidance"
-        ],
-        "professional": [
-          "Photos/services/posts setup",
-          "Review workflow",
-          "Local visibility checks"
-        ],
-        "premium": [
-          "Multi-location setup",
-          "Reporting workflow",
-          "Ongoing optimization handoff"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 3000,
-          "professional": 6000,
-          "premium": 10000
-        },
-        "USA": {
-          "standard": 189,
-          "professional": 369,
-          "premium": 619
-        },
-        "United Kingdom": {
-          "standard": 145,
-          "professional": 280,
-          "premium": 470
-        },
-        "Eurozone": {
-          "standard": 170,
-          "professional": 330,
-          "premium": 555
-        },
-        "Australia": {
-          "standard": 275,
-          "professional": 535,
-          "premium": 895
-        },
-        "Denmark": {
-          "standard": 1260,
-          "professional": 2460,
-          "premium": 4120
-        }
-      }
-    },
-    "content_marketing": {
-      "name": "Content Marketing",
-      "family": "marketing",
-      "aliases": [
-        "content marketing",
-        "blog writing",
-        "social media content",
-        "newsletter content"
-      ],
-      "inr": {
-        "standard": 10000,
-        "professional": 20000,
-        "premium": 35000
-      },
-      "timeline": "Monthly service",
-      "features": {
-        "standard": [
-          "Monthly content plan",
-          "Core posts/articles",
-          "Basic reporting"
-        ],
-        "professional": [
-          "Multi-format content",
-          "Case studies/newsletters",
-          "Performance review"
-        ],
-        "premium": [
-          "Higher content volume",
-          "Campaign coordination",
-          "Priority strategy and reporting"
-        ]
-      },
-      "billing_unit": "/month",
-      "regional_prices": {
-        "India": {
-          "standard": 10000,
-          "professional": 20000,
-          "premium": 35000
-        },
-        "USA": {
-          "standard": 619,
-          "professional": 1229,
-          "premium": 2139
-        },
-        "United Kingdom": {
-          "standard": 470,
-          "professional": 925,
-          "premium": 1610
-        },
-        "Eurozone": {
-          "standard": 555,
-          "professional": 1095,
-          "premium": 1905
-        },
-        "Australia": {
-          "standard": 895,
-          "professional": 1775,
-          "premium": 3085
-        },
-        "Denmark": {
-          "standard": 4120,
-          "professional": 8180,
-          "premium": 14240
-        }
-      }
-    },
-    "lead_generation": {
-      "name": "Lead Generation Management",
-      "family": "marketing",
-      "aliases": [
-        "lead generation",
-        "google ads management",
-        "facebook ads",
-        "meta ads",
-        "lead campaign"
-      ],
-      "inr": {
-        "standard": 15000,
-        "professional": 30000,
-        "premium": 50000
-      },
-      "timeline": "Monthly service",
-      "features": {
-        "standard": [
-          "Campaign setup/management",
-          "Landing/lead tracking guidance",
-          "Monthly reporting"
-        ],
-        "professional": [
-          "Multi-campaign management",
-          "Conversion tracking",
-          "Optimization and lead workflow"
-        ],
-        "premium": [
-          "Multi-channel management",
-          "Advanced reporting",
-          "CRM/follow-up integration"
-        ]
-      },
-      "billing_unit": "/month",
-      "regional_prices": {
-        "India": {
-          "standard": 15000,
-          "professional": 30000,
-          "premium": 50000
-        },
-        "USA": {
-          "standard": 919,
-          "professional": 1839,
-          "premium": 3059
-        },
-        "United Kingdom": {
-          "standard": 695,
-          "professional": 1385,
-          "premium": 2305
-        },
-        "Eurozone": {
-          "standard": 820,
-          "professional": 1640,
-          "premium": 2725
-        },
-        "Australia": {
-          "standard": 1325,
-          "professional": 2650,
-          "premium": 4410
-        },
-        "Denmark": {
-          "standard": 6120,
-          "professional": 12240,
-          "premium": 20360
-        }
-      }
-    },
-    "cloud_hosting": {
-      "name": "Cloud Hosting & VPS Management",
-      "family": "hosting",
-      "aliases": [
-        "cloud hosting",
-        "vps",
-        "server hosting",
-        "server management",
-        "hosting"
-      ],
-      "inr": {
-        "standard": 999,
-        "professional": 1999,
-        "premium": 3999
-      },
-      "timeline": "Monthly service",
-      "features": {
-        "standard": [
-          "Basic VPS/hosting management",
-          "SSL/basic monitoring",
-          "Routine maintenance"
-        ],
-        "professional": [
-          "Performance/security monitoring",
-          "Backups and updates",
-          "Priority maintenance"
-        ],
-        "premium": [
-          "Advanced monitoring",
-          "Multi-service/server support",
-          "Priority incident response"
-        ]
-      },
-      "billing_unit": "/month",
-      "regional_prices": {
-        "India": {
-          "standard": 999,
-          "professional": 1999,
-          "premium": 3999
-        },
-        "USA": {
-          "standard": 69,
-          "professional": 129,
-          "premium": 249
-        },
-        "United Kingdom": {
-          "standard": 55,
-          "professional": 100,
-          "premium": 190
-        },
-        "Eurozone": {
-          "standard": 65,
-          "professional": 115,
-          "premium": 225
-        },
-        "Australia": {
-          "standard": 100,
-          "professional": 190,
-          "premium": 360
-        },
-        "Denmark": {
-          "standard": 460,
-          "professional": 860,
-          "premium": 1660
-        }
-      }
-    },
-    "managed_support": {
-      "name": "Managed Support & Maintenance",
-      "family": "support",
-      "aliases": [
-        "managed support",
-        "maintenance plan",
-        "support plan",
-        "monthly support"
-      ],
-      "inr": {
-        "standard": 3000,
-        "professional": 5000,
-        "premium": 10000
-      },
-      "timeline": "Monthly service",
-      "features": {
-        "standard": [
-          "Routine fixes",
-          "Basic monitoring",
-          "Standard response queue"
-        ],
-        "professional": [
-          "Priority support",
-          "Regular health checks",
-          "Minor improvements"
-        ],
-        "premium": [
-          "Priority response",
-          "Proactive monitoring",
-          "Higher change allowance and reporting"
-        ]
-      },
-      "billing_unit": "/month",
-      "regional_prices": {
-        "India": {
-          "standard": 3000,
-          "professional": 5000,
-          "premium": 10000
-        },
-        "USA": {
-          "standard": 189,
-          "professional": 309,
-          "premium": 619
-        },
-        "United Kingdom": {
-          "standard": 145,
-          "professional": 235,
-          "premium": 470
-        },
-        "Eurozone": {
-          "standard": 170,
-          "professional": 280,
-          "premium": 555
-        },
-        "Australia": {
-          "standard": 275,
-          "professional": 450,
-          "premium": 895
-        },
-        "Denmark": {
-          "standard": 1260,
-          "professional": 2060,
-          "premium": 4120
-        }
-      }
-    },
-    "ai_voice_calling": {
-      "name": "AI Voice Calling & Receptionist",
-      "family": "ai",
-      "aliases": [
-        "ai voice calling",
-        "ai calling",
-        "voice calling",
-        "ai phone calling",
-        "ai phone agent",
-        "ai voice agent",
-        "voice ai",
-        "ai receptionist",
-        "automated phone calls",
-        "inbound ai calls",
-        "outbound ai calls",
-        "appointment reminder calling",
-        "customer calling assistant",
-        "voice bot"
-      ],
-      "inr": {
-        "standard": 24999,
-        "professional": 49999,
-        "premium": 99999
-      },
-      "timeline": "7–21 days after telephony approval and scope sign-off",
-      "features": {
-        "standard": [
-          "One approved inbound or opted-in outbound call workflow",
-          "FAQ / booking / lead capture",
-          "Human transfer and test call acceptance"
-        ],
-        "professional": [
-          "Hindi/English or approved multilingual voice flows",
-          "CRM and calendar integrations",
-          "Call outcomes, consent-aware follow-ups and analytics"
-        ],
-        "premium": [
-          "Multi-team workflows and advanced routing",
-          "Custom CRM actions, QA and controls",
-          "Role permissions, monitoring and human escalation"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 24999,
-          "professional": 49999,
-          "premium": 99999
-        },
-        "USA": {
-          "standard": 899,
-          "professional": 1799,
-          "premium": 3499
-        },
-        "United Kingdom": {
-          "standard": 680,
-          "professional": 1355,
-          "premium": 2635
-        },
-        "Eurozone": {
-          "standard": 805,
-          "professional": 1605,
-          "premium": 3115
-        },
-        "Australia": {
-          "standard": 1300,
-          "professional": 2595,
-          "premium": 5045
-        },
-        "Denmark": {
-          "standard": 5990,
-          "professional": 11970,
-          "premium": 23290
-        }
-      },
-      "commercial_notes": {
-        "pricing": "Published amounts are ONE-TIME setup starting prices for a scoped build, not monthly fees or call minutes.",
-        "usage": "Actual voice AI minutes, carrier minutes, local telephone number rental, integration subscriptions, taxes and applicable compliance fees are extra, subject to a transparent client-approved provider quote.",
-        "deployment": "Carrier provisioning, caller ID approval, jurisdiction-specific requirements, call consent and provider test are prerequisites. No provider is connected by publishing this service.",
-        "consent": "Only inbound or explicitly opted-in outbound use cases; no unsolicited robocalls, silent recording, spoofing or bulk dialing.",
-        "billing": "Provider costs prepaid or customer-owned accounts; no unlimited calling promise."
-      },
-      "commercial_status": "setup_offer_only_calling_integration_requires_client_provider"
-    },
-    "real_estate_ai": {
-      "name": "Real Estate WhatsApp AI & CRM",
-      "family": "bot",
-      "aliases": [
-        "real estate whatsapp ai",
-        "property enquiry chatbot",
-        "property listing automation",
-        "real estate ai",
-        "realtor whatsapp bot",
-        "property site visit booking",
-        "real estate crm",
-        "real estate",
-        "real estate bot",
-        "property chatbot",
-        "property site visit",
-        "property listings"
-      ],
-      "inr": {
-        "standard": 18000,
-        "professional": 35000,
-        "premium": 52000
-      },
-      "timeline": "4-25 working days by package; provider approvals additional",
-      "features": {
-        "standard": [
-          "Property buyer/renter enquiry qualification",
-          "Lead capture and owner/team handoff",
-          "Approved sample property information",
-          "Viewing-time REQUEST capture (not confirmed booking)"
-        ],
-        "professional": [
-          "All Basic capabilities",
-          "Private add/edit property dashboard",
-          "Approved property-photo sharing by scoped integration",
-          "CRM pipeline and consent-based follow-ups"
-        ],
-        "premium": [
-          "All Professional capabilities",
-          "Advanced location/budget/property filters",
-          "Staff roles and useful analytics",
-          "Google/Outlook calendar availability integration subject to approved access and implementation"
-        ]
-      },
-      "regional_prices": {
-        "India": {
-          "standard": 18000,
-          "professional": 35000,
-          "premium": 52000
-        },
-        "USA": {
-          "standard": 1099,
-          "professional": 2099,
-          "premium": 3299
-        },
-        "United Kingdom": {
-          "standard": 825,
-          "professional": 1575,
-          "premium": 2480
-        },
-        "Eurozone": {
-          "standard": 980,
-          "professional": 1880,
-          "premium": 2950
-        },
-        "Australia": {
-          "standard": 1590,
-          "professional": 3060,
-          "premium": 4750
-        },
-        "Denmark": {
-          "standard": 7320,
-          "professional": 13980,
-          "premium": 21950
-        }
-      },
-      "business_notes": "One-time starting setup scope. Official WhatsApp Business Platform account, consent, technical feasibility, approved integrations and client-owned accounts required. Meta/BSP message charges, hosting, AI, storage, taxes and licences extra unless included in written quote. No unconditional live bookings or payments."
     }
   },
   "discounts": {
@@ -2012,95 +680,9 @@
     ],
     "disabled_reason": "Premium three-tier positioning: Basic / Premium / Elite"
   },
-  "regional_bundles": {
-    "launch": {
-      "name": "Website + WhatsApp Starter",
-      "description": "Business Website Basic + WhatsApp Automation Basic, with a scoped enquiry-handling handoff.",
-      "components": [
-        {
-          "product": "website",
-          "tier": "standard"
-        },
-        {
-          "product": "whatsapp_automation",
-          "tier": "standard"
-        }
-      ],
-      "market_prices": {
-        "USA": 1279,
-        "India": 18999,
-        "United Kingdom": 965,
-        "Eurozone": 1140,
-        "Australia": 1845,
-        "Denmark": 8510
-      },
-      "standalone_totals": {
-        "USA": 1348,
-        "India": 19999,
-        "United Kingdom": 1015,
-        "Eurozone": 1200,
-        "Australia": 1945,
-        "Denmark": 8970
-      },
-      "billing_unit": "one-time",
-      "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
-    },
-    "growth": {
-      "name": "Growth Operations Trio",
-      "description": "Professional WhatsApp Automation + Professional Custom AI Agent + Professional CRM/ERP, jointly scoped.",
-      "components": [
-        {
-          "product": "whatsapp_automation",
-          "tier": "professional"
-        },
-        {
-          "product": "ai_agent",
-          "tier": "professional"
-        },
-        {
-          "product": "crm_erp",
-          "tier": "professional"
-        }
-      ],
-      "market_prices": {
-        "USA": 6799,
-        "India": 113499,
-        "United Kingdom": 5115,
-        "Eurozone": 6055,
-        "Australia": 9795,
-        "Denmark": 45240
-      },
-      "standalone_totals": {
-        "USA": 7397,
-        "India": 123000,
-        "United Kingdom": 5565,
-        "Eurozone": 6585,
-        "Australia": 10660,
-        "Denmark": 49220
-      },
-      "billing_unit": "one-time",
-      "restrictions": "Fixed scope only; no cash discount on provider fees, hosting, messaging, AI usage, taxes, paid ads, payment services or variable third-party costs. Written scope and owner approval required."
-    }
-  },
-  "fx_reference": {
-    "date": "2026-10-16",
-    "base": "USD",
-    "rates_to_currency": {
-      "GBP": 0.751939,
-      "EUR": 0.890064,
-      "AUD": 1.4406,
-      "DKK": 6.65362
-    },
-    "purpose": "Indicative local starting prices derived from existing USD service rate card. Not provider FX, settlement rate, locked quote, or merchant payment conversion.",
-    "rounding": "Round upwards to 5 GBP/EUR/AUD or 10 DKK",
-    "source": "Currency exchange rate lookup 2026-10-16 03:50-04:06 UTC"
-  },
+  "regional_bundles": {},
+  "fx_reference": null,
   "public_market_order": [
-    "India",
-    "USA",
-    "United Kingdom",
-    "Eurozone",
-    "Australia",
-    "Denmark"
+    "India"
   ]
 }

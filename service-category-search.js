@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Compact 27-service finder used by public homepages and services page.
+ * Compact 8-service finder used by public homepages and services page.
  * Native details/summary means browsing categories works without JS.
  * This controller only filters existing cards and opens search matches:
  * prices, product URLs, checkout logic, tracking and consent untouched.
@@ -18,12 +18,12 @@
  const count=document.getElementById(home?'ftCatalogResultCount':'svcResultCount');
  const empty=document.getElementById(home?'ftServiceNoResults':'svcNoResults');
  const lang=document.documentElement.lang;
- if(groups.length!==6||cards.length!==27||!count||!empty)return;
+ if(groups.length!==4||cards.length!==8||!count||!empty)return;
  const text=lang==='hi'
-  ? {all:'6 श्रेणियों में 27 सेवाएँ। श्रेणी खोलें या सेवा खोजें।',matches:' सेवाएँ मिलीं। संबंधित श्रेणी खुली है।',none:'कोई सेवा नहीं मिली। दूसरा शब्द डालें।'}
+  ? {all:'4 श्रेणियों में 8 सेवाएँ। श्रेणी खोलें या सेवा खोजें।',matches:' सेवाएँ मिलीं। संबंधित श्रेणी खुली है।',none:'कोई सेवा नहीं मिली। दूसरा शब्द डालें।'}
   : lang==='hi-Latn'
-  ? {all:'6 categories mein 27 services. Category kholein ya direct search karein.',matches:' matching services. Category khul gayi hai.',none:'Koi matching service nahi. Dusra keyword try karein.'}
-  : {all:'27 services in 6 categories. Expand a category or search.',matches:' matching services. Matching categories are open.',none:'No matching service. Try another keyword.'};
+  ? {all:'4 categories mein 8 services. Category kholein ya direct search karein.',matches:' matching services. Category khul gayi hai.',none:'Koi matching service nahi. Dusra keyword try karein.'}
+  : {all:'8 services in 4 categories. Expand a category or search.',matches:' matching services. Matching categories are open.',none:'No matching service. Try another keyword.'};
  const aliases=Object.freeze({
   website:'वेबसाइट वेबसाइट बनाना वेब साइट',
   ecommerce_website:'ऑनलाइन स्टोर ईकॉमर्स ई-कॉमर्स दुकान शॉपिंग',
