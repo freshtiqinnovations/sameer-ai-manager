@@ -81,8 +81,8 @@ assert(pricingLoader.includes('Object.keys(policy.products).length!==ALLOWED_SER
 for(const f of ['pricing.html','reviews.html','partners.html','earn-freshtiq.html','sales-executive/index.html','whatsapp-automation-for-restaurants.html']){
  assert(read(f).includes('/site-consent.js'),'Missing consent-safe GA4 measurement on '+f);
 }
-assert((read('services.html').match(/<a class="svc-card"/g)||[]).length===8,'Public services page must show exactly eight services');
-assert((read('index.html').match(/<a class="card" data-match=/g)||[]).length===8,'Homepage must show exactly eight service cards');
+assert((read('services.html').match(/<a\b[^>]*class="svc-card"[^>]*>/g)||[]).length===8,'Public services page must show exactly eight services');
+assert((read('index.html').match(/<article class="ft-service card" data-match=/g)||[]).length===8,'Homepage must show exactly eight service cards');
 assert((read('pricing.html').match(/<article class="product" data-featured=/g)||[]).length===8,'Pricing page must show exactly eight active products');
 console.log(JSON.stringify({guard:'FRESHTIQ_PRICING_MASTER',pass:fail.length===0,pages:pages.length,failures:fail},null,2));
 if(fail.length)process.exit(1);
