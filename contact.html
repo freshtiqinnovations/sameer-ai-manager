@@ -191,7 +191,9 @@ async function submitContactLead(ev){
     const requestedService=(query.get('service')||'').trim();
     const approvedServices=new Set(['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration']);
     const trackedService=approvedServices.has(requestedService)?requestedService:'Contact page: '+(business||'General enquiry');
-    const attribution=(key)=>String(query.get(key)||ctx[key]||'').slice(0,120);
+    const baseAttribution=(window.FreshtiqJourneyBase&&window.FreshtiqJourneyBase.getContext)?window.FreshtiqJourneyBase.getContext():{};
+    const attribution=(key)=>String(query.get(key)||ctx[key]||baseAttribution[key]||'').slice(0,120);
+    const clickId=(key)=>String(query.get(key)||ctx[key]||baseAttribution[key]||'').slice(0,256);
 
     const resp=await fetch('https://portal.freshtiqautomation.com/api/lead',{
       method:'POST',headers:{'Content-Type':'application/json'},
@@ -207,7 +209,10 @@ async function submitContactLead(ev){
         utm_medium:attribution('utm_medium'),
         utm_campaign:attribution('utm_campaign'),
         utm_content:attribution('utm_content'),
-        utm_term:attribution('utm_term')
+        utm_term:attribution('utm_term'),
+        gclid:clickId('gclid'),
+        gbraid:clickId('gbraid'),
+        wbraid:clickId('wbraid')
       }))
     });
     const result=await resp.json().catch(function(){return {};});
