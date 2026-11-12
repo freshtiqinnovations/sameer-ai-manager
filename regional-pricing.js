@@ -1,7 +1,7 @@
 (()=>{'use strict';
-const ALLOWED_SERVICES=new Set(["website", "basic_bot", "whatsapp_automation", "whatsapp_ai_sales_bot", "restaurant_automation", "customer_support_ai", "clinic_automation", "travel_automation", "crm_erp", "field_sales_crm", "factory_erp", "laundry_system", "dashboard_reporting", "ai_agent", "mobile_app", "custom_integration", "hotel_automation", "ecommerce_website", "hr_system", "seo_service", "google_business_profile", "content_marketing", "lead_generation", "cloud_hosting", "managed_support", "ai_voice_calling", "real_estate_ai"]);
-/* No FX conversion: these are independent fixed market rate cards in the
-   canonical published commercial-pricing.json read by the portal and bot. */
+const ALLOWED_SERVICES=new Set(["website","whatsapp_ai_sales_bot","customer_support_ai","ai_agent","dashboard_reporting","restaurant_automation","crm_erp","custom_integration"]);
+/* India INR only: validate the same eight published service categories as the portal.
+   Show amounts only when the live approved commercial-pricing API verifies every tier. */
 const MAP={INDIA:{region:'India',label:'India',currency:'INR'}};
 const TIERS=['standard','professional','premium'];
 const grids=[...document.querySelectorAll('[data-market]')];
@@ -83,7 +83,8 @@ fetch('https://portal.freshtiqautomation.com/api/public/commercial-pricing',{cac
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
   if(policy.version!=='2026-10-16-six-account-currency-estimates-v1' ||
-    !policy.products||Object.keys(policy.products).length!==27 ||
+    !policy.products||Object.keys(policy.products).length!==ALLOWED_SERVICES.size ||
+    ![...ALLOWED_SERVICES].every(k=>Object.prototype.hasOwnProperty.call(policy.products,k)) ||
     !policy.regions||!policy.regional_bundles)throw Error('rate-card not verified');
   for(const x of Object.values(policy.products)){
    for(const v of Object.values(MAP)){
