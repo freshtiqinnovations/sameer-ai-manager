@@ -69,15 +69,20 @@ for(const [token,hex] of Object.entries({
 }
 assert(read('index.html').includes('document.documentElement.setAttribute("data-ftq-theme","light")'),'Home theme changed');
 assert(read('pricing.html').includes('id="amount-website"'),'Price display missing');
-// The full canonical price matrix is retained for historical orders; only eight\n// services may be actively marketed through the public catalogue.\nconst active=['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration'];\nfor(const key of active)assert(read('commercial-pricing.json').includes('"'+key+'"'),'Active service missing from historical pricing: '+key);
+// Existing order history keeps its pricing source; only eight categories are marketed.
+const active=['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration'];
+for(const key of active)
+ assert(read('commercial-pricing.json').includes('"'+key+'"'),'Active service missing from pricing: '+key);
 
-// Guard against a catalog regression: the live API intentionally exposes 8 India
-// services, so a historic 27-product count would break all public price displays.
+// Protect customer-facing prices against the 27-vs-8 catalog regression.
 const pricingLoader=read('regional-pricing.js');
-assert(pricingLoader.includes('const ALLOWED_SERVICES=new Set('+JSON.stringify(active)+');'),'Pricing loader does not match the eight active India services');
-assert(pricingLoader.includes('Object.keys(policy.products).length!==ALLOWED_SERVICES.size'),'Pricing validator must check the active eight, not historical catalog length');
-for(const f of ['pricing.html','reviews.html','partners.html','earn-freshtiq.html','sales-executive/index.html','whatsapp-automation-for-restaurants.html'])
+assert(pricingLoader.includes('const ALLOWED_SERVICES=new Set('+JSON.stringify(active)+');'),'Pricing loader does not match eight active India services');
+assert(pricingLoader.includes('Object.keys(policy.products).length!==ALLOWED_SERVICES.size'),'Pricing validator must check the eight active services');
+for(const f of ['pricing.html','reviews.html','partners.html','earn-freshtiq.html','sales-executive/index.html','whatsapp-automation-for-restaurants.html']){
  assert(read(f).includes('/site-consent.js'),'Missing consent-safe GA4 measurement on '+f);
-\nassert((read('services.html').match(/<a class="svc-card"/g)||[]).length===8,'Public services page must show exactly eight services');\nassert((read('index.html').match(/<a class="card" data-match=/g)||[]).length===8,'Homepage must show exactly eight service cards');\nassert((read('pricing.html').match(/<article class="product" data-featured=/g)||[]).length===8,'Pricing page must show exactly eight active products');
+}
+assert((read('services.html').match(/<a class="svc-card"/g)||[]).length===8,'Public services page must show exactly eight services');
+assert((read('index.html').match(/<a class="card" data-match=/g)||[]).length===8,'Homepage must show exactly eight service cards');
+assert((read('pricing.html').match(/<article class="product" data-featured=/g)||[]).length===8,'Pricing page must show exactly eight active products');
 console.log(JSON.stringify({guard:'FRESHTIQ_PRICING_MASTER',pass:fail.length===0,pages:pages.length,failures:fail},null,2));
 if(fail.length)process.exit(1);
