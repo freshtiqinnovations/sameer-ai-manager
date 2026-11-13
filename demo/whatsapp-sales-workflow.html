@@ -24,17 +24,18 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0}labe
 @media(max-width:650px){.controls button{flex-basis:100%}.hero img{max-width:100%}}
 </style><script defer src="/ftq-form-attribution.js?v=20261113source1"></script>
 </head><body>
-<header><a class="logo" href="/">◈ FRESHTIQ <span>AUTOMATION</span></a><nav><a href="/products/whatsapp-ai-sales-bot.html">WhatsApp Service</a><a href="/services.html">Plans</a><a href="/services.html">All services</a></nav></header>
-<main><section class="hero"><div class="wrap"><div><span class="eyebrow">CUSTOMER-SAFE INTERACTIVE WHATSAPP DEMO</span><h1>Faster replies. <em>Clearer leads.</em> Better handoff.</h1><p>Explore how a business WhatsApp assistant can collect requirements, answer within an approved scope and organise a lead for your team.</p><div class="actions"><a class="btn primary" href="#workspace">Try conversation →</a><a class="btn alt" href="/services.html">View 3 plans ↗</a></div></div><div><img src="/images/service-illustrations/whatsapp_automation-1.svg" alt="Illustrative WhatsApp customer enquiry and lead workflow"></div></div></section>
+<header><a class="logo" href="/">◈ FRESHTIQ <span>AUTOMATION</span></a><nav><a href="/services/whatsapp-automation.html">WhatsApp Service</a><a href="/services/whatsapp-automation.html#packages">Plans</a><a href="/services.html">All services</a></nav></header>
+<main><section class="hero"><div class="wrap"><div><span class="eyebrow">CUSTOMER-SAFE INTERACTIVE WHATSAPP DEMO</span><h1>Faster replies. <em>Clearer leads.</em> Better handoff.</h1><p>Explore how a business WhatsApp assistant can collect requirements, answer within an approved scope and organise a lead for your team.</p><div class="actions"><a class="btn primary" href="#workspace">Try conversation →</a><a class="btn alt" href="/services/whatsapp-automation.html#packages">View 3 plans ↗</a></div></div><div><img src="/images/service-illustrations/whatsapp_automation-1.svg" alt="Illustrative WhatsApp customer enquiry and lead workflow"></div></div></section>
 <div class="safety wrap"><b>Illustrative conversation simulation only.</b> Replies use prewritten rules, not an AI API. No messages are sent, no WhatsApp account is connected, and no customer data is saved. The actual business solution depends on scoped WhatsApp Business Platform, consent and API onboarding.</div>
 <section class="workspace wrap" id="workspace"><div class="head"><div><span class="eyebrow">SAMPLE CUSTOMER JOURNEY</span><h2>Test three common WhatsApp enquiries</h2><p class="muted">Choose a business to preview the conversation and resulting lead record.</p></div><button id="resetAll" type="button" class="btn secondary">↻ Reset demo</button></div>
 <div class="columns"><div class="panel"><h3>💬 Customer chat simulation</h3><label class="field">Business scenario<select id="scenario"><option value="store">Retail / product orders</option><option value="services">Home and field services</option><option value="realestate">Real Estate</option></select></label><div class="dialog" id="conversation" aria-live="polite"></div>
-<label class="field">Type a sample customer message<input id="message" maxlength="280" placeholder="Ask about products, orders or appointments"></label>
+<label class="field">Type a sample customer message<input id="message" maxlength="280" aria-describedby="demo-input-hint" placeholder="Ask about products, orders or appointments"></label>
 <div class="controls"><button type="button" class="btn primary" id="send">▶ Simulate a reply</button><button type="button" class="btn secondary" id="example">Use next example</button></div>
-<p class="muted">Try 2–3 messages. Missing details are clarified before a lead is marked ready for staff.</p></div>
+<p class="muted" id="demo-input-hint">Use the examples or write your own sample. Keep passwords, payment details and real customer information out of the demo.</p></div>
 <div class="panel"><h3>📋 CRM & staff view</h3><p class="muted">Read-only sample summary, updated from this browser conversation.</p><div class="summary">
 <div><span>BUSINESS SCENARIO</span><strong id="type">Retail / product orders</strong></div>
 <div><span>CUSTOMER NEED</span><strong id="need">Waiting for enquiry</strong></div>
+<div><span>DETAILS TO COLLECT</span><strong id="missing">Item, size and quantity</strong></div>
 <div><span>LEAD STAGE</span><strong id="stage">New sample lead</strong></div>
 <div><span>FOLLOW-UP / HANDOFF</span><strong id="next">Needs qualification</strong></div>
 <div><span>MESSAGE COUNT</span><strong id="counter">0 messages processed</strong></div>
@@ -45,5 +46,5 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0}labe
 <div class="actions"><a class="btn primary" href="/contact.html?service=whatsapp_ai_sales_bot&amp;request=demo#contact-form-heading">Book a demo →</a>
 <a class="btn secondary" href="/services/whatsapp-automation.html#packages">See India packages →</a></div></section></main>
 <footer>FRESHTIQ INNOVATIONS (OPC) PRIVATE LIMITED · Made in India · Simulated workflow, no live sends</footer>
-<script defer src="/demo/whatsapp-sales-workflow.js?v=20261017v1"></script>
+<script defer src="/demo/whatsapp-sales-workflow.js?v=20261113qualification"></script>
 </body></html>
