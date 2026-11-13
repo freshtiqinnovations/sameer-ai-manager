@@ -19,19 +19,14 @@
   }
   button.disabled=true;button.textContent=labels.sending;show('','');
   const code=form.dataset.locale==='hi'?'hi':'hi-Latn';
-  const q=new URLSearchParams(location.search);
   let sid='';try{sid=sessionStorage.getItem('ft_chat_sid_v2')||'';}catch(_){}
   if(!sid){sid='site_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);try{sessionStorage.setItem('ft_chat_sid_v2',sid)}catch(_){}}
+  const traffic=window.FreshtiqFormAttribution?.getContext() || {referrer:""};
   const payload={name,phone,email:'',country:'India',currency:'INR',
    service:'Current 8 India-based automation services',message:requirement+'\nBusiness category: '+business,
    preferred_contact:'WhatsApp',source:'FreshTiq India '+code+' customer enquiry',
    whatsapp_opt_in:true,contact_permission:true,marketing_opt_in:false,
-   locale:code,session_id:sid,page_url:location.href,landing_page:location.href,
-   utm_source:(q.get('utm_source')||'').slice(0,120),
-   utm_medium:(q.get('utm_medium')||'').slice(0,120),
-   utm_campaign:(q.get('utm_campaign')||'').slice(0,120),
-   utm_content:(q.get('utm_content')||'').slice(0,120),
-   utm_term:(q.get('utm_term')||'').slice(0,120)};
+   locale:code,session_id:sid,page_url:location.href,landing_page:location.href,...traffic};
   try{
    const res=await fetch('https://portal.freshtiqautomation.com/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
    const data=await res.json().catch(()=>({}));

@@ -42,6 +42,7 @@
 <link rel="stylesheet" href="/freshtiq-brand-system.css?v=20261013unified1">
 <link rel="stylesheet" href="/freshtiq-pricing-master-theme.css?v=20261014pricinglock1">
 <link rel="stylesheet" href="/freshtiq-brand-unified.css?v=20261021all1">
+<script defer src="/ftq-form-attribution.js?v=20261113source1"></script>
 </head>
 <body class="fx-premium-page ftq-unified-brand">
   <nav id="navbar">
@@ -180,9 +181,10 @@
     try {
       // Package names are not monetary budgets: final price comes from the fixed regional catalogue, after scoped approval.
       const journey=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{session_id:(sessionStorage.getItem('ft_chat_sid_v2')||''),page_url:location.href,page_title:document.title,referrer:document.referrer||'',locale:document.documentElement.lang||navigator.language||'en'};
+      const traffic=window.FreshtiqFormAttribution?.getContext(journey) || {referrer:""};
       const resp=await fetch('https://portal.freshtiqautomation.com/api/lead', {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(Object.assign({},journey,{
+        body:JSON.stringify(Object.assign({},journey,traffic,{
           name:data.name, phone:data.phone, email:data.email||'',
           service:'Build My Automation: '+(data.automation||data.industry),
           budget:0, country:data.country,

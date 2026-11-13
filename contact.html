@@ -33,7 +33,8 @@
 <link href="/freshtiq-pricing-master-theme.css?v=20261014pricinglock1" rel="stylesheet">
 <link href="/freshtiq-brand-unified.css?v=20261021all1" rel="stylesheet">
 <link href="/freshtiq-page-parity.css?v=20261023contactreadable4" rel="stylesheet"/>
-</link></link><link href="https://freshtiqautomation.com/contact.html" hreflang="en" rel="alternate"/><link href="https://freshtiqautomation.com/hi/contact.html" hreflang="hi" rel="alternate"/><link href="https://freshtiqautomation.com/hinglish/contact.html" hreflang="hi-Latn" rel="alternate"/><link href="https://freshtiqautomation.com/contact.html" hreflang="x-default" rel="alternate"/></head>
+</link></link><link href="https://freshtiqautomation.com/contact.html" hreflang="en" rel="alternate"/><link href="https://freshtiqautomation.com/hi/contact.html" hreflang="hi" rel="alternate"/><link href="https://freshtiqautomation.com/hinglish/contact.html" hreflang="hi-Latn" rel="alternate"/><link href="https://freshtiqautomation.com/contact.html" hreflang="x-default" rel="alternate"/><script defer src="/ftq-form-attribution.js?v=20261113source1"></script>
+</head>
 <body class="fx-premium-page ftq-unified-brand ftq-contact-refresh ft-inner-page ft-contact-upgraded">
 <header class="ft-header"><div class="ft-shell ft-headerbar">
 <a aria-label="FreshTiq Automation" class="ft-brand" href="/"><img alt="" height="45" src="/images/freshtiq-premium-icon-512.png" width="45"/><span>FreshTiq<small>AUTOMATION</small></span></a>
@@ -194,32 +195,21 @@ async function submitContactLead(ev){
   status.style.color='';status.textContent='Saving your request…';btn.disabled=true;
   try{
     const ctx=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{};
-    const query=contactQuery;
-    const requestedService=(query.get('service')||'').trim();
+    const requestedService=(contactQuery.get('service')||'').trim();
     const approvedServices=new Set(['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration']);
     const trackedService=approvedServices.has(requestedService)?requestedService:'Contact page: '+(business||'General enquiry');
-    const baseAttribution=(window.FreshtiqJourneyBase&&window.FreshtiqJourneyBase.getContext)?window.FreshtiqJourneyBase.getContext():{};
-    const attribution=(key)=>String(query.get(key)||ctx[key]||baseAttribution[key]||'').slice(0,120);
-    const clickId=(key)=>String(query.get(key)||ctx[key]||baseAttribution[key]||'').slice(0,256);
+    const traffic=window.FreshtiqFormAttribution?.getContext(ctx) || {referrer:""};
 
     const resp=await fetch('https://portal.freshtiqautomation.com/api/lead',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(Object.assign({},ctx,{
+      body:JSON.stringify(Object.assign({},ctx,traffic,{
         name:name,phone:phone,email:'',
         service:trackedService,
         budget:0,country:country,
         message:(retailDemoRequest?'Request: WhatsApp AI Sales Bot demo | ':'')+'Business type: '+(business||'Not specified')+' | Problem: '+problem,
         source:'Contact Page Form',preferred_contact:'WhatsApp',
         whatsapp_opt_in:true,marketing_opt_in:false,contact_permission:true,
-        consent_source:'contact_page_form_whatsapp_reply_v1',
-        utm_source:attribution('utm_source'),
-        utm_medium:attribution('utm_medium'),
-        utm_campaign:attribution('utm_campaign'),
-        utm_content:attribution('utm_content'),
-        utm_term:attribution('utm_term'),
-        gclid:clickId('gclid'),
-        gbraid:clickId('gbraid'),
-        wbraid:clickId('wbraid')
+        consent_source:'contact_page_form_whatsapp_reply_v1'
       }))
     });
     const result=await resp.json().catch(function(){return {};});
