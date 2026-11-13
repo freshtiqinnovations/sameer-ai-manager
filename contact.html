@@ -167,6 +167,13 @@
 <script defer="" src="/freshtiq-nav-controls.js?v=20261012nc1"></script>
 <script defer="" src="/freshtiq-chat.js?v=20261111-eight-final"></script>
 <script>
+const contactQuery = new URLSearchParams(location.search);
+const retailDemoRequest = contactQuery.get('service') === 'whatsapp_ai_sales_bot' && contactQuery.get('request') === 'demo';
+if (retailDemoRequest) {
+  document.getElementById('contact-form-heading').textContent = 'Request a WhatsApp AI Sales Bot demo';
+  document.getElementById('cfProblem').placeholder = 'What does your shop sell and what do customers ask on WhatsApp?';
+  document.getElementById('cfSubmit').textContent = 'Request demo';
+}
 async function submitContactLead(ev){
   ev.preventDefault();
   const name=document.getElementById('cfName').value.trim();
@@ -187,7 +194,7 @@ async function submitContactLead(ev){
   status.style.color='';status.textContent='Saving your request…';btn.disabled=true;
   try{
     const ctx=(window.FreshtiqJourney&&window.FreshtiqJourney.getContext)?window.FreshtiqJourney.getContext():{};
-    const query=new URLSearchParams(location.search);
+    const query=contactQuery;
     const requestedService=(query.get('service')||'').trim();
     const approvedServices=new Set(['website','whatsapp_ai_sales_bot','customer_support_ai','ai_agent','dashboard_reporting','restaurant_automation','crm_erp','custom_integration']);
     const trackedService=approvedServices.has(requestedService)?requestedService:'Contact page: '+(business||'General enquiry');
@@ -201,7 +208,7 @@ async function submitContactLead(ev){
         name:name,phone:phone,email:'',
         service:trackedService,
         budget:0,country:country,
-        message:'Business type: '+(business||'Not specified')+' | Problem: '+problem,
+        message:(retailDemoRequest?'Request: WhatsApp AI Sales Bot demo | ':'')+'Business type: '+(business||'Not specified')+' | Problem: '+problem,
         source:'Contact Page Form',preferred_contact:'WhatsApp',
         whatsapp_opt_in:true,marketing_opt_in:false,contact_permission:true,
         consent_source:'contact_page_form_whatsapp_reply_v1',

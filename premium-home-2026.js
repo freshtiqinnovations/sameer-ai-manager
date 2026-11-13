@@ -47,7 +47,11 @@
   if(desc)desc.textContent=summary;
   if(hint)hint.textContent=text.finder;
   const u=new URL(localeUrl);u.searchParams.set('service',key);
-  if(link){link.href=u.toString();link.textContent=text.details+' →';}
+  if(link){
+   const serviceLink=card.querySelector('a[data-finder-link]');
+   link.href=serviceLink?.href || u.toString();
+   link.textContent=serviceLink?.textContent.trim() || text.details+' →';
+  }
  }
  finderButtons.forEach(b=>b.addEventListener('click',()=>select(b.dataset.find)));
  select('website');
