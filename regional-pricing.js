@@ -4,6 +4,7 @@ const ALLOWED_SERVICES=new Set(["website","whatsapp_ai_sales_bot","customer_supp
    Show amounts only when the live approved commercial-pricing API verifies every tier. */
 const MAP={INDIA:{region:'India',label:'India',currency:'INR'}};
 const TIERS=['standard','professional','premium'];
+const quoteLinks=[...document.querySelectorAll('a[href^="/build.html?service="]')];
 const grids=[...document.querySelectorAll('[data-market]')];
 const tierButtons=[...document.querySelectorAll('[data-tier]')];
 const status=document.getElementById('catalog-status');
@@ -78,7 +79,19 @@ for(const b of grids){
   grids[index].focus();grids[index].click();
  });
 }
-for(const b of tierButtons)b.addEventListener('click',()=>{level=Number(b.dataset.tier)||0;render()});
+function updateQuoteLinks(){
+ for(const link of quoteLinks){
+  const url=new URL(link.href);
+  url.searchParams.set('tier',TIERS[level]);
+  link.href=url.pathname+url.search+url.hash;
+ }
+}
+updateQuoteLinks();
+for(const b of tierButtons)b.addEventListener('click',()=>{
+ level=Number(b.dataset.tier)||0;
+ updateQuoteLinks();
+ render();
+});
 fetch('https://portal.freshtiqautomation.com/api/public/commercial-pricing',{cache:'no-store',mode:'cors',credentials:'omit',signal:AbortSignal.timeout(8000)})
  .then(r=>{if(!r.ok)throw Error('price file unavailable');return r.json()})
  .then(policy=>{
